@@ -1,0 +1,30 @@
+<map id="MidiEventList.cpp" name="MidiEventList.cpp">
+<area shape="rect" id="node1" title="The MIDIEventList body implements sequences of integer values with zero&#45;based arbitrary indexed acces..." alt="" coords="366,5,501,33"/>
+<area shape="rect" id="node2" title=" " alt="" coords="19,157,90,185"/>
+<area shape="rect" id="node3" href="$_logging_8h.html" title="The Logging specification defines macros for entry&#45;, exit&#45; and intermediate logging of functions into..." alt="" coords="165,81,251,109"/>
+<area shape="rect" id="node23" href="$_midi_event_list_8h.html" title="The MidiEventList specification defines sequences of MIDI events with zero&#45;based arbitrary indexed ac..." alt="" coords="550,81,669,109"/>
+<area shape="rect" id="node27" href="$_object_8h.html" title="The Object specification and body provides the root object type." alt="" coords="901,233,979,261"/>
+<area shape="rect" id="node4" href="$_logging_support_8h.html" title="The LoggingSupport specification defines a class for simple entry/exit logging to a file; this loggin..." alt="" coords="5,385,141,413"/>
+<area shape="rect" id="node13" href="$_string_util_8h.html" title="The StringUtil specification defines several string routines not included in the standard C++ library..." alt="" coords="209,157,301,185"/>
+<area shape="rect" id="node5" href="$_boolean_8h.html" title="The Boolean specification and body provides a value object type for boolean values." alt="" coords="278,613,365,641"/>
+<area shape="rect" id="node9" href="$_natural_8h.html" title="The Natural specification and body provides a value object type for naturals (positive integers with ..." alt="" coords="216,461,296,489"/>
+<area shape="rect" id="node6" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="169,689,260,717"/>
+<area shape="rect" id="node7" title=" " alt="" coords="128,765,187,793"/>
+<area shape="rect" id="node8" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="211,765,333,793"/>
+<area shape="rect" id="node10" title=" " alt="" coords="365,537,427,565"/>
+<area shape="rect" id="node11" href="$_generic_number_8h.html" title="The GenericNumber specification and body defines a template for wrapper objects for elementary numeri..." alt="" coords="151,537,289,565"/>
+<area shape="rect" id="node12" title=" " alt="" coords="192,613,248,641"/>
+<area shape="rect" id="node14" href="$_byte_8h.html" title="The Byte specification and body provides a value object type for byte values." alt="" coords="217,385,279,413"/>
+<area shape="rect" id="node15" href="$_character_8h.html" title="The Character specification and body provides a value object type for character values." alt="" coords="304,385,403,413"/>
+<area shape="rect" id="node16" href="$_percentage_8h.html" title="The Percentage specification and body provides a simple percentage type." alt="" coords="317,233,427,261"/>
+<area shape="rect" id="node20" href="$_string_list_8h.html" title="The StringList specification defines sequences of string values with zero&#45;based arbitrary indexed acc..." alt="" coords="451,233,546,261"/>
+<area shape="rect" id="node17" href="$_real_8h.html" title="The Real specification defines a value object type for real values." alt="" coords="408,309,472,337"/>
+<area shape="rect" id="node18" href="$_integer_8h.html" title="The Integer specification and body provides a value object type for ints." alt="" coords="502,385,581,413"/>
+<area shape="rect" id="node19" title=" " alt="" coords="523,461,608,489"/>
+<area shape="rect" id="node21" href="$_generic_sequence_8h.html" title="The GenericSequence specification and body defines a generic sequence type of values with zero&#45;based ..." alt="" coords="497,309,647,337"/>
+<area shape="rect" id="node22" title=" " alt="" coords="683,385,746,413"/>
+<area shape="rect" id="node24" title=" " alt="" coords="672,309,776,337"/>
+<area shape="rect" id="node25" href="$_midi_event_8h.html" title="The MidiEvent specification defines a single MIDI event and the MIDI event kind enumeration." alt="" coords="765,157,861,185"/>
+<area shape="rect" id="node26" href="$_natural_list_8h.html" title="The NaturalList specification defines sequences of non&#45;negative integer values with zero&#45;based arbitr..." alt="" coords="673,233,775,261"/>
+<area shape="rect" id="node28" title=" " alt="" coords="919,309,961,337"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="ByteList.h" name="ByteList.h">
+<area shape="rect" id="node1" title="The ByteList specification defines sequences of byte values with zero&#45;based arbitrary indexed access ..." alt="" coords="413,5,500,33"/>
+<area shape="rect" id="node2" href="$_file_8h.html" title="The File specification defines a class for simple file handling based on C stdio." alt="" coords="376,81,433,109"/>
+<area shape="rect" id="node9" href="$_byte_list_8cpp.html" title="The ByteList body implements sequences of byte values with zero&#45;based arbitrary indexed access to pos..." alt="" coords="457,81,560,109"/>
+<area shape="rect" id="node3" href="$_wave_file_8cpp.html" title="The WaveFile specification defines an object for accessing a RIFF wave file with several channels." alt="" coords="5,157,116,185"/>
+<area shape="rect" id="node4" href="$_file_8cpp.html" title="The File body implements a class for simple file handling based on C stdio." alt="" coords="140,157,213,185"/>
+<area shape="rect" id="node5" href="$_logging_support_8cpp.html" title="The LoggingSupport body implements a class for simple entry/exit logging to a file; this logging reli..." alt="" coords="238,157,390,185"/>
+<area shape="rect" id="node6" href="$_operating_system_8cpp.html" title="The OperatingSystem body implements a class for several operating system related utility functions (l..." alt="" coords="415,157,579,185"/>
+<area shape="rect" id="node7" href="$_fluid_synth_file_converter_8cpp.html" title="The FluidSynthFileConverter module implements a conversion from a MIDI file into a wave file using th..." alt="" coords="603,157,809,185"/>
+<area shape="rect" id="node8" href="$_midi_file_8cpp.html" title="The MidiFile implementation implements the services of a MIDI file; currently only file reading is su..." alt="" coords="833,157,931,185"/>
+</map>

@@ -1,0 +1,9 @@
+/**
+ * The package <C>FluidSynthFileConverter</C> encapsulates a
+ * fluidsynth command-line processor clone based on the fluidsynth
+ * library.  It is a stripped down version of fluidsynth only capable
+ * of transforming MIDI to WAV, but with a very precise timing of the
+ * events, which are rasterized on the nearest sample position.
+ */
+namespace Main::FluidSynthFileConverter {
+}

@@ -1,0 +1,75 @@
+/**
+ * @file
+ * The <C>AudioSampleList</C> body implements a simple list of
+ * audio samples <I>(this is the effective code include file for
+ * conditional inlining)</I>.
+ *
+ * @author Dr. Thomas Tensi
+ * @date   2020-08
+ */
+
+/*=========*/
+/* IMPORTS */
+/*=========*/
+
+#include "MyArray.h"
+
+/*--------------------*/
+
+using Audio::AudioSampleList;
+using BaseTypes::Containers::copyArray;
+
+/*====================*/
+
+INLINE
+String AudioSampleList::toString () const
+{
+    return _toString("AudioSampleList");
+}
+
+/*--------------------*/
+
+INLINE
+String AudioSampleList::toString (IN AudioSampleList& list)
+{
+    return list.toString();
+}
+
+/*--------------------*/
+
+INLINE
+void AudioSampleList::setToZero (IN Natural position,
+                                 IN Natural count)
+{
+    const Natural currentLength = length();
+
+    if (position < currentLength) {
+        const Natural effectiveCount =
+            Natural::minimum(currentLength - position, count);
+        AudioSample* sampleArray = asArray(position);
+        clearArray(sampleArray, AudioSample, effectiveCount);
+    }
+}
+
+/*--------------------*/
+
+INLINE
+void AudioSampleList::extend (IN AudioSampleList& other,
+                              IN Natural count)
+{
+    const Natural effectiveCount =
+        Natural::minimum(count, other.length());
+
+    if (effectiveCount > 0) {
+        const Natural currentLength = length();
+
+        /* ensure that length is sufficient for storing remaining
+         * elements */
+        ensureLength(currentLength + effectiveCount);
+
+        AudioSample* targetArray = asArray(currentLength);
+        const AudioSample* sourceArray = other.asArray();
+        copyArray(targetArray, sourceArray,
+                  effectiveCount);
+  }
+}

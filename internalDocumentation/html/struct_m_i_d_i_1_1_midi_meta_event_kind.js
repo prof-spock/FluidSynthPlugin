@@ -1,0 +1,25 @@
+var struct_m_i_d_i_1_1_midi_meta_event_kind =
+[
+    [ "MidiMetaEventKind", "struct_m_i_d_i_1_1_midi_meta_event_kind.html#a79b3c9ab442dd50a03ff92a7baccbc0a", null ],
+    [ "byteCount", "struct_m_i_d_i_1_1_midi_meta_event_kind.html#a461847a2af851cef68593c6cf8fd48cc", null ],
+    [ "isValid", "struct_m_i_d_i_1_1_midi_meta_event_kind.html#aff0cb6876b6262779fb6166843a0abf2", null ],
+    [ "operator!=", "struct_m_i_d_i_1_1_midi_meta_event_kind.html#a7c94cd2bedabc32c8efe733e93c743d4", null ],
+    [ "operator==", "struct_m_i_d_i_1_1_midi_meta_event_kind.html#a54dd0728f5879210d1f358003d12b60f", null ],
+    [ "toString", "struct_m_i_d_i_1_1_midi_meta_event_kind.html#a5c7a16d34a6227d9d64b695a7016daf0", null ],
+    [ "_value", "struct_m_i_d_i_1_1_midi_meta_event_kind.html#a1d84534e49f943aa2b7d74d90848b70b", null ],
+    [ "channelPrefix", "struct_m_i_d_i_1_1_midi_meta_event_kind.html#ae2478fdbb9314ad6f0d1bd3a8caaa05c", null ],
+    [ "copyright", "struct_m_i_d_i_1_1_midi_meta_event_kind.html#a2174b8d9837f47f4bc4a2e50d423ddb6", null ],
+    [ "cuePoint", "struct_m_i_d_i_1_1_midi_meta_event_kind.html#a5ed3f920f8af2763780351c313d739a8", null ],
+    [ "instrumentName", "struct_m_i_d_i_1_1_midi_meta_event_kind.html#ac61797eabb5b5eeef769f29af5ea8df8", null ],
+    [ "keySignature", "struct_m_i_d_i_1_1_midi_meta_event_kind.html#abdf8a3b8feb7629fc9e1be88171cfd3b", null ],
+    [ "lyric", "struct_m_i_d_i_1_1_midi_meta_event_kind.html#ada3a669a62cbd87cce59290b21c763de", null ],
+    [ "marker", "struct_m_i_d_i_1_1_midi_meta_event_kind.html#aad5512a538c7a85b7e9826a10f76ce51", null ],
+    [ "sequenceNumber", "struct_m_i_d_i_1_1_midi_meta_event_kind.html#a7280a33f50060f49d238b057a171d01b", null ],
+    [ "sequencerMeta", "struct_m_i_d_i_1_1_midi_meta_event_kind.html#ad44a1e0eb415c1a1a23bfdee6bebb1db", null ],
+    [ "smpteOffset", "struct_m_i_d_i_1_1_midi_meta_event_kind.html#a7d114c95c01a0bc05c7494d99696961e", null ],
+    [ "tempo", "struct_m_i_d_i_1_1_midi_meta_event_kind.html#a314527bce2dee94be5fb851822eafc85", null ],
+    [ "text", "struct_m_i_d_i_1_1_midi_meta_event_kind.html#a022e240c8d972548bc4b8eb894c5a10d", null ],
+    [ "timeSignature", "struct_m_i_d_i_1_1_midi_meta_event_kind.html#a5d7b8f05cf21e6930fb14e262b75eedd", null ],
+    [ "trackEnd", "struct_m_i_d_i_1_1_midi_meta_event_kind.html#ae191bee956409a1c888fe2e5d36a2014", null ],
+    [ "trackName", "struct_m_i_d_i_1_1_midi_meta_event_kind.html#a87fa7f090439cbacd1233480ff27201b", null ]
+];

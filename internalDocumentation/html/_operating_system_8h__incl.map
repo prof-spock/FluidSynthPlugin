@@ -1,0 +1,11 @@
+<map id="OperatingSystem.h" name="OperatingSystem.h">
+<area shape="rect" id="node1" title="The OperatingSystem specification defines a class for several operating system related utility functi..." alt="" coords="5,5,153,33"/>
+<area shape="rect" id="node2" href="$_boolean_8h.html" title="The Boolean specification and body provides a value object type for boolean values." alt="" coords="115,233,201,261"/>
+<area shape="rect" id="node6" href="$_natural_8h.html" title="The Natural specification and body provides a value object type for naturals (positive integers with ..." alt="" coords="135,81,215,109"/>
+<area shape="rect" id="node3" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="214,309,305,337"/>
+<area shape="rect" id="node4" title=" " alt="" coords="173,385,231,413"/>
+<area shape="rect" id="node5" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="255,385,378,413"/>
+<area shape="rect" id="node7" title=" " alt="" coords="79,157,141,185"/>
+<area shape="rect" id="node8" href="$_generic_number_8h.html" title="The GenericNumber specification and body defines a template for wrapper objects for elementary numeri..." alt="" coords="165,157,303,185"/>
+<area shape="rect" id="node9" title=" " alt="" coords="226,233,282,261"/>
+</map>

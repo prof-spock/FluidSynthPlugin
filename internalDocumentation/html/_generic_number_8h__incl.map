@@ -1,0 +1,8 @@
+<map id="GenericNumber.h" name="GenericNumber.h">
+<area shape="rect" id="node1" title="The GenericNumber specification and body defines a template for wrapper objects for elementary numeri..." alt="" coords="13,5,150,33"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,81,61,109"/>
+<area shape="rect" id="node3" href="$_boolean_8h.html" title="The Boolean specification and body provides a value object type for boolean values." alt="" coords="86,81,173,109"/>
+<area shape="rect" id="node4" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="84,157,175,185"/>
+<area shape="rect" id="node5" title=" " alt="" coords="43,233,101,261"/>
+<area shape="rect" id="node6" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="125,233,248,261"/>
+</map>

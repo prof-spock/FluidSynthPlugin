@@ -1,0 +1,35 @@
+<map id="LoggingSupport.cpp" name="LoggingSupport.cpp">
+<area shape="rect" id="node1" title="The LoggingSupport body implements a class for simple entry/exit logging to a file; this logging reli..." alt="" coords="309,5,461,33"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,81,72,109"/>
+<area shape="rect" id="node3" title=" " alt="" coords="97,81,162,109"/>
+<area shape="rect" id="node4" title=" " alt="" coords="186,81,254,109"/>
+<area shape="rect" id="node5" href="$_assertion_8h.html" title="The Assertion specification defines macros for pre&#45; and postconditions in functions or methods." alt="" coords="278,81,373,109"/>
+<area shape="rect" id="node7" href="$_dictionary_8h.html" title="The Dictionary specification defines maps from string keys to string values." alt="" coords="397,81,496,109"/>
+<area shape="rect" id="node27" href="$_file_8h.html" title="The File specification defines a class for simple file handling based on C stdio." alt="" coords="758,157,815,185"/>
+<area shape="rect" id="node32" href="$_logging_support_8h.html" title="The LoggingSupport specification defines a class for simple entry/exit logging to a file; this loggin..." alt="" coords="552,385,688,413"/>
+<area shape="rect" id="node33" href="$_operating_system_8h.html" title="The OperatingSystem specification defines a class for several operating system related utility functi..." alt="" coords="902,385,1050,413"/>
+<area shape="rect" id="node6" title=" " alt="" coords="209,157,279,185"/>
+<area shape="rect" id="node8" title=" " alt="" coords="304,157,355,185"/>
+<area shape="rect" id="node9" href="$_string_util_8h.html" title="The StringUtil specification defines several string routines not included in the standard C++ library..." alt="" coords="379,157,471,185"/>
+<area shape="rect" id="node10" href="$_boolean_8h.html" title="The Boolean specification and body provides a value object type for boolean values." alt="" coords="719,613,806,641"/>
+<area shape="rect" id="node14" href="$_byte_8h.html" title="The Byte specification and body provides a value object type for byte values." alt="" coords="390,309,453,337"/>
+<area shape="rect" id="node19" href="$_character_8h.html" title="The Character specification and body provides a value object type for character values." alt="" coords="173,385,272,413"/>
+<area shape="rect" id="node20" href="$_percentage_8h.html" title="The Percentage specification and body provides a simple percentage type." alt="" coords="257,233,367,261"/>
+<area shape="rect" id="node24" href="$_string_list_8h.html" title="The StringList specification defines sequences of string values with zero&#45;based arbitrary indexed acc..." alt="" coords="442,233,537,261"/>
+<area shape="rect" id="node11" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="611,689,701,717"/>
+<area shape="rect" id="node12" title=" " alt="" coords="569,765,628,793"/>
+<area shape="rect" id="node13" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="652,765,775,793"/>
+<area shape="rect" id="node15" title=" " alt="" coords="329,537,391,565"/>
+<area shape="rect" id="node16" href="$_natural_8h.html" title="The Natural specification and body provides a value object type for naturals (positive integers with ..." alt="" coords="557,461,637,489"/>
+<area shape="rect" id="node17" href="$_generic_number_8h.html" title="The GenericNumber specification and body defines a template for wrapper objects for elementary numeri..." alt="" coords="587,537,725,565"/>
+<area shape="rect" id="node18" title=" " alt="" coords="628,613,684,641"/>
+<area shape="rect" id="node21" href="$_real_8h.html" title="The Real specification defines a value object type for real values." alt="" coords="280,309,344,337"/>
+<area shape="rect" id="node22" href="$_integer_8h.html" title="The Integer specification and body provides a value object type for ints." alt="" coords="398,385,477,413"/>
+<area shape="rect" id="node23" title=" " alt="" coords="448,461,533,489"/>
+<area shape="rect" id="node25" href="$_generic_sequence_8h.html" title="The GenericSequence specification and body defines a generic sequence type of values with zero&#45;based ..." alt="" coords="547,309,698,337"/>
+<area shape="rect" id="node26" title=" " alt="" coords="713,385,775,413"/>
+<area shape="rect" id="node28" href="$_byte_list_8h.html" title="The ByteList specification defines sequences of byte values with zero&#45;based arbitrary indexed access ..." alt="" coords="677,233,763,261"/>
+<area shape="rect" id="node30" href="$_object_8h.html" title="The Object specification and body provides the root object type." alt="" coords="892,233,969,261"/>
+<area shape="rect" id="node29" title=" " alt="" coords="723,309,827,337"/>
+<area shape="rect" id="node31" title=" " alt="" coords="909,309,952,337"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="LoggingSupport.h" name="LoggingSupport.h">
+<area shape="rect" id="node1" title="The LoggingSupport specification defines a class for simple entry/exit logging to a file; this loggin..." alt="" coords="5,5,141,33"/>
+<area shape="rect" id="node2" href="$_boolean_8h.html" title="The Boolean specification and body provides a value object type for boolean values." alt="" coords="109,233,195,261"/>
+<area shape="rect" id="node6" href="$_natural_8h.html" title="The Natural specification and body provides a value object type for naturals (positive integers with ..." alt="" coords="129,81,209,109"/>
+<area shape="rect" id="node3" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="208,309,299,337"/>
+<area shape="rect" id="node4" title=" " alt="" coords="167,385,225,413"/>
+<area shape="rect" id="node5" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="249,385,372,413"/>
+<area shape="rect" id="node7" title=" " alt="" coords="73,157,135,185"/>
+<area shape="rect" id="node8" href="$_generic_number_8h.html" title="The GenericNumber specification and body defines a template for wrapper objects for elementary numeri..." alt="" coords="159,157,297,185"/>
+<area shape="rect" id="node9" title=" " alt="" coords="220,233,276,261"/>
+</map>

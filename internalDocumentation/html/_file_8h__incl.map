@@ -1,0 +1,20 @@
+<map id="File.h" name="File.h">
+<area shape="rect" id="node1" title="The File specification defines a class for simple file handling based on C stdio." alt="" coords="362,5,419,33"/>
+<area shape="rect" id="node2" href="$_boolean_8h.html" title="The Boolean specification and body provides a value object type for boolean values." alt="" coords="291,461,378,489"/>
+<area shape="rect" id="node6" href="$_byte_list_8h.html" title="The ByteList specification defines sequences of byte values with zero&#45;based arbitrary indexed access ..." alt="" coords="161,81,247,109"/>
+<area shape="rect" id="node17" href="$_object_8h.html" title="The Object specification and body provides the root object type." alt="" coords="428,81,505,109"/>
+<area shape="rect" id="node3" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="183,537,273,565"/>
+<area shape="rect" id="node4" title=" " alt="" coords="141,613,200,641"/>
+<area shape="rect" id="node5" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="224,613,347,641"/>
+<area shape="rect" id="node7" title=" " alt="" coords="5,157,109,185"/>
+<area shape="rect" id="node8" href="$_byte_8h.html" title="The Byte specification and body provides a value object type for byte values." alt="" coords="47,233,110,261"/>
+<area shape="rect" id="node13" href="$_generic_sequence_8h.html" title="The GenericSequence specification and body defines a generic sequence type of values with zero&#45;based ..." alt="" coords="185,157,335,185"/>
+<area shape="rect" id="node9" title=" " alt="" coords="26,385,89,413"/>
+<area shape="rect" id="node10" href="$_natural_8h.html" title="The Natural specification and body provides a value object type for naturals (positive integers with ..." alt="" coords="113,309,193,337"/>
+<area shape="rect" id="node11" href="$_generic_number_8h.html" title="The GenericNumber specification and body defines a template for wrapper objects for elementary numeri..." alt="" coords="165,385,302,413"/>
+<area shape="rect" id="node12" title=" " alt="" coords="205,461,261,489"/>
+<area shape="rect" id="node14" title=" " alt="" coords="134,233,197,261"/>
+<area shape="rect" id="node15" href="$_integer_8h.html" title="The Integer specification and body provides a value object type for ints." alt="" coords="221,233,299,261"/>
+<area shape="rect" id="node16" title=" " alt="" coords="217,309,303,337"/>
+<area shape="rect" id="node18" title=" " alt="" coords="445,157,488,185"/>
+</map>

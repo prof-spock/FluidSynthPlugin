@@ -1,0 +1,9 @@
+/**
+ * The package <C>BaseModules</C> provides basic utility components.
+ *
+ * Those components implement assertion annotations, logging, binary
+ * and text file access, simple operating system services and string
+ * utilities.
+ */
+namespace BaseModules {
+}

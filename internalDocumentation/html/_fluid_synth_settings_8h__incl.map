@@ -1,0 +1,14 @@
+<map id="FluidSynthSettings.h" name="FluidSynthSettings.h">
+<area shape="rect" id="node1" title="The FluidSynthSettings class specifies an object&#45;oriented wrapper around an underlying fluidsynth set..." alt="" coords="165,5,319,33"/>
+<area shape="rect" id="node2" href="$_fluid_synth_8h.html" title="The FluidSynth class specifies an object&#45;oriented wrapper around the fluidsynth library and also allo..." alt="" coords="191,81,293,109"/>
+<area shape="rect" id="node3" href="$_natural_8h.html" title="The Natural specification and body provides a value object type for naturals (positive integers with ..." alt="" coords="151,157,231,185"/>
+<area shape="rect" id="node11" href="$_object_8h.html" title="The Object specification and body provides the root object type." alt="" coords="271,157,349,185"/>
+<area shape="rect" id="node4" title=" " alt="" coords="5,233,68,261"/>
+<area shape="rect" id="node5" href="$_generic_number_8h.html" title="The GenericNumber specification and body defines a template for wrapper objects for elementary numeri..." alt="" coords="92,233,229,261"/>
+<area shape="rect" id="node8" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="181,385,271,413"/>
+<area shape="rect" id="node6" title=" " alt="" coords="62,309,118,337"/>
+<area shape="rect" id="node7" href="$_boolean_8h.html" title="The Boolean specification and body provides a value object type for boolean values." alt="" coords="143,309,229,337"/>
+<area shape="rect" id="node9" title=" " alt="" coords="139,461,198,489"/>
+<area shape="rect" id="node10" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="222,461,345,489"/>
+<area shape="rect" id="node12" title=" " alt="" coords="305,233,347,261"/>
+</map>

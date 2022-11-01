@@ -1,0 +1,1274 @@
+\documentclass[titlepage,twoside,12pt,a4paper]{report}
+
+    \usepackage[utf8]{inputenc}
+    \usepackage[T1]{fontenc}
+
+    \usepackage{amssymb}         % ==> for dashleftarrow
+    \usepackage{array}           % ==> for > in tabular column
+    \usepackage{caption}         % ==> captionof
+    \usepackage{chngcntr}        % ==> counterwithout
+    \usepackage[usenames]{color} % ==> color
+    \usepackage{colortbl}        % ==> cellcolor
+    \usepackage{enumitem}        % ==> ttDescription
+    \usepackage{fancyhdr}        % ==> fancyhead
+    \usepackage{graphicx}        % ==> includegraphics
+    \usepackage{listings}        % ==> listings
+    \usepackage{lmodern}         % ==> scaling of cmr fonts
+    \usepackage{titlesec}        % ==> titleformat
+    \usepackage{ulem}            % ==> sout (strikeout)
+
+    \usepackage{microtype}  % for better justification, requires later
+                            % engine of LaTeX like e.g. pdflatex
+
+    %------------
+    %-- TITLES --
+    %------------
+
+    % paragraph
+    \titleformat{\paragraph}
+                {\normalfont \bfseries}
+                {}
+                {0pt}
+                {\normalsize}
+
+    %-----------------------
+    %-- HEADERS / FOOTERS --
+    %-----------------------
+
+    \pagestyle{fancy}
+    %--
+    \fancyhead[LE]{\slshape \rightmark}
+    \fancyhead[CE]{~}
+    \fancyhead[RE]{~}
+    \fancyhead[LO]{~}
+    \fancyhead[CO]{~}
+    \fancyhead[RO]{\slshape \leftmark}
+    %--
+    \fancyfoot[LE]{\thepage}
+    \fancyfoot[CE]{~}
+    \fancyfoot[RE]{Dr.~Thomas Tensi}
+    \fancyfoot[LO]{FluidSynth Plugin and Pedantic Command Line Processor}
+    \fancyfoot[CO]{~}
+    \fancyfoot[RO]{\thepage}
+
+    %---------------------------------
+    %-- PAGE SIZE AND OTHER LENGTHS --
+    %---------------------------------
+
+    \renewcommand{\headrulewidth}{0.4pt}
+    \renewcommand{\footrulewidth}{0.4pt}
+    \addtolength{\headheight}{\baselineskip}
+    \addtolength{\voffset}{-5mm}
+    \setlength{\topmargin}{0mm}
+    \addtolength{\headsep}{-3mm}
+    \addtolength{\textheight}{20mm}
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{5pt}
+
+    \bibliographystyle{plain}
+
+    \setcounter{secnumdepth}{3}
+    \setcounter{tocdepth}{3}
+
+    \counterwithout{figure}{chapter}
+    \counterwithout{table}{chapter}
+
+    %-------------------
+    %-- MISC COMMANDS --
+    %-------------------
+
+    \newcommand{\bsl}{\textbackslash}
+
+    \newcommand{\centeredExternalPicture}[2]{%
+        \begin{center}
+            \externalPicture{#1}{#2}%
+        \end{center}
+    }
+
+    \newenvironment{centeredFigure}%
+                   {\begin{figure}[tb]\begin{center}}%
+                   {\end{center}\end{figure}}
+
+    \newenvironment{centeredFigureHere}%
+                   {\begin{figure}[h]\begin{center}}%
+                   {\end{center}\end{figure}}
+
+    \newcommand{\comment}[1]{\medskip \textbf{#1} \medskip}
+
+    \newcommand{\degrees}[1]{\(#1^{\circ}\)}
+
+    \newcommand{\embeddedCode}[1]{\textsf{#1}}
+    \renewcommand{\emph}[1]{\textit{#1}}
+
+    \newcommand{\externalPicture}[2]{%
+        \includegraphics[scale=#1]{figures/#2}%
+    }
+
+    \newcommand{\gitPluginPath}{%
+        https://github.com/prof-spock/FluidSynthPlugin
+    }
+
+    \newcommand{\horizontalRule}{\rule{\linewidth}{0.5mm}}
+
+    \newcommand{\hugeTimesFont}{%
+      %\fontfamily{ptm}
+      \fontsize{40}{50}\selectfont
+    }
+
+    \newcommand{\hyperlink}[1]{\textsf{\color{blue}#1}}
+    \newcommand{\inPreparation}[1]{\sout{#1} \textit{(in preparation!)}}
+    \newcommand{\lb}{\linebreak[4]}
+    \newcommand{\meta}[1]{\guillemotleft #1\guillemotright}
+
+    \definecolor{parameterTableHeadingBackgroundColor}{RGB}{200,200,200}
+    \definecolor{parameterTableOtherBackgroundColor}{RGB}{230,230,230}
+
+    \newenvironment{parameterTableA}
+                   {\begin{center}\footnotesize
+                      \begin{tabular}{|>{\tt}p{5cm}|p{7cm}|c|}
+                        \hline \parameterTableAHeader \hline
+                   }
+                   {  \end{tabular}
+                    \end{center}}
+
+    \newcommand{\parameterTableAHeader}{%
+      \rowcolor{parameterTableHeadingBackgroundColor}
+      \bf Parameter&\bf Description&\bf Type\\
+    }
+
+    \newcommand{\parameterTableALine}[3]{#1&#2&#3\\\hline}
+
+    \newenvironment{parameterTableB}
+                   {\begin{center}\small
+                      \begin{tabular}{|>{\tt}p{5cm}|p{7cm}|}
+                        \hline \parameterTableBHeader \hline
+                   }
+                   {  \end{tabular}
+                    \end{center}}
+
+    \newcommand{\parameterTableBHeader}{%
+        \rowcolor{parameterTableHeadingBackgroundColor}
+        \bf Option&\bf Description\\
+    }
+
+    \newcommand{\parameterTableBLine}[2]{#1&#2\\\hline}
+
+    \newcommand{\productName}[1]{\texttt{#1}}
+
+    \newcommand{\subTarget}{\hspace*{5mm}\(\dashleftarrow\)~}
+    \newcommand{\TODO}[1]{\emph{\color{red}\textbf{TODO:} #1}}
+
+    \newenvironment{ttDescription}%
+                   {\begin{description}[%
+                         style=nextline, labelwidth=0pt,
+                         itemindent=\dimexpr-5mm, leftmargin=1cm%
+                   ]}
+                   {\end{description}}
+
+    %-------------------------
+    %-- LISTING DEFINITIONS --
+    %-------------------------
+
+    \newlength{\listingMargin}
+    \setlength{\listingMargin}{4mm}
+    \newlength{\listingWidth}
+    \setlength{\listingWidth}{\linewidth}
+    \addtolength{\listingWidth}{-2\listingMargin}
+
+    \newlength{\listingInnerFrame}
+    \setlength{\listingInnerFrame}{1mm}
+
+    \definecolor{codeBackgroundColor}{RGB}{245,255,245}
+    %\definecolor{codeBackgroundColor}{RGB}{250,250,0}
+
+    \def\ttlisting{\par\minipage{\linewidth}\lstset
+  }
+    \def\endttlisting{\endminipage\par}
+
+    \lstdefinestyle{standard}
+                   {showspaces=false, showstringspaces=false,
+                    xleftmargin=\listingMargin,
+                    xrightmargin=\listingMargin,
+                    framexleftmargin=\listingInnerFrame,
+                    framextopmargin=\listingInnerFrame,
+                    framexrightmargin=\listingInnerFrame,
+                    framexbottommargin=\listingInnerFrame,
+                    basicstyle=\footnotesize\ttfamily}
+
+    \lstnewenvironment{commandLine}
+                      {\ttlisting{style=standard,
+                          backgroundcolor=\color{codeBackgroundColor}}}
+                      {\endttlisting}
+
+    %-------------------
+    %-- ABBREVIATIONS --
+    %-------------------
+
+    \newcommand{\FluidSynth}{\productName{Fluid\-Synth}}
+    \newcommand{\FluidSynthPlugins}{Fluid\-Synth-Plugins}
+    \newcommand{\FluidSynthPlugin}{\productName{Fluid\-Synth\-Plugin}}
+    \newcommand{\FluidSynthConverter}{%
+        \productName{Pedantic\-Fluid\-Synth\-Converter}%
+    }
+
+    \newcommand{\settingsCaption}[1]{%
+        Common Synthesizer Settings for \FluidSynthPlugin\ and
+        \FluidSynthConverter\ (Part~#1)%
+    }
+    
+    \newcommand{\Z}{\mathbb{Z}}
+
+%############################################################
+\begin{document}
+\begin{titlepage}
+  ~\\[5cm]
+  \begin{center}
+      \textbf{\hugeTimesFont FluidSynth Plugin}\\[1cm]
+      \textit{\Large Simple Wrappers Around the \FluidSynth\ Library
+              as DAW Plugin and Pedantic Command Line Processor}
+  \end{center}
+  ~\\[7cm]
+  \large
+  \begin{tabular}{>{\bf}p{2.5cm}p{10.5cm}}
+      Author:&Dr.~Thomas Tensi\\
+      Date:&2022-10-29\\
+      Version:&0.1\\
+      Platforms:&VST3 on Windows~x64,\\
+                &\inPreparation{VST3/AU on MacOSX (x86\_64)}\\
+                &\inPreparation{VST3 on Linux (x86\_64)}\\
+  \end{tabular}
+  \vfill
+\end{titlepage}
+\tableofcontents
+
+%=====================
+\chapter{Introduction}
+%=====================
+
+%--------------------
+\section{Overview}
+%--------------------
+
+\FluidSynth~\cite{reference:fluidSynthDocumentation} is one of the
+most prominent open source MIDI players.  It is reasonably flexible,
+delivers a good audio quality and is available for the typical
+platforms.  A common scenario is to use it for either rendering live
+MIDI data on some audio device or converting MIDI files into audio
+files by command-line batch processing.
+
+Basis of \FluidSynth\ are the so-called \emph{soundfonts}.  Soundfonts
+contain sampled instruments together with envelope and modulation
+definitions and other descriptive settings.  It is easy to find really
+usable ones in the internet and also several of those cover all
+general MIDI instruments (for example, the FluidR3\_GM.sf2).
+
+So when using \FluidSynth\ in a command-line driven context all is
+well.  But when you want play around with settings for
+\FluidSynth\ interactively in a DAW, you need some DAW plugin
+rendering audio from MIDI as close as possible to the original
+command-line fluidsynth.
+
+So far there is no such thing to exactly emulate FluidSynth in a DAW
+context.
+
+There were some previous efforts like Alexey Zhelezov's FluidSynthVST
+\cite{reference:fluidsynthVST} or Birch Labs' JuicySFPlugin
+\cite{reference:juiceSfPlugin}, but those are a bit tricky to use and
+support for them is unclear.  But the main point is that even though
+they rely on the \FluidSynth\ library, they {\bf do not exactly
+reproduce an external fluidsynth rendition of some MIDI data}.
+Reasons for that will be explained below.
+
+The reason for being picky about the exact rendering is as follows: my
+scenario is a command-line based rendering of notation videos for a
+band (the LilypondToBandVideoConverter \cite{reference:ltbvc}).  Part
+of that chain is fluidsynth, but I want to experiment interactively
+with settings in a DAW to optimize the audio and then have a faithful
+reproduction of the external rendering pipeline within the DAW.
+
+So the first component of this package is a DAW plugin called
+``\FluidSynthPlugin''.  It has a simplistic interface where you
+specify a soundfont, several fluidsynth settings and possibly a MIDI
+program to be selected by putting text data in a text field.  Then you
+are able to convert an incoming MIDI stream in a DAW to audio using
+the \FluidSynth\ library.
+
+But when playing around with that plugin some inexplicable differences
+to the command-line \FluidSynth\ occured.  Even when using innocent
+soundfonts (without chorus and other modulators), sample playback in
+the plugin and the command-line player were not absolutely identical.
+Analysis and contact with the \FluidSynth\ team revealed that in that
+program MIDI events are quantized onto some processing raster in the
+millisecond range while the plugin quantizes them onto the smallest
+time unit: the sample raster itself.
+
+So, for example, for a sample rate of 44.1kHz this 64 sample offset
+might lead to a time difference of more than 1ms between events in the
+DAW and in an external tool chain.  You cannot hear this, but of
+course this leads to significant differences in the rendered audio
+(for example, when doing a spectrum analysis).  In
+section~\ref{section:forcedRasterization} we will see that although
+the plugin feeds the events with sample raster precision to the
+\FluidSynth\ library some inevitable internal rasterization happens
+there.
+
+Another tool mitigates the rasterization by the player of \FluidSynth.
+That second component of this package is a simplistic but pedantic
+command-line converter called ``\FluidSynthConverter''.  It converts a
+MIDI file into a WAV file, is also based on the fluidsynth library and
+does the same sample-exact event feeding into that library as the
+plugin. Hence it should produce identical results when some
+circumstances are guaranteed (see
+section~\ref{section:forcedRasterization}).
+
+When using both components (command-line and DAW) on the same MIDI
+data they produce audio output with a difference of less than -200dBFS
+in a spectrum analysis.
+
+Those components are available for Windows, MacOS and Linux with the
+plugin having either VST3 (Windows, Linux) or AU format (MacOS).
+
+All the code is open-source; hence you can check and adapt it to your
+needs (see chapter~\ref{chapter:implementation}).
+
+%-------------------------
+\section{Acknowledgements}
+%-------------------------
+
+This project is a derivative work based on the foundations laid by the
+FluidSynth community.
+
+My thanks go to the FluidSynth team: Peter Hanappe, Conrad Berhörster,
+Antoine Schmitt, Pedro López-Cabanillas, Josh Green, David Henningsson
+and Tom Moebert.  Without your effort this would not have been
+possible!
+
+%===============================================
+\chapter{Installation of the \FluidSynthPlugins}
+%===============================================
+
+The installation is as follows:
+\begin{enumerate}
+
+   \item Copy the plugins from the appropriate subdirectory for your
+         platform of \embeddedCode{\_DISTRIBUTION/targetPlatforms}
+         directory in \cite{reference:fluidsynthPluginsRepository} into
+         the directory for VST or AU plugins of your DAW.
+
+   \item If helpful, you can put this documentation pdf file contained
+         in subdirectory \embeddedCode{doc} and test files in
+         subdirectory \embeddedCode{test} (see
+         section~\ref{section:regressionTest}) somewhere.
+
+   \item \sout{When installing the MacOSX plugins, note that those are
+         \textbf{not signed}; so you have to explicitly remove the
+         quarantine flag from them (for example, by applying the
+         command \embeddedCode{XXX XXX XXXX}).}
+
+   \item Restart your DAW and rescan the plugins.  You should now be
+         able to select the \FluidSynthPlugin.
+
+   \item The command-line version \FluidSynthConverter\ can be put in
+         an arbitrary location for executables.  Ensure that the
+         dynamic libraries in its directory are also placed
+         appropriately.
+
+\end{enumerate}
+
+Note that the plugin directory and the directory of the
+\FluidSynthConverter\ contain a dynamically linked library version of
+\FluidSynth\ as well as related libraries.  You can easily exchange
+those libraries for more current versions.
+
+%==============================================
+\chapter{Description of the \FluidSynthPlugins}
+%==============================================
+
+%------------------------
+\section{General Remarks}
+%------------------------
+
+As mentioned in the introduction this package provides tools written
+in C++ for emulating \FluidSynth\ bit-exactly: a plugin called
+``\FluidSynthPlugin'' and a very precise command-line clone of
+\FluidSynth\ called ``\FluidSynthConverter''.
+
+The term ``bit-exactly'' is a bit misleading: because the tools
+considered (including \FluidSynth) have different execution
+environments (with some data conversions and roundings involved),
+absolute identical outputs are unreasonable.  But what can be achieved
+is that they are identical to a degree that cannot be heard.  If you
+analyze the spectrum of the difference signal and this difference lies
+below some assumed threshold, this will be good enough.  The threshold
+here is -200dBFS which is about 100dB below the noise level of a CD.
+
+So both tools render MIDI data similarly to \FluidSynth\ and identical
+to each other.  And when there is no difference in rasterization the
+difference between the audio from those tools is identical ---~up to
+that precision~~-- to \FluidSynth.
+
+So why is there a difference between \FluidSynthPlugin\ and
+\FluidSynth\ in some cases?  The differences come from the fact that
+\FluidSynth\ shifts MIDI events onto some broader raster for audio
+samples while both programs presented here place an event onto a
+sample position.  This means that there is a slight delay in audio in
+\FluidSynth\ and original audio and emulated do not cancel out when
+subtracted.
+
+\begin{centeredFigure}
+  \centeredExternalPicture{0.8}{rasterizationProblem.png}
+  \caption{Rasterization Problem in \FluidSynth}
+  \label{figure:rasterizationProblem}
+\end{centeredFigure}
+
+Figure~\ref{figure:rasterizationProblem} shows the problem: when an
+event occurs the waveform is started in \FluidSynthPlugin\ at the next
+sample position while it starts in \FluidSynth\ at the 64 sample
+raster.  As can be easily seen, the difference is not zero, but some
+other complex waveform.
+
+Note that this is not the complete truth as will be discussed in
+section~\ref{section:forcedRasterization}: some shifting will still be
+done in the underlying \FluidSynth\ library.
+
+%----------------------------------------
+\section{Supported \FluidSynth\ Settings}
+%----------------------------------------
+
+Both programs support a subset of settings from \FluidSynth.  It is a
+subset, because, for example, all settings related to driver selection
+are omitted: those do not make any sense in the context of these
+programs.
+
+The supported settings are shown in
+figures~\ref{figure:allowedSettingsA}, \ref{figure:allowedSettingsB}
+and~\ref{figure:allowedSettingsC} (with short explanations taken from
+from~\cite{reference:fsSettingsDocumentation}).
+    
+\begin{centeredFigure}
+    \begin{parameterTableA}
+        \parameterTableALine{synth.chorus.active}
+                            {tells whether chorus will be added to the
+                             output signal}
+                            {boolean}
+        \parameterTableALine{synth.chorus.depth}
+                            {specifies the modulation depth of the
+                             chorus}
+                            {float}
+        \parameterTableALine{synth.chorus.level}
+                            {specifies the output amplitude of the
+                             chorus signal}
+                            {float}
+        \parameterTableALine{synth.chorus.nr}
+                            {sets the voice count of the chorus}
+                            {integer}
+        \parameterTableALine{synth.chorus.speed}
+                            {sets the modulation speed in Hz}
+                            {float}
+        \parameterTableALine{synth.default-soundfont}
+                            {default soundfont file to use by the
+                             program}
+                            {string}
+        \parameterTableALine{synth.dynamic-sample-loading}
+                            {tells whether samples are loaded to and
+                             unloaded from memory whenever presets are
+                             being selected or unselected for a MIDI
+                             channel}
+                            {boolean}
+    \end{parameterTableA}
+  \caption{\settingsCaption{1}}
+  \label{figure:allowedSettingsA}
+\end{centeredFigure}
+
+\begin{centeredFigure}
+    \begin{parameterTableA}
+        \parameterTableALine{synth.gain}
+                            {gain applied to the final or master output
+                             of the synthesizer}
+                            {float}
+        \parameterTableALine{synth.midi-bank-select}
+                            {defines how the synthesizer interprets
+                             bank select messages}
+                            {string}
+        \parameterTableALine{synth.min-note-length}
+                            {}
+                            {integer}
+        \parameterTableALine{synth.overflow.age}
+                            {tells how event age is accounted for in
+                             a voice overflow situation}
+                            {float}
+        \parameterTableALine{synth.overflow.important}
+                            {another parameter for voice overflow
+                             handling}
+                            {float}
+        \parameterTableALine{synth.overflow.important-\linebreak[4]
+                             channels}
+                            {comma-separated list of MIDI channel
+                             numbers that should be treated as
+                             ``important'' by the overflow calculation}
+                           {string}
+        \parameterTableALine{synth.overflow.percussion}
+                            {overflow priority score to be added to
+                             voices on a percussion channel}
+                            {float}
+        \parameterTableALine{synth.overflow.released}
+                            {overflow priority score added to voices
+                             that have already received a note-off
+                             event}
+                            {float}
+        \parameterTableALine{synth.overflow.sustained}
+                            {overflow priority score added to
+                             currently sustained voices }
+                            {float}
+        \parameterTableALine{synth.overflow.volume}
+                            {overflow priority score added to voices
+                             based on their current volume}
+                            {float}
+    \end{parameterTableA}
+  \caption{\settingsCaption{2}}
+  \label{figure:allowedSettingsB}
+\end{centeredFigure}
+
+\begin{centeredFigure}
+    \begin{parameterTableA}
+        \parameterTableALine{synth.polyphony}
+                            {defines how many voices can be played in
+                             parallel}
+                            {integer}
+        \parameterTableALine{synth.reverb.active}
+                            {tells whether reverb will be added to the
+                             output signal}
+                            {boolean}
+        \parameterTableALine{synth.reverb.damp}
+                            {sets the amount of reverb damping}
+                            {float}
+        \parameterTableALine{synth.reverb.level}
+                            {sets the reverb output amplitude}
+                            {float}
+        \parameterTableALine{synth.reverb.room-size}
+                            {sets the room size (i.e. amount of wet)
+                             reverb}
+                            {float}
+        \parameterTableALine{synth.reverb.width}
+                            {sets the stereo spread of the reverb
+                             signal}
+                            {float}
+        \parameterTableALine{synth.sample-rate}
+                            {sample rate of the audio generated by the
+                             synthesizer}
+                            {float}
+        \parameterTableALine{synth.verbose}
+                            {tells whether synthesizer will print out
+                             information about the received MIDI events
+                             to stdout}
+                            {boolean}
+    \end{parameterTableA}
+  \caption{\settingsCaption{3}}
+  \label{figure:allowedSettingsC}
+\end{centeredFigure}
+
+Besides the standard settings from \FluidSynth\ there are two special
+settings available: \embeddedCode{soundfont} and
+\embeddedCode{program}.
+
+\begin{centeredFigure}
+    \begin{parameterTableA}
+        \parameterTableALine{soundfont}
+                            {gives the path to the soundfont}
+                            {string}
+        \parameterTableALine{program}
+                            {gives the program to use as the default;
+                             format is bankNumber:programNumber where
+                             counting for both numbers starts at zero}
+                            {string}
+    \end{parameterTableA}
+    \caption{Additional Settings in \FluidSynthPlugin\ and
+        \FluidSynthConverter}
+  \label{figure:additionalSettings}
+\end{centeredFigure}
+
+Note that the specified soundfont path must be an \emph{absolute
+path}, because it is impossible for the plugin to find out the path of
+the enclosing project in the DAW and then use a relative path
+specification.  Normally this should not be a problem ---~because
+soundfonts are often located in a specific directory in a system~---,
+but it somewhat impedes portability of a DAW project containing this
+plugin.
+
+%------------------------------------
+\clearpage
+\section{Using the \FluidSynthPlugin}
+%------------------------------------
+
+The ``\FluidSynthPlugin'' is a MIDI instrument in a DAW converting
+incoming MIDI input into an outgoing audio stream.
+
+The configuration of the plugin is done via a very simplistic
+interface: a multiline edit field can be used for command entry.
+
+In this multiline field the \FluidSynth\ commands from
+figures~\ref{figure:allowedSettingsA}
+to~\ref{figure:additionalSettings} can be written.
+Figure~\ref{figure:fsPluginInterface} shows how the user interface of
+the plugin looks like.
+
+\begin{centeredFigure}
+  \centeredExternalPicture{0.75}{FluidSynthPlugin.png}
+  \caption{\FluidSynthPlugin\ User Interface}
+  \label{figure:fsPluginInterface}
+\end{centeredFigure}
+
+Each line may contain a \FluidSynth\ setting or a definition for
+\embeddedCode{soundfont} or \embeddedCode{program}.  A setting
+consists of a key string (like
+e.g. \embeddedCode{synth.reverb.active}), an equal sign and a value
+appropriate for the setting.  Leading and trailing blanks are ignored;
+strings are given without quotes and float values must have a decimal
+point.
+
+When data is entered in the multiline edit field, it changes its
+background from grey to white.  This signifies that the data has not
+yet been registered by the plugin.  To achieve this the
+\embeddedCode{Confirm} button has to be pressed: the data is checked
+and then used by the underlying \FluidSynth\ synthesizer.
+
+When the check fails, an error message is given and the edit field is
+still in edit mode.  Note that only the first error encountered is
+reported, so you have to incrementally correct the settings. For
+example, in figure~\ref{figure:fsPluginError} the soundfont path seems
+to be incorrect: this has to be corrected before any other error will
+be analyzed.
+
+\begin{centeredFigure}
+  \centeredExternalPicture{0.75}{FluidSynthPlugin-error.png}
+  \caption{Error Message in \FluidSynthPlugin}
+  \label{figure:fsPluginError}
+\end{centeredFigure}
+
+%---------------------------------------
+\section{Using the \FluidSynthConverter}
+\label{section:fluidSynthConverter}
+%---------------------------------------
+
+The \FluidSynthConverter\ is merely a functionally reduced clone of
+\FluidSynth, but with a special property: it places MIDI events onto
+the raster given by the sample rate.
+
+Hence similarly to \FluidSynth, the \FluidSynthConverter\ is a
+command-line program.  But the converter does not have to do real-time
+processing, so the list of its options is reduced.  On top of that it
+only supports a conversion from a MIDI file into an audio WAVE file.
+
+The supported command line options are shown in
+figure~\ref{figure:fsCmmandLineOptionsA}
+and~\ref{figure:fsCmmandLineOptionsB}.  Any parameter not belonging to
+an option is interpreted as a file name.  Files with their names
+ending in \embeddedCode{.sf2} or \embeddedCode{.sf3} are considered to
+be sound fonts, files with their names ending in \embeddedCode{.mid}
+are considered to be MIDI files.
+
+Hence the command line is
+\begin{commandLine}
+fluidSynthFileConverter [options] midifile soundfontfile
+                        -F wavefile
+\end{commandLine}
+
+So, for example, the command line
+\begin{commandLine}
+fluidSynthFileConverter -g 1.0 -R 0 test.mid FluidR3\_GM.sf2
+                        -F test.wav
+\end{commandLine}
+produces a wave file ``test.wav'' from MIDI file ``test.mid'' using
+sound font ``FluidR3\_GM.sf2'' with reverb turned off and gain set to
+unity.
+
+\begin{centeredFigure}
+    \begin{parameterTableB}
+        \parameterTableBLine{-a\lb -{}-audio-driver=\meta{name}}
+                            {audio driver to use (IGNORED)}
+        \parameterTableBLine{-C\lb -{}-chorus}
+                            {turn the chorus on or off [0|1|yes|no,
+                             default = on]}
+        \parameterTableBLine{-c\lb -{}-audio-bufcount=\meta{count}}
+                            {number of audio buffers (IGNORED)}
+        \parameterTableBLine{-d\lb -{}-dump}
+                            {dump incoming and outgoing MIDI events to
+                             stdout (IGNORED)}
+        \parameterTableBLine{-E\lb -{}-audio-file-endian}
+                            {audio file endian (IGNORED: always little
+                             endian)}
+        \parameterTableBLine{-f\lb -{}-load-config}
+                            {load and execute a configuration file}
+        \parameterTableBLine{-F\lb -{}-fast-render=\meta{file}}
+                            {name of target WAVE file (REQUIRED)}
+        \parameterTableBLine{-G\lb -{}-audio-groups}
+                            {define the number of LADSPA audio nodes
+                             (IGNORED)}
+        \parameterTableBLine{-g\lb -{}-gain}
+                            {set the master gain 0 < gain < 10,
+                             default = 0.2}
+        \parameterTableBLine{-h\lb -{}-help}
+                            {print out help summary}
+        \parameterTableBLine{-i\lb --no-shell}
+                            {don't read commands from the shell
+                             (IGNORED)}
+        \parameterTableBLine{-j\lb --connect-jack-outputs}
+                            {connect jack outputs to the physical
+                             ports (IGNORED)}
+        \parameterTableBLine{-K\lb --midi-channels=\meta{num}}
+                            {number of midi channels [default = 16]
+                             (IGNORED)}
+        \parameterTableBLine{-L\lb --audio-channels=\meta{num}}
+                            {number of stereo audio channels
+                             [default~=~1] (IGNORED)}
+        \parameterTableBLine{-l\lb --disable-lash}
+                            {don't connect to LASH server (IGNORED)}
+        \parameterTableBLine{-m\lb --midi-driver=\meta{label}}
+                            {name of the midi driver to use (IGNORED)}
+    \end{parameterTableB}
+  \caption{Command Line Options for \FluidSynthConverter\ (Part~1)}
+  \label{figure:fsCmmandLineOptionsA}
+\end{centeredFigure}
+
+
+\begin{centeredFigure}
+    \begin{parameterTableB}
+        \parameterTableBLine{-n\lb --no-midi-in}
+                            {don't create midi driver to read MIDI
+                             input events (IGNORED)}
+        \parameterTableBLine{-O\lb --audio-file-format}
+                            {audio file format for fast rendering
+                             [double|float|s8|s16|s24|s32,
+                             default = s16]}
+        \parameterTableBLine{-o}
+                            {define a setting, -o name=value; see
+                             FluidSynth for details}
+        \parameterTableBLine{-p\lb --portname=\meta{label}}
+                            {set MIDI port name (IGNORED)}
+        \parameterTableBLine{-q\lb --quiet}
+                            {do not print informational output}
+        \parameterTableBLine{-R\lb --reverb}
+                            {turn reverb on or off [0|1|yes|no,
+                             default = on]}
+        \parameterTableBLine{-r\lb --sample-rate}
+                            {set the sample rate}
+        \parameterTableBLine{-s\lb --server}
+                            {start FluidSynth as a server process
+                             (IGNORED)}
+        \parameterTableBLine{-T\lb --audio-file-type}
+                            {audio file type for fast rendering
+                             (IGNORED: always WAV)}
+        \parameterTableBLine{-v\lb --verbose}
+                            {print out verbose info about midi events
+                             (synth.verbose=1)}
+        \parameterTableBLine{-V\lb --version}
+                            {show version of program}
+        \parameterTableBLine{-z\lb --audio-bufsize=\meta{size}}
+                            {size of each audio buffer (IGNORED)}
+    \end{parameterTableB}
+  \caption{Command Line Options for \FluidSynthConverter\ (Part~2)}
+  \label{figure:fsCmmandLineOptionsB}
+\end{centeredFigure}
+
+%---------------------------
+\clearpage
+\section{Restrictions}
+\label{section:restrictions}
+%---------------------------
+
+%...................................
+\paragraph{No Timelocking Available}
+%...................................
+
+Often audio effects produce the same output for the same input, but
+sometimes effects behave differently in time, technically they are
+\emph{time-variant}.
+
+An example of the former is a filter: it does not care \emph{when} a
+signal arrives, it always reacts in the same way.  An example of the
+latter is a modulated effect like e.g. a tremolo: it produces a
+different sound for different event times because the modulation is
+normally in another phase.
+
+Hence when looking at the behaviour at a specific point in time, those
+time-variant effects would behave differently when the effect start
+time is varied.
+
+Of course, a sample player ---~like \FluidSynth~--- very often is also
+time-variant.  It is not, when only a sample playback is triggered,
+because the audio will be the same whenever you start its playback.
+But when there is some modulation happening (for example, caused by a
+chorus effect) the effect is time-variant: the audio output produced
+will not be the same for different playback start times unless the
+modulation is in some way synchronized.
+
+So for some externally generated audio snippet with modulation at an
+arbitrary position in a DAW project, a modulation by a corresponding
+plugin would only be congruent by accident: typically it is out of
+phase.  The reason for that is that plugins normally start their
+modulation when playback begins.  This means technically the phase
+\degrees{0} of the modulation is on the time of playback start.
+
+Figure~\ref{figure:timelocking} show that situation for an example.
+We assume that an amplitude modulation occurs in a soundfont and we
+have inserted an externally rendered audio snippet (e.g. generated by
+\FluidSynth) into the DAW starting at time \(t_{fragment}\) into an
+audio track.  Now the playback in the DAW is assumed to start at time
+\(t_{play}\).  As one can easily see, the modulation for the
+externally processed fragment (that just puts a modulation on the raw
+sample data) has its phase \degrees{0} exactly at time
+\(t_{fragment}\).  However, the internal effect in the DAW has its
+phase \degrees{0} at time \(t_{play}\) (see also the red dots on the
+respective tracks marking the phase \degrees{0} positions).  This
+would lead to massive differences between externally and internally
+generated audio.
+
+But it could be rectified by defining for the internal effect \emph{at
+which point in time the modulation phase should be \degrees{0}}
+(so-called ``time-locking'').  If you set this time offset parameter
+to \(t_{fragment}\), the modulations will be synchronous (as you can
+see when comparing the second with the lowest track).  Of course, the
+effect starts at \(t_{play}\), but its modulation phase is shifted
+such that it reaches phase \degrees{0} exactly at \(t_{fragment}\).
+
+\begin{centeredFigure}
+    \centeredExternalPicture{0.37}{timelocking.png}
+    \caption{Deviation in Modulation between External and Internal
+             Generation and Timelocking}
+    \label{figure:timelocking}
+\end{centeredFigure}
+
+While this method would lead to perfect reproduction of the external
+rendering, it is not feasible for the \FluidSynthPlugin.  There is no
+direct way to set the modulators in the underlying
+\FluidSynth\ library to a specific phase.  As a workaround when
+\(t_{fragment}<t_{play}\) one could reset all modulators at playback
+start and first silently have the synthesizer process samples for a
+duration of \(t_{play} - t_{fragment}\) to bring its modulators to the
+correct phases before then putting out the ``real'' samples. But this
+is tedious, takes a lot of processing time and also does not solve the
+problem of having the playback starting before the fragment start
+time.
+
+So there is no good solution for that.
+
+When you need a bit-exact reproduction of externally rendered audio by
+the \FluidSynthPlugin, some workaround has to be made as follows:
+\begin{itemize}
+
+    \item The selected instrument(s) in the soundfont must not contain
+          any (free-running) modulators.
+
+    \item Chorus must be deactivated (e.g. by setting
+          \embeddedCode{synth.chorus.active} to ``0'').
+
+\end{itemize}
+
+%..............................................
+\paragraph{Forced Rasterization by \FluidSynth}
+\label{section:forcedRasterization}
+%..............................................
+
+As mentioned in the introduction the important difference between
+using the standard \FluidSynth\ from the command-line versus from a
+DAW is that there is a forced rasterization to 64 samples' intervals.
+
+Unfortunately this rasterization is not just done by \FluidSynth\ when
+communicating with audio drivers or its file renderer, but also done
+internally by the fluidsynth synthesizer in the library.  The length
+of the smallest unit for which \FluidSynth\ can make state changes and
+does buffering is a constant called \embeddedCode{FLUID\_BUFSIZE} and
+this is fixed to the value 64.
+
+So what can we do?
+\begin{itemize}
+
+    \item We could recompile the \FluidSynth\ library and set this
+          value to 1.  This would on the one hand lead to a
+          performance penalty, but would on the other hand provide
+          sample-exact processing.
+
+          I did not choose that option, because I wanted to use the
+          \emph{stock} \FluidSynth\ library on all platforms.
+
+    \item As an alternative we could do some intelligent buffering to
+          adapt in the DAW to the 64-sample raster of the external
+          rendering regardless of the start time.  I played around
+          with that, but it also did not work out well: for example,
+          when looping in the DAW there is no way to flush the buffer
+          within the \FluidSynth\ library and to reset the
+          synthesizer: this is just not a use-case typical for
+          applications of \FluidSynth\ and hence it has not been
+          provided in its API.
+
+\end{itemize}
+
+So we are out of luck.
+
+But there is a workaround that helps in many situations: when your DAW
+allows to change the loop interval and also the play head position via
+its API one can \emph{nudge all those positions onto the 64-sample
+raster}.
+
+Since this heavily depends on the scripting facilities of a DAW, I
+have only provided a simple Lua script for the Reaper DAW in the
+\embeddedCode{misc} subdirectory of the distribution called
+\embeddedCode{ForceToFluidSynthRaster.lua}.  When executed, it shifts
+the selection boundaries and the play head position onto the required
+raster.
+
+It is even possible to provide some integral shift offset (e.g. when
+the externally rendered audio files do not start at time 0 in the
+DAW).  This is done by setting the variable
+\embeddedCode{sampleOffset} in the project notes to some integer
+value, e.g.\ by writing the following text:
+
+\begin{commandLine}
+sampleOffset = 20
+\end{commandLine}
+
+%=============================
+\chapter{Regression Test}
+\label{section:regressionTest}
+%=============================
+
+To test that the \FluidSynthPlugin\ is really bit-identical to the
+\FluidSynthConverter\ (and at least similar to the output of
+\FluidSynth), a little test suite has been set up for checking DAW
+versus the command-line.
+
+The suite assumes that command-line \FluidSynth\ is installed in the
+search path of your operating system.
+
+If so, a simple batch script generates ---~externally via the command
+line~--- audio files from three MIDI files and some simple sound font
+both with \FluidSynthConverter\ and also \FluidSynth.  The batch
+script can be found in the \embeddedCode{test} subdirectory and is
+called \embeddedCode{makeTestFiles.bat} (for Windows) or
+\embeddedCode{makeTestFiles.sh} (for MacOS and Linux).
+
+Since there are so many DAWs available, it is hard to provide a test
+project for each of those.  The distribution just contains a Reaper
+project referencing those rendered audio files in autonomous tracks
+(see figure~\ref{figure:regressionTestSetup}).  Adaption to other DAWs
+should be straightforward.
+
+Besides the six externally rendered tracks there are three other
+tracks containing the MIDI file data and having a single
+\FluidSynthPlugin\ effect converting MIDI to audio.  Those instrument
+effects are configured with the exactly the same parameters as given
+in the batch file and hence correspondingly applied to the raw MIDI
+data.
+
+\begin{centeredFigure}
+  \centeredExternalPicture{0.75}{regressionTest.png}
+  \caption{Regression Test Setup in Reaper}
+  \label{figure:regressionTestSetup}
+\end{centeredFigure}
+
+When subtracting the rendered audio in Reaper and the externally
+rendered audio files from the \FluidSynthConverter, they (almost)
+cancel out, because they use exactly the same scheduling of the MIDI
+events.  This can be checked by a spectrum analyser in the master
+channel, which is shown in
+figure~\ref{figure:regressionTestNoiseFloor}.  It shows a noise floor
+of typically less than -100dB (also depending on the audio file bit
+depth).
+
+\begin{centeredFigure}
+  \centeredExternalPicture{0.75}{noiseFloor.png}
+  \caption{Example Noise Floor for Regression Test in Reaper}
+  \label{figure:regressionTestNoiseFloor}
+\end{centeredFigure}
+
+%====================================
+\chapter{Notes on the Implementation}
+\label{chapter:implementation}
+%====================================
+
+%-----------------
+\section{Overview}
+%-----------------
+
+The implementation of the \FluidSynthPlugin\ and the
+\FluidSynthConverter\ is done in C++.  The former relies on the JUCE
+library~\cite{reference:juce} and both ---~of course~--- use the
+\FluidSynth\ library.  The sequencer from that library is not used,
+because it also has some event rasterization (independent from the
+inevitable internal rasterization of the library).
+
+The \emph{bit-exact reproduction} of the \FluidSynthConverter\ (as
+well as \FluidSynth\ itself) by the \FluidSynthPlugin\ in a DAW is
+almost achieved (see section~\ref{section:regressionTest}), but some
+restrictions have to be adhered to.
+
+The complete source code of the \FluidSynthPlugin\ and the
+\FluidSynthConverter\ is open-source for easy review and adaptation.
+Currently there is only a tool chain for VST3 plugins under Windows
+10, VST3 and AU plugins under MacOSX and VST3 under Linux, but in
+principle the code is easily portable to other plugin formats or
+platforms.
+
+%-----------------------------
+\section{Building the Plugins}
+\label{section:build}
+%-----------------------------
+
+%````````````````````````````
+\paragraph{Preliminaries}
+%````````````````````````````
+
+In the GIT-project of \FluidSynthPlugin\ (at
+\cite{reference:fluidsynthPluginsRepository}) there is a build file
+for CMAKE to build the plugins for different platforms.
+
+Minimum prerequisites for building are:
+\begin{itemize}
+
+  \item a clone of the GIT-project at \hyperlink{\gitPluginPath}
+  
+  \item an installation of the audio framework
+    JUCE~\cite{reference:juce} with version 5 or later,
+    
+  \item some C++ compiler suite for your platform (e.g. Visual Studio,
+    XCode, clang or gcc), and
+    
+  \item an installation of the build automation platform
+    CMAKE~\cite{reference:cmake} with version 3.10 or later
+
+\end{itemize}
+
+For documentation generation you can \emph{optionally} install:
+\begin{itemize}
+
+  \item a \LaTeX\ installation ---~like e.g. MikTeX~--- (for the
+    manual), and
+
+  \item doxygen~\cite{reference:doxygen} and
+    graphviz~\cite{reference:graphviz} for the internal program
+    documentation
+
+\end{itemize}
+
+%``````````````````````````
+\paragraph{Doing the Build}
+%``````````````````````````
+
+The full build process is started via CMAKE.  It is recommended to do
+a so-called out-of-source-build for the \FluidSynthPlugins, that means, you
+define some build directory where all build activity is done.
+
+The steps are as follows:
+\begin{enumerate}
+
+  \item Define some build directory (lets say \embeddedCode{\_BUILD})
+        and change to it.
+
+  \item Find the path of the \embeddedCode{CMakeList.txt}
+        configuration file.  Adapt the file
+        \embeddedCode{LocalConfiguration.cmake} accordingly to reflect
+        the location of \LaTeX as well as the JUCE and the
+        doxygen/graphviz installation.
+
+  \item Configure the build process via
+
+        \begin{commandLine}
+cmake -S <pathTo>/CMakeList.txt -B . --config Release
+        \end{commandLine}
+
+  \item Build all the plugins via
+
+        \begin{commandLine}
+cmake --build . --config Release
+        \end{commandLine}
+
+  \item Install the plugins into a architecture-specific subfolder in
+    the \embeddedCode{\_DISTRIBUTION/targetPlatforms} directory and
+    install also the documentation into the
+    \embeddedCode{\_DISTRIBUTION} directory via
+
+        \begin{commandLine}
+cmake --build . --config Release --target install
+        \end{commandLine}
+
+\end{enumerate}
+
+%-------------------------------
+\section{Internal Documentation}
+%-------------------------------
+
+In the github repository there is an extensive doxygen documentation
+available for the inner workings of the plugins at
+\begin{center}
+  \hyperlink{\gitPluginPath/tree/master/internalDocumentation/html}
+\end{center}
+with entry point
+\begin{center}
+  \hyperlink{\gitPluginPath/tree/master/internalDocumentation/html/index.html}.
+\end{center}
+
+Every public and private feature of all classes and data types is
+documented and can be analyzed in an HTML browser.
+Figure~\ref{figure:doxygenDocumentation} gives an impression how such
+an HTML page looks like for the namespaces in \FluidSynthPlugins.
+
+\begin{centeredFigure}
+  \centeredExternalPicture{0.5}{doxygenDocumentation.png}
+  \caption{Example Namespace Page for Plugin from doxygen}
+  \label{figure:doxygenDocumentation}
+\end{centeredFigure}
+
+If you want to regenerate this documentation from the code, you need
+an installation of doxygen \cite{reference:doxygen} and ideally also
+graphviz \cite{reference:graphviz} on your computer.  If you have that
+available, the generation can be done via the CMAKE chain as target
+\embeddedCode{doxygenDocumentation} in the build directory:
+
+\begin{commandLine}
+cmake --build . --config Release \
+      --target internalDocumentation
+\end{commandLine}
+
+If the command completes, the documentation in the
+\embeddedCode{internalDocumentation} subdirectory of the project is
+updated.
+
+To trigger regeneration, it suffices to delete the file
+\embeddedCode{internalDocumentation/html/index.html}.
+
+%--------------------------------
+\section{Available Build Targets}
+%--------------------------------
+
+Figure~\ref{figure:buildTargets} shows the available CMAKE targets.
+They can be used as
+\begin{commandLine}
+cmake --build . --config Release --target XXX
+\end{commandLine}
+where XXX is the target name.
+
+\begin{centeredFigure}
+  \begin{center}\small
+    \begin{tabular}{|>{\tt}p{6cm}|p{7cm}|}
+      \hline
+      \rowcolor{parameterTableHeadingBackgroundColor}
+      \bf Target Name&\bf Description\\\hline
+      documentation&
+        the complete project documentation\\\hline
+      \subTarget internalDocumentation&
+        the HTML doxygen documentation for the code\\\hline
+      \subTarget pdfDocumentation&
+        the PDF manual for the plugins\\\hline
+      FluidSynthFileConverter&
+        the program for the command line \FluidSynthConverter\\\hline
+      FluidSynthPlugins&
+        the static libraries for the \FluidSynthPlugin\\\hline
+      \subTarget FluidSynthPlugins\_Effect&
+        the static effect library for the \FluidSynthPlugin\\\hline
+      \subTarget FluidSynthPlugins\_VST&
+        the VST3 library for the \FluidSynthPlugin\\\hline
+      \subTarget FluidSynthPlugins\_AU&
+        the AU libraries for the \FluidSynthPlugin\ (only on MacOSX)\\\hline
+      SupportLibraries&
+        the static libraries supporting the effects\\\hline
+      \subTarget JuceFramework&
+        the static library with utility classes from the JUCE
+        framework\\\hline
+    \end{tabular}
+  \end{center}
+  \caption{Available Build Targets for CMAKE}
+  \label{figure:buildTargets}
+\end{centeredFigure}
+
+%--------------------
+\section{Debugging}
+%--------------------
+
+For debugging purposes, for both the \FluidSynthPlugin\ and the
+\FluidSynthConverter\ a debugging version is also available that does
+an extensive entry-exit-logging into the temp directory.  Note that
+this debugging slows down processing extremely and produces large log
+files, but it helps to understand problems in case of errors.
+Figure~\ref{figure:loggingFile} shows how a logging file looks like.
+
+\begin{centeredFigure}
+  \centeredExternalPicture{0.6}{loggingFile.png}
+  \caption{Example for Logging File}
+  \label{figure:loggingFile}
+\end{centeredFigure}
+
+Every non-trivial function is logged there at least twice with
+timestamps: ``>>'' indicates the entry of that function (possibly with
+informationon the argument values), ``<<'' the exit of that function
+(possibly with the return value) and ``-{}-'' indicates some
+intermediate information during the function processing.  The logging
+data is hierarchical, hence you can see the function call structure in
+this file precisely.
+
+All logging files go to the directory specified by the
+\embeddedCode{temp} environment variable.
+
+%===========================================
+\begin{thebibliography}{FluidSynthSettings}
+\addcontentsline{toc}{chapter}{Bibliography}
+%===========================================
+
+  \bibitem[CMAKE]{reference:cmake}
+    Kitware, Inc.\\
+    \textit{CMAKE Build Automation System.}\\
+    \hyperlink{http://cmake.org}
+
+  \bibitem[DOXYGEN]{reference:doxygen}
+    Dimitri van Heesch.\\
+    \textit{Doxygen - Generate Documentation from Source Code.}\\
+    \hyperlink{https://www.doxygen.nl}
+    
+  \bibitem[FluidSynthDOC]{reference:fluidSynthDocumentation}
+    Tom Moebert et al.:\\
+    \textit{FluidSynth}.\\
+    \hyperlink{http://www.fluidsynth.org}
+
+  \bibitem[FluidSynthSettings]{reference:fsSettingsDocumentation}
+    Tom Moebert et al.:\\
+    \textit{FluidSynth - Synthesizer Settings Documentation}.\\
+    \hyperlink{https://www.fluidsynth.org/api/settings\_synth.html}
+    
+  \bibitem[FluidSynthVST]{reference:fluidsynthVST}
+    Alexey Zhelezov.\\
+    \textit{FluidSynth VST Plugin.}\\
+    \hyperlink{https://github.com/AZSlow3/FluidSynthVST}
+
+  \bibitem[FluidSynthPlugin]{reference:fluidsynthPluginsRepository}
+    Thomas Tensi.\\
+    \textit{\FluidSynthPlugins}\\
+    \hyperlink{\gitPluginPath}
+
+  \bibitem[GRAPHVIZ]{reference:graphviz}
+    Ellson, John; Gansner, Emden; Hu, Yifan; North, Stephen et al.:\\
+    \textit{Graphviz - Open Source Graph Visualization Software.}\\
+    \hyperlink{https://graphviz.org/}
+    
+  \bibitem[JUCE]{reference:juce}
+    Raw Material Software Limited.\\
+    \textit{JUCE Audio Framework.}\\
+    \hyperlink{https://www.juce.com}
+
+  \bibitem[JuicySFPlugin]{reference:juiceSfPlugin}
+    Alex and Jamie Birch.\\
+    \textit{Juicy SF Plugin.}\\
+    \hyperlink{https://github.com/Birch-san/juicysfplugin}
+
+  \bibitem[LTBVC]{reference:ltbvc}
+    Thomas Tensi.\\
+    \textit{LilypondToBandVideoConverter --- Converter from Written
+            Music to Notation Videos.}\\
+    \hyperlink{https://github.com/prof-spock/LilypondToBandVideoConverter}
+
+
+  \bibitem[REAPER]{reference:reaper}
+    Cockos Incorporated.\\
+    \textit{Reaper Digital Audio Workstation.}\\
+    \hyperlink{https://www.reaper.fm}
+
+\end{thebibliography}
+\end{document}

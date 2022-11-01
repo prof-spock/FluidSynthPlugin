@@ -1,0 +1,7 @@
+/**
+ * The package <C>Libraries</C> provides wrappers around the
+ * <B>FluidSynth</B> and <B>JUCE</B> libraries as well as support for
+ * dynamic library loading.
+ */
+namespace Libraries {
+}

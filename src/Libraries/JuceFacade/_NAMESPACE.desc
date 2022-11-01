@@ -1,0 +1,6 @@
+/**
+ * The package <C>JuceFacade</C> provides include files for accessing
+ * the <B>JUCE</B> framework source files located elsewhere.
+ */
+namespace Libraries::JuceFacade {
+}

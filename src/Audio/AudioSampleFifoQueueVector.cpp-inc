@@ -1,0 +1,155 @@
+/**
+ * @file
+ * The <C>AudioSampleFifoQueueVector</C> body implements a
+ * list of fifo queues for audio samples <I>(this is the effective
+ * code include file for conditional inlining)</I>.
+ *
+ * @author Dr. Thomas Tensi
+ * @date   2022-09
+ */
+
+/*=========*/
+/* IMPORTS */
+/*=========*/
+
+#include "Assertion.h"
+#include "Logging.h"
+
+/*--------------------*/
+
+using Audio::AudioSampleFifoQueueVector;
+
+/*====================*/
+
+/*--------------------*/
+/* exported routines  */
+/*--------------------*/
+
+INLINE
+AudioSampleFifoQueueVector::AudioSampleFifoQueueVector
+                              (IN Natural channelCount,
+                               IN Natural sampleQueueCapacity)
+{
+    Logging_trace(">>");
+    ensureQueueCapacity(sampleQueueCapacity);
+    Logging_trace1("<<: %1", toString());
+}
+
+/*--------------------*/
+
+INLINE String
+AudioSampleFifoQueueVector::toString (IN Natural audioFrameCount,
+                                      IN Boolean isGroupedByFrames) const
+{
+    String result = "";
+    const Natural channelCount = queueCount();
+    const Natural sampleCount = Natural::minimum(audioFrameCount,
+                                                 queueLength());
+    Natural groupCount =
+        (isGroupedByFrames ? audioFrameCount : channelCount);
+    Natural groupLength =
+        (isGroupedByFrames ? channelCount : audioFrameCount);
+    
+    for (Natural i = 0;  i < groupCount;  i++) {
+        String groupString = "(";
+
+        for (Natural j = 0;  j < groupLength;  j++) {
+            const AudioSample& sample = (isGroupedByFrames
+                                         ? at(j).at(i)
+                                         : at(i).at(j));
+            groupString += (j == 0 ? "" : ", ") + TOSTRING(sample);
+        }
+
+        groupString += (sampleCount < audioFrameCount ? ", ..." : "");
+        groupString += ")";
+        result += (result == "" ? "" : ", ") + groupString;
+    }
+
+    result = StringUtil::expand("AudioSampleFifoQueueVector(%1)", result);
+    return result;
+}
+
+/*--------------------*/
+
+INLINE
+Natural AudioSampleFifoQueueVector::queueCount () const
+{
+    Logging_trace(">>");
+    Natural result = length();
+    Logging_trace1("<<: %1", TOSTRING(result));
+    return result;
+}
+
+/*--------------------*/
+
+INLINE
+Natural AudioSampleFifoQueueVector::queueLength () const
+{
+    Natural result = (length() == 0 ? 0 : at(0).length());
+    return result;
+}
+/*--------------------*/
+
+INLINE
+void AudioSampleFifoQueueVector::setQueueCount (IN Natural count)
+{
+    Logging_trace1(">>: %1", TOSTRING(count));
+
+    const Natural defaultCapacity = 1000;
+    setLength(count);
+    ensureQueueCapacity(defaultCapacity);
+
+    Logging_trace("<<");
+}
+
+/*--------------------*/
+
+INLINE
+void AudioSampleFifoQueueVector::ensureQueueCapacity (IN Natural capacity)
+{
+    Logging_trace1(">>: %1", TOSTRING(capacity));
+
+    for (AudioSampleFifoQueue& queue : *this) {
+        queue.ensureCapacity(capacity);
+    }
+
+    Logging_trace("<<");
+}
+
+/*--------------------*/
+
+INLINE
+void AudioSampleFifoQueueVector::popFromQueues
+         (INOUT AudioSampleListVector& sampleListVector,
+          IN Natural position,
+          IN Natural count)
+{
+    Logging_trace(">>");
+
+    for (Natural i = 0;  i < queueCount();  i++) {
+        AudioSampleFifoQueue& queue = at(i);
+        AudioSampleList& sampleList = sampleListVector[i];
+        queue.pop(sampleList, position, count);
+    }
+
+    Logging_trace("<<");
+}
+
+/*--------------------*/
+
+INLINE
+void AudioSampleFifoQueueVector::appendToQueues
+         (IN AudioSampleListVector& sampleListVector,
+          IN Natural position,
+          IN Natural count)
+{
+    Logging_trace(">>");
+
+    for (Natural i = 0;  i < queueCount();  i++) {
+        AudioSampleFifoQueue& queue = at(i);
+        const AudioSampleList& sampleList = sampleListVector[i];
+        queue.append(sampleList, position, count);
+    }
+
+    Logging_trace("<<");
+}

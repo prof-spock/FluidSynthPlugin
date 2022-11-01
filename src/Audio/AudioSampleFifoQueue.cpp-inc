@@ -1,0 +1,202 @@
+/**
+ * @file
+ * The <C>AudioSampleFifoQueue</C> body implements a fifo queue for
+ * audio samples with popping off access to the front and appending to
+ * the back of the queue <I>(this is the effective code include file
+ * for conditional inlining)</I>.
+ *
+ * @author Dr. Thomas Tensi
+ * @date   2022-09
+ */
+
+/*=========*/
+/* IMPORTS */
+/*=========*/
+
+#include "Assertion.h"
+#include "Logging.h"
+#include "MyArray.h"
+
+/*--------------------*/
+
+using BaseTypes::Containers::copyArray;
+using Audio::AudioSampleFifoQueue;
+
+/*====================*/
+
+INLINE
+AudioSampleFifoQueue::AudioSampleFifoQueue ()
+    : _capacity{0},
+      _length{0},
+      _firstIndex{0},
+      _data{}
+{
+}
+
+/*--------------------*/
+
+INLINE
+AudioSampleFifoQueue::AudioSampleFifoQueue (IN Natural capacity)
+    : _capacity{capacity},
+      _length{0},
+      _firstIndex{0},
+      _data{}
+{
+    _data.setLength(capacity);
+}
+
+/*--------------------*/
+
+INLINE
+AudioSampleFifoQueue::~AudioSampleFifoQueue ()
+{
+    _data.setLength(0);
+    _length = 0;
+    _capacity = 0;
+}
+
+/*--------------------*/
+
+INLINE
+String AudioSampleFifoQueue::toString() const
+{
+    String st = "[";
+
+    for (Natural i = 0;  i < _length;  i++) {
+        st += (i > 0 ? ", " : "") + TOSTRING(_data[i]);
+    }
+
+    st += "]";
+
+    String result = "AudioSampleFifoQueue(";
+    result += "_firstIndex = " + TOSTRING(_firstIndex);
+    result += ", _length = " + TOSTRING(_length);
+    result += ", _capacity = " + TOSTRING(_capacity);
+    result += ", _data = " + st;
+    result += ")";
+
+    return result;
+}
+
+/*--------------------*/
+
+INLINE
+void AudioSampleFifoQueue::ensureCapacity (IN Natural capacity)
+{
+    if (capacity > _capacity) {
+        Natural newCapacity =
+            Natural::maximum(capacity, _capacity + _capacity / 10);
+        _data.setLength(newCapacity);
+        _capacity = newCapacity;
+    }
+}
+
+/*--------------------*/
+
+INLINE
+Natural AudioSampleFifoQueue::length () const
+{
+    return _length;
+}
+
+/*--------------------*/
+
+INLINE
+const AudioSample& AudioSampleFifoQueue::at (IN Natural position) const
+{
+    Assertion_pre(position < _length, "position is out of range");
+    return _data[_firstIndex + position];
+}
+
+/*--------------------*/
+
+INLINE const AudioSample&
+AudioSampleFifoQueue::operator[] (IN Natural position) const
+{
+    return at(position);
+}
+
+/*--------------------*/
+
+INLINE
+AudioSample AudioSampleFifoQueue::pop ()
+{
+    Assertion_pre(_length > 0, "cannot pop from empty queue");
+    AudioSample result = _data.at(_firstIndex++);
+    _length--;
+
+    /* when firstIndex exceeds a certain boundary (here 10% of
+     * capacity), shift data to the left */
+    if (_firstIndex > _capacity / 10) {
+        for (Natural i = 0;  i < _length;  i++) {
+            _data[i] = _data[_firstIndex + i];
+        }
+
+        _firstIndex = 0;
+    }
+    
+    return result;
+}
+
+/*--------------------*/
+
+INLINE
+void AudioSampleFifoQueue::pop (INOUT AudioSampleList& sampleList,
+                            IN Natural position,
+                            IN Natural count)
+{
+    const Natural listLength = sampleList.length();
+    Assertion_pre(position + count <= listLength,
+                  "count exceeds list length");
+    Assertion_pre(count <= length(),
+                  "count exceeds queue length");
+
+    Natural j = position;
+    
+    for (Natural i = 0;  i < count;  i++) {
+        sampleList[j++] = pop();
+    }
+}
+
+/*--------------------*/
+
+INLINE
+void AudioSampleFifoQueue::append (IN AudioSample& sample)
+{
+    ensureCapacity(_length + 1);
+    _data[_firstIndex + _length] = sample;
+    _length++;
+}
+
+/*--------------------*/
+
+INLINE
+void AudioSampleFifoQueue::append (IN AudioSampleList& sampleList,
+                               IN Natural position,
+                               IN Natural count)
+{
+    const Natural listLength = sampleList.length();
+    Assertion_pre(position + count <= listLength,
+                  "count exceeds list length");
+
+    Natural j = position;
+    
+    for (Natural i = 0;  i < count;  i++) {
+        const AudioSample& sample = sampleList[j++];
+        append(sample);
+    }
+}
+
+/*--------------------*/
+
+INLINE
+void AudioSampleFifoQueue::toArray (OUT AudioSample* elementArray) const
+{
+    Logging_trace(">>");
+
+    /* directly access the underlying array */
+    const AudioSample* sourcePtr = _data.data();
+    copyArray(elementArray, sourcePtr, _length);
+
+    Logging_trace("<<");
+}

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AudioComponents</key>
+	<array>
+		<dict>
+			<key>description</key>
+			<string>FluidSynthPlugin</string>
+			<key>factoryFunction</key>
+			<string>FluidSynthPluginAUFactory</string>
+			<key>manufacturer</key>
+			<string>${JUCE_manufacturerName}</string>
+			<key>name</key>
+			<string>${JUCE_manufacturerName}: FluidSynthPlugin</string>
+			<key>sandboxSafe</key>
+			<true/>
+			<key>subtype</key>
+			<string>${JUCE_auSubType}</string>
+			<key>type</key>
+			<string>${JUCE_auMainType}</string>
+			<key>version</key>
+			<integer>65536</integer>
+		</dict>
+	</array>
+        <key>BuildMachineOSBuild</key>
+	    <string>19H1217</string>
+	<key>CFBundleDevelopmentRegion</key>
+            <string>English</string>
+	<key>CFBundleExecutable</key>
+            <string>FluidSynthPlugin</string>
+	<key>CFBundleIdentifier</key>
+	    <string>eu.tensi.thomas.FluidSynthPlugin</string>
+	<key>CFBundleName</key>
+            <string>FluidSynthPlugin</string>
+	<key>CFBundlePackageType</key>
+            <string>BNDL</string>
+	<key>CFBundleShortVersionString</key>
+            <string>1.0.0</string>
+	<key>CFBundleSignature</key>
+            <string>????</string>
+        <key>CFBundleSupportedPlatforms</key>
+	    <array><string>MacOSX</string></array>
+	<key>CFBundleVersion</key>
+            <string>1.0</string>
+	<key>CSResourcesFileMapped</key> <true/>
+        <key>LSMinimumSystemVersion</key><string>10.11</string>
+	<key>NSHumanReadableCopyright</key>
+	    <string></string>
+	<key>NSMainNibFile</key>
+	    <string>RecentFilesMenuTemplate.nib</string>
+	<key>NSPrincipalClass</key>
+	    <string>FluidSynthPlugin</string>
+</dict>
+</plist>

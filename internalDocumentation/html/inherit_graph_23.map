@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$struct_base_types_1_1_primitives_1_1_generic_number.html" title=" " alt="" coords="5,32,185,92"/>
+<area shape="rect" id="node2" href="$struct_base_types_1_1_primitives_1_1_real.html" title="An Real object wraps a value of some associated primitive float point type in an object." alt="" coords="233,40,401,84"/>
+<area shape="rect" id="node3" href="$struct_base_types_1_1_primitives_1_1_percentage.html" title="A Percentage object is real&#45;valued and represents a percentage (normalized to the 0 to 100 range)." alt="" coords="449,5,617,49"/>
+<area shape="rect" id="node4" href="$struct_base_types_1_1_primitives_1_1_radians.html" title="A Radians object is a real&#45;valued and represents the range from 0 to 2pi." alt="" coords="449,73,617,117"/>
+</map>

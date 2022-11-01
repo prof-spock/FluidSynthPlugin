@@ -1,0 +1,11 @@
+/**
+ * The package <C>MIDI</C> provides supporting MIDI classes for the
+ * Fluidsynth MIDI plugin and the simple Fluidsynth command line
+ * converter based on the fluidsynth library.
+ *
+ * The central types implement midi events and a list of those MIDI
+ * events, a MIDI file reader and an event processor transforming MIDI
+ * events into audio streams.
+ */
+namespace MIDI {
+}

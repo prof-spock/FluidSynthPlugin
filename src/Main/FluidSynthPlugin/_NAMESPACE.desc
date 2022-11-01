@@ -1,0 +1,7 @@
+/**
+ * The package <C>FluidSynthPlugin</C> provides classes for the
+ * <B>FluidSynthPlugin</B> MIDI instrument based on the fluidsynth
+ * library.
+ */
+namespace Main::FluidSynthPlugin {
+}

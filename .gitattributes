@@ -1,0 +1,8 @@
+*.html     linguist-vendored 
+*.js       linguist-vendored 
+*.css      linguist-vendored 
+*.cpp      text eol=lf 
+*.cpp-inc  text eol=lf 
+*.h        text eol=lf 
+*.desc     text eol=lf 
+*.ltx      text eol=lf 

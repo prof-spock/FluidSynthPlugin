@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+  <!--
+    primitives types
+    -->
+  <Type Name="BaseTypes::Primitives::Boolean">
+	<DisplayString>{_value}</DisplayString>
+  </Type>
+
+  <Type Name="BaseTypes::Primitives::Byte">
+	<DisplayString>{_value}</DisplayString>
+  </Type>
+
+  <Type Name="BaseTypes::Primitives::Character">
+	<DisplayString>{_value}</DisplayString>
+  </Type>
+
+  <Type Name="BaseTypes::Primitives::Natural">
+	<DisplayString>{_value}</DisplayString>
+  </Type>
+
+  <Type Name="BaseTypes::Primitives::Integer">
+      <DisplayString>{_value}</DisplayString>
+  </Type>
+
+  <Type Name="BaseTypes::Primitives::Real">
+	  <DisplayString>{_value}</DisplayString>
+  </Type>
+
+  <!--
+   expanded types
+   -->
+  <Type Name="MIDI::MidiEvent">
+	<DisplayString>MidiEvent(_descriptor = {_descriptor})</DisplayString>
+  </Type>
+
+</AutoVisualizer>

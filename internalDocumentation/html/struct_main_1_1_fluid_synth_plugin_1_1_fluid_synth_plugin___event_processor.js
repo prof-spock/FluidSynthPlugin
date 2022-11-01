@@ -1,0 +1,27 @@
+var struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor =
+[
+    [ "FluidSynthPlugin_EventProcessor", "struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#a3437a0e94076ab0fa44268a8034d5bce", null ],
+    [ "~FluidSynthPlugin_EventProcessor", "struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#a252d334e07348ce42f3581604e6b3c79", null ],
+    [ "acceptsMidi", "struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#a6477e810632fee8776269079e084cd76", null ],
+    [ "changeProgramName", "struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#aef3480b7f97d31ff77a473e561863215", null ],
+    [ "createEditor", "struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#a96707fce3965a387af739c255e0d9dea", null ],
+    [ "errorString", "struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#a521d917134ed111b613e70e5b34d1a1b", null ],
+    [ "getCurrentProgram", "struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#a330e28fff4fb989a4bb1835243879ebe", null ],
+    [ "getName", "struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#a81eed48a5d75cc48b28a9c28e375e375", null ],
+    [ "getNumPrograms", "struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#ad2488db02e632db5182db981c626b230", null ],
+    [ "getProgramName", "struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#a4f516b73c1ea832eeac71175dbd2e675", null ],
+    [ "getStateInformation", "struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#aab501692035e952c280d582122a93282", null ],
+    [ "getTailLengthSeconds", "struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#ab97e8ddb5b0481a4311bd3507dfc0efe", null ],
+    [ "hasEditor", "struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#ab3888cf7dd1b28f81b326f5197c0dcf4", null ],
+    [ "isMidiEffect", "struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#a7b038cae1ef5635cc8cc333278385d3f", null ],
+    [ "prepareToPlay", "struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#aa9342cf558f1f623bde3905c52719481", null ],
+    [ "processBlock", "struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#a656d62a347f8b24092a81d81933c7f9e", null ],
+    [ "producesMidi", "struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#ad227db9612c954027cf46dd952b2a7a2", null ],
+    [ "releaseResources", "struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#af3a8442a592298e8fda37d2ba47b463f", null ],
+    [ "setCurrentProgram", "struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#a938bee686467dd942c8fce2f8d0de8e7", null ],
+    [ "setSettings", "struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#a42a215cac536a06abe5eeea10b484f79", null ],
+    [ "setStateInformation", "struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#a419899918595723402569a9febd66142", null ],
+    [ "settings", "struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#af2cc34e1b34b675d27c57c6a947dcae0", null ],
+    [ "supportsDoublePrecisionProcessing", "struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#ad5a53efd852deb434d41fd91348ae9ef", null ],
+    [ "_descriptor", "struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#a716ddb46b3b9f7b1581a7c12c5f8e8ee", null ]
+];

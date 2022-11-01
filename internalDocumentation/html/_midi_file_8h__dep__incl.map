@@ -1,0 +1,5 @@
+<map id="MidiFile.h" name="MidiFile.h">
+<area shape="rect" id="node1" title="The MidiFile specification defines the services of a MIDI file; currently only file reading is suppor..." alt="" coords="155,5,237,33"/>
+<area shape="rect" id="node2" href="$_fluid_synth_file_converter_8cpp.html" title="The FluidSynthFileConverter module implements a conversion from a MIDI file into a wave file using th..." alt="" coords="5,81,211,109"/>
+<area shape="rect" id="node3" href="$_midi_file_8cpp.html" title="The MidiFile implementation implements the services of a MIDI file; currently only file reading is su..." alt="" coords="235,81,333,109"/>
+</map>

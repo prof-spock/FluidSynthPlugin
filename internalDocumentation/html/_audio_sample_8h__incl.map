@@ -1,0 +1,14 @@
+<map id="AudioSample.h" name="AudioSample.h">
+<area shape="rect" id="node1" title="The AudioSample specification and body provides the definition of the audio sample (a real value)." alt="" coords="5,5,125,33"/>
+<area shape="rect" id="node2" href="$_real_8h.html" title="The Real specification defines a value object type for real values." alt="" coords="33,81,97,109"/>
+<area shape="rect" id="node3" title=" " alt="" coords="46,309,109,337"/>
+<area shape="rect" id="node4" href="$_integer_8h.html" title="The Integer specification and body provides a value object type for ints." alt="" coords="91,157,170,185"/>
+<area shape="rect" id="node5" title=" " alt="" coords="115,233,200,261"/>
+<area shape="rect" id="node6" href="$_natural_8h.html" title="The Natural specification and body provides a value object type for naturals (positive integers with ..." alt="" coords="224,233,304,261"/>
+<area shape="rect" id="node7" href="$_generic_number_8h.html" title="The GenericNumber specification and body defines a template for wrapper objects for elementary numeri..." alt="" coords="163,309,301,337"/>
+<area shape="rect" id="node10" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="252,461,343,489"/>
+<area shape="rect" id="node8" title=" " alt="" coords="133,385,189,413"/>
+<area shape="rect" id="node9" href="$_boolean_8h.html" title="The Boolean specification and body provides a value object type for boolean values." alt="" coords="214,385,301,413"/>
+<area shape="rect" id="node11" title=" " alt="" coords="211,537,269,565"/>
+<area shape="rect" id="node12" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="293,537,416,565"/>
+</map>

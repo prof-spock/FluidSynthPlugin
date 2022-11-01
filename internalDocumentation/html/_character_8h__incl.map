@@ -1,0 +1,11 @@
+<map id="Character.h" name="Character.h">
+<area shape="rect" id="node1" title="The Character specification and body provides a value object type for character values." alt="" coords="49,5,147,33"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,157,68,185"/>
+<area shape="rect" id="node3" href="$_natural_8h.html" title="The Natural specification and body provides a value object type for naturals (positive integers with ..." alt="" coords="109,81,189,109"/>
+<area shape="rect" id="node4" href="$_generic_number_8h.html" title="The GenericNumber specification and body defines a template for wrapper objects for elementary numeri..." alt="" coords="92,157,229,185"/>
+<area shape="rect" id="node7" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="181,309,271,337"/>
+<area shape="rect" id="node5" title=" " alt="" coords="62,233,118,261"/>
+<area shape="rect" id="node6" href="$_boolean_8h.html" title="The Boolean specification and body provides a value object type for boolean values." alt="" coords="143,233,229,261"/>
+<area shape="rect" id="node8" title=" " alt="" coords="139,385,198,413"/>
+<area shape="rect" id="node9" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="222,385,345,413"/>
+</map>

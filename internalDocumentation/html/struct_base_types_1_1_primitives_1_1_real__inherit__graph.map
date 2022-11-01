@@ -1,0 +1,6 @@
+<map id="BaseTypes::Primitives::Real" name="BaseTypes::Primitives::Real">
+<area shape="rect" id="node1" title="An Real object wraps a value of some associated primitive float point type in an object." alt="" coords="99,375,275,840"/>
+<area shape="rect" id="node3" href="$struct_base_types_1_1_primitives_1_1_percentage.html" title="A Percentage object is real&#45;valued and represents a percentage (normalized to the 0 to 100 range)." alt="" coords="5,888,176,1177"/>
+<area shape="rect" id="node4" href="$struct_base_types_1_1_primitives_1_1_radians.html" title="A Radians object is a real&#45;valued and represents the range from 0 to 2pi." alt="" coords="200,968,368,1097"/>
+<area shape="rect" id="node2" href="$struct_base_types_1_1_primitives_1_1_generic_number.html" title=" " alt="" coords="97,5,277,327"/>
+</map>

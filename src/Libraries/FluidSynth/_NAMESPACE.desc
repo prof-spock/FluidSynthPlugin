@@ -1,0 +1,8 @@
+/**
+ * The package <C>FluidSynth</C> provides wrappers around the
+ * <B>FluidSynth</B> library which is dynamically linked.  Types
+ * provided are <B>FluidSynth</B>, <B>FluidSynthSettings</B> and
+ * <B>FluidSynthSynthesizer</B>.
+ */
+namespace Libraries::FluidSynth {
+}

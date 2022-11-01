@@ -1,0 +1,7 @@
+/**
+ * The package <C>Main</C> encapsulates the <B>FluidSynthPlugin</B>
+ * and the command-line <B>FluidSynthFileConverter</B> both based on
+ * the fluidsynth library.
+ */
+namespace Main {
+}
