@@ -116,10 +116,11 @@ namespace BaseTypes::Primitives {
          * Returns string representation of real with precision and
          * padding information.
          *
-         * @param precision              minimum number of valid digits
-         * @param fractionalDigitCount   number of decimal digits
-         * @param padCharacter           character to use for left
-         *                               padding
+         * @param[in] precision              minimum number of valid
+         *                                   digits
+         * @param[in] fractionalDigitCount   number of decimal digits
+         * @param[in] padCharacter           character to use for left
+         *                                   padding
          * @return  string representation
          */
         String toString (IN Natural precision = 0,
@@ -276,21 +277,24 @@ namespace BaseTypes::Primitives {
         /*--------------------*/
 
         /**
-         * Forces value <C>x</C> to range between <C>lowBound</C> and
-         * <C>highBound</C>.
+         * Forces value <C>x</C> to range between <C>lowerEndPoint</C> and
+         * <C>upperEndPoint</C>.
          *
          * @param[in] x          some percentage value
-         * @param[in] lowBound   minimum acceptable percentage value
-         * @param[in] highBound  maximum acceptable percentage value
-         * @return value forced to range [<C>lowBound</C>,
-         *                                <C>highBound</C>]
+         * @param[in] lowerEndPoint   minimum acceptable percentage value
+         * @param[in] upperEndPoint  maximum acceptable percentage value
+         * @return value forced to range [<C>lowerEndPoint</C>,
+         *                                <C>upperEndPoint</C>]
+         * @pre lowerBound <= upperBound
          */
-        static Real forceToRange (IN Real x,
-                                  IN Real lowBound,
-                                  IN Real highBound)
+        static Real forceToInterval (IN Real x,
+                                     IN Real lowerEndPoint,
+                                     IN Real upperEndPoint)
         {
-            return (x < lowBound ? lowBound
-                    : (x > highBound ? highBound : x));
+            Assertion_pre(lowerEndPoint <= upperEndPoint,
+                          "interval must be non-empty");
+            return (x < lowerEndPoint ? lowerEndPoint
+                    : (x > upperEndPoint ? upperEndPoint : x));
         }
 
         /*--------------------*/
@@ -513,18 +517,18 @@ namespace BaseTypes::Primitives {
         /*--------------------*/
 
         /**
-         * Forces current value to range between <C>lowBound</C> and
-         * <C>highBound</C> and returns result.
+         * Forces current value to range between <C>lowerEndPoint</C>
+         * and <C>upperEndPoint</C> and returns result.
          *
-         * @param[in] lowBound   minimum acceptable percentage value
-         * @param[in] highBound  maximum acceptable percentage value
-         * @return value forced to range [<C>lowBound</C>,
-         *                                <C>highBound</C>]
+         * @param[in] lowerEndPoint  minimum acceptable value
+         * @param[in] upperEndPoint  maximum acceptable value
+         * @return value forced to range [<C>lowerEndPoint</C>,
+         *                                <C>upperEndPoint</C>]
          */
-        Real forceToRange (IN Real lowBound,
-                           IN Real highBound) const
+        Real forceToInterval (IN Real lowerEndPoint,
+                              IN Real upperEndPoint) const
         {
-            return forceToRange(*this, lowBound, highBound);
+            return forceToInterval(*this, lowerEndPoint, upperEndPoint);
         }
 
         /*--------------------*/
@@ -649,14 +653,20 @@ namespace BaseTypes::Primitives {
         /* constants          */
         /*--------------------*/
 
+        static const Real zero;      /**< 0 */
+        static const Real one;       /**< 1 */
+        static const Real two;       /**< 2 */
         static const Real pi;        /**< pi */
         static const Real twoPi;     /**< 2*pi */
         static const Real infinity;  /**< infinity */
 
     };
 
+    inline const Real Real::zero{0.0};
+    inline const Real Real::one{1.0};
+    inline const Real Real::two{2.0};
     inline const Real Real::pi{3.1415926535897932385};
-    inline const Real Real::twoPi{Real{2.0} * pi};
+    inline const Real Real::twoPi{two * pi};
     inline const Real Real::infinity{maximumValue()};
 
 }

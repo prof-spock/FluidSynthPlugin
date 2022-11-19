@@ -29,9 +29,7 @@ namespace Audio {
      * output samples serving as the communication buffer structure
      * for the block processing of audio effects.
      */
-    struct AudioSampleListVector
-        : public GenericSequence<AudioSampleList,
-                                 AudioSampleList::toString> {
+    struct AudioSampleListVector : public GenericList<AudioSampleList> {
 
         /**
          * Returns printable representation of buffer.

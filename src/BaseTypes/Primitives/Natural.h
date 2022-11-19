@@ -16,8 +16,13 @@
 /*=========*/
 
 #include <cmath>
+#include "Assertion.h"
 #include "GenericNumber.h"
 #include "MyString.h"
+
+/*--------------------*/
+
+using BaseTypes::GenericTypes::GenericNumber;
 
 /*====================*/
 
@@ -77,8 +82,8 @@ namespace BaseTypes::Primitives {
          * Returns string representation of natural with precision and
          * padding information.
          *
-         * @param precision     minimum number of valid digits
-         * @param padCharacter  character to use for left padding
+         * @param[in] precision     minimum number of valid digits
+         * @param[in] padCharacter  character to use for left padding
          * @return  string representation
          */
         String toString (IN Natural precision = 0,
@@ -241,6 +246,28 @@ namespace BaseTypes::Primitives {
         static Natural floor (IN double r)
         {
             return Natural{(size_t) std::floor(r)};
+        }
+
+        /*--------------------*/
+
+        /**
+         * Returns value <C>n</C> forced into interval given by
+         * <C>lowerEndPoint</C> and <C>upperEndPoint</C>.
+         *
+         * @param[in] n               value to be adapted
+         * @param[in] lowerEndPoint   minimum acceptable value
+         * @param[in] upperEndPoint   maximum acceptable value
+         * @return  value in given range
+         * @pre lowerEndPoint <= upperEndPoint
+         */
+        static Natural forceToInterval (IN Natural n,
+                                        IN Natural lowerEndPoint,
+                                        IN Natural upperEndPoint)
+        {
+            Assertion_pre(lowerEndPoint <= upperEndPoint,
+                          "interval must be non-empty");
+            return (n < lowerEndPoint ? lowerEndPoint
+                    : (n > upperEndPoint ? upperEndPoint : n));
         }
 
         /*--------------------*/

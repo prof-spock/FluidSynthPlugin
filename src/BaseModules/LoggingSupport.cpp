@@ -34,7 +34,7 @@ using BaseModules::File;
 using BaseModules::Logging;
 using BaseModules::OperatingSystem;
 using BaseTypes::Containers::Dictionary;
-using BaseTypes::Containers::GenericSequence;
+using BaseTypes::GenericTypes::GenericList;
 
 /** the timestamp type as provided by the system call */
 using Timestamp = Natural;
@@ -304,7 +304,7 @@ static StringList _standardPrefixList =
 
 /** the buffer stores log data either before the log file is opened or
  * when no write-through to target file is done */
-static GenericSequence<_LoggingBufferEntry> _buffer;
+static GenericList<_LoggingBufferEntry> _buffer;
 
 /*--------------------*/
 

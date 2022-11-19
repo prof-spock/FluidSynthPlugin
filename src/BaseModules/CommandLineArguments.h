@@ -18,12 +18,12 @@
 /*=========*/
 
 #include "Dictionary.h"
-#include "GenericSequence.h"
+#include "GenericList.h"
 
 /*--------------------*/
 
 using BaseTypes::Containers::Dictionary;
-using BaseTypes::Containers::GenericSequence;
+using BaseTypes::GenericTypes::GenericList;
 
 /*====================*/
 
@@ -76,9 +76,8 @@ namespace BaseModules {
      * arguments for the main program derived from the raw command-line
      * arguments
      */
-    struct CommandLineArgumentList :
-        public GenericSequence<CommandLineArgument,
-                               CommandLineArgument::toString> {
+    struct CommandLineArgumentList
+        : public GenericList<CommandLineArgument> {
 
         /**
          * Returns printable representation of list.

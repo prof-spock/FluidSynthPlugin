@@ -1,24 +1,24 @@
 <map id="StringSet.cpp" name="StringSet.cpp">
-<area shape="rect" id="node1" title="The StringSet body implements sets of string values with no duplicates and only simple containment ac..." alt="" coords="218,5,329,33"/>
-<area shape="rect" id="node2" href="$_string_set_8h.html" title="The StringSet specification defines sets of string values with no duplicates and only simple containm..." alt="" coords="73,81,167,109"/>
-<area shape="rect" id="node17" title=" " alt="" coords="343,81,414,109"/>
-<area shape="rect" id="node18" href="$_string_util_8h.html" title="The StringUtil specification defines several string routines not included in the standard C++ library..." alt="" coords="227,81,319,109"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,157,48,185"/>
-<area shape="rect" id="node4" href="$_string_list_8h.html" title="The StringList specification defines sequences of string values with zero&#45;based arbitrary indexed acc..." alt="" coords="73,157,167,185"/>
-<area shape="rect" id="node5" href="$_generic_sequence_8h.html" title="The GenericSequence specification and body defines a generic sequence type of values with zero&#45;based ..." alt="" coords="17,233,167,261"/>
-<area shape="rect" id="node6" title=" " alt="" coords="50,309,113,337"/>
-<area shape="rect" id="node7" href="$_boolean_8h.html" title="The Boolean specification and body provides a value object type for boolean values." alt="" coords="278,537,365,565"/>
-<area shape="rect" id="node11" href="$_integer_8h.html" title="The Integer specification and body provides a value object type for ints." alt="" coords="290,309,369,337"/>
-<area shape="rect" id="node8" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="377,613,468,641"/>
-<area shape="rect" id="node9" title=" " alt="" coords="336,689,395,717"/>
-<area shape="rect" id="node10" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="419,689,541,717"/>
-<area shape="rect" id="node12" title=" " alt="" coords="381,461,443,489"/>
-<area shape="rect" id="node13" title=" " alt="" coords="289,385,375,413"/>
-<area shape="rect" id="node14" href="$_natural_8h.html" title="The Natural specification and body provides a value object type for naturals (positive integers with ..." alt="" coords="500,385,580,413"/>
-<area shape="rect" id="node15" href="$_generic_number_8h.html" title="The GenericNumber specification and body defines a template for wrapper objects for elementary numeri..." alt="" coords="467,461,605,489"/>
-<area shape="rect" id="node16" title=" " alt="" coords="508,537,564,565"/>
-<area shape="rect" id="node19" href="$_byte_8h.html" title="The Byte specification and body provides a value object type for byte values." alt="" coords="450,309,513,337"/>
-<area shape="rect" id="node20" href="$_character_8h.html" title="The Character specification and body provides a value object type for character values." alt="" coords="537,309,636,337"/>
-<area shape="rect" id="node21" href="$_percentage_8h.html" title="The Percentage specification and body provides a simple percentage type." alt="" coords="256,157,365,185"/>
-<area shape="rect" id="node22" href="$_real_8h.html" title="The Real specification defines a value object type for real values." alt="" coords="297,233,361,261"/>
+<area shape="rect" id="node1" title="The StringSet body implements sets of string values with no duplicates and only simple containment ac..." alt="" coords="293,5,404,33"/>
+<area shape="rect" id="node2" href="$_string_set_8h.html" title="The StringSet specification defines sets of string values with no duplicates and only simple containm..." alt="" coords="145,81,240,109"/>
+<area shape="rect" id="node7" title=" " alt="" coords="521,537,592,565"/>
+<area shape="rect" id="node8" href="$_string_util_8h.html" title="The StringUtil specification defines several string routines not included in the standard C++ library..." alt="" coords="303,81,395,109"/>
+<area shape="rect" id="node3" title=" " alt="" coords="14,157,121,185"/>
+<area shape="rect" id="node4" href="$_string_list_8h.html" title="The StringList specification defines lists of string values with zero&#45;based arbitrary indexed access ..." alt="" coords="145,157,240,185"/>
+<area shape="rect" id="node5" title=" " alt="" coords="138,233,242,261"/>
+<area shape="rect" id="node6" title=" " alt="" coords="5,233,113,261"/>
+<area shape="rect" id="node9" href="$_boolean_8h.html" title="The Boolean specification and body provides a value object type for boolean values." alt="" coords="112,385,199,413"/>
+<area shape="rect" id="node13" href="$_byte_8h.html" title="The Byte specification and body provides a value object type for byte values." alt="" coords="317,309,380,337"/>
+<area shape="rect" id="node18" href="$_character_8h.html" title="The Character specification and body provides a value object type for character values." alt="" coords="559,309,658,337"/>
+<area shape="rect" id="node19" href="$_percentage_8h.html" title="The Percentage specification and body provides a simple percentage type." alt="" coords="387,157,497,185"/>
+<area shape="rect" id="node10" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="95,461,186,489"/>
+<area shape="rect" id="node11" title=" " alt="" coords="169,537,227,565"/>
+<area shape="rect" id="node12" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="22,537,145,565"/>
+<area shape="rect" id="node14" title=" " alt="" coords="491,461,553,489"/>
+<area shape="rect" id="node15" href="$_natural_8h.html" title="The Natural specification and body provides a value object type for naturals (positive integers with ..." alt="" coords="231,385,311,413"/>
+<area shape="rect" id="node16" href="$_assertion_8h.html" title="The Assertion specification defines macros for pre&#45; and postconditions in functions or methods." alt="" coords="372,461,467,489"/>
+<area shape="rect" id="node17" title=" " alt="" coords="211,461,348,489"/>
+<area shape="rect" id="node20" href="$_real_8h.html" title="The Real specification defines a value object type for real values." alt="" coords="411,233,475,261"/>
+<area shape="rect" id="node21" href="$_integer_8h.html" title="The Integer specification and body provides a value object type for ints." alt="" coords="404,309,483,337"/>
+<area shape="rect" id="node22" title=" " alt="" coords="386,385,471,413"/>
 </map>

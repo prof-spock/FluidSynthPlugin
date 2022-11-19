@@ -36,8 +36,8 @@ namespace BaseTypes::Containers {
      * Allocates an array of <C>count</C> elements of type
      * <C>ElementType</C> on the stack.
      *
-     * @param ElementType  type of element
-     * @param count        count of elements to be allocated
+     * @tparam    ElementType  type of element
+     * @param[in] count        count of elements to be allocated
      * @return array with <C>count</C> entries of type <C>ElementType</C>
      */
     #define makeLocalArray(ElementType, count) \
@@ -49,9 +49,9 @@ namespace BaseTypes::Containers {
      * Sets all elements in <C>array</C> of <C>count</C> elements of
      * type <C>ElementType</C> to zero.
      *
-     * @param array        element array to be cleared
-     * @param ElementType  type of element
-     * @param count        count of elements to be cleared
+     * @param[in] array        element array to be cleared
+     * @tparam    ElementType  type of element
+     * @param[in] count        count of elements to be cleared
      */
     #define clearArray(array, ElementType, count) \
         CString_memset(array, 0, (int) (count) * sizeof(ElementType))

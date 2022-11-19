@@ -16,7 +16,7 @@ var _logging_support_8cpp =
     [ "_functionNameFromSignature", "_logging_support_8cpp.html#a7ba123783ebfc65611a763c874a87626", null ],
     [ "_openOrCreateFile", "_logging_support_8cpp.html#a95b03615d3f2cc7273d5975b79621089", null ],
     [ "_writeBufferToFile", "_logging_support_8cpp.html#a92aa75fc925bc045033fb89a83ce80e0", null ],
-    [ "_buffer", "_logging_support_8cpp.html#a52fc73561dd4bb272ab1f1b724fc4083", null ],
+    [ "_buffer", "_logging_support_8cpp.html#a5b63b707a4a930101810a764051d21a7", null ],
     [ "_dstOffsetInMilliseconds", "_logging_support_8cpp.html#aff0ed5e453d280f9ef35175afe244938", null ],
     [ "_file", "_logging_support_8cpp.html#a1e6d84ea253ca2d28f599182bdc6c01a", null ],
     [ "_fileName", "_logging_support_8cpp.html#ac33112fc45219676add6172b11876331", null ],

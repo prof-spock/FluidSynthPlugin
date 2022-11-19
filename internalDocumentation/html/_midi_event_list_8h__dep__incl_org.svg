@@ -12,7 +12,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title="The MidiEventList specification defines sequences of MIDI events with zero&#45;based arbitrary indexed ac...">
+<g id="a_node1"><a xlink:title="The MidiEventList specification defines lists of MIDI events with zero&#45;based arbitrary indexed access...">
 <polygon fill="#bfbfbf" stroke="black" points="372,-114.5 372,-134.5 461,-134.5 461,-114.5 372,-114.5"/>
 <text text-anchor="middle" x="416.5" y="-121.7" font-family="Helvetica,sans-Serif" font-size="11.00">MidiEventList.h</text>
 </a>

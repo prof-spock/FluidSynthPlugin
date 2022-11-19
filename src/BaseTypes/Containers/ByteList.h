@@ -1,8 +1,8 @@
 /**
  * @file
- * The <C>ByteList</C> specification defines sequences of byte values
+ * The <C>ByteList</C> specification defines lists of byte values
  * with zero-based arbitrary indexed access to positions in the
- * sequence.
+ * list.
  *
  * @author Dr. Thomas Tensi
  * @date   2022-08
@@ -18,11 +18,12 @@
 
 #include <initializer_list>
 #include "Byte.h"
-#include "GenericSequence.h"
+#include "GenericList.h"
 
 /*--------------------*/
 
 using std::initializer_list;
+using BaseTypes::GenericTypes::GenericList;
 using BaseTypes::Primitives::Byte;
 
 /*====================*/
@@ -30,20 +31,19 @@ using BaseTypes::Primitives::Byte;
 namespace BaseTypes::Containers {
 
     /**
-     * A <C>ByteList</C> object is a sequence of byte values with
-     * arbitrary indexed access to positions in the sequence.
+     * A <C>ByteList</C> object is a list of byte values with
+     * arbitrary indexed access to positions in the list.
      * Indexing starts at zero and is consecutive.  Lists also allow
      * duplicate elements.
      */
-    struct ByteList : public GenericSequence<Byte, Byte::toString>
-    {
+    struct ByteList : public GenericList<Byte> {
 
         /**
-         * Initializes sequence of bytes from an initializer list
+         * Initializes list of bytes from an initializer list
          * values.
          *
-         * @param list  initializer list of byte values
-         * @return  sequence with values in order given
+         * @param[in] list  initializer list of byte values
+         * @return  list with values in order given
          */
         static ByteList fromList (IN initializer_list<Byte> list);
 

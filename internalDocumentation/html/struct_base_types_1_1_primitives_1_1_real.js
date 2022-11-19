@@ -15,8 +15,8 @@ var struct_base_types_1_1_primitives_1_1_real =
     [ "exp", "struct_base_types_1_1_primitives_1_1_real.html#a656e2a3fc36d36d818afe89a33dc77b3", null ],
     [ "floor", "struct_base_types_1_1_primitives_1_1_real.html#ace1392f195ef07fda7b9a51b27af3ac1", null ],
     [ "floor", "struct_base_types_1_1_primitives_1_1_real.html#a7d2d6602c575dcf052e7fe4318b75b32", null ],
-    [ "forceToRange", "struct_base_types_1_1_primitives_1_1_real.html#a45c06cd2034670d1d0c89862ee52bc98", null ],
-    [ "forceToRange", "struct_base_types_1_1_primitives_1_1_real.html#a5f5c753b11fafe3bf02318978771d949", null ],
+    [ "forceToInterval", "struct_base_types_1_1_primitives_1_1_real.html#abdb4c21abd467c57f165c121d46f4e80", null ],
+    [ "forceToInterval", "struct_base_types_1_1_primitives_1_1_real.html#ac245902eae18932b58f1d0dce4d5e520", null ],
     [ "fractionalPart", "struct_base_types_1_1_primitives_1_1_real.html#ae99ff5b0651c18986f8f8e9d756c08b7", null ],
     [ "fractionalPart", "struct_base_types_1_1_primitives_1_1_real.html#a9b0dab55a7c4a9911fa40d4b2c33560e", null ],
     [ "hasDoublePrecision", "struct_base_types_1_1_primitives_1_1_real.html#acb1b2e86dd4d81693660b9889be2b12e", null ],
@@ -44,6 +44,9 @@ var struct_base_types_1_1_primitives_1_1_real =
     [ "toString", "struct_base_types_1_1_primitives_1_1_real.html#a13d2172ce7521642dacf4caa4ad07193", null ],
     [ "toString", "struct_base_types_1_1_primitives_1_1_real.html#a5e4ffe4dff85d88e973b9e1fa13d5532", null ],
     [ "infinity", "struct_base_types_1_1_primitives_1_1_real.html#a46e72517b7b530b11728970ea7fe4ba6", null ],
+    [ "one", "struct_base_types_1_1_primitives_1_1_real.html#a7f3c22785f68aca4ae9051074cb0855b", null ],
     [ "pi", "struct_base_types_1_1_primitives_1_1_real.html#aece9d89ae96401d163bac836918812b5", null ],
-    [ "twoPi", "struct_base_types_1_1_primitives_1_1_real.html#aa20b95e00cb65b2f73228a9c544cd021", null ]
+    [ "two", "struct_base_types_1_1_primitives_1_1_real.html#a320817701ba800bcb2ab4d5d57e9b0cc", null ],
+    [ "twoPi", "struct_base_types_1_1_primitives_1_1_real.html#aa20b95e00cb65b2f73228a9c544cd021", null ],
+    [ "zero", "struct_base_types_1_1_primitives_1_1_real.html#a9174f9563a3bc7195ec2988fbda14758", null ]
 ];

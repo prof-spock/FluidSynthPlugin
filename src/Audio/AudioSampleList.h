@@ -1,8 +1,8 @@
 /**
  * @file
- * The <C>AudioSampleList</C> specification defines sequences of
+ * The <C>AudioSampleList</C> specification defines lists of
  * audio samples with zero-based arbitrary indexed access to positions
- * in the sequence.
+ * in the list.
  *
  * @author Dr. Thomas Tensi
  * @date   2020-08
@@ -16,26 +16,25 @@
 /* IMPORTS */
 /*=========*/
 
-#include "GenericSequence.h"
+#include "GenericList.h"
 #include "AudioSample.h"
 
 /*--------------------*/
 
 using Audio::AudioSample;
-using BaseTypes::Containers::GenericSequence;
+using BaseTypes::GenericTypes::GenericList;
 
 /*====================*/
 
 namespace Audio {
 
     /**
-     * An <C>AudioSampleList</C> object is a sequence of audio
+     * An <C>AudioSampleList</C> object is a list of audio
      * samples with arbitrary indexed access to positions in the
-     * sequence.  Indexing starts at zero and is consecutive.  Lists
+     * list.  Indexing starts at zero and is consecutive.  Lists
      * also allow duplicate elements.
      */
-    struct AudioSampleList
-        : public GenericSequence<AudioSample, AudioSample::toString>
+    struct AudioSampleList : public GenericList<AudioSample>
     {
 
         /**

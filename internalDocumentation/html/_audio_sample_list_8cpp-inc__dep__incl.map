@@ -1,6 +1,6 @@
 <map id="AudioSampleList.cpp&#45;inc" name="AudioSampleList.cpp&#45;inc">
 <area shape="rect" id="node1" title="The AudioSampleList body implements a simple list of audio samples (this is the effective code includ..." alt="" coords="604,5,787,33"/>
-<area shape="rect" id="node2" href="$_audio_sample_list_8h.html" title="The AudioSampleList specification defines sequences of audio samples with zero&#45;based arbitrary indexe..." alt="" coords="624,81,767,109"/>
+<area shape="rect" id="node2" href="$_audio_sample_list_8h.html" title="The AudioSampleList specification defines lists of audio samples with zero&#45;based arbitrary indexed ac..." alt="" coords="624,81,767,109"/>
 <area shape="rect" id="node3" href="$_audio_sample_fifo_queue_8h.html" title="The AudioSampleFifoQueue specification defines a fifo queue for audio samples with popping off access..." alt="" coords="255,157,443,185"/>
 <area shape="rect" id="node8" href="$_audio_sample_list_8cpp.html" title="The AudioSampleList body implements a simple list of audio samples (this is the formal CPP file used ..." alt="" coords="812,157,971,185"/>
 <area shape="rect" id="node9" href="$_audio_sample_list_vector_8h.html" title="The AudioSampleListVector specification defines the communication buffer structure for the block proc..." alt="" coords="603,157,788,185"/>

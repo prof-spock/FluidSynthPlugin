@@ -20,13 +20,6 @@ using BaseTypes::Containers::Dictionary;
 
 /*====================*/
 
-Dictionary::Dictionary ()
-    : map()
-{
-}
-
-/*--------------------*/
-
 Dictionary Dictionary::makeFromList (IN StringList& list)
 {
     Dictionary result;
@@ -50,18 +43,11 @@ Dictionary Dictionary::makeFromList (IN StringList& list)
 
 /*--------------------*/
 
-Dictionary::~Dictionary ()
-{
-}
-
-/*--------------------*/
-
 String Dictionary::toString () const
 {
-    return StringUtil
-           ::stringMapToStringExplicit<Dictionary,
-                                       String,
-                                       StringUtil::toPrintableString>("Dictionary", *this);
+    return _toString("Dictionary",
+                     StringUtil::toPrintableString,
+                     StringUtil::toPrintableString);
 }
 
 /*--------------------*/
@@ -95,26 +81,4 @@ Dictionary Dictionary::makeFromString (IN String& st,
     }
 
     return result;
-}
-
-/*--------------------*/
-
-String Dictionary::atWithDefault (IN String& key,
-                                  IN String& defaultValue) const
-{
-    return (contains(key) ? at(key) : defaultValue);
-}
-
-/*--------------------*/
-
-Boolean Dictionary::contains (IN String& key) const
-{
-    return (find(key) != end());
-}
-
-/*--------------------*/
-
-void Dictionary::set (IN String& key, IN String& value)
-{
-    insert_or_assign(key,  value);
 }

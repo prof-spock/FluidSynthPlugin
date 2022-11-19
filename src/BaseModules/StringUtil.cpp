@@ -58,6 +58,14 @@ static Character _at (IN String& st, IN Natural position)
 /*--------------------*/
 /*--------------------*/
 
+Boolean StringUtil::contains (IN String& st, IN String& substring,
+                              IN Natural startPosition)
+{
+    return find(st, substring, startPosition) != Natural::maximumValue();
+}
+
+/*--------------------*/
+
 Boolean StringUtil::endsWith (IN String& st, IN String& suffix)
 {
     const Natural stLength = st.size();

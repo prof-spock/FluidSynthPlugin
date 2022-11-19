@@ -1,8 +1,8 @@
 /**
  * The package <C>Containers</C> provides container types like
  * dictionaries, maps from string to objects, lists of string or
- * numbers and string sets.  Also a template for list types is given
- * as GenericSequence.
+ * numbers and string sets.  Also several templates are given
+ * for list types, maps, matrices and tuples.
  */
 namespace BaseTypes::Containers {
 }

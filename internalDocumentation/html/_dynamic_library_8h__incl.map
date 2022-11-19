@@ -1,8 +1,7 @@
 <map id="DynamicLibrary.h" name="DynamicLibrary.h">
 <area shape="rect" id="node1" title="The DynamicLibrary class specifies a very simple and crude wrapper around the dynamic library loading..." alt="" coords="29,5,165,33"/>
 <area shape="rect" id="node2" href="$_object_8h.html" title="The Object specification and body provides the root object type." alt="" coords="5,81,83,109"/>
-<area shape="rect" id="node4" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="107,81,197,109"/>
-<area shape="rect" id="node3" title=" " alt="" coords="23,157,65,185"/>
-<area shape="rect" id="node5" title=" " alt="" coords="105,157,164,185"/>
-<area shape="rect" id="node6" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="188,157,311,185"/>
+<area shape="rect" id="node3" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="107,81,197,109"/>
+<area shape="rect" id="node4" title=" " alt="" coords="65,157,124,185"/>
+<area shape="rect" id="node5" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="148,157,271,185"/>
 </map>

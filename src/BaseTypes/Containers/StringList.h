@@ -1,8 +1,8 @@
 /**
  * @file
- * The <C>StringList</C> specification defines sequences of string
+ * The <C>StringList</C> specification defines lists of string
  * values with zero-based arbitrary indexed access to positions in the
- * sequence.
+ * list.
  *
  * @author Dr. Thomas Tensi
  * @date   2020-08
@@ -16,23 +16,36 @@
 /* IMPORTS */
 /*=========*/
 
-#include "GenericSequence.h"
+#include <initializer_list>
+#include "GenericList.h"
 
 /*--------------------*/
 
-using BaseTypes::Primitives::String_toString;
+using std::initializer_list;
+using BaseTypes::GenericTypes::GenericList;
 
 /*====================*/
 
 namespace BaseTypes::Containers {
 
     /**
-     * A <C>StringList</C> object is a sequence of string values with
-     * arbitrary indexed access to positions in the sequence.
+     * A <C>StringList</C> object is a list of string values with
+     * arbitrary indexed access to positions in the list.
      * Indexing starts at zero and is consecutive.  Lists also allow
      * duplicate elements.
      */
-    struct StringList : public GenericSequence<String, String_toString> {
+    struct StringList : public GenericList<String> {
+
+        /**
+         * Initializes list of strings from an initializer list
+         * of values.
+         *
+         * @param[in] list  initializer list of string values
+         * @return  list with values in order given
+         */
+        static StringList fromList (IN initializer_list<String> list);
+
+        /*--------------------*/
 
         /**
          * Returns printable representation of list.

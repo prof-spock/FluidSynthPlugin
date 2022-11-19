@@ -24,7 +24,7 @@ using BaseTypes::Containers::copyArray;
 INLINE
 String AudioSampleList::toString () const
 {
-    return _toString("AudioSampleList");
+    return _toString("AudioSampleList", AudioSample::toString);
 }
 
 /*--------------------*/

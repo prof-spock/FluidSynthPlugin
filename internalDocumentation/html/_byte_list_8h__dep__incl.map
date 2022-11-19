@@ -1,5 +1,5 @@
 <map id="ByteList.h" name="ByteList.h">
-<area shape="rect" id="node1" title="The ByteList specification defines sequences of byte values with zero&#45;based arbitrary indexed access ..." alt="" coords="413,5,500,33"/>
+<area shape="rect" id="node1" title="The ByteList specification defines lists of byte values with zero&#45;based arbitrary indexed access to p..." alt="" coords="413,5,500,33"/>
 <area shape="rect" id="node2" href="$_file_8h.html" title="The File specification defines a class for simple file handling based on C stdio." alt="" coords="376,81,433,109"/>
 <area shape="rect" id="node9" href="$_byte_list_8cpp.html" title="The ByteList body implements sequences of byte values with zero&#45;based arbitrary indexed access to pos..." alt="" coords="457,81,560,109"/>
 <area shape="rect" id="node3" href="$_wave_file_8cpp.html" title="The WaveFile specification defines an object for accessing a RIFF wave file with several channels." alt="" coords="5,157,116,185"/>

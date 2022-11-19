@@ -1,8 +1,8 @@
 /**
  * @file
- * The <C>RealList</C> body implements sequences of real values
+ * The <C>RealList</C> body implements lists of real values
  * with zero-based arbitrary indexed access to positions in the
- * sequence.
+ * list.
  *
  * @author Dr. Thomas Tensi
  * @date   2020-08
@@ -36,7 +36,7 @@ RealList RealList::fromList (IN initializer_list<Real> list)
 
 String RealList::toString () const
 {
-    return _toString("RealList");
+    return _toString("RealList", Real::toString);
 }
 
 /*--------------------*/

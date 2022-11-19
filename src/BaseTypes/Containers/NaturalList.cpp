@@ -1,8 +1,8 @@
 /**
  * @file
- * The <C>NaturalList</C> body implements sequences of non-negative
+ * The <C>NaturalList</C> body implements lists of non-negative
  * integer values with zero-based arbitrary indexed access to
- * positions in the sequence.
+ * positions in the list.
  *
  * @author Dr. Thomas Tensi
  * @date   2020-08
@@ -36,7 +36,7 @@ NaturalList NaturalList::fromList (IN initializer_list<Natural> list)
 
 String NaturalList::toString () const
 {
-    return _toString("NaturalList");
+    return _toString("NaturalList", Natural::toString);
 }
 
 /*--------------------*/

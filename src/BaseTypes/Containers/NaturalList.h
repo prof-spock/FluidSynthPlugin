@@ -1,8 +1,8 @@
 /**
  * @file
- * The <C>NaturalList</C> specification defines sequences of
+ * The <C>NaturalList</C> specification defines lists of
  * non-negative integer values with zero-based arbitrary indexed
- * access to positions in the sequence.
+ * access to positions in the list.
  *
  * @author Dr. Thomas Tensi
  * @date   2020-08
@@ -17,31 +17,32 @@
 /*=========*/
 
 #include <initializer_list>
-#include "GenericSequence.h"
+#include "GenericList.h"
 
 /*--------------------*/
 
 using std::initializer_list;
+using BaseTypes::GenericTypes::GenericList;
 
 /*====================*/
 
 namespace BaseTypes::Containers {
 
     /**
-     * A <C>NaturalList</C> object is a sequence of non-negative
+     * A <C>NaturalList</C> object is a list of non-negative
      * integer values with arbitrary indexed access to positions in
-     * the sequence.  Indexing starts at zero and is consecutive.
+     * the list.  Indexing starts at zero and is consecutive.
      * Lists also allow duplicate elements.
      */
-    struct NaturalList : public GenericSequence<Natural, Natural::toString>
+    struct NaturalList : public GenericList<Natural>
     {
 
         /**
-         * Initializes sequence of naturals from an initializer list
+         * Initializes list of naturals from an initializer list
          * values.
          *
-         * @param list  initializer list of natural values
-         * @return  sequence with values in order given
+         * @param[in] list  initializer list of natural values
+         * @return  list with values in order given
          */
         static NaturalList fromList (IN initializer_list<Natural> list);
 

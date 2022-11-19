@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['integer_725',['Integer',['../struct_base_types_1_1_primitives_1_1_integer.html',1,'BaseTypes::Primitives']]],
-  ['integerlist_726',['IntegerList',['../struct_base_types_1_1_containers_1_1_integer_list.html',1,'BaseTypes::Containers']]]
+  ['logging_645',['Logging',['../struct_base_modules_1_1_logging.html',1,'BaseModules']]]
 ];

@@ -78,6 +78,7 @@ SET(srcAudioSupportDirectory       ${srcDirectory}/Audio)
 SET(srcBaseModulesDirectory        ${srcDirectory}/BaseModules)
 SET(srcBaseTypesDirectory          ${srcDirectory}/BaseTypes)
 SET(srcContainersDirectory         ${srcBaseTypesDirectory}/Containers)
+SET(srcGenericTypesDirectory       ${srcBaseTypesDirectory}/GenericTypes)
 SET(srcPrimitivesDirectory         ${srcBaseTypesDirectory}/Primitives)
 SET(srcLibrariesDirectory          ${srcDirectory}/Libraries)
 SET(srcFluidSynthLibDirectory      ${srcDirectory}/Libraries/FluidSynth)
@@ -105,11 +106,12 @@ SET(juceModulesDirectory ${JUCE_DIR}/modules)
 
 SET(standardIncludeDirectoryList
     ${srcAudioSupportDirectory}
-    ${srcDirectory}/BaseModules
-    ${srcBaseTypesDirectory}/Primitives
-    ${srcBaseTypesDirectory}/Containers
-    ${srcMidiSupportDirectory}
+    ${srcBaseModulesDirectory}
+    ${srcContainersDirectory}
+    ${srcGenericTypesDirectory}
+    ${srcPrimitivesDirectory}
     ${srcLibrariesDirectory}
+    ${srcMidiSupportDirectory}
     ${srcFluidSynthLibDirectory})
 
 SET(additionalIncludeDirectoryList

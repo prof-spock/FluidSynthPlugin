@@ -1,5 +1,5 @@
 <map id="RealList.h" name="RealList.h">
-<area shape="rect" id="node1" title="The RealList specification defines sequences of real values with zero&#45;based arbitrary indexed access ..." alt="" coords="83,5,169,33"/>
+<area shape="rect" id="node1" title="The RealList specification defines lists of real values with zero&#45;based arbitrary indexed access to p..." alt="" coords="83,5,169,33"/>
 <area shape="rect" id="node2" href="$_wave_file_8cpp.html" title="The WaveFile specification defines an object for accessing a RIFF wave file with several channels." alt="" coords="5,81,116,109"/>
-<area shape="rect" id="node3" href="$_real_list_8cpp.html" title="The RealList body implements sequences of real values with zero&#45;based arbitrary indexed access to pos..." alt="" coords="140,81,243,109"/>
+<area shape="rect" id="node3" href="$_real_list_8cpp.html" title="The RealList body implements lists of real values with zero&#45;based arbitrary indexed access to positio..." alt="" coords="140,81,243,109"/>
 </map>

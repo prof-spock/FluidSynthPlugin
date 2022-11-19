@@ -1,25 +1,5 @@
 var searchData=
 [
-  ['genericenumeration_703',['GenericEnumeration',['../struct_base_types_1_1_primitives_1_1_generic_enumeration.html',1,'BaseTypes::Primitives']]],
-  ['genericmatrix_704',['GenericMatrix',['../struct_base_types_1_1_containers_1_1_generic_matrix.html',1,'BaseTypes::Containers']]],
-  ['genericnumber_705',['GenericNumber',['../struct_base_types_1_1_primitives_1_1_generic_number.html',1,'BaseTypes::Primitives']]],
-  ['genericnumber_3c_20byte_2c_20uint8_5ft_20_3e_706',['GenericNumber&lt; Byte, uint8_t &gt;',['../struct_base_types_1_1_primitives_1_1_generic_number.html',1,'BaseTypes::Primitives']]],
-  ['genericnumber_3c_20character_2c_20char_20_3e_707',['GenericNumber&lt; Character, char &gt;',['../struct_base_types_1_1_primitives_1_1_generic_number.html',1,'BaseTypes::Primitives']]],
-  ['genericnumber_3c_20integer_2c_20int_20_3e_708',['GenericNumber&lt; Integer, int &gt;',['../struct_base_types_1_1_primitives_1_1_generic_number.html',1,'BaseTypes::Primitives']]],
-  ['genericnumber_3c_20natural_2c_20size_5ft_20_3e_709',['GenericNumber&lt; Natural, size_t &gt;',['../struct_base_types_1_1_primitives_1_1_generic_number.html',1,'BaseTypes::Primitives']]],
-  ['genericnumber_3c_20real_2c_20double_20_3e_710',['GenericNumber&lt; Real, double &gt;',['../struct_base_types_1_1_primitives_1_1_generic_number.html',1,'BaseTypes::Primitives']]],
-  ['genericsequence_711',['GenericSequence',['../struct_base_types_1_1_containers_1_1_generic_sequence.html',1,'BaseTypes::Containers']]],
-  ['genericsequence_3c_20audiosample_20_3e_712',['GenericSequence&lt; AudioSample &gt;',['../struct_base_types_1_1_containers_1_1_generic_sequence.html',1,'BaseTypes::Containers']]],
-  ['genericsequence_3c_20audiosample_2c_20audiosample_3a_3atostring_20_3e_713',['GenericSequence&lt; AudioSample, AudioSample::toString &gt;',['../struct_base_types_1_1_containers_1_1_generic_sequence.html',1,'BaseTypes::Containers']]],
-  ['genericsequence_3c_20audiosamplefifoqueue_20_3e_714',['GenericSequence&lt; AudioSampleFifoQueue &gt;',['../struct_base_types_1_1_containers_1_1_generic_sequence.html',1,'BaseTypes::Containers']]],
-  ['genericsequence_3c_20audiosamplelist_2c_20audiosamplelist_3a_3atostring_20_3e_715',['GenericSequence&lt; AudioSampleList, AudioSampleList::toString &gt;',['../struct_base_types_1_1_containers_1_1_generic_sequence.html',1,'BaseTypes::Containers']]],
-  ['genericsequence_3c_20basetypes_3a_3acontainers_3a_3agenericsequence_3c_20t_20_3e_20_3e_716',['GenericSequence&lt; BaseTypes::Containers::GenericSequence&lt; T &gt; &gt;',['../struct_base_types_1_1_containers_1_1_generic_sequence.html',1,'BaseTypes::Containers']]],
-  ['genericsequence_3c_20byte_2c_20byte_3a_3atostring_20_3e_717',['GenericSequence&lt; Byte, Byte::toString &gt;',['../struct_base_types_1_1_containers_1_1_generic_sequence.html',1,'BaseTypes::Containers']]],
-  ['genericsequence_3c_20commandlineargument_2c_20commandlineargument_3a_3atostring_20_3e_718',['GenericSequence&lt; CommandLineArgument, CommandLineArgument::toString &gt;',['../struct_base_types_1_1_containers_1_1_generic_sequence.html',1,'BaseTypes::Containers']]],
-  ['genericsequence_3c_20integer_2c_20integer_3a_3atostring_20_3e_719',['GenericSequence&lt; Integer, Integer::toString &gt;',['../struct_base_types_1_1_containers_1_1_generic_sequence.html',1,'BaseTypes::Containers']]],
-  ['genericsequence_3c_20midievent_2c_20midievent_3a_3atostring_20_3e_720',['GenericSequence&lt; MidiEvent, MidiEvent::toString &gt;',['../struct_base_types_1_1_containers_1_1_generic_sequence.html',1,'BaseTypes::Containers']]],
-  ['genericsequence_3c_20natural_2c_20natural_3a_3atostring_20_3e_721',['GenericSequence&lt; Natural, Natural::toString &gt;',['../struct_base_types_1_1_containers_1_1_generic_sequence.html',1,'BaseTypes::Containers']]],
-  ['genericsequence_3c_20real_2c_20real_3a_3atostring_20_3e_722',['GenericSequence&lt; Real, Real::toString &gt;',['../struct_base_types_1_1_containers_1_1_generic_sequence.html',1,'BaseTypes::Containers']]],
-  ['genericsequence_3c_20string_2c_20string_5ftostring_20_3e_723',['GenericSequence&lt; String, String_toString &gt;',['../struct_base_types_1_1_containers_1_1_generic_sequence.html',1,'BaseTypes::Containers']]],
-  ['generictuple_724',['GenericTuple',['../struct_base_types_1_1_containers_1_1_generic_tuple.html',1,'BaseTypes::Containers']]]
+  ['integer_643',['Integer',['../struct_base_types_1_1_primitives_1_1_integer.html',1,'BaseTypes::Primitives']]],
+  ['integerlist_644',['IntegerList',['../struct_base_types_1_1_containers_1_1_integer_list.html',1,'BaseTypes::Containers']]]
 ];

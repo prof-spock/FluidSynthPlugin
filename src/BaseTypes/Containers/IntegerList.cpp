@@ -1,8 +1,8 @@
 /**
  * @file
- * The <C>IntegerList</C> body implements sequences of integer values
+ * The <C>IntegerList</C> body implements lists of integer values
  * with zero-based arbitrary indexed access to positions in the
- * sequence.
+ * list.
  *
  * @author Dr. Thomas Tensi
  * @date   2020-08
@@ -36,5 +36,5 @@ IntegerList IntegerList::fromList (IN initializer_list<Integer> list)
 
 String IntegerList::toString () const
 {
-    return _toString("IntegerList");
+    return _toString("IntegerList", Integer::toString);
 }

@@ -82,10 +82,11 @@ namespace BaseTypes::Primitives {
          * Returns string representation of percentage with precision
          * and padding information.
          *
-         * @param precision              minimum number of valid digits
-         * @param fractionalDigitCount   number of decimal digits
-         * @param padCharacter           character to use for left
-         *                               padding
+         * @param[in] precision              minimum number of valid
+         *                                   digits
+         * @param[in] fractionalDigitCount   number of decimal digits
+         * @param[in] padCharacter           character to use for left
+         *                                   padding
          * @return  string representation
          */
         String toString (IN Natural precision = 0,

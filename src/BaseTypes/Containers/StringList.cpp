@@ -1,8 +1,8 @@
 /**
  * @file
- * The <C>StringList</C> body implements sequences of string values
+ * The <C>StringList</C> body implements lists of string values
  * with zero-based arbitrary indexed access to positions in the
- * sequence.
+ * list.
  *
  * @author Dr. Thomas Tensi
  * @date   2020-08
@@ -19,12 +19,26 @@
 
 using BaseModules::StringUtil;
 using BaseTypes::Primitives::String;
+using BaseTypes::Primitives::String_toString;
 
 /*====================*/
 
+StringList StringList::fromList (IN initializer_list<String> list)
+{
+    StringList result{};
+
+    for (String element : list) {
+        result.append(element);
+    }
+            
+    return result;
+}
+
+/*--------------------*/
+
 String StringList::toString () const
 {
-    return _toString("StringList");
+    return _toString("StringList", String_toString);
 }
 
 /*--------------------*/

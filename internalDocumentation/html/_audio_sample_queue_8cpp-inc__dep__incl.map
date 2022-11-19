@@ -1,9 +1,0 @@
-<map id="AudioSampleQueue.cpp&#45;inc" name="AudioSampleQueue.cpp&#45;inc">
-<area shape="rect" id="node1" title="The AudioSampleQueue body implements a ring buffer for audio samples with left and right shifts and a..." alt="" coords="159,5,363,33"/>
-<area shape="rect" id="node2" href="$_audio_sample_queue_8h.html" title="The AudioSampleQueue specification defines a ring buffer for audio samples with left and right shifts..." alt="" coords="179,81,343,109"/>
-<area shape="rect" id="node3" href="$_audio_sample_queue_8cpp.html" title="The AudioSampleQueue body implements a ring buffer for audio samples with left and right shifts and a..." alt="" coords="63,157,243,185"/>
-<area shape="rect" id="node4" href="$_audio_sample_queue_matrix_8h.html" title="The AudioSampleQueueMatrix specification defines a two&#45;dimensional list of ring buffers for audio sam..." alt="" coords="268,157,471,185"/>
-<area shape="rect" id="node5" href="$_audio_sample_queue_matrix_8cpp.html" title="The AudioSampleQueueMatrix body implements a two&#45;dimensional list of ring buffers for audio samples (..." alt="" coords="5,233,224,261"/>
-<area shape="rect" id="node6" href="$_audio_sample_queue_matrix_8cpp-inc.html" title="The AudioSampleQueueMatrix body implements a two&#45;dimensional list of ring buffers for audio samples (..." alt="" coords="248,233,491,261"/>
-<area shape="rect" id="node7" href="$_fluid_synth_plugin___event_processor_8cpp.html" title="The FluidSynthPlugin_Processor module implements the handling of MIDI events from the DAW via JUCE ha..." alt="" coords="515,233,786,261"/>
-</map>

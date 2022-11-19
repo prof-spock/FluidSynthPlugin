@@ -1,8 +1,8 @@
 <map id="FluidSynthPlugin_Editor.h" name="FluidSynthPlugin_Editor.h">
-<area shape="rect" id="node1" title="The FluidSynthPlugin_AudioProcessor module handles MIDI events from the DAW via JUCE and have them pr..." alt="" coords="1447,5,1635,33"/>
-<area shape="rect" id="node2" href="$_fluid_synth_plugin___event_processor_8h.html" title="The FluidSynthPlugin_Processor specification defines the handling of MIDI events from the DAW via JUC..." alt="" coords="1413,81,1668,109"/>
-<area shape="rect" id="node3" href="$_juce_headers_8h_source.html" title=" " alt="" coords="1419,157,1539,185"/>
-<area shape="rect" id="node18" href="$_object_8h.html" title="The Object specification and body provides the root object type." alt="" coords="2147,157,2225,185"/>
+<area shape="rect" id="node1" title="The FluidSynthPlugin_AudioProcessor module handles MIDI events from the DAW via JUCE and have them pr..." alt="" coords="1349,5,1537,33"/>
+<area shape="rect" id="node2" href="$_fluid_synth_plugin___event_processor_8h.html" title="The FluidSynthPlugin_Processor specification defines the handling of MIDI events from the DAW via JUC..." alt="" coords="1316,81,1571,109"/>
+<area shape="rect" id="node3" href="$_juce_headers_8h_source.html" title=" " alt="" coords="1322,157,1442,185"/>
+<area shape="rect" id="node18" href="$_object_8h.html" title="The Object specification and body provides the root object type." alt="" coords="1466,157,1543,185"/>
 <area shape="rect" id="node4" title=" " alt="" coords="5,233,180,277"/>
 <area shape="rect" id="node5" title=" " alt="" coords="204,233,371,277"/>
 <area shape="rect" id="node6" title=" " alt="" coords="395,233,561,277"/>
@@ -17,5 +17,4 @@
 <area shape="rect" id="node15" title=" " alt="" coords="2176,233,2335,277"/>
 <area shape="rect" id="node16" title=" " alt="" coords="2359,233,2506,277"/>
 <area shape="rect" id="node17" title=" " alt="" coords="2530,241,2725,269"/>
-<area shape="rect" id="node19" title=" " alt="" coords="2749,241,2791,269"/>
 </map>

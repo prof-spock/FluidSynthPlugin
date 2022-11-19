@@ -121,7 +121,7 @@ SET(cppDefineClauseList
 IF(MSVC)
     # --- list of warning number to be ignored
     SET(warningNumberList
-        4100 4244 4505 4723 5105 6011 6255 6297
+        4100 4180 4244 4505 4723 5105 6011 6255 6297
         26439 26451 26495 26498 26812 26819 28182)
   
     STRING(JOIN " " cppFlagsCommon

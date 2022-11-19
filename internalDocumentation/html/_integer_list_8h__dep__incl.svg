@@ -36,7 +36,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="_integer_list_8cpp.html" target="_top" xlink:title="The IntegerList body implements sequences of integer values with zero&#45;based arbitrary indexed access ...">
+<g id="a_node3"><a xlink:href="_integer_list_8cpp.html" target="_top" xlink:title="The IntegerList body implements lists of integer values with zero&#45;based arbitrary indexed access to p...">
 <polygon fill="white" stroke="black" points="101.5,-0.5 101.5,-20.5 189.5,-20.5 189.5,-0.5 101.5,-0.5"/>
 <text text-anchor="middle" x="145.5" y="-7.7" font-family="Helvetica,sans-Serif" font-size="11.00">IntegerList.cpp</text>
 </a>

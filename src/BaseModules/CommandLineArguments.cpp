@@ -244,11 +244,13 @@ String CommandLineArgument::toString (IN CommandLineArgument& argument)
 
 String CommandLineArgumentList::toString () const
 {
-    return _toString("CommandLineArgumentList");
+    return _toString("CommandLineArgumentList",
+                     CommandLineArgument::toString);
 }
-/*--------------------*/
+
+/*----------------------------*/
 /* CommandLineArgumentHandler */
-/*--------------------*/
+/*----------------------------*/
 
 CommandLineArgumentHandler::CommandLineArgumentHandler ()
 {

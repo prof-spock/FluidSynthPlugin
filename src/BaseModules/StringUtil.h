@@ -45,6 +45,22 @@ namespace BaseModules {
     struct StringUtil {
 
         /**
+         * Tells whether <C>st</C> contains <C>substring</C> at or after
+         * <C>startPosition</C>
+         *
+         * @param[in] st             the string to be searched for
+         *                           substring
+         * @param[in] substring      the string to search for in st
+         * @param[in] startPosition  the start position of search
+         * @return  information whether st contains substring after
+         *          start position
+         */
+        static Boolean contains (IN String& st, IN String& substring,
+                                 IN Natural startPosition = 0);
+
+        /*--------------------*/
+
+        /**
          * Tells whether <C>st</C> ends with <C>prefix</C>.
          *
          * @param[in] st      the string to be checked for suffix
@@ -60,17 +76,17 @@ namespace BaseModules {
          * Expands parameter %i by <C>replacementi</C> in <C>st</C>
          * and returns expanded version
          *
-         * @param st            the string with parameters
-         * @param replacement01  replacement string for %1
-         * @param replacement02  replacement string for %2
-         * @param replacement03  replacement string for %3
-         * @param replacement04  replacement string for %4
-         * @param replacement05  replacement string for %5
-         * @param replacement06  replacement string for %6
-         * @param replacement07  replacement string for %7
-         * @param replacement08  replacement string for %8
-         * @param replacement09  replacement string for %9
-         * @param replacement10  replacement string for %A
+         * @param[in] st            the string with parameters
+         * @param[in] replacement01  replacement string for %1
+         * @param[in] replacement02  replacement string for %2
+         * @param[in] replacement03  replacement string for %3
+         * @param[in] replacement04  replacement string for %4
+         * @param[in] replacement05  replacement string for %5
+         * @param[in] replacement06  replacement string for %6
+         * @param[in] replacement07  replacement string for %7
+         * @param[in] replacement08  replacement string for %8
+         * @param[in] replacement09  replacement string for %9
+         * @param[in] replacement10  replacement string for %A
          * @return  expanded version of st
          */
         static String expand (IN String& st,
@@ -126,7 +142,7 @@ namespace BaseModules {
         /**
          * Tells whether <C>st</C> represents an integer.
          *
-         * @param st  the string with an integer value
+         * @param[in] st  the string with an integer value
          * @return  information whether string represents an integer or
          *          not
          */
@@ -137,7 +153,7 @@ namespace BaseModules {
         /**
          * Tells whether <C>st</C> represents an natural.
          *
-         * @param st  the string with a natural value
+         * @param[in] st  the string with a natural value
          * @return  information whether string represents a natural or
          *          not
          */
@@ -148,7 +164,7 @@ namespace BaseModules {
         /**
          * Tells whether <C>st</C> represents a real value.
          *
-         * @param st  the string with a real value
+         * @param[in] st  the string with a real value
          * @return  information whether string represents a real or not
          */
         static Boolean isReal (IN String& st);
@@ -238,7 +254,7 @@ namespace BaseModules {
         /**
          * Removes white space from beginning and end of <C>st</C>.
          *
-         * @param st  the string with whitespace to be replaced
+         * @param[in] st  the string with whitespace to be replaced
          * @return  sanitized version of string
          */
         static String strip (IN String& st);
@@ -267,8 +283,8 @@ namespace BaseModules {
          * Converts <C>st</C> to an int; if conversion fails,
          * <C>defaultValue</C> is returned
          *
-         * @param st            the string to be converted to integer
-         * @param defaultValue  the value to be used for bad conversion
+         * @param[in] st            the string to be converted to integer
+         * @param[in] defaultValue  the value to be used for bad conversion
          * @return  integer value of string or default
          */
         static Integer
@@ -281,7 +297,7 @@ namespace BaseModules {
          * Converts <C>st</C> to a natural; if conversion fails, maximum
          * natural is returned
          *
-         * @param st  the string to be converted to natural
+         * @param[in] st  the string to be converted to natural
          * @return  natural value of string or maximum natural
          */
         static Natural toNatural (IN String& st);
@@ -292,8 +308,8 @@ namespace BaseModules {
          * Converts <C>st</C> to a natural; if conversion fails,
          * <C>defaultValue</C> is returned
          *
-         * @param st            the string to be converted to natural
-         * @param defaultValue  the value to be used for bad conversion
+         * @param[in] st            the string to be converted to natural
+         * @param[in] defaultValue  the value to be used for bad conversion
          * @return  natural value of string or default
          */
         static Natural toNatural (IN String& st,
@@ -305,7 +321,7 @@ namespace BaseModules {
          * Converts <C>st</C> to a percentage value; if conversion
          * fails, NaN is returned
          *
-         * @param st  the string to be converted to percentage
+         * @param[in] st  the string to be converted to percentage
          * @return  percentage value of string or NaN
          */
         static Percentage toPercentage (IN String& st);
@@ -316,7 +332,7 @@ namespace BaseModules {
          * Converts <C>st</C> to a real value; if conversion fails,
          * NaN is returned
          *
-         * @param st  the string to be converted to real
+         * @param[in] st  the string to be converted to real
          * @return  real value of string or NaN
          */
         static Real toReal (IN String& st);
@@ -327,8 +343,8 @@ namespace BaseModules {
          * Converts <C>st</C> to a real value; if conversion fails,
          * <C>defaultValue</C> is returned
          *
-         * @param st            the string to be converted to real
-         * @param defaultValue  the value to be used for bad conversion
+         * @param[in] st            the string to be converted to real
+         * @param[in] defaultValue  the value to be used for bad conversion
          * @return  real value of string or default
          */
         static Real toReal (IN String& st, IN Real defaultValue);
@@ -338,7 +354,7 @@ namespace BaseModules {
         /**
          * Converts boolean value <C>b</C> to string.
          *
-         * @param b  boolean value to be converted
+         * @param[in] b  boolean value to be converted
          * @return  string representation of bool
          */
         static String toString (IN Boolean b);
@@ -348,7 +364,7 @@ namespace BaseModules {
         /**
          * Converts byte value <C>b</C> to string.
          *
-         * @param b  byte value to be converted
+         * @param[in] b  byte value to be converted
          * @return  string representation of byte
          */
         static String toString (IN Byte& b);
@@ -358,7 +374,7 @@ namespace BaseModules {
         /**
          * Converts real value <C>r</C> to string.
          *
-         * @param r  real value to be converted
+         * @param[in] r  real value to be converted
          * @return  string representation of real
          */
         static String toString (IN Real r);
@@ -368,7 +384,7 @@ namespace BaseModules {
         /**
          * Converts integer <C>i</C> to string.
          *
-         * @param i             integer value to be converted
+         * @param[in] i  integer value to be converted
          * @return  string representation of integer
          */
         static String toString (IN Integer i);
@@ -379,9 +395,9 @@ namespace BaseModules {
          * Converts integer <C>i</C> to string with precision and
          * padding information.
          *
-         * @param i             integer value to be converted
-         * @param precision     minimum number of valid digits
-         * @param padCharacter  character to use for left padding
+         * @param[in] i             integer value to be converted
+         * @param[in] precision     minimum number of valid digits
+         * @param[in] padCharacter  character to use for left padding
          * @return  string representation of integer
          */
         static String toString (IN Integer i,
@@ -393,7 +409,7 @@ namespace BaseModules {
         /**
          * Converts natural value <C>n</C> to string.
          *
-         * @param n  natural value to be converted
+         * @param[in] n  natural value to be converted
          * @return  string representation of natural
          */
         static String toString (IN Natural n);
@@ -404,9 +420,9 @@ namespace BaseModules {
          * Converts natural value <C>n</C> to string with precision
          * and padding information.
          *
-         * @param n             natural value to be converted
-         * @param precision     minimum number of valid digits
-         * @param padCharacter  character to use for left padding
+         * @param[in] n             natural value to be converted
+         * @param[in] precision     minimum number of valid digits
+         * @param[in] padCharacter  character to use for left padding
          * @return  string representation of natural
          */
         static String toString (IN Natural n,
@@ -420,7 +436,7 @@ namespace BaseModules {
          * in this representation the string is enclosed in double
          * quotes and inner double quotes are duplicated
          *
-         * @param st  the string to be converted to a printable string
+         * @param[in] st  the string to be converted to a printable string
          * @return  printable value of string
          */
         static String toPrintableString (IN String& st);
@@ -433,7 +449,7 @@ namespace BaseModules {
          * is enclosed in double quotes and inner double quotes are
          * duplicated
          *
-         * @param st  the string to be converted from a printable string
+         * @param[in] st  the string to be converted from a printable string
          * @return  internal value of string
          */
         static String fromPrintableString (IN String& st);
@@ -444,7 +460,7 @@ namespace BaseModules {
          * Converts string <C>st</C> to lower case (using the default
          * locale).
          *
-         * @param st  the string to be converted to lower case
+         * @param[in] st  the string to be converted to lower case
          * @return  lower case version of string
          */
         static String toLowercase (IN String& st);
@@ -455,7 +471,7 @@ namespace BaseModules {
          * Converts string <C>st</C> to upper case (using the default
          * locale).
          *
-         * @param st  the string to be converted to upper case
+         * @param[in] st  the string to be converted to upper case
          * @return  upper case version of string
          */
         static String toUppercase (IN String& st);
@@ -476,8 +492,8 @@ namespace BaseModules {
          * Returns string representation of list <C>list</C> with type
          * name <C>typeName</C> where elements are comma-separated.
          *
-         * @param typeName  name of list type
-         * @param list      list of strings
+         * @param[in] typeName  name of list type
+         * @param[in] list      list of strings
          * @return  single string representation of list
          */
         inline
@@ -494,8 +510,8 @@ namespace BaseModules {
          * prefixed by <C>typeName</C> assuming an explicit conversion
          * from element type to string
          *
-         * @param typeName  name of list type
-         * @param list      list of strings
+         * @param[in] typeName  name of list type
+         * @param[in] list      list of strings
          * @return  single string representation of list
          */
         template<typename List_T,
@@ -519,8 +535,8 @@ namespace BaseModules {
          * Converts list <C>list</C> to linear string representation
          * prefixed by <C>typeName</C> assuming an object operation
          *
-         * @param typeName  name of list type
-         * @param list      list of strings
+         * @param[in] typeName  name of list type
+         * @param[in] list      list of strings
          * @return  single string representation of list
          */
         template<typename List_T, typename Element_T>
@@ -543,8 +559,8 @@ namespace BaseModules {
          * representation prefixed by <C>typeName</C>; assumes key
          * is a string and value has some print function
          *
-         * @param typeName  name of list type
-         * @param map       map to be converted to string
+         * @param[in] typeName  name of list type
+         * @param[in] map       map to be converted to string
          *                  representation
          * @return  string representation of map
          */

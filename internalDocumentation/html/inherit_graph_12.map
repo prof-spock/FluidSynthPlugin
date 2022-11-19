@@ -1,3 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$struct_base_types_1_1_containers_1_1_generic_matrix.html" title="A GenericMatrix is a generic (two&#45;dimensional) matrix type with a single element type parameter T." alt="" coords="5,5,180,49"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,13,105,41"/>
+<area shape="rect" id="node2" href="$struct_base_types_1_1_containers_1_1_dictionary.html" title="A Dictionary object maps string keys to string values." alt="" coords="153,5,328,49"/>
 </map>

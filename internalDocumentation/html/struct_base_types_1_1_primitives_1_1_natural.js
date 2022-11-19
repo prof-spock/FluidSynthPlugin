@@ -5,6 +5,7 @@ var struct_base_types_1_1_primitives_1_1_natural =
     [ "Natural", "struct_base_types_1_1_primitives_1_1_natural.html#ac709460dfb1acd5231bc9bb3d17ac1db", null ],
     [ "ceiling", "struct_base_types_1_1_primitives_1_1_natural.html#af67f89a8c45f0ac00836dcf1db779506", null ],
     [ "floor", "struct_base_types_1_1_primitives_1_1_natural.html#a7f955c595ce0dece7b7705692f000525", null ],
+    [ "forceToInterval", "struct_base_types_1_1_primitives_1_1_natural.html#aead72dc3c04566f72463bb269e0b3a97", null ],
     [ "mod", "struct_base_types_1_1_primitives_1_1_natural.html#ae7d289f791cebe3c911d2ad60caebddc", null ],
     [ "mod", "struct_base_types_1_1_primitives_1_1_natural.html#a399117698384c7a6f085a1aa33403561", null ],
     [ "operator double", "struct_base_types_1_1_primitives_1_1_natural.html#a46cb94f612b6fa5e380b23faa9141c29", null ],

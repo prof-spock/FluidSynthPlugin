@@ -98,6 +98,9 @@ $(document).ready(function(){initNavTree('struct_base_modules_1_1_string_util.ht
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a6ab5698b3c7f6ad5e1f65c57a9a51976"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_base_modules_1_1_string_util.html#a6ab5698b3c7f6ad5e1f65c57a9a51976">contains</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;st, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;<a class="el" href="struct_base_modules_1_1_string_util.html#a353662e6a5d4348ddd497a810813798b">substring</a>, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> startPosition=0)</td></tr>
+<tr class="memdesc:a6ab5698b3c7f6ad5e1f65c57a9a51976"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether <code>st</code> contains <code>substring</code> at or after <code>startPosition</code>  <a href="struct_base_modules_1_1_string_util.html#a6ab5698b3c7f6ad5e1f65c57a9a51976">More...</a><br /></td></tr>
+<tr class="separator:a6ab5698b3c7f6ad5e1f65c57a9a51976"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27d341f4311fadee4a911fb52987ce7f"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_base_modules_1_1_string_util.html#a27d341f4311fadee4a911fb52987ce7f">endsWith</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;st, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;suffix)</td></tr>
 <tr class="memdesc:a27d341f4311fadee4a911fb52987ce7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether <code>st</code> ends with <code>prefix</code>.  <a href="struct_base_modules_1_1_string_util.html#a27d341f4311fadee4a911fb52987ce7f">More...</a><br /></td></tr>
 <tr class="separator:a27d341f4311fadee4a911fb52987ce7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -261,12 +264,65 @@ static const String&#160;</td><td class="memItemRight" valign="bottom"><a class=
 <p>Returns string representation of list <code>list</code> with type name <code>typeName</code> where elements are comma-separated. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">typeName</td><td>name of list type </td></tr>
-    <tr><td class="paramname">list</td><td>list of strings </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">typeName</td><td>name of list type </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">list</td><td>list of strings </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>single string representation of list </dd></dl>
+
+</div>
+</div>
+<a id="a6ab5698b3c7f6ad5e1f65c57a9a51976"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ab5698b3c7f6ad5e1f65c57a9a51976">&#9670;&nbsp;</a></span>contains()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a> StringUtil::contains </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;&#160;</td>
+          <td class="paramname"><em>st</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;&#160;</td>
+          <td class="paramname"><em>substring</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a>&#160;</td>
+          <td class="paramname"><em>startPosition</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tells whether <code>st</code> contains <code>substring</code> at or after <code>startPosition</code> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">st</td><td>the string to be searched for substring </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">substring</td><td>the string to search for in st </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">startPosition</td><td>the start position of search </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>information whether st contains substring after start position </dd></dl>
 
 </div>
 </div>
@@ -407,17 +463,17 @@ static const String&#160;</td><td class="memItemRight" valign="bottom"><a class=
 <p>Expands parameter i by <code>replacementi</code> in <code>st</code> and returns expanded version. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">st</td><td>the string with parameters </td></tr>
-    <tr><td class="paramname">replacement01</td><td>replacement string for %1 </td></tr>
-    <tr><td class="paramname">replacement02</td><td>replacement string for %2 </td></tr>
-    <tr><td class="paramname">replacement03</td><td>replacement string for %3 </td></tr>
-    <tr><td class="paramname">replacement04</td><td>replacement string for %4 </td></tr>
-    <tr><td class="paramname">replacement05</td><td>replacement string for %5 </td></tr>
-    <tr><td class="paramname">replacement06</td><td>replacement string for %6 </td></tr>
-    <tr><td class="paramname">replacement07</td><td>replacement string for %7 </td></tr>
-    <tr><td class="paramname">replacement08</td><td>replacement string for %8 </td></tr>
-    <tr><td class="paramname">replacement09</td><td>replacement string for %9 </td></tr>
-    <tr><td class="paramname">replacement10</td><td>replacement string for A </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">st</td><td>the string with parameters </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">replacement01</td><td>replacement string for %1 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">replacement02</td><td>replacement string for %2 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">replacement03</td><td>replacement string for %3 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">replacement04</td><td>replacement string for %4 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">replacement05</td><td>replacement string for %5 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">replacement06</td><td>replacement string for %6 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">replacement07</td><td>replacement string for %7 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">replacement08</td><td>replacement string for %8 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">replacement09</td><td>replacement string for %9 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">replacement10</td><td>replacement string for A </td></tr>
   </table>
   </dd>
 </dl>
@@ -558,7 +614,7 @@ static const String&#160;</td><td class="memItemRight" valign="bottom"><a class=
 <p>Converts printable string <code>st</code> to internal representation; in this external representation the string is enclosed in double quotes and inner double quotes are duplicated. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">st</td><td>the string to be converted from a printable string </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">st</td><td>the string to be converted from a printable string </td></tr>
   </table>
   </dd>
 </dl>
@@ -593,7 +649,7 @@ static const String&#160;</td><td class="memItemRight" valign="bottom"><a class=
 <p>Tells whether <code>st</code> represents an integer. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">st</td><td>the string with an integer value </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">st</td><td>the string with an integer value </td></tr>
   </table>
   </dd>
 </dl>
@@ -628,7 +684,7 @@ static const String&#160;</td><td class="memItemRight" valign="bottom"><a class=
 <p>Tells whether <code>st</code> represents an natural. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">st</td><td>the string with a natural value </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">st</td><td>the string with a natural value </td></tr>
   </table>
   </dd>
 </dl>
@@ -663,7 +719,7 @@ static const String&#160;</td><td class="memItemRight" valign="bottom"><a class=
 <p>Tells whether <code>st</code> represents a real value. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">st</td><td>the string with a real value </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">st</td><td>the string with a real value </td></tr>
   </table>
   </dd>
 </dl>
@@ -745,8 +801,8 @@ template&lt;typename List_T , typename Element_T , String  elementToStringProc&g
 <p>Converts list <code>list</code> to linear string representation prefixed by <code>typeName</code> assuming an explicit conversion from element type to string. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">typeName</td><td>name of list type </td></tr>
-    <tr><td class="paramname">list</td><td>list of strings </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">typeName</td><td>name of list type </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">list</td><td>list of strings </td></tr>
   </table>
   </dd>
 </dl>
@@ -793,8 +849,8 @@ template&lt;typename List_T , typename Element_T &gt; </div>
 <p>Converts list <code>list</code> to linear string representation prefixed by <code>typeName</code> assuming an object operation. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">typeName</td><td>name of list type </td></tr>
-    <tr><td class="paramname">list</td><td>list of strings </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">typeName</td><td>name of list type </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">list</td><td>list of strings </td></tr>
   </table>
   </dd>
 </dl>
@@ -1092,8 +1148,8 @@ template&lt;typename Map_T , typename Value_T , String  valueToStringProc&gt; </
 <p>Converts mapping <code>map</code> to linear string representation prefixed by <code>typeName</code>; assumes key is a string and value has some print function. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">typeName</td><td>name of list type </td></tr>
-    <tr><td class="paramname">map</td><td>map to be converted to string representation </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">typeName</td><td>name of list type </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">map</td><td>map to be converted to string representation </td></tr>
   </table>
   </dd>
 </dl>
@@ -1128,7 +1184,7 @@ template&lt;typename Map_T , typename Value_T , String  valueToStringProc&gt; </
 <p>Removes white space from beginning and end of <code>st</code>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">st</td><td>the string with whitespace to be replaced </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">st</td><td>the string with whitespace to be replaced </td></tr>
   </table>
   </dd>
 </dl>
@@ -1226,8 +1282,8 @@ template&lt;typename Map_T , typename Value_T , String  valueToStringProc&gt; </
 <p>Converts <code>st</code> to an int; if conversion fails, <code>defaultValue</code> is returned. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">st</td><td>the string to be converted to integer </td></tr>
-    <tr><td class="paramname">defaultValue</td><td>the value to be used for bad conversion </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">st</td><td>the string to be converted to integer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">defaultValue</td><td>the value to be used for bad conversion </td></tr>
   </table>
   </dd>
 </dl>
@@ -1262,7 +1318,7 @@ template&lt;typename Map_T , typename Value_T , String  valueToStringProc&gt; </
 <p>Converts string <code>st</code> to lower case (using the default locale). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">st</td><td>the string to be converted to lower case </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">st</td><td>the string to be converted to lower case </td></tr>
   </table>
   </dd>
 </dl>
@@ -1297,7 +1353,7 @@ template&lt;typename Map_T , typename Value_T , String  valueToStringProc&gt; </
 <p>Converts <code>st</code> to a natural; if conversion fails, maximum natural is returned. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">st</td><td>the string to be converted to natural </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">st</td><td>the string to be converted to natural </td></tr>
   </table>
   </dd>
 </dl>
@@ -1342,8 +1398,8 @@ template&lt;typename Map_T , typename Value_T , String  valueToStringProc&gt; </
 <p>Converts <code>st</code> to a natural; if conversion fails, <code>defaultValue</code> is returned. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">st</td><td>the string to be converted to natural </td></tr>
-    <tr><td class="paramname">defaultValue</td><td>the value to be used for bad conversion </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">st</td><td>the string to be converted to natural </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">defaultValue</td><td>the value to be used for bad conversion </td></tr>
   </table>
   </dd>
 </dl>
@@ -1378,7 +1434,7 @@ template&lt;typename Map_T , typename Value_T , String  valueToStringProc&gt; </
 <p>Converts <code>st</code> to a percentage value; if conversion fails, NaN is returned. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">st</td><td>the string to be converted to percentage </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">st</td><td>the string to be converted to percentage </td></tr>
   </table>
   </dd>
 </dl>
@@ -1413,7 +1469,7 @@ template&lt;typename Map_T , typename Value_T , String  valueToStringProc&gt; </
 <p>Converts string <code>st</code> to string literal representation; in this representation the string is enclosed in double quotes and inner double quotes are duplicated. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">st</td><td>the string to be converted to a printable string </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">st</td><td>the string to be converted to a printable string </td></tr>
   </table>
   </dd>
 </dl>
@@ -1448,7 +1504,7 @@ template&lt;typename Map_T , typename Value_T , String  valueToStringProc&gt; </
 <p>Converts <code>st</code> to a real value; if conversion fails, NaN is returned. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">st</td><td>the string to be converted to real </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">st</td><td>the string to be converted to real </td></tr>
   </table>
   </dd>
 </dl>
@@ -1493,8 +1549,8 @@ template&lt;typename Map_T , typename Value_T , String  valueToStringProc&gt; </
 <p>Converts <code>st</code> to a real value; if conversion fails, <code>defaultValue</code> is returned. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">st</td><td>the string to be converted to real </td></tr>
-    <tr><td class="paramname">defaultValue</td><td>the value to be used for bad conversion </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">st</td><td>the string to be converted to real </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">defaultValue</td><td>the value to be used for bad conversion </td></tr>
   </table>
   </dd>
 </dl>
@@ -1529,7 +1585,7 @@ template&lt;typename Map_T , typename Value_T , String  valueToStringProc&gt; </
 <p>Converts boolean value <code>b</code> to string. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">b</td><td>boolean value to be converted </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>boolean value to be converted </td></tr>
   </table>
   </dd>
 </dl>
@@ -1564,7 +1620,7 @@ template&lt;typename Map_T , typename Value_T , String  valueToStringProc&gt; </
 <p>Converts byte value <code>b</code> to string. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">b</td><td>byte value to be converted </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>byte value to be converted </td></tr>
   </table>
   </dd>
 </dl>
@@ -1599,7 +1655,7 @@ template&lt;typename Map_T , typename Value_T , String  valueToStringProc&gt; </
 <p>Converts integer <code>i</code> to string. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>integer value to be converted </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">i</td><td>integer value to be converted </td></tr>
   </table>
   </dd>
 </dl>
@@ -1650,9 +1706,9 @@ template&lt;typename Map_T , typename Value_T , String  valueToStringProc&gt; </
 <p>Converts integer <code>i</code> to string with precision and padding information. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>integer value to be converted </td></tr>
-    <tr><td class="paramname">precision</td><td>minimum number of valid digits </td></tr>
-    <tr><td class="paramname">padCharacter</td><td>character to use for left padding </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">i</td><td>integer value to be converted </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">precision</td><td>minimum number of valid digits </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">padCharacter</td><td>character to use for left padding </td></tr>
   </table>
   </dd>
 </dl>
@@ -1687,7 +1743,7 @@ template&lt;typename Map_T , typename Value_T , String  valueToStringProc&gt; </
 <p>Converts natural value <code>n</code> to string. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">n</td><td>natural value to be converted </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>natural value to be converted </td></tr>
   </table>
   </dd>
 </dl>
@@ -1738,9 +1794,9 @@ template&lt;typename Map_T , typename Value_T , String  valueToStringProc&gt; </
 <p>Converts natural value <code>n</code> to string with precision and padding information. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">n</td><td>natural value to be converted </td></tr>
-    <tr><td class="paramname">precision</td><td>minimum number of valid digits </td></tr>
-    <tr><td class="paramname">padCharacter</td><td>character to use for left padding </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>natural value to be converted </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">precision</td><td>minimum number of valid digits </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">padCharacter</td><td>character to use for left padding </td></tr>
   </table>
   </dd>
 </dl>
@@ -1775,7 +1831,7 @@ template&lt;typename Map_T , typename Value_T , String  valueToStringProc&gt; </
 <p>Converts real value <code>r</code> to string. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">r</td><td>real value to be converted </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">r</td><td>real value to be converted </td></tr>
   </table>
   </dd>
 </dl>
@@ -1810,7 +1866,7 @@ template&lt;typename Map_T , typename Value_T , String  valueToStringProc&gt; </
 <p>Converts string <code>st</code> to upper case (using the default locale). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">st</td><td>the string to be converted to upper case </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">st</td><td>the string to be converted to upper case </td></tr>
   </table>
   </dd>
 </dl>

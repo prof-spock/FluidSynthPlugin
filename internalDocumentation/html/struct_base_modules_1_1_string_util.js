@@ -1,6 +1,7 @@
 var struct_base_modules_1_1_string_util =
 [
     [ "_combineListElements", "struct_base_modules_1_1_string_util.html#a9acf7e2612f0804ae97e9c401e33b3c1", null ],
+    [ "contains", "struct_base_modules_1_1_string_util.html#a6ab5698b3c7f6ad5e1f65c57a9a51976", null ],
     [ "endsWith", "struct_base_modules_1_1_string_util.html#a27d341f4311fadee4a911fb52987ce7f", null ],
     [ "expand", "struct_base_modules_1_1_string_util.html#ab9de3d59e9209af708188356f104c731", null ],
     [ "find", "struct_base_modules_1_1_string_util.html#a581b823425c911324dd23799b4697be3", null ],

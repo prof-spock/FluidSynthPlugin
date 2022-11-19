@@ -1,5 +1,4 @@
 <map id="MIDI::MidiEventList" name="MIDI::MidiEventList">
-<area shape="rect" id="node1" title="An MidiEventList object is a sequence of MIDI events with arbitrary indexed access to positions in th..." alt="" coords="43,472,194,601"/>
-<area shape="rect" id="node2" href="$struct_base_types_1_1_containers_1_1_generic_sequence.html" title=" " alt="" coords="5,135,232,424"/>
-<area shape="rect" id="node3" title=" " alt="" coords="43,5,194,87"/>
+<area shape="rect" id="node1" title="An MidiEventList object is a list of MIDI events with arbitrary indexed access to positions in the li..." alt="" coords="27,151,178,280"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,5,200,103"/>
 </map>

@@ -1,5 +1,5 @@
 <map id="MidiEventList.h" name="MidiEventList.h">
-<area shape="rect" id="node1" title="The MidiEventList specification defines sequences of MIDI events with zero&#45;based arbitrary indexed ac..." alt="" coords="501,5,620,33"/>
+<area shape="rect" id="node1" title="The MidiEventList specification defines lists of MIDI events with zero&#45;based arbitrary indexed access..." alt="" coords="501,5,620,33"/>
 <area shape="rect" id="node2" href="$_midi_event_converter_8h.html" title="The MidiEventConverter specification defines the handling of MIDI events by feeding them to an underl..." alt="" coords="309,81,469,109"/>
 <area shape="rect" id="node6" href="$_midi_event_list_8cpp.html" title="The MIDIEventList body implements sequences of integer values with zero&#45;based arbitrary indexed acces..." alt="" coords="493,81,628,109"/>
 <area shape="rect" id="node7" href="$_midi_file_8h.html" title="The MidiFile specification defines the services of a MIDI file; currently only file reading is suppor..." alt="" coords="653,81,735,109"/>

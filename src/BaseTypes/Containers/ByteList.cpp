@@ -35,5 +35,5 @@ ByteList ByteList::fromList (IN initializer_list<Byte> list)
 
 String ByteList::toString () const
 {
-    return _toString("ByteList");
+    return _toString("ByteList", Byte::toString);
 }

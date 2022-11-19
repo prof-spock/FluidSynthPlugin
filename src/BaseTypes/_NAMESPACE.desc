@@ -2,13 +2,17 @@
  * The package <C>BaseTypes</C> provides elementary types like
  * primitives and containers.
  *
- * In sub-package <C>Primitives</C> elementary types of C++ like ints and
- * chars are wrapped into classes like Integer, Natural, String
- * etc.  This approach allows a more consistent program documentation.
- *
  * Sub-package <C>Containers</C> specifies and implements
  * dictionaries, maps from string to objects, lists of string or
  * numbers and string sets.
+ *
+ * In sub-package <C>GenericTypes</C> generic types are defined
+ * providing numbers and enumerations for primitives and lists, maps,
+ * tuples and matrices for containers.
+ *
+ * In sub-package <C>Primitives</C> elementary types of C++ like ints and
+ * chars are wrapped into classes like Integer, Natural, String
+ * etc.  This approach allows a more consistent program documentation.
  */
 namespace BaseTypes {
 }

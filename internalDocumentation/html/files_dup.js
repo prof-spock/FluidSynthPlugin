@@ -76,21 +76,6 @@ var files_dup =
     [ "FluidSynthSynthesizer.h", "_fluid_synth_synthesizer_8h.html", [
       [ "FluidSynthSynthesizer", "struct_libraries_1_1_fluid_synth_1_1_fluid_synth_synthesizer.html", "struct_libraries_1_1_fluid_synth_1_1_fluid_synth_synthesizer" ]
     ] ],
-    [ "GenericEnumeration.h", "_generic_enumeration_8h.html", [
-      [ "GenericEnumeration", "struct_base_types_1_1_primitives_1_1_generic_enumeration.html", "struct_base_types_1_1_primitives_1_1_generic_enumeration" ]
-    ] ],
-    [ "GenericMatrix.h", "_generic_matrix_8h.html", [
-      [ "GenericMatrix", "struct_base_types_1_1_containers_1_1_generic_matrix.html", "struct_base_types_1_1_containers_1_1_generic_matrix" ]
-    ] ],
-    [ "GenericNumber.h", "_generic_number_8h.html", [
-      [ "GenericNumber", "struct_base_types_1_1_primitives_1_1_generic_number.html", "struct_base_types_1_1_primitives_1_1_generic_number" ]
-    ] ],
-    [ "GenericSequence.h", "_generic_sequence_8h.html", [
-      [ "GenericSequence", "struct_base_types_1_1_containers_1_1_generic_sequence.html", "struct_base_types_1_1_containers_1_1_generic_sequence" ]
-    ] ],
-    [ "GenericTuple.h", "_generic_tuple_8h.html", [
-      [ "GenericTuple", "struct_base_types_1_1_containers_1_1_generic_tuple.html", "struct_base_types_1_1_containers_1_1_generic_tuple" ]
-    ] ],
     [ "GlobalMacros.h", "_global_macros_8h.html", "_global_macros_8h" ],
     [ "Integer.h", "_integer_8h.html", [
       [ "Integer", "struct_base_types_1_1_primitives_1_1_integer.html", "struct_base_types_1_1_primitives_1_1_integer" ]

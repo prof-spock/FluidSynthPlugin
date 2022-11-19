@@ -23,7 +23,7 @@
 <area shape="rect" id="node20" href="$_fluid_synth_plugin___editor_8cpp.html" title="The FluidSynthPlugin_Editor module implements the editor for the processor of MIDI events from the DA..." alt="" coords="1615,233,1819,261"/>
 <area shape="rect" id="node21" href="$_fluid_synth_plugin___event_processor_8cpp.html" title="The FluidSynthPlugin_Processor module implements the handling of MIDI events from the DAW via JUCE ha..." alt="" coords="1156,309,1427,337"/>
 <area shape="rect" id="node23" href="$_midi_event_8cpp.html" title="The MidiEvent implementation defines the services of a single MIDI event." alt="" coords="706,157,818,185"/>
-<area shape="rect" id="node24" href="$_midi_event_list_8h.html" title="The MidiEventList specification defines sequences of MIDI events with zero&#45;based arbitrary indexed ac..." alt="" coords="843,157,961,185"/>
+<area shape="rect" id="node24" href="$_midi_event_list_8h.html" title="The MidiEventList specification defines lists of MIDI events with zero&#45;based arbitrary indexed access..." alt="" coords="843,157,961,185"/>
 <area shape="rect" id="node25" href="$_midi_event_converter_8h.html" title="The MidiEventConverter specification defines the handling of MIDI events by feeding them to an underl..." alt="" coords="771,233,931,261"/>
 <area shape="rect" id="node27" href="$_midi_file_8h.html" title="The MidiFile specification defines the services of a MIDI file; currently only file reading is suppor..." alt="" coords="665,233,747,261"/>
 </map>

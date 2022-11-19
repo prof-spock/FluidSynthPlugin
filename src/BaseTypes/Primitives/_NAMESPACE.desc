@@ -2,7 +2,6 @@
  * The package <C>Primitives</C> wraps elementary types of C++ like
  * ints and chars into types like Integer, Natural, String etc. also
  * including convenience types like Percentage or Radians.
- * Additionally also a template for enumeration classes is given.
  *
  * This approach allows a more consistent program documentation.
  */

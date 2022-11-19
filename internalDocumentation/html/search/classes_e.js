@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['stringlist_741',['StringList',['../struct_base_types_1_1_containers_1_1_string_list.html',1,'BaseTypes::Containers']]],
-  ['stringset_742',['StringSet',['../struct_base_types_1_1_containers_1_1_string_set.html',1,'BaseTypes::Containers']]],
-  ['stringutil_743',['StringUtil',['../struct_base_modules_1_1_string_util.html',1,'BaseModules']]]
+  ['wavefile_662',['WaveFile',['../struct_audio_1_1_wave_file.html',1,'Audio']]]
 ];

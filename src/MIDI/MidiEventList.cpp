@@ -75,7 +75,7 @@ MidiEventList MidiEventList::fromList (IN initializer_list<MidiEvent> list)
 
 String MidiEventList::toString () const
 {
-    return _toString("MidiEventList");
+    return _toString("MidiEventList", MidiEvent::toString);
 }
 
 /*--------------------*/

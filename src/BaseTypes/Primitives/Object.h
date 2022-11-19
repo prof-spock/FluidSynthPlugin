@@ -11,12 +11,6 @@
 
 #pragma once
 
-/*=========*/
-/* IMPORTS */
-/*=========*/
-
-#include <set>
-
 /*====================*/
 
 namespace BaseTypes::Primitives {
@@ -26,13 +20,6 @@ namespace BaseTypes::Primitives {
      * objects.
      */
     using Object = void*;
-
-    /*--------------------*/
-
-    /**
-     * The <C>ObjectSet</C> type represents sets of (pointer) objects.
-     */
-    using ObjectSet = std::set<Object>;
 
 }
 

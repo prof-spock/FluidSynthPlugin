@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FluidSynthPlugin: Main Page</title>
+<title>FluidSynthPlugin: FluidSynth Plugin for DAWs and Pedantic FluidSynth Command Line Processor</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -81,11 +81,37 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </iframe>
 </div>
 
-<div class="header">
+<div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">FluidSynthPlugin Documentation</div>  </div>
+<div class="title">FluidSynth Plugin for DAWs and Pedantic FluidSynth Command Line Processor </div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><div> <b>author:</b> Dr. Thomas Tensi<br  />
+ <b>date:</b> November 2022 </div><h1>Overview</h1>
+<p><u><a href="https://www.fluidsynth.org">FluidSynth</a></u> is one of the most prominent open source <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> players. It is reasonably flexible, delivers a good audio quality and is available for the typical platforms. A common scenario is to use it for either rendering live <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> data on some audio device or converting <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> files into audio files by command-line batch processing.</p>
+<p>Basis of <code>FluidSynth</code> are the so-called <em>soundfonts</em>. Soundfonts contain sampled instruments together with envelope and modulation definitions and other descriptive settings. It is easy to find really usable ones in the internet and also several of those cover all general <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> instruments (for example, the <code>FluidR3_GM.sf2</code>).</p>
+<p>This software package provides two components: </p><ul>
+<li>
+<p class="startli">The first component is a DAW plugin called <b><code>FluidSynthPlugin</code></b>. It has a simplistic interface where you specify a soundfont, several fluidsynth settings and possibly a <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> program to be selected by putting text data in a text field. Then you are able to convert an incoming <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> stream in a DAW to audio using the FluidSynth library.</p>
+<p class="endli"></p>
+</li>
+<li>
+The second component is a simplistic but pedantic command-line converter called <b><code>FluidSynthConverter</code></b>. It circumvents the rasterization by the player of the original command-line program <code>FluidSynth</code>. It converts a <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> file into a WAV file, is also based on the fluidsynth library and does the same sample-exact event feeding into that library as the plugin above. </li>
+</ul>
+<p>When using both components (command-line and DAW) on the same <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> data they typically produce audio output with a difference of less than -200dBFS in a spectrum analysis.</p>
+<p>This doxygen documentation gives a detailed description of the C++ sources for the FluidSynthPlugin and the FluidSynthConverter. Note that the implementation is completely free, open-source, platform-neutral and based on the <u><a href="https://juce.com">JUCE audio framework</a></u>. Those components are currently available only for Windows as VST3, but the MacOS and Linux versions are in preparation. Porting to other targets should be straightforward, since building is supported by a platform-neutral CMAKE build file.</p>
+<h1>Effects Provided</h1>
+<p>The following effects are available in this package: </p><ul>
+<li>
+<p class="startli"><a href="namespace_main_1_1_fluid_synth_plugin.html"><b>FluidSynthPlugin</b></a>: the DAW plugin for <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> to audio conversion using the FluidSynth library.</p>
+<p class="endli"></p>
+</li>
+<li>
+<p class="startli"><a href="namespace_main_1_1_fluid_synth_file_converter.html"><b>FluidSynthFileConverter</b></a>: the command line converter for <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> to audio conversion using the FluidSynth library and reimplementing the FluidSynth command-line processor with a stricter <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> event placement.</p>
+<p class="endli"></p>
+</li>
+</ul>
+</div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -96,44 +96,42 @@ $(document).ready(function(){initNavTree('_natural_list_8h_source.html',''); ini
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">/*=========*/</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;initializer_list&gt;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_generic_sequence_8h.html">GenericSequence.h</a>&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;GenericList.h&quot;</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">/*--------------------*/</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">using</span> std::initializer_list;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">/*====================*/</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_base_types_1_1_containers.html">BaseTypes::Containers</a> {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="struct_base_types_1_1_containers_1_1_natural_list.html">   36</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="struct_base_types_1_1_containers_1_1_natural_list.html">NaturalList</a> : <span class="keyword">public</span> <a class="code" href="struct_base_types_1_1_containers_1_1_generic_sequence.html">GenericSequence</a>&lt;Natural, Natural::toString&gt;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keyword">static</span> <a class="code" href="struct_base_types_1_1_containers_1_1_natural_list.html">NaturalList</a> <a class="code" href="struct_base_types_1_1_containers_1_1_natural_list.html#ae3b931a1d1249c61724c05a5c22151fe">fromList</a> (<a class="code" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> initializer_list&lt;Natural&gt; list);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="comment">/*--------------------*/</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <a class="code" href="namespace_base_types_1_1_primitives.html#aa1174c1e7bedd8df69fc98453595a127">String</a> <a class="code" href="struct_base_types_1_1_containers_1_1_natural_list.html#afcacda7bc75d601b65f9c6b4867f4c91">toString</a> () <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="comment">/*--------------------*/</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <a class="code" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> <a class="code" href="struct_base_types_1_1_containers_1_1_natural_list.html#ae3a933270def61e69c6b93e27551199a">maximum</a> () <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    };</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">using</span> BaseTypes::GenericTypes::GenericList;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">/*====================*/</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_base_types_1_1_containers.html">BaseTypes::Containers</a> {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="struct_base_types_1_1_containers_1_1_natural_list.html">   37</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="struct_base_types_1_1_containers_1_1_natural_list.html">NaturalList</a> : <span class="keyword">public</span> GenericList&lt;Natural&gt;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keyword">static</span> <a class="code" href="struct_base_types_1_1_containers_1_1_natural_list.html">NaturalList</a> <a class="code" href="struct_base_types_1_1_containers_1_1_natural_list.html#ae3b931a1d1249c61724c05a5c22151fe">fromList</a> (<a class="code" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> initializer_list&lt;Natural&gt; list);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="comment">/*--------------------*/</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <a class="code" href="namespace_base_types_1_1_primitives.html#aa1174c1e7bedd8df69fc98453595a127">String</a> <a class="code" href="struct_base_types_1_1_containers_1_1_natural_list.html#afcacda7bc75d601b65f9c6b4867f4c91">toString</a> () <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="comment">/*--------------------*/</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        Natural <a class="code" href="struct_base_types_1_1_containers_1_1_natural_list.html#ae3a933270def61e69c6b93e27551199a">maximum</a> () <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    };</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="astruct_base_types_1_1_primitives_1_1_natural_html"><div class="ttname"><a href="struct_base_types_1_1_primitives_1_1_natural.html">BaseTypes::Primitives::Natural</a></div><div class="ttdoc">An Natural object wraps a value of the associated primitive type in an object.</div><div class="ttdef"><b>Definition:</b> Natural.h:35</div></div>
 <div class="ttc" id="anamespace_base_types_1_1_containers_html"><div class="ttname"><a href="namespace_base_types_1_1_containers.html">BaseTypes::Containers</a></div><div class="ttdoc">The package Containers provides container types like dictionaries, maps from string to objects,...</div><div class="ttdef"><b>Definition:</b> BaseTypes/Containers/_NAMESPACE.desc:7</div></div>
-<div class="ttc" id="a_generic_sequence_8h_html"><div class="ttname"><a href="_generic_sequence_8h.html">GenericSequence.h</a></div><div class="ttdoc">The GenericSequence specification and body defines a generic sequence type of values with zero-based ...</div></div>
 <div class="ttc" id="anamespace_base_types_1_1_primitives_html_aa1174c1e7bedd8df69fc98453595a127"><div class="ttname"><a href="namespace_base_types_1_1_primitives.html#aa1174c1e7bedd8df69fc98453595a127">BaseTypes::Primitives::String</a></div><div class="ttdeci">std::string String</div><div class="ttdoc">The String type represents (Unicode) character sequences.</div><div class="ttdef"><b>Definition:</b> MyString.h:28</div></div>
-<div class="ttc" id="astruct_base_types_1_1_containers_1_1_generic_sequence_html"><div class="ttname"><a href="struct_base_types_1_1_containers_1_1_generic_sequence.html">BaseTypes::Containers::GenericSequence</a></div><div class="ttdoc">A GenericSequence is a generic sequence type of values with zero-based arbitrary indexed access to po...</div><div class="ttdef"><b>Definition:</b> GenericSequence.h:47</div></div>
 <div class="ttc" id="a_global_macros_8h_html_ac2bbd6d630a06a980d9a92ddb9a49928"><div class="ttname"><a href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a></div><div class="ttdeci">#define IN</div><div class="ttdoc">(informal) parameter mode for in parameter</div><div class="ttdef"><b>Definition:</b> GlobalMacros.h:15</div></div>
 <div class="ttc" id="astruct_base_types_1_1_containers_1_1_natural_list_html_ae3a933270def61e69c6b93e27551199a"><div class="ttname"><a href="struct_base_types_1_1_containers_1_1_natural_list.html#ae3a933270def61e69c6b93e27551199a">BaseTypes::Containers::NaturalList::maximum</a></div><div class="ttdeci">Natural maximum() const</div><div class="ttdoc">Returns the maximum value in list.</div><div class="ttdef"><b>Definition:</b> NaturalList.cpp:44</div></div>
 <div class="ttc" id="astruct_base_types_1_1_containers_1_1_natural_list_html_afcacda7bc75d601b65f9c6b4867f4c91"><div class="ttname"><a href="struct_base_types_1_1_containers_1_1_natural_list.html#afcacda7bc75d601b65f9c6b4867f4c91">BaseTypes::Containers::NaturalList::toString</a></div><div class="ttdeci">String toString() const</div><div class="ttdoc">Returns printable representation of list.</div><div class="ttdef"><b>Definition:</b> NaturalList.cpp:37</div></div>
-<div class="ttc" id="astruct_base_types_1_1_containers_1_1_natural_list_html_ae3b931a1d1249c61724c05a5c22151fe"><div class="ttname"><a href="struct_base_types_1_1_containers_1_1_natural_list.html#ae3b931a1d1249c61724c05a5c22151fe">BaseTypes::Containers::NaturalList::fromList</a></div><div class="ttdeci">static NaturalList fromList(IN initializer_list&lt; Natural &gt; list)</div><div class="ttdoc">Initializes sequence of naturals from an initializer list values.</div><div class="ttdef"><b>Definition:</b> NaturalList.cpp:24</div></div>
-<div class="ttc" id="astruct_base_types_1_1_containers_1_1_natural_list_html"><div class="ttname"><a href="struct_base_types_1_1_containers_1_1_natural_list.html">BaseTypes::Containers::NaturalList</a></div><div class="ttdoc">A NaturalList object is a sequence of non-negative integer values with arbitrary indexed access to po...</div><div class="ttdef"><b>Definition:</b> NaturalList.h:37</div></div>
+<div class="ttc" id="astruct_base_types_1_1_containers_1_1_natural_list_html_ae3b931a1d1249c61724c05a5c22151fe"><div class="ttname"><a href="struct_base_types_1_1_containers_1_1_natural_list.html#ae3b931a1d1249c61724c05a5c22151fe">BaseTypes::Containers::NaturalList::fromList</a></div><div class="ttdeci">static NaturalList fromList(IN initializer_list&lt; Natural &gt; list)</div><div class="ttdoc">Initializes list of naturals from an initializer list values.</div><div class="ttdef"><b>Definition:</b> NaturalList.cpp:24</div></div>
+<div class="ttc" id="astruct_base_types_1_1_containers_1_1_natural_list_html"><div class="ttname"><a href="struct_base_types_1_1_containers_1_1_natural_list.html">BaseTypes::Containers::NaturalList</a></div><div class="ttdoc">A NaturalList object is a list of non-negative integer values with arbitrary indexed access to positi...</div><div class="ttdef"><b>Definition:</b> NaturalList.h:38</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

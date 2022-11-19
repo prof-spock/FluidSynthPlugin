@@ -119,56 +119,56 @@ $(document).ready(function(){initNavTree('_logging_8h_source.html',''); initResi
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment">/* for active logging routines are redirected to corresponding</span></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">     * routines in logging class */</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">    #define Logging_isActive true</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="_logging_8h.html#ad2b6fa7e9f55c058b34a9965fa331ef4">   48</a></span>&#160;<span class="preprocessor">    #define Logging_isActive true</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">    #define Logging_initialize()  Logging::initialize()</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="_logging_8h.html#a065d2c4b14781ce053a11f49d023001a">   53</a></span>&#160;<span class="preprocessor">    #define Logging_initialize()  Logging::initialize()</span></div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">    #define Logging_initializeWithDefaults(fileNameStem, \</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="_logging_8h.html#a8772946d784a2ed775bb292eb350b2b5">   58</a></span>&#160;<span class="preprocessor">    #define Logging_initializeWithDefaults(fileNameStem, \</span></div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">                                           ignoredFunctionNamePrefix) \</span></div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">            Logging::initializeWithDefaults(fileNameStem, \</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">                                            ignoredFunctionNamePrefix)</span></div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">    #define Logging_finalize()    Logging::finalize()</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="_logging_8h.html#aa90f9e2f40bfd09dc4bd3eea36867899">   66</a></span>&#160;<span class="preprocessor">    #define Logging_finalize()    Logging::finalize()</span></div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">    #define Logging_setFileName(fileName, writeThroughIsActive)  \</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="_logging_8h.html#a0ed6d2e89d966d66513413f61dcd919b">   72</a></span>&#160;<span class="preprocessor">    #define Logging_setFileName(fileName, writeThroughIsActive)  \</span></div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">                Logging::setFileName(fileName, writeThroughIsActive)</span></div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">    #define Logging_setIgnoredFunctionNamePrefix(prefix) \</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="_logging_8h.html#acf38b27d4d71b187d814e77e9b0dbf87">   78</a></span>&#160;<span class="preprocessor">    #define Logging_setIgnoredFunctionNamePrefix(prefix) \</span></div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">                Logging::setIgnoredFunctionNamePrefix(prefix)</span></div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">    #define Logging_setTracingWithTime(timeIsLogged, \</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="_logging_8h.html#aac45c29927adab4c35d2c8d271943e15">   85</a></span>&#160;<span class="preprocessor">    #define Logging_setTracingWithTime(timeIsLogged, \</span></div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">                                       fractionalDigitCount) \</span></div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">                Logging::setTracingWithTime(timeIsLogged, \</span></div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">                                            fractionalDigitCount)</span></div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">    #define _Logging_trace(message) \</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="_logging_8h.html#acb33cbdf21f5bb7ab924607995c9a94f">   93</a></span>&#160;<span class="preprocessor">    #define _Logging_trace(message) \</span></div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor">                Logging::trace(signatureOfFunction, message)</span></div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="preprocessor">    #define _Logging_traceError(message) \</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="_logging_8h.html#ae78b681f18b62d63b53a7eabded40db3">   99</a></span>&#160;<span class="preprocessor">    #define _Logging_traceError(message) \</span></div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">                Logging::traceError(signatureOfFunction, message)</span></div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">#else</span></div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="comment">/* for inactive logging routines are simply empty */</span></div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="_logging_8h.html#ad2b6fa7e9f55c058b34a9965fa331ef4">  106</a></span>&#160;<span class="preprocessor">    #define Logging_isActive false</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">    #define Logging_isActive false</span></div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="_logging_8h.html#a065d2c4b14781ce053a11f49d023001a">  111</a></span>&#160;<span class="preprocessor">    #define Logging_initialize()</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="preprocessor">    #define Logging_initialize()</span></div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
-<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="_logging_8h.html#a8772946d784a2ed775bb292eb350b2b5">  116</a></span>&#160;<span class="preprocessor">    #define Logging_initializeWithDefaults(fileNameStem, \</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="preprocessor">    #define Logging_initializeWithDefaults(fileNameStem, \</span></div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="preprocessor">                                           ignoredFunctionNamePrefix)</span></div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
-<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="_logging_8h.html#aa90f9e2f40bfd09dc4bd3eea36867899">  122</a></span>&#160;<span class="preprocessor">    #define Logging_finalize()</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="preprocessor">    #define Logging_finalize()</span></div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
-<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="_logging_8h.html#a0ed6d2e89d966d66513413f61dcd919b">  128</a></span>&#160;<span class="preprocessor">    #define Logging_setFileName(fileName, writeThroughIsActive)</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="preprocessor">    #define Logging_setFileName(fileName, writeThroughIsActive)</span></div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
-<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="_logging_8h.html#acf38b27d4d71b187d814e77e9b0dbf87">  134</a></span>&#160;<span class="preprocessor">    #define Logging_setIgnoredFunctionNamePrefix(prefix)</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="preprocessor">    #define Logging_setIgnoredFunctionNamePrefix(prefix)</span></div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
-<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="_logging_8h.html#aac45c29927adab4c35d2c8d271943e15">  140</a></span>&#160;<span class="preprocessor">    #define Logging_setTracingWithTime(timeIsLogged, \</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="preprocessor">    #define Logging_setTracingWithTime(timeIsLogged, \</span></div>
 <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="preprocessor">                                       fractionalDigitCount)</span></div>
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
-<div class="line"><a name="l00146"></a><span class="lineno"><a class="line" href="_logging_8h.html#acb33cbdf21f5bb7ab924607995c9a94f">  146</a></span>&#160;<span class="preprocessor">    #define _Logging_trace(message)</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="preprocessor">    #define _Logging_trace(message)</span></div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
-<div class="line"><a name="l00151"></a><span class="lineno"><a class="line" href="_logging_8h.html#ae78b681f18b62d63b53a7eabded40db3">  151</a></span>&#160;<span class="preprocessor">    #define _Logging_traceError(message)</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="preprocessor">    #define _Logging_traceError(message)</span></div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; </div>

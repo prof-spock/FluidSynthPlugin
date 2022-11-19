@@ -1,8 +1,8 @@
 /**
  * @file
- * The <C>RealList</C> specification defines sequences of real values
+ * The <C>RealList</C> specification defines lists of real values
  * with zero-based arbitrary indexed access to positions in the
- * sequence.
+ * list.
  *
  * @author Dr. Thomas Tensi
  * @date   2020-08
@@ -17,12 +17,13 @@
 /*=========*/
 
 #include <initializer_list>
-#include "GenericSequence.h"
+#include "GenericList.h"
 #include "Real.h"
 
 /*--------------------*/
 
 using std::initializer_list;
+using BaseTypes::GenericTypes::GenericList;
 using BaseTypes::Primitives::Real;
 
 /*====================*/
@@ -30,20 +31,20 @@ using BaseTypes::Primitives::Real;
 namespace BaseTypes::Containers {
 
     /**
-     * A <C>RealList</C> object is a sequence of real values with
-     * arbitrary indexed access to positions in the sequence.
+     * A <C>RealList</C> object is a list of real values with
+     * arbitrary indexed access to positions in the list.
      * Indexing starts at zero and is consecutive.  Lists also allow
      * duplicate elements.
      */
-    struct RealList : public GenericSequence<Real, Real::toString>
+    struct RealList : public GenericList<Real>
     {
 
         /**
-         * Initializes sequence of reals from initializer list of
+         * Initializes list of reals from initializer list of
          * values.
          *
-         * @param list  initializer list of real values
-         * @return  sequence with values in order given
+         * @param[in] list  initializer list of real values
+         * @return  list with values in order given
          */
         static RealList fromList (IN initializer_list<Real> list);
 
@@ -61,7 +62,7 @@ namespace BaseTypes::Containers {
         /**
          * Fills list with <C>value</C>.
          *
-         * @param value  value to be used for filling list
+         * @param[in] value  value to be used for filling list
          */
         void fill (IN Real value);
 
@@ -70,8 +71,8 @@ namespace BaseTypes::Containers {
         /**
          * Multiply list elements by <C>value</C>.
          *
-         * @param value  value to be used for multiplying each element
-         *               with
+         * @param[in] value  value to be used for multiplying each
+         *                   element with
          */
         void multiply (IN Real value);
 

@@ -25,6 +25,7 @@
 var NAVTREE =
 [
   [ "FluidSynthPlugin", "index.html", [
+    [ "FluidSynth Plugin for DAWs and Pedantic FluidSynth Command Line Processor", "index.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -42,8 +43,7 @@ var NAVTREE =
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", "functions_func" ],
-        [ "Variables", "functions_vars.html", null ],
-        [ "Typedefs", "functions_type.html", null ]
+        [ "Variables", "functions_vars.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
@@ -62,10 +62,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_assertion_8h.html",
-"_logging_support_8cpp.html#ae1d9048d43db9507aa672f29446e5c14a16f169c333c51345791d66e74f233054",
-"struct_audio_1_1_audio_sample_fifo_queue.html#ac6475cf914e81eee1b8ae35ef49db0a0",
-"struct_base_types_1_1_primitives_1_1_integer.html#a4181f72f43bac1f672a42988999783db",
-"struct_main_1_1_fluid_synth_plugin_1_1___ring_buffer.html#a12ee088cc2b51efe393740e0720d4a88"
+"_logging_support_8cpp.html#aff0ed5e453d280f9ef35175afe244938",
+"struct_audio_1_1_audio_sample_fifo_queue_vector.html#aaa49acd8dfc532c724ce82c7e1b8c5e8",
+"struct_base_types_1_1_primitives_1_1_real.html#ac245902eae18932b58f1d0dce4d5e520"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

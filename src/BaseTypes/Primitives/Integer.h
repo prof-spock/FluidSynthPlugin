@@ -77,8 +77,8 @@ namespace BaseTypes::Primitives {
          * Returns string representation of integer with precision and
          * padding information.
          *
-         * @param precision     minimum number of valid digits
-         * @param padCharacter  character to use for left padding
+         * @param[in] precision     minimum number of valid digits
+         * @param[in] padCharacter  character to use for left padding
          * @return  string representation
          */
         String toString (IN Natural precision = Natural{0},

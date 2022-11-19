@@ -33,7 +33,7 @@ namespace Audio {
      * operations extended to sample list vectors.
      */
     struct AudioSampleFifoQueueVector
-               : public GenericSequence<AudioSampleFifoQueue> {
+               : public GenericList<AudioSampleFifoQueue> {
 
         /**
          * Makes a list of fifo sample queues for <C>channelCount</C>

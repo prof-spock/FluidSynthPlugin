@@ -118,40 +118,38 @@ Macros</h2></td></tr>
 <tr class="memdesc:ae56722864ab40250eb993ecc7efd3ffb"><td class="mdescLeft">&#160;</td><td class="mdescRight">the macro for the signature of a function within the preprocessor <br /></td></tr>
 <tr class="separator:ae56722864ab40250eb993ecc7efd3ffb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2b6fa7e9f55c058b34a9965fa331ef4"><td class="memItemLeft" align="right" valign="top"><a id="ad2b6fa7e9f55c058b34a9965fa331ef4"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_8h.html#ad2b6fa7e9f55c058b34a9965fa331ef4">Logging_isActive</a>&#160;&#160;&#160;false</td></tr>
-<tr class="memdesc:ad2b6fa7e9f55c058b34a9965fa331ef4"><td class="mdescLeft">&#160;</td><td class="mdescRight">boolean information whether logging is active (no!) <br /></td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_8h.html#ad2b6fa7e9f55c058b34a9965fa331ef4">Logging_isActive</a>&#160;&#160;&#160;true</td></tr>
+<tr class="memdesc:ad2b6fa7e9f55c058b34a9965fa331ef4"><td class="mdescLeft">&#160;</td><td class="mdescRight">boolean information whether logging is active (yes!) <br /></td></tr>
 <tr class="separator:ad2b6fa7e9f55c058b34a9965fa331ef4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a065d2c4b14781ce053a11f49d023001a"><td class="memItemLeft" align="right" valign="top"><a id="a065d2c4b14781ce053a11f49d023001a"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_8h.html#a065d2c4b14781ce053a11f49d023001a">Logging_initialize</a>()</td></tr>
-<tr class="memdesc:a065d2c4b14781ce053a11f49d023001a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes logging (empty) <br /></td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_8h.html#a065d2c4b14781ce053a11f49d023001a">Logging_initialize</a>()&#160;&#160;&#160;Logging::initialize()</td></tr>
+<tr class="memdesc:a065d2c4b14781ce053a11f49d023001a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes logging. <br /></td></tr>
 <tr class="separator:a065d2c4b14781ce053a11f49d023001a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8772946d784a2ed775bb292eb350b2b5"><td class="memItemLeft" align="right" valign="top"><a id="a8772946d784a2ed775bb292eb350b2b5"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_8h.html#a8772946d784a2ed775bb292eb350b2b5">Logging_initializeWithDefaults</a>(fileNameStem,  ignoredFunctionNamePrefix)</td></tr>
-<tr class="memdesc:a8772946d784a2ed775bb292eb350b2b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes logging with defaults (empty) <br /></td></tr>
+<tr class="memitem:a8772946d784a2ed775bb292eb350b2b5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_8h.html#a8772946d784a2ed775bb292eb350b2b5">Logging_initializeWithDefaults</a>(fileNameStem,  ignoredFunctionNamePrefix)</td></tr>
+<tr class="memdesc:a8772946d784a2ed775bb292eb350b2b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes logging with defaults.  <a href="_logging_8h.html#a8772946d784a2ed775bb292eb350b2b5">More...</a><br /></td></tr>
 <tr class="separator:a8772946d784a2ed775bb292eb350b2b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa90f9e2f40bfd09dc4bd3eea36867899"><td class="memItemLeft" align="right" valign="top"><a id="aa90f9e2f40bfd09dc4bd3eea36867899"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_8h.html#aa90f9e2f40bfd09dc4bd3eea36867899">Logging_finalize</a>()</td></tr>
-<tr class="memdesc:aa90f9e2f40bfd09dc4bd3eea36867899"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finalizes logging (empty) <br /></td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_8h.html#aa90f9e2f40bfd09dc4bd3eea36867899">Logging_finalize</a>()&#160;&#160;&#160;Logging::finalize()</td></tr>
+<tr class="memdesc:aa90f9e2f40bfd09dc4bd3eea36867899"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finalizes logging. <br /></td></tr>
 <tr class="separator:aa90f9e2f40bfd09dc4bd3eea36867899"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ed6d2e89d966d66513413f61dcd919b"><td class="memItemLeft" align="right" valign="top"><a id="a0ed6d2e89d966d66513413f61dcd919b"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_8h.html#a0ed6d2e89d966d66513413f61dcd919b">Logging_setFileName</a>(fileName,  writeThroughIsActive)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_8h.html#a0ed6d2e89d966d66513413f61dcd919b">Logging_setFileName</a>(fileName,  writeThroughIsActive)&#160;&#160;&#160;                Logging::setFileName(fileName, writeThroughIsActive)</td></tr>
 <tr class="memdesc:a0ed6d2e89d966d66513413f61dcd919b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the name of the log file and information about write-through (empty) <br /></td></tr>
 <tr class="separator:a0ed6d2e89d966d66513413f61dcd919b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf38b27d4d71b187d814e77e9b0dbf87"><td class="memItemLeft" align="right" valign="top"><a id="acf38b27d4d71b187d814e77e9b0dbf87"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_8h.html#acf38b27d4d71b187d814e77e9b0dbf87">Logging_setIgnoredFunctionNamePrefix</a>(prefix)</td></tr>
-<tr class="memdesc:acf38b27d4d71b187d814e77e9b0dbf87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the function name prefix to be removed from the names (empty) <br /></td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_8h.html#acf38b27d4d71b187d814e77e9b0dbf87">Logging_setIgnoredFunctionNamePrefix</a>(prefix)&#160;&#160;&#160;                Logging::setIgnoredFunctionNamePrefix(prefix)</td></tr>
+<tr class="memdesc:acf38b27d4d71b187d814e77e9b0dbf87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the function name prefix to be removed from the names. <br /></td></tr>
 <tr class="separator:acf38b27d4d71b187d814e77e9b0dbf87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac45c29927adab4c35d2c8d271943e15"><td class="memItemLeft" align="right" valign="top"><a id="aac45c29927adab4c35d2c8d271943e15"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_8h.html#aac45c29927adab4c35d2c8d271943e15">Logging_setTracingWithTime</a>(timeIsLogged,  fractionalDigitCount)</td></tr>
-<tr class="memdesc:aac45c29927adab4c35d2c8d271943e15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables or disables time information in logs with some precision beyond seconds (empty) <br /></td></tr>
+<tr class="memitem:aac45c29927adab4c35d2c8d271943e15"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_8h.html#aac45c29927adab4c35d2c8d271943e15">Logging_setTracingWithTime</a>(timeIsLogged,  fractionalDigitCount)</td></tr>
+<tr class="memdesc:aac45c29927adab4c35d2c8d271943e15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables or disables time information in logs with some precision beyond seconds.  <a href="_logging_8h.html#aac45c29927adab4c35d2c8d271943e15">More...</a><br /></td></tr>
 <tr class="separator:aac45c29927adab4c35d2c8d271943e15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb33cbdf21f5bb7ab924607995c9a94f"><td class="memItemLeft" align="right" valign="top"><a id="acb33cbdf21f5bb7ab924607995c9a94f"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_8h.html#acb33cbdf21f5bb7ab924607995c9a94f">_Logging_trace</a>(message)</td></tr>
-<tr class="memdesc:acb33cbdf21f5bb7ab924607995c9a94f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a message to log file (empty) <br /></td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_8h.html#acb33cbdf21f5bb7ab924607995c9a94f">_Logging_trace</a>(message)&#160;&#160;&#160;                Logging::trace(<a class="el" href="_logging_8h.html#ae56722864ab40250eb993ecc7efd3ffb">signatureOfFunction</a>, message)</td></tr>
+<tr class="memdesc:acb33cbdf21f5bb7ab924607995c9a94f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a message to log file. <br /></td></tr>
 <tr class="separator:acb33cbdf21f5bb7ab924607995c9a94f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae78b681f18b62d63b53a7eabded40db3"><td class="memItemLeft" align="right" valign="top"><a id="ae78b681f18b62d63b53a7eabded40db3"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_8h.html#ae78b681f18b62d63b53a7eabded40db3">_Logging_traceError</a>(message)</td></tr>
-<tr class="memdesc:ae78b681f18b62d63b53a7eabded40db3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes an error message to log file (empty) <br /></td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_8h.html#ae78b681f18b62d63b53a7eabded40db3">_Logging_traceError</a>(message)&#160;&#160;&#160;                Logging::traceError(<a class="el" href="_logging_8h.html#ae56722864ab40250eb993ecc7efd3ffb">signatureOfFunction</a>, message)</td></tr>
+<tr class="memdesc:ae78b681f18b62d63b53a7eabded40db3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes an error message to log file. <br /></td></tr>
 <tr class="separator:ae78b681f18b62d63b53a7eabded40db3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0d58671e981a2c57f2ff48bd7563019"><td class="memItemLeft" align="right" valign="top"><a id="ad0d58671e981a2c57f2ff48bd7563019"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_8h.html#ad0d58671e981a2c57f2ff48bd7563019">_expand</a>&#160;&#160;&#160;<a class="el" href="_midi_file_8cpp.html#a94692cc5c1eac2402cbeff7e1eaa95cd">StringUtil::expand</a></td></tr>
@@ -231,6 +229,70 @@ Macros</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Dr. Thomas Tensi </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2021-02 </dd></dl>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a8772946d784a2ed775bb292eb350b2b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8772946d784a2ed775bb292eb350b2b5">&#9670;&nbsp;</a></span>Logging_initializeWithDefaults</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define Logging_initializeWithDefaults</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fileNameStem, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ignoredFunctionNamePrefix&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">            Logging::initializeWithDefaults(fileNameStem, \</div>
+<div class="line">                                            ignoredFunctionNamePrefix)</div>
+</div><!-- fragment -->
+<p>Initializes logging with defaults. </p>
+
+</div>
+</div>
+<a id="aac45c29927adab4c35d2c8d271943e15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac45c29927adab4c35d2c8d271943e15">&#9670;&nbsp;</a></span>Logging_setTracingWithTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define Logging_setTracingWithTime</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">timeIsLogged, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fractionalDigitCount&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">                Logging::setTracingWithTime(timeIsLogged, \</div>
+<div class="line">                                            fractionalDigitCount)</div>
+</div><!-- fragment -->
+<p>Enables or disables time information in logs with some precision beyond seconds. </p>
+
+</div>
+</div>
 <a id="a6c1081b18e91cbafb22f042045a8174c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6c1081b18e91cbafb22f042045a8174c">&#9670;&nbsp;</a></span>Logging_trace1</h2>
 
@@ -1424,8 +1486,8 @@ Macros</h2></td></tr>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="a_logging_8h_html_ad0d58671e981a2c57f2ff48bd7563019"><div class="ttname"><a href="_logging_8h.html#ad0d58671e981a2c57f2ff48bd7563019">_expand</a></div><div class="ttdeci">#define _expand</div><div class="ttdoc">abbreviated name for string expansion routine</div><div class="ttdef"><b>Definition:</b> Logging.h:158</div></div>
-<div class="ttc" id="a_logging_8h_html_ae78b681f18b62d63b53a7eabded40db3"><div class="ttname"><a href="_logging_8h.html#ae78b681f18b62d63b53a7eabded40db3">_Logging_traceError</a></div><div class="ttdeci">#define _Logging_traceError(message)</div><div class="ttdoc">Writes an error message to log file (empty)</div><div class="ttdef"><b>Definition:</b> Logging.h:151</div></div>
-<div class="ttc" id="a_logging_8h_html_acb33cbdf21f5bb7ab924607995c9a94f"><div class="ttname"><a href="_logging_8h.html#acb33cbdf21f5bb7ab924607995c9a94f">_Logging_trace</a></div><div class="ttdeci">#define _Logging_trace(message)</div><div class="ttdoc">Writes a message to log file (empty)</div><div class="ttdef"><b>Definition:</b> Logging.h:146</div></div>
+<div class="ttc" id="a_logging_8h_html_ae78b681f18b62d63b53a7eabded40db3"><div class="ttname"><a href="_logging_8h.html#ae78b681f18b62d63b53a7eabded40db3">_Logging_traceError</a></div><div class="ttdeci">#define _Logging_traceError(message)</div><div class="ttdoc">Writes an error message to log file.</div><div class="ttdef"><b>Definition:</b> Logging.h:99</div></div>
+<div class="ttc" id="a_logging_8h_html_acb33cbdf21f5bb7ab924607995c9a94f"><div class="ttname"><a href="_logging_8h.html#acb33cbdf21f5bb7ab924607995c9a94f">_Logging_trace</a></div><div class="ttdeci">#define _Logging_trace(message)</div><div class="ttdoc">Writes a message to log file.</div><div class="ttdef"><b>Definition:</b> Logging.h:93</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
