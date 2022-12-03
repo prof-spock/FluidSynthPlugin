@@ -106,9 +106,12 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_libraries_1_1_fluid_synth_1_1_fluid_synth.html#a1b3b3c82f30dee9da3e7001f04ff8854">~FluidSynth</a> ()</td></tr>
 <tr class="memdesc:a1b3b3c82f30dee9da3e7001f04ff8854"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys fluidsynth object and unloads the underlying library. <br /></td></tr>
 <tr class="separator:a1b3b3c82f30dee9da3e7001f04ff8854"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b17aa4f53a985cd63d3a470aff8f101"><td class="memItemLeft" align="right" valign="top">Object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_libraries_1_1_fluid_synth_1_1_fluid_synth.html#a0b17aa4f53a985cd63d3a470aff8f101">fsLibrary</a> () const</td></tr>
-<tr class="memdesc:a0b17aa4f53a985cd63d3a470aff8f101"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the underlying library.  <a href="struct_libraries_1_1_fluid_synth_1_1_fluid_synth.html#a0b17aa4f53a985cd63d3a470aff8f101">More...</a><br /></td></tr>
-<tr class="separator:a0b17aa4f53a985cd63d3a470aff8f101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55d9150860f49f02536454529dd2cd35"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_libraries_1_1_fluid_synth_1_1_fluid_synth.html#a55d9150860f49f02536454529dd2cd35">isLoaded</a> () const</td></tr>
+<tr class="memdesc:a55d9150860f49f02536454529dd2cd35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether library has been correctly loaded.  <a href="struct_libraries_1_1_fluid_synth_1_1_fluid_synth.html#a55d9150860f49f02536454529dd2cd35">More...</a><br /></td></tr>
+<tr class="separator:a55d9150860f49f02536454529dd2cd35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4added1c5644e97bff2cf0104f3587e"><td class="memItemLeft" align="right" valign="top">Object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_libraries_1_1_fluid_synth_1_1_fluid_synth.html#ac4added1c5644e97bff2cf0104f3587e">dynamicLibrary</a> () const</td></tr>
+<tr class="memdesc:ac4added1c5644e97bff2cf0104f3587e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the underlying dynamic library object.  <a href="struct_libraries_1_1_fluid_synth_1_1_fluid_synth.html#ac4added1c5644e97bff2cf0104f3587e">More...</a><br /></td></tr>
+<tr class="separator:ac4added1c5644e97bff2cf0104f3587e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -120,14 +123,14 @@ Object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="st
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>An object-oriented wrapper around the fluidsynth library and also allows its dynamic loading. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a0b17aa4f53a985cd63d3a470aff8f101"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0b17aa4f53a985cd63d3a470aff8f101">&#9670;&nbsp;</a></span>fsLibrary()</h2>
+<a id="ac4added1c5644e97bff2cf0104f3587e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4added1c5644e97bff2cf0104f3587e">&#9670;&nbsp;</a></span>dynamicLibrary()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Object FluidSynth::fsLibrary </td>
+          <td class="memname">Object FluidSynth::dynamicLibrary </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -135,8 +138,28 @@ Object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="st
       </table>
 </div><div class="memdoc">
 
-<p>Returns the underlying library. </p>
-<dl class="section return"><dt>Returns</dt><dd>underlying fluidsynth library object </dd></dl>
+<p>Returns the underlying dynamic library object. </p>
+<dl class="section return"><dt>Returns</dt><dd>underlying dynamic library object </dd></dl>
+
+</div>
+</div>
+<a id="a55d9150860f49f02536454529dd2cd35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55d9150860f49f02536454529dd2cd35">&#9670;&nbsp;</a></span>isLoaded()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a> FluidSynth::isLoaded </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns whether library has been correctly loaded. </p>
+<dl class="section return"><dt>Returns</dt><dd>information whether library is okay </dd></dl>
 
 </div>
 </div>

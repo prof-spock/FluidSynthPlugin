@@ -103,6 +103,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a3da76af6d2663565ddb6dee7fedda025"><td class="memItemLeft" align="right" valign="top">static String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_base_modules_1_1_operating_system.html#a3da76af6d2663565ddb6dee7fedda025">dirname</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;fileName)</td></tr>
 <tr class="memdesc:a3da76af6d2663565ddb6dee7fedda025"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the directory name of file or directory name <code>fileName</code>.  <a href="struct_base_modules_1_1_operating_system.html#a3da76af6d2663565ddb6dee7fedda025">More...</a><br /></td></tr>
 <tr class="separator:a3da76af6d2663565ddb6dee7fedda025"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac34043e58c265c1f094f1ebe3fe8cf5c"><td class="memItemLeft" align="right" valign="top">static String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_base_modules_1_1_operating_system.html#ac34043e58c265c1f094f1ebe3fe8cf5c">environmentValue</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String variableName, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String defaultValue=&quot;???&quot;)</td></tr>
+<tr class="memdesc:ac34043e58c265c1f094f1ebe3fe8cf5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns associated value for <code>variableName</code> as string from the environment.  <a href="struct_base_modules_1_1_operating_system.html#ac34043e58c265c1f094f1ebe3fe8cf5c">More...</a><br /></td></tr>
+<tr class="separator:ac34043e58c265c1f094f1ebe3fe8cf5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2bfeca4755bd7c4b624facb46f19fc88"><td class="memItemLeft" align="right" valign="top">static String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_base_modules_1_1_operating_system.html#a2bfeca4755bd7c4b624facb46f19fc88">temporaryDirectoryPath</a> ()</td></tr>
 <tr class="memdesc:a2bfeca4755bd7c4b624facb46f19fc88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns path of temporary directory as string.  <a href="struct_base_modules_1_1_operating_system.html#a2bfeca4755bd7c4b624facb46f19fc88">More...</a><br /></td></tr>
 <tr class="separator:a2bfeca4755bd7c4b624facb46f19fc88"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -146,6 +149,52 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>information on directory name of file </dd></dl>
+
+</div>
+</div>
+<a id="ac34043e58c265c1f094f1ebe3fe8cf5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac34043e58c265c1f094f1ebe3fe8cf5c">&#9670;&nbsp;</a></span>environmentValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">String OperatingSystem::environmentValue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String&#160;</td>
+          <td class="paramname"><em>variableName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String&#160;</td>
+          <td class="paramname"><em>defaultValue</em> = <code>&quot;???&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns associated value for <code>variableName</code> as string from the environment. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">variableName</td><td>name of environment variable </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">defaultValue</td><td>value to be returned when environment variable is not set </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>associated environment value as string </dd></dl>
 
 </div>
 </div>

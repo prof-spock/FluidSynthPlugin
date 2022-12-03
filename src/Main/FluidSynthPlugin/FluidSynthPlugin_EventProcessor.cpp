@@ -12,18 +12,19 @@
 /* IMPORTS */
 /*=========*/
 
+#include "AudioSampleFifoQueueVector.h"
+#include "FluidSynthPlugin_Editor.h"
+#include "MidiEventConverter.h"
 #include "MyArray.h"
 #include "Logging.h"
 #include "Integer.h"
-
-#include "AudioSampleFifoQueueVector.h"
-#include "MidiEventConverter.h"
-#include "FluidSynthPlugin_Editor.h"
+#include "OperatingSystem.h"
 
 /*--------------------*/
 
 using Audio::AudioSampleList;
 using Audio::AudioSampleFifoQueueVector;
+using BaseModules::OperatingSystem;
 using BaseTypes::Containers::convertArray;
 using BaseTypes::Primitives::Integer;
 using MIDI::MidiEventConverter;
@@ -36,6 +37,18 @@ using Main::FluidSynthPlugin::FluidSynthPlugin_Editor;
 /** the number of audio channels provided by this plugin */
 #define _channelCount 2
 
+/** text for marking the begin of an environment variable in a
+ * string */
+static const String _environmentVariableLeadIn = "${";
+
+/** text for marking the end of an environment variable in a
+ * string */
+static const String _environmentVariableLeadOut = "}";
+
+/** error message for missing library initialization */
+static const String _errorMessageForBadLibraryInitialization =
+    "fluidsynth library could not be loaded";
+
 /** the key string for flagging a slight compensation of sample
  * buffering by the fluidsynth synthesizer */
 static const String _fsBufferingCompensationKey =
@@ -45,6 +58,43 @@ static const String _fsBufferingCompensationKey =
 /* PRIVATE FEATURES   */
 /*====================*/
                 
+/**
+ * Scans <C>st</C> for references to environment variables and
+ * replaces them.  Undefined variables are replaced by "???".
+ *
+ * @param[inout]  st  string to be processed
+ */
+static void _replaceEnvironmentVariables (INOUT String& st)
+{
+    Logging_trace1(">>: %1", st);
+
+    const Natural leadInLength  = _environmentVariableLeadIn.length();
+    const Natural totalBracketLength =
+        leadInLength + _environmentVariableLeadOut.length();
+
+    while (StringUtil::contains(st, _environmentVariableLeadIn)) {
+        Natural startPosition =
+            StringUtil::find(st, _environmentVariableLeadIn);
+        Natural endPosition = 
+            StringUtil::find(st, _environmentVariableLeadOut,
+                             startPosition);
+        String variable =
+            StringUtil::substring(st, startPosition,
+                                  endPosition - startPosition + 1);
+        String variableName =
+            StringUtil::substring(st, leadInLength,
+                                  (Natural{variable.length()}
+                                   - totalBracketLength));
+        String variableValue =
+            OperatingSystem::environmentValue(variableName, "???");
+        StringUtil::replace(st, variable, variableValue);
+    }
+
+    Logging_trace1("<<: %1", st);
+}
+
+/*--------------------*/
+
 /**
  * Processes samples to bring sample count to a multiple of
  * synthesizer buffer size.
@@ -239,6 +289,17 @@ namespace Main::FluidSynthPlugin {
         /*--------------------*/
 
         /**
+         * Tells whether the underlying converter has been
+         * correctly set up (e.g. by loading the dynamic libraries).
+         *
+         * @return  information about successful initialization of
+         *          underlying converter
+         */
+        Boolean isCorrectlyInitialized () const;
+        
+        /*--------------------*/
+
+        /**
          * Destroy a descriptor
          */
         ~_EventProcessorDescriptor ();
@@ -371,6 +432,9 @@ _EventProcessorDescriptor::_EventProcessorDescriptor
           midiEventConverter{new MidiEventConverter()},
           fluidSynthBufferingIsCompensated{false}
 {
+    if (!isCorrectlyInitialized()) {
+        errorMessageList.append(_errorMessageForBadLibraryInitialization);
+    }
 }
 
 /*--------------------*/
@@ -382,9 +446,26 @@ _EventProcessorDescriptor::~_EventProcessorDescriptor ()
 
 /*--------------------*/
 
+Boolean _EventProcessorDescriptor::isCorrectlyInitialized () const
+{
+    Logging_trace(">>");
+    Boolean result = (midiEventConverter->isCorrectlyInitialized());
+    Logging_trace1("<<: %1", TOSTRING(result));
+    return result;
+}
+
+/*--------------------*/
+
 void _EventProcessorDescriptor::setSettings (IN String& st)
 {
     Logging_trace1(">>: %1", st);
+
+    Boolean libraryIsAvailable = isCorrectlyInitialized();
+    errorMessageList.clear();
+
+    if (!libraryIsAvailable) {
+        errorMessageList.append(_errorMessageForBadLibraryInitialization);
+    }
 
     settingsString = st;
 
@@ -393,16 +474,17 @@ void _EventProcessorDescriptor::setSettings (IN String& st)
         StringUtil::newlineReplacedString(st, entrySeparator);
     Dictionary d =
         Dictionary::makeFromString(nlSt, entrySeparator, "=");
-    errorMessageList.clear();
 
     for (auto & [key, value] : d) {
+        _replaceEnvironmentVariables(value);
+
         if (key == _fsBufferingCompensationKey) {
             fluidSynthBufferingIsCompensated =
                 (StringUtil::toLowercase(value) == "true");
         } else {
             Boolean isOkay = midiEventConverter->set(key, value);
 
-            if (!isOkay) {
+            if (libraryIsAvailable && !isOkay) {
                 String errorMessage =
                     StringUtil::expand("cannot set '%1' to '%2'",
                                        key, value);

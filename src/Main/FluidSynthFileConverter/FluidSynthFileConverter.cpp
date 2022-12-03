@@ -673,16 +673,20 @@ static void _renderEvents (IN Dictionary& settings,
 
     MidiEventConverter* midiEventConverter = new MidiEventConverter();
 
-    Boolean isOkay = true;
+    Boolean isOkay = midiEventConverter->isCorrectlyInitialized();
 
-    for (auto& [key, value] : settings) {
-        Boolean settingIsOkay = midiEventConverter->set(key, value);
+    if (!isOkay) {
+        _writeMessage("cannot open FluidSynth library");
+    } else {
+        for (auto& [key, value] : settings) {
+            Boolean settingIsOkay = midiEventConverter->set(key, value);
 
-        if (!settingIsOkay) {
-            String errorMessage = expand("cannot set '%1' to '%2'",
-                                         key, value);
-            _writeMessage(errorMessage);
-            isOkay = false;
+            if (!settingIsOkay) {
+                String errorMessage = expand("cannot set '%1' to '%2'",
+                                             key, value);
+                _writeMessage(errorMessage);
+                isOkay = false;
+            }
         }
     }
 

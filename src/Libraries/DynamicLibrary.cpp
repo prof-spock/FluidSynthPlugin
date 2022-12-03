@@ -28,23 +28,35 @@ using Libraries::DynamicLibrary;
 
     /* types */
     typedef int BOOL;
-    typedef const char *LPCSTR;
+    typedef unsigned long DWORD;
+    typedef __int64 (STDCALL *FARPROC)();
     struct HINSTANCE__ {int unused;};
     typedef struct HINSTANCE__ *HMODULE;
-    typedef __int64 (STDCALL *FARPROC)();
+    typedef const char *LPCSTR;
 
     /* function prototypes */
-    extern "C" DLLImport BOOL STDCALL FreeLibrary(HMODULE hLibModule);
+    extern "C" DLLImport BOOL STDCALL FreeLibrary (HMODULE hLibModule);
 
-    extern "C" DLLImport FARPROC STDCALL GetProcAddress(HMODULE hModule,
-                                             LPCSTR lpProcName);
+    extern "C" DLLImport DWORD GetLastError ();
 
-    extern "C" DLLImport HMODULE STDCALL LoadLibraryA(LPCSTR lpLibFileName);
+    extern "C" DLLImport FARPROC STDCALL GetProcAddress (HMODULE hModule,
+                                                         LPCSTR lpProcName);
+
+    extern "C" DLLImport HMODULE STDCALL LoadLibraryA (LPCSTR lpLibFileName);
 
     /*--------------------*/
 
     Object DL_loadLibrary (IN String& pathName) {
-        return (Object) LoadLibraryA((char*) pathName.c_str());
+        Object result = (Object) LoadLibraryA((char*) pathName.c_str());
+
+        if (result == NULL) {
+            /* just for debugging the library loading */
+            Natural errorCode{(size_t) GetLastError()};
+            String message{StringUtil::expand("load error %1",
+                                              TOSTRING(errorCode))};
+        }
+        
+        return result;
     }
 
     /*--------------------*/
@@ -72,7 +84,15 @@ using Libraries::DynamicLibrary;
     /*--------------------*/
 
     Object DL_loadLibrary (IN String& pathName) {
-        return (Object) dlopen((char*) pathName.c_str(), 0);
+        Object result = (Object) dlopen((char*) pathName.c_str(),
+                                        RTLD_NOW);
+
+        if (result == NULL) {
+            /* just for debugging the library loading */
+            String message{(char *) dlerror()};
+        }
+
+        return result;
     }
 
     /*--------------------*/
@@ -121,7 +141,17 @@ DynamicLibrary::~DynamicLibrary ()
   
 /*--------------------*/
 
-Object DynamicLibrary::library () const
+Boolean DynamicLibrary::isLoaded () const
+{
+    Logging_trace(">>");
+    Boolean result = (_descriptor != NULL);
+    Logging_trace1("<<: %1", TOSTRING(result));
+    return result;
+}
+
+/*--------------------*/
+
+Object DynamicLibrary::underlyingTechnicalLibrary () const
 {
     return _descriptor;
 }

@@ -37,7 +37,7 @@ namespace Libraries::FluidSynth {
          *
          * @param [in] library  the fluidsynth library object 
          */
-        FluidSynthSettings (IN FluidSynth& library);
+        FluidSynthSettings (IN FluidSynth* library);
 
         /*--------------------*/
 

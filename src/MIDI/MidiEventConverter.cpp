@@ -33,12 +33,12 @@ using MIDI::MidiEventKind;
 /*--------------------*/
 
 static Boolean
-_handleMidiEvent (INOUT FluidSynthSynthesizer& synthesizer,
+_handleMidiEvent (INOUT FluidSynthSynthesizer* synthesizer,
                   IN MidiEvent& event);
 
 static Boolean
 _handleProgramChange (IN String& value,
-                      INOUT FluidSynthSynthesizer& synthesizer);
+                      INOUT FluidSynthSynthesizer* synthesizer);
 
 /*====================*/
 /* PRIVATE FEATURES    */
@@ -95,21 +95,20 @@ namespace MIDI {
         void resetSettings ();
 
         /*--------------------*/
+        /*--------------------*/
+
+        /** a fluidsynth library object */
+        FluidSynth* library;
+
+        /*--------------------*/
+
+        /** a fluidsynth synthesizer object */
+        FluidSynthSynthesizer* synthesizer;
 
         private:
 
-            /** a fluidsynth library object */
-            FluidSynth& _library;
-
-            /*--------------------*/
-
             /** a fluidsynth settings object */
-            FluidSynthSettings& _settings;
-
-        public:
-
-        /** a fluidsynth synthesizer object */
-        FluidSynthSynthesizer& synthesizer;
+            FluidSynthSettings* _settings;
 
     };
 
@@ -122,12 +121,14 @@ using MIDI::_MidiEventConverterDescriptor;
 /*====================*/
 
 _MidiEventConverterDescriptor::_MidiEventConverterDescriptor ()
-    : _library{*(new FluidSynth())},
-      _settings{*(new FluidSynthSettings(_library))},
-      synthesizer{*(new FluidSynthSynthesizer(_library, _settings))}
 {
     Logging_trace(">>");
-    synthesizerBufferSize = synthesizer.internalBufferSize();
+
+    library = new FluidSynth();
+    _settings = new FluidSynthSettings(library);
+    synthesizer = new FluidSynthSynthesizer(library, _settings);
+    synthesizerBufferSize = (!library->isLoaded() ? 0
+                             : synthesizer->internalBufferSize());
     Logging_trace("<<");
 }
 
@@ -136,9 +137,9 @@ _MidiEventConverterDescriptor::_MidiEventConverterDescriptor ()
 _MidiEventConverterDescriptor::~_MidiEventConverterDescriptor ()
 {
     Logging_trace(">>");
-    delete &synthesizer;
-    delete &_settings;
-    delete &_library;
+    delete synthesizer;
+    delete _settings;
+    delete library;
     Logging_trace("<<");
 }
 
@@ -154,11 +155,11 @@ _MidiEventConverterDescriptor::changeSettings (IN String& key,
     settingsDictionary.set(key, value);
 
     if (StringUtil::startsWith(key, "synth.")) {
-        isOkay = _settings.set(key, value);
+        isOkay = _settings->set(key, value);
     } else if (key == "program") {
         isOkay = _handleProgramChange(value, synthesizer);
     } else if (key == "soundfont") {
-        isOkay = synthesizer.loadSoundFont(value);
+        isOkay = synthesizer->loadSoundFont(value);
     }
     
     Logging_trace1("<<: %1", TOSTRING(isOkay));
@@ -218,7 +219,7 @@ _clearSampleListVector (INOUT AudioSampleListVector& sampleListVector,
  *                                       in MIDI event list
  */
 static void
-_handleCurrentMidiEvents (INOUT FluidSynthSynthesizer& synthesizer,
+_handleCurrentMidiEvents (INOUT FluidSynthSynthesizer* synthesizer,
                           IN Natural referenceTimeInSamples,
                           IN MidiEventList& eventList,
                           INOUT Natural& eventIndex)
@@ -256,7 +257,7 @@ _handleCurrentMidiEvents (INOUT FluidSynthSynthesizer& synthesizer,
  * @return  information whether midi event handling has been successful
  */
 static Boolean
-_handleMidiEvent (INOUT FluidSynthSynthesizer& synthesizer,
+_handleMidiEvent (INOUT FluidSynthSynthesizer* synthesizer,
                   IN MidiEvent& event)
 {
     Logging_trace1(">>: event = %1", event.toString());
@@ -271,32 +272,31 @@ _handleMidiEvent (INOUT FluidSynthSynthesizer& synthesizer,
         if (eventKind == MidiEventKind::controlChange) {
             const Natural controller = event.getDataByte(1);
             const Natural value      = event.getDataByte(2);
-            isOkay = synthesizer.handleControlChange(midiChannel,
-                                                     controller, value);
+            isOkay = synthesizer->handleControlChange(midiChannel,
+                                                      controller, value);
         } else if (eventKind == MidiEventKind::monoTouch) {
             const Natural key = event.getDataByte(1);
             const Natural value      = event.getDataByte(2);
-            isOkay = synthesizer.handleMonoTouch(midiChannel,
-                                                 key, value);
+            isOkay = synthesizer->handleMonoTouch(midiChannel, key, value);
         } else if (eventKind == MidiEventKind::noteOff) {
             const Natural key = event.getDataByte(1);
-            isOkay = synthesizer.handleNoteOff(midiChannel, key);
+            isOkay = synthesizer->handleNoteOff(midiChannel, key);
         } else if (eventKind == MidiEventKind::noteOn) {
             const Natural key          = event.getDataByte(1);
             const Natural midiVelocity = event.getDataByte(2);
-            isOkay = synthesizer.handleNoteOn(midiChannel,
-                                              key, midiVelocity);
+            isOkay = synthesizer->handleNoteOn(midiChannel,
+                                               key, midiVelocity);
         } else if (eventKind == MidiEventKind::pitchBend) {
             const Natural value = (event.getDataByte(1)
                                    + event.getDataByte(2) * 128);
-            isOkay = synthesizer.handlePitchBend(midiChannel, value);
+            isOkay = synthesizer->handlePitchBend(midiChannel, value);
         } else if (eventKind == MidiEventKind::polyTouch) {
             const Natural value = event.getDataByte(1);
-            isOkay = synthesizer.handlePolyTouch(midiChannel, value);
+            isOkay = synthesizer->handlePolyTouch(midiChannel, value);
         } else if (eventKind == MidiEventKind::programChange) {
             const Natural programNumber = event.getDataByte(1);
-            isOkay = synthesizer.handleProgramChange(midiChannel,
-                                                     programNumber);
+            isOkay = synthesizer->handleProgramChange(midiChannel,
+                                                      programNumber);
         }
     }
 
@@ -317,7 +317,7 @@ _handleMidiEvent (INOUT FluidSynthSynthesizer& synthesizer,
  */
 static Boolean
 _handleProgramChange (IN String& value,
-                      INOUT FluidSynthSynthesizer& synthesizer)
+                      INOUT FluidSynthSynthesizer* synthesizer)
 {
     Logging_trace1(">>: %1", value);
 
@@ -348,12 +348,12 @@ _handleProgramChange (IN String& value,
         Natural programNumber = StringUtil::toNatural(program);
 
         for (Natural midiChannel = 0;  midiChannel < 16;  midiChannel++) {
-            isOkay = synthesizer.handleBankChange(midiChannel,
-                                                  bankNumber);
+            isOkay = synthesizer->handleBankChange(midiChannel,
+                                                   bankNumber);
 
             if (isOkay) {
-                isOkay = synthesizer.handleProgramChange(midiChannel,
-                                                         programNumber);
+                isOkay = synthesizer->handleProgramChange(midiChannel,
+                                                          programNumber);
             }
         }
     }
@@ -393,6 +393,18 @@ MidiEventConverter::~MidiEventConverter ()
 
 /*--------------------*/
 /* property queries   */
+/*--------------------*/
+
+Boolean MidiEventConverter::isCorrectlyInitialized () const
+{
+    Logging_trace(">>");
+    _MidiEventConverterDescriptor& descriptor =
+        TOREFERENCE<_MidiEventConverterDescriptor>(_descriptor);
+    Boolean result = (descriptor.library->isLoaded());
+    Logging_trace1("<<: %1", TOSTRING(result));
+    return result;
+}
+
 /*--------------------*/
 
 Natural
@@ -449,7 +461,7 @@ MidiEventConverter::processBlock
 
     _MidiEventConverterDescriptor& descriptor =
         TOREFERENCE<_MidiEventConverterDescriptor>(_descriptor);
-    FluidSynthSynthesizer& synthesizer = descriptor.synthesizer;
+    FluidSynthSynthesizer* synthesizer = descriptor.synthesizer;
 
     /* calculate the times (in samples) */
     Natural currentTimeInSamples = 0;
@@ -477,9 +489,9 @@ MidiEventConverter::processBlock
                                  durationToNextEventInSamples);
         }
 
-        synthesizer.process(audioBuffer,
-                            currentTimeInSamples,
-                            intervalDurationInSamples);
+        synthesizer->process(audioBuffer,
+                             currentTimeInSamples,
+                             intervalDurationInSamples);
         currentTimeInSamples += intervalDurationInSamples;
     }
     

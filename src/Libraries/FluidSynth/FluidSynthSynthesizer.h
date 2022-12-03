@@ -43,8 +43,8 @@ namespace Libraries::FluidSynth {
          * @param[in] library   the fluidsynth library object
          * @param[in] settings  the current settings from fluidsynth 
          */
-        FluidSynthSynthesizer (IN FluidSynth& library,
-                               IN FluidSynthSettings& settings);
+        FluidSynthSynthesizer (IN FluidSynth* library,
+                               IN FluidSynthSettings* settings);
 
        /*--------------------*/
 

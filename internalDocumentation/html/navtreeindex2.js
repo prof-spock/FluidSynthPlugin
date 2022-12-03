@@ -1,5 +1,12 @@
 var NAVTREEINDEX2 =
 {
+"struct_audio_1_1_audio_sample_fifo_queue.html#aeaf60b42390cd003c8043c8964f0d568":[2,0,0,0,2],
+"struct_audio_1_1_audio_sample_fifo_queue_vector.html":[2,0,0,1],
+"struct_audio_1_1_audio_sample_fifo_queue_vector.html#a00aa0dde125981010d670b029648d04d":[2,0,0,1,2],
+"struct_audio_1_1_audio_sample_fifo_queue_vector.html#a4ed96e3db0080e0feecd87f983af94c8":[2,0,0,1,4],
+"struct_audio_1_1_audio_sample_fifo_queue_vector.html#a53935af4cbc59b8af44c38cfe3324cc6":[2,0,0,1,0],
+"struct_audio_1_1_audio_sample_fifo_queue_vector.html#a987b5f3d33b8f8d5c32d51674b2483dc":[2,0,0,1,5],
+"struct_audio_1_1_audio_sample_fifo_queue_vector.html#a9a2480efb9e1b0471c1d9c87a29f73bf":[2,0,0,1,3],
 "struct_audio_1_1_audio_sample_fifo_queue_vector.html#aaa49acd8dfc532c724ce82c7e1b8c5e8":[2,0,0,1,7],
 "struct_audio_1_1_audio_sample_fifo_queue_vector.html#abeaa37094c4e62c48d339edb7729a8ea":[2,0,0,1,6],
 "struct_audio_1_1_audio_sample_fifo_queue_vector.html#afdfb4847969fe47a628f9b2de03a0733":[2,0,0,1,1],
@@ -57,10 +64,11 @@ var NAVTREEINDEX2 =
 "struct_base_modules_1_1_logging.html#ab915ef17aed709c4648e464e110d0b8b":[2,0,1,6,5],
 "struct_base_modules_1_1_logging.html#aded857df8493b28c3b5c5234fc452997":[2,0,1,6,4],
 "struct_base_modules_1_1_operating_system.html":[2,0,1,7],
-"struct_base_modules_1_1_operating_system.html#a2bfeca4755bd7c4b624facb46f19fc88":[2,0,1,7,2],
-"struct_base_modules_1_1_operating_system.html#a33bfd6cd3f23e30e5392434167d6b1a8":[2,0,1,7,3],
+"struct_base_modules_1_1_operating_system.html#a2bfeca4755bd7c4b624facb46f19fc88":[2,0,1,7,3],
+"struct_base_modules_1_1_operating_system.html#a33bfd6cd3f23e30e5392434167d6b1a8":[2,0,1,7,4],
 "struct_base_modules_1_1_operating_system.html#a3da76af6d2663565ddb6dee7fedda025":[2,0,1,7,0],
-"struct_base_modules_1_1_operating_system.html#ab7d670f15f042b4b7f3418b579bcf811":[2,0,1,7,1],
+"struct_base_modules_1_1_operating_system.html#ab7d670f15f042b4b7f3418b579bcf811":[2,0,1,7,2],
+"struct_base_modules_1_1_operating_system.html#ac34043e58c265c1f094f1ebe3fe8cf5c":[2,0,1,7,1],
 "struct_base_modules_1_1_string_util.html":[2,0,1,8],
 "struct_base_modules_1_1_string_util.html#a09d7f367858e5c9fbcd4a61e82294d75":[2,0,1,8,38],
 "struct_base_modules_1_1_string_util.html#a14a9babed075c5f55d1e62f34cfcdf0d":[2,0,1,8,16],
@@ -241,13 +249,5 @@ var NAVTREEINDEX2 =
 "struct_base_types_1_1_primitives_1_1_real.html#a89dc1d5b90db48e5cae0633835bf5ea0":[2,0,2,1,7,5],
 "struct_base_types_1_1_primitives_1_1_real.html#a9174f9563a3bc7195ec2988fbda14758":[2,0,2,1,7,48],
 "struct_base_types_1_1_primitives_1_1_real.html#a9a15ae5a5d04853f80ee90c13aff71c4":[2,0,2,1,7,0],
-"struct_base_types_1_1_primitives_1_1_real.html#a9b0dab55a7c4a9911fa40d4b2c33560e":[2,0,2,1,7,18],
-"struct_base_types_1_1_primitives_1_1_real.html#aa20b95e00cb65b2f73228a9c544cd021":[2,0,2,1,7,47],
-"struct_base_types_1_1_primitives_1_1_real.html#aa857a463be9a09f7ffd62423b204db19":[2,0,2,1,7,37],
-"struct_base_types_1_1_primitives_1_1_real.html#ab0ee5ca9c927bacc2d12b8975dd787b6":[2,0,2,1,7,28],
-"struct_base_types_1_1_primitives_1_1_real.html#ab618814aad25daa033eee9797e3edac1":[2,0,2,1,7,40],
-"struct_base_types_1_1_primitives_1_1_real.html#abbd9397b071059ce38845f0e23f0e37a":[2,0,2,1,7,22],
-"struct_base_types_1_1_primitives_1_1_real.html#abdb4c21abd467c57f165c121d46f4e80":[2,0,2,1,7,15],
-"struct_base_types_1_1_primitives_1_1_real.html#abf2b0142506673ca9fcf9926b8cf8b8c":[2,0,2,1,7,34],
-"struct_base_types_1_1_primitives_1_1_real.html#ac1ece2c42b9d66964c3db44df1b236d7":[2,0,2,1,7,4]
+"struct_base_types_1_1_primitives_1_1_real.html#a9b0dab55a7c4a9911fa40d4b2c33560e":[2,0,2,1,7,18]
 };

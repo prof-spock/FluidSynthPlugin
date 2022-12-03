@@ -72,14 +72,38 @@ String OperatingSystem::dirname (IN String& fileName)
 
 /*--------------------*/
 
+String OperatingSystem::environmentValue (IN String variableName,
+                                          IN String defaultValue)
+{
+    Logging_trace2(">>: variable = '%1', default = '%2'",
+                   variableName, defaultValue);
+    char* value = (char*) StdLib_getenv((char*) variableName.c_str());
+    String result;
+
+    if (value == NULL) {
+        result = defaultValue;
+    } else {
+        result = String(value);
+    }
+
+    Logging_trace1("<<: %1", result);
+    return result;
+}
+
+/*--------------------*/
+
 String OperatingSystem::temporaryDirectoryPath ()
 {
+    Logging_trace(">>");
+
     char* environmentPath = (char*) StdLib_getenv("tmp");
-    environmentPath = (environmentPath != nullptr ? environmentPath
+    environmentPath = (environmentPath != NULL ? environmentPath
                        : (char*) StdLib_getenv("temp"));
-    environmentPath = (environmentPath != nullptr ? environmentPath
+    environmentPath = (environmentPath != NULL ? environmentPath
                        : (char*) "/tmp");
     String result = String(environmentPath);
+
+    Logging_trace1("<<: %1", result);
     return result;
 }
 

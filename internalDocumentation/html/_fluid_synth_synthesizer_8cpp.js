@@ -1,7 +1,7 @@
 var _fluid_synth_synthesizer_8cpp =
 [
+    [ "_reportBadFunction", "_fluid_synth_synthesizer_8cpp.html#aa02185245b001317dc65e243cef54b5b", null ],
     [ "GPA", "_fluid_synth_synthesizer_8cpp.html#a2eddf0f1f16313b56d83951421f26e77", null ],
-    [ "reportBadFunction", "_fluid_synth_synthesizer_8cpp.html#aba26261f70b35fe5d7d27b7d60c33b70", null ],
     [ "FS_DestructionProc", "_fluid_synth_synthesizer_8cpp.html#a3382f05f22bd5201f8776875b22fd39d", null ],
     [ "FSSynthesizer_BankChangeProc", "_fluid_synth_synthesizer_8cpp.html#a42772946d8947f31662ff275635b575b", null ],
     [ "FSSynthesizer_BufferSizeProc", "_fluid_synth_synthesizer_8cpp.html#a471c0711cf1518ccc119b054b32d3f4a", null ],
@@ -16,6 +16,7 @@ var _fluid_synth_synthesizer_8cpp =
     [ "FSSynthesizer_ProgChangeProc", "_fluid_synth_synthesizer_8cpp.html#ab94ebe776a629f1e98b367a2f10bd8d6", null ],
     [ "FSSynthesizer_SFLoadProc", "_fluid_synth_synthesizer_8cpp.html#a3e3d7d6f3d3d6098887b210372548db9", null ],
     [ "_initializeFunctionsForLibrary", "_fluid_synth_synthesizer_8cpp.html#a1c9d1152afce3310aaf2b720af890a27", null ],
+    [ "_errorMessageForUndefinedDescriptor", "_fluid_synth_synthesizer_8cpp.html#a688a4a05209bd1f8f445610b7a16e0c9", null ],
     [ "FSSynthesizer_destroy", "_fluid_synth_synthesizer_8cpp.html#af32029108e9cd6a547bf41ca8dd4f117", null ],
     [ "FSSynthesizer_handleBankChange", "_fluid_synth_synthesizer_8cpp.html#ac01e300af92ef2017de54e857c8535bb", null ],
     [ "FSSynthesizer_handleControlChange", "_fluid_synth_synthesizer_8cpp.html#a5d1d6eb23654a89aea0d431833feb5b6", null ],

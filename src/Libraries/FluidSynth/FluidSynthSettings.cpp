@@ -142,20 +142,24 @@ static void _initializeFunctionsForLibrary (IN Object fsLibrary)
 /* PUBLIC FEATURES    */
 /*====================*/
 
-FluidSynthSettings::FluidSynthSettings (IN FluidSynth& library)
+FluidSynthSettings::FluidSynthSettings (IN FluidSynth* library)
     : _descriptor{NULL}
 {
     Logging_trace(">>");
 
     Logging_trace1("--: settingsToKindMap = %1",
                    _settingsKeyToKindMap.toString());
-    
-    _initializeFunctionsForLibrary(library.fsLibrary());
 
-    if (FSSettings_make == NULL) {
-        reportBadFunction("make");
+    if (!library->isLoaded()) {
+        Logging_traceError("library is undefined");
     } else {
-        _descriptor = FSSettings_make();
+        _initializeFunctionsForLibrary(library->dynamicLibrary());
+
+        if (FSSettings_make == NULL) {
+            reportBadFunction("make");
+        } else {
+            _descriptor = FSSettings_make();
+        }
     }
 
     Logging_trace("<<");
@@ -196,56 +200,60 @@ Boolean FluidSynthSettings::set (IN String& key, IN String& value)
         const char* keyAsCharArray = key.c_str();
         Object settingsObject = _descriptor;
 
-        if (kind == "B") {
-            Integer boolValue = (value == "true" ? 1 : 0);
-            Logging_trace2("--: kind = %1, value = %2",
-                           kind, TOSTRING(boolValue));
+        if (settingsObject == NULL) {
+            Logging_traceError("settings object must be defined");
+        } else {
+            if (kind == "B") {
+                Integer boolValue = (value == "true" ? 1 : 0);
+                Logging_trace2("--: kind = %1, value = %2",
+                               kind, TOSTRING(boolValue));
 
-            if (FSSettings_setInt == NULL) {
-                reportBadFunction("setInt");
-            } else {
-                operationResult = FSSettings_setInt(settingsObject,
-                                                    keyAsCharArray,
-                                                    (int) boolValue);
-                isOkay = (operationResult == 0);
-            }
-        } else if (kind == "I") {
-            Integer intValue = StringUtil::toInteger(value);
-            Logging_trace2("--: kind = %1, value = %2",
-                           kind, TOSTRING(intValue));
+                if (FSSettings_setInt == NULL) {
+                    reportBadFunction("setInt");
+                } else {
+                    operationResult = FSSettings_setInt(settingsObject,
+                                                        keyAsCharArray,
+                                                        (int) boolValue);
+                    isOkay = (operationResult == 0);
+                }
+            } else if (kind == "I") {
+                Integer intValue = StringUtil::toInteger(value);
+                Logging_trace2("--: kind = %1, value = %2",
+                               kind, TOSTRING(intValue));
 
-            if (FSSettings_setInt == NULL) {
-                reportBadFunction("setInt");
-            } else {
-                operationResult = FSSettings_setInt(settingsObject,
-                                                    keyAsCharArray,
-                                                    (int) intValue);
-                isOkay = (operationResult == 0);
-            }
-        } if (kind == "F") {
-            Real numValue = StringUtil::toReal(value);
-            Logging_trace2("--: kind = %1, value = %2",
-                           kind, TOSTRING(numValue));
+                if (FSSettings_setInt == NULL) {
+                    reportBadFunction("setInt");
+                } else {
+                    operationResult = FSSettings_setInt(settingsObject,
+                                                        keyAsCharArray,
+                                                        (int) intValue);
+                    isOkay = (operationResult == 0);
+                }
+            } if (kind == "F") {
+                Real numValue = StringUtil::toReal(value);
+                Logging_trace2("--: kind = %1, value = %2",
+                               kind, TOSTRING(numValue));
 
-            if (FSSettings_setNum == NULL) {
-                reportBadFunction("setNum");
-            } else {
-                operationResult = FSSettings_setNum(settingsObject,
-                                                    keyAsCharArray,
-                                                    (float) numValue);
-                isOkay = (operationResult == 0);
-            }
-        } if (kind == "S") {
-            Logging_trace2("--: kind = %1, value = %2",
-                           kind, value);
+                if (FSSettings_setNum == NULL) {
+                    reportBadFunction("setNum");
+                } else {
+                    operationResult = FSSettings_setNum(settingsObject,
+                                                        keyAsCharArray,
+                                                        (float) numValue);
+                    isOkay = (operationResult == 0);
+                }
+            } if (kind == "S") {
+                Logging_trace2("--: kind = %1, value = %2",
+                               kind, value);
 
-            if (FSSettings_setStr == NULL) {
-                reportBadFunction("setStr");
-            } else {
-                operationResult = FSSettings_setStr(settingsObject,
-                                                    keyAsCharArray,
-                                                    value.c_str());
-                isOkay = (operationResult == 0);
+                if (FSSettings_setStr == NULL) {
+                    reportBadFunction("setStr");
+                } else {
+                    operationResult = FSSettings_setStr(settingsObject,
+                                                        keyAsCharArray,
+                                                        value.c_str());
+                    isOkay = (operationResult == 0);
+                }
             }
         } 
     }

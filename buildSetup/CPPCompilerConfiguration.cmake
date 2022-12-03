@@ -106,6 +106,7 @@ IF(LINUX)
         JUCE_WEB_BROWSER=0
         JUCE_USE_CURL=0
         JUCE_USE_XCURSOR=0
+        JUCE_USE_XINERAMA=0
         JUCE_USE_XRANDR=0
         JUCE_USE_XRENDER=0
         LINUX=1
@@ -175,15 +176,19 @@ IF(MSVC)
     )
 ELSE()
     STRING(JOIN " " cppFlagsCommon
-           -ffast-math             # fast floating point calculation
-           -mavx                   # enable AVX vectorization instructions
-           -O0                     # no optimization
-           -Ofast                  # favors fast code
-           -pedantic               # set strict standard conformance
-           -Wall                   # warning level: all
-           -Wno-delete-incomplete  # remove warning for void deletion
-           -Wno-unused-function    # remove warning for unused function
-           -Wno-unused-variable    # remove warning for unused variable
+           -ffast-math                   # fast floating point calculation
+           -mavx                         # enable AVX vectorization
+                                         # instructions
+           -O0                           # no optimization
+           -Ofast                        # favors fast code
+           -pedantic                     # set strict standard conformance
+           -Wall                         # warning level: all
+           -Wno-delete-incomplete        # remove warning for void deletion
+           -Wno-ignored-qualifiers       # remove warning for const qualifier
+                                         # on functions
+           -Wno-unused-function          # remove warning for unused function
+           -Wno-unused-variable          # remove warning for unused variable
+           -Wno-unused-but-set-variable  # remove warning for unused variable
            )
 
     # warn about undefined symbols when linking

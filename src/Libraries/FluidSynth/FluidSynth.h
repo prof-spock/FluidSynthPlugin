@@ -49,11 +49,20 @@ namespace Libraries::FluidSynth {
         /*--------------------*/
 
         /**
-         * Returns the underlying library.
+         * Returns whether library has been correctly loaded.
          *
-         * @return  underlying fluidsynth library object
+         * @return  information whether library is okay
          */
-        Object fsLibrary () const;
+        Boolean isLoaded () const;
+  
+        /*--------------------*/
+
+        /**
+         * Returns the underlying dynamic library object.
+         *
+         * @return  underlying dynamic library object
+         */
+        Object dynamicLibrary () const;
   
         /*--------------------*/
   

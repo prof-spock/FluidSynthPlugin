@@ -24,13 +24,17 @@ ELSE()
 ENDIF()
 
 SET(platformName ${CMAKE_SYSTEM_NAME}-${CMAKE_SYSTEM_PROCESSOR})
+MESSAGE(STATUS "platformName = " ${platformName})
 
 IF(WINDOWS)
     SET(libraryNameExtension ".vst3")
     SET(vst3PlatformName "x86_64-win")
-ELSE()
+ELSEIF(LINUX)
     SET(libraryNameExtension ".so")
     SET(vst3PlatformName "x86_64-linux")
+ELSE()
+    SET(libraryNameExtension ".so")
+    SET(vst3PlatformName "x86_64-macosx")
 ENDIF()
 
 # --- compiler ---
@@ -62,7 +66,7 @@ SET(pluginNameList FluidSynthPlugin)
 SET(converterName FluidSynthFileConverter)
 
 # the subdirectory for the configuration used
-SET(configurationSubdirectory $<$<PLATFORM_ID:Windows>:/$<CONFIG>>)
+SET(configurationSubdirectory ${CMAKE_BUILD_TYPE})
 
 # ===================
 # === directories ===
@@ -91,8 +95,14 @@ SET(srcFluidSynthPluginDirectory  ${srcDirectory}/Main/FluidSynthPlugin)
 SET(srcFluidSynthConverterDirectory
     ${srcDirectory}/Main/${converterName})
 
-SET(dynamicLibrariesDirectory
+SET(originalDynamicLibrariesDirectory
     ${CMAKE_CURRENT_SOURCE_DIR}/../libraries/${platformName})
+
+IF(NOT MACOSX)
+    SET(dynamicLibrariesDirectory ${originalDynamicLibrariesDirectory})
+ELSE()
+    SET(dynamicLibrariesDirectory ${buildDirectory}/libraries)
+ENDIF()
 
 SET(docDirectory ${CMAKE_CURRENT_SOURCE_DIR}/../doc)
 SET(docLaTeXDirectory ${docDirectory}/latex)
@@ -263,19 +273,23 @@ ENDIF(MACOSX)
 # -------------------------------------------------------------------
 
 IF(WINDOWS)
-    SET(dynamicLibraryList
-        ${dynamicLibrariesDirectory}/libfluidsynth-3.dll
-        ${dynamicLibrariesDirectory}/libgcc_s_sjlj-1.dll
-        ${dynamicLibrariesDirectory}/libglib-2.0-0.dll
-        ${dynamicLibrariesDirectory}/libgobject-2.0-0.dll
-        ${dynamicLibrariesDirectory}/libgomp-1.dll
-        ${dynamicLibrariesDirectory}/libgthread-2.0-0.dll
-        ${dynamicLibrariesDirectory}/libinstpatch-2.dll
-        ${dynamicLibrariesDirectory}/libintl-8.dll
-        ${dynamicLibrariesDirectory}/libsndfile-1.dll
-        ${dynamicLibrariesDirectory}/libstdc++-6.dll
-        ${dynamicLibrariesDirectory}/libwinpthread-1.dll)
-ENDIF(WINDOWS)
+    SET(dynamicLibraryNameList
+        libfluidsynth-3.dll libgcc_s_sjlj-1.dll libglib-2.0-0.dll
+        libgobject-2.0-0.dll libgomp-1.dll libgthread-2.0-0.dll
+        libinstpatch-2.dll libintl-8.dll libsndfile-1.dll libstdc++-6.dll
+        libwinpthread-1.dll)
+ELSEIF(MACOSX)
+    SET(dynamicLibraryNameList
+        libFLAC.8.dylib libffi.8.dylib libfluidsynth.3.dylib
+        libglib-2.0.0.dylib libgobject-2.0.0.dylib libgthread-2.0.0.dylib
+        libiconv.2.dylib libintl.8.dylib libncurses.6.dylib
+        libogg.0.dylib libopus.0.dylib libpcre.1.dylib
+        libreadline.8.dylib libsndfile.1.dylib libvorbis.0.dylib
+        libvorbisenc.2.dylib)
+ENDIF()
+
+SET(dynamicLibraryList ${dynamicLibraryNameList})
+LIST(TRANSFORM dynamicLibraryList PREPEND ${dynamicLibrariesDirectory}/)
 
 # -------------------------------------------------------------------
 # --- the file name list of facade files for JUCE; those files    ---
@@ -312,7 +326,7 @@ SET(regressionTestFileList
     ${testFileDirectory}/test_bass.mid
     ${testFileDirectory}/test_drums.mid
     ${testFileDirectory}/test_keyboard.mid
-    ${testFileDirectory}/testFluidSynth.RPP)
+    ${testFileDirectory}/testFluidSynth.rpp)
 
 # --- Windows specific files ---
 IF(MSVC)
@@ -323,10 +337,12 @@ ELSE()
 ENDIF()
 
 # --- MacOSX specific files ---
-SET(miscDirectory ${CMAKE_CURRENT_SOURCE_DIR}/MacOSX)
-SET(plistFileTemplate ${miscDirectory}/Info.plist.in)
+SET(macOSMiscDirectory ${CMAKE_CURRENT_SOURCE_DIR}/MacOSX)
+SET(plistFileTemplate ${macOSMiscDirectory}/Info.plist.in)
 SET(nibFileName RecentFilesMenuTemplate.nib)
-SET(nibFileSourcePath ${miscDirectory}/${nibFileName})
+SET(nibFileSourcePath ${macOSMiscDirectory}/${nibFileName})
+SET(dynamicLibraryAdaptationScript
+    ${macOSMiscDirectory}/adaptLibraryFileLinkage.sh)
 
 # -------------------------------------------------
 # --- Apple framework files and bundle settings ---
@@ -377,6 +393,27 @@ ENDIF(NOT MACOSX)
 # #################
 # ### FUNCTIONS ###
 # #################
+
+FUNCTION(adaptLibraryFileLinkage)
+    # copies library files in MacOSX to intermediate dynamic library
+    # file directory and changes library paths in those libraries to a
+    # relative path
+
+    # copy files into intermediate directory
+    FILE(MAKE_DIRECTORY ${dynamicLibrariesDirectory})
+    SET(originalDynamicLibraryList ${dynamicLibraryNameList})
+    LIST(TRANSFORM originalDynamicLibraryList
+         PREPEND "${originalDynamicLibrariesDirectory}/")
+    FILE(COPY ${originalDynamicLibraryList}
+         DESTINATION ${dynamicLibrariesDirectory})
+
+    # scan all files and change paths to "@loader_path"
+    EXECUTE_PROCESS(COMMAND "bash"
+                    ${dynamicLibraryAdaptationScript}
+                    ${dynamicLibrariesDirectory})
+ENDFUNCTION(adaptLibraryFileLinkage)
+
+#--------------------
 
 FUNCTION(addPluginNibFileForAUTarget targetName resourcePath)
     # adds a NIB file into resource folder <resourcePath> for target
@@ -532,17 +569,24 @@ FUNCTION(makePluginVSTTarget pluginName libraryName targetName)
                               PREFIX ""
                               SUFFIX ${libraryNameExtension})
 
-        SET(libraryFileName ${libraryName}${libraryNameExtension})
-        SET(libraryFileDirectory
-            ${buildDirectory}${configurationSubdirectory})
-        SET(vst3Directory
-            ${buildDirectory}/${libraryName}/Contents/${vst3PlatformName})
+        IF(LINUX)
+            SET(libraryFileDirectory ${buildDirectory})
+        ELSE()
+            SET(libraryFileDirectory
+                ${buildDirectory}/${configurationSubdirectory})
+        ENDIF()
+
+        SET(libraryFileName
+            ${libraryFileDirectory}/${libraryName}${libraryNameExtension})
+        STRING(CONCAT vst3Directory
+               "${buildDirectory}"
+               "/${libraryName}.vst3"
+               "/Contents/${vst3PlatformName}")
+        FILE(MAKE_DIRECTORY ${vst3Directory})
         
         ADD_CUSTOM_COMMAND(TARGET ${targetName} POST_BUILD
-                           COMMAND ${CMAKE_COMMAND} -E make_directory
-                                   ${vst3Directory}
                            COMMAND ${CMAKE_COMMAND} -E copy
-                                   ${libraryFileDirectory}/${libraryFileName}
+                                   ${libraryFileName}
                                    ${vst3Directory}
                                    COMMENT "Bundling ${libraryName}.")
     ENDIF()
@@ -638,7 +682,7 @@ ENDFUNCTION(makeLaTeXDocumentationTarget)
 INCLUDE_DIRECTORIES(${standardIncludeDirectoryList})
 
 # compile with logging enabled globally for a debug configuration
-ADD_COMPILE_DEFINITIONS($<$<CONFIG:Debug>:LOGGING_IS_ACTIVE>)
+# ADD_COMPILE_DEFINITIONS($<$<CONFIG:Debug>:LOGGING_IS_ACTIVE>)
 
 # ==================================
 # === intermediate library files ===
@@ -657,6 +701,14 @@ ADD_DEPENDENCIES(SupportLibraries JuceFramework)
 ADD_CUSTOM_TARGET(FluidSynthPlugins ALL)
 
 # -----------------------------------------------------------------
+# --- adapt library files on MacOSX                             ---
+# -----------------------------------------------------------------
+
+IF(MACOSX)
+    adaptLibraryFileLinkage()
+ENDIF()
+
+# -----------------------------------------------------------------
 # --- build command-line fluidsynth file converter              ---
 # -----------------------------------------------------------------
 
@@ -672,6 +724,7 @@ SET(fluidSynthConverterFileList
 
 ADD_EXECUTABLE(${targetName}
                ${fluidSynthConverterFileList})
+ADD_DEPENDENCIES(FluidSynthPlugins ${targetName})
 
 # IF (CMAKE_BUILD_TYPE STREQUAL "Debug")
 #     TARGET_COMPILE_DEFINITIONS(${targetName} PUBLIC -DLOGGING_IS_ACTIVE)
@@ -734,7 +787,10 @@ ENDIF()
 # ====================
 
 SET(platformTargetSubdirectory
-    ${platformTargetDirectory}/${platformName}${configurationSubdirectory})
+    ${platformTargetDirectory}/${platformName}/${configurationSubdirectory})
+MESSAGE(STATUS "platformTargetSubdirectory = "
+        ${platformTargetSubdirectory})
+FILE(MAKE_DIRECTORY ${platformTargetSubdirectory})
 
 IF(MSVC)
     # make installation part of build in MSVC
@@ -761,7 +817,7 @@ SET(targetConverterDirectory
     ${platformTargetSubdirectory}/${converterName})
 FILE(REMOVE_RECURSE ${targetConverterDirectory})
 INSTALL(TARGETS ${converterName}
-    DESTINATION ${targetConverterDirectory})
+        DESTINATION ${targetConverterDirectory})
 INSTALL(FILES ${dynamicLibraryList}
         DESTINATION ${targetConverterDirectory})
 
@@ -774,7 +830,7 @@ FOREACH(pluginName ${pluginNameList})
 
     IF(NOT MACOSX)
         SET(targetVST3Path ${targetVST3Directory}/${libraryName}.vst3)
-        INSTALL(DIRECTORY ${buildDirectory}/${libraryName}/Contents
+        INSTALL(DIRECTORY ${buildDirectory}/${libraryName}.vst3/Contents
                 DESTINATION ${targetVST3Path})
         INSTALL(FILES ${dynamicLibraryList}
                 DESTINATION ${targetVST3Path}/Contents/${vst3PlatformName})
@@ -783,16 +839,20 @@ FOREACH(pluginName ${pluginNameList})
         INSTALL(TARGETS ${targetName}
                 DESTINATION ${targetVST3Directory})
         INSTALL(FILES ${dynamicLibraryList}
-                DESTINATION ${targetVST3Directory}/Contents)
+                DESTINATION ${targetVST3Directory}/${libraryName}.vst3/Contents/MacOS)
     ENDIF()
 ENDFOREACH(pluginName)
 
 # --- install the AU plugins to platform directory ---
 IF(MACOSX)
     FOREACH(pluginName ${pluginNameList})
+        SET(targetAUDirectory
+            ${platformTargetSubdirectory}/AU)
+        FILE(REMOVE_RECURSE ${targetAUDirectory})
         SET(libraryName ${pluginName})
         SET(targetName ${libraryName}_AU)
-        INSTALL(TARGETS ${targetName}
-                DESTINATION ${platformTargetSubdirectory}/AU)
-    ENDFOREACH(pluginName)
+        INSTALL(TARGETS ${targetName} DESTINATION ${targetAUDirectory})
+        INSTALL(FILES ${dynamicLibraryList}
+                DESTINATION ${targetAUDirectory}/${libraryName}.component/Contents/MacOS)
+      ENDFOREACH(pluginName)
 ENDIF(MACOSX)

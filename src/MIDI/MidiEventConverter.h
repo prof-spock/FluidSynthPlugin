@@ -96,6 +96,16 @@ namespace MIDI {
         /*--------------------*/
 
         /**
+         * Tells whether the underlying fluidsynth library has been
+         * correctly loaded.
+         *
+         * @return  information about successful loading of FluidSynth
+         */
+        Boolean isCorrectlyInitialized () const;
+        
+        /*--------------------*/
+
+        /**
          * Returns the underlying buffer size of the fluidsynth
          * synthesizer.
          *

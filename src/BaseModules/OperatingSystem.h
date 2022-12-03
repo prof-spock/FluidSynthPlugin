@@ -61,6 +61,20 @@ namespace BaseModules {
         /*--------------------*/
 
         /**
+         * Returns associated value for <C>variableName</C> as string
+         * from the environment.
+         *
+         * @param[in] variableName  name of environment variable
+         * @param[in] defaultValue  value to be returned when
+         *                          environment variable is not set
+         * @return  associated environment value as string
+         */
+        static String environmentValue (IN String variableName,
+                                        IN String defaultValue = "???");
+
+        /*--------------------*/
+
+        /**
          * Returns path of temporary directory as string.
          *
          * @return  path of temporary directory

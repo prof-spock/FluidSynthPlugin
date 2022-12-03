@@ -116,6 +116,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stru
 <tr class="memitem:a9cd5d4eea06370f0fcb930308b70ae02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_m_i_d_i_1_1_midi_event_converter.html#a9cd5d4eea06370f0fcb930308b70ae02">processBlock</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_m_i_d_i_1_1_midi_event_list.html">MidiEventList</a> &amp;midiEventList, <a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_audio_1_1_audio_sample_list_vector.html">AudioSampleListVector</a> &amp;audioBuffer, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> sampleCountInChannel)</td></tr>
 <tr class="memdesc:a9cd5d4eea06370f0fcb930308b70ae02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes a list of <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> events with this converter and updates audio sample buffer assuming a stereo setup.  <a href="struct_m_i_d_i_1_1_midi_event_converter.html#a9cd5d4eea06370f0fcb930308b70ae02">More...</a><br /></td></tr>
 <tr class="separator:a9cd5d4eea06370f0fcb930308b70ae02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f01e3fa13b2e9062d5814d2c39fc4f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_m_i_d_i_1_1_midi_event_converter.html#a6f01e3fa13b2e9062d5814d2c39fc4f3">isCorrectlyInitialized</a> () const</td></tr>
+<tr class="memdesc:a6f01e3fa13b2e9062d5814d2c39fc4f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the underlying fluidsynth library has been correctly loaded.  <a href="struct_m_i_d_i_1_1_midi_event_converter.html#a6f01e3fa13b2e9062d5814d2c39fc4f3">More...</a><br /></td></tr>
+<tr class="separator:a6f01e3fa13b2e9062d5814d2c39fc4f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa65cfa37b1172101483d6a0d0b1ec501"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_m_i_d_i_1_1_midi_event_converter.html#aa65cfa37b1172101483d6a0d0b1ec501">synthesizerBufferSize</a> () const</td></tr>
 <tr class="memdesc:aa65cfa37b1172101483d6a0d0b1ec501"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the underlying buffer size of the fluidsynth synthesizer.  <a href="struct_m_i_d_i_1_1_midi_event_converter.html#aa65cfa37b1172101483d6a0d0b1ec501">More...</a><br /></td></tr>
 <tr class="separator:aa65cfa37b1172101483d6a0d0b1ec501"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -159,6 +162,26 @@ Object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="st
 
 <p>Gets settings data from event converter. </p>
 <dl class="section return"><dt>Returns</dt><dd>string of settings data </dd></dl>
+
+</div>
+</div>
+<a id="a6f01e3fa13b2e9062d5814d2c39fc4f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f01e3fa13b2e9062d5814d2c39fc4f3">&#9670;&nbsp;</a></span>isCorrectlyInitialized()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a> MidiEventConverter::isCorrectlyInitialized </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tells whether the underlying fluidsynth library has been correctly loaded. </p>
+<dl class="section return"><dt>Returns</dt><dd>information about successful loading of FluidSynth </dd></dl>
 
 </div>
 </div>

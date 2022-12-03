@@ -73,16 +73,15 @@ When using both components (command-line and DAW) on the same MIDI
 data they typically produce audio output with a difference of less
 than -200dBFS in a spectrum analysis.
 
-Those components are currently available only for Windows as VST3, but
-the MacOS and Linux versions are in preparation.
+Those components are currently available - as x86_64 versions - for
+Windows, MacOSX and Linux as VST3 and also as AU for MacOSX.
 
 All the code is open-source; hence you can check and adapt it to your
 needs.
 
 ## Installation
 
-The installation is as follows (**note that currently only the Windows
-platform is supported!**):
+The installation is as follows:
 
    1. Copy the plugin <TT>FluidSynthPlugin</TT> from the appropriate
       subdirectory of

@@ -112,8 +112,12 @@ static FSSynthesizer_ProcessProc FSSynthesizer_process;
 /* MACROS */
 /*--------*/
 
+/** error message for an undefined descriptor */
+static const String _errorMessageForUndefinedDescriptor =
+    "synthesizer object must be defined";
+
 /** reports that function with <C>name</C> is not dynamically defined */
-#define reportBadFunction(name) \
+#define _reportBadFunction(name) \
     Logging_traceError("synthesizer '" name "' function undefined")
 
 /** simple macro for dynamic binding of a function */
@@ -176,18 +180,22 @@ static void _initializeFunctionsForLibrary (IN Object fsLibrary)
 /* PUBLIC FEATURES    */
 /*====================*/
 
-FluidSynthSynthesizer::FluidSynthSynthesizer (IN FluidSynth& library,
-                                              IN FluidSynthSettings& settings)
+FluidSynthSynthesizer::FluidSynthSynthesizer (IN FluidSynth* library,
+                                              IN FluidSynthSettings* settings)
     : _descriptor{NULL}
 {
     Logging_trace(">>");
 
-    _initializeFunctionsForLibrary(library.fsLibrary());
-
-    if (FSSynthesizer_make == NULL) {
-        reportBadFunction("make");
+    if (!library->isLoaded()) {
+        Logging_traceError("library or settings object is undefined");
     } else {
-        _descriptor = FSSynthesizer_make(settings.fsSettings());
+        _initializeFunctionsForLibrary(library->dynamicLibrary());
+
+        if (FSSynthesizer_make == NULL) {
+            _reportBadFunction("make");
+        } else {
+            _descriptor = FSSynthesizer_make(settings->fsSettings());
+        }
     }
     
     Logging_trace("<<");
@@ -201,7 +209,7 @@ FluidSynthSynthesizer::~FluidSynthSynthesizer ()
 
     if (_descriptor != NULL) {
         if (FSSynthesizer_destroy == NULL) {
-            reportBadFunction("destroy");
+            _reportBadFunction("destroy");
         } else {
             FSSynthesizer_destroy(_descriptor);
         }
@@ -217,11 +225,12 @@ FluidSynthSynthesizer::~FluidSynthSynthesizer ()
 Natural FluidSynthSynthesizer::internalBufferSize () const
 {
     Logging_trace(">>");
-
     Natural result = 0;
 
-    if (FSSynthesizer_internalBufferSize == NULL) {
-        reportBadFunction("internalBufferSize");
+    if (_descriptor == NULL) {
+        Logging_traceError(_errorMessageForUndefinedDescriptor);
+    } else if (FSSynthesizer_internalBufferSize == NULL) {
+        _reportBadFunction("internalBufferSize");
     } else {
         result = FSSynthesizer_internalBufferSize(_descriptor);
     }
@@ -241,8 +250,10 @@ FluidSynthSynthesizer::handleBankChange (IN Natural channel,
 
     Boolean isOkay = false;
 
-    if (FSSynthesizer_handleBankChange == NULL) {
-        reportBadFunction("bankChange");
+    if (_descriptor == NULL) {
+        Logging_traceError(_errorMessageForUndefinedDescriptor);
+    } else if (FSSynthesizer_handleBankChange == NULL) {
+        _reportBadFunction("bankChange");
     } else {
         Integer operationResult =
             FSSynthesizer_handleBankChange(_descriptor,
@@ -266,8 +277,10 @@ Boolean FluidSynthSynthesizer::handleControlChange (IN Natural channel,
 
     Boolean isOkay = false;
 
-    if (FSSynthesizer_handleControlChange == NULL) {
-        reportBadFunction("controlChange");
+    if (_descriptor == NULL) {
+        Logging_traceError(_errorMessageForUndefinedDescriptor);
+    } else if (FSSynthesizer_handleControlChange == NULL) {
+        _reportBadFunction("controlChange");
     } else {
         Integer operationResult =
             FSSynthesizer_handleControlChange(_descriptor,
@@ -292,8 +305,10 @@ Boolean FluidSynthSynthesizer::handleMonoTouch (IN Natural channel,
 
     Boolean isOkay = false;
 
-    if (FSSynthesizer_handleMonoTouch == NULL) {
-        reportBadFunction("monoTouch");
+    if (_descriptor == NULL) {
+        Logging_traceError(_errorMessageForUndefinedDescriptor);
+    } else if (FSSynthesizer_handleMonoTouch == NULL) {
+        _reportBadFunction("monoTouch");
     } else {
         Integer operationResult =
             FSSynthesizer_handleMonoTouch(_descriptor,
@@ -317,8 +332,10 @@ Boolean FluidSynthSynthesizer::handleNoteOff (IN Natural channel,
 
     Boolean isOkay = false;
 
-    if (FSSynthesizer_handleNoteOff == NULL) {
-        reportBadFunction("noteoff");
+    if (_descriptor == NULL) {
+        Logging_traceError(_errorMessageForUndefinedDescriptor);
+    } else if (FSSynthesizer_handleNoteOff == NULL) {
+        _reportBadFunction("noteoff");
     } else {
         Integer operationResult =
             FSSynthesizer_handleNoteOff(_descriptor,
@@ -342,8 +359,10 @@ Boolean FluidSynthSynthesizer::handleNoteOn (IN Natural channel,
 
     Boolean isOkay = false;
 
-    if (FSSynthesizer_handleNoteOn == NULL) {
-        reportBadFunction("noteon");
+    if (_descriptor == NULL) {
+        Logging_traceError(_errorMessageForUndefinedDescriptor);
+    } else if (FSSynthesizer_handleNoteOn == NULL) {
+        _reportBadFunction("noteon");
     } else {
         Integer operationResult =
             FSSynthesizer_handleNoteOn(_descriptor,
@@ -366,8 +385,10 @@ Boolean FluidSynthSynthesizer::handlePitchBend (IN Natural channel,
 
     Boolean isOkay = false;
 
-    if (FSSynthesizer_handlePitchBend == NULL) {
-        reportBadFunction("pitchBend");
+    if (_descriptor == NULL) {
+        Logging_traceError(_errorMessageForUndefinedDescriptor);
+    } else if (FSSynthesizer_handlePitchBend == NULL) {
+        _reportBadFunction("pitchBend");
     } else {
         Integer operationResult =
             FSSynthesizer_handlePitchBend(_descriptor,
@@ -390,8 +411,10 @@ Boolean FluidSynthSynthesizer::handlePolyTouch (IN Natural channel,
 
     Boolean isOkay = false;
 
-    if (FSSynthesizer_handlePolyTouch == NULL) {
-        reportBadFunction("polyTouch");
+    if (_descriptor == NULL) {
+        Logging_traceError(_errorMessageForUndefinedDescriptor);
+    } else if (FSSynthesizer_handlePolyTouch == NULL) {
+        _reportBadFunction("polyTouch");
     } else {
         Integer operationResult =
             FSSynthesizer_handlePolyTouch(_descriptor,
@@ -415,8 +438,10 @@ FluidSynthSynthesizer::handleProgramChange (IN Natural channel,
 
     Boolean isOkay = false;
 
-    if (FSSynthesizer_handleProgramChange == NULL) {
-        reportBadFunction("programChange");
+    if (_descriptor == NULL) {
+        Logging_traceError(_errorMessageForUndefinedDescriptor);
+    } else if (FSSynthesizer_handleProgramChange == NULL) {
+        _reportBadFunction("programChange");
     } else {
         Integer operationResult =
             FSSynthesizer_handleProgramChange(_descriptor,
@@ -437,8 +462,10 @@ Boolean FluidSynthSynthesizer::loadSoundFont (IN String& soundFontPath)
 
     Boolean isOkay = false;
 
-    if (FSSynthesizer_loadSoundFont == NULL) {
-        reportBadFunction("loadSoundFont");
+    if (_descriptor == NULL) {
+        Logging_traceError(_errorMessageForUndefinedDescriptor);
+    } else if (FSSynthesizer_loadSoundFont == NULL) {
+        _reportBadFunction("loadSoundFont");
     } else {
         int soundFontId =
             FSSynthesizer_loadSoundFont(_descriptor,
@@ -472,8 +499,10 @@ FluidSynthSynthesizer::process (INOUT AudioSampleListVector& sampleBuffer,
 
     Boolean isOkay = false;
 
-    if (FSSynthesizer_process == NULL) {
-        reportBadFunction("process");
+    if (_descriptor == NULL) {
+        Logging_traceError(_errorMessageForUndefinedDescriptor);
+    } else if (FSSynthesizer_process == NULL) {
+        _reportBadFunction("process");
     } else {
         /* provide a stereo buffer with sample count frames */
         float* floatSampleBuffer[] = {

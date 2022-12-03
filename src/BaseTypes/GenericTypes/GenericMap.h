@@ -108,7 +108,7 @@ namespace BaseTypes::GenericTypes {
          */
         void set (IN String& key, IN String& value)
         {
-            map<KeyType, ValueType>::at(key) = value;
+            map<KeyType, ValueType>::insert_or_assign(key, value);
         }
 
         /*--------------------*/
@@ -148,13 +148,15 @@ namespace BaseTypes::GenericTypes {
             /*--------------------*/
 
             /**
-             * Converts list to linear string representation
-             * prefixed by <C>nameOfType</C> assuming an explicit
-             * conversion from element type to string
+             * Converts list to linear string representation prefixed
+             * by <C>nameOfType</C> assuming explicit conversions from
+             * key and value type to a string
              *
-             * @param[in] nameOfType       name of list type
-             * @param[in] keyToString  function for converting an
-             *                             element to a string
+             * @param[in] nameOfType     name of list type
+             * @param[in] keyToString    function for converting a
+             *                           key to a string
+             * @param[in] valueToString  function for converting a
+             *                           value to a string
              * @return  single string representation of list
              */
             String _toString (IN String& nameOfType,

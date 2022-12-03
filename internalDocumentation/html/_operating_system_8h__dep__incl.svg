@@ -46,7 +46,7 @@ if (edges && edges.length) {
         </defs>
 
 <script type="text/javascript">
-var viewWidth = 528;
+var viewWidth = 750;
 var viewHeight = 86;
 var sectionId = 'dynsection-1';
 </script>
@@ -54,13 +54,13 @@ var sectionId = 'dynsection-1';
 <svg id="graph" class="graph">
 <g id="viewport">
 <title>OperatingSystem.h</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-82 524,-82 524,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-82 746,-82 746,4 -4,4"/>
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
 <g id="a_node1"><a xlink:title="The OperatingSystem specification defines a class for several operating system related utility functi...">
-<polygon fill="#bfbfbf" stroke="black" points="216.5,-57.5 216.5,-77.5 327.5,-77.5 327.5,-57.5 216.5,-57.5"/>
-<text text-anchor="middle" x="272" y="-64.7" font-family="Helvetica,sans-Serif" font-size="11.00">OperatingSystem.h</text>
+<polygon fill="#bfbfbf" stroke="black" points="295.5,-57.5 295.5,-77.5 406.5,-77.5 406.5,-57.5 295.5,-57.5"/>
+<text text-anchor="middle" x="351" y="-64.7" font-family="Helvetica,sans-Serif" font-size="11.00">OperatingSystem.h</text>
 </a>
 </g>
 </g>
@@ -76,8 +76,8 @@ var sectionId = 'dynsection-1';
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge1" class="edge">
 <title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M226.71,-54.91C186.61,-44.66 128.92,-29.9 92.2,-20.5"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="225.94,-58.33 236.5,-57.42 227.68,-51.55 225.94,-58.33"/>
+<path fill="none" stroke="midnightblue" d="M292.85,-55.62C237.97,-45.35 156.63,-30.14 105.25,-20.53"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="292.31,-59.08 302.78,-57.48 293.6,-52.2 292.31,-59.08"/>
 </g>
 <!-- Node3 -->
 <g id="node3" class="node">
@@ -91,8 +91,8 @@ var sectionId = 'dynsection-1';
 <!-- Node1&#45;&gt;Node3 -->
 <g id="edge2" class="edge">
 <title>Node1&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M250.57,-51.39C236.58,-41.52 218.76,-28.96 206.9,-20.6"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="248.93,-54.52 259.12,-57.42 252.96,-48.79 248.93,-54.52"/>
+<path fill="none" stroke="midnightblue" d="M315.29,-53.99C286.16,-43.79 245.72,-29.62 219.7,-20.5"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="314.48,-57.41 325.07,-57.42 316.79,-50.81 314.48,-57.41"/>
 </g>
 <!-- Node4 -->
 <g id="node4" class="node">
@@ -106,23 +106,38 @@ var sectionId = 'dynsection-1';
 <!-- Node1&#45;&gt;Node4 -->
 <g id="edge3" class="edge">
 <title>Node1&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M293.3,-51.67C307.53,-41.76 325.81,-29.04 337.94,-20.6"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="291.25,-48.83 285.05,-57.42 295.25,-54.58 291.25,-48.83"/>
+<path fill="none" stroke="midnightblue" d="M351,-47.38C351,-38.37 351,-28.04 351,-20.78"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="347.5,-47.42 351,-57.42 354.5,-47.42 347.5,-47.42"/>
 </g>
 <!-- Node5 -->
 <g id="node5" class="node">
 <title>Node5</title>
-<g id="a_node5"><a xlink:href="_midi_file_8cpp.html" target="_top" xlink:title="The MidiFile implementation implements the services of a MIDI file; currently only file reading is su...">
-<polygon fill="white" stroke="black" points="446,-0.5 446,-20.5 520,-20.5 520,-0.5 446,-0.5"/>
-<text text-anchor="middle" x="483" y="-7.7" font-family="Helvetica,sans-Serif" font-size="11.00">MidiFile.cpp</text>
+<g id="a_node5"><a xlink:href="_fluid_synth_plugin___event_processor_8cpp.html" target="_top" xlink:title="The FluidSynthPlugin_Processor module implements the handling of MIDI events from the DAW via JUCE ha...">
+<polygon fill="white" stroke="black" points="446.5,-0.5 446.5,-20.5 649.5,-20.5 649.5,-0.5 446.5,-0.5"/>
+<text text-anchor="middle" x="548" y="-7.7" font-family="Helvetica,sans-Serif" font-size="11.00">FluidSynthPlugin_EventProcessor.cpp</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node5 -->
 <g id="edge4" class="edge">
 <title>Node1&#45;&gt;Node5</title>
-<path fill="none" stroke="midnightblue" d="M316.7,-54.85C356.04,-44.59 412.5,-29.88 448.46,-20.5"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="315.64,-51.51 306.84,-57.42 317.4,-58.28 315.64,-51.51"/>
+<path fill="none" stroke="midnightblue" d="M393.44,-54.65C430.13,-44.41 482.39,-29.82 515.75,-20.5"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="392.22,-51.36 383.53,-57.42 394.1,-58.1 392.22,-51.36"/>
+</g>
+<!-- Node6 -->
+<g id="node6" class="node">
+<title>Node6</title>
+<g id="a_node6"><a xlink:href="_midi_file_8cpp.html" target="_top" xlink:title="The MidiFile implementation implements the services of a MIDI file; currently only file reading is su...">
+<polygon fill="white" stroke="black" points="668,-0.5 668,-20.5 742,-20.5 742,-0.5 668,-0.5"/>
+<text text-anchor="middle" x="705" y="-7.7" font-family="Helvetica,sans-Serif" font-size="11.00">MidiFile.cpp</text>
+</a>
+</g>
+</g>
+<!-- Node1&#45;&gt;Node6 -->
+<g id="edge5" class="edge">
+<title>Node1&#45;&gt;Node6</title>
+<path fill="none" stroke="midnightblue" d="M416.62,-57.91C479.1,-49.47 575.68,-35.75 659,-21 661.89,-20.49 664.88,-19.93 667.88,-19.36"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="415.96,-54.47 406.51,-59.27 416.89,-61.4 415.96,-54.47"/>
 </g>
 </g>
 </svg>

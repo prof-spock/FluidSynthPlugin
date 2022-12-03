@@ -15,14 +15,15 @@
 /* IMPORTS */
 /*=========*/
 
+#include "Boolean.h"
 #include "Object.h"
-#include "MyString.h"
   
 /*--------------------*/
   
+using BaseTypes::Primitives::Boolean;
 using BaseTypes::Primitives::Object;
 using BaseTypes::Primitives::String;
-  
+
 /*====================*/
 
 namespace Libraries {
@@ -51,12 +52,21 @@ namespace Libraries {
         /*--------------------*/
 
         /**
+         * Returns whether library has been correctly loaded.
+         *
+         * @return  information whether library is okay
+         */
+        Boolean isLoaded () const;
+  
+        /*--------------------*/
+
+        /**
          * Returns the underlying library.
          *
-         * @return  underlying library object
+         * @return  underlying technical library object
          */
-        Object library () const;
-  
+        Object underlyingTechnicalLibrary () const;
+
         /*--------------------*/
 
         /**

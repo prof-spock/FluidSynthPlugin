@@ -95,12 +95,13 @@ $(document).ready(function(){initNavTree('_fluid_synth_plugin___event_processor_
 
 <p>The <code>FluidSynthPlugin_Processor</code> module implements the handling of <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> events from the DAW via JUCE having them processed by the FluidSynth library.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="_my_array_8h_source.html">MyArray.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="_audio_sample_fifo_queue_vector_8h_source.html">AudioSampleFifoQueueVector.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_fluid_synth_plugin___editor_8h_source.html">FluidSynthPlugin_Editor.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_midi_event_converter_8h_source.html">MidiEventConverter.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_my_array_8h_source.html">MyArray.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_logging_8h_source.html">Logging.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_integer_8h_source.html">Integer.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_audio_sample_fifo_queue_vector_8h_source.html">AudioSampleFifoQueueVector.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_midi_event_converter_8h_source.html">MidiEventConverter.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_fluid_synth_plugin___editor_8h_source.html">FluidSynthPlugin_Editor.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_operating_system_8h_source.html">OperatingSystem.h</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for FluidSynthPlugin_EventProcessor.cpp:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -136,6 +137,9 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a6c6734fee89401a43935d5a8ae33106a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___event_processor_8cpp.html#a6c6734fee89401a43935d5a8ae33106a">_replaceEnvironmentVariables</a> (<a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> String &amp;st)</td></tr>
+<tr class="memdesc:a6c6734fee89401a43935d5a8ae33106a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scans <code>st</code> for references to environment variables and replaces them.  <a href="_fluid_synth_plugin___event_processor_8cpp.html#a6c6734fee89401a43935d5a8ae33106a">More...</a><br /></td></tr>
+<tr class="separator:a6c6734fee89401a43935d5a8ae33106a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85073e88896b7e6a0474da612f6cc235"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___event_processor_8cpp.html#a85073e88896b7e6a0474da612f6cc235">_resetBlockProcessing</a> (<a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_m_i_d_i_1_1_midi_event_converter.html">MidiEventConverter</a> *eventConverter, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> unprocessedSampleCount, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> newOffsetInSamples, <a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="struct_audio_1_1_audio_sample_list_vector.html">AudioSampleListVector</a> &amp;sampleBuffer)</td></tr>
 <tr class="memdesc:a85073e88896b7e6a0474da612f6cc235"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes samples to bring sample count to a multiple of synthesizer buffer size.  <a href="_fluid_synth_plugin___event_processor_8cpp.html#a85073e88896b7e6a0474da612f6cc235">More...</a><br /></td></tr>
 <tr class="separator:a85073e88896b7e6a0474da612f6cc235"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -157,6 +161,17 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:adfd30b4aba6a6a3d4d33a3fd688b4a78"><td class="memItemLeft" align="right" valign="top"><a id="adfd30b4aba6a6a3d4d33a3fd688b4a78"></a>
+static const String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___event_processor_8cpp.html#adfd30b4aba6a6a3d4d33a3fd688b4a78">_environmentVariableLeadIn</a> = &quot;${&quot;</td></tr>
+<tr class="memdesc:adfd30b4aba6a6a3d4d33a3fd688b4a78"><td class="mdescLeft">&#160;</td><td class="mdescRight">text for marking the begin of an environment variable in a string <br /></td></tr>
+<tr class="separator:adfd30b4aba6a6a3d4d33a3fd688b4a78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65a7b77a239ef373d7dd40941d57eff0"><td class="memItemLeft" align="right" valign="top"><a id="a65a7b77a239ef373d7dd40941d57eff0"></a>
+static const String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___event_processor_8cpp.html#a65a7b77a239ef373d7dd40941d57eff0">_environmentVariableLeadOut</a> = &quot;}&quot;</td></tr>
+<tr class="memdesc:a65a7b77a239ef373d7dd40941d57eff0"><td class="mdescLeft">&#160;</td><td class="mdescRight">text for marking the end of an environment variable in a string <br /></td></tr>
+<tr class="separator:a65a7b77a239ef373d7dd40941d57eff0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46fe322d3b3c4f39d82236495651ecac"><td class="memItemLeft" align="right" valign="top">static const String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___event_processor_8cpp.html#a46fe322d3b3c4f39d82236495651ecac">_errorMessageForBadLibraryInitialization</a></td></tr>
+<tr class="memdesc:a46fe322d3b3c4f39d82236495651ecac"><td class="mdescLeft">&#160;</td><td class="mdescRight">error message for missing library initialization  <a href="_fluid_synth_plugin___event_processor_8cpp.html#a46fe322d3b3c4f39d82236495651ecac">More...</a><br /></td></tr>
+<tr class="separator:a46fe322d3b3c4f39d82236495651ecac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf23c308060cde4f7bcb4490e70ed400"><td class="memItemLeft" align="right" valign="top">static const String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___event_processor_8cpp.html#aaf23c308060cde4f7bcb4490e70ed400">_fsBufferingCompensationKey</a></td></tr>
 <tr class="memdesc:aaf23c308060cde4f7bcb4490e70ed400"><td class="mdescLeft">&#160;</td><td class="mdescRight">the key string for flagging a slight compensation of sample buffering by the fluidsynth synthesizer  <a href="_fluid_synth_plugin___event_processor_8cpp.html#aaf23c308060cde4f7bcb4490e70ed400">More...</a><br /></td></tr>
 <tr class="separator:aaf23c308060cde4f7bcb4490e70ed400"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -278,6 +293,41 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>current time (as a real value) </dd></dl>
+
+</div>
+</div>
+<a id="a6c6734fee89401a43935d5a8ae33106a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c6734fee89401a43935d5a8ae33106a">&#9670;&nbsp;</a></span>_replaceEnvironmentVariables()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void _replaceEnvironmentVariables </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> String &amp;&#160;</td>
+          <td class="paramname"><em>st</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Scans <code>st</code> for references to environment variables and replaces them. </p>
+<p>Undefined variables are replaced by "???".</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">st</td><td>string to be processed </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -413,6 +463,32 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
+<a id="a46fe322d3b3c4f39d82236495651ecac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46fe322d3b3c4f39d82236495651ecac">&#9670;&nbsp;</a></span>_errorMessageForBadLibraryInitialization</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const String _errorMessageForBadLibraryInitialization</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">=</div>
+<div class="line">    <span class="stringliteral">&quot;fluidsynth library could not be loaded&quot;</span></div>
+</div><!-- fragment -->
+<p>error message for missing library initialization </p>
+
+</div>
+</div>
 <a id="aaf23c308060cde4f7bcb4490e70ed400"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaf23c308060cde4f7bcb4490e70ed400">&#9670;&nbsp;</a></span>_fsBufferingCompensationKey</h2>
 

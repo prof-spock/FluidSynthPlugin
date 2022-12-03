@@ -1,20 +1,13 @@
 var searchData=
 [
-  ['_7e_5feditordescriptor_1012',['~_EditorDescriptor',['../struct_main_1_1_fluid_synth_plugin_1_1___editor_descriptor.html#a9bc6372f6a797b4fcdc57a2e083fd519',1,'Main::FluidSynthPlugin::_EditorDescriptor']]],
-  ['_7e_5feventprocessordescriptor_1013',['~_EventProcessorDescriptor',['../struct_main_1_1_fluid_synth_plugin_1_1___event_processor_descriptor.html#a1aa7fc7e98593fff01d54d4fc25ac672',1,'Main::FluidSynthPlugin::_EventProcessorDescriptor']]],
-  ['_7e_5fmidieventconverterdescriptor_1014',['~_MidiEventConverterDescriptor',['../struct_m_i_d_i_1_1___midi_event_converter_descriptor.html#a586334675a83252157810a4e8feecb0b',1,'MIDI::_MidiEventConverterDescriptor']]],
-  ['_7e_5fringbuffer_1015',['~_RingBuffer',['../struct_main_1_1_fluid_synth_plugin_1_1___ring_buffer.html#a9a563fece045afd6e9c43b8eb331d6a5',1,'Main::FluidSynthPlugin::_RingBuffer']]],
-  ['_7eaudiosamplefifoqueue_1016',['~AudioSampleFifoQueue',['../struct_audio_1_1_audio_sample_fifo_queue.html#aeaf60b42390cd003c8043c8964f0d568',1,'Audio::AudioSampleFifoQueue']]],
-  ['_7ecommandlineargumenthandler_1017',['~CommandLineArgumentHandler',['../struct_base_modules_1_1_command_line_argument_handler.html#a975cf6be26dd45a39c49b2ba63758b3b',1,'BaseModules::CommandLineArgumentHandler']]],
-  ['_7edynamiclibrary_1018',['~DynamicLibrary',['../struct_libraries_1_1_dynamic_library.html#addcaba882da56612b598fb153cfc6e5a',1,'Libraries::DynamicLibrary']]],
-  ['_7efile_1019',['~File',['../struct_base_modules_1_1_file.html#ac704ebdf5f57d7a1c5ddf409d797fb69',1,'BaseModules::File']]],
-  ['_7efluidsynth_1020',['~FluidSynth',['../struct_libraries_1_1_fluid_synth_1_1_fluid_synth.html#a1b3b3c82f30dee9da3e7001f04ff8854',1,'Libraries::FluidSynth::FluidSynth']]],
-  ['_7efluidsynthplugin_5feditor_1021',['~FluidSynthPlugin_Editor',['../struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___editor.html#a8ca5ed11c543fd3552aaa58076c47e98',1,'Main::FluidSynthPlugin::FluidSynthPlugin_Editor']]],
-  ['_7efluidsynthplugin_5feventprocessor_1022',['~FluidSynthPlugin_EventProcessor',['../struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#a252d334e07348ce42f3581604e6b3c79',1,'Main::FluidSynthPlugin::FluidSynthPlugin_EventProcessor']]],
-  ['_7efluidsynthsettings_1023',['~FluidSynthSettings',['../struct_libraries_1_1_fluid_synth_1_1_fluid_synth_settings.html#a600098e4ff2319f3a299fdef5d69f72f',1,'Libraries::FluidSynth::FluidSynthSettings']]],
-  ['_7efluidsynthsynthesizer_1024',['~FluidSynthSynthesizer',['../struct_libraries_1_1_fluid_synth_1_1_fluid_synth_synthesizer.html#a7603ff76aac3e8ab282388e05bb1f7ba',1,'Libraries::FluidSynth::FluidSynthSynthesizer']]],
-  ['_7emidievent_1025',['~MidiEvent',['../struct_m_i_d_i_1_1_midi_event.html#ac9bcb957c007a1d12f5ec08569326eab',1,'MIDI::MidiEvent']]],
-  ['_7emidieventconverter_1026',['~MidiEventConverter',['../struct_m_i_d_i_1_1_midi_event_converter.html#a4cb7e581d8c061f5f65233e2ceb6f391',1,'MIDI::MidiEventConverter']]],
-  ['_7emidifile_1027',['~MidiFile',['../struct_m_i_d_i_1_1_midi_file.html#a8d14e6df12f54918a8caf500f03fd78e',1,'MIDI::MidiFile']]],
-  ['_7ewavefile_1028',['~WaveFile',['../struct_audio_1_1_wave_file.html#aeb00b61a45baae720cf7c9c27138ac8c',1,'Audio::WaveFile']]]
+  ['wavefile_1013',['WaveFile',['../struct_audio_1_1_wave_file.html#aef2e7a8dccd8322a4b0fbd5775fce1a2',1,'Audio::WaveFile']]],
+  ['wavefile_5f_5fwriteheader_1014',['WaveFile__writeHeader',['../_wave_file_8cpp.html#af0515bd56e7ee1bd6deadcc16806e5f2',1,'WaveFile.cpp']]],
+  ['wavefile_5f_5fwriteint_1015',['WaveFile__writeInt',['../_wave_file_8cpp.html#a339a8cff63a37df4bc8adf180f0c64f2',1,'WaveFile.cpp']]],
+  ['wavefile_5f_5fwriteintdatatobytelist_1016',['WaveFile__writeIntDataToByteList',['../_wave_file_8cpp.html#a41977bd522e2522a875309585cb93373',1,'WaveFile.cpp']]],
+  ['wavefile_5f_5fwritereal_1017',['WaveFile__writeReal',['../_wave_file_8cpp.html#a652b071cad05d07e03166946f3e26fe6',1,'WaveFile.cpp']]],
+  ['wavefile_5f_5fwriterealdatatobytelist_1018',['WaveFile__writeRealDataToByteList',['../_wave_file_8cpp.html#a0d0b502e51fb9e8d110463c265c2b5c8',1,'WaveFile.cpp']]],
+  ['wavefile_5f_5fwritestring_1019',['WaveFile__writeString',['../_wave_file_8cpp.html#aea780d58cbddd5e3276f30a9cba9d53a',1,'WaveFile.cpp']]],
+  ['write_1020',['write',['../struct_audio_1_1_wave_file.html#ac92795b019c93b4d465cf22bc6710f86',1,'Audio::WaveFile::write()'],['../struct_base_modules_1_1_file.html#a35097e967ddf4576f1ae155830d14d48',1,'BaseModules::File::write()']]],
+  ['writemessagetoconsole_1021',['writeMessageToConsole',['../struct_base_modules_1_1_operating_system.html#a33bfd6cd3f23e30e5392434167d6b1a8',1,'BaseModules::OperatingSystem']]],
+  ['writestring_1022',['writeString',['../struct_base_modules_1_1_file.html#a17044877d6fd338fea653d83d4826973',1,'BaseModules::File']]]
 ];

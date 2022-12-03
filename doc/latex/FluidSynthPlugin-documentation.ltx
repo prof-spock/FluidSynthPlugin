@@ -15,7 +15,6 @@
     \usepackage{listings}        % ==> listings
     \usepackage{lmodern}         % ==> scaling of cmr fonts
     \usepackage{titlesec}        % ==> titleformat
-    \usepackage{ulem}            % ==> sout (strikeout)
 
     \usepackage{microtype}  % for better justification, requires later
                             % engine of LaTeX like e.g. pdflatex
@@ -116,7 +115,6 @@
     }
 
     \newcommand{\hyperlink}[1]{\textsf{\color{blue}#1}}
-    \newcommand{\inPreparation}[1]{\sout{#1} \textit{(in preparation!)}}
     \newcommand{\lb}{\linebreak[4]}
     \newcommand{\meta}[1]{\guillemotleft #1\guillemotright}
 
@@ -231,11 +229,11 @@
   \large
   \begin{tabular}{>{\bf}p{2.5cm}p{10.5cm}}
       Author:&Dr.~Thomas Tensi\\
-      Date:&2022-10-29\\
-      Version:&0.1\\
+      Date:&2022-11-29\\
+      Version:&0.2\\
       Platforms:&VST3 on Windows~x64,\\
-                &\inPreparation{VST3/AU on MacOSX (x86\_64)}\\
-                &\inPreparation{VST3 on Linux (x86\_64)}\\
+                &VST3/AU on MacOSX (x86\_64)\\
+                &VST3 on Linux (x86\_64)\\
   \end{tabular}
   \vfill
 \end{titlepage}
@@ -325,8 +323,9 @@ When using both components (command-line and DAW) on the same MIDI
 data they produce audio output with a difference of less than -200dBFS
 in a spectrum analysis.
 
-Those components are available for Windows, MacOS and Linux with the
-plugin having either VST3 (Windows, Linux) or AU format (MacOS).
+Those components are available for the x86-64 architecture in Windows,
+MacOS and Linux with the plugin having either VST3 (Windows, Linux) or
+AU format (MacOS).
 
 All the code is open-source; hence you can check and adapt it to your
 needs (see chapter~\ref{chapter:implementation}).
@@ -360,10 +359,10 @@ The installation is as follows:
          subdirectory \embeddedCode{test} (see
          section~\ref{section:regressionTest}) somewhere.
 
-   \item \sout{When installing the MacOSX plugins, note that those are
+   \item When installing the MacOSX plugins, note that those are
          \textbf{not signed}; so you have to explicitly remove the
-         quarantine flag from them (for example, by applying the
-         command \embeddedCode{XXX XXX XXXX}).}
+         quarantine flag from them  (e.g.\ by applying the command
+         \embeddedCode{sudo xattr -rd com.apple.quarantine «vstPath»}).
 
    \item Restart your DAW and rescan the plugins.  You should now be
          able to select the \FluidSynthPlugin.
@@ -574,7 +573,9 @@ settings available: \embeddedCode{soundfont} and
 \begin{centeredFigure}
     \begin{parameterTableA}
         \parameterTableALine{soundfont}
-                            {gives the path to the soundfont}
+                            {gives the path to the soundfont and may
+                             contain environment variables enclosed by
+                             \embeddedCode{\$\{} and \embeddedCode{\}}}
                             {string}
         \parameterTableALine{program}
                             {gives the program to use as the default;
@@ -594,6 +595,10 @@ specification.  Normally this should not be a problem ---~because
 soundfonts are often located in a specific directory in a system~---,
 but it somewhat impedes portability of a DAW project containing this
 plugin.
+
+But you can use environment variables in the path specification
+enclosed by \embeddedCode{\$\{} and \embeddedCode{\}}, for example
+\embeddedCode{\$\{soundFontDirectory\}}.
 
 %------------------------------------
 \clearpage
@@ -644,6 +649,11 @@ be analyzed.
   \caption{Error Message in \FluidSynthPlugin}
   \label{figure:fsPluginError}
 \end{centeredFigure}
+
+Note that also some error message is displayed, when the fluidsynth
+library cannot be found by the plugin.  In that case please make sure
+that the installation has been correctly done (the plugin expects its
+dynamic libraries in the directory of the plugin vst3 file).
 
 %---------------------------------------
 \section{Using the \FluidSynthConverter}

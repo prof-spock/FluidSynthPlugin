@@ -26,8 +26,14 @@ using Libraries::FluidSynth::FluidSynth;
 /* PRIVATE FEATURES    */
 /*====================*/
 
-/** the library name for the fluidsynth DLL */
-static String _libraryName = "libfluidsynth-3.dll";
+/** the library name for the fluidsynth dynamic library */
+#if defined(_WINDOWS)
+    #define _libraryName "libfluidsynth-3.dll"
+#elif defined(APPLE)
+    #define _libraryName "@loader_path/libfluidsynth.3.dylib"
+#else
+    #define _libraryName "libfluidsynth.so.3"
+#endif
 
 /*====================*/
 /* PUBLIC FEATURES    */
@@ -38,9 +44,10 @@ FluidSynth::FluidSynth ()
 {
     Logging_trace(">>");
 
-    _descriptor = new DynamicLibrary(_libraryName);
+    DynamicLibrary* library = new DynamicLibrary(_libraryName);
+    _descriptor = library;
 
-    String message = (_descriptor == NULL
+    String message = (library->underlyingTechnicalLibrary() == NULL
                       ? "could not load library"
                       : "library loaded");
 
@@ -63,7 +70,18 @@ FluidSynth::~FluidSynth ()
 
 /*--------------------*/
 
-Object FluidSynth::fsLibrary () const
+Boolean FluidSynth::isLoaded () const
+{
+    Logging_trace(">>");
+    DynamicLibrary* library = (DynamicLibrary*) _descriptor;
+    Boolean result = library->isLoaded();
+    Logging_trace1("<<: %1", TOSTRING(result));
+    return result;
+}
+
+/*--------------------*/
+
+Object FluidSynth::dynamicLibrary () const
 {
     Logging_trace(">>");
     Logging_trace("<<");
