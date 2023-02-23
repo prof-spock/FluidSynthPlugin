@@ -74,7 +74,7 @@ data they typically produce audio output with a difference of less
 than -200dBFS in a spectrum analysis.
 
 Those components are currently available - as x86_64 versions - for
-Windows, MacOSX and Linux as VST3 and also as AU for MacOSX.
+Windows and Linux as VST3, MacOSX version are in preparation.
 
 All the code is open-source; hence you can check and adapt it to your
 needs.
@@ -83,21 +83,26 @@ needs.
 
 The installation is as follows:
 
-   1. Copy the plugin <TT>FluidSynthPlugin</TT> from the appropriate
-      subdirectory of
-      [_DISTRIBUTION/targetPlatforms](./_DISTRIBUTION/targetPlatforms)
-      directory into the directory for VST plugins of your DAW.
+   1. Expand the appropriate binary archive of
+      <TT>FluidSynthPlugin</TT> for your platform from this
+      [repository](./releases) into the directory for VST plugins of
+      your DAW.
 
-   2. The distribution also contains a documentation pdf file in
-      subdirectory [doc](./_DISTRIBUTION/doc) and test files in
-      subdirectory [test](./_DISTRIBUTION/test) (for details on
-      the regression test see below).
+   2. The distribution also contains a documentation [pdf
+      file](./FluidSynthPlugin-documentation.pdf) in subdirectory doc
+      and test files in subdirectory test (for details on the
+      regression test see below).
 
-   3. Restart your DAW and rescan the plugins.  You should now be
+   3. When installing the plugins and program on Windows, they require
+      the so-called *Microsoft Visual C++ Redistributable* library.
+      Very often this is already installed on your system; if not, you
+      have to install it from the [Microsoft][VCCLib] site.
+
+   4. Restart your DAW and rescan the plugins.  You should now be
       able to select the <TT>FluidSynthPlugin</TT>.
 
-   4. The command-line version <TT>FluidSynthFileConverter</TT> can be
-      put in an arbitrary location for executables. Ensure that the
+   5. The command-line version <TT>FluidSynthFileConverter</TT> can be
+      put in an arbitrary location for executables.  Ensure that the
       dynamic libraries in its directory are also placed
       appropriately.
 
@@ -146,9 +151,9 @@ set to inactive and gain set to unity.
 ## Testing the Plugin and the Command-Line Processor
 
 The test script <TT>makeTestFiles.bat</TT> or
-<TT>makeTestFiles.sh</TT> in the [test](./DISTRIBUTION/test) directory
-assumes that the <TT>FluidSynthFileConverter</TT> is available in the
-program search path.
+<TT>makeTestFiles.sh</TT> in the [test](./test) directory assumes that
+the <TT>FluidSynthFileConverter</TT> is available in the program
+search path.
 
 The test script produces a sound file from a demo MIDI file.
 
@@ -223,7 +228,7 @@ purposes.
 ## Details
 
 A more thorough discussion can be found in the detailed user manual
-*[here](./_DISTRIBUTION/doc/FluidSynthPlugin-documentation.pdf)*.
+*[here](./FluidSynthPlugin-documentation.pdf)*.
 
 ## Acknowledgements
 
@@ -240,3 +245,4 @@ possible!
 [JUCE]: http://www.juce.com/
 [JuicySFPlugin]: https://github.com/Birch-san/juicysfplugin
 [LTBVC]: https://github.com/prof-spock/LilypondToBandVideoConverter
+[VCCLib]: https://learn.microsoft.com/cpp/windows/latest-supported-vc-redist

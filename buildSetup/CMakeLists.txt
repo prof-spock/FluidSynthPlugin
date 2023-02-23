@@ -320,9 +320,14 @@ SET(docDoxygenFileTemplate
 SET(docDoxygenFileName FluidSynthPlugin-doxygen-FULL.cfg)
 
 # --- regression test sources ---
+IF(WINDOWS)
+    SET(regressionTestFileList ${testFileDirectory}/makeTestFiles.bat)
+ELSE()
+    SET(regressionTestFileList ${testFileDirectory}/makeTestFiles.sh)
+ENDIF()
+
 SET(regressionTestFileList
-    ${testFileDirectory}/makeTestFiles.bat
-    ${testFileDirectory}/makeTestFiles.sh
+    ${regressionTestFileList}
     ${testFileDirectory}/test_bass.mid
     ${testFileDirectory}/test_drums.mid
     ${testFileDirectory}/test_keyboard.mid

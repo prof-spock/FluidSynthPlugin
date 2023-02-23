@@ -125,6 +125,9 @@ IF(MSVC)
         4100 4180 4244 4505 4723 5105 6011 6255 6297
         26439 26451 26495 26498 26812 26819 28182)
   
+    # select static MSVC library instead of dynamic library
+    # SET(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded")
+  
     STRING(JOIN " " cppFlagsCommon
            /arch:AVX            # enable AVX vectorization instructions
            /bigobj              # increase number of addressable sections
@@ -132,7 +135,6 @@ IF(MSVC)
            /EHsc                # exception handling: stack unwinding
            /Gd                  # cdecl calling convention
            /GS                  # buffers security check
-           /MDd                 # create debug multithreaded DLL
            /MP                  # multi processor compilation
            /nologo              # suppress display of banner
            /permissive-         # set strict standard conformance

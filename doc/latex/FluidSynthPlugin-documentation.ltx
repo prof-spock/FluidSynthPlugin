@@ -229,8 +229,8 @@
   \large
   \begin{tabular}{>{\bf}p{2.5cm}p{10.5cm}}
       Author:&Dr.~Thomas Tensi\\
-      Date:&2022-11-29\\
-      Version:&0.2\\
+      Date:&2023-01-09\\
+      Version:&0.3\\
       Platforms:&VST3 on Windows~x64,\\
                 &VST3/AU on MacOSX (x86\_64)\\
                 &VST3 on Linux (x86\_64)\\
@@ -359,10 +359,16 @@ The installation is as follows:
          subdirectory \embeddedCode{test} (see
          section~\ref{section:regressionTest}) somewhere.
 
-   \item When installing the MacOSX plugins, note that those are
+   \item When installing the plugins on MacOSX, note that those are
          \textbf{not signed}; so you have to explicitly remove the
          quarantine flag from them  (e.g.\ by applying the command
          \embeddedCode{sudo xattr -rd com.apple.quarantine «vstPath»}).
+
+   \item When installing the plugin and program on Windows, they
+         require the so-called Microsoft Visual C++ Redistributable
+         library~\ref{reference:visualCLibrary}.  Very often this is
+         already installed on your system; if not, you have to install
+         it from the Microsoft site.
 
    \item Restart your DAW and rescan the plugins.  You should now be
          able to select the \FluidSynthPlugin.
@@ -1279,6 +1285,11 @@ All logging files go to the directory specified by the
     Cockos Incorporated.\\
     \textit{Reaper Digital Audio Workstation.}\\
     \hyperlink{https://www.reaper.fm}
+
+  \bibitem[VCCLib]{reference:visualCLibrary}
+    Microsoft.\\
+    \textit{Visual C++ Redistributable.}\\
+    \hyperlink{https://learn.microsoft.com/cpp/windows/latest-supported-vc-redist}
 
 \end{thebibliography}
 \end{document}
