@@ -269,8 +269,8 @@ FluidSynthSynthesizer::handleBankChange (IN Natural channel,
 /*--------------------*/
 
 Boolean FluidSynthSynthesizer::handleControlChange (IN Natural channel,
-                                                 IN Natural controller,
-                                                 IN Natural value)
+                                                    IN Natural controller,
+                                                    IN Natural value)
 {
     Logging_trace3(">>: channel = %1, controller = %2, value = %3",
                    TOSTRING(channel), TOSTRING(controller), TOSTRING(value));
@@ -339,7 +339,8 @@ Boolean FluidSynthSynthesizer::handleNoteOff (IN Natural channel,
     } else {
         Integer operationResult =
             FSSynthesizer_handleNoteOff(_descriptor,
-                                        (int) channel, (int) note);
+                                        (int) channel,
+                                        (int) note);
         isOkay = (operationResult == 0);
     }
 
@@ -366,7 +367,8 @@ Boolean FluidSynthSynthesizer::handleNoteOn (IN Natural channel,
     } else {
         Integer operationResult =
             FSSynthesizer_handleNoteOn(_descriptor,
-                                       (int) channel, (int) note,
+                                       (int) channel,
+                                       (int) note,
                                        (int) velocity);
         isOkay = (operationResult == 0);
     }

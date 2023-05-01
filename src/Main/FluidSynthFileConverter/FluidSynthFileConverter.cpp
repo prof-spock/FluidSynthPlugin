@@ -288,7 +288,7 @@ static const String _usageText =
         "  -p, --portname=[label]\n"
         "    set MIDI port name (IGNORED)\n"
         "  -q, --quiet\n"
-        "    do not print informational output\n"
+        "    do not print informational output (synth.verbose=false)\n"
         "  -R, --reverb\n"
         "    turn reverb on or off [0|1|yes|no, default = on]\n"
         "  -r, --sample-rate\n"
@@ -298,7 +298,7 @@ static const String _usageText =
         "  -T, --audio-file-type\n"
         "    audio file type for fast rendering (IGNORED: always WAV)\n"
         "  -v, --verbose\n"
-        "    print out verbose info about midi events (synth.verbose=1)\n"
+        "    print out verbose info about midi events (synth.verbose=true)\n"
         "  -V, --version\n"
         "    show version of program\n"
         "  -z, --audio-bufsize=[size]\n"
@@ -565,6 +565,45 @@ _handleCommandLineArguments (IN Natural argumentCount,
 /*--------------------*/
 
 /**
+ * Constructs midi event converter with render settings defined in
+ * <C>settings</C>.
+ *
+ * @param[in] settings   dictionary of render settings (including e.g.
+ *                       the sound font name)
+ * @return  newly constructed midi event converter or NULL on failure
+ */
+static MidiEventConverter* 
+_makeMidiEventConverter (IN Dictionary& settings)
+{
+    Logging_trace1(">>: settings = %1", settings.toString());
+
+    MidiEventConverter* midiEventConverter = new MidiEventConverter();
+    Boolean isOkay = midiEventConverter->isCorrectlyInitialized();
+
+    if (!isOkay) {
+        _writeMessage("cannot open FluidSynth library");
+        delete midiEventConverter;
+        midiEventConverter = NULL;
+    } else {
+        for (auto& [key, value] : settings) {
+            Boolean settingIsOkay = midiEventConverter->set(key, value);
+
+            if (!settingIsOkay) {
+                String errorMessage = expand("cannot set '%1' to '%2'",
+                                             key, value);
+                _writeMessage(errorMessage);
+                isOkay = false;
+            }
+        }
+    }
+
+    Logging_trace1("<<: isOkay = %1", TOSTRING(isOkay));
+    return midiEventConverter;
+}
+
+/*--------------------*/
+
+/**
  * Converts MIDI file named <C>midiFileName</C> into a wave file named
  * <C>waveFileName</C> using the FluidSynth library with settings
  * given by <C>renderSettings</C> and sample rate <C>sampleRate</C>
@@ -662,36 +701,20 @@ static void _renderEvents (IN Dictionary& settings,
                    TOSTRING(midiEventCount),
                    settings.toString());
 
-    const Real defaultBpmRate = 120.0;
-    const Natural tempBufferSize = 2048;
-    AudioSampleListVector tempBuffer{_channelCount};
-    tempBuffer.setFrameCount(tempBufferSize);
-    Real midiTimeToSecondsFactor =
-        Real{60.0} / (defaultBpmRate * midiTicksPerQuarterNote);
-    Logging_trace1("--: midiTimeToSecondsFactor = %1",
-                   TOSTRING(midiTimeToSecondsFactor));
+    MidiEventConverter* midiEventConverter =
+        _makeMidiEventConverter(settings);
 
-    MidiEventConverter* midiEventConverter = new MidiEventConverter();
+    if (midiEventConverter != NULL) {
+        const Natural tempBufferSize = 2048;
+        const Real defaultBpmRate = 120.0;
 
-    Boolean isOkay = midiEventConverter->isCorrectlyInitialized();
-
-    if (!isOkay) {
-        _writeMessage("cannot open FluidSynth library");
-    } else {
-        for (auto& [key, value] : settings) {
-            Boolean settingIsOkay = midiEventConverter->set(key, value);
-
-            if (!settingIsOkay) {
-                String errorMessage = expand("cannot set '%1' to '%2'",
-                                             key, value);
-                _writeMessage(errorMessage);
-                isOkay = false;
-            }
-        }
-    }
-
-    if (isOkay) {
+        AudioSampleListVector tempBuffer{_channelCount};
+        tempBuffer.setFrameCount(tempBufferSize);
         midiEventConverter->prepareToPlay(sampleRate, tempBufferSize);
+        Real midiTimeToSecondsFactor =
+            Real{60.0} / (defaultBpmRate * midiTicksPerQuarterNote);
+        Logging_trace1("--: midiTimeToSecondsFactor = %1",
+                       TOSTRING(midiTimeToSecondsFactor));
         MidiEventList synchronousEventList;
         _EventTime previousEventTime;
 
@@ -754,9 +777,9 @@ static void _renderEvents (IN Dictionary& settings,
                                      synchronousEventList, 0,
                                      tempBuffer, sampleBuffer);
         }
-    }
 
-    delete midiEventConverter;
+        delete midiEventConverter;
+    }
 
     Logging_trace("<<");
 }
@@ -834,12 +857,12 @@ Real _updatedTimeFactor (IN MidiEvent& event,
     Assertion_check(event.kind() == MidiEventKind::meta
                     && event.metaKind() == MidiMetaEventKind::tempo,
                     "event must be tempo event");
-    NaturalList eventData = event.rawData();
+    ByteList eventData = event.rawData();
     Assertion_check(eventData.length() == 5,
                     "tempo event must have length 5");
     Natural microsecondsPerQuarterNote =
-        ((eventData[2] * 256 + eventData[3]) * 256
-         + eventData[4]);
+        (((Natural) eventData[2] * 256 + (Natural) eventData[3]) * 256
+         + (Natural) eventData[4]);
     Real result = (Real{microsecondsPerQuarterNote}
                          / (1.0E6 * (size_t) midiTicksPerQuarterNote));
 

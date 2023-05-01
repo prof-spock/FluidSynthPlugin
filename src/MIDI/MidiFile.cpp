@@ -37,9 +37,13 @@ using MIDI::MidiFile;
 /* forward declarations */
 /*----------------------*/
 
-static NaturalList _readNaturalList (IN ByteList& byteList,
-                                     INOUT Natural& position,
-                                     IN Natural byteCount);
+static ByteList _readByteList (IN ByteList& byteList,
+                               INOUT Natural& position,
+                               IN Natural byteCount);
+
+static Natural _readNatural (IN ByteList& byteList,
+                             INOUT Natural& position,
+                             IN Natural byteCount);
 
 static String _readString (IN ByteList& byteList,
                            INOUT Natural& position,
@@ -52,6 +56,10 @@ static Natural _readVariableLengthNatural (IN ByteList& byteList,
 /* internal features  */
 /*--------------------*/
 
+/** error message when MIDI file has unexpected format */
+static String _badByteListMessage =
+    "bad MIDI data in file - possibly invalid structure";
+
 /** the string used a a RIFF file head marker for a MIDI file */
 static String _fileHead{"MThd"};
 
@@ -59,6 +67,23 @@ static String _fileHead{"MThd"};
 static String _trackHead{"MTrk"};
 
 /*--------------------*/
+/*--------------------*/
+
+/**
+ * Reads single byte in midi stream <C>byteList</C> at
+ * <C>position</C>, returns it and updates <C>position</C>.
+ *
+ * @param[in]    byteList   list of bytes in file
+ * @param[inout] position   position of read operation to be updated
+ * @return  byte value
+ */
+static Byte _readByte (IN ByteList& byteList,
+                       INOUT Natural& position)
+{
+    Natural result = _readNatural(byteList, position, 1);
+    return Byte{(int) result};
+}
+
 /*--------------------*/
 
 /**
@@ -78,6 +103,9 @@ static Integer _readInteger (IN ByteList& byteList,
                              IN Natural byteCount,
                              IN Boolean isSigned = true)
 {
+    Assertion_pre(position + byteCount < byteList.length(),
+                  _badByteListMessage);
+
     Integer result{0};
     Integer maxValue{0};
 
@@ -135,12 +163,12 @@ static MidiEvent _readMidiEvent (IN Natural time,
                                  IN ByteList& byteList,
                                  INOUT Natural& position)
 {
+    ByteList eventDataList;
     Natural eventLength;
-    NaturalList eventDataList;
 
     Logging_trace1(">>: position = %1", TOSTRING(position));
 
-    Natural eventByte = _readNatural(byteList, position, 1);
+    Byte eventByte = _readByte(byteList, position);
     Assertion_check(MidiEventKind::isValid(eventByte),
                     expand("bad MIDI format: expected"
                            " event byte, got %1",
@@ -149,23 +177,32 @@ static MidiEvent _readMidiEvent (IN Natural time,
     Logging_trace2("--: eventByte = %1, eventKind = %2",
                    TOSTRING(eventByte), eventKind.toString());
 
+    
     if (eventKind == MidiEventKind::systemExclusive) {
-        /* TODO: read up to F7? */
-        Assertion_check(false, "sysEx not yet implemented");
+        eventDataList.append(eventByte);
+        
+        while (true) {
+            Byte dataByte = _readByte(byteList, position);
+            eventDataList.append(dataByte);
+
+            if (dataByte == 0xF7) {
+                break;
+            }
+        }
     } else if (eventKind == MidiEventKind::meta) {
-        Natural metaEventKindByte = _readNatural(byteList, position, 1);
+        Byte metaEventKindByte = _readByte(byteList, position);
         Assertion_check(MidiMetaEventKind::isValid(metaEventKindByte),
                         expand("bad MIDI format: expected"
                                " meta event byte, got %1",
                                TOSTRING(metaEventKindByte)));
         eventLength = _readVariableLengthNatural(byteList, position);
-        eventDataList = _readNaturalList(byteList, position, eventLength);
+        eventDataList = _readByteList(byteList, position, eventLength);
         eventDataList.prepend(metaEventKindByte);
         eventDataList.prepend(eventByte);
     } else {
         /* process a channel message */
         eventLength = eventKind.byteCount() - 1;
-        eventDataList = _readNaturalList(byteList, position, eventLength);
+        eventDataList = _readByteList(byteList, position, eventLength);
         eventDataList.prepend(eventByte);
     }
 
@@ -263,7 +300,7 @@ static void _readMidiTrack (IN ByteList& byteList,
 /*--------------------*/
 
 /**
- * Reads list of natural values in midi stream <C>byteList</C> at
+ * Reads list of byte values in midi stream <C>byteList</C> at
  * <C>position</C> with length <C>byteCount</C>, returns it and
  * updates <C>position</C>.
  *
@@ -271,18 +308,18 @@ static void _readMidiTrack (IN ByteList& byteList,
  * @param[inout] position   start position of read operation to be
  *                          updated
  * @param[in]    byteCount  length of list to be read (in bytes)
- * @return natural list
+ * @return list of bytes
  */
-static NaturalList _readNaturalList (IN ByteList& byteList,
-                                     INOUT Natural& position,
-                                     IN Natural byteCount)
+static ByteList _readByteList (IN ByteList& byteList,
+                               INOUT Natural& position,
+                               IN Natural byteCount)
 {
     Logging_trace1(">>: position = %1", TOSTRING(position));
 
-    NaturalList result{};
+    ByteList result{};
 
     for (Natural i = 0;  i < byteCount;  i++) {
-        Natural value = _readNatural(byteList, position, 1);
+        Byte value = _readByte(byteList, position);
         result.append(value);
     }
     
@@ -306,6 +343,9 @@ static String _readString (IN ByteList& byteList,
                            INOUT Natural& position,
                            IN Natural byteCount)
 {
+    Assertion_pre(position + byteCount < byteList.length(),
+                  _badByteListMessage);
+
     String result;
 
     for (Natural i = 0;  i < byteCount;  i++) {
@@ -333,12 +373,15 @@ static Natural _readVariableLengthNatural (IN ByteList& byteList,
 {
     Boolean isDone{false};
     Natural result{0};
+    Natural listLength = byteList.length();
 
     while (!isDone) {
         uint8_t value = (uint8_t) byteList.at(position++);
         isDone = (value < 128);
         value = value & 127;
         result = result * 128 + value;
+        Assertion_check(isDone || position < listLength,
+                        _badByteListMessage);
     }
 
     return result;

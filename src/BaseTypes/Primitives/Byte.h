@@ -105,6 +105,56 @@ namespace BaseTypes::Primitives {
             return Natural{_value};
         }
 
+        /*--------------------*/
+        /* operators          */
+        /*--------------------*/
+
+        /**
+         * Postincrements current value.
+         *
+         * @return  previous value of byte
+         */
+        Byte operator ++ (int)
+        {
+            return Byte{_value++};
+        }
+
+        /*--------------------*/
+
+        /**
+         * Preincrements current value.
+         *
+         * @return  current value of byte
+         */
+        Byte operator ++ ()
+        {
+            return Byte{++_value};
+        }
+
+        /*--------------------*/
+
+        /**
+         * Postdecrements current value.
+         *
+         * @return  previous value of byte
+         */
+        Byte operator -- (int)
+        {
+            return Byte{_value--};
+        }
+
+        /*--------------------*/
+
+        /**
+         * Predecrements current value.
+         *
+         * @return  current value of byte
+         */
+        Byte operator -- ()
+        {
+            return Byte{--_value};
+        }
+
         /*-----------------------------*/
         /* advanced functions (static) */
         /*-----------------------------*/

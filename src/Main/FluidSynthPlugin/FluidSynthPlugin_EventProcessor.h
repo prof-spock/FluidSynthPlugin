@@ -106,8 +106,10 @@ namespace Main::FluidSynthPlugin {
         /*--------------------*/
 
         /**
-         * Returns the number of programs this effect supports (should
-         * be 1).
+         * Returns the number of programs this effect supports; if a
+         * host like VST3 sets the programs not by the MIDI stream,
+         * but via setCurrentProgram this just returns 128 to support
+         * that mechanism.
          *
          * @return the number of programs of this effect 
          */
@@ -116,8 +118,7 @@ namespace Main::FluidSynthPlugin {
         /*--------------------*/
 
         /**
-         * Returns the current program of this effect (should be 0 for
-         * the one and only program).
+         * Returns the current program of this effect.
          *
          * @return  the current program of this effect 
          */

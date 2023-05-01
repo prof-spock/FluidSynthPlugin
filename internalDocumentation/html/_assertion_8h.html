@@ -111,7 +111,7 @@ $(document).ready(function(){initNavTree('_assertion_8h.html',''); initResizable
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a2efe2db6878c4c0fdd708a8a18650fd6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_assertion_8h.html#a2efe2db6878c4c0fdd708a8a18650fd6">_ASSERT_WITH_MESSAGE</a>(condition,  message)&#160;&#160;&#160;    assert(((void)message, condition))</td></tr>
+<tr class="memitem:a2efe2db6878c4c0fdd708a8a18650fd6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_assertion_8h.html#a2efe2db6878c4c0fdd708a8a18650fd6">_ASSERT_WITH_MESSAGE</a>(condition,  message)&#160;&#160;&#160;    assert((condition))</td></tr>
 <tr class="memdesc:a2efe2db6878c4c0fdd708a8a18650fd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks the <code>condition</code> and exits with <code>message</code> on failure; this is the base routine called by the exported assertion checks --&gt; the DEBUG version does the checking, the RELEASE version does nothing.  <a href="_assertion_8h.html#a2efe2db6878c4c0fdd708a8a18650fd6">More...</a><br /></td></tr>
 <tr class="separator:a2efe2db6878c4c0fdd708a8a18650fd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8be9498d4c4b21c15c381c2ededc826"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_assertion_8h.html#ae8be9498d4c4b21c15c381c2ededc826">Assertion_check</a>(condition,  message)&#160;&#160;&#160;            <a class="el" href="_assertion_8h.html#a2efe2db6878c4c0fdd708a8a18650fd6">_ASSERT_WITH_MESSAGE</a>(condition, message)</td></tr>
@@ -150,7 +150,7 @@ Macros</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;    assert(((void)message, condition))</td>
+          <td></td><td>&#160;&#160;&#160;    assert((condition))</td>
         </tr>
       </table>
 </div><div class="memdoc">

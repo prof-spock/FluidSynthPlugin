@@ -23,6 +23,7 @@
 /*--------------------*/
 
 using Audio::AudioSampleListVector;
+using BaseTypes::Primitives::Natural;
 using Libraries::FluidSynth::FluidSynthSettings;
 
 /*====================*/

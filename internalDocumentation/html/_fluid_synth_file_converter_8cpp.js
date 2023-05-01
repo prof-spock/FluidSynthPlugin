@@ -6,6 +6,7 @@ var _fluid_synth_file_converter_8cpp =
     [ "_finalize", "_fluid_synth_file_converter_8cpp.html#a332cb34369c61d8956aa166ad308d4cd", null ],
     [ "_handleCommandLineArguments", "_fluid_synth_file_converter_8cpp.html#a7ea07862646d9d185e77820844a129fe", null ],
     [ "_initialize", "_fluid_synth_file_converter_8cpp.html#a84298a66f7adae2a68e04ed0f2a8b4c2", null ],
+    [ "_makeMidiEventConverter", "_fluid_synth_file_converter_8cpp.html#aebe7478419698997540268cc2c394763", null ],
     [ "_process", "_fluid_synth_file_converter_8cpp.html#a1c92d3cab7dbe1fc81b186b05ba39c50", null ],
     [ "_renderEvents", "_fluid_synth_file_converter_8cpp.html#a662790a4d8707879b98e03e0fcf9b378", null ],
     [ "_renderSynchronousEvents", "_fluid_synth_file_converter_8cpp.html#a3577bf7cd1781a40c99e5fb0a83606ab", null ],

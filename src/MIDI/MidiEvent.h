@@ -17,12 +17,12 @@
 
 #include "Boolean.h"
 #include "Integer.h"
-#include "NaturalList.h"
+#include "ByteList.h"
 #include "Object.h"
 
 /*--------------------*/
 
-using BaseTypes::Containers::NaturalList;
+using BaseTypes::Containers::ByteList;
 using BaseTypes::Primitives::Boolean;
 using BaseTypes::Primitives::Natural;
 using BaseTypes::Primitives::Integer;
@@ -74,21 +74,21 @@ namespace MIDI {
         /*--------------------*/
 
         /**
-         * Makes event kind from natural <C>n</C>
+         * Makes event kind from byte <C>b</C>
          *
-         * @param[in] n  natural value to be converted into event kind
+         * @param[in] b  byte value to be converted into event kind
          */
-        MidiEventKind (IN Natural n);
+        MidiEventKind (IN Byte b = 0xFF);
 
         /*--------------------*/
 
         /**
          * Returns whether <C>n</C> is a valid midi event byte
          *
-         * @param[in] n  natural value to be checked for event kind range
-         * @return  information whether <C>n</C> is acceptable
+         * @param[in] b  value to be checked for event kind range
+         * @return  information whether <C>b</C> is acceptable
          */
-        static Boolean isValid (IN Natural n);
+        static Boolean isValid (IN Byte b);
 
         /*--------------------*/
         /* conversion         */
@@ -139,7 +139,7 @@ namespace MIDI {
         private:
 
             /** internal representation */
-            Natural _value;
+            Byte _value;
 
     };
 
@@ -208,7 +208,7 @@ namespace MIDI {
          *
          * @param[in] b  byte value to be converted into meta event kind
          */
-        MidiMetaEventKind (IN Natural b);
+        MidiMetaEventKind (IN Byte b);
 
         /*--------------------*/
 
@@ -219,7 +219,7 @@ namespace MIDI {
          *               kind range
          * @return  information whether <C>b</C> is acceptable
          */
-        static Boolean isValid (IN Natural b);
+        static Boolean isValid (IN Byte b);
 
         /*--------------------*/
         /* conversion         */
@@ -270,7 +270,7 @@ namespace MIDI {
         private:
 
             /** internal representation */
-            Natural _value;
+            Byte _value;
 
     };
 
@@ -295,7 +295,7 @@ namespace MIDI {
          *                       bytes
          */
         MidiEvent (IN Integer eventTime = 0,
-                   IN NaturalList midiData = NaturalList{});
+                   IN ByteList midiData = ByteList{});
 
         /*--------------------*/
 
@@ -367,7 +367,7 @@ namespace MIDI {
          *
          * @return  byte list
          */
-        NaturalList rawData () const;
+        ByteList rawData () const;
 
         /*--------------------*/
 
@@ -378,7 +378,7 @@ namespace MIDI {
          * @param[in] index    index into byte data (starting with 0)
          * @return  value at index
          */
-        Natural getDataByte (IN Natural index) const;
+        Byte getDataByte (IN Natural index) const;
 
         /*--------------------*/
 
@@ -432,7 +432,7 @@ namespace MIDI {
              * @param[in] index    index into byte data (starting with 0)
              * @return  value at index
              */
-            Natural _getDataByteNOLOG (IN Natural index) const;
+            Byte _getDataByteNOLOG (IN Natural index) const;
 
         /*--------------------*/
         /*--------------------*/

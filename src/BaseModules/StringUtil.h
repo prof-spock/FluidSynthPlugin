@@ -17,7 +17,6 @@
 /*=========*/
 
 #include "Boolean.h"
-#include "Byte.h"
 #include "Character.h"
 #include "Percentage.h"
 #include "StringList.h"
@@ -136,6 +135,17 @@ namespace BaseModules {
         findFromEnd (IN String& st,
                      IN String& substring,
                      IN Natural startPosition = Natural::maximumValue());
+
+        /*--------------------*/
+
+        /**
+         * Tells whether <C>st</C> represents a byte.
+         *
+         * @param[in] st  the string with a byte value
+         * @return  information whether string represents an byte or
+         *          not
+         */
+        static Boolean isByte (IN String& st);
 
         /*--------------------*/
 
@@ -276,6 +286,17 @@ namespace BaseModules {
         substring (IN String& st,
                    IN Natural firstIndex,
                    IN Natural count = Natural::maximumValue());
+
+        /*--------------------*/
+
+        /**
+         * Converts <C>st</C> to a byte; if conversion fails, 0 is
+         * returned
+         *
+         * @param[in] st  the string to be converted to byte
+         * @return  byte value of string or zero
+         */
+        static Byte toByte (IN String& st);
 
         /*--------------------*/
 

@@ -12,9 +12,7 @@
 /*=========*/
 
 #include "Boolean.h"
-#include "Byte.h"
 #include "Logging.h"
-
 #include "FluidSynthSynthesizer.h"
 #include "MidiEventConverter.h"
 
@@ -23,7 +21,6 @@
 using Audio::AudioSample;
 using Audio::AudioSampleList;
 using BaseTypes::Primitives::Boolean;
-using BaseTypes::Primitives::Byte;
 using Libraries::FluidSynth::FluidSynthSynthesizer;
 using MIDI::MidiEventConverter;
 using MIDI::MidiEventKind;
@@ -68,12 +65,12 @@ namespace MIDI {
         /*--------------------*/
         /*--------------------*/
 
-        /** sets up the processor descriptor */
+        /** Sets up the processor descriptor. */
         _MidiEventConverterDescriptor ();
 
         /*--------------------*/
 
-        /** destroys the processor descriptor */
+        /** Destroys the processor descriptor */
         ~_MidiEventConverterDescriptor ();
 
         /*--------------------*/
@@ -83,7 +80,8 @@ namespace MIDI {
          *
          * @param[in] key    fluidsynth settings key
          * @param[in] value  associated string value
-         * @return  information whether set operation has been successful
+         * @return  information whether set operation has been
+         *          successful
          */
         Boolean changeSettings (IN String& key, IN String& value);
 
@@ -151,15 +149,38 @@ _MidiEventConverterDescriptor::changeSettings (IN String& key,
 {
     Logging_trace2(">>: key = %1, value = %2", key, value);
 
+    const String programKey = "program";
+    const String soundFontKey = "soundfont";
+    const String verboseKey = "synth.verbose";
+
     Boolean isOkay = false;
     settingsDictionary.set(key, value);
 
-    if (StringUtil::startsWith(key, "synth.")) {
-        isOkay = _settings->set(key, value);
-    } else if (key == "program") {
+    if (key == programKey) {
         isOkay = _handleProgramChange(value, synthesizer);
-    } else if (key == "soundfont") {
+    } else if (key == soundFontKey) {
         isOkay = synthesizer->loadSoundFont(value);
+    } else if (StringUtil::startsWith(key, "synth.")) {
+        isOkay = _settings->set(key, value);
+
+        /* restart synthesizer when verbose setting is activated */
+        if (isOkay && key == verboseKey) {
+            delete synthesizer;
+            synthesizer = new FluidSynthSynthesizer(library, _settings);
+            synthesizerBufferSize = (!library->isLoaded() ? 0
+                                     : synthesizer->internalBufferSize());
+
+            /* restore specific settings for synthesizer */
+            if (settingsDictionary.contains(soundFontKey)) {
+                String soundFontValue = settingsDictionary.at(soundFontKey);
+                isOkay = synthesizer->loadSoundFont(soundFontValue);
+            }
+
+            if (isOkay && settingsDictionary.contains(programKey)) {
+                String programValue = settingsDictionary.at(programKey);
+                isOkay = _handleProgramChange(programValue, synthesizer);
+            }
+        }
     }
     
     Logging_trace1("<<: %1", TOSTRING(isOkay));
@@ -267,34 +288,34 @@ _handleMidiEvent (INOUT FluidSynthSynthesizer* synthesizer,
 
     if (eventKind != MidiEventKind::meta
         && eventKind != MidiEventKind::systemExclusive) {
-        const Natural midiChannel  = event.channel();
+        const Natural midiChannel = event.channel();
 
         if (eventKind == MidiEventKind::controlChange) {
-            const Natural controller = event.getDataByte(1);
-            const Natural value      = event.getDataByte(2);
+            const Natural controller = (Natural) event.getDataByte(1);
+            const Natural value      = (Natural) event.getDataByte(2);
             isOkay = synthesizer->handleControlChange(midiChannel,
                                                       controller, value);
         } else if (eventKind == MidiEventKind::monoTouch) {
-            const Natural key = event.getDataByte(1);
-            const Natural value      = event.getDataByte(2);
+            const Natural key   = (Natural) event.getDataByte(1);
+            const Natural value = (Natural) event.getDataByte(2);
             isOkay = synthesizer->handleMonoTouch(midiChannel, key, value);
         } else if (eventKind == MidiEventKind::noteOff) {
-            const Natural key = event.getDataByte(1);
+            const Natural key = (Natural) event.getDataByte(1);
             isOkay = synthesizer->handleNoteOff(midiChannel, key);
         } else if (eventKind == MidiEventKind::noteOn) {
-            const Natural key          = event.getDataByte(1);
-            const Natural midiVelocity = event.getDataByte(2);
+            const Natural key          = (Natural) event.getDataByte(1);
+            const Natural midiVelocity = (Natural) event.getDataByte(2);
             isOkay = synthesizer->handleNoteOn(midiChannel,
                                                key, midiVelocity);
         } else if (eventKind == MidiEventKind::pitchBend) {
-            const Natural value = (event.getDataByte(1)
-                                   + event.getDataByte(2) * 128);
+            const Natural value = ((Natural) event.getDataByte(1)
+                                   + (Natural) event.getDataByte(2) * 128);
             isOkay = synthesizer->handlePitchBend(midiChannel, value);
         } else if (eventKind == MidiEventKind::polyTouch) {
-            const Natural value = event.getDataByte(1);
+            const Natural value = (Natural) event.getDataByte(1);
             isOkay = synthesizer->handlePolyTouch(midiChannel, value);
         } else if (eventKind == MidiEventKind::programChange) {
-            const Natural programNumber = event.getDataByte(1);
+            const Natural programNumber = (Natural) event.getDataByte(1);
             isOkay = synthesizer->handleProgramChange(midiChannel,
                                                       programNumber);
         }
@@ -308,9 +329,16 @@ _handleMidiEvent (INOUT FluidSynthSynthesizer* synthesizer,
 
 /**
  * Handles bank and program change depending on for given string
- * <C>value</C> on <C>synthesizer</C>.
+ * <C>value</C> on <C>synthesizer</C>. value contains channel, bank
+ * and program numbers separated by a slash and a colon.  The channel
+ * number comes first followed by a slash followed by the bank number
+ * and a colon and finally the program number.  If the channel is
+ * missing, all channels are affected, if the bank is missing, bank
+ * number 0 is assumed; an empty bank is ignored and an empty program
+ * is erroneous.
  *
- * @param[in]    value         string value for bank and/or program
+ * @param[in]    value         string value for channel, bank and/or
+ *                             program
  * @param[inout] synthesizer   fluidsynth synthesizer object
  * @return  information whether program change handling has been
  *          successful
@@ -322,38 +350,59 @@ _handleProgramChange (IN String& value,
     Logging_trace1(">>: %1", value);
 
     const Natural undefined = Natural::maximumValue();
+    const String channelSeparator = "/";
     const String bankAndProgramSeparator = ":";
-    const Natural separatorPosition =
-        StringUtil::find(value, bankAndProgramSeparator);
 
-    String bank;
+    Natural separatorPosition;
+    String st = value;
+    String channel = "";
+    String bank    = "0";
     String program;
 
+    /* check for channel specification */
+    separatorPosition = StringUtil::find(st, channelSeparator);
+
+    if (separatorPosition != undefined) {
+        StringUtil::splitAt(st, channelSeparator, channel, st);
+    }
+    
+    /* check for bank specification */
+    separatorPosition = StringUtil::find(st, bankAndProgramSeparator);
+
     if (separatorPosition == undefined) {
-        bank = "0";
-        program = value;
+        program = st;
     } else {
         StringUtil::splitAt(value, bankAndProgramSeparator,
                             bank, program);
     }
-    
-    Boolean isOkay = (StringUtil::isNatural(bank)
+
+    Boolean channelIsEmpty = (channel == "");
+    Boolean bankIsEmpty = (bank == "");
+    Boolean isOkay = ((channelIsEmpty || StringUtil::isNatural(channel))
+                      && (bankIsEmpty || StringUtil::isNatural(bank))
                       && StringUtil::isNatural(program));
 
     if (!isOkay) {
         Logging_trace1("--: '%1' is not a valid program number - ",
                        value);
     } else {
-        Natural bankNumber = StringUtil::toNatural(bank);
+        Natural bankNumber = (bankIsEmpty ? 0
+                              : StringUtil::toNatural(bank));
+        Natural channelNumber = (channelIsEmpty ? 0
+                              : StringUtil::toNatural(channel));
         Natural programNumber = StringUtil::toNatural(program);
 
         for (Natural midiChannel = 0;  midiChannel < 16;  midiChannel++) {
-            isOkay = synthesizer->handleBankChange(midiChannel,
-                                                   bankNumber);
+            if (channelIsEmpty || midiChannel == channelNumber) {
+                if (isOkay && !bankIsEmpty) {
+                    isOkay = synthesizer->handleBankChange(midiChannel,
+                                                           bankNumber);
+                }
 
-            if (isOkay) {
-                isOkay = synthesizer->handleProgramChange(midiChannel,
-                                                          programNumber);
+                if (isOkay) {
+                    isOkay = synthesizer->handleProgramChange(midiChannel,
+                                                              programNumber);
+                }
             }
         }
     }

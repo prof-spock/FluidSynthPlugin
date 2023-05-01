@@ -96,7 +96,7 @@ $(document).ready(function(){initNavTree('_character_8h_source.html',''); initRe
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">/*=========*/</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_natural_8h.html">Natural.h</a>&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_byte_8h.html">Byte.h</a>&quot;</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">/*====================*/</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
@@ -121,37 +121,46 @@ $(document).ready(function(){initNavTree('_character_8h_source.html',''); initRe
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="comment">/*--------------------*/</span></div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="struct_base_types_1_1_primitives_1_1_character.html#a7ee6bad954ad37dcc1bdf40d64ad1970">   61</a></span>&#160;        <a class="code" href="struct_base_types_1_1_primitives_1_1_character.html#a7ee6bad954ad37dcc1bdf40d64ad1970">Character</a> (<a class="code" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="code" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> n)</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="struct_base_types_1_1_primitives_1_1_character.html#a0e825e9c8b1b204141df4995374fa7e3">   61</a></span>&#160;        <a class="code" href="struct_base_types_1_1_primitives_1_1_character.html#a0e825e9c8b1b204141df4995374fa7e3">Character</a> (<a class="code" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="code" href="struct_base_types_1_1_primitives_1_1_byte.html">Byte</a> b)</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            _value = (char) (<span class="keywordtype">size_t</span>) n;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            _value = (char) b;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        }</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="comment">/*--------------------*/</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="comment">/* type conversions   */</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="comment">/*--------------------*/</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="struct_base_types_1_1_primitives_1_1_character.html#a3e02938501bbbd9ae1c10f531677e72f">   75</a></span>&#160;        <a class="code" href="namespace_base_types_1_1_primitives.html#aa1174c1e7bedd8df69fc98453595a127">String</a> <a class="code" href="struct_base_types_1_1_primitives_1_1_character.html#a3e02938501bbbd9ae1c10f531677e72f">toString</a> ()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <a class="code" href="namespace_base_types_1_1_primitives.html#aa1174c1e7bedd8df69fc98453595a127">String</a> result;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            result += _value;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="struct_base_types_1_1_primitives_1_1_character.html#a7ee6bad954ad37dcc1bdf40d64ad1970">   73</a></span>&#160;        <a class="code" href="struct_base_types_1_1_primitives_1_1_character.html#a7ee6bad954ad37dcc1bdf40d64ad1970">Character</a> (<a class="code" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="code" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> n)</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        {</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            _value = (char) (<span class="keywordtype">size_t</span>) n;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="comment">/*--------------------*/</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="comment">/* type conversions   */</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="comment">/*--------------------*/</span></div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    };</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;}</div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="struct_base_types_1_1_primitives_1_1_character.html#a3e02938501bbbd9ae1c10f531677e72f">   87</a></span>&#160;        <a class="code" href="namespace_base_types_1_1_primitives.html#aa1174c1e7bedd8df69fc98453595a127">String</a> <a class="code" href="struct_base_types_1_1_primitives_1_1_character.html#a3e02938501bbbd9ae1c10f531677e72f">toString</a> ()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            <a class="code" href="namespace_base_types_1_1_primitives.html#aa1174c1e7bedd8df69fc98453595a127">String</a> result;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            result += _value;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        }</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    };</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="anamespace_base_types_1_1_primitives_html"><div class="ttname"><a href="namespace_base_types_1_1_primitives.html">BaseTypes::Primitives</a></div><div class="ttdoc">The package Primitives wraps elementary types of C++ like ints and chars into types like Integer,...</div><div class="ttdef"><b>Definition:</b> BaseTypes/Primitives/_NAMESPACE.desc:8</div></div>
 <div class="ttc" id="astruct_base_types_1_1_primitives_1_1_natural_html"><div class="ttname"><a href="struct_base_types_1_1_primitives_1_1_natural.html">BaseTypes::Primitives::Natural</a></div><div class="ttdoc">An Natural object wraps a value of the associated primitive type in an object.</div><div class="ttdef"><b>Definition:</b> Natural.h:40</div></div>
 <div class="ttc" id="anamespace_base_types_1_1_primitives_html_aa1174c1e7bedd8df69fc98453595a127"><div class="ttname"><a href="namespace_base_types_1_1_primitives.html#aa1174c1e7bedd8df69fc98453595a127">BaseTypes::Primitives::String</a></div><div class="ttdeci">std::string String</div><div class="ttdoc">The String type represents (Unicode) character sequences.</div><div class="ttdef"><b>Definition:</b> MyString.h:28</div></div>
-<div class="ttc" id="a_natural_8h_html"><div class="ttname"><a href="_natural_8h.html">Natural.h</a></div><div class="ttdoc">The Natural specification and body provides a value object type for naturals (positive integers with ...</div></div>
 <div class="ttc" id="astruct_base_types_1_1_primitives_1_1_character_html"><div class="ttname"><a href="struct_base_types_1_1_primitives_1_1_character.html">BaseTypes::Primitives::Character</a></div><div class="ttdoc">A Character object wraps a value of the associated primitive type char into an object.</div><div class="ttdef"><b>Definition:</b> Character.h:29</div></div>
-<div class="ttc" id="astruct_base_types_1_1_primitives_1_1_character_html_a3e02938501bbbd9ae1c10f531677e72f"><div class="ttname"><a href="struct_base_types_1_1_primitives_1_1_character.html#a3e02938501bbbd9ae1c10f531677e72f">BaseTypes::Primitives::Character::toString</a></div><div class="ttdeci">String toString() const</div><div class="ttdoc">Returns string representation of character.</div><div class="ttdef"><b>Definition:</b> Character.h:75</div></div>
+<div class="ttc" id="astruct_base_types_1_1_primitives_1_1_character_html_a3e02938501bbbd9ae1c10f531677e72f"><div class="ttname"><a href="struct_base_types_1_1_primitives_1_1_character.html#a3e02938501bbbd9ae1c10f531677e72f">BaseTypes::Primitives::Character::toString</a></div><div class="ttdeci">String toString() const</div><div class="ttdoc">Returns string representation of character.</div><div class="ttdef"><b>Definition:</b> Character.h:87</div></div>
 <div class="ttc" id="a_global_macros_8h_html_ac2bbd6d630a06a980d9a92ddb9a49928"><div class="ttname"><a href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a></div><div class="ttdeci">#define IN</div><div class="ttdoc">(informal) parameter mode for in parameter</div><div class="ttdef"><b>Definition:</b> GlobalMacros.h:15</div></div>
+<div class="ttc" id="a_byte_8h_html"><div class="ttname"><a href="_byte_8h.html">Byte.h</a></div><div class="ttdoc">The Byte specification and body provides a value object type for byte values.</div></div>
 <div class="ttc" id="astruct_base_types_1_1_primitives_1_1_character_html_a66a754553d000392ac40e12cff7204b7"><div class="ttname"><a href="struct_base_types_1_1_primitives_1_1_character.html#a66a754553d000392ac40e12cff7204b7">BaseTypes::Primitives::Character::Character</a></div><div class="ttdeci">Character()</div><div class="ttdoc">Initializes character to an unspecified value.</div><div class="ttdef"><b>Definition:</b> Character.h:38</div></div>
+<div class="ttc" id="astruct_base_types_1_1_primitives_1_1_character_html_a0e825e9c8b1b204141df4995374fa7e3"><div class="ttname"><a href="struct_base_types_1_1_primitives_1_1_character.html#a0e825e9c8b1b204141df4995374fa7e3">BaseTypes::Primitives::Character::Character</a></div><div class="ttdeci">Character(IN Byte b)</div><div class="ttdoc">Initializes character from byte value b.</div><div class="ttdef"><b>Definition:</b> Character.h:61</div></div>
 <div class="ttc" id="astruct_base_types_1_1_primitives_1_1_character_html_a1bce8a7cbd9cccf82a15bc41bd0e3de0"><div class="ttname"><a href="struct_base_types_1_1_primitives_1_1_character.html#a1bce8a7cbd9cccf82a15bc41bd0e3de0">BaseTypes::Primitives::Character::Character</a></div><div class="ttdeci">Character(IN char c)</div><div class="ttdoc">Initializes character from primitive char c.</div><div class="ttdef"><b>Definition:</b> Character.h:49</div></div>
-<div class="ttc" id="astruct_base_types_1_1_primitives_1_1_character_html_a7ee6bad954ad37dcc1bdf40d64ad1970"><div class="ttname"><a href="struct_base_types_1_1_primitives_1_1_character.html#a7ee6bad954ad37dcc1bdf40d64ad1970">BaseTypes::Primitives::Character::Character</a></div><div class="ttdeci">Character(IN Natural n)</div><div class="ttdoc">Initializes character from natural value n.</div><div class="ttdef"><b>Definition:</b> Character.h:61</div></div>
+<div class="ttc" id="astruct_base_types_1_1_primitives_1_1_byte_html"><div class="ttname"><a href="struct_base_types_1_1_primitives_1_1_byte.html">BaseTypes::Primitives::Byte</a></div><div class="ttdoc">A Byte object wraps a value of the associated primitive type char into an object.</div><div class="ttdef"><b>Definition:</b> Byte.h:29</div></div>
+<div class="ttc" id="astruct_base_types_1_1_primitives_1_1_character_html_a7ee6bad954ad37dcc1bdf40d64ad1970"><div class="ttname"><a href="struct_base_types_1_1_primitives_1_1_character.html#a7ee6bad954ad37dcc1bdf40d64ad1970">BaseTypes::Primitives::Character::Character</a></div><div class="ttdeci">Character(IN Natural n)</div><div class="ttdoc">Initializes character from natural value n.</div><div class="ttdef"><b>Definition:</b> Character.h:73</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

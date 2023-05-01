@@ -146,6 +146,13 @@ Boolean StringUtil::isNatural (IN String& st)
 
 /*--------------------*/
 
+Boolean StringUtil::isByte (IN String& st)
+{
+    return isNatural(st) && (toNatural(st) < 256);
+}
+
+/*--------------------*/
+
 Boolean StringUtil::isInt (IN String& st)
 {
     Boolean result = false;
@@ -308,6 +315,13 @@ String StringUtil::substring (IN String& st,
                               IN Natural firstIndex, IN Natural count)
 {
     return st.substr((size_t) firstIndex, (size_t) count);
+}
+
+/*--------------------*/
+
+Byte StringUtil::toByte (IN String& st)
+{
+    return (isByte(st) ? Byte{(int) toNatural(st)} : 0);
 }
 
 /*--------------------*/

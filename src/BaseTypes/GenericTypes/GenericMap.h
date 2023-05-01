@@ -101,12 +101,24 @@ namespace BaseTypes::GenericTypes {
         /*--------------------*/
 
         /**
+         * Removes entry for <C>key</C>.
+         *
+         * @param[in] key    key within map
+         */
+        void remove (IN KeyType& key)
+        {
+            map<KeyType, ValueType>::erase(key);
+        }
+
+        /*--------------------*/
+
+        /**
          * Sets entry for <C>key</C> to <C>value</C>.
          *
          * @param[in] key    key within map
          * @param[in] value  new associated value for key
          */
-        void set (IN String& key, IN String& value)
+        void set (IN KeyType& key, IN ValueType& value)
         {
             map<KeyType, ValueType>::insert_or_assign(key, value);
         }

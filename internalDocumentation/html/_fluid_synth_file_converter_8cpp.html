@@ -152,6 +152,9 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 <tr class="memitem:a7ea07862646d9d185e77820844a129fe"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_file_converter_8cpp.html#a7ea07862646d9d185e77820844a129fe">_handleCommandLineArguments</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> argumentCount, char *argv[], <a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> String &amp;midiFileName, <a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> String &amp;waveFileName, <a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a> &amp;sampleRate, <a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> String &amp;audioFileFormat, <a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="struct_base_types_1_1_containers_1_1_dictionary.html">Dictionary</a> &amp;renderSettings)</td></tr>
 <tr class="memdesc:a7ea07862646d9d185e77820844a129fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles command line options and updates <code>midiFileName</code>, <code>waveFileName</code>, <code>sampleRate</code>, <code>audioFileFormat</code> and <code>renderSettings</code>.  <a href="_fluid_synth_file_converter_8cpp.html#a7ea07862646d9d185e77820844a129fe">More...</a><br /></td></tr>
 <tr class="separator:a7ea07862646d9d185e77820844a129fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebe7478419698997540268cc2c394763"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_m_i_d_i_1_1_midi_event_converter.html">MidiEventConverter</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_file_converter_8cpp.html#aebe7478419698997540268cc2c394763">_makeMidiEventConverter</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_containers_1_1_dictionary.html">Dictionary</a> &amp;settings)</td></tr>
+<tr class="memdesc:aebe7478419698997540268cc2c394763"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs midi event converter with render settings defined in <code>settings</code>.  <a href="_fluid_synth_file_converter_8cpp.html#aebe7478419698997540268cc2c394763">More...</a><br /></td></tr>
+<tr class="separator:aebe7478419698997540268cc2c394763"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c92d3cab7dbe1fc81b186b05ba39c50"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_file_converter_8cpp.html#a1c92d3cab7dbe1fc81b186b05ba39c50">_process</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_containers_1_1_dictionary.html">Dictionary</a> &amp;renderSettings, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;midiFileName, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a> sampleRate, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;audioFileFormat, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;waveFileName)</td></tr>
 <tr class="memdesc:a1c92d3cab7dbe1fc81b186b05ba39c50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> file named <code>midiFileName</code> into a wave file named <code>waveFileName</code> using the FluidSynth library with settings given by <code>renderSettings</code> and sample rate <code>sampleRate</code> with format <code>audioFileFormat</code>.  <a href="_fluid_synth_file_converter_8cpp.html#a1c92d3cab7dbe1fc81b186b05ba39c50">More...</a><br /></td></tr>
 <tr class="separator:a1c92d3cab7dbe1fc81b186b05ba39c50"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -314,6 +317,41 @@ static const String&#160;</td><td class="memItemRight" valign="bottom"><a class=
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>information whether argument scanning was successful </dd></dl>
+
+</div>
+</div>
+<a id="aebe7478419698997540268cc2c394763"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebe7478419698997540268cc2c394763">&#9670;&nbsp;</a></span>_makeMidiEventConverter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="struct_m_i_d_i_1_1_midi_event_converter.html">MidiEventConverter</a>* _makeMidiEventConverter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_containers_1_1_dictionary.html">Dictionary</a> &amp;&#160;</td>
+          <td class="paramname"><em>settings</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs midi event converter with render settings defined in <code>settings</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">settings</td><td>dictionary of render settings (including e.g. the sound font name) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>newly constructed midi event converter or NULL on failure </dd></dl>
 
 </div>
 </div>

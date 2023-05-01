@@ -29,7 +29,7 @@
  * @param message    message to be given in case of failure
  */
 #define _ASSERT_WITH_MESSAGE(condition, message) \
-    assert(((void)message, condition))
+    assert((condition))
 
 /*--------------------*/
 

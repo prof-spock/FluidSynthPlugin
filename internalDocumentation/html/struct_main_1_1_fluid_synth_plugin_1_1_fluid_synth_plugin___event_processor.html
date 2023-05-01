@@ -132,10 +132,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ab97e8ddb5b0481a4311bd3507dfc0efe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the tail length of this effect (in seconds).  <a href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#ab97e8ddb5b0481a4311bd3507dfc0efe">More...</a><br /></td></tr>
 <tr class="separator:ab97e8ddb5b0481a4311bd3507dfc0efe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2488db02e632db5182db981c626b230"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#ad2488db02e632db5182db981c626b230">getNumPrograms</a> () override</td></tr>
-<tr class="memdesc:ad2488db02e632db5182db981c626b230"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of programs this effect supports (should be 1).  <a href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#ad2488db02e632db5182db981c626b230">More...</a><br /></td></tr>
+<tr class="memdesc:ad2488db02e632db5182db981c626b230"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of programs this effect supports; if a host like VST3 sets the programs not by the <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> stream, but via setCurrentProgram this just returns 128 to support that mechanism.  <a href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#ad2488db02e632db5182db981c626b230">More...</a><br /></td></tr>
 <tr class="separator:ad2488db02e632db5182db981c626b230"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a330e28fff4fb989a4bb1835243879ebe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#a330e28fff4fb989a4bb1835243879ebe">getCurrentProgram</a> () override</td></tr>
-<tr class="memdesc:a330e28fff4fb989a4bb1835243879ebe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current program of this effect (should be 0 for the one and only program).  <a href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#a330e28fff4fb989a4bb1835243879ebe">More...</a><br /></td></tr>
+<tr class="memdesc:a330e28fff4fb989a4bb1835243879ebe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current program of this effect.  <a href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#a330e28fff4fb989a4bb1835243879ebe">More...</a><br /></td></tr>
 <tr class="separator:a330e28fff4fb989a4bb1835243879ebe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f516b73c1ea832eeac71175dbd2e675"><td class="memItemLeft" align="right" valign="top">const juce::String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#a4f516b73c1ea832eeac71175dbd2e675">getProgramName</a> (int index) override</td></tr>
 <tr class="memdesc:a4f516b73c1ea832eeac71175dbd2e675"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the program name for this processor given by <code>index</code>.  <a href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#a4f516b73c1ea832eeac71175dbd2e675">More...</a><br /></td></tr>
@@ -332,7 +332,7 @@ Object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="st
 </table>
 </div><div class="memdoc">
 
-<p>Returns the current program of this effect (should be 0 for the one and only program). </p>
+<p>Returns the current program of this effect. </p>
 <dl class="section return"><dt>Returns</dt><dd>the current program of this effect </dd></dl>
 
 </div>
@@ -388,7 +388,7 @@ Object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="st
 </table>
 </div><div class="memdoc">
 
-<p>Returns the number of programs this effect supports (should be 1). </p>
+<p>Returns the number of programs this effect supports; if a host like VST3 sets the programs not by the <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> stream, but via setCurrentProgram this just returns 128 to support that mechanism. </p>
 <dl class="section return"><dt>Returns</dt><dd>the number of programs of this effect </dd></dl>
 
 </div>

@@ -661,6 +661,24 @@ library cannot be found by the plugin.  In that case please make sure
 that the installation has been correctly done (the plugin expects its
 dynamic libraries in the directory of the plugin vst3 file).
 
+For the VST3 plugin there is a problem caused by the VST3 API that
+has two consequences:
+\begin{itemize}
+
+    \item Each program change in the MIDI event stream is converted
+          into a preset change.  Unfortunately those changes might
+          not correctly sequenced with the notes in the stream and
+          hence notes immediately following that change (within a few
+          milliseconds) might still use the previous sound.
+
+    \item Even though the \FluidSynthPlugin\ and its underlying
+          library would support it, it is not possible to use multiple
+          MIDI channels with different sounds within a single plugin
+          instance.  \textbf{Each plugin instance can only play a
+          single preset at a time.}
+
+\end{itemize}
+
 %---------------------------------------
 \section{Using the \FluidSynthConverter}
 \label{section:fluidSynthConverter}
@@ -1215,7 +1233,7 @@ Figure~\ref{figure:loggingFile} shows how a logging file looks like.
 
 Every non-trivial function is logged there at least twice with
 timestamps: ``>>'' indicates the entry of that function (possibly with
-informationon the argument values), ``<<'' the exit of that function
+information on the argument values), ``<<'' the exit of that function
 (possibly with the return value) and ``-{}-'' indicates some
 intermediate information during the function processing.  The logging
 data is hierarchical, hence you can see the function call structure in

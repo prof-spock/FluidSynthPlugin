@@ -204,7 +204,8 @@ Boolean FluidSynthSettings::set (IN String& key, IN String& value)
             Logging_traceError("settings object must be defined");
         } else {
             if (kind == "B") {
-                Integer boolValue = (value == "true" ? 1 : 0);
+                Integer boolValue = (value == "true" || value == "1"
+                                     ? 1 : 0);
                 Logging_trace2("--: kind = %1, value = %2",
                                kind, TOSTRING(boolValue));
 

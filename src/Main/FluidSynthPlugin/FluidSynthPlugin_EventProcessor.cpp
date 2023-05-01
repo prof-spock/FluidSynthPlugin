@@ -37,6 +37,12 @@ using Main::FluidSynthPlugin::FluidSynthPlugin_Editor;
 /** the number of audio channels provided by this plugin */
 #define _channelCount 2
 
+/** the number MIDI programs allowed */
+#define _midiProgramCount 128
+
+/** settings key used for program change */
+static const String _settingsKeyForProgram = "program";
+
 /** text for marking the begin of an environment variable in a
  * string */
 static const String _environmentVariableLeadIn = "${";
@@ -266,6 +272,10 @@ namespace Main::FluidSynthPlugin {
         /** the error message list for this processor */
         StringList errorMessageList;
 
+        /** the current MIDI program for this processor (from 0 to
+         * 127) */
+        Integer currentProgramIndex;
+
         /** tells whether the buffering of the FluidSynth library is
          * compensated (somehow) */
         Boolean fluidSynthBufferingIsCompensated;
@@ -429,11 +439,15 @@ _RingBuffer::processBlock
 _EventProcessorDescriptor::_EventProcessorDescriptor
     (FluidSynthPlugin_EventProcessor* parent)
         : eventProcessor(parent),
+          currentProgramIndex{0},
           midiEventConverter{new MidiEventConverter()},
           fluidSynthBufferingIsCompensated{false}
 {
     if (!isCorrectlyInitialized()) {
         errorMessageList.append(_errorMessageForBadLibraryInitialization);
+    } else {
+        midiEventConverter->set(_settingsKeyForProgram,
+                                TOSTRING(currentProgramIndex));
     }
 }
 
@@ -519,11 +533,11 @@ _convertFromJuceEventList(IN juce::MidiBuffer& juceMidiEventList)
     for (const juce::MidiMessageMetadata& metadata : juceMidiEventList) {
         Natural eventTime{(size_t) metadata.samplePosition};
         const juce::uint8* byteList = metadata.data;
-        NaturalList midiDataList;
+        ByteList midiDataList;
 
         /* copy all the midi bytes to the MIDI data list */
         for (int i = 0;  i < metadata.numBytes;  i++) {
-            midiDataList.append(Natural{byteList[i]});
+            midiDataList.append(Byte{byteList[i]});
         }
 
         MidiEvent midiEvent{eventTime, midiDataList};
@@ -615,16 +629,6 @@ FluidSynthPlugin_EventProcessor::~FluidSynthPlugin_EventProcessor ()
 }
 
 /*--------------------*/
-
-juce::AudioProcessorEditor*
-FluidSynthPlugin_EventProcessor::createEditor ()
-{
-    Logging_trace(">>");
-    Logging_trace("<<");
-    return new FluidSynthPlugin_Editor(*this);
-}
-
-/*--------------------*/
 /* property queries   */
 /*--------------------*/
 
@@ -667,36 +671,26 @@ double FluidSynthPlugin_EventProcessor::getTailLengthSeconds () const
 
 int FluidSynthPlugin_EventProcessor::getNumPrograms ()
 {
-    return 1;
+    return _midiProgramCount;
 }
 
 /*--------------------*/
 
 int FluidSynthPlugin_EventProcessor::getCurrentProgram ()
 {
-    return 0;
+    _EventProcessorDescriptor& descriptor =
+        TOREFERENCE<_EventProcessorDescriptor>(_descriptor);
+    return (int) descriptor.currentProgramIndex;
 }
 
 /*--------------------*/
 
-void FluidSynthPlugin_EventProcessor::setCurrentProgram (int)
+const juce::String
+FluidSynthPlugin_EventProcessor::getProgramName (int index)
 {
-    /* does not apply */
-}
-
-/*--------------------*/
-
-const juce::String FluidSynthPlugin_EventProcessor::getProgramName (int)
-{
-    return "default";
-}
-
-/*--------------------*/
-
-void
-FluidSynthPlugin_EventProcessor::changeProgramName (int, const juce::String&)
-{
-    /* does not apply */
+    String indexAsString = TOSTRING(Integer{index});
+    String programName = StringUtil::expand("program-%1", indexAsString);
+    return programName.c_str();
 }
 
 /*--------------------*/
@@ -711,6 +705,41 @@ bool FluidSynthPlugin_EventProcessor::hasEditor () const
 const juce::String FluidSynthPlugin_EventProcessor::getName () const
 {
     return juce::String("FluidSynthPlugin");
+}
+
+/*--------------------*/
+/* property change    */
+/*--------------------*/
+
+juce::AudioProcessorEditor*
+FluidSynthPlugin_EventProcessor::createEditor ()
+{
+    Logging_trace(">>");
+    Logging_trace("<<");
+    return new FluidSynthPlugin_Editor(*this);
+}
+
+/*--------------------*/
+
+void FluidSynthPlugin_EventProcessor::setCurrentProgram (int index)
+{
+    String indexAsString = TOSTRING(Integer{index});
+    Assertion_pre(0 <= index && index < _midiProgramCount,
+                  StringUtil::expand("must be a MIDI program number: %1",
+                                     indexAsString));
+    _EventProcessorDescriptor& descriptor =
+        TOREFERENCE<_EventProcessorDescriptor>(_descriptor);
+    descriptor.currentProgramIndex = index;
+    descriptor.midiEventConverter->set(_settingsKeyForProgram,
+                                       ":" + indexAsString);
+}
+
+/*--------------------*/
+
+void
+FluidSynthPlugin_EventProcessor::changeProgramName (int, const juce::String&)
+{
+    /* does not apply */
 }
 
 /*---------------------------*/

@@ -26,21 +26,21 @@ using MIDI::MidiMetaEventKind;
 /*==================================*/
 
 /**
- * Returns internal event kind code for given event byte <C>n</C>.
+ * Returns internal event kind code for given event byte <C>b</C>.
  *
- * @param[in] n  event byte
+ * @param[in] b  event byte
  * @return  internal code of event kind
  */
-static Natural _eventByteToKindCode (IN Natural n)
+static Byte _eventByteToKindCode (IN Byte b)
 {
-    Natural result;
+    Byte result;
 
-    if (n == 0xF0) {
+    if (b == 0xF0) {
         result = 7;
-    } else if (n == 0xFF) {
+    } else if (b == 0xFF) {
         result = 8;
     } else {
-        result = ((size_t) n & 0x70) >> 4;
+        result = ((char) b & 0x70) >> 4;
     }
 
     return result;
@@ -56,7 +56,7 @@ static Natural _eventByteToKindCode (IN Natural n)
  * @return  string representation of midi event kind with that internal
  *          code
  */
-static String _eventKindCodeToString (IN Natural kindCode)
+static String _eventKindCodeToString (IN Byte kindCode)
 {
     String result;
 
@@ -107,19 +107,19 @@ MidiEventKind MidiEventKind::meta{0xFF};
 /* con-/destruction   */
 /*--------------------*/
 
-MidiEventKind::MidiEventKind (IN Natural n)
+MidiEventKind::MidiEventKind (IN Byte b)
 {
-    Logging_trace1(">>: %1", TOSTRING(n));
-    Assertion_pre(n >= 128, "event byte must be greater than 127");
-    _value = _eventByteToKindCode(n);
+    Logging_trace1(">>: %1", TOSTRING(b));
+    Assertion_pre(b >= 128, "event byte must be greater than 127");
+    _value = _eventByteToKindCode(b);
     Logging_trace1("<<: %1", this->toString());
 }
 
 /*--------------------*/
 
-Boolean MidiEventKind::isValid (IN Natural n)
+Boolean MidiEventKind::isValid (IN Byte b)
 {
-    return n >= 128;
+    return b >= 128;
 }
 
 /*--------------------*/
@@ -179,45 +179,45 @@ Boolean MidiEventKind::operator != (IN MidiEventKind& other) const
 
 /**
  * Returns string representation of meta event with internal
- * code (and also external byte) <C>n</C>.
+ * code (and also external byte) <C>b</C>.
  *
- * @param[in] n  meta event byte
+ * @param[in] b  meta event byte
  * @return  string representation of midi meta event kind with that
  *          internal code
  */
-static String _metaEventByteToString (IN Natural n)
+static String _metaEventByteToString (IN Byte b)
 {
     String result;
 
-    if (n == 0x00) {
+    if (b == 0x00) {
         result = "sequenceNumber";
-    } else if (n == 0x01) {
+    } else if (b == 0x01) {
         result = "text";
-    } else if (n == 0x02) {
+    } else if (b == 0x02) {
         result = "copyright";
-    } else if (n == 0x03) {
+    } else if (b == 0x03) {
         result = "trackName";
-    } else if (n == 0x04) {
+    } else if (b == 0x04) {
         result = "instrumentName";
-    } else if (n == 0x05) {
+    } else if (b == 0x05) {
         result = "lyric";
-    } else if (n == 0x06) {
+    } else if (b == 0x06) {
         result = "marker";
-    } else if (n == 0x07) {
+    } else if (b == 0x07) {
         result = "cuePoint";
-    } else if (n == 0x20) {
+    } else if (b == 0x20) {
         result = "channelPrefix";
-    } else if (n == 0x2F) {
+    } else if (b == 0x2F) {
         result = "trackEnd";
-    } else if (n == 0x51) {
+    } else if (b == 0x51) {
         result = "tempo";
-    } else if (n == 0x54) {
+    } else if (b == 0x54) {
         result = "smpteOffset";
-    } else if (n == 0x58) {
+    } else if (b == 0x58) {
         result = "timeSignature";
-    } else if (n == 0x59) {
+    } else if (b == 0x59) {
         result = "keySignature";
-    } else if (n == 0x7F) {
+    } else if (b == 0x7F) {
         result = "sequencerMeta";
     } else {
         Assertion_check(false, "illegal value for meta event kind");
@@ -230,14 +230,14 @@ static String _metaEventByteToString (IN Natural n)
 
 /**
  * Returns information whether meta event with internal code (and also
- * external byte) <C>n</C> has an associated text string.
+ * external byte) <C>b</C> has an associated text string.
  *
- * @param[in] n  meta event byte
+ * @param[in] b  meta event byte
  * @return  information whether MIDI meta event kind has text data
  */
-static Boolean _metaEventHasTextData (IN Natural n)
+static Boolean _metaEventHasTextData (IN Byte b)
 {
-    return (n >= 0x01 && n <= 0x07);
+    return (b >= 0x01 && b <= 0x07);
 }
 
 /*=====================================*/
@@ -268,21 +268,21 @@ MidiMetaEventKind MidiMetaEventKind::sequencerMeta{0x7F};
 /* con-/destruction   */
 /*--------------------*/
 
-MidiMetaEventKind::MidiMetaEventKind (IN Natural n)
+MidiMetaEventKind::MidiMetaEventKind (IN Byte b)
 {
-    Logging_trace1(">>: %1", TOSTRING(n));
-    _value = n;
+    Logging_trace1(">>: %1", TOSTRING(b));
+    _value = b;
     Logging_trace1("<<: %1", this->toString());
 }
 
 /*--------------------*/
 
-Boolean MidiMetaEventKind::isValid (IN Natural n)
+Boolean MidiMetaEventKind::isValid (IN Byte b)
 {
-    return (n <= 0x07
-            || n == 0x20 || n == 0x2F
-            || n == 0x51 || n == 0x54 || n == 0x58 || n == 0x59
-            || n == 0x7F);
+    return (b <= 0x07
+            || b == 0x20 || b == 0x2F
+            || b == 0x51 || b == 0x54 || b == 0x58 || b == 0x59
+            || b == 0x7F);
 }
 
 /*--------------------*/
@@ -358,7 +358,7 @@ namespace MIDI {
         Integer time;
 
         /** the list of midi bytes */
-        NaturalList midiDataList;
+        ByteList midiDataList;
 
     };
 
@@ -370,14 +370,14 @@ using MIDI::_MidiEventDescriptor;
 
 /*====================*/
 
-Natural MidiEvent::_getDataByteNOLOG (IN Natural index) const
+Byte MidiEvent::_getDataByteNOLOG (IN Natural index) const
 {
     _MidiEventDescriptor& descriptor =
         TOREFERENCE<_MidiEventDescriptor>(_descriptor);
-    NaturalList& midiDataList = descriptor.midiDataList;
+    ByteList& midiDataList = descriptor.midiDataList;
     Assertion_pre(index < midiDataList.size(),
                   "midi data list must be long enough");
-    Natural result = midiDataList.at(index);
+    Byte result = midiDataList.at(index);
     return result;
 }
 
@@ -386,7 +386,7 @@ Natural MidiEvent::_getDataByteNOLOG (IN Natural index) const
 /*=============================*/
 
 MidiEvent::MidiEvent (IN Integer eventTime,
-                      IN NaturalList midiData)
+                      IN ByteList midiData)
 {
     Logging_trace2(">>: eventTime = %1, data = %2",
                    eventTime.toString(), midiData.toString());
@@ -436,7 +436,7 @@ String MidiEvent::toString () const
 {
     _MidiEventDescriptor& descriptor =
         TOREFERENCE<_MidiEventDescriptor>(_descriptor);
-    NaturalList& dataList = descriptor.midiDataList;
+    ByteList& dataList = descriptor.midiDataList;
     Natural dataIndex = 0;
     Natural dataListLength = dataList.length();
     String dataListRepresentation;
@@ -444,13 +444,13 @@ String MidiEvent::toString () const
     if (dataListLength == 0) {
         dataListRepresentation = "{}";
     } else {
-        Natural eventByte = dataList.at(dataIndex++);
-        Natural eventKind = _eventByteToKindCode(eventByte);
+        Byte eventByte = dataList.at(dataIndex++);
+        Byte eventKind = _eventByteToKindCode(eventByte);
         Boolean hasTextString = false;
         dataListRepresentation = _eventKindCodeToString(eventKind);
 
         if (eventByte == 0xFF) {
-            Natural metaEventByte = dataList.at(dataIndex++);
+            Byte metaEventByte = dataList.at(dataIndex++);
             dataListRepresentation += " " + _metaEventByteToString(metaEventByte);
             hasTextString = _metaEventHasTextData(metaEventByte);
         }
@@ -458,7 +458,7 @@ String MidiEvent::toString () const
         dataListRepresentation += (hasTextString ? " '" : "");
 
         while (dataIndex < dataListLength) {
-            Natural value = dataList.at(dataIndex++);
+            Byte value = dataList.at(dataIndex++);
             dataListRepresentation += (hasTextString
                                        ? Character{value}.toString()
                                        : " " + value.toString());
@@ -493,10 +493,10 @@ Boolean MidiEvent::operator < (IN MidiEvent& other) const
     } else if (timeA > timeB) {
         result = false;
     } else {
-        Natural metaCode = 0xFF;
-        Natural trackEndCode = 0x2F;
-        Natural eventCodeA = descriptorA.midiDataList[0];
-        Natural eventCodeB = descriptorB.midiDataList[0];
+        Byte metaCode = 0xFF;
+        Byte trackEndCode = 0x2F;
+        Byte eventCodeA = descriptorA.midiDataList[0];
+        Byte eventCodeB = descriptorB.midiDataList[0];
         Boolean isTrackEndA =
             (eventCodeA == metaCode
              && descriptorA.midiDataList[1] == trackEndCode);
@@ -532,22 +532,22 @@ Integer MidiEvent::time () const
         
 /*--------------------*/
 
-NaturalList MidiEvent::rawData () const
+ByteList MidiEvent::rawData () const
 {
     Logging_trace(">>");
     _MidiEventDescriptor& descriptor =
         TOREFERENCE<_MidiEventDescriptor>(_descriptor);
-    NaturalList& result = descriptor.midiDataList;
+    ByteList& result = descriptor.midiDataList;
     Logging_trace1("<<: %1", result.toString());
     return result;
 }
 
 /*--------------------*/  
 
-Natural MidiEvent::getDataByte (IN Natural index) const
+Byte MidiEvent::getDataByte (IN Natural index) const
 {
     Logging_trace1(">>: index = %1", TOSTRING(index));
-    Natural result = _getDataByteNOLOG(index);
+    Byte result = _getDataByteNOLOG(index);
     Logging_trace1("<<: %1", TOSTRING(result));
     return result;
 }
@@ -580,7 +580,7 @@ MidiMetaEventKind MidiEvent::metaKind () const
 Natural MidiEvent::channel () const
 {
     Logging_trace(">>");
-    Natural result{_getDataByteNOLOG(0) & 0xF};
+    Natural result = (Natural) (_getDataByteNOLOG(0) & 0xF);
     Logging_trace1("<<: %1", TOSTRING(result));
     return result;
 }

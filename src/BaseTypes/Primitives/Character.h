@@ -16,7 +16,7 @@
 /*=========*/
 
 #include <cmath>
-#include "Natural.h"
+#include "Byte.h"
 
 /*====================*/
 
@@ -49,6 +49,18 @@ namespace BaseTypes::Primitives {
         Character (IN char c)
         {
             _value = c;
+        }
+
+        /*--------------------*/
+
+        /**
+         * Initializes character from byte value <C>b</C>.
+         *
+         * @param[in] b  byte value giving character code
+         */
+        Character (IN Byte b)
+        {
+            _value = (char) b;
         }
 
         /*--------------------*/

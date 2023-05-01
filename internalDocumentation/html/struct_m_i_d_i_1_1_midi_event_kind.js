@@ -1,12 +1,12 @@
 var struct_m_i_d_i_1_1_midi_event_kind =
 [
-    [ "MidiEventKind", "struct_m_i_d_i_1_1_midi_event_kind.html#ae77baa9bfb66bb2aa5f0cfbee9df0a09", null ],
+    [ "MidiEventKind", "struct_m_i_d_i_1_1_midi_event_kind.html#abc93d45e8eb678f19c1187731107ad62", null ],
     [ "byteCount", "struct_m_i_d_i_1_1_midi_event_kind.html#ab8c971ea1f18f81a368abdaa3c41754b", null ],
-    [ "isValid", "struct_m_i_d_i_1_1_midi_event_kind.html#a79ba6e9cdf3f41ce6f03c3ba72352878", null ],
+    [ "isValid", "struct_m_i_d_i_1_1_midi_event_kind.html#a4c6eaa885c85a2ce96be20923830cf8a", null ],
     [ "operator!=", "struct_m_i_d_i_1_1_midi_event_kind.html#a0d96e192da0be125fcb582bafa120225", null ],
     [ "operator==", "struct_m_i_d_i_1_1_midi_event_kind.html#afa87049a9bbbf92526be268a0cd4c3b4", null ],
     [ "toString", "struct_m_i_d_i_1_1_midi_event_kind.html#a7f33c60b670de0f25a205d09adf01e64", null ],
-    [ "_value", "struct_m_i_d_i_1_1_midi_event_kind.html#adad4fadcfe0374dcb2efeaaff8ad47c1", null ],
+    [ "_value", "struct_m_i_d_i_1_1_midi_event_kind.html#a8a7dbe09e04327025bab7530bce4996c", null ],
     [ "controlChange", "struct_m_i_d_i_1_1_midi_event_kind.html#a04092908201158e4cc0534829480d306", null ],
     [ "meta", "struct_m_i_d_i_1_1_midi_event_kind.html#a2862871cd6a36ddd779528b74b301370", null ],
     [ "monoTouch", "struct_m_i_d_i_1_1_midi_event_kind.html#a955bedb2743a8f2c8da78dccee6505f5", null ],

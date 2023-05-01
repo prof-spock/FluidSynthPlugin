@@ -95,7 +95,6 @@ $(document).ready(function(){initNavTree('_midi_event_converter_8cpp.html',''); 
 <p>The <code>MidiEventConverter</code> module implements the handling of <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> events by feeding them to an underlying FluidSynth library.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="_boolean_8h_source.html">Boolean.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_byte_8h_source.html">Byte.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_logging_8h_source.html">Logging.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_fluid_synth_synthesizer_8h_source.html">FluidSynthSynthesizer.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_midi_event_converter_8h_source.html">MidiEventConverter.h</a>&quot;</code><br />
@@ -331,9 +330,10 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Handles bank and program change depending on for given string <code>value</code> on <code>synthesizer</code>. </p>
+<p>value contains channel, bank and program numbers separated by a slash and a colon. The channel number comes first followed by a slash followed by the bank number and a colon and finally the program number. If the channel is missing, all channels are affected, if the bank is missing, bank number 0 is assumed; an empty bank is ignored and an empty program is erroneous.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>string value for bank and/or program </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>string value for channel, bank and/or program </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">synthesizer</td><td>fluidsynth synthesizer object </td></tr>
   </table>
   </dd>
