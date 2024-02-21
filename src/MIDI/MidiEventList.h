@@ -36,7 +36,10 @@ namespace MIDI {
      * Indexing starts at zero and is consecutive.  Lists also allow
      * duplicate elements.
      */
-    struct MidiEventList : public GenericList<MidiEvent> {
+    struct MidiEventList
+        : public GenericList<MidiEvent,
+                             MidiEvent::toString,
+                             StringLiteral{"MidiEventList"}> {
 
         /*--------------------*/
         /* construction       */
@@ -51,17 +54,6 @@ namespace MIDI {
          */
         static
         MidiEventList fromList (IN initializer_list<MidiEvent> list);
-
-        /*--------------------*/
-        /* conversion         */
-        /*--------------------*/
-
-        /**
-         * Returns printable representation of list.
-         *
-         * @return string representation of list
-         */
-        String toString () const;
 
         /*--------------------*/
         /* change             */

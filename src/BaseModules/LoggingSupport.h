@@ -1,10 +1,11 @@
 /**
  * @file
  * The <C>LoggingSupport</C> specification defines a class for simple
- * entry/exit logging to a file; this logging relies on trace calls at
- * the beginning or end of a function with prefices ">>" and "<<" as
- * well as intermediate log lines with prefix "--"; the name of the
- * function is also logged to give a fully bracketed log.
+ * entry/exit logging to a file or via an arbitrary callback function;
+ * this logging relies on trace calls at the beginning or end of a
+ * function with prefices ">>" and "<<" as well as intermediate log
+ * lines with prefix "--"; the name of the function is also logged to
+ * give a fully bracketed log.
  *
  * @author Dr. Thomas Tensi
  * @date   2021-02
@@ -31,12 +32,19 @@ using BaseTypes::Primitives::String;
 
 namespace BaseModules {
 
+    /** a callback function for logging (does direct calls for each
+     * logging entry and excludes file output) */
+    typedef void (*LoggingCallbackFunction)(IN String& st);
+
+    /*====================*/
+    
     /**
-     * A <C>Logging</C> object defines methods for entry/exit
-     * logging to a file; this logging relies on trace calls at the
-     * beginning or end of a function with prefices ">>" and "<<" as
-     * well as intermediate log lines with prefix "--"; the name of
-     * the function is also logged to give a fully bracketed log.
+     * A <C>Logging</C> object defines methods for entry/exit logging
+     * to a file or via a callback function; this logging relies on
+     * trace calls at the beginning or end of a function with prefices
+     * ">>" and "<<" as well as intermediate log lines with prefix
+     * "--"; the name of the function is also logged to give a fully
+     * bracketed log.
      */
     struct Logging {
 
@@ -71,6 +79,37 @@ namespace BaseModules {
          * Cleans up logging configuration and ends logging.
          */
         static void finalize ();
+
+        /*--------------------*/
+
+        /**
+         * Tells whether logging is currently activated.
+         *
+         * @return information whether logging is active or suppressed
+         */
+        static Boolean isActive ();
+
+        /*--------------------*/
+
+        /**
+         * Sets logging to active or inactive due to <C>isActive</C>.
+         *
+         * @param[in] isActive  tells whether logging shall be
+         *                      suppressed
+         */
+        static void setActive (IN Boolean isActive);
+
+        /*--------------------*/
+
+        /**
+         * Sets callback function for logging to <C>callback
+         * function</C>. Using NULL resets the callback mechanism.
+         *
+         * @param[in] callbackFunction  function to be called for
+         *                              logging
+         */
+        static void
+        setCallbackFunction (IN LoggingCallbackFunction callbackFunction);
 
         /*--------------------*/
 

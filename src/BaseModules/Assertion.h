@@ -15,9 +15,15 @@
 /* IMPORTS */
 /*=========*/
 
-#include <cassert>
+#include <stdexcept>
+#include <string>
 
 /*====================*/
+
+/** exception thrown when assertion is violated */
+typedef std::logic_error AssertionError;
+
+/*--------------------*/
 
 /**
  * Checks the <C>condition</C> and exits with <C>message</C> on
@@ -28,8 +34,8 @@
  * @param condition  condition to be checked
  * @param message    message to be given in case of failure
  */
-#define _ASSERT_WITH_MESSAGE(condition, message) \
-    assert((condition))
+#define _ASSERT_WITH_MESSAGE(condition, prefix, message) \
+    if (!(condition)) { throw AssertionError{std::string(prefix ": ") + std::string(message)}; }
 
 /*--------------------*/
 
@@ -41,7 +47,7 @@
  * @param message    message to be given in case of failure
  */
 #define Assertion_check(condition, message) \
-            _ASSERT_WITH_MESSAGE(condition, message)
+    _ASSERT_WITH_MESSAGE(condition, "CHECK", message)
 
 /*--------------------*/
 
@@ -53,7 +59,7 @@
  * @param message    message to be given in case of failure
  */
 #define Assertion_post(condition, message) \
-            _ASSERT_WITH_MESSAGE(condition, message)
+    _ASSERT_WITH_MESSAGE(condition, "POST", message)
 
 /*--------------------*/
 
@@ -65,4 +71,4 @@
  * @param message    message to be given in case of failure
  */
 #define Assertion_pre(condition, message)  \
-            _ASSERT_WITH_MESSAGE(condition, message)
+    _ASSERT_WITH_MESSAGE(condition, "PRE", message)

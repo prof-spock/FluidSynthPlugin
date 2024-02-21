@@ -41,11 +41,35 @@ namespace Libraries::FluidSynth {
         /*--------------------*/
 
         /**
+         * Constructs new fluidsynth library from <C>otherLibrary</C>
+         * (NOT AVAILABLE!)
+         *
+         * @param[in] otherLibrary  library to be copied
+         */
+        FluidSynth (IN FluidSynth& otherLibrary) = delete;
+
+        /*--------------------*/
+
+        /**
          * Destroys fluidsynth object and unloads the underlying
          * library
          */
         ~FluidSynth ();
   
+        /*--------------------*/
+        /* assignment         */
+        /*--------------------*/
+
+        /**
+         * Assigns current library from <C>otherLibrary</C>
+         * (NOT AVAILABLE!)
+         *
+         * @param[in] otherLibrary  library to be assigned
+         */
+        FluidSynth& operator= (IN FluidSynth& otherLibrary) = delete;
+
+        /*--------------------*/
+        /* queries            */
         /*--------------------*/
 
         /**

@@ -102,10 +102,16 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_m_i_d_i_1_1_midi_event_converter.html#a0b01b0ff76a7c5b8dcd397c56f037bf0">MidiEventConverter</a> ()</td></tr>
 <tr class="memdesc:a0b01b0ff76a7c5b8dcd397c56f037bf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a fluidsynth <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> event converter. <br /></td></tr>
 <tr class="separator:a0b01b0ff76a7c5b8dcd397c56f037bf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a388ee7e7c5fd912fda99785714247c6c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_m_i_d_i_1_1_midi_event_converter.html#a388ee7e7c5fd912fda99785714247c6c">MidiEventConverter</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_m_i_d_i_1_1_midi_event_converter.html">MidiEventConverter</a> &amp;otherConverter)=delete</td></tr>
+<tr class="memdesc:a388ee7e7c5fd912fda99785714247c6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs new converter from <code>otherConverter</code> (NOT AVAILABLE).  <a href="struct_m_i_d_i_1_1_midi_event_converter.html#a388ee7e7c5fd912fda99785714247c6c">More...</a><br /></td></tr>
+<tr class="separator:a388ee7e7c5fd912fda99785714247c6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4cb7e581d8c061f5f65233e2ceb6f391"><td class="memItemLeft" align="right" valign="top"><a id="a4cb7e581d8c061f5f65233e2ceb6f391"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_m_i_d_i_1_1_midi_event_converter.html#a4cb7e581d8c061f5f65233e2ceb6f391">~MidiEventConverter</a> ()</td></tr>
 <tr class="memdesc:a4cb7e581d8c061f5f65233e2ceb6f391"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys a fluidsynth <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> event converter. <br /></td></tr>
 <tr class="separator:a4cb7e581d8c061f5f65233e2ceb6f391"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5ac839f3e8894ee1cefe3367bbf54a9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_m_i_d_i_1_1_midi_event_converter.html">MidiEventConverter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_m_i_d_i_1_1_midi_event_converter.html#aa5ac839f3e8894ee1cefe3367bbf54a9">operator=</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_m_i_d_i_1_1_midi_event_converter.html">MidiEventConverter</a> &amp;otherConverter)=delete</td></tr>
+<tr class="memdesc:aa5ac839f3e8894ee1cefe3367bbf54a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns <code>otherConverter</code> to current (NOT AVAILABLE).  <a href="struct_m_i_d_i_1_1_midi_event_converter.html#aa5ac839f3e8894ee1cefe3367bbf54a9">More...</a><br /></td></tr>
+<tr class="separator:aa5ac839f3e8894ee1cefe3367bbf54a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae43f6f4cac3eaafb49bf006e64275c7f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_m_i_d_i_1_1_midi_event_converter.html#ae43f6f4cac3eaafb49bf006e64275c7f">prepareToPlay</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a> sampleRate, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> maximumExpectedSamplesPerBlock)</td></tr>
 <tr class="memdesc:ae43f6f4cac3eaafb49bf006e64275c7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informs the handler to be prepared for playback.  <a href="struct_m_i_d_i_1_1_midi_event_converter.html#ae43f6f4cac3eaafb49bf006e64275c7f">More...</a><br /></td></tr>
 <tr class="separator:ae43f6f4cac3eaafb49bf006e64275c7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -144,7 +150,42 @@ Object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="st
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A simple plugin for processing <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> events via the FluidSynth library and return the resulting audio as a stereo stream. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a388ee7e7c5fd912fda99785714247c6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a388ee7e7c5fd912fda99785714247c6c">&#9670;&nbsp;</a></span>MidiEventConverter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">MIDI::MidiEventConverter::MidiEventConverter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_m_i_d_i_1_1_midi_event_converter.html">MidiEventConverter</a> &amp;&#160;</td>
+          <td class="paramname"><em>otherConverter</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs new converter from <code>otherConverter</code> (NOT AVAILABLE). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">otherConverter</td><td>midi event converter to be copied </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="a8224bfe6849631155cf8ac854ccba7a0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8224bfe6849631155cf8ac854ccba7a0">&#9670;&nbsp;</a></span>getStateInformation()</h2>
 
@@ -182,6 +223,40 @@ Object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="st
 
 <p>Tells whether the underlying fluidsynth library has been correctly loaded. </p>
 <dl class="section return"><dt>Returns</dt><dd>information about successful loading of FluidSynth </dd></dl>
+
+</div>
+</div>
+<a id="aa5ac839f3e8894ee1cefe3367bbf54a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5ac839f3e8894ee1cefe3367bbf54a9">&#9670;&nbsp;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_m_i_d_i_1_1_midi_event_converter.html">MidiEventConverter</a>&amp; MIDI::MidiEventConverter::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_m_i_d_i_1_1_midi_event_converter.html">MidiEventConverter</a> &amp;&#160;</td>
+          <td class="paramname"><em>otherConverter</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Assigns <code>otherConverter</code> to current (NOT AVAILABLE). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">otherConverter</td><td>midi event converter to be assigned </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

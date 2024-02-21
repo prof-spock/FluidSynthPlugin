@@ -107,26 +107,38 @@ $(document).ready(function(){initNavTree('_integer_list_8h_source.html',''); ini
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_base_types_1_1_containers.html">BaseTypes::Containers</a> {</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="struct_base_types_1_1_containers_1_1_integer_list.html">   37</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="struct_base_types_1_1_containers_1_1_integer_list.html">IntegerList</a> : <span class="keyword">public</span> GenericList&lt;Integer&gt;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keyword">static</span> <a class="code" href="struct_base_types_1_1_containers_1_1_integer_list.html">IntegerList</a> <a class="code" href="struct_base_types_1_1_containers_1_1_integer_list.html#a1f9f4511eb6dd94d085a866c214d6f1a">fromList</a> (<a class="code" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> initializer_list&lt;Integer&gt; list);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="comment">/*--------------------*/</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <a class="code" href="namespace_base_types_1_1_primitives.html#aa1174c1e7bedd8df69fc98453595a127">String</a> <a class="code" href="struct_base_types_1_1_containers_1_1_integer_list.html#a12af405826dd5edde822648886fb60bb">toString</a> () <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    };</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="struct_base_types_1_1_containers_1_1_integer_list.html">   37</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="struct_base_types_1_1_containers_1_1_integer_list.html">IntegerList</a></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        : <span class="keyword">public</span> GenericList&lt;Integer,</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                             Integer::toString,</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                             StringLiteral{&quot;IntegerList&quot;}&gt; {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="comment">/*--------------------*/</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="comment">/* constructors       */</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="comment">/*--------------------*/</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keyword">static</span> <a class="code" href="struct_base_types_1_1_containers_1_1_integer_list.html">IntegerList</a> <a class="code" href="struct_base_types_1_1_containers_1_1_integer_list.html#a1f9f4511eb6dd94d085a866c214d6f1a">fromList</a> (<a class="code" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> initializer_list&lt;Integer&gt; list);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="comment">/*--------------------*/</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="comment">/* functions          */</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="comment">/*--------------------*/</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        Integer <a class="code" href="struct_base_types_1_1_containers_1_1_integer_list.html#ae297cd96f067ee32cceaf4e6a0297044">maximum</a> () <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="comment">/*--------------------*/</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        Integer <a class="code" href="struct_base_types_1_1_containers_1_1_integer_list.html#aae8ba4fad902ff095404bc2424449cd2">minimum</a> () <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    };</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="astruct_base_types_1_1_containers_1_1_integer_list_html_a12af405826dd5edde822648886fb60bb"><div class="ttname"><a href="struct_base_types_1_1_containers_1_1_integer_list.html#a12af405826dd5edde822648886fb60bb">BaseTypes::Containers::IntegerList::toString</a></div><div class="ttdeci">String toString() const</div><div class="ttdoc">Returns printable representation of list.</div><div class="ttdef"><b>Definition:</b> IntegerList.cpp:37</div></div>
 <div class="ttc" id="anamespace_base_types_1_1_containers_html"><div class="ttname"><a href="namespace_base_types_1_1_containers.html">BaseTypes::Containers</a></div><div class="ttdoc">The package Containers provides container types like dictionaries, maps from string to objects,...</div><div class="ttdef"><b>Definition:</b> BaseTypes/Containers/_NAMESPACE.desc:7</div></div>
-<div class="ttc" id="anamespace_base_types_1_1_primitives_html_aa1174c1e7bedd8df69fc98453595a127"><div class="ttname"><a href="namespace_base_types_1_1_primitives.html#aa1174c1e7bedd8df69fc98453595a127">BaseTypes::Primitives::String</a></div><div class="ttdeci">std::string String</div><div class="ttdoc">The String type represents (Unicode) character sequences.</div><div class="ttdef"><b>Definition:</b> MyString.h:28</div></div>
 <div class="ttc" id="a_global_macros_8h_html_ac2bbd6d630a06a980d9a92ddb9a49928"><div class="ttname"><a href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a></div><div class="ttdeci">#define IN</div><div class="ttdoc">(informal) parameter mode for in parameter</div><div class="ttdef"><b>Definition:</b> GlobalMacros.h:15</div></div>
-<div class="ttc" id="astruct_base_types_1_1_containers_1_1_integer_list_html"><div class="ttname"><a href="struct_base_types_1_1_containers_1_1_integer_list.html">BaseTypes::Containers::IntegerList</a></div><div class="ttdoc">An IntegerList object is a list of integer values with arbitrary indexed access to positions in the l...</div><div class="ttdef"><b>Definition:</b> IntegerList.h:38</div></div>
-<div class="ttc" id="astruct_base_types_1_1_containers_1_1_integer_list_html_a1f9f4511eb6dd94d085a866c214d6f1a"><div class="ttname"><a href="struct_base_types_1_1_containers_1_1_integer_list.html#a1f9f4511eb6dd94d085a866c214d6f1a">BaseTypes::Containers::IntegerList::fromList</a></div><div class="ttdeci">static IntegerList fromList(IN initializer_list&lt; Integer &gt; list)</div><div class="ttdoc">Initializes list of integers from an initializer list of values.</div><div class="ttdef"><b>Definition:</b> IntegerList.cpp:24</div></div>
+<div class="ttc" id="astruct_base_types_1_1_containers_1_1_integer_list_html"><div class="ttname"><a href="struct_base_types_1_1_containers_1_1_integer_list.html">BaseTypes::Containers::IntegerList</a></div><div class="ttdoc">An IntegerList object is a list of integer values with arbitrary indexed access to positions in the l...</div><div class="ttdef"><b>Definition:</b> IntegerList.h:40</div></div>
+<div class="ttc" id="astruct_base_types_1_1_containers_1_1_integer_list_html_ae297cd96f067ee32cceaf4e6a0297044"><div class="ttname"><a href="struct_base_types_1_1_containers_1_1_integer_list.html#ae297cd96f067ee32cceaf4e6a0297044">BaseTypes::Containers::IntegerList::maximum</a></div><div class="ttdeci">Integer maximum() const</div><div class="ttdoc">Returns the maximum value in list.</div><div class="ttdef"><b>Definition:</b> IntegerList.cpp:43</div></div>
+<div class="ttc" id="astruct_base_types_1_1_containers_1_1_integer_list_html_a1f9f4511eb6dd94d085a866c214d6f1a"><div class="ttname"><a href="struct_base_types_1_1_containers_1_1_integer_list.html#a1f9f4511eb6dd94d085a866c214d6f1a">BaseTypes::Containers::IntegerList::fromList</a></div><div class="ttdeci">static IntegerList fromList(IN initializer_list&lt; Integer &gt; list)</div><div class="ttdoc">Initializes list of integers from an initializer list of values.</div><div class="ttdef"><b>Definition:</b> IntegerList.cpp:28</div></div>
+<div class="ttc" id="astruct_base_types_1_1_containers_1_1_integer_list_html_aae8ba4fad902ff095404bc2424449cd2"><div class="ttname"><a href="struct_base_types_1_1_containers_1_1_integer_list.html#aae8ba4fad902ff095404bc2424449cd2">BaseTypes::Containers::IntegerList::minimum</a></div><div class="ttdeci">Integer minimum() const</div><div class="ttdoc">Returns the minimum value in list.</div><div class="ttdef"><b>Definition:</b> IntegerList.cpp:57</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

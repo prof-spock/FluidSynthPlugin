@@ -48,10 +48,32 @@ namespace MIDI {
         /*--------------------*/
 
         /**
+         * Constructs new file from <C>otherFile</C>
+         * (NOT AVAILABLE).
+         *
+         * @param[in] otherFile  midi file to be copied
+         */
+        MidiFile (IN MidiFile& otherFile) = delete;
+
+        /*--------------------*/
+
+        /**
          * Destroys MIDI file
          */
         ~MidiFile ();
         
+        /*--------------------*/
+        /* assignment         */
+        /*--------------------*/
+
+        /**
+         * Assigns <C>otherFile</C> to current
+         * (NOT AVAILABLE).
+         *
+         * @param[in] otherFile  midi file to be assigned
+         */
+        MidiFile& operator= (IN MidiFile& otherFile) = delete;
+
         /*--------------------*/
         /* access             */
         /*--------------------*/

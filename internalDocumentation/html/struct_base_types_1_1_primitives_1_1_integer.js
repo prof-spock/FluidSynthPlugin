@@ -21,5 +21,5 @@ var struct_base_types_1_1_primitives_1_1_integer =
     [ "round", "struct_base_types_1_1_primitives_1_1_integer.html#ac52dfc0e4d1ccde962df73ef3b5b91d7", null ],
     [ "toNatural", "struct_base_types_1_1_primitives_1_1_integer.html#a862545d2dd5b6782f4e0a555cca2190d", null ],
     [ "toString", "struct_base_types_1_1_primitives_1_1_integer.html#a91152c820d079bc7fd3203d0334bc125", null ],
-    [ "toString", "struct_base_types_1_1_primitives_1_1_integer.html#a0d2610599adcdb4ba9c4b81a16dc0929", null ]
+    [ "toString", "struct_base_types_1_1_primitives_1_1_integer.html#a5a3b77a0a47247c0218ca1c7737426f0", null ]
 ];

@@ -21,6 +21,9 @@ using MIDI::MidiEvent;
 using MIDI::MidiEventKind;
 using MIDI::MidiMetaEventKind;
 
+/** abbreviation for StringUtil */
+using STR = BaseModules::StringUtil;
+
 /*==================================*/
 /* MIDIEventKind - PRIVATE FEATURES */
 /*==================================*/
@@ -372,9 +375,9 @@ using MIDI::_MidiEventDescriptor;
 
 Byte MidiEvent::_getDataByteNOLOG (IN Natural index) const
 {
-    _MidiEventDescriptor& descriptor =
+    _MidiEventDescriptor& self =
         TOREFERENCE<_MidiEventDescriptor>(_descriptor);
-    ByteList& midiDataList = descriptor.midiDataList;
+    ByteList& midiDataList = self.midiDataList;
     Assertion_pre(index < midiDataList.size(),
                   "midi data list must be long enough");
     Byte result = midiDataList.at(index);
@@ -392,10 +395,10 @@ MidiEvent::MidiEvent (IN Integer eventTime,
                    eventTime.toString(), midiData.toString());
 
     _descriptor = new _MidiEventDescriptor();
-    _MidiEventDescriptor& descriptor =
+    _MidiEventDescriptor& self =
         TOREFERENCE<_MidiEventDescriptor>(_descriptor);
-    descriptor.time         = eventTime;
-    descriptor.midiDataList = midiData;
+    self.time         = eventTime;
+    self.midiDataList = midiData;
 
     Logging_trace("<<");
 }
@@ -407,12 +410,12 @@ MidiEvent::MidiEvent (IN MidiEvent& event)
     Logging_trace(">>");
 
     _descriptor = new _MidiEventDescriptor();
-    _MidiEventDescriptor& descriptor      =
+    _MidiEventDescriptor& self  =
         TOREFERENCE<_MidiEventDescriptor>(_descriptor);
-    _MidiEventDescriptor& otherDescriptor =
+    _MidiEventDescriptor& other =
         TOREFERENCE<_MidiEventDescriptor>(event._descriptor);
-    descriptor.time         = otherDescriptor.time;
-    descriptor.midiDataList = otherDescriptor.midiDataList;
+    self.time         = other.time;
+    self.midiDataList = other.midiDataList;
     
     Logging_trace("<<");
 }
@@ -422,21 +425,40 @@ MidiEvent::MidiEvent (IN MidiEvent& event)
 MidiEvent::~MidiEvent ()
 {
     Logging_trace(">>");
-    _MidiEventDescriptor& descriptor =
-        TOREFERENCE<_MidiEventDescriptor>(_descriptor);
-    delete &descriptor;
+    _MidiEventDescriptor* ptr = (_MidiEventDescriptor*) _descriptor;
+    delete ptr;
     Logging_trace("<<");
 }
         
+/*--------------------*/
+/* assignment         */
+/*--------------------*/
+
+MidiEvent& MidiEvent::operator= (IN MidiEvent& otherEvent)
+{
+    Logging_trace(">>");
+
+    if (this != &otherEvent) {
+        _MidiEventDescriptor& self =
+            TOREFERENCE<_MidiEventDescriptor>(_descriptor);
+        _MidiEventDescriptor& other =
+            TOREFERENCE<_MidiEventDescriptor>(otherEvent._descriptor);
+        self = other;
+    }
+
+    Logging_trace1("<<: %1", toString());
+    return *this;
+}
+
 /*--------------------*/
 /* conversion         */
 /*--------------------*/
 
 String MidiEvent::toString () const
 {
-    _MidiEventDescriptor& descriptor =
+    _MidiEventDescriptor& self =
         TOREFERENCE<_MidiEventDescriptor>(_descriptor);
-    ByteList& dataList = descriptor.midiDataList;
+    ByteList& dataList = self.midiDataList;
     Natural dataIndex = 0;
     Natural dataListLength = dataList.length();
     String dataListRepresentation;
@@ -451,7 +473,8 @@ String MidiEvent::toString () const
 
         if (eventByte == 0xFF) {
             Byte metaEventByte = dataList.at(dataIndex++);
-            dataListRepresentation += " " + _metaEventByteToString(metaEventByte);
+            dataListRepresentation +=
+                " " + _metaEventByteToString(metaEventByte);
             hasTextString = _metaEventHasTextData(metaEventByte);
         }
 
@@ -468,9 +491,8 @@ String MidiEvent::toString () const
     }
     
     String result =
-        StringUtil::expand("MidiEvent(time = %1, data = %2)",
-                           TOSTRING(descriptor.time),
-                           dataListRepresentation);
+        STR::expand("MidiEvent(time = %1, data = %2)",
+                    TOSTRING(self.time), dataListRepresentation);
     return result;
 }
 
@@ -480,12 +502,12 @@ String MidiEvent::toString () const
 
 Boolean MidiEvent::operator < (IN MidiEvent& other) const
 {
-    _MidiEventDescriptor& descriptorA =
+    _MidiEventDescriptor& self =
         TOREFERENCE<_MidiEventDescriptor>(_descriptor);
-    _MidiEventDescriptor& descriptorB =
+    _MidiEventDescriptor& otherRecord =
         TOREFERENCE<_MidiEventDescriptor>(other._descriptor);
-    Integer timeA = descriptorA.time;
-    Integer timeB = descriptorB.time;
+    Integer timeA = self.time;
+    Integer timeB = otherRecord.time;
     Boolean result;
 
     if (timeA < timeB) {
@@ -495,14 +517,14 @@ Boolean MidiEvent::operator < (IN MidiEvent& other) const
     } else {
         Byte metaCode = 0xFF;
         Byte trackEndCode = 0x2F;
-        Byte eventCodeA = descriptorA.midiDataList[0];
-        Byte eventCodeB = descriptorB.midiDataList[0];
+        Byte eventCodeA = self.midiDataList[0];
+        Byte eventCodeB = otherRecord.midiDataList[0];
         Boolean isTrackEndA =
             (eventCodeA == metaCode
-             && descriptorA.midiDataList[1] == trackEndCode);
+             && self.midiDataList[1] == trackEndCode);
         Boolean isTrackEndB =
             (eventCodeB == metaCode
-             && descriptorB.midiDataList[1] == trackEndCode);
+             && otherRecord.midiDataList[1] == trackEndCode);
 
         if (isTrackEndA) {
             result = false;
@@ -523,9 +545,9 @@ Boolean MidiEvent::operator < (IN MidiEvent& other) const
 Integer MidiEvent::time () const
 {
     Logging_trace(">>");
-    _MidiEventDescriptor& descriptor =
+    _MidiEventDescriptor& self =
         TOREFERENCE<_MidiEventDescriptor>(_descriptor);
-    Integer result = descriptor.time;
+    Integer result = self.time;
     Logging_trace1("<<: %1", TOSTRING(result));
     return result;
 }
@@ -535,9 +557,9 @@ Integer MidiEvent::time () const
 ByteList MidiEvent::rawData () const
 {
     Logging_trace(">>");
-    _MidiEventDescriptor& descriptor =
+    _MidiEventDescriptor& self =
         TOREFERENCE<_MidiEventDescriptor>(_descriptor);
-    ByteList& result = descriptor.midiDataList;
+    ByteList& result = self.midiDataList;
     Logging_trace1("<<: %1", result.toString());
     return result;
 }
@@ -592,8 +614,8 @@ Natural MidiEvent::channel () const
 void MidiEvent::setTime (IN Integer eventTime)
 {
     Logging_trace1(">>: %1", TOSTRING(eventTime));
-    _MidiEventDescriptor& descriptor =
+    _MidiEventDescriptor& self =
         TOREFERENCE<_MidiEventDescriptor>(_descriptor);
-    descriptor.time = eventTime;
+    self.time = eventTime;
     Logging_trace1("<<: %1", toString());
 }

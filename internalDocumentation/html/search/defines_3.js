@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['expand_1239',['expand',['../_fluid_synth_file_converter_8cpp.html#a94692cc5c1eac2402cbeff7e1eaa95cd',1,'expand():&#160;FluidSynthFileConverter.cpp'],['../_midi_file_8cpp.html#a94692cc5c1eac2402cbeff7e1eaa95cd',1,'expand():&#160;MidiFile.cpp']]]
+  ['gpa_1358',['GPA',['../_fluid_synth_settings_8cpp.html#a2eddf0f1f16313b56d83951421f26e77',1,'GPA():&#160;FluidSynthSettings.cpp'],['../_fluid_synth_synthesizer_8cpp.html#a2eddf0f1f16313b56d83951421f26e77',1,'GPA():&#160;FluidSynthSynthesizer.cpp']]]
 ];

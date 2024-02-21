@@ -1,6 +1,0 @@
-<map id="DynamicLibrary.h" name="DynamicLibrary.h">
-<area shape="rect" id="node1" title="The DynamicLibrary class specifies a very simple and crude wrapper around the dynamic library loading..." alt="" coords="166,5,302,33"/>
-<area shape="rect" id="node2" href="$_fluid_synth_8cpp.html" title="The FluidSynth class implements the access to the fluidsynth library via a dynamic loading of it." alt="" coords="5,81,124,109"/>
-<area shape="rect" id="node3" href="$_fluid_synth_settings_8cpp.html" title="The FluidSynthSettings class implements an object&#45;oriented wrapper around an underlying fluidsynth se..." alt="" coords="149,81,319,109"/>
-<area shape="rect" id="node4" href="$_fluid_synth_synthesizer_8cpp.html" title="The FluidSynthSynthesizer class implements an object&#45;oriented wrapper around an underlying fluidsynth..." alt="" coords="343,81,538,109"/>
-</map>

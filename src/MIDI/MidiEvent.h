@@ -314,6 +314,17 @@ namespace MIDI {
         ~MidiEvent ();
         
         /*--------------------*/
+        /* assignment         */
+        /*--------------------*/
+
+        /**
+         * Assigns current from <C>event</C>
+         *
+         * @param[in] event  midi event to assign
+         */
+        MidiEvent& operator= (IN MidiEvent& event);
+
+        /*--------------------*/
         /* conversion         */
         /*--------------------*/
 

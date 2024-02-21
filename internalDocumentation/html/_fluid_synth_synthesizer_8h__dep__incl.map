@@ -1,5 +1,0 @@
-<map id="FluidSynthSynthesizer.h" name="FluidSynthSynthesizer.h">
-<area shape="rect" id="node1" title="The FluidSynthSynthesizer class specifies an object&#45;oriented wrapper around an underlying fluidsynth ..." alt="" coords="117,5,296,33"/>
-<area shape="rect" id="node2" href="$_fluid_synth_synthesizer_8cpp.html" title="The FluidSynthSynthesizer class implements an object&#45;oriented wrapper around an underlying fluidsynth..." alt="" coords="5,81,200,109"/>
-<area shape="rect" id="node3" href="$_midi_event_converter_8cpp.html" title="The MidiEventConverter module implements the handling of MIDI events by feeding them to an underlying..." alt="" coords="224,81,400,109"/>
-</map>

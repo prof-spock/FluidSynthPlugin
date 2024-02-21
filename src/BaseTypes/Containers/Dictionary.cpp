@@ -18,7 +18,14 @@
 
 using BaseTypes::Containers::Dictionary;
 
+/** abbreviation for StringUtil */
+using STR = BaseModules::StringUtil;
+
 /*====================*/
+
+/*--------------------*/
+/* constructors       */
+/*--------------------*/
 
 Dictionary Dictionary::makeFromList (IN StringList& list)
 {
@@ -43,15 +50,6 @@ Dictionary Dictionary::makeFromList (IN StringList& list)
 
 /*--------------------*/
 
-String Dictionary::toString () const
-{
-    return _toString("Dictionary",
-                     StringUtil::toPrintableString,
-                     StringUtil::toPrintableString);
-}
-
-/*--------------------*/
-
 Dictionary Dictionary::makeFromString (IN String& st,
                                        IN String& entrySeparator,
                                        IN String& keyValueSeparator)
@@ -60,22 +58,20 @@ Dictionary Dictionary::makeFromString (IN String& st,
 
     /* remove leading and trailing white space from separators to also
        allow omitted blanks in st */
-    const String eSeparator = StringUtil::strip(entrySeparator);
-    const String kvSeparator = StringUtil::strip(keyValueSeparator);
+    const String eSeparator = STR::strip(entrySeparator);
+    const String kvSeparator = STR::strip(keyValueSeparator);
 
     const StringList list = StringList::makeBySplit(st, eSeparator);
 
     for (const String& dictionaryEntryString : list) {
         String key;
         String value;
-        Boolean isOkay = StringUtil::splitAt(dictionaryEntryString, 
-                                             kvSeparator, key, value);
+        Boolean isOkay = STR::splitAt(dictionaryEntryString, 
+                                      kvSeparator, key, value);
 
         if (isOkay) {
-            key   =
-                StringUtil::fromPrintableString(StringUtil::strip(key));
-            value =
-                StringUtil::fromPrintableString(StringUtil::strip(value));
+            key   = STR::fromPrintableString(STR::strip(key));
+            value = STR::fromPrintableString(STR::strip(value));
             result[key] = value;
         }
     }

@@ -16,6 +16,8 @@
     /** qualified version of getenv from stdlib */
     #define StdLib_getenv getenv
 
+#include <filesystem>
+
 #include <stdio.h>
     /** qualified version of fprintf from stdio */
     #define StdIO_fprintf  fprintf
@@ -31,17 +33,76 @@
 using BaseModules::File;
 using BaseModules::OperatingSystem;
 
+namespace FileSystem = std::filesystem;
+
+/** abbreviation for StringUtil */
+using STR = BaseModules::StringUtil;
+
 /*====================*/
+
+Boolean OperatingSystem::directoryExists (IN String& directoryName)
+{
+    Logging_trace1(">>: %1", directoryName);
+    Boolean result = FileSystem::is_directory(directoryName);
+    Logging_trace1("<<: %1", TOSTRING(result));
+    return result;
+}
+
+/*--------------------*/
 
 Boolean OperatingSystem::fileExists (IN String& fileName)
 {
     Logging_trace1(">>: %1", fileName);
-
-    File file;
-    Boolean result = file.open(fileName, "r");
-    file.closeConditionally();
-
+    Boolean result = FileSystem::is_regular_file(fileName);
     Logging_trace1("<<: %1", TOSTRING(result));
+    return result;
+}
+
+/*--------------------*/
+
+StringList OperatingSystem::fileNameList (IN String& directoryName,
+                                          IN Boolean plainFilesOnly)
+{
+    Logging_trace2(">>: directory = %1, plainFilesOnly = %2",
+                   directoryName, TOSTRING(plainFilesOnly));
+
+    StringList result;
+
+    for (auto& file : FileSystem::directory_iterator(directoryName)) {
+        Boolean isPlainFile = file.is_regular_file();
+        String fileName = file.path().filename().string();
+
+        if (isPlainFile == plainFilesOnly) {
+            result.append(fileName);
+        }
+    }
+    
+    Logging_trace1("<<: %1", result.toString());
+    return result;
+}
+
+/*--------------------*/
+
+String OperatingSystem::basename (IN String& fileName)
+{
+    Logging_trace1(">>: %1", fileName);
+
+    String result;
+
+    const Natural undefined = Natural::maximumValue(); 
+    Natural aPosition = STR::findFromEnd(fileName, "/");
+    Natural bPosition = STR::findFromEnd(fileName, "\\");
+    Natural position =
+        (bPosition == undefined ? aPosition
+         : (aPosition < bPosition ? bPosition : aPosition));
+
+    if (position == undefined) {
+        result = fileName;
+    } else {
+        result = STR::substring(fileName, position + 1);
+    }
+    
+    Logging_trace1("<<: %1", result);
     return result;
 }
 
@@ -54,8 +115,8 @@ String OperatingSystem::dirname (IN String& fileName)
     String result;
 
     const Natural undefined = Natural::maximumValue(); 
-    Natural aPosition = StringUtil::findFromEnd(fileName, "/");
-    Natural bPosition = StringUtil::findFromEnd(fileName, "\\");
+    Natural aPosition = STR::findFromEnd(fileName, "/");
+    Natural bPosition = STR::findFromEnd(fileName, "\\");
     Natural position =
         (bPosition == undefined ? aPosition
          : (aPosition < bPosition ? bPosition : aPosition));
@@ -63,7 +124,7 @@ String OperatingSystem::dirname (IN String& fileName)
     if (position == undefined) {
         result = ".";
     } else {
-        result = StringUtil::prefix(fileName, position);
+        result = STR::prefix(fileName, position);
     }
     
     Logging_trace1("<<: %1", result);

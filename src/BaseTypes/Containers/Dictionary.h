@@ -30,7 +30,15 @@ namespace BaseTypes::Containers {
      * Every key is associated with at most one value, where the key
      * identity is defined by standard string comparison.
      */
-    struct Dictionary : public GenericMap<String, String> {
+    struct Dictionary
+        : public GenericMap < String, String,
+                              StringUtil::toPrintableString,
+                              StringUtil::toPrintableString,
+                              StringLiteral{"Dictionary"} > {
+
+        /*--------------------*/
+        /* constructors       */
+        /*--------------------*/
 
         /**
          * Makes dictionary from list of strings <C>list</C>
@@ -64,15 +72,6 @@ namespace BaseTypes::Containers {
             IN String& st,
             IN String& entrySeparator = StringUtil::entrySeparator,
             IN String& keyValueSeparator = StringUtil::keyValueSeparator);
-
-        /*--------------------*/
-
-        /**
-         * Returns printable representation of dictionary.
-         *
-         * @return string representation of dictionary
-         */
-        String toString () const;
 
     };
 

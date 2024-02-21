@@ -101,10 +101,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8811ca3ed8e1776f0f9547a1317a3a86"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_libraries_1_1_dynamic_library.html#a8811ca3ed8e1776f0f9547a1317a3a86">DynamicLibrary</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;libraryName)</td></tr>
 <tr class="memdesc:a8811ca3ed8e1776f0f9547a1317a3a86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a new dynamic library from <code>libraryName</code>  <a href="struct_libraries_1_1_dynamic_library.html#a8811ca3ed8e1776f0f9547a1317a3a86">More...</a><br /></td></tr>
 <tr class="separator:a8811ca3ed8e1776f0f9547a1317a3a86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ed495f06d558c173e51fd69442a9b91"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_libraries_1_1_dynamic_library.html#a8ed495f06d558c173e51fd69442a9b91">DynamicLibrary</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_libraries_1_1_dynamic_library.html">DynamicLibrary</a> &amp;otherLibrary)=delete</td></tr>
+<tr class="memdesc:a8ed495f06d558c173e51fd69442a9b91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs new dynamic library from <code>otherLibrary</code> (NOT AVAILABLE!)  <a href="struct_libraries_1_1_dynamic_library.html#a8ed495f06d558c173e51fd69442a9b91">More...</a><br /></td></tr>
+<tr class="separator:a8ed495f06d558c173e51fd69442a9b91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:addcaba882da56612b598fb153cfc6e5a"><td class="memItemLeft" align="right" valign="top"><a id="addcaba882da56612b598fb153cfc6e5a"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_libraries_1_1_dynamic_library.html#addcaba882da56612b598fb153cfc6e5a">~DynamicLibrary</a> ()</td></tr>
 <tr class="memdesc:addcaba882da56612b598fb153cfc6e5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys dynamic library object and unloads the underlying library. <br /></td></tr>
 <tr class="separator:addcaba882da56612b598fb153cfc6e5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2259f012a53c9a8a7c335e9a65f945a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_libraries_1_1_dynamic_library.html">DynamicLibrary</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_libraries_1_1_dynamic_library.html#af2259f012a53c9a8a7c335e9a65f945a">operator=</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_libraries_1_1_dynamic_library.html">DynamicLibrary</a> &amp;otherLibrary)=delete</td></tr>
+<tr class="memdesc:af2259f012a53c9a8a7c335e9a65f945a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns current library from <code>otherLibrary</code> (NOT AVAILABLE!)  <a href="struct_libraries_1_1_dynamic_library.html#af2259f012a53c9a8a7c335e9a65f945a">More...</a><br /></td></tr>
+<tr class="separator:af2259f012a53c9a8a7c335e9a65f945a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23445f3c53c84d4a2c48c7d5c3767acf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_libraries_1_1_dynamic_library.html#a23445f3c53c84d4a2c48c7d5c3767acf">isLoaded</a> () const</td></tr>
 <tr class="memdesc:a23445f3c53c84d4a2c48c7d5c3767acf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether library has been correctly loaded.  <a href="struct_libraries_1_1_dynamic_library.html#a23445f3c53c84d4a2c48c7d5c3767acf">More...</a><br /></td></tr>
 <tr class="separator:a23445f3c53c84d4a2c48c7d5c3767acf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -126,7 +132,7 @@ Object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="st
 <div class="textblock"><p>An object-oriented wrapper around the fluidsynth library and also allows its dynamic loading. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a8811ca3ed8e1776f0f9547a1317a3a86"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8811ca3ed8e1776f0f9547a1317a3a86">&#9670;&nbsp;</a></span>DynamicLibrary()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8811ca3ed8e1776f0f9547a1317a3a86">&#9670;&nbsp;</a></span>DynamicLibrary() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -145,6 +151,40 @@ Object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="st
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">libraryName</td><td>the name of the dynamic library </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8ed495f06d558c173e51fd69442a9b91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ed495f06d558c173e51fd69442a9b91">&#9670;&nbsp;</a></span>DynamicLibrary() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Libraries::DynamicLibrary::DynamicLibrary </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_libraries_1_1_dynamic_library.html">DynamicLibrary</a> &amp;&#160;</td>
+          <td class="paramname"><em>otherLibrary</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs new dynamic library from <code>otherLibrary</code> (NOT AVAILABLE!) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">otherLibrary</td><td>library to be copied </td></tr>
   </table>
   </dd>
 </dl>
@@ -196,6 +236,40 @@ Object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="st
 
 <p>Returns whether library has been correctly loaded. </p>
 <dl class="section return"><dt>Returns</dt><dd>information whether library is okay </dd></dl>
+
+</div>
+</div>
+<a id="af2259f012a53c9a8a7c335e9a65f945a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2259f012a53c9a8a7c335e9a65f945a">&#9670;&nbsp;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_libraries_1_1_dynamic_library.html">DynamicLibrary</a>&amp; Libraries::DynamicLibrary::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_libraries_1_1_dynamic_library.html">DynamicLibrary</a> &amp;&#160;</td>
+          <td class="paramname"><em>otherLibrary</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Assigns current library from <code>otherLibrary</code> (NOT AVAILABLE!) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">otherLibrary</td><td>library to be assigned </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

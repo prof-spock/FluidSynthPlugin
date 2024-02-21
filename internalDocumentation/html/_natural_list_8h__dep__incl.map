@@ -1,6 +1,0 @@
-<map id="NaturalList.h" name="NaturalList.h">
-<area shape="rect" id="node1" title="The NaturalList specification defines lists of non&#45;negative integer values with zero&#45;based arbitrary ..." alt="" coords="148,5,251,33"/>
-<area shape="rect" id="node2" href="$_wave_file_8cpp.html" title="The WaveFile specification defines an object for accessing a RIFF wave file with several channels." alt="" coords="5,81,116,109"/>
-<area shape="rect" id="node3" href="$_natural_list_8cpp.html" title="The NaturalList body implements lists of non&#45;negative integer values with zero&#45;based arbitrary indexe..." alt="" coords="140,81,259,109"/>
-<area shape="rect" id="node4" href="$_midi_file_8cpp.html" title="The MidiFile implementation implements the services of a MIDI file; currently only file reading is su..." alt="" coords="283,81,382,109"/>
-</map>

@@ -18,42 +18,28 @@
 
 using Libraries::DynamicLibrary;
 
+/** abbreviation for StringUtil */
+using STR = BaseModules::StringUtil;
+
+
 #ifdef _WIN32
     /*=====================*/
     /* WINDOWS DEFINITIONS */
     /*=====================*/
 
-    #define DLLImport  __declspec(dllimport)
-    #define STDCALL    __stdcall
-
-    /* types */
-    typedef int BOOL;
-    typedef unsigned long DWORD;
-    typedef __int64 (STDCALL *FARPROC)();
-    struct HINSTANCE__ {int unused;};
-    typedef struct HINSTANCE__ *HMODULE;
-    typedef const char *LPCSTR;
-
-    /* function prototypes */
-    extern "C" DLLImport BOOL STDCALL FreeLibrary (HMODULE hLibModule);
-
-    extern "C" DLLImport DWORD GetLastError ();
-
-    extern "C" DLLImport FARPROC STDCALL GetProcAddress (HMODULE hModule,
-                                                         LPCSTR lpProcName);
-
-    extern "C" DLLImport HMODULE STDCALL LoadLibraryA (LPCSTR lpLibFileName);
+    #include "MyWindows.h"
 
     /*--------------------*/
 
     Object DL_loadLibrary (IN String& pathName) {
-        Object result = (Object) LoadLibraryA((char*) pathName.c_str());
+        Object result =
+            (Object) Windows::LoadLibraryA((char*) pathName.c_str());
 
         if (result == NULL) {
             /* just for debugging the library loading */
-            Natural errorCode{(size_t) GetLastError()};
-            String message{StringUtil::expand("load error %1",
-                                              TOSTRING(errorCode))};
+            Natural errorCode{(size_t) Windows::GetLastError()};
+            String message{STR::expand("load error %1",
+                                       TOSTRING(errorCode))};
         }
         
         return result;
@@ -62,7 +48,7 @@ using Libraries::DynamicLibrary;
     /*--------------------*/
 
     void DL_freeLibrary (Object descriptor) {
-        FreeLibrary((HMODULE) descriptor);
+        Windows::FreeLibrary((Windows::HMODULE) descriptor);
     }
 
     /*--------------------*/
@@ -70,8 +56,8 @@ using Libraries::DynamicLibrary;
     Object DL_getFunctionByName (IN Object descriptor,
                                  IN String& functionName)
     {
-        return GetProcAddress((HMODULE) descriptor,
-                              (char*) functionName.c_str());
+        return Windows::GetProcAddress((Windows::HMODULE) descriptor,
+                                       (char*) functionName.c_str());
     }
 
 #else

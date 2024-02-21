@@ -1,11 +1,26 @@
 var _wave_file_8cpp =
 [
+    [ "STR", "_wave_file_8cpp.html#a5b6f88d1249b396e351c4a85bcb35b2c", null ],
+    [ "WaveFile__assertEquality", "_wave_file_8cpp.html#abb795a547b7a1c325f7984754d5bdf39", null ],
+    [ "WaveFile__assertIndexInRange", "_wave_file_8cpp.html#a4717dd48d0e5295581ebfa3274a40fcb", null ],
+    [ "WaveFile__readHeader", "_wave_file_8cpp.html#af65749f0b61038fcd04ab64b23a2c2d0", null ],
+    [ "WaveFile__readIntDataFromByteList", "_wave_file_8cpp.html#af3edcc9e9cfc06e0d1c56bb35b3437cb", null ],
+    [ "WaveFile__readInteger", "_wave_file_8cpp.html#ab65f80ca0d01ed72308536fa0cf26c33", null ],
+    [ "WaveFile__readNatural", "_wave_file_8cpp.html#a0424bf5719875e150d1f0fae7783e067", null ],
+    [ "WaveFile__readReal", "_wave_file_8cpp.html#a4133a26d5899eddbe11fb69a864ab4b8", null ],
+    [ "WaveFile__readRealDataFromByteList", "_wave_file_8cpp.html#a97205a2e4cc7ce07d9157783f7e5cf95", null ],
+    [ "WaveFile__skipBytes", "_wave_file_8cpp.html#aaa7d710c1d78cf7924b9560fd8f38060", null ],
+    [ "WaveFile__skipString", "_wave_file_8cpp.html#af4437f5a4767d144c8a4dd450311a684", null ],
     [ "WaveFile__writeHeader", "_wave_file_8cpp.html#af0515bd56e7ee1bd6deadcc16806e5f2", null ],
-    [ "WaveFile__writeInt", "_wave_file_8cpp.html#a339a8cff63a37df4bc8adf180f0c64f2", null ],
-    [ "WaveFile__writeIntDataToByteList", "_wave_file_8cpp.html#a41977bd522e2522a875309585cb93373", null ],
-    [ "WaveFile__writeReal", "_wave_file_8cpp.html#a652b071cad05d07e03166946f3e26fe6", null ],
-    [ "WaveFile__writeRealDataToByteList", "_wave_file_8cpp.html#a0d0b502e51fb9e8d110463c265c2b5c8", null ],
+    [ "WaveFile__writeIntDataToByteList", "_wave_file_8cpp.html#af8f5417a4de50c672188d5a9608514f4", null ],
+    [ "WaveFile__writeInteger", "_wave_file_8cpp.html#a2b58954745d343e6a0608a73e3cda89d", null ],
+    [ "WaveFile__writeReal", "_wave_file_8cpp.html#a2b0d2034bcc835fc3aac349fed4151cb", null ],
+    [ "WaveFile__writeRealDataToByteList", "_wave_file_8cpp.html#a194d133d822ff3ef67df1a36c42ca562", null ],
     [ "WaveFile__writeString", "_wave_file_8cpp.html#aea780d58cbddd5e3276f30a9cba9d53a", null ],
-    [ "_testInteger", "_wave_file_8cpp.html#ad3ec229223d67278a2b47ef336cb764e", null ],
-    [ "isBigEndian", "_wave_file_8cpp.html#afbac8956573ba74fc6c1ca195905e619", null ]
+    [ "allowedIntSampleWidthList", "_wave_file_8cpp.html#aef59a4faf276bd58d1f67537fe987be9", null ],
+    [ "allowedRealSampleWidthList", "_wave_file_8cpp.html#a15bd208f00354eb38807124c5bd8e97b", null ],
+    [ "ErrMsg_bufferIsEmpty", "_wave_file_8cpp.html#a3b312160c9d555fee9ac4ceebfe31d07", null ],
+    [ "ErrMsg_nonIdenticalValues", "_wave_file_8cpp.html#aadcec9826113e1c84f0dc38501e0cae1", null ],
+    [ "isBigEndian", "_wave_file_8cpp.html#afbac8956573ba74fc6c1ca195905e619", null ],
+    [ "testInteger", "_wave_file_8cpp.html#a3fb960569ef29ef9f16947f2004930eb", null ]
 ];

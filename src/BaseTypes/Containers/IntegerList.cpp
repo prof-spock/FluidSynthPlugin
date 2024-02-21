@@ -21,6 +21,10 @@ using BaseTypes::Containers::IntegerList;
 
 /*====================*/
 
+/*--------------------*/
+/* constructors       */
+/*--------------------*/
+
 IntegerList IntegerList::fromList (IN initializer_list<Integer> list)
 {
     IntegerList result{};
@@ -33,8 +37,31 @@ IntegerList IntegerList::fromList (IN initializer_list<Integer> list)
 }
 
 /*--------------------*/
+/* functions          */
+/*--------------------*/
 
-String IntegerList::toString () const
+Integer IntegerList::maximum () const
 {
-    return _toString("IntegerList", Integer::toString);
+    Integer maximumValue = -Integer::maximumValue();
+
+    for (Natural i = 0;  i < size();  i++) {
+        const Integer value = at(i);
+        maximumValue = (maximumValue < value ? value : maximumValue);
+    }
+
+    return maximumValue;
+}
+
+/*--------------------*/
+
+Integer IntegerList::minimum () const
+{
+    Integer minimumValue = Integer::maximumValue();
+
+    for (Natural i = 0;  i < size();  i++) {
+        const Integer value = at(i);
+        minimumValue = (minimumValue > value ? value : minimumValue);
+    }
+
+    return minimumValue;
 }

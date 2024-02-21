@@ -44,8 +44,8 @@ using BaseModules::StringUtil;
     /* for active logging routines are redirected to corresponding
      * routines in logging class */
 
-    /** boolean information whether logging is active (yes!) */
-    #define Logging_isActive true
+    /** information whether logging is active */
+    #define Logging_isActive Logging::isActive()
 
     /**
      * Initializes logging
@@ -64,6 +64,15 @@ using BaseModules::StringUtil;
      * Finalizes logging
      */
     #define Logging_finalize()    Logging::finalize()
+
+    /** Sets logging to active or inactive */
+    #define Logging_setActive(isActive)  Logging::setActive(isActive)
+
+    /**
+     * Sets the name of the logging callback function (if applicable)
+     */
+    #define Logging_setCallbackFunction(callbackFunction)  \
+                Logging::setCallbackFunction(callbackFunction)
 
     /**
      * Sets the name of the log file and information about
@@ -120,6 +129,14 @@ using BaseModules::StringUtil;
      * Finalizes logging (empty)
      */
     #define Logging_finalize()
+
+    /** Sets logging to active or inactive */
+    #define Logging_setActive(isActive) 
+
+    /**
+     * Sets the name of the logging callback function (if applicable)
+     */
+    #define Logging_setCallbackFunction(callbackFunction)
 
     /**
      * Sets the name of the log file and information about

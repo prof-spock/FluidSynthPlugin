@@ -25,6 +25,9 @@ using Libraries::FluidSynth::FluidSynthSynthesizer;
 using MIDI::MidiEventConverter;
 using MIDI::MidiEventKind;
 
+/** abbreviation for StringUtil */
+using STR = BaseModules::StringUtil;
+
 /*--------------------*/
 /* prototypes         */
 /*--------------------*/
@@ -160,7 +163,7 @@ _MidiEventConverterDescriptor::changeSettings (IN String& key,
         isOkay = _handleProgramChange(value, synthesizer);
     } else if (key == soundFontKey) {
         isOkay = synthesizer->loadSoundFont(value);
-    } else if (StringUtil::startsWith(key, "synth.")) {
+    } else if (STR::startsWith(key, "synth.")) {
         isOkay = _settings->set(key, value);
 
         /* restart synthesizer when verbose setting is activated */
@@ -360,37 +363,35 @@ _handleProgramChange (IN String& value,
     String program;
 
     /* check for channel specification */
-    separatorPosition = StringUtil::find(st, channelSeparator);
+    separatorPosition = STR::find(st, channelSeparator);
 
     if (separatorPosition != undefined) {
-        StringUtil::splitAt(st, channelSeparator, channel, st);
+        STR::splitAt(st, channelSeparator, channel, st);
     }
     
     /* check for bank specification */
-    separatorPosition = StringUtil::find(st, bankAndProgramSeparator);
+    separatorPosition = STR::find(st, bankAndProgramSeparator);
 
     if (separatorPosition == undefined) {
         program = st;
     } else {
-        StringUtil::splitAt(value, bankAndProgramSeparator,
-                            bank, program);
+        STR::splitAt(value, bankAndProgramSeparator, bank, program);
     }
 
     Boolean channelIsEmpty = (channel == "");
     Boolean bankIsEmpty = (bank == "");
-    Boolean isOkay = ((channelIsEmpty || StringUtil::isNatural(channel))
-                      && (bankIsEmpty || StringUtil::isNatural(bank))
-                      && StringUtil::isNatural(program));
+    Boolean isOkay = ((channelIsEmpty || STR::isNatural(channel))
+                      && (bankIsEmpty || STR::isNatural(bank))
+                      && STR::isNatural(program));
 
     if (!isOkay) {
         Logging_trace1("--: '%1' is not a valid program number - ",
                        value);
     } else {
-        Natural bankNumber = (bankIsEmpty ? 0
-                              : StringUtil::toNatural(bank));
-        Natural channelNumber = (channelIsEmpty ? 0
-                              : StringUtil::toNatural(channel));
-        Natural programNumber = StringUtil::toNatural(program);
+        Natural bankNumber = (bankIsEmpty ? 0 : STR::toNatural(bank));
+        Natural channelNumber =
+            (channelIsEmpty ? 0 : STR::toNatural(channel));
+        Natural programNumber = STR::toNatural(program);
 
         for (Natural midiChannel = 0;  midiChannel < 16;  midiChannel++) {
             if (channelIsEmpty || midiChannel == channelNumber) {

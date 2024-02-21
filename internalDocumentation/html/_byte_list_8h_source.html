@@ -98,37 +98,59 @@ $(document).ready(function(){initNavTree('_byte_list_8h_source.html',''); initRe
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;initializer_list&gt;</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_byte_8h.html">Byte.h</a>&quot;</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;GenericList.h&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">/*--------------------*/</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">using</span> std::initializer_list;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">using</span> BaseTypes::GenericTypes::GenericList;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">using</span> <a class="code" href="struct_base_types_1_1_primitives_1_1_byte.html">BaseTypes::Primitives::Byte</a>;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">/*====================*/</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_base_types_1_1_containers.html">BaseTypes::Containers</a> {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="struct_base_types_1_1_containers_1_1_byte_list.html">   39</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="struct_base_types_1_1_containers_1_1_byte_list.html">ByteList</a> : <span class="keyword">public</span> GenericList&lt;Byte&gt; {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keyword">static</span> <a class="code" href="struct_base_types_1_1_containers_1_1_byte_list.html">ByteList</a> <a class="code" href="struct_base_types_1_1_containers_1_1_byte_list.html#a5f5ee621388ace2720274104e01d9bfe">fromList</a> (<a class="code" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> initializer_list&lt;Byte&gt; list);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="comment">/*--------------------*/</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <a class="code" href="namespace_base_types_1_1_primitives.html#aa1174c1e7bedd8df69fc98453595a127">String</a> <a class="code" href="struct_base_types_1_1_containers_1_1_byte_list.html#aebc88e5e30b0d0e3f3abdb3aafd74c52">toString</a> () <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    };</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_string_list_8h.html">StringList.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">/*--------------------*/</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">using</span> std::initializer_list;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">using</span> <a class="code" href="struct_base_types_1_1_containers_1_1_string_list.html">BaseTypes::Containers::StringList</a>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">using</span> BaseTypes::GenericTypes::GenericList;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">using</span> <a class="code" href="struct_base_types_1_1_primitives_1_1_byte.html">BaseTypes::Primitives::Byte</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">/*====================*/</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_base_types_1_1_containers.html">BaseTypes::Containers</a> {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="struct_base_types_1_1_containers_1_1_byte_list.html">   42</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="struct_base_types_1_1_containers_1_1_byte_list.html">ByteList</a> :</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keyword">public</span> GenericList&lt;Byte,</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                           Byte::toString,</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                           StringLiteral{&quot;ByteList&quot;}&gt; {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="comment">/*--------------------*/</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="comment">/* constructors       */</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="comment">/*--------------------*/</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keyword">static</span> <a class="code" href="struct_base_types_1_1_containers_1_1_byte_list.html">ByteList</a> <a class="code" href="struct_base_types_1_1_containers_1_1_byte_list.html#a5f5ee621388ace2720274104e01d9bfe">fromList</a> (<a class="code" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> initializer_list&lt;Byte&gt; list);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="comment">/*--------------------*/</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="comment">/* type conversions   */</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="comment">/*--------------------*/</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <a class="code" href="namespace_base_types_1_1_primitives.html#aa1174c1e7bedd8df69fc98453595a127">String</a> <a class="code" href="struct_base_types_1_1_containers_1_1_byte_list.html#afb12978486816d42b2b96a8e10841fde">decodeToString</a> () <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="comment">/*--------------------*/</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <a class="code" href="struct_base_types_1_1_containers_1_1_string_list.html">StringList</a></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <a class="code" href="struct_base_types_1_1_containers_1_1_byte_list.html#aad371b152dbeb5b3b26907057fb43797">asStringListWithBase</a> (<a class="code" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> Natural base,</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                              <a class="code" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> Natural precision = 0,</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                              <a class="code" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="code" href="namespace_base_types_1_1_primitives.html#aa1174c1e7bedd8df69fc98453595a127">String</a> padString = <span class="stringliteral">&quot;0&quot;</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    };</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="anamespace_base_types_1_1_containers_html"><div class="ttname"><a href="namespace_base_types_1_1_containers.html">BaseTypes::Containers</a></div><div class="ttdoc">The package Containers provides container types like dictionaries, maps from string to objects,...</div><div class="ttdef"><b>Definition:</b> BaseTypes/Containers/_NAMESPACE.desc:7</div></div>
-<div class="ttc" id="astruct_base_types_1_1_containers_1_1_byte_list_html"><div class="ttname"><a href="struct_base_types_1_1_containers_1_1_byte_list.html">BaseTypes::Containers::ByteList</a></div><div class="ttdoc">A ByteList object is a list of byte values with arbitrary indexed access to positions in the list.</div><div class="ttdef"><b>Definition:</b> ByteList.h:39</div></div>
+<div class="ttc" id="astruct_base_types_1_1_containers_1_1_byte_list_html"><div class="ttname"><a href="struct_base_types_1_1_containers_1_1_byte_list.html">BaseTypes::Containers::ByteList</a></div><div class="ttdoc">A ByteList object is a list of byte values with arbitrary indexed access to positions in the list.</div><div class="ttdef"><b>Definition:</b> ByteList.h:45</div></div>
 <div class="ttc" id="anamespace_base_types_1_1_primitives_html_aa1174c1e7bedd8df69fc98453595a127"><div class="ttname"><a href="namespace_base_types_1_1_primitives.html#aa1174c1e7bedd8df69fc98453595a127">BaseTypes::Primitives::String</a></div><div class="ttdeci">std::string String</div><div class="ttdoc">The String type represents (Unicode) character sequences.</div><div class="ttdef"><b>Definition:</b> MyString.h:28</div></div>
 <div class="ttc" id="a_global_macros_8h_html_ac2bbd6d630a06a980d9a92ddb9a49928"><div class="ttname"><a href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a></div><div class="ttdeci">#define IN</div><div class="ttdoc">(informal) parameter mode for in parameter</div><div class="ttdef"><b>Definition:</b> GlobalMacros.h:15</div></div>
+<div class="ttc" id="a_string_list_8h_html"><div class="ttname"><a href="_string_list_8h.html">StringList.h</a></div><div class="ttdoc">The StringList specification defines lists of string values with zero-based arbitrary indexed access ...</div></div>
 <div class="ttc" id="a_byte_8h_html"><div class="ttname"><a href="_byte_8h.html">Byte.h</a></div><div class="ttdoc">The Byte specification and body provides a value object type for byte values.</div></div>
-<div class="ttc" id="astruct_base_types_1_1_containers_1_1_byte_list_html_a5f5ee621388ace2720274104e01d9bfe"><div class="ttname"><a href="struct_base_types_1_1_containers_1_1_byte_list.html#a5f5ee621388ace2720274104e01d9bfe">BaseTypes::Containers::ByteList::fromList</a></div><div class="ttdeci">static ByteList fromList(IN initializer_list&lt; Byte &gt; list)</div><div class="ttdoc">Initializes list of bytes from an initializer list values.</div><div class="ttdef"><b>Definition:</b> ByteList.cpp:23</div></div>
-<div class="ttc" id="astruct_base_types_1_1_containers_1_1_byte_list_html_aebc88e5e30b0d0e3f3abdb3aafd74c52"><div class="ttname"><a href="struct_base_types_1_1_containers_1_1_byte_list.html#aebc88e5e30b0d0e3f3abdb3aafd74c52">BaseTypes::Containers::ByteList::toString</a></div><div class="ttdeci">String toString() const</div><div class="ttdoc">Returns printable representation of list.</div><div class="ttdef"><b>Definition:</b> ByteList.cpp:36</div></div>
+<div class="ttc" id="astruct_base_types_1_1_containers_1_1_byte_list_html_afb12978486816d42b2b96a8e10841fde"><div class="ttname"><a href="struct_base_types_1_1_containers_1_1_byte_list.html#afb12978486816d42b2b96a8e10841fde">BaseTypes::Containers::ByteList::decodeToString</a></div><div class="ttdeci">String decodeToString() const</div><div class="ttdoc">Converts to plain string with 8-bit-encoding.</div><div class="ttdef"><b>Definition:</b> ByteList.cpp:42</div></div>
+<div class="ttc" id="astruct_base_types_1_1_containers_1_1_byte_list_html_aad371b152dbeb5b3b26907057fb43797"><div class="ttname"><a href="struct_base_types_1_1_containers_1_1_byte_list.html#aad371b152dbeb5b3b26907057fb43797">BaseTypes::Containers::ByteList::asStringListWithBase</a></div><div class="ttdeci">StringList asStringListWithBase(IN Natural base, IN Natural precision=0, IN String padString=&quot;0&quot;) const</div><div class="ttdoc">Returns representation of list as string list relative to some base.</div><div class="ttdef"><b>Definition:</b> ByteList.cpp:58</div></div>
+<div class="ttc" id="astruct_base_types_1_1_containers_1_1_byte_list_html_a5f5ee621388ace2720274104e01d9bfe"><div class="ttname"><a href="struct_base_types_1_1_containers_1_1_byte_list.html#a5f5ee621388ace2720274104e01d9bfe">BaseTypes::Containers::ByteList::fromList</a></div><div class="ttdeci">static ByteList fromList(IN initializer_list&lt; Byte &gt; list)</div><div class="ttdoc">Initializes list of bytes from an initializer list values.</div><div class="ttdef"><b>Definition:</b> ByteList.cpp:27</div></div>
+<div class="ttc" id="astruct_base_types_1_1_containers_1_1_string_list_html"><div class="ttname"><a href="struct_base_types_1_1_containers_1_1_string_list.html">BaseTypes::Containers::StringList</a></div><div class="ttdoc">A StringList object is a list of string values with arbitrary indexed access to positions in the list...</div><div class="ttdef"><b>Definition:</b> StringList.h:41</div></div>
 <div class="ttc" id="astruct_base_types_1_1_primitives_1_1_byte_html"><div class="ttname"><a href="struct_base_types_1_1_primitives_1_1_byte.html">BaseTypes::Primitives::Byte</a></div><div class="ttdoc">A Byte object wraps a value of the associated primitive type char into an object.</div><div class="ttdef"><b>Definition:</b> Byte.h:29</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

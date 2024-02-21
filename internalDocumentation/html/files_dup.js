@@ -8,7 +8,7 @@ var files_dup =
       [ "AudioSampleFifoQueue", "struct_audio_1_1_audio_sample_fifo_queue.html", "struct_audio_1_1_audio_sample_fifo_queue" ]
     ] ],
     [ "AudioSampleFifoQueueVector.cpp", "_audio_sample_fifo_queue_vector_8cpp.html", null ],
-    [ "AudioSampleFifoQueueVector.cpp-inc", "_audio_sample_fifo_queue_vector_8cpp-inc.html", null ],
+    [ "AudioSampleFifoQueueVector.cpp-inc", "_audio_sample_fifo_queue_vector_8cpp-inc.html", "_audio_sample_fifo_queue_vector_8cpp-inc" ],
     [ "AudioSampleFifoQueueVector.h", "_audio_sample_fifo_queue_vector_8h.html", [
       [ "AudioSampleFifoQueueVector", "struct_audio_1_1_audio_sample_fifo_queue_vector.html", "struct_audio_1_1_audio_sample_fifo_queue_vector" ]
     ] ],
@@ -38,10 +38,10 @@ var files_dup =
     [ "CommandLineArguments.cpp", "_command_line_arguments_8cpp.html", "_command_line_arguments_8cpp" ],
     [ "CommandLineArguments.h", "_command_line_arguments_8h.html", [
       [ "CommandLineArgument", "struct_base_modules_1_1_command_line_argument.html", "struct_base_modules_1_1_command_line_argument" ],
-      [ "CommandLineArgumentList", "struct_base_modules_1_1_command_line_argument_list.html", "struct_base_modules_1_1_command_line_argument_list" ],
+      [ "CommandLineArgumentList", "struct_base_modules_1_1_command_line_argument_list.html", null ],
       [ "CommandLineArgumentHandler", "struct_base_modules_1_1_command_line_argument_handler.html", "struct_base_modules_1_1_command_line_argument_handler" ]
     ] ],
-    [ "Dictionary.cpp", "_dictionary_8cpp.html", null ],
+    [ "Dictionary.cpp", "_dictionary_8cpp.html", "_dictionary_8cpp" ],
     [ "Dictionary.h", "_dictionary_8h.html", [
       [ "Dictionary", "struct_base_types_1_1_containers_1_1_dictionary.html", "struct_base_types_1_1_containers_1_1_dictionary" ]
     ] ],
@@ -92,9 +92,7 @@ var files_dup =
     [ "JucePluginDefines.h", "_juce_plugin_defines_8h.html", "_juce_plugin_defines_8h" ],
     [ "Logging.h", "_logging_8h.html", "_logging_8h" ],
     [ "LoggingSupport.cpp", "_logging_support_8cpp.html", "_logging_support_8cpp" ],
-    [ "LoggingSupport.h", "_logging_support_8h.html", [
-      [ "Logging", "struct_base_modules_1_1_logging.html", "struct_base_modules_1_1_logging" ]
-    ] ],
+    [ "LoggingSupport.h", "_logging_support_8h.html", "_logging_support_8h" ],
     [ "MidiEvent.cpp", "_midi_event_8cpp.html", "_midi_event_8cpp" ],
     [ "MidiEvent.h", "_midi_event_8h.html", [
       [ "MidiEventKind", "struct_m_i_d_i_1_1_midi_event_kind.html", "struct_m_i_d_i_1_1_midi_event_kind" ],
@@ -116,10 +114,11 @@ var files_dup =
     [ "MyArray.h", "_my_array_8h.html", "_my_array_8h" ],
     [ "MyString.cpp", "_my_string_8cpp.html", "_my_string_8cpp" ],
     [ "MyString.h", "_my_string_8h.html", "_my_string_8h" ],
+    [ "MyWindows.h", "_my_windows_8h.html", "_my_windows_8h" ],
     [ "Natural.h", "_natural_8h.html", [
       [ "Natural", "struct_base_types_1_1_primitives_1_1_natural.html", "struct_base_types_1_1_primitives_1_1_natural" ]
     ] ],
-    [ "NaturalList.cpp", "_natural_list_8cpp.html", null ],
+    [ "NaturalList.cpp", "_natural_list_8cpp.html", "_natural_list_8cpp" ],
     [ "NaturalList.h", "_natural_list_8h.html", [
       [ "NaturalList", "struct_base_types_1_1_containers_1_1_natural_list.html", "struct_base_types_1_1_containers_1_1_natural_list" ]
     ] ],
@@ -141,18 +140,15 @@ var files_dup =
     [ "RealList.h", "_real_list_8h.html", [
       [ "RealList", "struct_base_types_1_1_containers_1_1_real_list.html", "struct_base_types_1_1_containers_1_1_real_list" ]
     ] ],
-    [ "StringList.cpp", "_string_list_8cpp.html", null ],
+    [ "StringList.cpp", "_string_list_8cpp.html", "_string_list_8cpp" ],
     [ "StringList.h", "_string_list_8h.html", [
       [ "StringList", "struct_base_types_1_1_containers_1_1_string_list.html", "struct_base_types_1_1_containers_1_1_string_list" ]
     ] ],
-    [ "StringSet.cpp", "_string_set_8cpp.html", null ],
     [ "StringSet.h", "_string_set_8h.html", [
       [ "StringSet", "struct_base_types_1_1_containers_1_1_string_set.html", "struct_base_types_1_1_containers_1_1_string_set" ]
     ] ],
     [ "StringUtil.cpp", "_string_util_8cpp.html", "_string_util_8cpp" ],
     [ "StringUtil.h", "_string_util_8h.html", "_string_util_8h" ],
     [ "WaveFile.cpp", "_wave_file_8cpp.html", "_wave_file_8cpp" ],
-    [ "WaveFile.h", "_wave_file_8h.html", [
-      [ "WaveFile", "struct_audio_1_1_wave_file.html", "struct_audio_1_1_wave_file" ]
-    ] ]
+    [ "WaveFile.h", "_wave_file_8h.html", "_wave_file_8h" ]
 ];

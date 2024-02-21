@@ -119,13 +119,13 @@ namespace BaseTypes::Primitives {
          * @param[in] precision              minimum number of valid
          *                                   digits
          * @param[in] fractionalDigitCount   number of decimal digits
-         * @param[in] padCharacter           character to use for left
+         * @param[in] padString              string to use for left
          *                                   padding
          * @return  string representation
          */
         String toString (IN Natural precision = 0,
                          IN Natural fractionalDigitCount = 0,
-                         IN String padCharacter = "0") const
+                         IN String padString = "0") const
         {
             String result = std::to_string(_value);
             const Natural length{result.size()};
@@ -133,7 +133,7 @@ namespace BaseTypes::Primitives {
                 (precision > length ? precision - length : 0);
 
             while (padCount > 0) {
-                result = padCharacter + result;
+                result = padString + result;
                 padCount--;
             }
 
@@ -300,7 +300,7 @@ namespace BaseTypes::Primitives {
         /*--------------------*/
 
         /**
-         * Strips off integer part from <C>x</C> and only returns
+         * Strips off integral part from <C>x</C> and only returns
          * digits after the decimal point; for negative <C>x</C>
          * values a negative value is produced
          *
@@ -314,6 +314,22 @@ namespace BaseTypes::Primitives {
             result -= std::floor(result);
             result = copysign(result, x._value);
             return Real{result};
+        }
+
+        /*--------------------*/
+
+        /**
+         * Strips off fractional part from <C>x</C> and only returns
+         * digits before the decimal point; for negative <C>x</C>
+         * values a negative value is produced
+         *
+         * @param[in] x  some real value
+         * @return  the integral part before the decimal point with the
+         *          sign of x
+         */
+        static Real integralPart (IN Real x)
+        {
+            return x - x.fractionalPart();
         }
 
         /*--------------------*/

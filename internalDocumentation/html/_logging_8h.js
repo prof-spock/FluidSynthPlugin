@@ -7,6 +7,8 @@ var _logging_8h =
     [ "Logging_initialize", "_logging_8h.html#a065d2c4b14781ce053a11f49d023001a", null ],
     [ "Logging_initializeWithDefaults", "_logging_8h.html#a8772946d784a2ed775bb292eb350b2b5", null ],
     [ "Logging_isActive", "_logging_8h.html#ad2b6fa7e9f55c058b34a9965fa331ef4", null ],
+    [ "Logging_setActive", "_logging_8h.html#a7809af49ca8b6dd16156f99c084d1199", null ],
+    [ "Logging_setCallbackFunction", "_logging_8h.html#a96735ef5204bae69438032ac8a9a80ff", null ],
     [ "Logging_setFileName", "_logging_8h.html#a0ed6d2e89d966d66513413f61dcd919b", null ],
     [ "Logging_setIgnoredFunctionNamePrefix", "_logging_8h.html#acf38b27d4d71b187d814e77e9b0dbf87", null ],
     [ "Logging_setTracingWithTime", "_logging_8h.html#aac45c29927adab4c35d2c8d271943e15", null ],

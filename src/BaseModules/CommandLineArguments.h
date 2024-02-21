@@ -77,14 +77,9 @@ namespace BaseModules {
      * arguments
      */
     struct CommandLineArgumentList
-        : public GenericList<CommandLineArgument> {
-
-        /**
-         * Returns printable representation of list.
-         *
-         * @return string representation of list
-         */
-        String toString () const;
+        : public GenericList<CommandLineArgument,
+                             CommandLineArgument::toString,
+                             StringLiteral{"CommandLineArgumentList"}> {
 
     };
 

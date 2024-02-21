@@ -38,10 +38,8 @@ using MIDI::MidiMetaEventKind;
 using MIDI::MidiFile;
 using Main::FluidSynthFileConverter::ConverterProgram;
 
-/* aliases for function names */
-
-/** abbreviation for StringUtil::expand */
-#define expand  StringUtil::expand
+/** abbreviation for StringUtil */
+using STR = BaseModules::StringUtil;
 
 /*====================*/
 
@@ -89,11 +87,11 @@ struct _EventTime {
     String toString () const
     {
         String st =
-            expand("_EventTime"
-                   "(midiTime = %1, timeInSeconds = %2,"
-                   " timeInSamples = %3)",
-                   TOSTRING(midiTime), TOSTRING(timeInSeconds),
-                   TOSTRING(timeInSamples));
+            STR::expand("_EventTime"
+                        "(midiTime = %1, timeInSeconds = %2,"
+                        " timeInSamples = %3)",
+                        TOSTRING(midiTime), TOSTRING(timeInSeconds),
+                        TOSTRING(timeInSamples));
         return st;
     }
 
@@ -382,7 +380,7 @@ static Boolean _checkFileAccess (IN String& fileName,
     if (!isOkay) {
         String format = (isCheckedForReading
                          ? "cannot read %1" : "cannot write %1");
-        String message = expand(format, fileName);
+        String message = STR::expand(format, fileName);
         _writeMessage(message);
     }
 
@@ -443,9 +441,9 @@ _handleCommandLineArguments (IN Natural argumentCount,
 
         if (abstractName == "AUDIOFILETYPE") {
             String message =
-                expand("audio file type option '%1' ignored,"
-                       " only WAV supported",
-                       optionName);
+                STR::expand("audio file type option '%1' ignored,"
+                            " only WAV supported",
+                            optionName);
             Logging_trace1("--: %1", message);
         } else if (abstractName == "AUDIOFORMAT") {
             const String& parameter =
@@ -455,8 +453,8 @@ _handleCommandLineArguments (IN Natural argumentCount,
                 audioFileFormat = parameter;
             } else {
                 String message =
-                    expand("unknown audio format option '%1'",
-                           optionName);
+                    STR::expand("unknown audio format option '%1'",
+                                optionName);
                 Logging_trace1("--: %1", message);
                 isOkay = false;
             }
@@ -470,21 +468,21 @@ _handleCommandLineArguments (IN Natural argumentCount,
             Logging_traceError("CONFIGFILE not yet supported");
         } else if (abstractName == "ERR_BADFILE") {
             String message =
-                expand("unknown file type %1", optionName);
+                STR::expand("unknown file type %1", optionName);
             _writeMessage(message);
             isOkay = false;
         } else if (abstractName == "ERR_BADPARAMS") {
             String message =
-                expand("bad parameter(s) for %1", optionName);
+                STR::expand("bad parameter(s) for %1", optionName);
             _writeMessage(message);
             isOkay = false;
         } else if (abstractName == "ERR_NOPARAMS") {
             String message =
-                expand("not enough parameters left for %1", optionName);
+                STR::expand("not enough parameters left for %1", optionName);
             _writeMessage(message);
             isOkay = false;
         } else if (abstractName == "ERR_UNKNOWN_OPTION") {
-            String message = expand("unknown option %1", optionName);
+            String message = STR::expand("unknown option %1", optionName);
             _writeMessage(message);
             isOkay = false;
         } else if (abstractName == "GAIN") {
@@ -498,11 +496,11 @@ _handleCommandLineArguments (IN Natural argumentCount,
             isOkay = isOkay && fileIsOkay;
         } else if (abstractName == "NOMIDIIN") {
             String message =
-                expand("nomidiin option '%1' ignored", optionName);
+                STR::expand("nomidiin option '%1' ignored", optionName);
             Logging_trace1("--: %1", message);
         } else if (abstractName == "NOSHELL") {
             String message =
-                expand("noshell option '%1' ignored", optionName);
+                STR::expand("noshell option '%1' ignored", optionName);
             Logging_trace1("--: %1", message);
         } else if (abstractName == "QUIET") {
             renderSettings.set("synth.verbose", "0");
@@ -526,8 +524,8 @@ _handleCommandLineArguments (IN Natural argumentCount,
             if (isSplit) {
                 renderSettings.set(prefix, suffix);
             } else {
-                String message = expand("bad parameter '%1' for -o",
-                                        parameter);
+                String message =
+                    STR::expand("bad parameter '%1' for -o", parameter);
                 _writeMessage(message);
                 isOkay = false;
             }
@@ -542,13 +540,13 @@ _handleCommandLineArguments (IN Natural argumentCount,
             isOkay = isOkay && fileIsOkay;
         } else if (abstractName == "UNSUPPORTED") {
             String message =
-                expand("unsupported option %1", optionName);
+                STR::expand("unsupported option %1", optionName);
             _writeMessage(message);
             isOkay = false;
         } else if (abstractName == "VERBOSE") {
             renderSettings.set("synth.verbose", "1");
         } else if (abstractName == "VERSION") {
-            String message = expand("%1 %2", _programName, _version);
+            String message = STR::expand("%1 %2", _programName, _version);
             _writeMessage(message, false);
         }
     }
@@ -589,8 +587,8 @@ _makeMidiEventConverter (IN Dictionary& settings)
             Boolean settingIsOkay = midiEventConverter->set(key, value);
 
             if (!settingIsOkay) {
-                String errorMessage = expand("cannot set '%1' to '%2'",
-                                             key, value);
+                String errorMessage =
+                    STR::expand("cannot set '%1' to '%2'", key, value);
                 _writeMessage(errorMessage);
                 isOkay = false;
             }
@@ -630,8 +628,8 @@ static void _process (IN Dictionary& renderSettings,
                    waveFileName);
 
     Assertion_pre(_fileFormatToTypeCodeAndWidthMap.contains(audioFileFormat),
-                  expand("unknown audio file format '%1'",
-                         audioFileFormat));
+                  STR::expand("unknown audio file format '%1'",
+                              audioFileFormat));
 
     /* read MIDI file into event list */
     MidiEventList midiEventList;
@@ -658,8 +656,8 @@ static void _process (IN Dictionary& renderSettings,
     const Boolean isSplit = StringUtil::splitAt(typeCodeAndWidth, "/",
                                                 typeCode, sampleWidth);
     Assertion_check(isSplit,
-                    expand("bad type code for '%1' - '%2'",
-                           audioFileFormat, typeCodeAndWidth));
+                    STR::expand("bad type code for '%1' - '%2'",
+                                audioFileFormat, typeCodeAndWidth));
     const Natural sampleWidthInBytes = StringUtil::toNatural(sampleWidth);
     targetFile.write((Natural) Real::round(sampleRate), _channelCount, 
                      audioFrameCount, typeCode, sampleWidthInBytes,
@@ -886,9 +884,9 @@ static void _writeMessage (IN String& message,
                            IN Boolean isError)
 {
     String st =
-        expand("%1:%2%3%4",
-               _programName, (message == "" ? "" : " "),
-               (isError ? "error - " : ""), message);
+        STR::expand("%1:%2%3%4",
+                    _programName, (message == "" ? "" : " "),
+                    (isError ? "error - " : ""), message);
 
     if (isError) {
         Logging_traceError(message);
@@ -935,7 +933,7 @@ int ConverterProgram::main (int argc, char* argv[])
     }
 
     if (!isOkay) {
-        _writeMessage(expand(_usageText, _programName), false);
+        _writeMessage(STR::expand(_usageText, _programName), false);
     } else {
         _process(renderSettings, midiFileName, sampleRate,
                  audioFileFormat, waveFileName);

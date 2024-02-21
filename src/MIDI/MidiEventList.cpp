@@ -73,15 +73,6 @@ MidiEventList MidiEventList::fromList (IN initializer_list<MidiEvent> list)
 /* change             */
 /*--------------------*/
 
-String MidiEventList::toString () const
-{
-    return _toString("MidiEventList", MidiEvent::toString);
-}
-
-/*--------------------*/
-/* change             */
-/*--------------------*/
-
 void MidiEventList::merge (IN MidiEventList& other)
 {
     const Natural currentLength{length()};

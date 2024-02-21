@@ -24,6 +24,9 @@ using BaseTypes::Containers::Dictionary;
 using Libraries::DynamicLibrary;
 using Libraries::FluidSynth::FluidSynthSettings;
 
+/** abbreviation for StringUtil */
+using STR = BaseModules::StringUtil;
+
 /*-----------------------------------------*/
 /* TYPES AND FUNCTIONS FOR DYNAMIC BINDING */
 /*-----------------------------------------*/
@@ -218,7 +221,7 @@ Boolean FluidSynthSettings::set (IN String& key, IN String& value)
                     isOkay = (operationResult == 0);
                 }
             } else if (kind == "I") {
-                Integer intValue = StringUtil::toInteger(value);
+                Integer intValue = STR::toInteger(value);
                 Logging_trace2("--: kind = %1, value = %2",
                                kind, TOSTRING(intValue));
 
@@ -231,7 +234,7 @@ Boolean FluidSynthSettings::set (IN String& key, IN String& value)
                     isOkay = (operationResult == 0);
                 }
             } if (kind == "F") {
-                Real numValue = StringUtil::toReal(value);
+                Real numValue = STR::toReal(value);
                 Logging_trace2("--: kind = %1, value = %2",
                                kind, TOSTRING(numValue));
 

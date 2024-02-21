@@ -30,6 +30,9 @@ using BaseTypes::Primitives::Integer;
 using MIDI::MidiEventConverter;
 using Main::FluidSynthPlugin::FluidSynthPlugin_Editor;
 
+/** abbreviation for StringUtil */
+using STR = BaseModules::StringUtil;
+
 /*====================*/
 /* PRIVATE FEATURES   */
 /*====================*/
@@ -78,22 +81,20 @@ static void _replaceEnvironmentVariables (INOUT String& st)
     const Natural totalBracketLength =
         leadInLength + _environmentVariableLeadOut.length();
 
-    while (StringUtil::contains(st, _environmentVariableLeadIn)) {
-        Natural startPosition =
-            StringUtil::find(st, _environmentVariableLeadIn);
+    while (STR::contains(st, _environmentVariableLeadIn)) {
+        Natural startPosition = STR::find(st, _environmentVariableLeadIn);
         Natural endPosition = 
-            StringUtil::find(st, _environmentVariableLeadOut,
-                             startPosition);
+            STR::find(st, _environmentVariableLeadOut, startPosition);
         String variable =
-            StringUtil::substring(st, startPosition,
-                                  endPosition - startPosition + 1);
+            STR::substring(st, startPosition,
+                           endPosition - startPosition + 1);
         String variableName =
-            StringUtil::substring(st, leadInLength,
-                                  (Natural{variable.length()}
-                                   - totalBracketLength));
+            STR::substring(st, leadInLength,
+                           (Natural{variable.length()}
+                            - totalBracketLength));
         String variableValue =
             OperatingSystem::environmentValue(variableName, "???");
-        StringUtil::replace(st, variable, variableValue);
+        STR::replace(st, variable, variableValue);
     }
 
     Logging_trace1("<<: %1", st);
@@ -484,8 +485,7 @@ void _EventProcessorDescriptor::setSettings (IN String& st)
     settingsString = st;
 
     const String entrySeparator{"#"};
-    const String nlSt =
-        StringUtil::newlineReplacedString(st, entrySeparator);
+    const String nlSt = STR::newlineReplacedString(st, entrySeparator);
     Dictionary d =
         Dictionary::makeFromString(nlSt, entrySeparator, "=");
 
@@ -494,14 +494,13 @@ void _EventProcessorDescriptor::setSettings (IN String& st)
 
         if (key == _fsBufferingCompensationKey) {
             fluidSynthBufferingIsCompensated =
-                (StringUtil::toLowercase(value) == "true");
+                (STR::toLowercase(value) == "true");
         } else {
             Boolean isOkay = midiEventConverter->set(key, value);
 
             if (libraryIsAvailable && !isOkay) {
                 String errorMessage =
-                    StringUtil::expand("cannot set '%1' to '%2'",
-                                       key, value);
+                    STR::expand("cannot set '%1' to '%2'", key, value);
                 errorMessageList.append(errorMessage);
             }
         }
@@ -689,7 +688,7 @@ const juce::String
 FluidSynthPlugin_EventProcessor::getProgramName (int index)
 {
     String indexAsString = TOSTRING(Integer{index});
-    String programName = StringUtil::expand("program-%1", indexAsString);
+    String programName = STR::expand("program-%1", indexAsString);
     return programName.c_str();
 }
 
@@ -725,8 +724,8 @@ void FluidSynthPlugin_EventProcessor::setCurrentProgram (int index)
 {
     String indexAsString = TOSTRING(Integer{index});
     Assertion_pre(0 <= index && index < _midiProgramCount,
-                  StringUtil::expand("must be a MIDI program number: %1",
-                                     indexAsString));
+                  STR::expand("must be a MIDI program number: %1",
+                              indexAsString));
     _EventProcessorDescriptor& descriptor =
         TOREFERENCE<_EventProcessorDescriptor>(_descriptor);
     descriptor.currentProgramIndex = index;
@@ -754,7 +753,7 @@ String FluidSynthPlugin_EventProcessor::settings () const
         TOREFERENCE<_EventProcessorDescriptor>(_descriptor);
     String result = descriptor.settingsString;
 
-    Logging_trace1("<<: %1", StringUtil::newlineReplacedString(result));
+    Logging_trace1("<<: %1", STR::newlineReplacedString(result));
     return result;
 }
 
@@ -762,7 +761,7 @@ String FluidSynthPlugin_EventProcessor::settings () const
 
 void FluidSynthPlugin_EventProcessor::setSettings (IN String& st)
 {
-    Logging_trace1(">>: %1", StringUtil::newlineReplacedString(st));
+    Logging_trace1(">>: %1", STR::newlineReplacedString(st));
 
     _EventProcessorDescriptor& descriptor =
         TOREFERENCE<_EventProcessorDescriptor>(_descriptor);
@@ -807,8 +806,7 @@ FluidSynthPlugin_EventProcessor::getStateInformation
     destData.setSize((int) sizeInBytes);
     destData.copyFrom(st.c_str(), 0, (int) sizeInBytes);
 
-    Logging_trace1("<<: settings = %1",
-                   StringUtil::newlineReplacedString(st));
+    Logging_trace1("<<: settings = %1", STR::newlineReplacedString(st));
 }
 
 /*--------------------*/
@@ -823,8 +821,7 @@ FluidSynthPlugin_EventProcessor::setStateInformation (IN void* data,
     String st((char *) data, sizeInBytes);
     setSettings(st);
 
-    Logging_trace1("<<: settings = %1",
-                   StringUtil::newlineReplacedString(st));
+    Logging_trace1("<<: settings = %1", STR::newlineReplacedString(st));
 }
 
 /*--------------------*/

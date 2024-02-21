@@ -22,22 +22,6 @@ using BaseTypes::Containers::copyArray;
 /*====================*/
 
 INLINE
-String AudioSampleList::toString () const
-{
-    return _toString("AudioSampleList", AudioSample::toString);
-}
-
-/*--------------------*/
-
-INLINE
-String AudioSampleList::toString (IN AudioSampleList& list)
-{
-    return list.toString();
-}
-
-/*--------------------*/
-
-INLINE
 void AudioSampleList::setToZero (IN Natural position,
                                  IN Natural count)
 {
@@ -72,4 +56,16 @@ void AudioSampleList::extend (IN AudioSampleList& other,
         copyArray(targetArray, sourceArray,
                   effectiveCount);
   }
+}
+
+/*--------------------*/
+
+INLINE
+AudioSampleList AudioSampleList::slice (IN AudioSampleList& list,
+                                        IN Integer firstPosition,
+                                        IN Integer lastPosition)
+{
+    return AudioSampleList{GenericList::slice(list,
+                                              firstPosition,
+                                              lastPosition)};
 }

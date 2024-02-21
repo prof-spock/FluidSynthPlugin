@@ -21,7 +21,6 @@
 
 /*--------------------*/
 
-using BaseTypes::Primitives::String_toString;
 using BaseTypes::GenericTypes::GenericSet;
 
 /*====================*/
@@ -34,8 +33,12 @@ namespace BaseTypes::Containers {
      * to add and remove elements.
      */
     struct StringSet
-        : public GenericSet<String> {
+        : public GenericSet<String,
+                            String_toString,
+                            StringLiteral{"StringSet"}> {
 
+        /*--------------------*/
+        /* constructors       */
         /*--------------------*/
 
         /**
@@ -53,13 +56,6 @@ namespace BaseTypes::Containers {
             }
 
             return result;
-        }
-
-        /*--------------------*/
-
-        String toString () const
-        {
-            return _toString("StringSet", String_toString);
         }
 
     };

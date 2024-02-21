@@ -43,13 +43,45 @@ namespace MIDI {
      */
     struct MidiEventConverter {
 
-        /** Creates a fluidsynth MIDI event converter */
+        /*--------------------*/
+        /* con-/destruction   */
+        /*--------------------*/
+
+        /**
+         * Creates a fluidsynth MIDI event converter
+         */
         MidiEventConverter ();
+
+        /*--------------------*/
+
+        /**
+         * Constructs new converter from <C>otherConverter</C>
+         * (NOT AVAILABLE).
+         *
+         * @param[in] otherConverter  midi event converter to be copied
+         */
+        MidiEventConverter (IN MidiEventConverter& otherConverter)
+            = delete;
 
         /*--------------------*/
 
         /** Destroys a fluidsynth MIDI event converter */
         ~MidiEventConverter ();
+
+        /*--------------------*/
+        /* assignment         */
+        /*--------------------*/
+
+        /**
+         * Assigns <C>otherConverter</C> to current
+         * (NOT AVAILABLE).
+         *
+         * @param[in] otherConverter  midi event converter to be
+         *                            assigned
+         */
+        MidiEventConverter&
+        operator= (IN MidiEventConverter& otherConverter)
+            = delete;
 
         /*--------------------*/
         /* event handling     */

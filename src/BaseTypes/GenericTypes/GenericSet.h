@@ -18,12 +18,17 @@
 
 #include <set>
 #include "Boolean.h"
+#include "ElementToStringProc.h"
+#include "Natural.h"
+#include "StringLiteral.h"
 
 /*--------------------*/
 
 using std::set;
+using BaseTypes::GenericTypes::ElementToStringProc;
+using BaseTypes::GenericTypes::StringLiteral;
 using BaseTypes::Primitives::Boolean;
-using BaseTypes::Primitives::String;
+using BaseTypes::Primitives::Natural;
 
 /*====================*/
 
@@ -32,10 +37,18 @@ namespace BaseTypes::GenericTypes {
     /**
      * A <C>GenericSet</C> object is a set of homogenous values with
      * no duplicates, only simple containment access and the ability
-     * to add and remove elements.
+     * to add and remove elements.  Also a mapping may be supplied
+     * that defines how to convert each element to a string for
+     * printing out the set.
      */
-    template <typename ElementType>    
+    template <typename ElementType,
+              ElementToStringProc<ElementType> elementToString = nullptr,
+              StringLiteral nameOfType = "Set">
     struct GenericSet : public set<ElementType> {
+
+        /*--------------------------*/
+        /* constructors/destructors */
+        /*--------------------------*/
 
         /**
          * Makes an empty set.
@@ -49,18 +62,55 @@ namespace BaseTypes::GenericTypes {
         /**
          * Destroys current set.
          */
-        ~GenericSet ()
+        virtual ~GenericSet ()
         {
         }
 
         /*--------------------*/
+        /* type conversion    */
+        /*--------------------*/
 
         /**
-         * Removes all elements from current set.
+         * Converts set to linear string representation prefixed by
+         * <C>nameOfType</C> template parameter; when string
+         * conversion function <C>elementToString</C> is not defined,
+         * some surrogate function is used
+         *
+         * @return  single string representation of set
          */
-        void clear ()
+        String toString () const
         {
-            set<ElementType>::clear();
+            String result = "";
+            Natural i = 0;
+
+            for (const ElementType& element : *this) {
+                result += (i == 0 ? "" : ", ");
+
+                if (elementToString == nullptr) {
+                    result += "?" + std::to_string((int) i) + "?";
+                } else {
+                    result += (*elementToString)(element);
+                }
+
+                i++;
+            }
+
+            result = nameOfType.toString() + "(" + result + ")";
+            return result;
+        }
+
+        /*--------------------*/
+        /* measurement        */
+        /*--------------------*/
+
+        /**
+         * Tells whether set is empty.
+         *
+         * @return information whether set is empty
+         */
+        Boolean isEmpty () const
+        {
+            return set<ElementType>.length() == 0;
         }
 
         /*--------------------*/
@@ -75,6 +125,32 @@ namespace BaseTypes::GenericTypes {
         {
             return (set<ElementType>::find(element)
                     != set<ElementType>::end());
+        }
+
+        /*--------------------*/
+        /* element access     */
+        /*--------------------*/
+
+        /**
+         * Returns some element in set (when not empty)
+         *
+         * @return  some element
+         */
+        ElementType someElement ()
+        {
+            *(set<ElementType>::begin());
+        }
+
+        /*--------------------*/
+        /* change             */
+        /*--------------------*/
+
+        /**
+         * Removes all elements from current set.
+         */
+        void clear ()
+        {
+            set<ElementType>::clear();
         }
 
         /*--------------------*/
@@ -102,45 +178,6 @@ namespace BaseTypes::GenericTypes {
         {
             set<ElementType>::erase(element);
         }
-
-        /*--------------------*/
-        /*--------------------*/
-
-        protected:
-
-            /*--------------------*/
-            /* conversion         */
-            /*--------------------*/
-
-            /** a function type for converting an element to a string */
-            typedef String ElementToStringProc (IN ElementType&);
-
-            /*--------------------*/
-
-            /**
-             * Converts set to linear string representation
-             * prefixed by <C>nameOfType</C> assuming an explicit
-             * conversion from element type to string
-             *
-             * @param nameOfType       name of set type
-             * @param elementToString  function for converting an
-             *                         element to a string
-             * @return  single string representation of set
-             */
-            String _toString (IN String& nameOfType,
-                              IN ElementToStringProc elementToString) const
-            {
-                String result = "";
-
-                for (const ElementType& element : *this) {
-                    result += (result.size() == 0 ? "" : ", ");
-                    result += (elementToString == nullptr
-                               ? "???" : elementToString(element));
-                }
-
-                result = nameOfType + "(" + result + ")";
-                return result;
-            }
 
     };
 

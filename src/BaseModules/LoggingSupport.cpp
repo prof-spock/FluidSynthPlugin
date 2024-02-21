@@ -1,10 +1,11 @@
 /**
  * @file
  * The <C>LoggingSupport</C> body implements a class for simple
- * entry/exit logging to a file; this logging relies on trace calls at
- * the beginning or end of a function with prefices ">>" and "<<" as
- * well as intermediate log lines with prefix "--"; the name of the
- * function is also logged to give a fully bracketed log.
+ * entry/exit logging to a file or via a callback function; this
+ * logging relies on trace calls at the beginning or end of a function
+ * with prefices ">>" and "<<" as well as intermediate log lines with
+ * prefix "--"; the name of the function is also logged to give a
+ * fully bracketed log.
  *
  * @author Dr. Thomas Tensi
  * @date   2021-01
@@ -28,6 +29,7 @@
 
 /*--------------------*/
 
+using BaseModules::LoggingCallbackFunction;
 using namespace std::chrono;
 
 using BaseModules::File;
@@ -36,13 +38,11 @@ using BaseModules::OperatingSystem;
 using BaseTypes::Containers::Dictionary;
 using BaseTypes::GenericTypes::GenericList;
 
+/** abbreviation for StringUtil */
+using STR = BaseModules::StringUtil;
+
 /** the timestamp type as provided by the system call */
 using Timestamp = Natural;
-
-/* aliases for function names */
-
-/** abbreviation for StringUtil::expand */
-#define _expand  StringUtil::expand
 
 /*====================*/
 
@@ -63,6 +63,13 @@ static const Natural _dstOffsetInMilliseconds{3600000};
 
 /** dictionary from already known signatures */
 static Dictionary _signatureToFunctionNameMap;
+
+/*====================*/
+/* PROTOTYPES         */
+/*====================*/
+
+static void _writeBufferToFile ();
+
 
 /*====================*/
 
@@ -149,6 +156,28 @@ namespace BaseModules {
             String _previousTimeOfDayString;
 
             /*--------------------*/
+
+
+            /**
+             * Tells whether DST is applicable (very imprecisely)
+             *
+             * @return information about being in DST
+             */
+            Boolean _isDST () {
+                Natural secondsSinceEpoch = systemTime() / 1000;
+                Natural secondsPerYear    = 86400 * 1461 / 4;
+                Natural secondsPerQuarter = secondsPerYear / 4;
+                Natural secondsInCurrentYear =
+                    secondsSinceEpoch % secondsPerYear;
+                Boolean result =
+                    (secondsInCurrentYear >= secondsPerQuarter
+                     && secondsInCurrentYear <= secondsPerQuarter *3);
+                return result;
+            }
+
+        /*--------------------*/
+        /*--------------------*/
+
         public:
 
             /**
@@ -160,9 +189,9 @@ namespace BaseModules {
                 _timeFactor = 1;
                 _previousTimeOfDay = 0;
                 _previousTimeOfDayString = "";
-                const Boolean isDST{true};
+
                 _effectiveDSTOffsetInMilliseconds =
-                    (isDST ? _dstOffsetInMilliseconds : Natural{0});
+                    (_isDST() ? _dstOffsetInMilliseconds : Natural{0});
             }
 
             /*--------------------*/
@@ -291,6 +320,12 @@ static String _ignoredFunctionNamePrefix = "";
 
 /*--------------------*/
 
+/** the function to be directly called when logging (e.g. for embedded
+ * systems) */
+static LoggingCallbackFunction _callbackFunction = NULL;
+
+/*--------------------*/
+
 /** length of identification prefix for trace messages */
 static const Natural _prefixLength = 2;
 
@@ -313,10 +348,8 @@ static Boolean _timeIsLogged{false};
 
 /*--------------------*/
 
-/** the logging state telling whether logging has already a file
- * associated and this file is updated continually or at finalization
- * time */
-static _LoggingState _loggingState{_LoggingState::inLimbo};
+/** flag to tell whether logging is active or suppressed */
+static Boolean _isActive{false};
 
 /*--------------------*/
 
@@ -330,12 +363,21 @@ static File _file;
 
 /*--------------------*/
 
+/** the logging state telling whether logging has already a file
+ * associated and this file is updated continually or at finalization
+ * time */
+static _LoggingState _loggingState{_LoggingState::inLimbo};
+
+/*--------------------*/
+
 /** the current logging time handler */
 static _LoggingTime _loggingTime = _LoggingTime();
 
 /*--------------------*/
 /* Prototypes         */
 /*--------------------*/
+
+static String _bufferEntryToString (_LoggingBufferEntry& bufferEntry);
 
 static String _functionNameFromSignature (IN String& functionSignature,
                                           IN String& ignoredFunctionNamePrefix);
@@ -357,14 +399,27 @@ void _appendEntryToBuffer (IN String& functionSignature,
                            IN Timestamp time,
                            IN String& message)
 {
-    _LoggingBufferEntry bufferEntry = {functionSignature, time, message};
-    _buffer.append(bufferEntry);
+    if (_isActive) {
+        _LoggingBufferEntry bufferEntry = {functionSignature, time, message};
+
+        if (_callbackFunction != NULL) {
+            String st = _bufferEntryToString(bufferEntry);
+            _callbackFunction(st);
+        } else {
+            _buffer.append(bufferEntry);
+            
+            if (_loggingState == _LoggingState::inWriteThroughMode) {
+                _writeBufferToFile();
+            }
+        }
+    }
 }
 
 /*--------------------*/
 
 /**
- * Converts <C>bufferEntry</C> to string for logging file.
+ * Converts <C>bufferEntry</C> to string for logging file or callback
+ * function.
  *
  * @param[in] bufferEntry  logging buffer entry to be converted
  * @return  string representation of logging buffer entry
@@ -387,22 +442,22 @@ static String _bufferEntryToString (_LoggingBufferEntry& bufferEntry)
         if (_timeIsLogged) {
             Timestamp timeOfDay =
                 _loggingTime.adaptToTimeOfDay(systemTime);
-            timeString = _expand(" (%1)",
-                                 _loggingTime.asDayString(timeOfDay));
+            timeString = STR::expand(" (%1)",
+                                     _loggingTime.asDayString(timeOfDay));
         }
 
         /* ensure that message starts with a known prefix */
         String messagePrefix =
-            StringUtil::prefix(message, _prefixLength);
+            STR::prefix(message, _prefixLength);
         if (messageLength < _prefixLength
             || !_standardPrefixList.contains(messagePrefix)) {
             result = ((messageLength > 0 ? "--:" : "--") + message);
         }
 
-        result = (StringUtil::prefix(result, _prefixLength)
+        result = (STR::prefix(result, _prefixLength)
                   + functionName
                   + timeString
-                  + StringUtil::substring(result, _prefixLength));
+                  + STR::substring(result, _prefixLength));
     }
 
     return result;
@@ -432,22 +487,22 @@ String _functionNameFromSignature (IN String& functionSignature,
         functionName = functionSignature;
 
         /* sanitize function name */
-        Natural position = StringUtil::find(functionName, "(");
-        functionName = StringUtil::prefix(functionName, position);
-        StringUtil::replace(functionName, "__cdecl", "");
-        StringUtil::replace(functionName, "*", "");
-        position = StringUtil::findFromEnd(functionName, " ");
-        functionName = StringUtil::substring(functionName, position + 1);
-        StringUtil::replace(functionName, "::", ".");
+        Natural position = STR::find(functionName, "(");
+        functionName = STR::prefix(functionName, position);
+        STR::replace(functionName, "__cdecl", "");
+        STR::replace(functionName, "*", "");
+        position = STR::findFromEnd(functionName, " ");
+        functionName = STR::substring(functionName, position + 1);
+        STR::replace(functionName, "::", ".");
 
         const Boolean hasPrefix =
             (ignoredFunctionNamePrefix > ""
-             && StringUtil::startsWith(functionName,
+             && STR::startsWith(functionName,
                                        ignoredFunctionNamePrefix));
 
         if (hasPrefix) {
             const Natural prefixLength = ignoredFunctionNamePrefix.size();
-            functionName = StringUtil::substring(functionName,
+            functionName = STR::substring(functionName,
                                                  prefixLength);
         }
 
@@ -473,7 +528,8 @@ static void _openOrCreateFile (IN Boolean isNew)
         String mode = (isNew ? "w" : "a");
         Boolean isOkay = _file.open(_fileName, mode);
         Assertion_check(isOkay,
-                        _expand("file must be writable: %1", _fileName));
+                        STR::expand("file must be writable: %1",
+                                    _fileName));
     }
 }
 
@@ -511,10 +567,11 @@ Logging::initializeWithDefaults (IN String& fileNameStem,
 {
     initialize();
     String fileName = fileNameStem + ".log";
-    StringUtil::replace(fileName, " ", "");
+    STR::replace(fileName, " ", "");
     const String loggingFilePath =
-        _expand("%1/%2",
-                OperatingSystem::temporaryDirectoryPath(), fileName);
+        STR::expand("%1/%2",
+                    OperatingSystem::temporaryDirectoryPath(),
+                    fileName);
     setFileName(loggingFilePath, false);
     setIgnoredFunctionNamePrefix(ignoredFunctionNamePrefix);
     setTracingWithTime(true, 2);
@@ -538,13 +595,36 @@ void Logging::finalize ()
 }
 
 /*--------------------*/
+/*--------------------*/
+
+Boolean Logging::isActive ()
+{
+    return _isActive;
+}
+
+/*--------------------*/
+
+void Logging::setActive (IN Boolean isActive)
+{
+    _isActive = isActive;
+}
+
+/*--------------------*/
+
+void
+Logging::setCallbackFunction (IN LoggingCallbackFunction callbackFunction)
+{
+    _callbackFunction = callbackFunction;
+}
+
+/*--------------------*/
 
 void Logging::setFileName (IN String& fileName,
                            IN Boolean writeThroughIsActive)
 {
     if (_fileName == fileName) {
         const String message =
-            _expand("logging file %1 already open => skip", fileName);
+            STR::expand("logging file %1 already open => skip", fileName);
         _appendEntryToBuffer("", 0, message);
     } else {
         _loggingState = (writeThroughIsActive
@@ -592,10 +672,6 @@ void Logging::trace (IN String& functionSignature,
     _appendEntryToBuffer(functionSignature,
                          _loggingTime.systemTime(),
                          message);
-
-    if (_loggingState == _LoggingState::inWriteThroughMode) {
-        _writeBufferToFile();
-    }   
 }
 
 /*--------------------*/

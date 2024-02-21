@@ -1,5 +1,0 @@
-<map id="WaveFile.h" name="WaveFile.h">
-<area shape="rect" id="node1" title="The WaveFile specification defines an object for accessing a RIFF wave file with several channels." alt="" coords="104,5,199,33"/>
-<area shape="rect" id="node2" href="$_wave_file_8cpp.html" title="The WaveFile specification defines an object for accessing a RIFF wave file with several channels." alt="" coords="5,81,116,109"/>
-<area shape="rect" id="node3" href="$_fluid_synth_file_converter_8cpp.html" title="The FluidSynthFileConverter module implements a conversion from a MIDI file into a wave file using th..." alt="" coords="141,81,346,109"/>
-</map>

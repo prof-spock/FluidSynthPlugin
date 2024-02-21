@@ -196,7 +196,7 @@ namespace Audio {
             Natural _firstIndex;
 
             /** the elements of the fifo queue as a list */
-            GenericList<AudioSample> _data;
+            GenericList<AudioSample, AudioSample::toString> _data;
 
     };
 }

@@ -85,6 +85,7 @@ $(document).ready(function(){initNavTree('namespace_audio.html',''); initResizab
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">Audio Namespace Reference</div>  </div>
@@ -119,6 +120,14 @@ typedef <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real
 <tr class="memdesc:a64757dc84eac3a7e8bcaa0bfbd6b71ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">An <code>AudioSample</code> represents a single audio sample (a 32bit float) <br /></td></tr>
 <tr class="separator:a64757dc84eac3a7e8bcaa0bfbd6b71ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a695681d4df4135b970ed2032c9243e55"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_audio.html#a695681d4df4135b970ed2032c9243e55">WaveFileOperationResult</a> { <a class="el" href="namespace_audio.html#a695681d4df4135b970ed2032c9243e55a9a657604c5546ab8e36882f705df23a6">okay</a> = 1, 
+<a class="el" href="namespace_audio.html#a695681d4df4135b970ed2032c9243e55a33e4c4a81ccda10ec580c59f666fb051">failed</a>
+ }</td></tr>
+<tr class="memdesc:a695681d4df4135b970ed2032c9243e55"><td class="mdescLeft">&#160;</td><td class="mdescRight">The result of a read or write operation for some wave file.  <a href="namespace_audio.html#a695681d4df4135b970ed2032c9243e55">More...</a><br /></td></tr>
+<tr class="separator:a695681d4df4135b970ed2032c9243e55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:af08224edcfb6142c5cd9703c54ff0293"><td class="memItemLeft" align="right" valign="top">static String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_audio.html#af08224edcfb6142c5cd9703c54ff0293">toString</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="namespace_audio.html#a64757dc84eac3a7e8bcaa0bfbd6b71ee">AudioSample</a> &amp;sample)</td></tr>
@@ -128,7 +137,30 @@ Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The package <code><a class="el" href="namespace_audio.html" title="The package Audio provides simple audio types.">Audio</a></code> provides simple audio types. </p>
 <p>Those types represent audio samples, lists and queues of audio samples and vectors of those lists or queues. Additionally a simple wave file renderer is available. </p>
-</div><h2 class="groupheader">Function Documentation</h2>
+</div><h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="a695681d4df4135b970ed2032c9243e55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a695681d4df4135b970ed2032c9243e55">&#9670;&nbsp;</a></span>WaveFileOperationResult</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespace_audio.html#a695681d4df4135b970ed2032c9243e55">Audio::WaveFileOperationResult</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The result of a read or write operation for some wave file. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a695681d4df4135b970ed2032c9243e55a9a657604c5546ab8e36882f705df23a6"></a>okay&#160;</td><td class="fielddoc"><p>everything okay </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a695681d4df4135b970ed2032c9243e55a33e4c4a81ccda10ec580c59f666fb051"></a>failed&#160;</td><td class="fielddoc"><p>failed </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
 <a id="af08224edcfb6142c5cd9703c54ff0293"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af08224edcfb6142c5cd9703c54ff0293">&#9670;&nbsp;</a></span>toString()</h2>
 

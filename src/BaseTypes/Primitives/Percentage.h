@@ -82,25 +82,39 @@ namespace BaseTypes::Primitives {
          * Returns string representation of percentage with precision
          * and padding information.
          *
-         * @param[in] precision              minimum number of valid
-         *                                   digits
-         * @param[in] fractionalDigitCount   number of decimal digits
-         * @param[in] padCharacter           character to use for left
-         *                                   padding
+         * @param[in] precision             minimum number of valid
+         *                                  digits
+         * @param[in] fractionalDigitCount  number of decimal digits
+         * @param[in] padString             string to use for left
+         *                                  padding
          * @return  string representation
          */
         String toString (IN Natural precision = 0,
                          IN Natural fractionalDigitCount = 0,
-                         IN String padCharacter = "0") const
+                         IN String padString = "0") const
         {
             String result = std::to_string(_value);
-            Natural padCount = precision - result.size();
+            const Natural length{result.size()};
+            Natural padCount =
+                (precision >  length ? precision - length : 0);
 
             while (padCount-- > 0) {
-                result = padCharacter + result;
+                result = padString + result;
             }
 
             return result;
+        }
+
+        /*--------------------*/
+        /**
+         * Returns string representation of percentage <C>p</C>.
+         *
+         * @param[in] p  percentage value to be converted to a string
+         * @return  string representation
+         */
+        static String toString (IN Percentage& p)
+        {
+            return p.toString();
         }
 
         /*--------------------*/

@@ -34,8 +34,14 @@ namespace BaseTypes::Containers {
      * Indexing starts at zero and is consecutive.  Lists also allow
      * duplicate elements.
      */
-    struct IntegerList : public GenericList<Integer>
-    {
+    struct IntegerList
+        : public GenericList<Integer,
+                             Integer::toString,
+                             StringLiteral{"IntegerList"}> {
+
+        /*--------------------*/
+        /* constructors       */
+        /*--------------------*/
 
         /**
          * Initializes list of integers from an initializer list
@@ -47,13 +53,24 @@ namespace BaseTypes::Containers {
         static IntegerList fromList (IN initializer_list<Integer> list);
 
         /*--------------------*/
+        /* functions          */
+        /*--------------------*/
 
         /**
-         * Returns printable representation of list.
+         * Returns the maximum value in list.
          *
-         * @return string representation of list
+         * @return  maximum value
          */
-        String toString () const;
+        Integer maximum () const;
+
+        /*--------------------*/
+
+        /**
+         * Returns the minimum value in list.
+         *
+         * @return  minimum value
+         */
+        Integer minimum () const;
 
     };
 

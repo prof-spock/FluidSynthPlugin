@@ -25,6 +25,9 @@ using BaseModules::CommandLineArgument;
 using BaseModules::CommandLineArgumentList;
 using BaseModules::CommandLineArgumentHandler;
 
+/** abbreviation for StringUtil */
+using STR = BaseModules::StringUtil;
+
 /*====================*/
 
 /*--------------------*/
@@ -88,7 +91,7 @@ static Boolean _checkStringForKind (IN String& st,
                    elementKind, st);
 
     Boolean result;
-    String lcString = StringUtil::toLowercase(st);
+    String lcString = STR::toLowercase(st);
 
     if (elementKind == "-") {
         /* unexpected kind */
@@ -99,10 +102,10 @@ static Boolean _checkStringForKind (IN String& st,
                   || lcString == "yes" || lcString == "no");
     } else if (elementKind == "N") {
         /* a natural value */
-        result = StringUtil::toNatural(st) != Natural::maximumValue();
+        result = STR::toNatural(st) != Natural::maximumValue();
     } else if (elementKind == "R") {
         /* a real (floating point) value */
-        result = StringUtil::toReal(st) != Real::maximumValue();
+        result = STR::toReal(st) != Real::maximumValue();
     } else if (elementKind == "S") {
         /* any string is okay value */
         result = true;
@@ -158,11 +161,10 @@ void _lookupArgument (IN String& argument,
     String defaultAbstractionData;
     String lookupKey;
 
-    if (StringUtil::startsWith(argument, "-")) {
+    if (STR::startsWith(argument, "-")) {
         /* this is an option, because it starts with a dash */
         Boolean containsEqualSign =
-            StringUtil::splitAt(argument, "=",
-                                originalName, embeddedParameter);
+            STR::splitAt(argument, "=", originalName, embeddedParameter);
         defaultAbstractionData = "ERR_UNKNOWN_OPTION/0/-";
         lookupKey = originalName + (containsEqualSign ? "=" : "");
     } else {
@@ -172,15 +174,14 @@ void _lookupArgument (IN String& argument,
 
         defaultAbstractionData = "ERR_BADFILE/0/-";
         const String namePrefix = "NAME:*";
-        String lowercasedArgument = StringUtil::toLowercase(argument);
-        Natural dotPosition =
-            StringUtil::findFromEnd(lowercasedArgument, ".");
+        String lowercasedArgument = STR::toLowercase(argument);
+        Natural dotPosition = STR::findFromEnd(lowercasedArgument, ".");
         Boolean isFound = false;
 
         /* search for suffix first */
         if (dotPosition != Natural::maximumValue()) {
             String suffix =
-                StringUtil::substring(lowercasedArgument, dotPosition);
+                STR::substring(lowercasedArgument, dotPosition);
             lookupKey = namePrefix + suffix;
             isFound =
                 rawArgumentNameToAbstractionMap.contains(lookupKey);
@@ -200,12 +201,12 @@ void _lookupArgument (IN String& argument,
                                 abstractionDataSeparator);
 
     Assertion_check(optionDataList.length() == 3,
-                    StringUtil::expand("the encoded option data must"
-                                       " have length 3 - %1",
-                                       optionDataList.toString()));
+                    STR::expand("the encoded option data must"
+                                " have length 3 - %1",
+                                optionDataList.toString()));
 
     abstractName   = optionDataList.at(0);
-    parameterCount = StringUtil::toNatural(optionDataList.at(1));
+    parameterCount = STR::toNatural(optionDataList.at(1));
     parameterKind  = optionDataList.at(2);
     
     Logging_trace5("<<: originalName = %1,"
@@ -223,11 +224,11 @@ void _lookupArgument (IN String& argument,
 String CommandLineArgument::toString () const
 {
     String st =
-        StringUtil::expand("CommandLineArgument(originalName = %1,"
-                           " abstractName = %2,"
-                           " parameterList = %3)",
-                           originalName, abstractName,
-                           parameterList.toString());
+        STR::expand("CommandLineArgument(originalName = %1,"
+                    " abstractName = %2,"
+                    " parameterList = %3)",
+                    originalName, abstractName,
+                    parameterList.toString());
     return st;
 }
 
@@ -236,16 +237,6 @@ String CommandLineArgument::toString () const
 String CommandLineArgument::toString (IN CommandLineArgument& argument)
 {
     return argument.toString();
-}
-
-/*--------------------*/
-/* CommandLineArgumentList         */
-/*--------------------*/
-
-String CommandLineArgumentList::toString () const
-{
-    return _toString("CommandLineArgumentList",
-                     CommandLineArgument::toString);
 }
 
 /*----------------------------*/

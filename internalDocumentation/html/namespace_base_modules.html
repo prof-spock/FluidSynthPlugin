@@ -84,6 +84,7 @@ $(document).ready(function(){initNavTree('namespace_base_modules.html',''); init
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
 <div class="title">BaseModules Namespace Reference</div>  </div>
@@ -114,7 +115,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A <code><a class="el" href="struct_base_modules_1_1_file.html" title="A File object provided methods for simple file handling based on C stdio.">File</a></code> object provided methods for simple file handling based on C stdio.  <a href="struct_base_modules_1_1_file.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_base_modules_1_1_logging.html">Logging</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A <code><a class="el" href="struct_base_modules_1_1_logging.html" title="A Logging object defines methods for entry/exit logging to a file; this logging relies on trace calls...">Logging</a></code> object defines methods for entry/exit logging to a file; this logging relies on trace calls at the beginning or end of a function with prefices "&gt;&gt;" and "&lt;&lt;" as well as intermediate log lines with prefix "--"; the name of the function is also logged to give a fully bracketed log.  <a href="struct_base_modules_1_1_logging.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A <code><a class="el" href="struct_base_modules_1_1_logging.html" title="A Logging object defines methods for entry/exit logging to a file or via a callback function; this lo...">Logging</a></code> object defines methods for entry/exit logging to a file or via a callback function; this logging relies on trace calls at the beginning or end of a function with prefices "&gt;&gt;" and "&lt;&lt;" as well as intermediate log lines with prefix "--"; the name of the function is also logged to give a fully bracketed log.  <a href="struct_base_modules_1_1_logging.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_base_modules_1_1_operating_system.html">OperatingSystem</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <code><a class="el" href="struct_base_modules_1_1_operating_system.html" title="The OperatingSystem specification defines a class for several operating system related utility functi...">OperatingSystem</a></code> specification defines a class for several operating system related utility functions (like e.g.  <a href="struct_base_modules_1_1_operating_system.html#details">More...</a><br /></td></tr>
@@ -122,6 +123,13 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_base_modules_1_1_string_util.html">StringUtil</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <code><a class="el" href="struct_base_modules_1_1_string_util.html" title="The StringUtil type provides several string routines not included in the standard C++ library (like,...">StringUtil</a></code> type provides several string routines not included in the standard C++ library (like, for example, prefix calculation, whitespace stripping etc).  <a href="struct_base_modules_1_1_string_util.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a408548c4096b18126d7343969c0c267e"><td class="memItemLeft" align="right" valign="top"><a id="a408548c4096b18126d7343969c0c267e"></a>
+typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_base_modules.html#a408548c4096b18126d7343969c0c267e">LoggingCallbackFunction</a>) (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;st)</td></tr>
+<tr class="memdesc:a408548c4096b18126d7343969c0c267e"><td class="mdescLeft">&#160;</td><td class="mdescRight">a callback function for logging (does direct calls for each logging entry and excludes file output) <br /></td></tr>
+<tr class="separator:a408548c4096b18126d7343969c0c267e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>

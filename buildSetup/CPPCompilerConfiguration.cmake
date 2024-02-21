@@ -121,10 +121,13 @@ SET(cppDefineClauseList
 # --- define flags per compiler ---
 IF(MSVC)
     # --- list of warning number to be ignored
-    SET(warningNumberList
+    SET(ignoredWarningNumberList
         4100 4180 4244 4505 4723 5105 6011 6255 6297
         26439 26451 26495 26498 26812 26819 28182)
   
+    SET(ignoredWarningNumberListRelease
+        4189)
+
     # select static MSVC library instead of dynamic library
     # SET(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded")
   
@@ -145,8 +148,8 @@ IF(MSVC)
            /Zc:wchar_t          # wchar is native
     )
 
-    # --- disable all warnings in warningNumberList ---
-    FOREACH(warningNumber ${warningNumberList})
+    # --- disable all warnings in ignoredWarningNumberList ---
+    FOREACH(warningNumber ${ignoredWarningNumberList})
         STRING(APPEND cppFlagsCommon " /wd${warningNumber}")
     ENDFOREACH()         
 
@@ -162,6 +165,10 @@ IF(MSVC)
            /fp:fast      # fast floating point calculation
            /Gw           # global program optimization
     )
+
+    FOREACH(warningNumber ${ignoredWarningNumberListRelease})
+        STRING(APPEND cppFlagsRelease " /wd${warningNumber}")
+    ENDFOREACH()         
 
     STRING(JOIN " " cppFlagsReleaseWithDebugInfo
            /DDEBUG       # debugging

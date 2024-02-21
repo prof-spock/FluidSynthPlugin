@@ -20,6 +20,7 @@
 /*--------------------*/
 
 using BaseModules::StringUtil;
+using STR = BaseModules::StringUtil;
 
 /*====================*/
 
@@ -38,24 +39,167 @@ static const Character _decimalPointCharacter{'.'};
  *  (when a conversion to real fails) */
 static const Real _undefinedReal = Real::maximumValue();
 
+/** list of all digit characters */
+static const String _digitCharacterList = "0123456789";
+
+/** list of all lowercase alpha digit characters */
+static const String _lcAlphaDigitCharacterList =
+    "abcdefghijklmnopqrstuvwxyz";
+
+/** list of all lowercase alpha digit characters */
+static const String _ucAlphaDigitCharacterList =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 /*--------------------*/
-/* INTERNAL ROUTINES  */
+/* PRIVATE ROUTINES   */
 /*--------------------*/
 
 /**
- * Returns character at <C>position</C> in <C>st</C>.
+ * Analyzes <C>st</C> for being a correct natural or integer
+ * (depending on <C>isIntegerString</C> relative to <C>base</C>.
  *
- * @param[in] st        the string to be indexed
- * @param[in] position  the character index (starting at 0)
- * @return  character at position
+ * @param[in]  st               string to be analyzed
+ * @param[in]  base             number base for string
+ * @param[in]  isIntegerString  information whether this should be an
+ *                              integer
+ * @param[out] isNegative       information whether string is
+ *                              negative
+ * @param[out] digitString      string with digits
+ * @return  information whether string conforms to integer or natural
  */
-static Character _at (IN String& st, IN Natural position)
+static Boolean _analyzeSimpleNumberString (IN String& st,
+                                           IN Natural base,
+                                           IN Boolean isIntegerString,
+                                           OUT Boolean& isNegative,
+                                           OUT String& digitString)
+{
+    const Natural stringLength = st.length();
+    Boolean isOkay = (stringLength > 0);
+
+    if (isOkay) {
+        isNegative = (STR::characterAt(st, 0) == '-');
+        Natural i = (isNegative ? 1 : 0);
+
+        if (i + 2 < stringLength) {
+            String prefix = STR::substring(st, i, 2);
+
+            if (prefix == "0X" || prefix == "0x") {
+                i += 2;
+            }
+        }
+
+        // at least one character must be left
+        digitString = STR::substring(st, i);
+        isOkay = (digitString.length() > 0);
+    
+        String allowedCharacterList =
+            (STR::prefix(_digitCharacterList, base)
+             + STR::prefix(_lcAlphaDigitCharacterList, base - 10)
+             + STR::prefix(_ucAlphaDigitCharacterList, base - 10));
+
+        for (;  i < stringLength;  i++) {
+            Character ch = STR::characterAt(st, i);
+
+            if (!STR::contains(allowedCharacterList, ch)) {
+                isOkay = false;
+                break;
+            }
+        }
+    }
+
+    return isOkay;
+}
+
+/*--------------------*/
+
+/**
+ * Converts a plain string <C>st</C> containing digits of <C>base</C>
+ * to a natural value.
+ *
+ * @param[in] st    string to be converter
+ * @param[in] base  number base
+ * @return  natural value
+ */
+Natural _convertDigitString (IN String& st,
+                             IN Natural base)
+{
+    const Natural stringLength = st.length();
+    Natural result = 0;
+    Natural offset = _digitCharacterList.length();
+
+    for (Natural i = 0;  i < stringLength;  i++) {
+        Character ch = STR::characterAt(st, i);
+        Natural digitValue = 0;
+
+        if (STR::contains(_digitCharacterList, ch)) {
+            digitValue = STR::find(_digitCharacterList, ch);
+        } else if (STR::contains(_lcAlphaDigitCharacterList, ch)) {
+            digitValue = (STR::find(_lcAlphaDigitCharacterList, ch)
+                          + offset);
+        } else if (STR::contains(_ucAlphaDigitCharacterList, ch)) {
+            digitValue = (STR::find(_ucAlphaDigitCharacterList, ch)
+                          + offset);
+        }
+
+        result = result * base + digitValue;
+    }
+
+    return result;
+}
+
+/*--------------------*/
+
+/**
+ * Converts <C>st</C> to a natural with a given base (typically 2, 8,
+ * 16); if conversion fails, <C>defaultValue</C> is returned
+ *
+ * @param[in] st            the string to be converted to natural
+ * @param[in] base          the base of the conversion
+ * @param[in] defaultValue  the value to be used for bad conversion
+ * @return  natural value of string for base or default
+ */
+static Natural _toNaturalWithBaseAndDefault (IN String& st,
+                                             IN Natural base,
+                                             IN Natural defaultValue)
+{
+    Natural result = defaultValue;
+    Boolean isNegative;
+    String digitString;
+    Boolean isOkay =
+        _analyzeSimpleNumberString(st, base, false,
+                                   isNegative, digitString);
+
+    if (isOkay) {
+        result = _convertDigitString(digitString, base);
+    }
+
+    return result;
+}
+
+/*--------------------*/
+/* PUBLIC ROUTINES    */
+/*--------------------*/
+
+void StringUtil::append (INOUT String& st, IN Character ch)
+{
+    st += TOSTRING(ch);
+}
+
+/*--------------------*/
+
+Character StringUtil::characterAt (IN String& st, IN Natural position)
 {
     return Character{st[(size_t) position]};
 }
 
 /*--------------------*/
+
+Boolean StringUtil::contains (IN String& st, IN Character ch,
+                              IN Natural startPosition)
+{
+    return find(st, ch, startPosition) != Natural::maximumValue();
+}
+
 /*--------------------*/
 
 Boolean StringUtil::contains (IN String& st, IN String& substring,
@@ -91,7 +235,12 @@ String StringUtil::expand (IN String& st,
                            IN String& replacement07,
                            IN String& replacement08,
                            IN String& replacement09,
-                           IN String& replacement10)
+                           IN String& replacement10,
+                           IN String& replacement11,
+                           IN String& replacement12,
+                           IN String& replacement13,
+                           IN String& replacement14,
+                           IN String& replacement15)
 {
     String result = st;
     replace(result, "%1", replacement01);
@@ -104,6 +253,21 @@ String StringUtil::expand (IN String& st,
     replace(result, "%8", replacement08);
     replace(result, "%9", replacement09);
     replace(result, "%A", replacement10);
+    replace(result, "%B", replacement11);
+    replace(result, "%C", replacement12);
+    replace(result, "%D", replacement13);
+    replace(result, "%E", replacement14);
+    replace(result, "%F", replacement15);
+    return result;
+}
+
+/*--------------------*/
+
+Natural StringUtil::find (IN String& st, IN Character ch,
+                          IN Natural startPosition)
+{
+    Natural result = st.find((char) ch, (size_t) startPosition);
+    result = (result == _notFound ? Natural::maximumValue() : result);
     return result;
 }
 
@@ -129,19 +293,9 @@ Natural StringUtil::findFromEnd (IN String& st, IN String& substring,
 
 /*--------------------*/
 
-Boolean StringUtil::isNatural (IN String& st)
+Character StringUtil::firstCharacter (IN String& st)
 {
-    const Natural stringLength = st.length();
-    Boolean result = (stringLength > 0);
-
-    for (Natural i = 0;  i < stringLength;  i++) {
-        if (!isdigit((char) _at(st, i))) {
-            result = false;
-            break;
-        }
-    }
-
-    return result;
+    return Character{st[0]};
 }
 
 /*--------------------*/
@@ -155,13 +309,23 @@ Boolean StringUtil::isByte (IN String& st)
 
 Boolean StringUtil::isInt (IN String& st)
 {
-    Boolean result = false;
+    Boolean isNegative;
+    String digitString;
+    Boolean result =
+        _analyzeSimpleNumberString(st, 10, true,
+                                   isNegative, digitString);
+    return result;
+}
 
-    if (st > "") {
-        Natural firstIndex = (_at(st, 0) == _minusCharacter ? 1 : 0);
-        result = isNatural(substring(st, firstIndex));
-    }
+/*--------------------*/
 
+Boolean StringUtil::isNatural (IN String& st, IN Natural base)
+{
+    Boolean isNegative;
+    String digitString;
+    Boolean result =
+        _analyzeSimpleNumberString(st, base, false,
+                                   isNegative, digitString);
     return result;
 }
 
@@ -174,15 +338,16 @@ Boolean StringUtil::isReal (IN String& st)
 
     if (stringLength == 0) {
         result = false;
-    } else if (stringLength == 1 && _at(st, 0) == _minusCharacter) {
+    } else if (stringLength == 1 && characterAt(st, 0) == _minusCharacter) {
         result = false;
     } else {
         result = true;
         Boolean isBeforeDecimalPoint = true;
-        const Natural firstIndex = (_at(st, 0) == _minusCharacter ? 1 : 0);
+        const Natural firstIndex =
+            (characterAt(st, 0) == _minusCharacter ? 1 : 0);
 
         for (Natural i = firstIndex; i < stringLength;  i++) {
-            const Character ch{_at(st, i)};
+            const Character ch{characterAt(st, i)};
 
             if (ch == _decimalPointCharacter && isBeforeDecimalPoint) {
                 isBeforeDecimalPoint = false;
@@ -198,7 +363,7 @@ Boolean StringUtil::isReal (IN String& st)
 
 /*--------------------*/
 
-Character StringUtil::lastChar(IN String& st)
+Character StringUtil::lastCharacter (IN String& st)
 {
     return Character{st[st.length() - 1]};
 }
@@ -220,6 +385,13 @@ String StringUtil::newlineReplacedString (IN String& st,
 String StringUtil::prefix (IN String& st, IN Natural count)
 {
     return substring(st, 0, count);
+}
+
+/*--------------------*/
+
+void StringUtil::prepend (INOUT String& st, IN Character ch)
+{
+    st = TOSTRING(ch) + st;
 }
 
 /*--------------------*/
@@ -247,6 +419,15 @@ void StringUtil::replace (INOUT String& st,
 
 /*--------------------*/
 
+void StringUtil::setCharacterAt (INOUT String& st,
+                                 IN Natural position,
+                                 IN Character ch)
+{
+    st[(size_t) position] = (char) ch;
+}
+
+/*--------------------*/
+
 Boolean StringUtil::splitAt (IN String& st, IN String& separator,
                              OUT String& prefix, OUT String& suffix)
 {
@@ -258,8 +439,8 @@ Boolean StringUtil::splitAt (IN String& st, IN String& separator,
         prefix = st;
         suffix = "";
     } else {
-        prefix = StringUtil::prefix(st, position);
         suffix = substring(st, position + separatorLength);
+        prefix = StringUtil::prefix(st, position);
     }
 
     return isFound;
@@ -289,7 +470,7 @@ String StringUtil::strip (IN String& st)
     Natural i;
 
     for (i = stringLength;  i > 0; i--) {
-        if (whiteSpace.find((char) _at(st, i - 1)) == _notFound) {
+        if (whiteSpace.find((char) characterAt(st, i - 1)) == _notFound) {
             break;
         }
     }
@@ -297,7 +478,7 @@ String StringUtil::strip (IN String& st)
     const Natural lastRelevantIndex = i - Natural{1};
 
     for (i = 0;  i < stringLength;  i++) {
-        if (whiteSpace.find((char) _at(st, i)) == _notFound) {
+        if (whiteSpace.find((char) characterAt(st, i)) == _notFound) {
             break;
         }
     }
@@ -329,28 +510,52 @@ Byte StringUtil::toByte (IN String& st)
 Integer StringUtil::toInteger (IN String& st,
                                IN Integer defaultValue)
 {
-    return (isInt(st) ? Integer{std::stoi(st)} : defaultValue);
+    Integer result;
+    Natural base = 10;
+    Boolean isNegative;
+    String digitString;
+    Boolean isOkay =
+        _analyzeSimpleNumberString(st, base, true,
+                                   isNegative, digitString);
+
+    if (!isOkay) {
+        result = defaultValue;
+    } else {
+        result = _convertDigitString(digitString, base);
+        result *= (isNegative ? -1 : 1);
+    }
+
+    return result;
 }
 
 /*--------------------*/
 
 Natural StringUtil::toNatural (IN String& st)
 {
-    return toNatural(st, 1000000);
+    return toNatural(st, Natural::maximumValue());
 }
 
 /*--------------------*/
 
 Natural StringUtil::toNatural (IN String& st, IN Natural defaultValue)
 {
-    return (isNatural(st) ? (Natural) std::stoi(st) : defaultValue);
+    return _toNaturalWithBaseAndDefault(st, 10, defaultValue);
+}
+
+/*--------------------*/
+
+Natural StringUtil::toNaturalWithBase (IN String& st,
+                                       IN Natural base)
+{
+    return _toNaturalWithBaseAndDefault(st, base,
+                                        Natural::maximumValue());
 }
 
 /*--------------------*/
 
 Percentage StringUtil::toPercentage (IN String& st)
 {
-    return Percentage(std::stod(st));
+    return Percentage(toReal(st));
 }
 
 /*--------------------*/
@@ -376,9 +581,58 @@ String StringUtil::toString (IN Boolean b)
 
 /*--------------------*/
 
-String StringUtil::toString (IN Byte& b)
+String StringUtil::toString (IN Byte b)
 {
     return b.toString();
+}
+
+/*--------------------*/
+
+String StringUtil::toString (IN Character ch)
+{
+    return ch.toString();
+}
+
+/*--------------------*/
+
+String StringUtil::toString (IN Integer i)
+{
+    return toString(i, 0);
+}
+
+/*--------------------*/
+
+String StringUtil::toString (IN Integer i,
+                             IN Natural precision,
+                             IN String padString)
+{
+    return i.toString(precision, padString);
+}
+
+/*--------------------*/
+
+String StringUtil::toString (IN Natural n)
+{
+    return toString(n, 0);
+}
+
+/*--------------------*/
+
+String StringUtil::toString (IN Natural n,
+                             IN Natural precision,
+                             IN String padString)
+{
+    return n.toString(precision, padString);
+}
+
+/*--------------------*/
+
+String StringUtil::toStringWithBase (IN Natural n,
+                                     IN Natural base,
+                                     IN Natural precision,
+                                     IN String padString)
+{
+    return n.toStringWithBase(base, precision, padString);
 }
 
 /*--------------------*/
@@ -390,35 +644,18 @@ String StringUtil::toString (IN Real r)
 
 /*--------------------*/
 
-String StringUtil::toString (IN Integer i) {
-    return toString(i, 0);
-}
-
-/*--------------------*/
-
-String StringUtil::toString (IN Integer i,
+String StringUtil::toString (IN Real r,
                              IN Natural precision,
-                             IN String padCharacter) {
-    return i.toString(precision, padCharacter);
+                             IN Natural fractionalDigitCount,
+                             IN String padString)
+{
+    return r.toString(precision, fractionalDigitCount, padString);
 }
 
 /*--------------------*/
 
-String StringUtil::toString (IN Natural n) {
-    return toString(n, 0);
-}
-
-/*--------------------*/
-
-String StringUtil::toString (IN Natural n,
-                             IN Natural precision,
-                             IN String padCharacter) {
-    return n.toString(precision, padCharacter);
-}
-
-/*--------------------*/
-
-String StringUtil::toPrintableString (IN String& st) {
+String StringUtil::toPrintableString (IN String& st)
+{
     const String doubleQuote = "\"";
     String result = st;
     replace(result, doubleQuote, doubleQuote + doubleQuote);
@@ -428,7 +665,8 @@ String StringUtil::toPrintableString (IN String& st) {
 
 /*--------------------*/
 
-String StringUtil::fromPrintableString (IN String& st) {
+String StringUtil::fromPrintableString (IN String& st)
+{
     const String doubleQuote = "\"";
     const String strippedSt = strip(st);
     const Natural stringLength = strippedSt.length();

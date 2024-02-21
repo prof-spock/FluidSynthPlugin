@@ -91,6 +91,19 @@ namespace BaseTypes::Primitives {
             return result;
         }
 
+        /*--------------------*/
+
+        /**
+         * Returns string representation of <C>ch</C>.
+         *
+         * @param[in] ch  character to be converted
+         * @return  string representation
+         */
+        static String toString (IN Character& ch)
+        {
+            return ch.toString();
+        }
+
     };
 
 }
