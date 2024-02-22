@@ -687,7 +687,7 @@ ENDFUNCTION(makeLaTeXDocumentationTarget)
 INCLUDE_DIRECTORIES(${standardIncludeDirectoryList})
 
 # compile with logging enabled globally for a debug configuration
-# ADD_COMPILE_DEFINITIONS($<$<CONFIG:Debug>:LOGGING_IS_ACTIVE>)
+ADD_COMPILE_DEFINITIONS($<$<CONFIG:Debug>:LOGGING_IS_ACTIVE>)
 
 # ==================================
 # === intermediate library files ===

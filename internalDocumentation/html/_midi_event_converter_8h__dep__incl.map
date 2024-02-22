@@ -1,0 +1,6 @@
+<map id="MidiEventConverter.h" name="MidiEventConverter.h">
+<area shape="rect" id="node1" title="The MidiEventConverter specification defines the handling of MIDI events by feeding them to an underl..." alt="" coords="291,5,451,33"/>
+<area shape="rect" id="node2" href="$_fluid_synth_file_converter_8cpp.html" title="The FluidSynthFileConverter module implements a conversion from a MIDI file into a wave file using th..." alt="" coords="5,81,211,109"/>
+<area shape="rect" id="node3" href="$_fluid_synth_plugin___event_processor_8cpp.html" title="The FluidSynthPlugin_Processor module implements the handling of MIDI events from the DAW via JUCE ha..." alt="" coords="235,81,506,109"/>
+<area shape="rect" id="node4" href="$_midi_event_converter_8cpp.html" title="The MidiEventConverter module implements the handling of MIDI events by feeding them to an underlying..." alt="" coords="531,81,707,109"/>
+</map>

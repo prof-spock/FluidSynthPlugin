@@ -1,0 +1,24 @@
+<map id="LoggingSupport.h" name="LoggingSupport.h">
+<area shape="rect" id="node1" title="The LoggingSupport specification defines a class for simple entry/exit logging to a file or via an ar..." alt="" coords="1229,5,1365,33"/>
+<area shape="rect" id="node2" href="$_logging_8h.html" title="The Logging specification defines macros for entry&#45;, exit&#45; and intermediate logging of functions into..." alt="" coords="1183,81,1269,109"/>
+<area shape="rect" id="node22" href="$_logging_support_8cpp.html" title="The LoggingSupport body implements a class for simple entry/exit logging to a file or via a callback ..." alt="" coords="1293,81,1445,109"/>
+<area shape="rect" id="node3" href="$_audio_sample_fifo_queue_8cpp-inc.html" title="The AudioSampleFifoQueue body implements a fifo queue for audio samples with popping off access to th..." alt="" coords="129,157,357,185"/>
+<area shape="rect" id="node8" href="$_fluid_synth_plugin___event_processor_8cpp.html" title="The FluidSynthPlugin_Processor module implements the handling of MIDI events from the DAW via JUCE ha..." alt="" coords="5,385,276,413"/>
+<area shape="rect" id="node9" href="$_audio_sample_fifo_queue_vector_8cpp-inc.html" title="The AudioSampleFifoQueueVector body implements a list of fifo queues for audio samples (this is the e..." alt="" coords="349,233,620,261"/>
+<area shape="rect" id="node10" href="$_wave_file_8cpp.html" title="The WaveFile specification defines an object for accessing a RIFF wave file with several channels." alt="" coords="433,157,544,185"/>
+<area shape="rect" id="node11" href="$_command_line_arguments_8cpp.html" title="The CommandLineArguments body implements a handler for command&#45;line arguments converting them to a li..." alt="" coords="568,157,785,185"/>
+<area shape="rect" id="node12" href="$_operating_system_8cpp.html" title="The OperatingSystem body implements a class for several operating system related utility functions (l..." alt="" coords="809,157,973,185"/>
+<area shape="rect" id="node13" href="$_fluid_synth_8cpp.html" title="The FluidSynth class implements the access to the fluidsynth library via a dynamic loading of it." alt="" coords="997,157,1116,185"/>
+<area shape="rect" id="node14" href="$_fluid_synth_settings_8cpp.html" title="The FluidSynthSettings class implements an object&#45;oriented wrapper around an underlying fluidsynth se..." alt="" coords="1141,157,1311,185"/>
+<area shape="rect" id="node15" href="$_fluid_synth_synthesizer_8cpp.html" title="The FluidSynthSynthesizer class implements an object&#45;oriented wrapper around an underlying fluidsynth..." alt="" coords="1335,157,1530,185"/>
+<area shape="rect" id="node16" href="$_fluid_synth_file_converter_8cpp.html" title="The FluidSynthFileConverter module implements a conversion from a MIDI file into a wave file using th..." alt="" coords="1554,157,1759,185"/>
+<area shape="rect" id="node17" href="$_fluid_synth_plugin___editor_8cpp.html" title="The FluidSynthPlugin_Editor module implements the editor for the processor of MIDI events from the DA..." alt="" coords="1784,157,1988,185"/>
+<area shape="rect" id="node18" href="$_midi_event_8cpp.html" title="The MidiEvent implementation defines the services of a single MIDI event." alt="" coords="2013,157,2125,185"/>
+<area shape="rect" id="node19" href="$_midi_event_converter_8cpp.html" title="The MidiEventConverter module implements the handling of MIDI events by feeding them to an underlying..." alt="" coords="2149,157,2325,185"/>
+<area shape="rect" id="node20" href="$_midi_event_list_8cpp.html" title="The MIDIEventList body implements sequences of integer values with zero&#45;based arbitrary indexed acces..." alt="" coords="2349,157,2484,185"/>
+<area shape="rect" id="node21" href="$_midi_file_8cpp.html" title="The MidiFile implementation implements the services of a MIDI file; currently only file reading is su..." alt="" coords="2509,157,2607,185"/>
+<area shape="rect" id="node4" href="$_audio_sample_fifo_queue_8h.html" title="The AudioSampleFifoQueue specification defines a fifo queue for audio samples with popping off access..." alt="" coords="137,233,325,261"/>
+<area shape="rect" id="node5" href="$_audio_sample_fifo_queue_8cpp.html" title="The AudioSampleFifoQueue body implements a fifo queue for audio samples with popping off access to th..." alt="" coords="129,309,333,337"/>
+<area shape="rect" id="node6" href="$_audio_sample_fifo_queue_vector_8h.html" title="The AudioSampleFifoQueueVector specification defines a list of fifo queues for audio samples." alt="" coords="357,309,588,337"/>
+<area shape="rect" id="node7" href="$_audio_sample_fifo_queue_vector_8cpp.html" title="The AudioSampleFifoQueueVector body implements a list of fifo queues for audio samples (this is the f..." alt="" coords="349,385,596,413"/>
+</map>

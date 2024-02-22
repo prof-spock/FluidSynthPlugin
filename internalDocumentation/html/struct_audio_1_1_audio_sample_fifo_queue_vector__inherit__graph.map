@@ -1,0 +1,4 @@
+<map id="Audio::AudioSampleFifoQueueVector" name="Audio::AudioSampleFifoQueueVector">
+<area shape="rect" id="node1" title="A AudioSampleFifoQueueVector object is a list of fifo queues for audio samples with selection by inde..." alt="" coords="5,167,247,376"/>
+<area shape="rect" id="node2" title=" " alt="" coords="13,5,239,119"/>
+</map>

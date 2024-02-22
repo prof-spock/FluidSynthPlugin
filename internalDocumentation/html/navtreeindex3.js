@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"struct_base_modules_1_1_logging.html#ae23237dbb59065cdf7e67521072965eb":[2,0,1,6,4],
 "struct_base_modules_1_1_operating_system.html":[2,0,1,7],
 "struct_base_modules_1_1_operating_system.html#a10e2b6a1806855f2e55a62a2c6b9160e":[2,0,1,7,5],
 "struct_base_modules_1_1_operating_system.html#a2bfeca4755bd7c4b624facb46f19fc88":[2,0,1,7,6],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "struct_libraries_1_1_fluid_synth_1_1_fluid_synth.html#a1b3b3c82f30dee9da3e7001f04ff8854":[2,0,3,0,0,2],
 "struct_libraries_1_1_fluid_synth_1_1_fluid_synth.html#a2dc8eb849f83eff3c4d2c42eec0de4e6":[2,0,3,0,0,6],
 "struct_libraries_1_1_fluid_synth_1_1_fluid_synth.html#a55d9150860f49f02536454529dd2cd35":[2,0,3,0,0,4],
-"struct_libraries_1_1_fluid_synth_1_1_fluid_synth.html#a819b8ce14b56ac625d49bb566a37ae09":[2,0,3,0,0,1],
-"struct_libraries_1_1_fluid_synth_1_1_fluid_synth.html#ac4added1c5644e97bff2cf0104f3587e":[2,0,3,0,0,3]
+"struct_libraries_1_1_fluid_synth_1_1_fluid_synth.html#a819b8ce14b56ac625d49bb566a37ae09":[2,0,3,0,0,1]
 };

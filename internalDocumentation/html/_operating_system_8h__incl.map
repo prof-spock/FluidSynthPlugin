@@ -1,0 +1,12 @@
+<map id="OperatingSystem.h" name="OperatingSystem.h">
+<area shape="rect" id="node1" title="The OperatingSystem specification defines a class for several operating system related utility functi..." alt="" coords="49,5,197,33"/>
+<area shape="rect" id="node2" href="$_boolean_8h.html" title="The Boolean specification and body provides a value object type for boolean values." alt="" coords="26,81,113,109"/>
+<area shape="rect" id="node6" href="$_natural_8h.html" title="The Natural specification and body provides a value object type for naturals (positive integers with ..." alt="" coords="137,81,217,109"/>
+<area shape="rect" id="node3" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="24,157,115,185"/>
+<area shape="rect" id="node4" title=" " alt="" coords="152,233,211,261"/>
+<area shape="rect" id="node5" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="5,233,128,261"/>
+<area shape="rect" id="node7" title=" " alt="" coords="139,157,202,185"/>
+<area shape="rect" id="node8" href="$_assertion_8h.html" title="The Assertion specification defines macros for pre&#45; and postconditions in functions or methods." alt="" coords="226,157,321,185"/>
+<area shape="rect" id="node10" title=" " alt="" coords="345,157,482,185"/>
+<area shape="rect" id="node9" title=" " alt="" coords="235,233,320,261"/>
+</map>

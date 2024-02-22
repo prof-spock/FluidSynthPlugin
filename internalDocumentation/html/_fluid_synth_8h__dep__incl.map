@@ -1,0 +1,9 @@
+<map id="FluidSynth.h" name="FluidSynth.h">
+<area shape="rect" id="node1" title="The FluidSynth class specifies an object&#45;oriented wrapper around the fluidsynth library and also allo..." alt="" coords="93,5,196,33"/>
+<area shape="rect" id="node2" href="$_fluid_synth_8cpp.html" title="The FluidSynth class implements the access to the fluidsynth library via a dynamic loading of it." alt="" coords="5,81,124,109"/>
+<area shape="rect" id="node3" href="$_fluid_synth_settings_8h.html" title="The FluidSynthSettings class specifies an object&#45;oriented wrapper around an underlying fluidsynth set..." alt="" coords="149,81,303,109"/>
+<area shape="rect" id="node4" href="$_fluid_synth_settings_8cpp.html" title="The FluidSynthSettings class implements an object&#45;oriented wrapper around an underlying fluidsynth se..." alt="" coords="41,157,211,185"/>
+<area shape="rect" id="node5" href="$_fluid_synth_synthesizer_8h.html" title="The FluidSynthSynthesizer class specifies an object&#45;oriented wrapper around an underlying fluidsynth ..." alt="" coords="235,157,414,185"/>
+<area shape="rect" id="node6" href="$_fluid_synth_synthesizer_8cpp.html" title="The FluidSynthSynthesizer class implements an object&#45;oriented wrapper around an underlying fluidsynth..." alt="" coords="122,233,317,261"/>
+<area shape="rect" id="node7" href="$_midi_event_converter_8cpp.html" title="The MidiEventConverter module implements the handling of MIDI events by feeding them to an underlying..." alt="" coords="341,233,517,261"/>
+</map>

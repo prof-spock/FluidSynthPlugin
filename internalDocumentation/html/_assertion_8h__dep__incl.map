@@ -1,0 +1,52 @@
+<map id="Assertion.h" name="Assertion.h">
+<area shape="rect" id="node1" title="The Assertion specification defines macros for pre&#45; and postconditions in functions or methods." alt="" coords="2671,5,2765,33"/>
+<area shape="rect" id="node2" href="$_audio_sample_fifo_queue_8cpp-inc.html" title="The AudioSampleFifoQueue body implements a fifo queue for audio samples with popping off access to th..." alt="" coords="352,537,580,565"/>
+<area shape="rect" id="node8" href="$_audio_sample_fifo_queue_vector_8cpp-inc.html" title="The AudioSampleFifoQueueVector body implements a list of fifo queues for audio samples (this is the e..." alt="" coords="5,537,276,565"/>
+<area shape="rect" id="node9" href="$_wave_file_8cpp.html" title="The WaveFile specification defines an object for accessing a RIFF wave file with several channels." alt="" coords="2497,537,2608,565"/>
+<area shape="rect" id="node10" href="$_command_line_arguments_8cpp.html" title="The CommandLineArguments body implements a handler for command&#45;line arguments converting them to a li..." alt="" coords="1092,537,1309,565"/>
+<area shape="rect" id="node11" href="$_file_8cpp.html" title="The File body implements a class for simple file handling based on C stdio." alt="" coords="3400,537,3473,565"/>
+<area shape="rect" id="node12" href="$_logging_support_8cpp.html" title="The LoggingSupport body implements a class for simple entry/exit logging to a file or via a callback ..." alt="" coords="3223,537,3375,565"/>
+<area shape="rect" id="node13" href="$_dictionary_8cpp.html" title="The Dictionary body implements maps from string keys to string values." alt="" coords="2709,81,2823,109"/>
+<area shape="rect" id="node14" href="$_string_list_8cpp.html" title="The StringList body implements lists of string values with zero&#45;based arbitrary indexed access to pos..." alt="" coords="2893,461,3004,489"/>
+<area shape="rect" id="node15" href="$_natural_8h.html" title="The Natural specification and body provides a value object type for naturals (positive integers with ..." alt="" coords="2074,81,2154,109"/>
+<area shape="rect" id="node17" href="$_fluid_synth_file_converter_8cpp.html" title="The FluidSynthFileConverter module implements a conversion from a MIDI file into a wave file using th..." alt="" coords="2871,537,3077,565"/>
+<area shape="rect" id="node25" href="$_midi_event_8cpp.html" title="The MidiEvent implementation defines the services of a single MIDI event." alt="" coords="1334,537,1446,565"/>
+<area shape="rect" id="node28" href="$_midi_file_8cpp.html" title="The MidiFile implementation implements the services of a MIDI file; currently only file reading is su..." alt="" coords="3101,537,3199,565"/>
+<area shape="rect" id="node3" href="$_audio_sample_fifo_queue_8h.html" title="The AudioSampleFifoQueue specification defines a fifo queue for audio samples with popping off access..." alt="" coords="372,613,560,641"/>
+<area shape="rect" id="node4" href="$_audio_sample_fifo_queue_8cpp.html" title="The AudioSampleFifoQueue body implements a fifo queue for audio samples with popping off access to th..." alt="" coords="508,689,712,717"/>
+<area shape="rect" id="node5" href="$_audio_sample_fifo_queue_vector_8h.html" title="The AudioSampleFifoQueueVector specification defines a list of fifo queues for audio samples." alt="" coords="253,689,484,717"/>
+<area shape="rect" id="node6" href="$_audio_sample_fifo_queue_vector_8cpp.html" title="The AudioSampleFifoQueueVector body implements a list of fifo queues for audio samples (this is the f..." alt="" coords="245,765,492,793"/>
+<area shape="rect" id="node7" href="$_fluid_synth_plugin___event_processor_8cpp.html" title="The FluidSynthPlugin_Processor module implements the handling of MIDI events from the DAW via JUCE ha..." alt="" coords="1221,765,1492,793"/>
+<area shape="rect" id="node16" href="$_wave_file_8h.html" title="The WaveFile specification defines an object for accessing a RIFF wave file with several channels." alt="" coords="2469,461,2564,489"/>
+<area shape="rect" id="node18" href="$_logging_support_8h.html" title="The LoggingSupport specification defines a class for simple entry/exit logging to a file or via an ar..." alt="" coords="2498,385,2634,413"/>
+<area shape="rect" id="node29" href="$_operating_system_8h.html" title="The OperatingSystem specification defines a class for several operating system related utility functi..." alt="" coords="2640,461,2788,489"/>
+<area shape="rect" id="node30" href="$_my_array_8h.html" title="The MyArray specification and body defines a generic array type for stack allocated arrays represente..." alt="" coords="741,385,828,413"/>
+<area shape="rect" id="node33" href="$_byte_8h.html" title="The Byte specification and body provides a value object type for byte values." alt="" coords="2208,233,2271,261"/>
+<area shape="rect" id="node40" href="$_integer_8h.html" title="The Integer specification and body provides a value object type for ints." alt="" coords="1511,157,1589,185"/>
+<area shape="rect" id="node46" href="$_midi_event_converter_8h.html" title="The MidiEventConverter specification defines the handling of MIDI events by feeding them to an underl..." alt="" coords="1777,461,1937,489"/>
+<area shape="rect" id="node47" href="$_fluid_synth_8h.html" title="The FluidSynth class specifies an object&#45;oriented wrapper around the fluidsynth library and also allo..." alt="" coords="1640,309,1743,337"/>
+<area shape="rect" id="node49" href="$_fluid_synth_synthesizer_8h.html" title="The FluidSynthSynthesizer class specifies an object&#45;oriented wrapper around an underlying fluidsynth ..." alt="" coords="1318,461,1497,489"/>
+<area shape="rect" id="node50" href="$_midi_file_8h.html" title="The MidiFile specification defines the services of a MIDI file; currently only file reading is suppor..." alt="" coords="3029,461,3111,489"/>
+<area shape="rect" id="node19" href="$_logging_8h.html" title="The Logging specification defines macros for entry&#45;, exit&#45; and intermediate logging of functions into..." alt="" coords="2139,461,2225,489"/>
+<area shape="rect" id="node20" href="$_operating_system_8cpp.html" title="The OperatingSystem body implements a class for several operating system related utility functions (l..." alt="" coords="2632,537,2796,565"/>
+<area shape="rect" id="node21" href="$_fluid_synth_8cpp.html" title="The FluidSynth class implements the access to the fluidsynth library via a dynamic loading of it." alt="" coords="1916,537,2035,565"/>
+<area shape="rect" id="node22" href="$_fluid_synth_settings_8cpp.html" title="The FluidSynthSettings class implements an object&#45;oriented wrapper around an underlying fluidsynth se..." alt="" coords="1670,537,1841,565"/>
+<area shape="rect" id="node23" href="$_fluid_synth_synthesizer_8cpp.html" title="The FluidSynthSynthesizer class implements an object&#45;oriented wrapper around an underlying fluidsynth..." alt="" coords="873,537,1067,565"/>
+<area shape="rect" id="node24" href="$_fluid_synth_plugin___editor_8cpp.html" title="The FluidSynthPlugin_Editor module implements the editor for the processor of MIDI events from the DA..." alt="" coords="2059,537,2263,565"/>
+<area shape="rect" id="node26" href="$_midi_event_converter_8cpp.html" title="The MidiEventConverter module implements the handling of MIDI events by feeding them to an underlying..." alt="" coords="1470,537,1646,565"/>
+<area shape="rect" id="node27" href="$_midi_event_list_8cpp.html" title="The MIDIEventList body implements sequences of integer values with zero&#45;based arbitrary indexed acces..." alt="" coords="2339,537,2473,565"/>
+<area shape="rect" id="node31" href="$_audio_sample_list_8cpp-inc.html" title="The AudioSampleList body implements a simple list of audio samples (this is the effective code includ..." alt="" coords="564,461,747,489"/>
+<area shape="rect" id="node32" href="$_audio_sample_list_8h.html" title="The AudioSampleList specification defines lists of audio samples with zero&#45;based arbitrary indexed ac..." alt="" coords="604,537,747,565"/>
+<area shape="rect" id="node34" href="$_byte_list_8h.html" title="The ByteList specification defines lists of byte values with zero&#45;based arbitrary indexed access to p..." alt="" coords="2168,385,2255,413"/>
+<area shape="rect" id="node38" href="$_character_8h.html" title="The Character specification and body provides a value object type for character values." alt="" coords="2277,309,2375,337"/>
+<area shape="rect" id="node35" href="$_file_8h.html" title="The File specification defines a class for simple file handling based on C stdio." alt="" coords="2812,461,2869,489"/>
+<area shape="rect" id="node36" href="$_byte_list_8cpp.html" title="The ByteList body implements sequences of byte values with zero&#45;based arbitrary indexed access to pos..." alt="" coords="2012,461,2115,489"/>
+<area shape="rect" id="node37" href="$_midi_event_8h.html" title="The MidiEvent specification defines a single MIDI event and the MIDI event kind enumeration." alt="" coords="1521,461,1617,489"/>
+<area shape="rect" id="node39" href="$_string_util_8h.html" title="The StringUtil specification defines several string routines not included in the standard C++ library..." alt="" coords="2331,385,2423,413"/>
+<area shape="rect" id="node41" href="$_real_8h.html" title="The Real specification defines a value object type for real values." alt="" coords="1805,233,1869,261"/>
+<area shape="rect" id="node42" href="$_audio_sample_8h.html" title="The AudioSample specification and body provides the definition of the audio sample (a real value)." alt="" coords="1495,309,1615,337"/>
+<area shape="rect" id="node43" href="$_real_list_8h.html" title="The RealList specification defines lists of real values with zero&#45;based arbitrary indexed access to p..." alt="" coords="1931,309,2017,337"/>
+<area shape="rect" id="node44" href="$_percentage_8h.html" title="The Percentage specification and body provides a simple percentage type." alt="" coords="2093,309,2202,337"/>
+<area shape="rect" id="node45" href="$_radians_8h.html" title="The Radians specification and body provides a simple radians type." alt="" coords="1818,309,1906,337"/>
+<area shape="rect" id="node48" href="$_fluid_synth_settings_8h.html" title="The FluidSynthSettings class specifies an object&#45;oriented wrapper around an underlying fluidsynth set..." alt="" coords="1538,385,1693,413"/>
+</map>

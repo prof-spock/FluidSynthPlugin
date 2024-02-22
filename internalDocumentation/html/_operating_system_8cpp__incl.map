@@ -1,0 +1,31 @@
+<map id="OperatingSystem.cpp" name="OperatingSystem.cpp">
+<area shape="rect" id="node1" title="The OperatingSystem body implements a class for several operating system related utility functions (l..." alt="" coords="279,5,443,33"/>
+<area shape="rect" id="node2" title=" " alt="" coords="85,81,149,109"/>
+<area shape="rect" id="node3" title=" " alt="" coords="173,81,261,109"/>
+<area shape="rect" id="node4" title=" " alt="" coords="286,81,351,109"/>
+<area shape="rect" id="node5" href="$_file_8h.html" title="The File specification defines a class for simple file handling based on C stdio." alt="" coords="375,81,433,109"/>
+<area shape="rect" id="node21" href="$_logging_8h.html" title="The Logging specification defines macros for entry&#45;, exit&#45; and intermediate logging of functions into..." alt="" coords="511,81,596,109"/>
+<area shape="rect" id="node29" href="$_operating_system_8h.html" title="The OperatingSystem specification defines a class for several operating system related utility functi..." alt="" coords="793,157,941,185"/>
+<area shape="rect" id="node6" href="$_boolean_8h.html" title="The Boolean specification and body provides a value object type for boolean values." alt="" coords="538,233,625,261"/>
+<area shape="rect" id="node10" href="$_byte_list_8h.html" title="The ByteList specification defines lists of byte values with zero&#45;based arbitrary indexed access to p..." alt="" coords="157,157,243,185"/>
+<area shape="rect" id="node19" href="$_string_list_8h.html" title="The StringList specification defines lists of string values with zero&#45;based arbitrary indexed access ..." alt="" coords="95,233,190,261"/>
+<area shape="rect" id="node20" href="$_object_8h.html" title="The Object specification and body provides the root object type." alt="" coords="268,157,345,185"/>
+<area shape="rect" id="node7" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="708,537,799,565"/>
+<area shape="rect" id="node8" title=" " alt="" coords="517,613,576,641"/>
+<area shape="rect" id="node9" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="692,613,815,641"/>
+<area shape="rect" id="node11" title=" " alt="" coords="5,309,109,337"/>
+<area shape="rect" id="node12" href="$_byte_8h.html" title="The Byte specification and body provides a value object type for byte values." alt="" coords="274,385,337,413"/>
+<area shape="rect" id="node18" title=" " alt="" coords="134,309,242,337"/>
+<area shape="rect" id="node13" title=" " alt="" coords="341,537,403,565"/>
+<area shape="rect" id="node14" href="$_natural_8h.html" title="The Natural specification and body provides a value object type for naturals (positive integers with ..." alt="" coords="569,461,649,489"/>
+<area shape="rect" id="node15" href="$_assertion_8h.html" title="The Assertion specification defines macros for pre&#45; and postconditions in functions or methods." alt="" coords="427,537,522,565"/>
+<area shape="rect" id="node17" title=" " alt="" coords="546,537,683,565"/>
+<area shape="rect" id="node16" title=" " alt="" coords="360,613,445,641"/>
+<area shape="rect" id="node22" title=" " alt="" coords="698,157,769,185"/>
+<area shape="rect" id="node23" href="$_logging_support_8h.html" title="The LoggingSupport specification defines a class for simple entry/exit logging to a file or via an ar..." alt="" coords="537,157,673,185"/>
+<area shape="rect" id="node24" href="$_string_util_8h.html" title="The StringUtil specification defines several string routines not included in the standard C++ library..." alt="" coords="370,157,462,185"/>
+<area shape="rect" id="node25" href="$_character_8h.html" title="The Character specification and body provides a value object type for character values." alt="" coords="317,309,416,337"/>
+<area shape="rect" id="node26" href="$_percentage_8h.html" title="The Percentage specification and body provides a simple percentage type." alt="" coords="404,233,513,261"/>
+<area shape="rect" id="node27" href="$_real_8h.html" title="The Real specification defines a value object type for real values." alt="" coords="440,309,504,337"/>
+<area shape="rect" id="node28" href="$_integer_8h.html" title="The Integer specification and body provides a value object type for ints." alt="" coords="413,385,491,413"/>
+</map>

@@ -349,7 +349,7 @@ static Boolean _timeIsLogged{false};
 /*--------------------*/
 
 /** flag to tell whether logging is active or suppressed */
-static Boolean _isActive{false};
+static Boolean _isActive{true};
 
 /*--------------------*/
 
@@ -556,6 +556,7 @@ void Logging::initialize ()
 {
     StdLib_atexit(finalize);
     _buffer.clear();
+    _isActive = true;
     _appendEntryToBuffer("", 0, "START LOGGING -*- coding: utf-8 -*-");
 }
 

@@ -1,0 +1,13 @@
+<map id="Percentage.h" name="Percentage.h">
+<area shape="rect" id="node1" title="The Percentage specification and body provides a simple percentage type." alt="" coords="352,5,461,33"/>
+<area shape="rect" id="node2" href="$_real_8h.html" title="The Real specification defines a value object type for real values." alt="" coords="375,81,439,109"/>
+<area shape="rect" id="node3" title=" " alt="" coords="439,309,502,337"/>
+<area shape="rect" id="node4" href="$_integer_8h.html" title="The Integer specification and body provides a value object type for ints." alt="" coords="329,157,407,185"/>
+<area shape="rect" id="node5" title=" " alt="" coords="5,385,91,413"/>
+<area shape="rect" id="node6" href="$_natural_8h.html" title="The Natural specification and body provides a value object type for naturals (positive integers with ..." alt="" coords="303,233,383,261"/>
+<area shape="rect" id="node7" href="$_assertion_8h.html" title="The Assertion specification defines macros for pre&#45; and postconditions in functions or methods." alt="" coords="43,309,138,337"/>
+<area shape="rect" id="node9" title=" " alt="" coords="162,309,299,337"/>
+<area shape="rect" id="node10" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="324,309,415,337"/>
+<area shape="rect" id="node8" title=" " alt="" coords="171,385,229,413"/>
+<area shape="rect" id="node11" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="308,385,431,413"/>
+</map>

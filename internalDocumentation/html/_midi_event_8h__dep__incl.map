@@ -1,0 +1,12 @@
+<map id="MidiEvent.h" name="MidiEvent.h">
+<area shape="rect" id="node1" title="The MidiEvent specification defines a single MIDI event and the MIDI event kind enumeration." alt="" coords="442,5,538,33"/>
+<area shape="rect" id="node2" href="$_midi_event_8cpp.html" title="The MidiEvent implementation defines the services of a single MIDI event." alt="" coords="365,81,477,109"/>
+<area shape="rect" id="node3" href="$_midi_event_list_8h.html" title="The MidiEventList specification defines lists of MIDI events with zero&#45;based arbitrary indexed access..." alt="" coords="501,81,620,109"/>
+<area shape="rect" id="node4" href="$_midi_event_converter_8h.html" title="The MidiEventConverter specification defines the handling of MIDI events by feeding them to an underl..." alt="" coords="309,157,469,185"/>
+<area shape="rect" id="node8" href="$_midi_event_list_8cpp.html" title="The MIDIEventList body implements sequences of integer values with zero&#45;based arbitrary indexed acces..." alt="" coords="493,157,628,185"/>
+<area shape="rect" id="node9" href="$_midi_file_8h.html" title="The MidiFile specification defines the services of a MIDI file; currently only file reading is suppor..." alt="" coords="653,157,735,185"/>
+<area shape="rect" id="node5" href="$_fluid_synth_file_converter_8cpp.html" title="The FluidSynthFileConverter module implements a conversion from a MIDI file into a wave file using th..." alt="" coords="501,233,706,261"/>
+<area shape="rect" id="node6" href="$_fluid_synth_plugin___event_processor_8cpp.html" title="The FluidSynthPlugin_Processor module implements the handling of MIDI events from the DAW via JUCE ha..." alt="" coords="5,233,276,261"/>
+<area shape="rect" id="node7" href="$_midi_event_converter_8cpp.html" title="The MidiEventConverter module implements the handling of MIDI events by feeding them to an underlying..." alt="" coords="301,233,477,261"/>
+<area shape="rect" id="node10" href="$_midi_file_8cpp.html" title="The MidiFile implementation implements the services of a MIDI file; currently only file reading is su..." alt="" coords="730,233,829,261"/>
+</map>

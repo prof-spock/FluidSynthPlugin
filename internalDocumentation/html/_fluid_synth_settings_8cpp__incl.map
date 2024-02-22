@@ -1,0 +1,30 @@
+<map id="FluidSynthSettings.cpp" name="FluidSynthSettings.cpp">
+<area shape="rect" id="node1" title="The FluidSynthSettings class implements an object&#45;oriented wrapper around an underlying fluidsynth se..." alt="" coords="409,5,579,33"/>
+<area shape="rect" id="node2" href="$_logging_8h.html" title="The Logging specification defines macros for entry&#45;, exit&#45; and intermediate logging of functions into..." alt="" coords="195,81,281,109"/>
+<area shape="rect" id="node23" href="$_dictionary_8h.html" title="The Dictionary specification defines maps from string keys to string values." alt="" coords="510,81,609,109"/>
+<area shape="rect" id="node25" href="$_dynamic_library_8h.html" title="The DynamicLibrary class specifies a very simple and crude wrapper around the dynamic library loading..." alt="" coords="378,157,514,185"/>
+<area shape="rect" id="node27" href="$_fluid_synth_settings_8h.html" title="The FluidSynthSettings class specifies an object&#45;oriented wrapper around an underlying fluidsynth set..." alt="" coords="643,81,798,109"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,157,76,185"/>
+<area shape="rect" id="node4" href="$_logging_support_8h.html" title="The LoggingSupport specification defines a class for simple entry/exit logging to a file or via an ar..." alt="" coords="101,157,237,185"/>
+<area shape="rect" id="node14" href="$_string_util_8h.html" title="The StringUtil specification defines several string routines not included in the standard C++ library..." alt="" coords="261,157,353,185"/>
+<area shape="rect" id="node5" href="$_boolean_8h.html" title="The Boolean specification and body provides a value object type for boolean values." alt="" coords="173,233,260,261"/>
+<area shape="rect" id="node9" href="$_natural_8h.html" title="The Natural specification and body provides a value object type for naturals (positive integers with ..." alt="" coords="518,461,598,489"/>
+<area shape="rect" id="node6" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="241,537,331,565"/>
+<area shape="rect" id="node7" title=" " alt="" coords="373,613,431,641"/>
+<area shape="rect" id="node8" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="225,613,347,641"/>
+<area shape="rect" id="node10" title=" " alt="" coords="720,537,783,565"/>
+<area shape="rect" id="node11" href="$_assertion_8h.html" title="The Assertion specification defines macros for pre&#45; and postconditions in functions or methods." alt="" coords="356,537,451,565"/>
+<area shape="rect" id="node13" title=" " alt="" coords="475,537,612,565"/>
+<area shape="rect" id="node12" title=" " alt="" coords="531,613,617,641"/>
+<area shape="rect" id="node15" href="$_character_8h.html" title="The Character specification and body provides a value object type for character values." alt="" coords="771,309,870,337"/>
+<area shape="rect" id="node17" href="$_percentage_8h.html" title="The Percentage specification and body provides a simple percentage type." alt="" coords="403,233,513,261"/>
+<area shape="rect" id="node20" href="$_string_list_8h.html" title="The StringList specification defines lists of string values with zero&#45;based arbitrary indexed access ..." alt="" coords="284,233,379,261"/>
+<area shape="rect" id="node16" href="$_byte_8h.html" title="The Byte specification and body provides a value object type for byte values." alt="" coords="789,385,852,413"/>
+<area shape="rect" id="node18" href="$_real_8h.html" title="The Real specification defines a value object type for real values." alt="" coords="642,309,706,337"/>
+<area shape="rect" id="node19" href="$_integer_8h.html" title="The Integer specification and body provides a value object type for ints." alt="" coords="635,385,713,413"/>
+<area shape="rect" id="node21" title=" " alt="" coords="226,309,330,337"/>
+<area shape="rect" id="node22" title=" " alt="" coords="355,309,463,337"/>
+<area shape="rect" id="node24" title=" " alt="" coords="538,157,650,185"/>
+<area shape="rect" id="node26" href="$_object_8h.html" title="The Object specification and body provides the root object type." alt="" coords="587,233,665,261"/>
+<area shape="rect" id="node28" href="$_fluid_synth_8h.html" title="The FluidSynth class specifies an object&#45;oriented wrapper around the fluidsynth library and also allo..." alt="" coords="675,157,777,185"/>
+</map>

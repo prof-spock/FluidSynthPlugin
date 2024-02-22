@@ -1,0 +1,9 @@
+<map id="OperatingSystem.h" name="OperatingSystem.h">
+<area shape="rect" id="node1" title="The OperatingSystem specification defines a class for several operating system related utility functi..." alt="" coords="429,5,577,33"/>
+<area shape="rect" id="node2" href="$_wave_file_8cpp.html" title="The WaveFile specification defines an object for accessing a RIFF wave file with several channels." alt="" coords="5,81,116,109"/>
+<area shape="rect" id="node3" href="$_logging_support_8cpp.html" title="The LoggingSupport body implements a class for simple entry/exit logging to a file or via a callback ..." alt="" coords="141,81,293,109"/>
+<area shape="rect" id="node4" href="$_operating_system_8cpp.html" title="The OperatingSystem body implements a class for several operating system related utility functions (l..." alt="" coords="317,81,481,109"/>
+<area shape="rect" id="node5" href="$_fluid_synth_file_converter_8cpp.html" title="The FluidSynthFileConverter module implements a conversion from a MIDI file into a wave file using th..." alt="" coords="506,81,711,109"/>
+<area shape="rect" id="node6" href="$_fluid_synth_plugin___event_processor_8cpp.html" title="The FluidSynthPlugin_Processor module implements the handling of MIDI events from the DAW via JUCE ha..." alt="" coords="736,81,1007,109"/>
+<area shape="rect" id="node7" href="$_midi_file_8cpp.html" title="The MidiFile implementation implements the services of a MIDI file; currently only file reading is su..." alt="" coords="1031,81,1130,109"/>
+</map>

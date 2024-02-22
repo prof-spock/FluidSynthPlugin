@@ -1,0 +1,10 @@
+<map id="Natural.h" name="Natural.h">
+<area shape="rect" id="node1" title="The Natural specification and body provides a value object type for naturals (positive integers with ..." alt="" coords="169,5,249,33"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,81,68,109"/>
+<area shape="rect" id="node3" href="$_assertion_8h.html" title="The Assertion specification defines macros for pre&#45; and postconditions in functions or methods." alt="" coords="92,81,187,109"/>
+<area shape="rect" id="node6" title=" " alt="" coords="211,81,348,109"/>
+<area shape="rect" id="node7" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="373,81,463,109"/>
+<area shape="rect" id="node4" title=" " alt="" coords="97,157,182,185"/>
+<area shape="rect" id="node5" title=" " alt="" coords="241,157,299,185"/>
+<area shape="rect" id="node8" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="357,157,479,185"/>
+</map>

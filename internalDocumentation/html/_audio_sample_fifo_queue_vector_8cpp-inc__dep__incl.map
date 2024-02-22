@@ -1,0 +1,6 @@
+<map id="AudioSampleFifoQueueVector.cpp&#45;inc" name="AudioSampleFifoQueueVector.cpp&#45;inc">
+<area shape="rect" id="node1" title="The AudioSampleFifoQueueVector body implements a list of fifo queues for audio samples (this is the e..." alt="" coords="135,5,405,33"/>
+<area shape="rect" id="node2" href="$_audio_sample_fifo_queue_vector_8h.html" title="The AudioSampleFifoQueueVector specification defines a list of fifo queues for audio samples." alt="" coords="155,81,385,109"/>
+<area shape="rect" id="node3" href="$_audio_sample_fifo_queue_vector_8cpp.html" title="The AudioSampleFifoQueueVector body implements a list of fifo queues for audio samples (this is the f..." alt="" coords="5,157,252,185"/>
+<area shape="rect" id="node4" href="$_fluid_synth_plugin___event_processor_8cpp.html" title="The FluidSynthPlugin_Processor module implements the handling of MIDI events from the DAW via JUCE ha..." alt="" coords="276,157,547,185"/>
+</map>

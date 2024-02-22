@@ -1,0 +1,9 @@
+<map id="File.h" name="File.h">
+<area shape="rect" id="node1" title="The File specification defines a class for simple file handling based on C stdio." alt="" coords="376,5,433,33"/>
+<area shape="rect" id="node2" href="$_wave_file_8cpp.html" title="The WaveFile specification defines an object for accessing a RIFF wave file with several channels." alt="" coords="5,81,116,109"/>
+<area shape="rect" id="node3" href="$_file_8cpp.html" title="The File body implements a class for simple file handling based on C stdio." alt="" coords="140,81,213,109"/>
+<area shape="rect" id="node4" href="$_logging_support_8cpp.html" title="The LoggingSupport body implements a class for simple entry/exit logging to a file or via a callback ..." alt="" coords="238,81,390,109"/>
+<area shape="rect" id="node5" href="$_operating_system_8cpp.html" title="The OperatingSystem body implements a class for several operating system related utility functions (l..." alt="" coords="415,81,579,109"/>
+<area shape="rect" id="node6" href="$_fluid_synth_file_converter_8cpp.html" title="The FluidSynthFileConverter module implements a conversion from a MIDI file into a wave file using th..." alt="" coords="603,81,809,109"/>
+<area shape="rect" id="node7" href="$_midi_file_8cpp.html" title="The MidiFile implementation implements the services of a MIDI file; currently only file reading is su..." alt="" coords="833,81,931,109"/>
+</map>

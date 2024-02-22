@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"_string_util_8cpp.html#adcb051288f3043c71f9b4cceafc11152":[3,0,77,10],
 "_string_util_8cpp.html#af0a1dafa582d8f3077efa1432ca46d01":[3,0,77,7],
 "_string_util_8h.html":[3,0,78],
 "_string_util_8h.html#aa024c992018773b65a67cced7d7e3640":[3,0,78,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "struct_base_modules_1_1_logging.html#a9feef32b4818772272d2650ad784519d":[2,0,1,6,1],
 "struct_base_modules_1_1_logging.html#ab4d7a5c504f4e9c7edb3bdda8276e02c":[2,0,1,6,6],
 "struct_base_modules_1_1_logging.html#ab915ef17aed709c4648e464e110d0b8b":[2,0,1,6,8],
-"struct_base_modules_1_1_logging.html#aded857df8493b28c3b5c5234fc452997":[2,0,1,6,7],
-"struct_base_modules_1_1_logging.html#ae23237dbb59065cdf7e67521072965eb":[2,0,1,6,4]
+"struct_base_modules_1_1_logging.html#aded857df8493b28c3b5c5234fc452997":[2,0,1,6,7]
 };
