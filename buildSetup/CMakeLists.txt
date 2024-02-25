@@ -331,7 +331,9 @@ SET(regressionTestFileList
     ${testFileDirectory}/test_bass.mid
     ${testFileDirectory}/test_drums.mid
     ${testFileDirectory}/test_keyboard.mid
-    ${testFileDirectory}/testFluidSynth.rpp)
+    ${testFileDirectory}/SimpleTestSoundfont.sf2
+    ${testFileDirectory}/testFluidSynth-44100.rpp
+    ${testFileDirectory}/testFluidSynth-48000.rpp)
 
 # --- Windows specific files ---
 IF(MSVC)

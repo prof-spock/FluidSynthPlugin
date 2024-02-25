@@ -132,7 +132,7 @@ IF(MSVC)
     # SET(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded")
   
     STRING(JOIN " " cppFlagsCommon
-           /arch:AVX            # enable AVX vectorization instructions
+           # /arch:AVX            # enable AVX vectorization instructions
            /bigobj              # increase number of addressable sections
            /diagnostics:column  # format of diagnostics message
            /EHsc                # exception handling: stack unwinding
@@ -185,19 +185,23 @@ IF(MSVC)
     )
 ELSE()
     STRING(JOIN " " cppFlagsCommon
-           -ffast-math                   # fast floating point calculation
-           -mavx                         # enable AVX vectorization
-                                         # instructions
-           -O0                           # no optimization
-           -Ofast                        # favors fast code
-           -pedantic                     # set strict standard conformance
-           -Wall                         # warning level: all
-           -Wno-delete-incomplete        # remove warning for void deletion
-           -Wno-ignored-qualifiers       # remove warning for const qualifier
-                                         # on functions
-           -Wno-unused-function          # remove warning for unused function
-           -Wno-unused-variable          # remove warning for unused variable
-           -Wno-unused-but-set-variable  # remove warning for unused variable
+           -ffast-math                      # fast floating point calculation
+           # -mavx                            # enable AVX vectorization
+           #                                  # instructions
+           -O0                              # no optimization
+           -Ofast                           # favors fast code
+           -pedantic                        # set strict standard conformance
+           -Wall                            # warning level: all
+           -Wno-ambiguous-reversed-operator # remove C++20 warning on
+                                            # reversed equal operator
+           -Wno-delete-incomplete           # remove warning for void deletion
+           -Wno-ignored-qualifiers          # remove warning for const
+                                            # qualifier on functions
+           -Wno-unused-function             # remove warning for
+                                            # unused function
+           -Wno-unused-variable             # remove warning for unused variable
+           -Wno-unused-but-set-variable     # remove warning for
+                                            # unused variable
            )
 
     # warn about undefined symbols when linking

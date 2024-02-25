@@ -688,7 +688,7 @@ String StringUtil::toLowercase (IN String& st)
 {
     String result;
 
-    for (const Character& ch : st) {
+    for (const Character ch : st) {
         result += std::tolower((char) ch);
     }
 
@@ -701,7 +701,7 @@ String StringUtil::toUppercase (IN String& st)
 {
     String result;
 
-    for (const Character& ch : st) {
+    for (const Character ch : st) {
         result += std::toupper((char) ch);
     }
 

@@ -1,6 +1,5 @@
 var NAVTREEINDEX5 =
 {
-"struct_windows_1_1tag_p_o_i_n_t.html":[2,0,6,7],
 "struct_windows_1_1tag_p_o_i_n_t.html#a9e0fd5877e22f0548cfd3e1049ed5deb":[2,0,6,7,1],
 "struct_windows_1_1tag_p_o_i_n_t.html#ada3f3430cdb2f7a3451225246e7ff82e":[2,0,6,7,0],
 "struct_windows_1_1tag_r_e_c_t.html":[2,0,6,8],
@@ -25,5 +24,6 @@ var NAVTREEINDEX5 =
 "struct_windows_1_1tag_w_n_d_c_l_a_s_s_e_x_w.html#acd76942c6dad9e8fe0ae66973df40371":[2,0,6,10,10],
 "struct_windows_1_1tag_w_n_d_c_l_a_s_s_e_x_w.html#ad3893db7e8a86c018f709440ee32b686":[2,0,6,10,0],
 "struct_windows_1_1tag_w_n_d_c_l_a_s_s_e_x_w.html#ae34a1855945a45434654bfd0895f9737":[2,0,6,10,3],
-"struct_windows_1_1tag_w_n_d_c_l_a_s_s_e_x_w.html#af282773c89a8019274d3d32f7b38d6a2":[2,0,6,10,5]
+"struct_windows_1_1tag_w_n_d_c_l_a_s_s_e_x_w.html#af282773c89a8019274d3d32f7b38d6a2":[2,0,6,10,5],
+"":[2,0,6]
 };

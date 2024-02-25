@@ -440,8 +440,8 @@ _RingBuffer::processBlock
 _EventProcessorDescriptor::_EventProcessorDescriptor
     (FluidSynthPlugin_EventProcessor* parent)
         : eventProcessor(parent),
-          currentProgramIndex{0},
           midiEventConverter{new MidiEventConverter()},
+          currentProgramIndex{0},
           fluidSynthBufferingIsCompensated{false}
 {
     if (!isCorrectlyInitialized()) {

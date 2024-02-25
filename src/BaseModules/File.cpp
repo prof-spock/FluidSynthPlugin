@@ -12,6 +12,7 @@
 /* IMPORTS */
 /*=========*/
 
+#include <cstring>
 #include <stdio.h>
     /** qualified version of FILE from stdio */
     #define StdIO_FILE    FILE

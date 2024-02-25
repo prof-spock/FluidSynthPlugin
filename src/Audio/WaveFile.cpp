@@ -838,7 +838,7 @@ static void WaveFile__writeString (INOUT ByteList& byteList,
                                    INOUT Natural& position,
                                    IN String& st)
 {
-    for (const Character& ch : st) {
+    for (const Character ch : st) {
         byteList[position++] = (char) ch;
     }
 }
