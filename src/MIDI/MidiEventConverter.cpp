@@ -155,6 +155,7 @@ _MidiEventConverterDescriptor::changeSettings (IN String& key,
     const String programKey = "program";
     const String soundFontKey = "soundfont";
     const String verboseKey = "synth.verbose";
+    const String sampleRateKey = "synth.sample-rate";
 
     Boolean isOkay = false;
     settingsDictionary.set(key, value);
@@ -166,8 +167,9 @@ _MidiEventConverterDescriptor::changeSettings (IN String& key,
     } else if (STR::startsWith(key, "synth.")) {
         isOkay = _settings->set(key, value);
 
-        /* restart synthesizer when verbose setting is activated */
-        if (isOkay && key == verboseKey) {
+        /* restart synthesizer when verbose or sample rate setting is
+         * activated */
+        if (isOkay && (key == verboseKey || key == sampleRateKey)) {
             delete synthesizer;
             synthesizer = new FluidSynthSynthesizer(library, _settings);
             synthesizerBufferSize = (!library->isLoaded() ? 0
