@@ -1117,7 +1117,7 @@ cmake -S <pathTo>/CMakeList.txt -B . \
   \item Build all the plugins via
 
         \begin{commandLine}
-cmake --build .
+cmake --build . --config Release
         \end{commandLine}
 
   \item Install the plugins into a architecture-specific subfolder in
@@ -1126,7 +1126,7 @@ cmake --build .
     \embeddedCode{\_DISTRIBUTION} directory via
 
         \begin{commandLine}
-cmake --install .
+cmake --install . --config Release
         \end{commandLine}
 
 \end{enumerate}
@@ -1163,7 +1163,7 @@ available, the generation can be done via the CMAKE chain as target
 \embeddedCode{doxygenDocumentation} in the build directory:
 
 \begin{commandLine}
-cmake --build . --target internalDocumentation
+cmake --build . --target internalDocumentation --config Release
 \end{commandLine}
 
 If the command completes, the documentation in the
