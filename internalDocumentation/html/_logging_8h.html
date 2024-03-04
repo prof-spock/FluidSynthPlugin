@@ -106,7 +106,7 @@ $(document).ready(function(){initNavTree('_logging_8h.html',''); initResizable()
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="_logging_8h__dep__incl.svg" width="100%" height="557"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="_logging_8h__dep__incl.svg" width="100%" height="552"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </div>
 <p><a href="_logging_8h_source.html">Go to the source code of this file.</a></p>
@@ -118,8 +118,8 @@ Macros</h2></td></tr>
 <tr class="memdesc:ae56722864ab40250eb993ecc7efd3ffb"><td class="mdescLeft">&#160;</td><td class="mdescRight">the macro for the signature of a function within the preprocessor <br /></td></tr>
 <tr class="separator:ae56722864ab40250eb993ecc7efd3ffb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2b6fa7e9f55c058b34a9965fa331ef4"><td class="memItemLeft" align="right" valign="top"><a id="ad2b6fa7e9f55c058b34a9965fa331ef4"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_8h.html#ad2b6fa7e9f55c058b34a9965fa331ef4">Logging_isActive</a>&#160;&#160;&#160;true</td></tr>
-<tr class="memdesc:ad2b6fa7e9f55c058b34a9965fa331ef4"><td class="mdescLeft">&#160;</td><td class="mdescRight">boolean information whether logging is active (yes!) <br /></td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_8h.html#ad2b6fa7e9f55c058b34a9965fa331ef4">Logging_isActive</a>&#160;&#160;&#160;Logging::isActive()</td></tr>
+<tr class="memdesc:ad2b6fa7e9f55c058b34a9965fa331ef4"><td class="mdescLeft">&#160;</td><td class="mdescRight">information whether logging is active <br /></td></tr>
 <tr class="separator:ad2b6fa7e9f55c058b34a9965fa331ef4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a065d2c4b14781ce053a11f49d023001a"><td class="memItemLeft" align="right" valign="top"><a id="a065d2c4b14781ce053a11f49d023001a"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_8h.html#a065d2c4b14781ce053a11f49d023001a">Logging_initialize</a>()&#160;&#160;&#160;Logging::initialize()</td></tr>
@@ -132,6 +132,14 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_8h.html#aa90f9e2f40bfd09dc4bd3eea36867899">Logging_finalize</a>()&#160;&#160;&#160;Logging::finalize()</td></tr>
 <tr class="memdesc:aa90f9e2f40bfd09dc4bd3eea36867899"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finalizes logging. <br /></td></tr>
 <tr class="separator:aa90f9e2f40bfd09dc4bd3eea36867899"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7809af49ca8b6dd16156f99c084d1199"><td class="memItemLeft" align="right" valign="top"><a id="a7809af49ca8b6dd16156f99c084d1199"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_8h.html#a7809af49ca8b6dd16156f99c084d1199">Logging_setActive</a>(isActive)&#160;&#160;&#160;Logging::setActive(isActive)</td></tr>
+<tr class="memdesc:a7809af49ca8b6dd16156f99c084d1199"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets logging to active or inactive. <br /></td></tr>
+<tr class="separator:a7809af49ca8b6dd16156f99c084d1199"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96735ef5204bae69438032ac8a9a80ff"><td class="memItemLeft" align="right" valign="top"><a id="a96735ef5204bae69438032ac8a9a80ff"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_8h.html#a96735ef5204bae69438032ac8a9a80ff">Logging_setCallbackFunction</a>(callbackFunction)&#160;&#160;&#160;                Logging::setCallbackFunction(callbackFunction)</td></tr>
+<tr class="memdesc:a96735ef5204bae69438032ac8a9a80ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the name of the logging callback function (if applicable) <br /></td></tr>
+<tr class="separator:a96735ef5204bae69438032ac8a9a80ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ed6d2e89d966d66513413f61dcd919b"><td class="memItemLeft" align="right" valign="top"><a id="a0ed6d2e89d966d66513413f61dcd919b"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_8h.html#a0ed6d2e89d966d66513413f61dcd919b">Logging_setFileName</a>(fileName,  writeThroughIsActive)&#160;&#160;&#160;                Logging::setFileName(fileName, writeThroughIsActive)</td></tr>
 <tr class="memdesc:a0ed6d2e89d966d66513413f61dcd919b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the name of the log file and information about write-through (empty) <br /></td></tr>
@@ -152,7 +160,7 @@ Macros</h2></td></tr>
 <tr class="memdesc:ae78b681f18b62d63b53a7eabded40db3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes an error message to log file. <br /></td></tr>
 <tr class="separator:ae78b681f18b62d63b53a7eabded40db3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0d58671e981a2c57f2ff48bd7563019"><td class="memItemLeft" align="right" valign="top"><a id="ad0d58671e981a2c57f2ff48bd7563019"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_8h.html#ad0d58671e981a2c57f2ff48bd7563019">_expand</a>&#160;&#160;&#160;<a class="el" href="_midi_file_8cpp.html#a94692cc5c1eac2402cbeff7e1eaa95cd">StringUtil::expand</a></td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_8h.html#ad0d58671e981a2c57f2ff48bd7563019">_expand</a>&#160;&#160;&#160;StringUtil::expand</td></tr>
 <tr class="memdesc:ad0d58671e981a2c57f2ff48bd7563019"><td class="mdescLeft">&#160;</td><td class="mdescRight">abbreviated name for string expansion routine <br /></td></tr>
 <tr class="separator:ad0d58671e981a2c57f2ff48bd7563019"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c73428608a1317df3f144c354535ef7"><td class="memItemLeft" align="right" valign="top"><a id="a1c73428608a1317df3f144c354535ef7"></a>
@@ -1485,9 +1493,9 @@ Macros</h2></td></tr>
 </div>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="a_logging_8h_html_ad0d58671e981a2c57f2ff48bd7563019"><div class="ttname"><a href="_logging_8h.html#ad0d58671e981a2c57f2ff48bd7563019">_expand</a></div><div class="ttdeci">#define _expand</div><div class="ttdoc">abbreviated name for string expansion routine</div><div class="ttdef"><b>Definition:</b> Logging.h:158</div></div>
-<div class="ttc" id="a_logging_8h_html_ae78b681f18b62d63b53a7eabded40db3"><div class="ttname"><a href="_logging_8h.html#ae78b681f18b62d63b53a7eabded40db3">_Logging_traceError</a></div><div class="ttdeci">#define _Logging_traceError(message)</div><div class="ttdoc">Writes an error message to log file.</div><div class="ttdef"><b>Definition:</b> Logging.h:99</div></div>
-<div class="ttc" id="a_logging_8h_html_acb33cbdf21f5bb7ab924607995c9a94f"><div class="ttname"><a href="_logging_8h.html#acb33cbdf21f5bb7ab924607995c9a94f">_Logging_trace</a></div><div class="ttdeci">#define _Logging_trace(message)</div><div class="ttdoc">Writes a message to log file.</div><div class="ttdef"><b>Definition:</b> Logging.h:93</div></div>
+<div class="ttc" id="a_logging_8h_html_ad0d58671e981a2c57f2ff48bd7563019"><div class="ttname"><a href="_logging_8h.html#ad0d58671e981a2c57f2ff48bd7563019">_expand</a></div><div class="ttdeci">#define _expand</div><div class="ttdoc">abbreviated name for string expansion routine</div><div class="ttdef"><b>Definition:</b> Logging.h:175</div></div>
+<div class="ttc" id="a_logging_8h_html_ae78b681f18b62d63b53a7eabded40db3"><div class="ttname"><a href="_logging_8h.html#ae78b681f18b62d63b53a7eabded40db3">_Logging_traceError</a></div><div class="ttdeci">#define _Logging_traceError(message)</div><div class="ttdoc">Writes an error message to log file.</div><div class="ttdef"><b>Definition:</b> Logging.h:108</div></div>
+<div class="ttc" id="a_logging_8h_html_acb33cbdf21f5bb7ab924607995c9a94f"><div class="ttname"><a href="_logging_8h.html#acb33cbdf21f5bb7ab924607995c9a94f">_Logging_trace</a></div><div class="ttdeci">#define _Logging_trace(message)</div><div class="ttdoc">Writes a message to log file.</div><div class="ttdef"><b>Definition:</b> Logging.h:102</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

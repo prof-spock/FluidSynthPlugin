@@ -72,19 +72,25 @@ namespace BaseModules {
     /*--------------------*/
         
     /**
+     * Returns name of command line argument list type
+     *
+     * @return type name
+     */
+    static String _commandLineArgumentListTypeName () {
+        return "CommandLineArgumentList";
+    }
+    
+    /*--------------------*/
+
+    /**
      * An <C>CommandLineArgumentList</C> object is a list of abstract
      * arguments for the main program derived from the raw command-line
      * arguments
      */
     struct CommandLineArgumentList
-        : public GenericList<CommandLineArgument> {
-
-        /**
-         * Returns printable representation of list.
-         *
-         * @return string representation of list
-         */
-        String toString () const;
+        : public GenericList<CommandLineArgument,
+                             CommandLineArgument::toString,
+                             &_commandLineArgumentListTypeName > {
 
     };
 

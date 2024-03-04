@@ -8,15 +8,13 @@ var files_dup =
       [ "AudioSampleFifoQueue", "struct_audio_1_1_audio_sample_fifo_queue.html", "struct_audio_1_1_audio_sample_fifo_queue" ]
     ] ],
     [ "AudioSampleFifoQueueVector.cpp", "_audio_sample_fifo_queue_vector_8cpp.html", null ],
-    [ "AudioSampleFifoQueueVector.cpp-inc", "_audio_sample_fifo_queue_vector_8cpp-inc.html", null ],
+    [ "AudioSampleFifoQueueVector.cpp-inc", "_audio_sample_fifo_queue_vector_8cpp-inc.html", "_audio_sample_fifo_queue_vector_8cpp-inc" ],
     [ "AudioSampleFifoQueueVector.h", "_audio_sample_fifo_queue_vector_8h.html", [
       [ "AudioSampleFifoQueueVector", "struct_audio_1_1_audio_sample_fifo_queue_vector.html", "struct_audio_1_1_audio_sample_fifo_queue_vector" ]
     ] ],
     [ "AudioSampleList.cpp", "_audio_sample_list_8cpp.html", null ],
     [ "AudioSampleList.cpp-inc", "_audio_sample_list_8cpp-inc.html", null ],
-    [ "AudioSampleList.h", "_audio_sample_list_8h.html", [
-      [ "AudioSampleList", "struct_audio_1_1_audio_sample_list.html", "struct_audio_1_1_audio_sample_list" ]
-    ] ],
+    [ "AudioSampleList.h", "_audio_sample_list_8h.html", "_audio_sample_list_8h" ],
     [ "AudioSampleListVector.cpp", "_audio_sample_list_vector_8cpp.html", null ],
     [ "AudioSampleListVector.cpp-inc", "_audio_sample_list_vector_8cpp-inc.html", null ],
     [ "AudioSampleListVector.h", "_audio_sample_list_vector_8h.html", [
@@ -29,22 +27,14 @@ var files_dup =
       [ "Byte", "struct_base_types_1_1_primitives_1_1_byte.html", "struct_base_types_1_1_primitives_1_1_byte" ]
     ] ],
     [ "ByteList.cpp", "_byte_list_8cpp.html", null ],
-    [ "ByteList.h", "_byte_list_8h.html", [
-      [ "ByteList", "struct_base_types_1_1_containers_1_1_byte_list.html", "struct_base_types_1_1_containers_1_1_byte_list" ]
-    ] ],
+    [ "ByteList.h", "_byte_list_8h.html", "_byte_list_8h" ],
     [ "Character.h", "_character_8h.html", [
       [ "Character", "struct_base_types_1_1_primitives_1_1_character.html", "struct_base_types_1_1_primitives_1_1_character" ]
     ] ],
     [ "CommandLineArguments.cpp", "_command_line_arguments_8cpp.html", "_command_line_arguments_8cpp" ],
-    [ "CommandLineArguments.h", "_command_line_arguments_8h.html", [
-      [ "CommandLineArgument", "struct_base_modules_1_1_command_line_argument.html", "struct_base_modules_1_1_command_line_argument" ],
-      [ "CommandLineArgumentList", "struct_base_modules_1_1_command_line_argument_list.html", "struct_base_modules_1_1_command_line_argument_list" ],
-      [ "CommandLineArgumentHandler", "struct_base_modules_1_1_command_line_argument_handler.html", "struct_base_modules_1_1_command_line_argument_handler" ]
-    ] ],
-    [ "Dictionary.cpp", "_dictionary_8cpp.html", null ],
-    [ "Dictionary.h", "_dictionary_8h.html", [
-      [ "Dictionary", "struct_base_types_1_1_containers_1_1_dictionary.html", "struct_base_types_1_1_containers_1_1_dictionary" ]
-    ] ],
+    [ "CommandLineArguments.h", "_command_line_arguments_8h.html", "_command_line_arguments_8h" ],
+    [ "Dictionary.cpp", "_dictionary_8cpp.html", "_dictionary_8cpp" ],
+    [ "Dictionary.h", "_dictionary_8h.html", "_dictionary_8h" ],
     [ "DynamicLibrary.h", "_dynamic_library_8h.html", [
       [ "DynamicLibrary", "struct_libraries_1_1_dynamic_library.html", "struct_libraries_1_1_dynamic_library" ]
     ] ],
@@ -81,9 +71,7 @@ var files_dup =
       [ "Integer", "struct_base_types_1_1_primitives_1_1_integer.html", "struct_base_types_1_1_primitives_1_1_integer" ]
     ] ],
     [ "IntegerList.cpp", "_integer_list_8cpp.html", null ],
-    [ "IntegerList.h", "_integer_list_8h.html", [
-      [ "IntegerList", "struct_base_types_1_1_containers_1_1_integer_list.html", "struct_base_types_1_1_containers_1_1_integer_list" ]
-    ] ],
+    [ "IntegerList.h", "_integer_list_8h.html", "_integer_list_8h" ],
     [ "JuceHeaders.h", "_juce_headers_8h_source.html", null ],
     [ "JucePlugin-Standalone.cpp", "_juce_plugin-_standalone_8cpp.html", null ],
     [ "JucePlugin-util.cpp", "_juce_plugin-util_8cpp.html", null ],
@@ -92,9 +80,7 @@ var files_dup =
     [ "JucePluginDefines.h", "_juce_plugin_defines_8h.html", "_juce_plugin_defines_8h" ],
     [ "Logging.h", "_logging_8h.html", "_logging_8h" ],
     [ "LoggingSupport.cpp", "_logging_support_8cpp.html", "_logging_support_8cpp" ],
-    [ "LoggingSupport.h", "_logging_support_8h.html", [
-      [ "Logging", "struct_base_modules_1_1_logging.html", "struct_base_modules_1_1_logging" ]
-    ] ],
+    [ "LoggingSupport.h", "_logging_support_8h.html", "_logging_support_8h" ],
     [ "MidiEvent.cpp", "_midi_event_8cpp.html", "_midi_event_8cpp" ],
     [ "MidiEvent.h", "_midi_event_8h.html", [
       [ "MidiEventKind", "struct_m_i_d_i_1_1_midi_event_kind.html", "struct_m_i_d_i_1_1_midi_event_kind" ],
@@ -106,9 +92,7 @@ var files_dup =
       [ "MidiEventConverter", "struct_m_i_d_i_1_1_midi_event_converter.html", "struct_m_i_d_i_1_1_midi_event_converter" ]
     ] ],
     [ "MidiEventList.cpp", "_midi_event_list_8cpp.html", "_midi_event_list_8cpp" ],
-    [ "MidiEventList.h", "_midi_event_list_8h.html", [
-      [ "MidiEventList", "struct_m_i_d_i_1_1_midi_event_list.html", "struct_m_i_d_i_1_1_midi_event_list" ]
-    ] ],
+    [ "MidiEventList.h", "_midi_event_list_8h.html", "_midi_event_list_8h" ],
     [ "MidiFile.cpp", "_midi_file_8cpp.html", "_midi_file_8cpp" ],
     [ "MidiFile.h", "_midi_file_8h.html", [
       [ "MidiFile", "struct_m_i_d_i_1_1_midi_file.html", "struct_m_i_d_i_1_1_midi_file" ]
@@ -116,13 +100,12 @@ var files_dup =
     [ "MyArray.h", "_my_array_8h.html", "_my_array_8h" ],
     [ "MyString.cpp", "_my_string_8cpp.html", "_my_string_8cpp" ],
     [ "MyString.h", "_my_string_8h.html", "_my_string_8h" ],
+    [ "MyWindows.h", "_my_windows_8h.html", "_my_windows_8h" ],
     [ "Natural.h", "_natural_8h.html", [
       [ "Natural", "struct_base_types_1_1_primitives_1_1_natural.html", "struct_base_types_1_1_primitives_1_1_natural" ]
     ] ],
-    [ "NaturalList.cpp", "_natural_list_8cpp.html", null ],
-    [ "NaturalList.h", "_natural_list_8h.html", [
-      [ "NaturalList", "struct_base_types_1_1_containers_1_1_natural_list.html", "struct_base_types_1_1_containers_1_1_natural_list" ]
-    ] ],
+    [ "NaturalList.cpp", "_natural_list_8cpp.html", "_natural_list_8cpp" ],
+    [ "NaturalList.h", "_natural_list_8h.html", "_natural_list_8h" ],
     [ "Object.h", "_object_8h.html", "_object_8h" ],
     [ "OperatingSystem.cpp", "_operating_system_8cpp.html", "_operating_system_8cpp" ],
     [ "OperatingSystem.h", "_operating_system_8h.html", [
@@ -138,21 +121,11 @@ var files_dup =
       [ "Real", "struct_base_types_1_1_primitives_1_1_real.html", "struct_base_types_1_1_primitives_1_1_real" ]
     ] ],
     [ "RealList.cpp", "_real_list_8cpp.html", null ],
-    [ "RealList.h", "_real_list_8h.html", [
-      [ "RealList", "struct_base_types_1_1_containers_1_1_real_list.html", "struct_base_types_1_1_containers_1_1_real_list" ]
-    ] ],
-    [ "StringList.cpp", "_string_list_8cpp.html", null ],
-    [ "StringList.h", "_string_list_8h.html", [
-      [ "StringList", "struct_base_types_1_1_containers_1_1_string_list.html", "struct_base_types_1_1_containers_1_1_string_list" ]
-    ] ],
-    [ "StringSet.cpp", "_string_set_8cpp.html", null ],
-    [ "StringSet.h", "_string_set_8h.html", [
-      [ "StringSet", "struct_base_types_1_1_containers_1_1_string_set.html", "struct_base_types_1_1_containers_1_1_string_set" ]
-    ] ],
+    [ "RealList.h", "_real_list_8h.html", "_real_list_8h" ],
+    [ "StringList.cpp", "_string_list_8cpp.html", "_string_list_8cpp" ],
+    [ "StringList.h", "_string_list_8h.html", "_string_list_8h" ],
     [ "StringUtil.cpp", "_string_util_8cpp.html", "_string_util_8cpp" ],
     [ "StringUtil.h", "_string_util_8h.html", "_string_util_8h" ],
     [ "WaveFile.cpp", "_wave_file_8cpp.html", "_wave_file_8cpp" ],
-    [ "WaveFile.h", "_wave_file_8h.html", [
-      [ "WaveFile", "struct_audio_1_1_wave_file.html", "struct_audio_1_1_wave_file" ]
-    ] ]
+    [ "WaveFile.h", "_wave_file_8h.html", "_wave_file_8h" ]
 ];

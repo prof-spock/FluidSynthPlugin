@@ -44,6 +44,44 @@ namespace BaseModules {
     struct StringUtil {
 
         /**
+         * Appends <C>ch</C> to <C>st</C>.
+         *
+         * @param[inout] st     the string to be altered
+         * @param[in]    ch     character to be put after string
+         */
+        static void append (INOUT String& st, IN Character ch);
+
+        /*--------------------*/
+
+        /**
+         * Returns character at <C>position</C> in <C>st</C>.
+         *
+         * @param[in] st        the string to be indexed
+         * @param[in] position  the character index (starting at 0)
+         * @return  character at position
+         */
+        static Character characterAt (IN String& st,
+                                      IN Natural position);
+
+        /*--------------------*/
+
+        /**
+         * Tells whether <C>st</C> contains <C>ch</C> at or after
+         * <C>startPosition</C>
+         *
+         * @param[in] st             the string to be searched for
+         *                           substring
+         * @param[in] ch             the character to search for in st
+         * @param[in] startPosition  the start position of search
+         * @return  information whether st contains ch at or after
+         *          start position
+         */
+        static Boolean contains (IN String& st, IN Character ch,
+                                 IN Natural startPosition = 0);
+
+        /*--------------------*/
+
+        /**
          * Tells whether <C>st</C> contains <C>substring</C> at or after
          * <C>startPosition</C>
          *
@@ -51,7 +89,7 @@ namespace BaseModules {
          *                           substring
          * @param[in] substring      the string to search for in st
          * @param[in] startPosition  the start position of search
-         * @return  information whether st contains substring after
+         * @return  information whether st contains substring at or after
          *          start position
          */
         static Boolean contains (IN String& st, IN String& substring,
@@ -86,6 +124,11 @@ namespace BaseModules {
          * @param[in] replacement08  replacement string for %8
          * @param[in] replacement09  replacement string for %9
          * @param[in] replacement10  replacement string for %A
+         * @param[in] replacement11  replacement string for %B
+         * @param[in] replacement12  replacement string for %C
+         * @param[in] replacement13  replacement string for %D
+         * @param[in] replacement14  replacement string for %E
+         * @param[in] replacement15  replacement string for %F
          * @return  expanded version of st
          */
         static String expand (IN String& st,
@@ -98,21 +141,43 @@ namespace BaseModules {
                               IN String& replacement07 = "",
                               IN String& replacement08 = "",
                               IN String& replacement09 = "",
-                              IN String& replacement10 = "");
+                              IN String& replacement10 = "",
+                              IN String& replacement11 = "",
+                              IN String& replacement12 = "",
+                              IN String& replacement13 = "",
+                              IN String& replacement14 = "",
+                              IN String& replacement15 = "");
+
+        /*--------------------*/
+
+        /**
+         * Returns position of <C>ch</C> in <C>st</C> starting at
+         * <C>startPosition</C>; if not found, Natural::maximumValue
+         * is returned.
+         *
+         * @param[in] st             the string to be searched for
+         *                           character
+         * @param[in] ch             the character to search for in st
+         * @param[in] startPosition  the start position of search
+         * @return  position where st contains ch or else
+         *          Natural::maximumValue
+         */
+        static Natural find (IN String& st, IN Character ch,
+                             IN Natural startPosition = 0);
 
         /*--------------------*/
 
         /**
          * Returns position of <C>substring</C> in <C>st</C> starting
-         * at <C>startPosition</C>; if not found, Natural::maxValue is
-         * returned.
+         * at <C>startPosition</C>; if not found,
+         * Natural::maximumValue is returned.
          *
          * @param[in] st             the string to be searched for
          *                           substring
          * @param[in] substring      the string to search for in st
          * @param[in] startPosition  the start position of search
-         * @return  position where st contains substring or
-         *          Natural::maxValue
+         * @return  position where st contains substring or else
+         *          Natural::maximumValue
          */
         static Natural find (IN String& st, IN String& substring,
                              IN Natural startPosition = 0);
@@ -129,12 +194,22 @@ namespace BaseModules {
          * @param[in] substring      the string to search for in st
          * @param[in] startPosition  the start position of search
          * @return  position where st contains substring or
-         *          Natural::maxValue
+         *          Natural::maximumValue
          */
         static Natural
         findFromEnd (IN String& st,
                      IN String& substring,
                      IN Natural startPosition = Natural::maximumValue());
+
+        /*--------------------*/
+
+        /**
+         * Gives first character of <C>st</C>
+         *
+         * @param[in] st  non-empty string
+         * @return first character of <C>st</C>
+         */
+        static Character firstCharacter (IN String& st);
 
         /*--------------------*/
 
@@ -161,13 +236,16 @@ namespace BaseModules {
         /*--------------------*/
 
         /**
-         * Tells whether <C>st</C> represents an natural.
+         * Tells whether <C>st</C> represents an natural relative to
+         * <C>base</C>.
          *
-         * @param[in] st  the string with a natural value
+         * @param[in] st    the string with a natural value
+         * @param[in] base  the base for the string
          * @return  information whether string represents a natural or
          *          not
          */
-        static Boolean isNatural (IN String& st);
+        static Boolean isNatural (IN String& st,
+                                  IN Natural base = 10);
 
         /*--------------------*/
 
@@ -187,7 +265,7 @@ namespace BaseModules {
          * @param[in] st  non-empty string
          * @return last character of <C>st</C>
          */
-        static Character lastChar (IN String& st);
+        static Character lastCharacter (IN String& st);
 
         /*--------------------*/
 
@@ -219,6 +297,16 @@ namespace BaseModules {
         /*--------------------*/
 
         /**
+         * Prepends <C>ch</C> to <C>st</C>.
+         *
+         * @param[inout] st  the string to be altered
+         * @param[in]    ch  character to be put before string
+         */
+        static void prepend (INOUT String& st, IN Character ch);
+
+        /*--------------------*/
+
+        /**
          * Replaces all occurrences of <C>pattern</C> in <C>st</C> by
          * <C>replacement</C> (without rescanning replaced parts).
          *
@@ -230,6 +318,20 @@ namespace BaseModules {
         static void replace (INOUT String& st,
                              IN String& pattern,
                              IN String& replacement);
+
+        /*--------------------*/
+
+        /**
+         * Sets character at <C>position</C> in <C>st</C> to
+         * <C>ch</C>.
+         *
+         * @param[inout] st        the string to be changed
+         * @param[in]    position  the character index (starting at 0)
+         * @param[in]    ch        the new character at index
+         */
+        static void setCharacterAt (INOUT String& st,
+                                    IN Natural position,
+                                    IN Character ch);
 
         /*--------------------*/
 
@@ -339,6 +441,20 @@ namespace BaseModules {
         /*--------------------*/
 
         /**
+         * Converts <C>st</C> to a natural with a given base
+         * (typically 2, 8, 16); if conversion fails, maximum natural
+         * is returned
+         *
+         * @param[in] st    the string to be converted to natural
+         * @param[in] base  the base of the conversion
+         * @return  natural value of string for base or maximum natural
+         */
+        static Natural toNaturalWithBase (IN String& st,
+                                          IN Natural base);
+
+        /*--------------------*/
+
+        /**
          * Converts <C>st</C> to a percentage value; if conversion
          * fails, NaN is returned
          *
@@ -388,17 +504,17 @@ namespace BaseModules {
          * @param[in] b  byte value to be converted
          * @return  string representation of byte
          */
-        static String toString (IN Byte& b);
+        static String toString (IN Byte b);
 
         /*--------------------*/
 
         /**
-         * Converts real value <C>r</C> to string.
+         * Converts character value <C>ch</C> to string.
          *
-         * @param[in] r  real value to be converted
-         * @return  string representation of real
+         * @param[in] ch  character value to be converted
+         * @return  string representation of character
          */
-        static String toString (IN Real r);
+        static String toString (IN Character ch);
 
         /*--------------------*/
 
@@ -416,14 +532,14 @@ namespace BaseModules {
          * Converts integer <C>i</C> to string with precision and
          * padding information.
          *
-         * @param[in] i             integer value to be converted
-         * @param[in] precision     minimum number of valid digits
-         * @param[in] padCharacter  character to use for left padding
+         * @param[in] i          integer value to be converted
+         * @param[in] precision  minimum number of valid digits
+         * @param[in] padString  string to use for left padding
          * @return  string representation of integer
          */
         static String toString (IN Integer i,
                                 IN Natural precision,
-                                IN String padCharacter = "0");
+                                IN String padString = "0");
 
         /*--------------------*/
 
@@ -441,14 +557,71 @@ namespace BaseModules {
          * Converts natural value <C>n</C> to string with precision
          * and padding information.
          *
-         * @param[in] n             natural value to be converted
-         * @param[in] precision     minimum number of valid digits
-         * @param[in] padCharacter  character to use for left padding
+         * @param[in] n          natural value to be converted
+         * @param[in] precision  minimum number of valid digits
+         * @param[in] padString  string to use for left padding
          * @return  string representation of natural
          */
         static String toString (IN Natural n,
                                 IN Natural precision,
-                                IN String padCharacter = "0");
+                                IN String padString = "0");
+
+        /*--------------------*/
+
+        /**
+         * Converts natural value <C>n</C> to string with base
+         * (e.g. 2, 8 or 16) with precision and padding information.
+         *
+         * @param[in] n          natural value to be converted
+         * @param[in] base       base for conversion
+         * @param[in] precision  minimum number of valid digits
+         * @param[in] padString  string to use for left padding
+         * @return  string representation of natural in given base
+         */
+        static String toStringWithBase (IN Natural n,
+                                        IN Natural base,
+                                        IN Natural precision = 0,
+                                        IN String padString = "0");
+
+        /*--------------------*/
+
+        /**
+         * Converts real value <C>r</C> to string.
+         *
+         * @param[in] r  real value to be converted
+         * @return  string representation of real
+         */
+        static String toString (IN Real r);
+
+        /*--------------------*/
+
+        /**
+         * Converts real value <C>n</C> to string with <C>precision</C>,
+         * <C>fractionalDigitCount</C>and padding information.
+         *
+         * @param[in] n                     natural value to be converted
+         * @param[in] precision             minimum width of characters
+         * @param[in] fractionalDigitCount  minimum number of valid digits
+         * @param[in] padString             string to use for left
+         *                                  padding
+         * @return  string representation of real
+         */
+        static String toString (IN Real r,
+                                IN Natural precision,
+                                IN Natural fractionalDigitCount,
+                                IN String padString = "0");
+
+        /*--------------------*/
+
+        /**
+         * Converts wide string <C>st</C> to standard string using
+         * UTF8 encoding
+         *
+         * @param[in] st  the wide string to be converted to a standard
+         *                string
+         * @return  standard string representation of string
+         */
+        static String toString (IN std::wstring& st);
 
         /*--------------------*/
 
@@ -496,6 +669,18 @@ namespace BaseModules {
          * @return  upper case version of string
          */
         static String toUppercase (IN String& st);
+
+        /*--------------------*/
+
+        /**
+         * Converts string <C>st</C> to wide string assuming UTF8
+         * encoding
+         *
+         * @param[in] st  the standard string to be converted to a wide
+         *                string
+         * @return  wide string representation of string
+         */
+        static std::wstring toWideString (IN String& st);
 
         /*--------------------*/
         /* GENERIC FUNCTIONS  */

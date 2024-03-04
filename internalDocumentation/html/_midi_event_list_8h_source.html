@@ -109,47 +109,48 @@ $(document).ready(function(){initNavTree('_midi_event_list_8h_source.html',''); 
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_m_i_d_i.html">MIDI</a> {</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="struct_m_i_d_i_1_1_midi_event_list.html">   39</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="struct_m_i_d_i_1_1_midi_event_list.html">MidiEventList</a> : <span class="keyword">public</span> GenericList&lt;MidiEvent&gt; {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="comment">/*--------------------*/</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="comment">/* construction       */</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="comment">/*--------------------*/</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keyword">static</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <a class="code" href="struct_m_i_d_i_1_1_midi_event_list.html">MidiEventList</a> <a class="code" href="struct_m_i_d_i_1_1_midi_event_list.html#ab33f3aadda9a9349381ce015688e2a90">fromList</a> (<a class="code" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> initializer_list&lt;MidiEvent&gt; list);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="namespace_base_types_1_1_primitives.html#aa1174c1e7bedd8df69fc98453595a127">String</a> <a class="code" href="namespace_m_i_d_i.html#aa053a2c4e639ff25cb7785deea8e061a">_midiEventListTypeName</a> ();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="comment">/*--------------------*/</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="struct_m_i_d_i_1_1_midi_event_list.html">   48</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="struct_m_i_d_i_1_1_midi_event_list.html">MidiEventList</a></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        : <span class="keyword">public</span> GenericList&lt;MidiEvent,</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                             MidiEvent::toString,</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                             &amp;_midiEventListTypeName &gt; {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="comment">/*--------------------*/</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="comment">/* construction       */</span></div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="comment">/*--------------------*/</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="comment">/* conversion         */</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="comment">/*--------------------*/</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <a class="code" href="namespace_base_types_1_1_primitives.html#aa1174c1e7bedd8df69fc98453595a127">String</a> <a class="code" href="struct_m_i_d_i_1_1_midi_event_list.html#acb216d46190a2d9391f2f9f3efa110e8">toString</a> () <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="comment">/*--------------------*/</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="comment">/* change             */</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="comment">/*--------------------*/</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="struct_m_i_d_i_1_1_midi_event_list.html#ae4c257041909977cff8099501fc2a605">merge</a> (<a class="code" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="code" href="struct_m_i_d_i_1_1_midi_event_list.html">MidiEventList</a>&amp; other);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="comment">/*--------------------*/</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="struct_m_i_d_i_1_1_midi_event_list.html#a7cefea9a17fa2ee663cdde36cc75ce7e">shiftEventTimes</a> (<a class="code" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="code" href="struct_base_types_1_1_primitives_1_1_integer.html">Integer</a> offset);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    };</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;}</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keyword">static</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <a class="code" href="struct_m_i_d_i_1_1_midi_event_list.html">MidiEventList</a> <a class="code" href="struct_m_i_d_i_1_1_midi_event_list.html#ab33f3aadda9a9349381ce015688e2a90">fromList</a> (<a class="code" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> initializer_list&lt;MidiEvent&gt; list);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="comment">/*--------------------*/</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="comment">/* change             */</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="comment">/*--------------------*/</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="struct_m_i_d_i_1_1_midi_event_list.html#ae4c257041909977cff8099501fc2a605">merge</a> (<a class="code" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="code" href="struct_m_i_d_i_1_1_midi_event_list.html">MidiEventList</a>&amp; other);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="comment">/*--------------------*/</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="struct_m_i_d_i_1_1_midi_event_list.html#a7cefea9a17fa2ee663cdde36cc75ce7e">shiftEventTimes</a> (<a class="code" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="code" href="struct_base_types_1_1_primitives_1_1_integer.html">Integer</a> offset);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    };</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="astruct_m_i_d_i_1_1_midi_event_list_html_ae4c257041909977cff8099501fc2a605"><div class="ttname"><a href="struct_m_i_d_i_1_1_midi_event_list.html#ae4c257041909977cff8099501fc2a605">MIDI::MidiEventList::merge</a></div><div class="ttdeci">void merge(IN MidiEventList &amp;other)</div><div class="ttdoc">Combines current list with other and keeps event sorting order.</div><div class="ttdef"><b>Definition:</b> MidiEventList.cpp:85</div></div>
-<div class="ttc" id="astruct_m_i_d_i_1_1_midi_event_list_html_acb216d46190a2d9391f2f9f3efa110e8"><div class="ttname"><a href="struct_m_i_d_i_1_1_midi_event_list.html#acb216d46190a2d9391f2f9f3efa110e8">MIDI::MidiEventList::toString</a></div><div class="ttdeci">String toString() const</div><div class="ttdoc">Returns printable representation of list.</div><div class="ttdef"><b>Definition:</b> MidiEventList.cpp:76</div></div>
+<div class="ttc" id="astruct_m_i_d_i_1_1_midi_event_list_html_ae4c257041909977cff8099501fc2a605"><div class="ttname"><a href="struct_m_i_d_i_1_1_midi_event_list.html#ae4c257041909977cff8099501fc2a605">MIDI::MidiEventList::merge</a></div><div class="ttdeci">void merge(IN MidiEventList &amp;other)</div><div class="ttdoc">Combines current list with other and keeps event sorting order.</div><div class="ttdef"><b>Definition:</b> MidiEventList.cpp:81</div></div>
 <div class="ttc" id="anamespace_base_types_1_1_primitives_html_aa1174c1e7bedd8df69fc98453595a127"><div class="ttname"><a href="namespace_base_types_1_1_primitives.html#aa1174c1e7bedd8df69fc98453595a127">BaseTypes::Primitives::String</a></div><div class="ttdeci">std::string String</div><div class="ttdoc">The String type represents (Unicode) character sequences.</div><div class="ttdef"><b>Definition:</b> MyString.h:28</div></div>
 <div class="ttc" id="a_global_macros_8h_html_ac2bbd6d630a06a980d9a92ddb9a49928"><div class="ttname"><a href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a></div><div class="ttdeci">#define IN</div><div class="ttdoc">(informal) parameter mode for in parameter</div><div class="ttdef"><b>Definition:</b> GlobalMacros.h:15</div></div>
 <div class="ttc" id="anamespace_m_i_d_i_html"><div class="ttname"><a href="namespace_m_i_d_i.html">MIDI</a></div><div class="ttdoc">The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...</div><div class="ttdef"><b>Definition:</b> MIDI/_NAMESPACE.desc:10</div></div>
-<div class="ttc" id="astruct_m_i_d_i_1_1_midi_event_list_html"><div class="ttname"><a href="struct_m_i_d_i_1_1_midi_event_list.html">MIDI::MidiEventList</a></div><div class="ttdoc">An MidiEventList object is a list of MIDI events with arbitrary indexed access to positions in the li...</div><div class="ttdef"><b>Definition:</b> MidiEventList.h:39</div></div>
+<div class="ttc" id="astruct_m_i_d_i_1_1_midi_event_list_html"><div class="ttname"><a href="struct_m_i_d_i_1_1_midi_event_list.html">MIDI::MidiEventList</a></div><div class="ttdoc">An MidiEventList object is a list of MIDI events with arbitrary indexed access to positions in the li...</div><div class="ttdef"><b>Definition:</b> MidiEventList.h:51</div></div>
 <div class="ttc" id="astruct_base_types_1_1_primitives_1_1_integer_html"><div class="ttname"><a href="struct_base_types_1_1_primitives_1_1_integer.html">BaseTypes::Primitives::Integer</a></div><div class="ttdoc">An Integer object wraps a value of the associated primitive type in an object.</div><div class="ttdef"><b>Definition:</b> Integer.h:35</div></div>
-<div class="ttc" id="astruct_m_i_d_i_1_1_midi_event_html"><div class="ttname"><a href="struct_m_i_d_i_1_1_midi_event.html">MIDI::MidiEvent</a></div><div class="ttdoc">An abstract MIDI event.</div><div class="ttdef"><b>Definition:</b> MidiEvent.h:282</div></div>
-<div class="ttc" id="astruct_m_i_d_i_1_1_midi_event_list_html_a7cefea9a17fa2ee663cdde36cc75ce7e"><div class="ttname"><a href="struct_m_i_d_i_1_1_midi_event_list.html#a7cefea9a17fa2ee663cdde36cc75ce7e">MIDI::MidiEventList::shiftEventTimes</a></div><div class="ttdeci">void shiftEventTimes(IN Integer offset)</div><div class="ttdoc">Shifts event times in list by offset.</div><div class="ttdef"><b>Definition:</b> MidiEventList.cpp:132</div></div>
+<div class="ttc" id="astruct_m_i_d_i_1_1_midi_event_html"><div class="ttname"><a href="struct_m_i_d_i_1_1_midi_event.html">MIDI::MidiEvent</a></div><div class="ttdoc">An abstract MIDI event.</div><div class="ttdef"><b>Definition:</b> MidiEvent.h:286</div></div>
+<div class="ttc" id="astruct_m_i_d_i_1_1_midi_event_list_html_a7cefea9a17fa2ee663cdde36cc75ce7e"><div class="ttname"><a href="struct_m_i_d_i_1_1_midi_event_list.html#a7cefea9a17fa2ee663cdde36cc75ce7e">MIDI::MidiEventList::shiftEventTimes</a></div><div class="ttdeci">void shiftEventTimes(IN Integer offset)</div><div class="ttdoc">Shifts event times in list by offset.</div><div class="ttdef"><b>Definition:</b> MidiEventList.cpp:128</div></div>
 <div class="ttc" id="a_midi_event_8h_html"><div class="ttname"><a href="_midi_event_8h.html">MidiEvent.h</a></div><div class="ttdoc">The MidiEvent specification defines a single MIDI event and the MIDI event kind enumeration.</div></div>
-<div class="ttc" id="astruct_m_i_d_i_1_1_midi_event_list_html_ab33f3aadda9a9349381ce015688e2a90"><div class="ttname"><a href="struct_m_i_d_i_1_1_midi_event_list.html#ab33f3aadda9a9349381ce015688e2a90">MIDI::MidiEventList::fromList</a></div><div class="ttdeci">static MidiEventList fromList(IN initializer_list&lt; MidiEvent &gt; list)</div><div class="ttdoc">Initializes list of MIDI events from an initializer list of values.</div><div class="ttdef"><b>Definition:</b> MidiEventList.cpp:61</div></div>
+<div class="ttc" id="astruct_m_i_d_i_1_1_midi_event_list_html_ab33f3aadda9a9349381ce015688e2a90"><div class="ttname"><a href="struct_m_i_d_i_1_1_midi_event_list.html#ab33f3aadda9a9349381ce015688e2a90">MIDI::MidiEventList::fromList</a></div><div class="ttdeci">static MidiEventList fromList(IN initializer_list&lt; MidiEvent &gt; list)</div><div class="ttdoc">Initializes list of MIDI events from an initializer list of values.</div><div class="ttdef"><b>Definition:</b> MidiEventList.cpp:66</div></div>
+<div class="ttc" id="anamespace_m_i_d_i_html_aa053a2c4e639ff25cb7785deea8e061a"><div class="ttname"><a href="namespace_m_i_d_i.html#aa053a2c4e639ff25cb7785deea8e061a">MIDI::_midiEventListTypeName</a></div><div class="ttdeci">String _midiEventListTypeName()</div><div class="ttdoc">Returns name of midi event list type.</div><div class="ttdef"><b>Definition:</b> MidiEventList.cpp:57</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

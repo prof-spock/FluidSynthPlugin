@@ -4,7 +4,7 @@
 # Dr. Thomas Tensi, 2022-04                   #
 ###############################################
 
-CMAKE_MINIMUM_REQUIRED(VERSION 3.0)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.5)
 
 PROJECT(FluidSynthPlugin
         VERSION 1.0
@@ -38,7 +38,7 @@ ELSE()
 ENDIF()
 
 # --- compiler ---
-SET(CMAKE_CXX_STANDARD 17)
+SET(CMAKE_CXX_STANDARD 20)
 SET(CMAKE_CXX_STANDARD_REQUIRED True)
 INCLUDE(CPPCompilerConfiguration.cmake)
 
@@ -323,6 +323,9 @@ SET(docDoxygenFileName FluidSynthPlugin-doxygen-FULL.cfg)
 IF(WINDOWS)
     SET(regressionTestFileList ${testFileDirectory}/makeTestFiles.bat)
 ELSE()
+    CONFIGURE_FILE(${testFileDirectory}/makeTestFiles.sh.in
+                   ${testFileDirectory}/makeTestFiles.sh
+                   @ONLY)
     SET(regressionTestFileList ${testFileDirectory}/makeTestFiles.sh)
 ENDIF()
 
@@ -331,7 +334,9 @@ SET(regressionTestFileList
     ${testFileDirectory}/test_bass.mid
     ${testFileDirectory}/test_drums.mid
     ${testFileDirectory}/test_keyboard.mid
-    ${testFileDirectory}/testFluidSynth.rpp)
+    ${testFileDirectory}/SimpleTestSoundfont.sf2
+    ${testFileDirectory}/testFluidSynth-44100.rpp
+    ${testFileDirectory}/testFluidSynth-48000.rpp)
 
 # --- Windows specific files ---
 IF(MSVC)
@@ -373,6 +378,8 @@ ELSE()
         "/Applications/Xcode.app/Contents/Developer")
     SET(appSdkDirectory
         ${appDevelopDirectory}/Platforms/MacOSX.platform/Developer/SDKs)
+    SET(audioUnitSdkDirectory
+        ${appSdkDirectory}/MacOSX.sdk/System/Library/Frameworks/AudioUnit.framework)
 
     # make definition string from elements in
     # manufacturerAndSuiteDefineClauseList
@@ -386,13 +393,12 @@ ELSE()
     SET(rezIncludeDirectoryList
         -i "/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Versions/A/Headers"
         -i ${appDevelopDirectory}/CoreAudio/AudioUnits/AUPublic/AUBase
-        -i ${appSdkDirectory}/MacOSX.sdk/System/Library/Frameworks/AudioUnit.framework/Headers
         -i ${juceModulesDirectory}/juce_audio_processors/format_types/VST3_SDK
         -i ${juceModulesDirectory}
         -i ${srcFluidSynthPluginDirectory}
         -i ${srcJuceFacadeDirectory}
         -i ${juceModulesDirectory}/juce_audio_plugin_client
-        -isysroot ${appSdkDirectory}/MacOSX10.15.sdk)
+        -isysroot ${appSdkDirectory}/MacOSX.sdk)
 ENDIF(NOT MACOSX)
 
 # #################
@@ -687,7 +693,7 @@ ENDFUNCTION(makeLaTeXDocumentationTarget)
 INCLUDE_DIRECTORIES(${standardIncludeDirectoryList})
 
 # compile with logging enabled globally for a debug configuration
-# ADD_COMPILE_DEFINITIONS($<$<CONFIG:Debug>:LOGGING_IS_ACTIVE>)
+ADD_COMPILE_DEFINITIONS($<$<CONFIG:Debug>:LOGGING_IS_ACTIVE>)
 
 # ==================================
 # === intermediate library files ===

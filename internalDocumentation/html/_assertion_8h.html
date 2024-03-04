@@ -83,7 +83,8 @@ $(document).ready(function(){initNavTree('_assertion_8h.html',''); initResizable
 
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a>  </div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
 <div class="title">Assertion.h File Reference</div>  </div>
 </div><!--header-->
@@ -91,13 +92,14 @@ $(document).ready(function(){initNavTree('_assertion_8h.html',''); initResizable
 
 <p>The <code>Assertion</code> specification defines macros for pre- and postconditions in functions or methods.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;cassert&gt;</code><br />
+<div class="textblock"><code>#include &lt;stdexcept&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for Assertion.h:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="_assertion_8h__incl.svg" width="106" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="_assertion_8h__incl.svg" width="168" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div><div class="textblock"><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
@@ -111,26 +113,33 @@ $(document).ready(function(){initNavTree('_assertion_8h.html',''); initResizable
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a2efe2db6878c4c0fdd708a8a18650fd6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_assertion_8h.html#a2efe2db6878c4c0fdd708a8a18650fd6">_ASSERT_WITH_MESSAGE</a>(condition,  message)&#160;&#160;&#160;    assert((condition))</td></tr>
-<tr class="memdesc:a2efe2db6878c4c0fdd708a8a18650fd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks the <code>condition</code> and exits with <code>message</code> on failure; this is the base routine called by the exported assertion checks --&gt; the DEBUG version does the checking, the RELEASE version does nothing.  <a href="_assertion_8h.html#a2efe2db6878c4c0fdd708a8a18650fd6">More...</a><br /></td></tr>
-<tr class="separator:a2efe2db6878c4c0fdd708a8a18650fd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8be9498d4c4b21c15c381c2ededc826"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_assertion_8h.html#ae8be9498d4c4b21c15c381c2ededc826">Assertion_check</a>(condition,  message)&#160;&#160;&#160;            <a class="el" href="_assertion_8h.html#a2efe2db6878c4c0fdd708a8a18650fd6">_ASSERT_WITH_MESSAGE</a>(condition, message)</td></tr>
+<tr class="memitem:a982e7f88dc5e0b291490324d3224aee4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_assertion_8h.html#a982e7f88dc5e0b291490324d3224aee4">_ASSERT_WITH_MESSAGE</a>(condition,  prefix,  message)&#160;&#160;&#160;    if (!(condition)) { throw <a class="el" href="_assertion_8h.html#ace33005c83d659781ceca910a1e9d4b8">AssertionError</a>{std::string(prefix &quot;: &quot;) + std::string(message)}; }</td></tr>
+<tr class="memdesc:a982e7f88dc5e0b291490324d3224aee4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks the <code>condition</code> and exits with <code>message</code> on failure; this is the base routine called by the exported assertion checks --&gt; the DEBUG version does the checking, the RELEASE version does nothing.  <a href="_assertion_8h.html#a982e7f88dc5e0b291490324d3224aee4">More...</a><br /></td></tr>
+<tr class="separator:a982e7f88dc5e0b291490324d3224aee4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8be9498d4c4b21c15c381c2ededc826"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_assertion_8h.html#ae8be9498d4c4b21c15c381c2ededc826">Assertion_check</a>(condition,  message)&#160;&#160;&#160;    <a class="el" href="_assertion_8h.html#a982e7f88dc5e0b291490324d3224aee4">_ASSERT_WITH_MESSAGE</a>(condition, &quot;CHECK&quot;, message)</td></tr>
 <tr class="memdesc:ae8be9498d4c4b21c15c381c2ededc826"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks the <code>condition</code> and exits with <code>message</code> on failure.  <a href="_assertion_8h.html#ae8be9498d4c4b21c15c381c2ededc826">More...</a><br /></td></tr>
 <tr class="separator:ae8be9498d4c4b21c15c381c2ededc826"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4d7aee6b62950a595301805b2903499"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_assertion_8h.html#aa4d7aee6b62950a595301805b2903499">Assertion_post</a>(condition,  message)&#160;&#160;&#160;            <a class="el" href="_assertion_8h.html#a2efe2db6878c4c0fdd708a8a18650fd6">_ASSERT_WITH_MESSAGE</a>(condition, message)</td></tr>
+<tr class="memitem:aa4d7aee6b62950a595301805b2903499"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_assertion_8h.html#aa4d7aee6b62950a595301805b2903499">Assertion_post</a>(condition,  message)&#160;&#160;&#160;    <a class="el" href="_assertion_8h.html#a982e7f88dc5e0b291490324d3224aee4">_ASSERT_WITH_MESSAGE</a>(condition, &quot;POST&quot;, message)</td></tr>
 <tr class="memdesc:aa4d7aee6b62950a595301805b2903499"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks postcondition <code>condition</code> and exits with <code>message</code> on failure.  <a href="_assertion_8h.html#aa4d7aee6b62950a595301805b2903499">More...</a><br /></td></tr>
 <tr class="separator:aa4d7aee6b62950a595301805b2903499"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9328921abc0810fcc777e515c52a417c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_assertion_8h.html#a9328921abc0810fcc777e515c52a417c">Assertion_pre</a>(condition,  message)&#160;&#160;&#160;            <a class="el" href="_assertion_8h.html#a2efe2db6878c4c0fdd708a8a18650fd6">_ASSERT_WITH_MESSAGE</a>(condition, message)</td></tr>
+<tr class="memitem:a9328921abc0810fcc777e515c52a417c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_assertion_8h.html#a9328921abc0810fcc777e515c52a417c">Assertion_pre</a>(condition,  message)&#160;&#160;&#160;    <a class="el" href="_assertion_8h.html#a982e7f88dc5e0b291490324d3224aee4">_ASSERT_WITH_MESSAGE</a>(condition, &quot;PRE&quot;, message)</td></tr>
 <tr class="memdesc:a9328921abc0810fcc777e515c52a417c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks precondition <code>condition</code> and exits with <code>message</code> on failure.  <a href="_assertion_8h.html#a9328921abc0810fcc777e515c52a417c">More...</a><br /></td></tr>
 <tr class="separator:a9328921abc0810fcc777e515c52a417c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ace33005c83d659781ceca910a1e9d4b8"><td class="memItemLeft" align="right" valign="top"><a id="ace33005c83d659781ceca910a1e9d4b8"></a>
+typedef std::logic_error&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_assertion_8h.html#ace33005c83d659781ceca910a1e9d4b8">AssertionError</a></td></tr>
+<tr class="memdesc:ace33005c83d659781ceca910a1e9d4b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">exception thrown when assertion is violated <br /></td></tr>
+<tr class="separator:ace33005c83d659781ceca910a1e9d4b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <code>Assertion</code> specification defines macros for pre- and postconditions in functions or methods. </p>
 <dl class="section author"><dt>Author</dt><dd>Dr. Thomas Tensi </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2020-08 </dd></dl>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a2efe2db6878c4c0fdd708a8a18650fd6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2efe2db6878c4c0fdd708a8a18650fd6">&#9670;&nbsp;</a></span>_ASSERT_WITH_MESSAGE</h2>
+<a id="a982e7f88dc5e0b291490324d3224aee4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a982e7f88dc5e0b291490324d3224aee4">&#9670;&nbsp;</a></span>_ASSERT_WITH_MESSAGE</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -145,12 +154,18 @@ Macros</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
+          <td class="paramname">prefix, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
           <td class="paramname">message&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;    assert((condition))</td>
+          <td></td><td>&#160;&#160;&#160;    if (!(condition)) { throw <a class="el" href="_assertion_8h.html#ace33005c83d659781ceca910a1e9d4b8">AssertionError</a>{std::string(prefix &quot;: &quot;) + std::string(message)}; }</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -187,7 +202,7 @@ Macros</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;            <a class="el" href="_assertion_8h.html#a2efe2db6878c4c0fdd708a8a18650fd6">_ASSERT_WITH_MESSAGE</a>(condition, message)</td>
+          <td></td><td>&#160;&#160;&#160;    <a class="el" href="_assertion_8h.html#a982e7f88dc5e0b291490324d3224aee4">_ASSERT_WITH_MESSAGE</a>(condition, &quot;CHECK&quot;, message)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -224,7 +239,7 @@ Macros</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;            <a class="el" href="_assertion_8h.html#a2efe2db6878c4c0fdd708a8a18650fd6">_ASSERT_WITH_MESSAGE</a>(condition, message)</td>
+          <td></td><td>&#160;&#160;&#160;    <a class="el" href="_assertion_8h.html#a982e7f88dc5e0b291490324d3224aee4">_ASSERT_WITH_MESSAGE</a>(condition, &quot;POST&quot;, message)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -261,7 +276,7 @@ Macros</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;            <a class="el" href="_assertion_8h.html#a2efe2db6878c4c0fdd708a8a18650fd6">_ASSERT_WITH_MESSAGE</a>(condition, message)</td>
+          <td></td><td>&#160;&#160;&#160;    <a class="el" href="_assertion_8h.html#a982e7f88dc5e0b291490324d3224aee4">_ASSERT_WITH_MESSAGE</a>(condition, &quot;PRE&quot;, message)</td>
         </tr>
       </table>
 </div><div class="memdoc">

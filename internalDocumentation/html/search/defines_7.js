@@ -1,32 +1,4 @@
 var searchData=
 [
-  ['logging_5ffinalize_1257',['Logging_finalize',['../_logging_8h.html#aa90f9e2f40bfd09dc4bd3eea36867899',1,'Logging.h']]],
-  ['logging_5finitialize_1258',['Logging_initialize',['../_logging_8h.html#a065d2c4b14781ce053a11f49d023001a',1,'Logging.h']]],
-  ['logging_5finitializewithdefaults_1259',['Logging_initializeWithDefaults',['../_logging_8h.html#a8772946d784a2ed775bb292eb350b2b5',1,'Logging.h']]],
-  ['logging_5fisactive_1260',['Logging_isActive',['../_logging_8h.html#ad2b6fa7e9f55c058b34a9965fa331ef4',1,'Logging.h']]],
-  ['logging_5fsetfilename_1261',['Logging_setFileName',['../_logging_8h.html#a0ed6d2e89d966d66513413f61dcd919b',1,'Logging.h']]],
-  ['logging_5fsetignoredfunctionnameprefix_1262',['Logging_setIgnoredFunctionNamePrefix',['../_logging_8h.html#acf38b27d4d71b187d814e77e9b0dbf87',1,'Logging.h']]],
-  ['logging_5fsettracingwithtime_1263',['Logging_setTracingWithTime',['../_logging_8h.html#aac45c29927adab4c35d2c8d271943e15',1,'Logging.h']]],
-  ['logging_5ftrace_1264',['Logging_trace',['../_logging_8h.html#a1c73428608a1317df3f144c354535ef7',1,'Logging.h']]],
-  ['logging_5ftrace1_1265',['Logging_trace1',['../_logging_8h.html#a6c1081b18e91cbafb22f042045a8174c',1,'Logging.h']]],
-  ['logging_5ftrace10_1266',['Logging_trace10',['../_logging_8h.html#ab760f11c369ff728ae99d944227cc167',1,'Logging.h']]],
-  ['logging_5ftrace2_1267',['Logging_trace2',['../_logging_8h.html#a885e0cf3665f9237bad66accd37b844c',1,'Logging.h']]],
-  ['logging_5ftrace3_1268',['Logging_trace3',['../_logging_8h.html#ad8cce0c12e8c632ee4d664e38929837e',1,'Logging.h']]],
-  ['logging_5ftrace4_1269',['Logging_trace4',['../_logging_8h.html#a6e1f07281ff4dc9a0c66fb461c8b7d99',1,'Logging.h']]],
-  ['logging_5ftrace5_1270',['Logging_trace5',['../_logging_8h.html#a416757c38d719848e662ab7189a41477',1,'Logging.h']]],
-  ['logging_5ftrace6_1271',['Logging_trace6',['../_logging_8h.html#a0b26e3dc7f1328780f1bb479b9faca24',1,'Logging.h']]],
-  ['logging_5ftrace7_1272',['Logging_trace7',['../_logging_8h.html#adb31b4a38d2c981f8ea99887e5ea4b62',1,'Logging.h']]],
-  ['logging_5ftrace8_1273',['Logging_trace8',['../_logging_8h.html#a3f503314e2f46dd7b303b47f956113b1',1,'Logging.h']]],
-  ['logging_5ftrace9_1274',['Logging_trace9',['../_logging_8h.html#a4cb1aefd6f386b0c8fa58b7ced3bfc40',1,'Logging.h']]],
-  ['logging_5ftraceerror_1275',['Logging_traceError',['../_logging_8h.html#abda43432e1824d87522abc061e616939',1,'Logging.h']]],
-  ['logging_5ftraceerror1_1276',['Logging_traceError1',['../_logging_8h.html#a0c736bf0543b16832e37d1366fc66226',1,'Logging.h']]],
-  ['logging_5ftraceerror10_1277',['Logging_traceError10',['../_logging_8h.html#ab623897aceddabd3c0fb6fb309be15c8',1,'Logging.h']]],
-  ['logging_5ftraceerror2_1278',['Logging_traceError2',['../_logging_8h.html#a5636db5d718c7f182b524ada7c38b986',1,'Logging.h']]],
-  ['logging_5ftraceerror3_1279',['Logging_traceError3',['../_logging_8h.html#ab307b077ec5434be9596c7752ba31bc3',1,'Logging.h']]],
-  ['logging_5ftraceerror4_1280',['Logging_traceError4',['../_logging_8h.html#a7582d3cdefa7331b6dfe107d22c7b824',1,'Logging.h']]],
-  ['logging_5ftraceerror5_1281',['Logging_traceError5',['../_logging_8h.html#ac516f129a6371b0a1185c90390458f3f',1,'Logging.h']]],
-  ['logging_5ftraceerror6_1282',['Logging_traceError6',['../_logging_8h.html#a7e5882c0d68b9ad8668bcaf6dbd44394',1,'Logging.h']]],
-  ['logging_5ftraceerror7_1283',['Logging_traceError7',['../_logging_8h.html#aba0b651f87fd0fd5d2f465b8ad37ed07',1,'Logging.h']]],
-  ['logging_5ftraceerror8_1284',['Logging_traceError8',['../_logging_8h.html#a70ac4663222f52376b832697fa16bdbd',1,'Logging.h']]],
-  ['logging_5ftraceerror9_1285',['Logging_traceError9',['../_logging_8h.html#ac0b61393741b9c9039cebcbdbef7bcb5',1,'Logging.h']]]
+  ['makelocalarray_1430',['makeLocalArray',['../_my_array_8h.html#adede199e40286fbec7786ebdc3b1b299',1,'MyArray.h']]]
 ];

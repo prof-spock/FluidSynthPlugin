@@ -8,5 +8,6 @@ var _file_8cpp =
     [ "StdIO_fseek", "_file_8cpp.html#a4aafb079508ca52c6f5ac1411a93bb69", null ],
     [ "StdIO_ftell", "_file_8cpp.html#ae7e5f0cc6867ef73128b4dbdc9d48c75", null ],
     [ "StdIO_fwrite", "_file_8cpp.html#a8abcdbe2bb66331f2c95594c943564f4", null ],
-    [ "FilePointer", "_file_8cpp.html#aa99fc14e9abd46ef7ab808983ee4a876", null ]
+    [ "FilePointer", "_file_8cpp.html#aa99fc14e9abd46ef7ab808983ee4a876", null ],
+    [ "STR", "_file_8cpp.html#a5b6f88d1249b396e351c4a85bcb35b2c", null ]
 ];

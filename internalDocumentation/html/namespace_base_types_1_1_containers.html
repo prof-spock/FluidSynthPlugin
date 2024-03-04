@@ -113,12 +113,18 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_base_types_1_1_containers_1_1_string_list.html">StringList</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A <code><a class="el" href="struct_base_types_1_1_containers_1_1_string_list.html" title="A StringList object is a list of string values with arbitrary indexed access to positions in the list...">StringList</a></code> object is a list of string values with arbitrary indexed access to positions in the list.  <a href="struct_base_types_1_1_containers_1_1_string_list.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_base_types_1_1_containers_1_1_string_set.html">StringSet</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A <code><a class="el" href="struct_base_types_1_1_containers_1_1_string_set.html" title="A StringSet object is a set of string values with no duplicates and only simple containment access an...">StringSet</a></code> object is a set of string values with no duplicates and only simple containment access and the ability to add and remove elements.  <a href="struct_base_types_1_1_containers_1_1_string_set.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:aec4fdd736d5185f158eb1cfdc275c02b"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_base_types_1_1_containers.html#aec4fdd736d5185f158eb1cfdc275c02b">_byteListTypeName</a> ()</td></tr>
+<tr class="memdesc:aec4fdd736d5185f158eb1cfdc275c02b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns name of byte list type.  <a href="namespace_base_types_1_1_containers.html#aec4fdd736d5185f158eb1cfdc275c02b">More...</a><br /></td></tr>
+<tr class="separator:aec4fdd736d5185f158eb1cfdc275c02b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af65244384975e1c3c418c3058df78f4d"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_base_types_1_1_containers.html#af65244384975e1c3c418c3058df78f4d">_dictionaryTypeName</a> ()</td></tr>
+<tr class="memdesc:af65244384975e1c3c418c3058df78f4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns name of dictionary type.  <a href="namespace_base_types_1_1_containers.html#af65244384975e1c3c418c3058df78f4d">More...</a><br /></td></tr>
+<tr class="separator:af65244384975e1c3c418c3058df78f4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d7620ee3746f4bdbc98ffd42fecaeb8"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_base_types_1_1_containers.html#a3d7620ee3746f4bdbc98ffd42fecaeb8">_integerListTypeName</a> ()</td></tr>
+<tr class="memdesc:a3d7620ee3746f4bdbc98ffd42fecaeb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns name of integer list type.  <a href="namespace_base_types_1_1_containers.html#a3d7620ee3746f4bdbc98ffd42fecaeb8">More...</a><br /></td></tr>
+<tr class="separator:a3d7620ee3746f4bdbc98ffd42fecaeb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afced1b14c2210243df502d894a7e9483"><td class="memTemplParams" colspan="2">template&lt;typename ElementType &gt; </td></tr>
 <tr class="memitem:afced1b14c2210243df502d894a7e9483"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_base_types_1_1_containers.html#afced1b14c2210243df502d894a7e9483">copyArray</a> (ElementType *&amp;targetPtr, const ElementType *&amp;sourcePtr, <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> count)</td></tr>
 <tr class="memdesc:afced1b14c2210243df502d894a7e9483"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies <code>count</code> elements from array pointed to by <code>sourcePtr</code> of type <code>ElementType</code> to array pointed to by <code>targetPtr</code> (also of type <code>ElementType</code>).  <a href="namespace_base_types_1_1_containers.html#afced1b14c2210243df502d894a7e9483">More...</a><br /></td></tr>
@@ -127,11 +133,140 @@ Functions</h2></td></tr>
 <tr class="memitem:ad9ff90b44a90517d01b1c510f881b26a"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_base_types_1_1_containers.html#ad9ff90b44a90517d01b1c510f881b26a">convertArray</a> (<a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> TargetElementType *targetPtr, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> SourceElementType *sourcePtr, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> count)</td></tr>
 <tr class="memdesc:ad9ff90b44a90517d01b1c510f881b26a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies <code>count</code> elements from array pointed to by <code>sourcePtr</code> of type <code>SourceElementType</code> to array pointed to by <code>targetPtr</code> of type <code>TargetElementType</code>.  <a href="namespace_base_types_1_1_containers.html#ad9ff90b44a90517d01b1c510f881b26a">More...</a><br /></td></tr>
 <tr class="separator:ad9ff90b44a90517d01b1c510f881b26a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5f45b2d94d283f6337d28f050687eb8"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_base_types_1_1_containers.html#ab5f45b2d94d283f6337d28f050687eb8">_naturalListTypeName</a> ()</td></tr>
+<tr class="memdesc:ab5f45b2d94d283f6337d28f050687eb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns name of natural list type.  <a href="namespace_base_types_1_1_containers.html#ab5f45b2d94d283f6337d28f050687eb8">More...</a><br /></td></tr>
+<tr class="separator:ab5f45b2d94d283f6337d28f050687eb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b3def584c6a6d0d9307af0be50abc49"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_base_types_1_1_containers.html#a9b3def584c6a6d0d9307af0be50abc49">_realListTypeName</a> ()</td></tr>
+<tr class="memdesc:a9b3def584c6a6d0d9307af0be50abc49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns name of real list type.  <a href="namespace_base_types_1_1_containers.html#a9b3def584c6a6d0d9307af0be50abc49">More...</a><br /></td></tr>
+<tr class="separator:a9b3def584c6a6d0d9307af0be50abc49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56ea6b3111bd60ba54aec39ecefed8e0"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_base_types_1_1_containers.html#a56ea6b3111bd60ba54aec39ecefed8e0">_stringListTypeName</a> ()</td></tr>
+<tr class="memdesc:a56ea6b3111bd60ba54aec39ecefed8e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns name of string list type.  <a href="namespace_base_types_1_1_containers.html#a56ea6b3111bd60ba54aec39ecefed8e0">More...</a><br /></td></tr>
+<tr class="separator:a56ea6b3111bd60ba54aec39ecefed8e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The package <code><a class="el" href="namespace_base_types_1_1_containers.html" title="The package Containers provides container types like dictionaries, maps from string to objects,...">Containers</a></code> provides container types like dictionaries, maps from string to objects, lists of string or numbers and string sets. </p>
 <p>Also several templates are given for list types, maps, matrices and tuples. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="aec4fdd736d5185f158eb1cfdc275c02b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec4fdd736d5185f158eb1cfdc275c02b">&#9670;&nbsp;</a></span>_byteListTypeName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String BaseTypes::Containers::_byteListTypeName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns name of byte list type. </p>
+<dl class="section return"><dt>Returns</dt><dd>type name </dd></dl>
+
+</div>
+</div>
+<a id="af65244384975e1c3c418c3058df78f4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af65244384975e1c3c418c3058df78f4d">&#9670;&nbsp;</a></span>_dictionaryTypeName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String BaseTypes::Containers::_dictionaryTypeName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns name of dictionary type. </p>
+<dl class="section return"><dt>Returns</dt><dd>type name </dd></dl>
+
+</div>
+</div>
+<a id="a3d7620ee3746f4bdbc98ffd42fecaeb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d7620ee3746f4bdbc98ffd42fecaeb8">&#9670;&nbsp;</a></span>_integerListTypeName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String BaseTypes::Containers::_integerListTypeName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns name of integer list type. </p>
+<dl class="section return"><dt>Returns</dt><dd>type name </dd></dl>
+
+</div>
+</div>
+<a id="ab5f45b2d94d283f6337d28f050687eb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5f45b2d94d283f6337d28f050687eb8">&#9670;&nbsp;</a></span>_naturalListTypeName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String BaseTypes::Containers::_naturalListTypeName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns name of natural list type. </p>
+<dl class="section return"><dt>Returns</dt><dd>type name </dd></dl>
+
+</div>
+</div>
+<a id="a9b3def584c6a6d0d9307af0be50abc49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b3def584c6a6d0d9307af0be50abc49">&#9670;&nbsp;</a></span>_realListTypeName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String BaseTypes::Containers::_realListTypeName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns name of real list type. </p>
+<dl class="section return"><dt>Returns</dt><dd>type name </dd></dl>
+
+</div>
+</div>
+<a id="a56ea6b3111bd60ba54aec39ecefed8e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56ea6b3111bd60ba54aec39ecefed8e0">&#9670;&nbsp;</a></span>_stringListTypeName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String BaseTypes::Containers::_stringListTypeName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns name of string list type. </p>
+<dl class="section return"><dt>Returns</dt><dd>type name </dd></dl>
+
+</div>
+</div>
 <a id="ad9ff90b44a90517d01b1c510f881b26a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad9ff90b44a90517d01b1c510f881b26a">&#9670;&nbsp;</a></span>convertArray()</h2>
 

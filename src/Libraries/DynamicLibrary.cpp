@@ -14,46 +14,49 @@
 #include "DynamicLibrary.h"
 #include "Logging.h"
 
+#ifdef _WIN32
+    /* WINDOWS INCLUDE FILE */
+    #include "MyWindows.h"
+#else
+    /* UNIX/MACOS INCLUDE FILE */
+    #include <dlfcn.h>
+#endif
+
 /*--------------------*/
 
 using Libraries::DynamicLibrary;
+
+/** abbreviation for StringUtil */
+using STR = BaseModules::StringUtil;
+
+/*========================*/
 
 #ifdef _WIN32
     /*=====================*/
     /* WINDOWS DEFINITIONS */
     /*=====================*/
 
-    #define DLLImport  __declspec(dllimport)
-    #define STDCALL    __stdcall
-
-    /* types */
-    typedef int BOOL;
-    typedef unsigned long DWORD;
-    typedef __int64 (STDCALL *FARPROC)();
-    struct HINSTANCE__ {int unused;};
-    typedef struct HINSTANCE__ *HMODULE;
-    typedef const char *LPCSTR;
-
-    /* function prototypes */
-    extern "C" DLLImport BOOL STDCALL FreeLibrary (HMODULE hLibModule);
-
-    extern "C" DLLImport DWORD GetLastError ();
-
-    extern "C" DLLImport FARPROC STDCALL GetProcAddress (HMODULE hModule,
-                                                         LPCSTR lpProcName);
-
-    extern "C" DLLImport HMODULE STDCALL LoadLibraryA (LPCSTR lpLibFileName);
+    Boolean _addToSearchPath (IN String& searchPath)
+    {
+        std::wstring sp = STR::toWideString(searchPath);
+        return Windows::SetDllDirectoryW((Windows::LPCWSTR) sp.c_str());
+    }
 
     /*--------------------*/
 
-    Object DL_loadLibrary (IN String& pathName) {
-        Object result = (Object) LoadLibraryA((char*) pathName.c_str());
+    Object _loadLibrary (IN String& pathName)
+    {
+        Windows::DWORD dwFlags = LOAD_LIBRARY_SEARCH_DEFAULT_DIRS;
+        // Windows::DWORD dwFlags = 0;
+        Object result =
+            (Object) Windows::LoadLibraryExA((char*) pathName.c_str(),
+                                             NULL, dwFlags);
 
         if (result == NULL) {
             /* just for debugging the library loading */
-            Natural errorCode{(size_t) GetLastError()};
-            String message{StringUtil::expand("load error %1",
-                                              TOSTRING(errorCode))};
+            Natural errorCode{(size_t) Windows::GetLastError()};
+            String message{STR::expand("load error %1",
+                                       TOSTRING(errorCode))};
         }
         
         return result;
@@ -61,17 +64,18 @@ using Libraries::DynamicLibrary;
 
     /*--------------------*/
 
-    void DL_freeLibrary (Object descriptor) {
-        FreeLibrary((HMODULE) descriptor);
+    void _freeLibrary (Object descriptor)
+    {
+        Windows::FreeLibrary((Windows::HMODULE) descriptor);
     }
 
     /*--------------------*/
 
-    Object DL_getFunctionByName (IN Object descriptor,
-                                 IN String& functionName)
+    Object _getFunctionByName (IN Object descriptor,
+                               IN String& functionName)
     {
-        return GetProcAddress((HMODULE) descriptor,
-                              (char*) functionName.c_str());
+        return Windows::GetProcAddress((Windows::HMODULE) descriptor,
+                                       (char*) functionName.c_str());
     }
 
 #else
@@ -79,11 +83,15 @@ using Libraries::DynamicLibrary;
     /* UNIX/MACOS DEFINITIONS */
     /*========================*/
 
-   #include <dlfcn.h>
+    Boolean _addToSearchPath (IN String& searchPath)
+    {
+        return false;
+    }
 
     /*--------------------*/
 
-    Object DL_loadLibrary (IN String& pathName) {
+    Object _loadLibrary (IN String& pathName)
+    {
         Object result = (Object) dlopen((char*) pathName.c_str(),
                                         RTLD_NOW);
 
@@ -97,14 +105,15 @@ using Libraries::DynamicLibrary;
 
     /*--------------------*/
 
-    void DL_freeLibrary (Object descriptor) {
+    void _freeLibrary (Object descriptor)
+    {
         dlclose(descriptor);
     }
 
     /*--------------------*/
 
-    Object DL_getFunctionByName (IN Object descriptor,
-                                 IN String& functionName)
+    Object _getFunctionByName (IN Object descriptor,
+                               IN String& functionName)
     {
         return dlsym(descriptor, (char*) functionName.c_str());
     }
@@ -115,12 +124,14 @@ using Libraries::DynamicLibrary;
 /* PUBLIC FEATURES    */
 /*====================*/
 
+/*--------------------*/
+/* con-/destruction   */
+/*--------------------*/
+
 DynamicLibrary::DynamicLibrary (IN String& libraryName)
 {
     Logging_trace1(">>: %1", libraryName);
-    
-    _descriptor = DL_loadLibrary(libraryName);
-
+    _descriptor = _loadLibrary(libraryName);
     Logging_trace1("<<: %1",
                    (_descriptor != NULL ? "loaded" : "not loaded"));
 }
@@ -132,13 +143,26 @@ DynamicLibrary::~DynamicLibrary ()
     Logging_trace(">>");
 
     if (_descriptor != NULL) {
-        DL_freeLibrary(_descriptor);
+        _freeLibrary(_descriptor);
         _descriptor = NULL;
     }
 
     Logging_trace("<<");
 }
   
+/*--------------------*/
+/* configuration      */
+/*--------------------*/
+
+void DynamicLibrary::addToSearchPath (IN String& searchPath)
+{
+    Logging_trace1(">>: %1", searchPath);
+    _addToSearchPath(searchPath);
+    Logging_trace("<<");
+}
+
+/*--------------------*/
+/* queries            */
 /*--------------------*/
 
 Boolean DynamicLibrary::isLoaded () const
@@ -165,7 +189,7 @@ Object DynamicLibrary::getFunctionByName (IN String& functionName) const
     Object result = NULL;
 
     if (_descriptor != NULL) {
-        result = DL_getFunctionByName(_descriptor, functionName);
+        result = _getFunctionByName(_descriptor, functionName);
     }
 
     Logging_trace1("<<: %1",

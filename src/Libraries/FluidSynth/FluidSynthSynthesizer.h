@@ -47,6 +47,17 @@ namespace Libraries::FluidSynth {
         FluidSynthSynthesizer (IN FluidSynth* library,
                                IN FluidSynthSettings* settings);
 
+        /*--------------------*/
+
+        /**
+         * Constructs new fluidsynth synthesizer from
+         * <C>otherSynthesizer</C> (NOT AVAILABLE!)
+         *
+         * @param[in] otherSynthesizer  synthesizer to be copied
+         */
+        FluidSynthSynthesizer (IN FluidSynthSynthesizer& otherSynthesizer)
+            = delete;
+
        /*--------------------*/
 
         /**
@@ -54,6 +65,22 @@ namespace Libraries::FluidSynth {
          */
         ~FluidSynthSynthesizer ();
 
+        /*--------------------*/
+        /* assignment         */
+        /*--------------------*/
+
+        /**
+         * Assigns current synthesizer from <C>otherSynthesizer</C>
+         * (NOT AVAILABLE!)
+         *
+         * @param[in] otherSynthesizer  synthesizer to be assigned
+         */
+        FluidSynthSynthesizer&
+        operator= (IN FluidSynthSynthesizer& otherSynthesizer)
+            = delete;
+
+        /*--------------------*/
+        /* queries            */
         /*--------------------*/
 
         /**

@@ -1,0 +1,61 @@
+#!/bin/bash
+# makeTestFiles - renders several MIDI files with standard FluidSynth
+#                 and pedantic FluidSynth File Converter
+
+pushd "$(dirname -- "$0")"
+scriptDirectory="$PWD"
+popd
+
+# selected platform "Windows-AMD64", "Darwin-x86_64" or "Linux-x86_64"
+platform=@platformName@/Release
+
+sampleRateList="44100 48000"
+soundFont="SimpleTestSoundfont.sf2"
+
+# === standard FluidSynth ===
+fsProgram=fluidsynth
+
+# === (Pedantic) FluidSynth File Converter ===
+fsfcProgram=${scriptDirectory}/../targetPlatforms/${platform}
+fsfcProgram=${fsfcProgram}/FluidSynthFileConverter
+fsfcProgram=${fsfcProgram}/FluidSynthFileConverter
+
+# ============================================================
+
+function renderMidiFileWithSampleRate () {
+    prefix=$1
+    sampleRate=$2
+
+    renderOptions="-R 0 -C 0 -g 1.0 -O float -r ${sampleRate}"
+    midiFile="${prefix}.mid"
+    inputFileList="${midiFile} ${soundFont}"
+
+    waveFile=FSFC-${prefix}-${sampleRate}.wav
+    echo "== render ${waveFile} with pedantic converter"
+    ${fsfcProgram} ${renderOptions} -F ${waveFile} ${inputFileList}
+
+    waveFile=FS-${prefix}-${sampleRate}.wav
+    echo "== render ${waveFile} with standard fluidsynth"
+    ${fsProgram}  -q -n -i ${renderOptions} -F ${waveFile} ${inputFileList}
+}
+
+#--------------------
+
+function renderMidiFile () {
+    prefix=$1
+
+    for sampleRate in ${sampleRateList}; do
+        renderMidiFileWithSampleRate ${prefix} ${sampleRate}
+    done
+}
+
+# ============================================================
+
+pushd ${scriptDirectory}
+prefixList="test_bass test_drums test_keyboard"
+
+for prefix in ${prefixList}; do
+    renderMidiFile ${prefix}
+done
+
+popd

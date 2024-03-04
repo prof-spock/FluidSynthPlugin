@@ -33,9 +33,29 @@ namespace BaseTypes::GenericTypes {
      * A <C>GenericMap</C> object maps arbitrary keys to values.
      * Every key is associated with at most one value, where the key
      * identity is defined by standard equality comparison.
+     * Additionally two mappings may be supplied that define how to
+     * convert each keys and values to a string for printing out the
+     * map.
      */
-    template <typename KeyType, typename ValueType> 
-    struct GenericMap : public map<KeyType, ValueType> {
+    template <typename KeyType, typename ValueType,
+              ElementToStringProc<KeyType> keyToString   = nullptr,
+              ElementToStringProc<ValueType> valueToString = nullptr,
+              StringProc nameOfType = nullptr> 
+    struct GenericMap : public map<KeyType, ValueType>
+    {
+
+        /** an abbreviation for the underlying map type */
+        typedef map<KeyType, ValueType> _UnderlyingMap;
+
+        /** an abbreviation for a list of keys */
+        typedef GenericList<KeyType> _KeyList;
+
+        /** an abbreviation for a list of values */
+        typedef GenericList<ValueType> _ValueList;
+
+        /*--------------------*/
+        /* con-/destructor    */
+        /*--------------------*/
 
         /**
          * Makes an empty map.
@@ -49,10 +69,66 @@ namespace BaseTypes::GenericTypes {
         /**
          * Destroys current map.
          */
-        ~GenericMap ()
+        virtual ~GenericMap ()
         {
         }
 
+        /*--------------------*/
+        /* type conversion    */
+        /*--------------------*/
+
+        /**
+         * Converts map to linear string representation prefixed by
+         * <C>nameOfType</C> template parameter; when string
+         * conversion functions <C>keyToString</C> and
+         * <C>valueToString</C> are not defined, some surrogate
+         * functions are used
+         *
+         * @return  single string representation of map
+         */
+        String toString () const
+        {
+            String result = "";
+            _KeyList keyList = this->keyList();
+            String keyValueSeparator = " -> ";
+
+            for (Natural i = 0;  i < keyList.size();  i++) {
+                result += (i == 0 ? "" : ", ");
+                const KeyType& key = keyList[i];
+                const ValueType& value = at(key);
+                const String iAsString = TOSTRING(i);
+
+                result +=
+                    ((keyToString == nullptr
+                      ? StringUtil::expand("k%1", iAsString)
+                      : (*keyToString)(key))
+                     + keyValueSeparator
+                     + (valueToString == nullptr
+                        ? StringUtil::expand("v%1", iAsString)
+                        : (*valueToString)(value)));
+            }
+
+            String typeName = (nameOfType == nullptr ? "Map"
+                               : (*nameOfType)());
+            result = StringUtil::expand("%1(%2)", typeName, result);
+            return result;
+        }
+
+        /*--------------------*/
+
+        /**
+         * Returns string representation of map.
+         *
+         * @param[in] map  map to be converted to a string
+         * @return  string representation
+         */
+        static String toString (IN GenericMap& map)
+        {
+            return map.toString();
+        }
+
+        /*--------------------*/
+        /* data access        */
         /*--------------------*/
 
         /**
@@ -65,7 +141,7 @@ namespace BaseTypes::GenericTypes {
         ValueType at (IN KeyType& key) const
         {
             Assertion_pre(contains(key), "key must be contained in map");
-            return map<KeyType, ValueType>::at(key);
+            return _UnderlyingMap::at(key);
         }
 
         /*--------------------*/
@@ -85,6 +161,8 @@ namespace BaseTypes::GenericTypes {
         }
 
         /*--------------------*/
+        /* measurement        */
+        /*--------------------*/
 
         /**
          * Tells whether map has entry for <C>key</C>.
@@ -94,10 +172,66 @@ namespace BaseTypes::GenericTypes {
          */
         Boolean contains (IN KeyType& key) const
         {
-            return (map<KeyType, ValueType>::find(key)
-                    != map<KeyType, ValueType>::end());
+            return (_UnderlyingMap::find(key)
+                    != _UnderlyingMap::end());
         }
 
+        /*--------------------*/
+
+        /**
+         * Tells whether map is empty.
+         *
+         * @return information whether map is empty
+         */
+        Boolean isEmpty () const
+        {
+            return _UnderlyingMap::empty();
+        }
+
+        /*-----------------------*/
+        /* aggregate data access */
+        /*-----------------------*/
+
+        /**
+         * Returns list of key elements.
+         *
+         * @return  list of keys
+         */
+        _KeyList keyList () const
+        {
+            _KeyList result;
+
+            for (auto iterator = _UnderlyingMap::begin();
+                 iterator != _UnderlyingMap::end();
+                 iterator++) {
+                result.append(iterator->first);
+            }
+
+            return result;
+        }
+
+        /*--------------------*/
+
+        /**
+         * Returns list of value elements.
+         *
+         * @return  list of values
+         */
+        _ValueList valueList () const
+        {
+            _ValueList result;
+
+            for (auto iterator = _UnderlyingMap::begin();
+                 iterator != _UnderlyingMap::end();
+                 iterator++) {
+                result.append(iterator->second);
+            }
+
+            return result;
+        }
+
+        /*--------------------*/
+        /* change             */
         /*--------------------*/
 
         /**
@@ -107,7 +241,7 @@ namespace BaseTypes::GenericTypes {
          */
         void remove (IN KeyType& key)
         {
-            map<KeyType, ValueType>::erase(key);
+            _UnderlyingMap::erase(key);
         }
 
         /*--------------------*/
@@ -120,76 +254,8 @@ namespace BaseTypes::GenericTypes {
          */
         void set (IN KeyType& key, IN ValueType& value)
         {
-            map<KeyType, ValueType>::insert_or_assign(key, value);
+            _UnderlyingMap::insert_or_assign(key, value);
         }
-
-        /*--------------------*/
-        /*--------------------*/
-
-        protected:
-
-            /**
-             * Returns list of key elements.
-             *
-             * @return  list of keys
-             */
-            GenericList<KeyType> keyList () const
-            {
-                GenericList<KeyType> result;
-
-                for (auto iterator = map<KeyType, ValueType>::begin();
-                     iterator != map<KeyType, ValueType>::end();
-                     iterator++) {
-                    result.append(iterator->first);
-                }
-
-                return result;
-            }
-
-
-            /*--------------------*/
-            /* conversion         */
-            /*--------------------*/
-
-            /** a function type for converting a key to a string */
-            typedef String KeyToStringProc (IN KeyType&);
-
-            /** a function type for converting a value to a string */
-            typedef String ValueToStringProc (IN ValueType&);
-
-            /*--------------------*/
-
-            /**
-             * Converts list to linear string representation prefixed
-             * by <C>nameOfType</C> assuming explicit conversions from
-             * key and value type to a string
-             *
-             * @param[in] nameOfType     name of list type
-             * @param[in] keyToString    function for converting a
-             *                           key to a string
-             * @param[in] valueToString  function for converting a
-             *                           value to a string
-             * @return  single string representation of list
-             */
-            String _toString (IN String& nameOfType,
-                              IN KeyToStringProc keyToString,
-                              IN ValueToStringProc valueToString) const
-            {
-                String result = "";
-                GenericList<KeyType> keyList = this->keyList();
-
-                for (Natural i = 0;  i < keyList.size();  i++) {
-                    result += (i == 0 ? "" : ", ");
-                    const KeyType& key = keyList[i];
-                    const ValueType& value = at(key);
-                    result += (keyToString(key)
-                               + " -> "
-                               + valueToString(value));
-                }
-
-                result = nameOfType + "(" + result + ")";
-                return result;
-            }
 
     };
 

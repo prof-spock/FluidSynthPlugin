@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('struct_base_modules_1_1_logging.html',
 </div><!--header-->
 <div class="contents">
 
-<p>A <code><a class="el" href="struct_base_modules_1_1_logging.html" title="A Logging object defines methods for entry/exit logging to a file; this logging relies on trace calls...">Logging</a></code> object defines methods for entry/exit logging to a file; this logging relies on trace calls at the beginning or end of a function with prefices "&gt;&gt;" and "&lt;&lt;" as well as intermediate log lines with prefix "--"; the name of the function is also logged to give a fully bracketed log.  
+<p>A <code><a class="el" href="struct_base_modules_1_1_logging.html" title="A Logging object defines methods for entry/exit logging to a file or via a callback function; this lo...">Logging</a></code> object defines methods for entry/exit logging to a file or via a callback function; this logging relies on trace calls at the beginning or end of a function with prefices "&gt;&gt;" and "&lt;&lt;" as well as intermediate log lines with prefix "--"; the name of the function is also logged to give a fully bracketed log.  
  <a href="struct_base_modules_1_1_logging.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_logging_support_8h_source.html">LoggingSupport.h</a>&gt;</code></p>
@@ -108,6 +108,15 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_base_modules_1_1_logging.html#a0283ed63e1c93c55c4ab54084c838925">finalize</a> ()</td></tr>
 <tr class="memdesc:a0283ed63e1c93c55c4ab54084c838925"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cleans up logging configuration and ends logging. <br /></td></tr>
 <tr class="separator:a0283ed63e1c93c55c4ab54084c838925"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d6e55a2614434f43c682564204babf6"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_base_modules_1_1_logging.html#a1d6e55a2614434f43c682564204babf6">isActive</a> ()</td></tr>
+<tr class="memdesc:a1d6e55a2614434f43c682564204babf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether logging is currently activated.  <a href="struct_base_modules_1_1_logging.html#a1d6e55a2614434f43c682564204babf6">More...</a><br /></td></tr>
+<tr class="separator:a1d6e55a2614434f43c682564204babf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae23237dbb59065cdf7e67521072965eb"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_base_modules_1_1_logging.html#ae23237dbb59065cdf7e67521072965eb">setActive</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a> <a class="el" href="struct_base_modules_1_1_logging.html#a1d6e55a2614434f43c682564204babf6">isActive</a>)</td></tr>
+<tr class="memdesc:ae23237dbb59065cdf7e67521072965eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets logging to active or inactive due to <code>isActive</code>.  <a href="struct_base_modules_1_1_logging.html#ae23237dbb59065cdf7e67521072965eb">More...</a><br /></td></tr>
+<tr class="separator:ae23237dbb59065cdf7e67521072965eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a432263fd727b415687363b95d60c2ecf"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_base_modules_1_1_logging.html#a432263fd727b415687363b95d60c2ecf">setCallbackFunction</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="namespace_base_modules.html#a408548c4096b18126d7343969c0c267e">LoggingCallbackFunction</a> callbackFunction)</td></tr>
+<tr class="memdesc:a432263fd727b415687363b95d60c2ecf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets callback function for logging to <code>callback function</code>.  <a href="struct_base_modules_1_1_logging.html#a432263fd727b415687363b95d60c2ecf">More...</a><br /></td></tr>
+<tr class="separator:a432263fd727b415687363b95d60c2ecf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab4d7a5c504f4e9c7edb3bdda8276e02c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_base_modules_1_1_logging.html#ab4d7a5c504f4e9c7edb3bdda8276e02c">setFileName</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;fileName, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a> writeThroughIsActive=false)</td></tr>
 <tr class="memdesc:ab4d7a5c504f4e9c7edb3bdda8276e02c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets file name for logging to <code>fileName</code>; if <code>writeThroughIsActive</code> is set, the log data goes directly to the logging file (at the expense of performance).  <a href="struct_base_modules_1_1_logging.html#ab4d7a5c504f4e9c7edb3bdda8276e02c">More...</a><br /></td></tr>
 <tr class="separator:ab4d7a5c504f4e9c7edb3bdda8276e02c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -125,7 +134,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 <tr class="separator:a84dbeeebab71321e02d849b226bd769f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A <code><a class="el" href="struct_base_modules_1_1_logging.html" title="A Logging object defines methods for entry/exit logging to a file; this logging relies on trace calls...">Logging</a></code> object defines methods for entry/exit logging to a file; this logging relies on trace calls at the beginning or end of a function with prefices "&gt;&gt;" and "&lt;&lt;" as well as intermediate log lines with prefix "--"; the name of the function is also logged to give a fully bracketed log. </p>
+<div class="textblock"><p>A <code><a class="el" href="struct_base_modules_1_1_logging.html" title="A Logging object defines methods for entry/exit logging to a file or via a callback function; this lo...">Logging</a></code> object defines methods for entry/exit logging to a file or via a callback function; this logging relies on trace calls at the beginning or end of a function with prefices "&gt;&gt;" and "&lt;&lt;" as well as intermediate log lines with prefix "--"; the name of the function is also logged to give a fully bracketed log. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a318f84f5809052bda0de948300edcfeb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a318f84f5809052bda0de948300edcfeb">&#9670;&nbsp;</a></span>initializeWithDefaults()</h2>
@@ -166,6 +175,103 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">fileNameStem</td><td>identifying part of logging file name </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">ignoredFunctionNamePrefix</td><td>string to be stripped from function names </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1d6e55a2614434f43c682564204babf6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d6e55a2614434f43c682564204babf6">&#9670;&nbsp;</a></span>isActive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a> Logging::isActive </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tells whether logging is currently activated. </p>
+<dl class="section return"><dt>Returns</dt><dd>information whether logging is active or suppressed </dd></dl>
+
+</div>
+</div>
+<a id="ae23237dbb59065cdf7e67521072965eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae23237dbb59065cdf7e67521072965eb">&#9670;&nbsp;</a></span>setActive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Logging::setActive </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a>&#160;</td>
+          <td class="paramname"><em>isActive</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets logging to active or inactive due to <code>isActive</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">isActive</td><td>tells whether logging shall be suppressed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a432263fd727b415687363b95d60c2ecf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a432263fd727b415687363b95d60c2ecf">&#9670;&nbsp;</a></span>setCallbackFunction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Logging::setCallbackFunction </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="namespace_base_modules.html#a408548c4096b18126d7343969c0c267e">LoggingCallbackFunction</a>&#160;</td>
+          <td class="paramname"><em>callbackFunction</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets callback function for logging to <code>callback function</code>. </p>
+<p>Using NULL resets the callback mechanism.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">callbackFunction</td><td>function to be called for logging </td></tr>
   </table>
   </dd>
 </dl>

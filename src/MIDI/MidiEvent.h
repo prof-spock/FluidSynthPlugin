@@ -117,22 +117,26 @@ namespace MIDI {
         /*--------------------*/
 
         /**
-         * Compares current kind with <C>other</C>.
+         * Compares <C>self</C> with <C>other</C> for equality.
          *
-         * @param[in] other  partner to be compared
+         * @param[in] self   first event kind to be compared
+         * @param[in] other  second event kind to be compared
          * @return  information, whether two objects are equal
          */
-        Boolean operator == (IN MidiEventKind& other) const;
+        friend Boolean operator == (IN MidiEventKind& self,
+                                    IN MidiEventKind& other);
         
         /*--------------------*/
 
         /**
-         * Compares current kind with <C>other</C>.
+         * Compares <C>self</C> with <C>other</C> for inequality.
          *
-         * @param[in] other  partner to be compared
-         * @return  information, whether two objects are not equal
+         * @param[in] self   first event kind to be compared
+         * @param[in] other  second event kind to be compared
+         * @return information, whether two objects are not equal
          */
-        Boolean operator != (IN MidiEventKind& other) const;
+        friend Boolean operator != (IN MidiEventKind& self,
+                                    IN MidiEventKind& other);
         
         /*--------------------*/
 
@@ -313,6 +317,17 @@ namespace MIDI {
          */
         ~MidiEvent ();
         
+        /*--------------------*/
+        /* assignment         */
+        /*--------------------*/
+
+        /**
+         * Assigns current from <C>event</C>
+         *
+         * @param[in] event  midi event to assign
+         */
+        MidiEvent& operator= (IN MidiEvent& event);
+
         /*--------------------*/
         /* conversion         */
         /*--------------------*/

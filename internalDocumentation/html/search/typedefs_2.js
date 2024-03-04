@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['object_1214',['Object',['../namespace_base_types_1_1_primitives.html#ae4ec4f5b067a6d6ad32fffce5dd749ad',1,'BaseTypes::Primitives']]]
+  ['loggingcallbackfunction_1350',['LoggingCallbackFunction',['../namespace_base_modules.html#a408548c4096b18126d7343969c0c267e',1,'BaseModules']]]
 ];

@@ -100,14 +100,11 @@ $(document).ready(function(){initNavTree('struct_audio_1_1_audio_sample_list.htm
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="struct_audio_1_1_audio_sample_list__inherit__graph.svg" width="227" height="286"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="struct_audio_1_1_audio_sample_list__inherit__graph.svg" width="210" height="287"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a69b109f31354e668e284065921b8f629"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_audio_1_1_audio_sample_list.html#a69b109f31354e668e284065921b8f629">toString</a> () const</td></tr>
-<tr class="memdesc:a69b109f31354e668e284065921b8f629"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns printable representation of list.  <a href="struct_audio_1_1_audio_sample_list.html#a69b109f31354e668e284065921b8f629">More...</a><br /></td></tr>
-<tr class="separator:a69b109f31354e668e284065921b8f629"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ae2200c977ce9fff93217f5b0b8c13d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_audio_1_1_audio_sample_list.html#a8ae2200c977ce9fff93217f5b0b8c13d">setToZero</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> position=0, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> count=Natural::maximumValue())</td></tr>
 <tr class="memdesc:a8ae2200c977ce9fff93217f5b0b8c13d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets all entries in sample list to zero starting at <code>position</code> with a count of <code>count</code>.  <a href="struct_audio_1_1_audio_sample_list.html#a8ae2200c977ce9fff93217f5b0b8c13d">More...</a><br /></td></tr>
 <tr class="separator:a8ae2200c977ce9fff93217f5b0b8c13d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -117,9 +114,9 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:acb919b930b2ca5bef92c6cd744548354"><td class="memItemLeft" align="right" valign="top">static String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_audio_1_1_audio_sample_list.html#acb919b930b2ca5bef92c6cd744548354">toString</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_audio_1_1_audio_sample_list.html">AudioSampleList</a> &amp;list)</td></tr>
-<tr class="memdesc:acb919b930b2ca5bef92c6cd744548354"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns printable representation of <code>list</code>.  <a href="struct_audio_1_1_audio_sample_list.html#acb919b930b2ca5bef92c6cd744548354">More...</a><br /></td></tr>
-<tr class="separator:acb919b930b2ca5bef92c6cd744548354"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c2e69eb59e578371af9b4e52791d23b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_audio_1_1_audio_sample_list.html">AudioSampleList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_audio_1_1_audio_sample_list.html#a1c2e69eb59e578371af9b4e52791d23b">slice</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_audio_1_1_audio_sample_list.html">AudioSampleList</a> &amp;list, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> Integer firstPosition=0, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> Integer lastPosition=Integer::maximumValue())</td></tr>
+<tr class="memdesc:a1c2e69eb59e578371af9b4e52791d23b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns slice of <code>list</code> starting at <code>firstPosition</code> up to - but not including - <code>lastPosition</code>; in Python style negative indices are allowed signifying counting from the end.  <a href="struct_audio_1_1_audio_sample_list.html#a1c2e69eb59e578371af9b4e52791d23b">More...</a><br /></td></tr>
+<tr class="separator:a1c2e69eb59e578371af9b4e52791d23b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>An <code><a class="el" href="struct_audio_1_1_audio_sample_list.html" title="An AudioSampleList object is a list of audio samples with arbitrary indexed access to positions in th...">AudioSampleList</a></code> object is a list of audio samples with arbitrary indexed access to positions in the list. </p>
@@ -199,28 +196,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a69b109f31354e668e284065921b8f629"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a69b109f31354e668e284065921b8f629">&#9670;&nbsp;</a></span>toString() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_global_macros_8h.html#a2eb6f9e0395b47b8d5e3eeae4fe0c116">INLINE</a> String AudioSampleList::toString </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns printable representation of list. </p>
-<dl class="section return"><dt>Returns</dt><dd>string representation of list </dd></dl>
-
-</div>
-</div>
-<a id="acb919b930b2ca5bef92c6cd744548354"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acb919b930b2ca5bef92c6cd744548354">&#9670;&nbsp;</a></span>toString() <span class="overload">[2/2]</span></h2>
+<a id="a1c2e69eb59e578371af9b4e52791d23b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c2e69eb59e578371af9b4e52791d23b">&#9670;&nbsp;</a></span>slice()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -229,11 +206,27 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_global_macros_8h.html#a2eb6f9e0395b47b8d5e3eeae4fe0c116">INLINE</a> String AudioSampleList::toString </td>
+          <td class="memname"><a class="el" href="_global_macros_8h.html#a2eb6f9e0395b47b8d5e3eeae4fe0c116">INLINE</a> <a class="el" href="struct_audio_1_1_audio_sample_list.html">AudioSampleList</a> AudioSampleList::slice </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_audio_1_1_audio_sample_list.html">AudioSampleList</a> &amp;&#160;</td>
-          <td class="paramname"><em>list</em></td><td>)</td>
+          <td class="paramname"><em>list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> Integer&#160;</td>
+          <td class="paramname"><em>firstPosition</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> Integer&#160;</td>
+          <td class="paramname"><em>lastPosition</em> = <code>Integer::maximumValue()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -243,14 +236,16 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns printable representation of <code>list</code>. </p>
+<p>Returns slice of <code>list</code> starting at <code>firstPosition</code> up to - but not including - <code>lastPosition</code>; in Python style negative indices are allowed signifying counting from the end. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">list</td><td>list to be converted to string </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">list</td><td>list to be sliced </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">firstPosition</td><td>index position of first element of result </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lastPosition</td><td>index position of first element not included in result </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>string representation of list </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>list value at index position </dd></dl>
 
 </div>
 </div>

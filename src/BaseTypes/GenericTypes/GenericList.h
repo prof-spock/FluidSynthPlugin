@@ -19,29 +19,40 @@
 #include <vector>
 
 #include "Boolean.h"
+#include "ElementToStringProc.h"
 #include "Integer.h"
+#include "StringProc.h"
 
 /*--------------------*/
 
 using std::vector;
+using BaseTypes::GenericTypes::ElementToStringProc;
+using BaseTypes::GenericTypes::StringProc;
 using BaseTypes::Primitives::Boolean;
 using BaseTypes::Primitives::Natural;
 using BaseTypes::Primitives::Integer;
-using BaseTypes::Primitives::String;
 
 /*====================*/
 
 namespace BaseTypes::GenericTypes {
 
     /**
-     * A <C>GenericList</C> is a generic list type of values
-     * with zero-based arbitrary indexed access to positions in the
-     * list.  Indexing starts at zero and is consecutive.
-     * Lists also allow duplicate elements.
+     * A <C>GenericList</C> is a generic list type of values with
+     * zero-based arbitrary indexed access to positions in the list.
+     * Indexing starts at zero and is consecutive.  Lists also allow
+     * duplicate elements..  Also a mapping may be supplied that
+     * defines how to convert each element to a string for printing
+     * out the list.
      */
-    template <typename ElementType>
+    template <typename ElementType,
+              ElementToStringProc<ElementType> elementToString = nullptr,
+              StringProc nameOfType = nullptr>
     struct GenericList : public vector<ElementType>
     {
+
+        /** an abbreviation for the underlying vector type */
+        typedef vector<ElementType> _ElementTypeVector;
+        
         /*--------------------*/
         /* con-/destruction   */
         /*--------------------*/
@@ -51,26 +62,6 @@ namespace BaseTypes::GenericTypes {
          */
         GenericList ()
         {
-        }
-
-        /*--------------------*/
-
-        /**
-         * Initializes list by data from <C>elementArray</C> with
-         * <C>elementCount</C> entries.
-         *
-         * @param[in] elementArray  array of elements of underlying
-         *                          type
-         * @param[in] elementCount  count of elements to be used
-         */
-        GenericList (IN ElementType* elementArray,
-                     IN Natural elementCount)
-        {
-            setLength(elementCount);
-
-            for (Natural i = 0;  i < elementCount;  i++) {
-                setAt(i, elementArray[i]);
-            }
         }
 
         /*--------------------*/
@@ -101,6 +92,28 @@ namespace BaseTypes::GenericTypes {
         }
 
         /*--------------------*/
+
+        /**
+         * Initializes list by data from <C>elementArray</C> with
+         * <C>elementCount</C> entries.
+         *
+         * @param[in] elementArray  array of elements of underlying
+         *                          type
+         * @param[in] elementCount  count of elements to be used
+         */
+        static GenericList fromArray (IN ElementType* elementArray,
+                                      IN Natural elementCount)
+        {
+            GenericList result{elementCount};
+
+            for (Natural i = 0;  i < elementCount;  i++) {
+                result.set(i, elementArray[i]);
+            }
+
+            return result;
+        }
+
+        /*--------------------*/
         /* conversion         */
         /*--------------------*/
 
@@ -112,7 +125,7 @@ namespace BaseTypes::GenericTypes {
          */
         ElementType* asArray (IN Natural position = 0)
         {
-            return &(vector<ElementType>::data()[(size_t) position]);
+            return &(_ElementTypeVector::data()[(size_t) position]);
         }
 
         /*--------------------*/
@@ -125,7 +138,38 @@ namespace BaseTypes::GenericTypes {
          */
         const ElementType* asArray (IN Natural position = 0) const
         {
-            return &(vector<ElementType>::data()[(size_t) position]);
+            return &(_ElementTypeVector::data()[(size_t) position]);
+        }
+
+        /*--------------------*/
+
+        /**
+         * Converts list to linear string representation prefixed by
+         * <C>nameOfType</C> template parameter; when string
+         * conversion function <C>elementToString</C> is not defined,
+         * some surrogate function is used
+         *
+         * @return  single string representation of list
+         */
+        String toString () const
+        {
+            String result = "";
+
+            for (Natural i = 0;  i < length();  i++) {
+                result += (i == 0 ? "" : ", ");
+
+                if constexpr(elementToString == nullptr) {
+                    result += "?" + std::to_string((int) i) + "?";
+                } else {
+                    const ElementType& element = at(i);
+                    result += (*elementToString)(element);
+                }
+            }
+
+            String typeName = (nameOfType == nullptr ? "List"
+                               : (*nameOfType)());
+            result = typeName + "(" + result + ")";
+            return result;
         }
 
         /*--------------------*/
@@ -140,7 +184,7 @@ namespace BaseTypes::GenericTypes {
          */
         ElementType& operator [] (IN Natural position)
         {
-            return vector<ElementType>::at((size_t) position);
+            return _ElementTypeVector::at((size_t) position);
         }
 
         /*--------------------*/
@@ -153,7 +197,7 @@ namespace BaseTypes::GenericTypes {
          */
         const ElementType& operator [] (IN Natural position) const
         {
-            return vector<ElementType>::at((size_t) position);
+            return _ElementTypeVector::at((size_t) position);
         }
 
         /*--------------------*/
@@ -166,7 +210,7 @@ namespace BaseTypes::GenericTypes {
          */
         ElementType& at (IN Natural position)
         {
-            return vector<ElementType>::at((size_t) position);
+            return _ElementTypeVector::at((size_t) position);
         }
 
         /*--------------------*/
@@ -179,27 +223,78 @@ namespace BaseTypes::GenericTypes {
          */
         const ElementType& at (IN Natural position) const
         {
-            return vector<ElementType>::at((size_t) position);
+            return _ElementTypeVector::at((size_t) position);
+        }
+
+        /*--------------------*/
+
+        /**
+         * Returns first value in list.
+         *
+         * @return  list value at first position
+         */
+        const ElementType& first () const
+        {
+            return at(0);
+        }
+
+        /*--------------------*/
+
+        /**
+         * Returns last value in list.
+         *
+         * @return  list value at last position
+         */
+        const ElementType& last () const
+        {
+            return at(length() - 1);
+        }
+
+        /*--------------------*/
+
+        /**
+         * Returns slice of list starting at <C>firstPosition</C> up
+         * to - but not including - <C>lastPosition</C>; in Python
+         * style negative indices are allowed signifying counting from
+         * the end
+         *
+         * @param[in] firstPosition  index position of first element
+         *                           in list for result
+         * @param[in] lastPosition   index position of first element
+         *                           from list not included in result
+         * @return sublist slice
+         */
+        static GenericList slice (IN GenericList& list,
+                                  IN Integer firstPosition,
+                                  IN Integer lastPosition
+                                                 = Integer::maximumValue())
+        {
+            const Natural listLength = list.length();
+            const Natural first =
+                (firstPosition >= 0 ?
+                 Natural{firstPosition}
+                 : listLength - Natural{-firstPosition});
+            Natural last =
+                (lastPosition >= 0
+                 ? Natural{lastPosition}
+                 : listLength - Natural{-lastPosition});
+            last = Natural::maximum(first,
+                                    Natural::minimum(last, listLength));
+            const Natural newSize = last - first;
+
+            GenericList result{newSize};
+            Natural i = 0;
+            Natural j = first;
+
+            while (i < newSize) {
+                result.set(i++, list.at(j++));
+            }
+
+            return result;
         }
 
         /*--------------------*/
         /* property change    */
-        /*--------------------*/
-
-        /**
-         * Assigns <C>otherList</C> to current.
-         *
-         * @param[in] otherList  other list to be assigned to
-         *                           current list
-         * @return  reference to current list
-         */
-        GenericList& operator= (const GenericList& otherList)
-        {
-            clear();
-            append(otherList);
-            return *this;
-        }
-
         /*--------------------*/
 
         /**
@@ -208,7 +303,7 @@ namespace BaseTypes::GenericTypes {
          */
         void append (IN ElementType& element)
         {
-            vector<ElementType>::emplace_back(element);
+            _ElementTypeVector::emplace_back(element);
         }
 
         /*--------------------*/
@@ -234,7 +329,7 @@ namespace BaseTypes::GenericTypes {
          */
         void clear ()
         {
-            vector<ElementType>::clear();
+            _ElementTypeVector::clear();
         }
 
         /*--------------------*/
@@ -260,7 +355,36 @@ namespace BaseTypes::GenericTypes {
          */
         void prepend (IN ElementType& element)
         {
-            vector<ElementType>::emplace(vector<ElementType>::begin(), element);
+            _ElementTypeVector::emplace(_ElementTypeVector::begin(),
+                                         element);
+        }
+
+        /*--------------------*/
+
+        /**
+         * Prepend <C>otherList</C> to current list.
+         *
+         * @param[in] otherList  other list to be prepended to
+         *                       current list
+         */
+        void prepend (IN GenericList& otherList)
+        {
+            const Natural otherLength = otherList.length();
+
+            if (otherLength > 0) {
+                const Natural listLength = length();
+                setLength(listLength + otherLength);
+
+                // shift original data to the right
+                for (Natural i = listLength;  i > 0;) {
+                    i--;
+                    set(i + otherLength, at(i));
+                }
+                
+                for (Natural i = 0;  i < otherLength;  i++) {
+                    set(i, otherList.at(i));
+                }
+            }
         }
 
         /*--------------------*/
@@ -271,7 +395,7 @@ namespace BaseTypes::GenericTypes {
          * @param[in] position  index position
          * @param[in] value     new value at position
          */
-        void setAt (IN Natural position, IN ElementType value)
+        void set (IN Natural position, IN ElementType value)
         {
             at(position) = value;
         }
@@ -285,7 +409,7 @@ namespace BaseTypes::GenericTypes {
          */
         void setLength (IN Natural newSize)
         {
-            vector<ElementType>::resize((size_t) newSize);
+            _ElementTypeVector::resize((size_t) newSize);
         }
 
         /*--------------------*/
@@ -299,7 +423,7 @@ namespace BaseTypes::GenericTypes {
          */
         void setLength (IN Natural newSize, IN ElementType value)
         {
-            vector<ElementType>::resize((size_t) newSize, value);
+            _ElementTypeVector::resize((size_t) newSize, value);
         }
 
         /*--------------------*/
@@ -324,7 +448,8 @@ namespace BaseTypes::GenericTypes {
          */
         void sort (Comparator& comparator)
         {
-            std::qsort(this->data(), this->size(), sizeof(ElementType), comparator);
+            std::qsort(this->data(), this->size(),
+                       sizeof(ElementType), comparator);
         }
 
         /*--------------------*/
@@ -365,7 +490,7 @@ namespace BaseTypes::GenericTypes {
          */
         Natural length () const
         {
-            return Natural{vector<ElementType>::size()};
+            return Natural{_ElementTypeVector::size()};
         }
         
         /*--------------------*/
@@ -393,43 +518,61 @@ namespace BaseTypes::GenericTypes {
         }
 
         /*--------------------*/
+
+        /**
+         * Tells first position where list contains <C>otherList</C>;
+         * returns -1 when not found
+         *
+         * @param[in] otherList  other list to be searched in list
+         * @return  first index position of <C>otherList</C> in list
+         *          (starting with 0) or -1 when not found
+         */
+        Integer position (IN GenericList& otherList) const
+        {
+            const Natural currentLength = length();
+            const Natural otherLength   = otherList.length();
+            Integer result{-1};
+
+            if (otherLength <= currentLength) {
+                // do a naive search
+                for (Natural i = 0;  i <= currentLength - otherLength;  i++) {
+                    Boolean isFound = true;
+
+                    for (Natural j = 0;  j < otherLength;  j++) {
+                        if (at(i + j) != otherList.at(j)) {
+                            isFound = false;
+                            break;
+                        }
+                    }
+
+                    if (isFound) {
+                        result = i;
+                        break;
+                    }
+                }
+            }
+
+            return result;
+        }
+
         /*--------------------*/
 
-        protected:
+        /**
+         * Simple copy function for copying lists with same element type
+         *
+         * @param[inout] targetList  list where elements should go
+         * @param[in]    sourceList  list where elements come from
+         */
+        template <typename ListTypeA, typename ListTypeB>
+        static void assign (INOUT ListTypeA& targetList,
+                            IN ListTypeB& sourceList)
+        {
+            targetList.clear();
 
-            /*--------------------*/
-            /* conversion         */
-            /*--------------------*/
-
-            /** a function type for converting an element to a string */
-            typedef String ElementToStringProc (IN ElementType&);
-
-            /*--------------------*/
-
-            /**
-             * Converts list to linear string representation
-             * prefixed by <C>nameOfType</C> assuming an explicit
-             * conversion from element type to string
-             *
-             * @param[in] nameOfType       name of list type
-             * @param[in] elementToString  function for converting an
-             *                             element to a string
-             * @return  single string representation of list
-             */
-            String _toString (IN String& nameOfType,
-                              IN ElementToStringProc elementToString) const
-            {
-                String result = "";
-
-                for (const ElementType& element : *this) {
-                    result += (result.size() == 0 ? "" : ", ");
-                    result += (elementToString == nullptr
-                               ? "???" : elementToString(element));
-                }
-
-                result = nameOfType + "(" + result + ")";
-                return result;
+            for (auto element : sourceList) {
+                targetList.emplace_back(element);
             }
+        }
 
     };
 

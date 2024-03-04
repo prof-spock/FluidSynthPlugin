@@ -31,12 +31,24 @@ using MIDI::MidiEvent;
 namespace MIDI {
 
     /**
+     * Returns name of midi event list type
+     *
+     * @return type name
+     */
+    String _midiEventListTypeName ();
+    
+    /*--------------------*/
+
+    /**
      * An <C>MidiEventList</C> object is a list of MIDI events
      * with arbitrary indexed access to positions in the list.
      * Indexing starts at zero and is consecutive.  Lists also allow
      * duplicate elements.
      */
-    struct MidiEventList : public GenericList<MidiEvent> {
+    struct MidiEventList
+        : public GenericList<MidiEvent,
+                             MidiEvent::toString,
+                             &_midiEventListTypeName > {
 
         /*--------------------*/
         /* construction       */
@@ -51,17 +63,6 @@ namespace MIDI {
          */
         static
         MidiEventList fromList (IN initializer_list<MidiEvent> list);
-
-        /*--------------------*/
-        /* conversion         */
-        /*--------------------*/
-
-        /**
-         * Returns printable representation of list.
-         *
-         * @return string representation of list
-         */
-        String toString () const;
 
         /*--------------------*/
         /* change             */

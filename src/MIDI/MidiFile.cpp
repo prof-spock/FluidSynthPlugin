@@ -28,10 +28,8 @@ using MIDI::MidiEventKind;
 using MIDI::MidiMetaEventKind;
 using MIDI::MidiFile;
 
-/* aliases for function names */
-
-/** abbreviation for StringUtil::expand */
-#define expand  StringUtil::expand
+/** abbreviation for StringUtil */
+using STR = BaseModules::StringUtil;
 
 /*--------------------*/
 /* forward declarations */
@@ -170,9 +168,9 @@ static MidiEvent _readMidiEvent (IN Natural time,
 
     Byte eventByte = _readByte(byteList, position);
     Assertion_check(MidiEventKind::isValid(eventByte),
-                    expand("bad MIDI format: expected"
-                           " event byte, got %1",
-                           TOSTRING(eventByte)));
+                    STR::expand("bad MIDI format: expected"
+                                " event byte, got %1",
+                                TOSTRING(eventByte)));
     MidiEventKind eventKind{eventByte};
     Logging_trace2("--: eventByte = %1, eventKind = %2",
                    TOSTRING(eventByte), eventKind.toString());
@@ -192,9 +190,9 @@ static MidiEvent _readMidiEvent (IN Natural time,
     } else if (eventKind == MidiEventKind::meta) {
         Byte metaEventKindByte = _readByte(byteList, position);
         Assertion_check(MidiMetaEventKind::isValid(metaEventKindByte),
-                        expand("bad MIDI format: expected"
-                               " meta event byte, got %1",
-                               TOSTRING(metaEventKindByte)));
+                        STR::expand("bad MIDI format: expected"
+                                    " meta event byte, got %1",
+                                    TOSTRING(metaEventKindByte)));
         eventLength = _readVariableLengthNatural(byteList, position);
         eventDataList = _readByteList(byteList, position, eventLength);
         eventDataList.prepend(metaEventKindByte);
@@ -274,8 +272,8 @@ static void _readMidiTrack (IN ByteList& byteList,
     Natural length = _readNatural(byteList, position, 4);
 
     Assertion_check(header == _trackHead,
-                    expand("track header chunk %1 expected - found %2",
-                           _trackHead, header));
+                    STR::expand("track header chunk %1 expected - found %2",
+                                _trackHead, header));
 
     Natural currentTime{0};
     Boolean isAtTrackEnd{false};
@@ -419,7 +417,7 @@ void MidiFile::read (OUT Natural& fileType,
     Logging_trace(">>");
     String& fileName = TOREFERENCE<String>(_descriptor);
     Assertion_pre(OperatingSystem::fileExists(fileName),
-                  expand("file must exist: %1", fileName));
+                  STR::expand("file must exist: %1", fileName));
 
     /* find length of file */
     Natural byteCount = File::length(fileName);
@@ -430,12 +428,12 @@ void MidiFile::read (OUT Natural& fileType,
     File inputFile;
     Boolean isOkay = inputFile.open(fileName, "rb");
     Assertion_check(isOkay,
-                    expand("file must be readable: %1", fileName));
+                    STR::expand("file must be readable: %1", fileName));
 
     Natural countRead = inputFile.read(byteList, 0, byteCount);
     Assertion_check(countRead == byteCount,
-                    expand("must be able to read %1, read %2 instead",
-                           TOSTRING(byteCount), TOSTRING(countRead)));
+                    STR::expand("must be able to read %1, read %2 instead",
+                                TOSTRING(byteCount), TOSTRING(countRead)));
     inputFile.close();
 
     /* read MIDI file header */

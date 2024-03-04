@@ -50,9 +50,31 @@ namespace BaseModules {
         /*--------------------*/
 
         /**
+         * Constructs new file from <C>otherFile</C>
+         * (NOT AVAILABLE!)
+         *
+         * @param[in] otherFile  file to be copied
+         */
+        File (IN File& otherFile) = delete;
+
+        /*--------------------*/
+
+        /**
          * Destroys file (and closes it before).
          */
         ~File ();
+
+        /*--------------------*/
+        /* assignment         */
+        /*--------------------*/
+
+        /**
+         * Assigns current file from <C>otherFile</C>
+         * (NOT AVAILABLE!)
+         *
+         * @param[in] otherFile  file to be assigned
+         */
+        File& operator= (IN File& otherFile) = delete;
 
         /*--------------------*/
         /* status change      */
@@ -82,27 +104,39 @@ namespace BaseModules {
 
         /**
          * Reads at most <C>count</C> bytes into <C>byteList</C> at
-         * <C>position</C> and returns number of bytes read.
+         * <C>position</C> and returns number of bytes read; extends
+         * byte list accordingly when too short
          *
          * @param[inout] byteList  list of bytes to be changed
          * @param[in]    position  position in byte list where first
          *                         read byte goes
-         * @param[in]    count     number of bytes to read at most
+         * @param[in]    count     number of bytes to be read at most
          * @return  number of bytes read actually
          */
         Natural read (INOUT ByteList& byteList,
-                      IN Natural position,
-                      IN Natural count);
+                      IN Natural position = 0,
+                      IN Natural count = Natural::maximumValue());
 
         /*--------------------*/
 
         /**
-         * Writes <C>st</C> to file.
+         * Reads all lines from text file into a string list.  The
+         * eol-convention is automatically detected.
+         *
+         * @return  list of lines
+         */
+        StringList readLines ();
+
+        /*--------------------*/
+
+        /**
+         * Writes <C>byteList</C> to file starting at <C>position</C>
+         * with <C>count</C> bytes to be written.
          *
          * @param[in] byteList  byte list to be written to file
          * @param[in] position  position in byte list from where first
          *                      byte is written
-         * @param[in] count     number of bytes to write
+         * @param[in] count     number of bytes to be written
          * @return  number of bytes actually written
          */
         Natural write (IN ByteList& byteList,

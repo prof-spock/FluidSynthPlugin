@@ -70,19 +70,19 @@ namespace BaseTypes::Primitives {
         /*  * Returns string representation of radians with precision */
         /*  * and padding information. */
         /*  * */
-        /*  * @param[in] precision     minimum number of valid digits */
-        /*  * @param[in] padCharacter  character to use for left padding */
+        /*  * @param[in] precision  minimum number of valid digits */
+        /*  * @param[in] padString  string to use for left padding */
         /*  * @return  string representation */
         /*  *\/ */
         /* String toString (IN Natural precision = 0, */
         /*                  IN Natural fractionalDigitCount = 0, */
-        /*                  IN String padCharacter = "0") const */
+        /*                  IN String padString = "0") const */
         /* { */
         /*     String result = std::to_string(_value); */
         /*     Natural padCount = precision - result.size(); */
 
         /*     while (padCount-- > 0) { */
-        /*         result = padCharacter + result; */
+        /*         result = padString + result; */
         /*     } */
 
         /*     return result; */

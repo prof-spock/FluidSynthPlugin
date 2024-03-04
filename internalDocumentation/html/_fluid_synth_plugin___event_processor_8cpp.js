@@ -4,6 +4,7 @@ var _fluid_synth_plugin___event_processor_8cpp =
     [ "_EventProcessorDescriptor", "struct_main_1_1_fluid_synth_plugin_1_1___event_processor_descriptor.html", "struct_main_1_1_fluid_synth_plugin_1_1___event_processor_descriptor" ],
     [ "_channelCount", "_fluid_synth_plugin___event_processor_8cpp.html#a90038ac52e6f9024df48154a95fae645", null ],
     [ "_midiProgramCount", "_fluid_synth_plugin___event_processor_8cpp.html#a92b749ac6127242798f77bdf17d925a3", null ],
+    [ "STR", "_fluid_synth_plugin___event_processor_8cpp.html#a5b6f88d1249b396e351c4a85bcb35b2c", null ],
     [ "_convertFromJuceEventList", "_fluid_synth_plugin___event_processor_8cpp.html#a99e0fe3bd7a94f811d6ef82f157eb8f5", null ],
     [ "_copyToJuceBuffer", "_fluid_synth_plugin___event_processor_8cpp.html#a660ef424f8aafc62e3b3e2545a03baa9", null ],
     [ "_readTimeInSamples", "_fluid_synth_plugin___event_processor_8cpp.html#aadfe2aed0594ae4ee8061e69ce5cdc20", null ],

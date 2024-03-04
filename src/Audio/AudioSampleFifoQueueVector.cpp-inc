@@ -19,6 +19,9 @@
 
 using Audio::AudioSampleFifoQueueVector;
 
+/** abbreviation for StringUtil */
+using STR = BaseModules::StringUtil;
+
 /*====================*/
 
 /*--------------------*/
@@ -65,7 +68,7 @@ AudioSampleFifoQueueVector::toString (IN Natural audioFrameCount,
         result += (result == "" ? "" : ", ") + groupString;
     }
 
-    result = StringUtil::expand("AudioSampleFifoQueueVector(%1)", result);
+    result = STR::expand("AudioSampleFifoQueueVector(%1)", result);
     return result;
 }
 

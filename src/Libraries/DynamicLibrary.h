@@ -34,6 +34,10 @@ namespace Libraries {
      */
     struct DynamicLibrary {
 
+        /*--------------------*/
+        /* con-/destruction   */
+        /*--------------------*/
+
         /**
          * Constructs a new dynamic library from <C>libraryName</C>
          *
@@ -44,11 +48,48 @@ namespace Libraries {
         /*--------------------*/
 
         /**
+         * Constructs new dynamic library from <C>otherLibrary</C>
+         * (NOT AVAILABLE!)
+         *
+         * @param[in] otherLibrary  library to be copied
+         */
+        DynamicLibrary (IN DynamicLibrary& otherLibrary) = delete;
+
+        /*--------------------*/
+
+        /**
          * Destroys dynamic library object and unloads the underlying
          * library
          */
         ~DynamicLibrary ();
   
+        /*--------------------*/
+        /* configuration      */
+        /*--------------------*/
+
+        /**
+         * Adds <C>searchPath</C> to list of search paths for dynamic
+         * libraries.
+         *
+         * @param[in] searchPath  search path to be added
+         */
+        static void addToSearchPath (IN String& searchPath);
+
+        /*--------------------*/
+        /* assignment         */
+        /*--------------------*/
+
+        /**
+         * Assigns current library from <C>otherLibrary</C>
+         * (NOT AVAILABLE!)
+         *
+         * @param[in] otherLibrary  library to be assigned
+         */
+        DynamicLibrary& operator= (IN DynamicLibrary& otherLibrary)
+            = delete;
+
+        /*--------------------*/
+        /* queries            */
         /*--------------------*/
 
         /**

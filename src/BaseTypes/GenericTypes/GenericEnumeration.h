@@ -56,29 +56,29 @@ namespace BaseTypes::GenericTypes {
         /*--------------------*/
 
         /**
-         * Returns whether current enumeration value is equal to
-         * <C>other</C>.
+         * Returns whether <C>self</C> is equal to <C>other</C>.
          *
-         * @param[in] other  other enumeration value
+         * @param[in] self   first enumeration value
+         * @param[in] other  second enumeration value
          * @return equality information
          */
-        Boolean operator == (IN Type other) const
+        friend Boolean operator == (IN Type self, IN Type other)
         {
-            return (_value == other._value);
+            return (self._value == other._value);
         }
 
         /*--------------------*/
 
         /**
-         * Returns whether current enumeration value is not equal to
-         * <C>other</C>.
+         * Returns whether <C>self</C> is not equal to <C>other</C>.
          *
-         * @param[in] other  other enumeration value
+         * @param[in] self   first enumeration value
+         * @param[in] other  second enumeration value
          * @return inequality information
          */
-        Boolean operator != (IN Type other) const
+        friend Boolean operator != (IN Type self, IN Type other)
         {
-            return (_value != other._value);
+            return (self._value != other._value);
         }
 
         /*--------------------*/

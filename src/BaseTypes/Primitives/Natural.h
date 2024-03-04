@@ -79,27 +79,58 @@ namespace BaseTypes::Primitives {
         /*--------------------*/
 
         /**
-         * Returns string representation of natural with precision and
-         * padding information.
+         * Returns string representation of natural with
+         * <C>precision</C> and <C>padString</C> information relative
+         * to <C>base</C>
          *
-         * @param[in] precision     minimum number of valid digits
-         * @param[in] padCharacter  character to use for left padding
+         * @param[in] precision  minimum number of valid digits
+         * @param[in] padString  string to use for left padding
          * @return  string representation
          */
-        String toString (IN Natural precision = 0,
-                         IN String padCharacter = "0") const
+        String toStringWithBase (IN Natural base,
+                                 IN Natural precision = 0,
+                                 IN String padString = "0") const
         {
-            String result = std::to_string(_value);
-            const Natural length{result.size()};
-            Natural padCount =
-                (precision > length ? precision - length : 0);
+            Assertion_pre(base >= 2 && base <= 36,
+                          "base must be between 2 and 36");
+            String result = "";
+            Natural remainingValue = *this;
+            Natural length = 0;
+            String digitList = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-            while (padCount > 0) {
-                result = padCharacter + result;
-                padCount--;
+            while (true) {
+                Natural digit  = remainingValue % base;
+                remainingValue = remainingValue / base;
+                result = digitList[(size_t) digit] + result;
+                length++;
+
+                if (remainingValue == 0) {
+                    break;
+                }
+            }
+            
+            while (length < precision) {
+                result = padString + result;
+                length++;
             }
 
             return result;
+        }
+
+        /*--------------------*/
+
+        /**
+         * Returns string representation of natural with
+         * <C>precision</C> and <C>padString</C> information.
+         *
+         * @param[in] precision  minimum number of valid digits
+         * @param[in] padString  string to use for left padding
+         * @return  string representation
+         */
+        String toString (IN Natural precision = 0,
+                         IN String padString = "0") const
+        {
+            return toStringWithBase(10, precision, padString);
         }
 
         /*--------------------*/

@@ -1,5 +1,5 @@
 <map id="CommandLineArguments.h" name="CommandLineArguments.h">
-<area shape="rect" id="node1" title="The CommandLineArguments specification defines a handler for command&#45;line arguments converting them t..." alt="" coords="131,5,332,33"/>
-<area shape="rect" id="node2" href="$_command_line_arguments_8cpp.html" title="The CommandLineArguments body implements a handler for command&#45;line arguments converting them to a li..." alt="" coords="5,81,223,109"/>
-<area shape="rect" id="node3" href="$_fluid_synth_file_converter_8cpp.html" title="The FluidSynthFileConverter module implements a conversion from a MIDI file into a wave file using th..." alt="" coords="247,81,453,109"/>
+<area shape="rect" id="node1" title="The CommandLineArguments specification defines a handler for command&#45;line arguments converting them t..." alt="" coords="119,5,298,32"/>
+<area shape="rect" id="node2" href="$_command_line_arguments_8cpp.html" title="The CommandLineArguments body implements a handler for command&#45;line arguments converting them to a li..." alt="" coords="5,80,199,107"/>
+<area shape="rect" id="node3" href="$_fluid_synth_file_converter_8cpp.html" title="The FluidSynthFileConverter module implements a conversion from a MIDI file into a wave file using th..." alt="" coords="223,80,407,107"/>
 </map>

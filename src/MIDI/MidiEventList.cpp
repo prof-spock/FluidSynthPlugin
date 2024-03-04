@@ -54,6 +54,11 @@ static int _midiEventComparator (IN void* a, IN void* b)
 /* PUBLIC FEATURES    */
 /*====================*/
 
+String MIDI::_midiEventListTypeName ()
+{
+    return "MidiEventList";
+}
+
 /*--------------------*/
 /* construction       */
 /*--------------------*/
@@ -67,15 +72,6 @@ MidiEventList MidiEventList::fromList (IN initializer_list<MidiEvent> list)
     }
             
     return result;
-}
-
-/*--------------------*/
-/* change             */
-/*--------------------*/
-
-String MidiEventList::toString () const
-{
-    return _toString("MidiEventList", MidiEvent::toString);
 }
 
 /*--------------------*/

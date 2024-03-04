@@ -96,7 +96,6 @@ IF(MACOSX)
         JucePlugin_AUManufacturerCode=JucePlugin_ManufacturerCode)
 
     ENABLE_LANGUAGE(OBJC)
-    SET(CMAKE_CXX_STANDARD_REQUIRED False)
 ENDIF(MACOSX)
 
 IF(LINUX)
@@ -121,15 +120,17 @@ SET(cppDefineClauseList
 # --- define flags per compiler ---
 IF(MSVC)
     # --- list of warning number to be ignored
-    SET(warningNumberList
+    SET(ignoredWarningNumberList
         4100 4180 4244 4505 4723 5105 6011 6255 6297
         26439 26451 26495 26498 26812 26819 28182)
   
+    SET(ignoredWarningNumberListRelease
+        4189)
+
     # select static MSVC library instead of dynamic library
     # SET(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded")
   
     STRING(JOIN " " cppFlagsCommon
-           /arch:AVX            # enable AVX vectorization instructions
            /bigobj              # increase number of addressable sections
            /diagnostics:column  # format of diagnostics message
            /EHsc                # exception handling: stack unwinding
@@ -145,8 +146,8 @@ IF(MSVC)
            /Zc:wchar_t          # wchar is native
     )
 
-    # --- disable all warnings in warningNumberList ---
-    FOREACH(warningNumber ${warningNumberList})
+    # --- disable all warnings in ignoredWarningNumberList ---
+    FOREACH(warningNumber ${ignoredWarningNumberList})
         STRING(APPEND cppFlagsCommon " /wd${warningNumber}")
     ENDFOREACH()         
 
@@ -163,6 +164,10 @@ IF(MSVC)
            /Gw           # global program optimization
     )
 
+    FOREACH(warningNumber ${ignoredWarningNumberListRelease})
+        STRING(APPEND cppFlagsRelease " /wd${warningNumber}")
+    ENDFOREACH()         
+
     STRING(JOIN " " cppFlagsReleaseWithDebugInfo
            /DDEBUG       # debugging
            /Od           # no optimization
@@ -178,19 +183,21 @@ IF(MSVC)
     )
 ELSE()
     STRING(JOIN " " cppFlagsCommon
-           -ffast-math                   # fast floating point calculation
-           -mavx                         # enable AVX vectorization
-                                         # instructions
-           -O0                           # no optimization
-           -Ofast                        # favors fast code
-           -pedantic                     # set strict standard conformance
-           -Wall                         # warning level: all
-           -Wno-delete-incomplete        # remove warning for void deletion
-           -Wno-ignored-qualifiers       # remove warning for const qualifier
-                                         # on functions
-           -Wno-unused-function          # remove warning for unused function
-           -Wno-unused-variable          # remove warning for unused variable
-           -Wno-unused-but-set-variable  # remove warning for unused variable
+           -ffast-math                      # fast floating point calculation
+           -O0                              # no optimization
+           -Ofast                           # favors fast code
+           -pedantic                        # set strict standard conformance
+           -Wall                            # warning level: all
+           -Wno-ambiguous-reversed-operator # remove C++20 warning on
+                                            # reversed equal operator
+           -Wno-delete-incomplete           # remove warning for void deletion
+           -Wno-ignored-qualifiers          # remove warning for const
+                                            # qualifier on functions
+           -Wno-unused-function             # remove warning for
+                                            # unused function
+           -Wno-unused-variable             # remove warning for unused variable
+           # -Wno-unused-but-set-variable     # remove warning for
+           #                                  # unused variable
            )
 
     # warn about undefined symbols when linking
@@ -226,6 +233,7 @@ ELSE()
     )
 ENDIF()
 
+
 SET(CMAKE_CXX_FLAGS ${cppFlagsCommon} CACHE STRING "" FORCE)
 SET(CMAKE_CXX_FLAGS_RELEASE ${cppFlagsRelease} CACHE STRING "" FORCE)
 SET(CMAKE_CXX_FLAGS_RELWITHDEBINFO ${cppFlagsReleaseWithDebugInfo}
@@ -233,3 +241,7 @@ SET(CMAKE_CXX_FLAGS_RELWITHDEBINFO ${cppFlagsReleaseWithDebugInfo}
 SET(CMAKE_CXX_FLAGS_DEBUG ${cppFlagsDebug} CACHE STRING "" FORCE)
 
 SET(CMAKE_SHARED_LINKER_FLAGS ${cppLinkerFlagsCommon} CACHE STRING "" FORCE)
+
+IF(MACOSX)
+    ADD_COMPILE_DEFINITIONS($<IF:$<CONFIG:Debug>,DEBUG,NDEBUG>)
+ENDIF(MACOSX)

@@ -20,6 +20,15 @@ using BaseTypes::Containers::ByteList;
 
 /*====================*/
 
+String BaseTypes::Containers::_byteListTypeName ()
+{
+    return "ByteList";
+}
+    
+/*--------------------*/
+/* constructors       */
+/*--------------------*/
+
 ByteList ByteList::fromList (IN initializer_list<Byte> list)
 {
     ByteList result{};
@@ -32,8 +41,36 @@ ByteList ByteList::fromList (IN initializer_list<Byte> list)
 }
 
 /*--------------------*/
+/* type conversions   */
+/*--------------------*/
 
-String ByteList::toString () const
+String ByteList::decodeToString () const
 {
-    return _toString("ByteList", Byte::toString);
+    String result;
+    Natural byteCount = length();
+    result.resize((int) byteCount);
+
+    for (Natural i = 0;  i < byteCount;  i++) {
+        result[(int) i] = (char) at(i);
+    }
+
+    return result;
+}
+
+/*--------------------*/
+
+StringList
+ByteList::asStringListWithBase (IN Natural base,
+                                IN Natural precision,
+                                IN String padString) const
+{
+    StringList result;
+
+    for (Byte element : *this) {
+        Natural v = (char) element;
+        String st = v.toStringWithBase(base, precision, padString);
+        result.append(st);
+    }
+
+    return result;
 }

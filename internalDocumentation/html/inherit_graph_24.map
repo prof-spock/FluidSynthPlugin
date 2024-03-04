@@ -1,5 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,80,33"/>
-<area shape="rect" id="node2" href="$struct_main_1_1_fluid_synth_plugin_1_1___widget_listener.html" title="A listener class for button and text editor events." alt="" coords="128,24,296,68"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,57,80,85"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,13,153,39"/>
+<area shape="rect" id="node2" href="$struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___editor.html" title="A very simple editor for the FluidSynth plugin." alt="" coords="201,5,371,47"/>
 </map>

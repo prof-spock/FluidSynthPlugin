@@ -101,10 +101,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a14283685aa122f287cdbb62a114f1264"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_m_i_d_i_1_1_midi_file.html#a14283685aa122f287cdbb62a114f1264">MidiFile</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;name)</td></tr>
 <tr class="memdesc:a14283685aa122f287cdbb62a114f1264"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> file named <code>name</code>  <a href="struct_m_i_d_i_1_1_midi_file.html#a14283685aa122f287cdbb62a114f1264">More...</a><br /></td></tr>
 <tr class="separator:a14283685aa122f287cdbb62a114f1264"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca5922a54077592ba2a3743954287eb1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_m_i_d_i_1_1_midi_file.html#aca5922a54077592ba2a3743954287eb1">MidiFile</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_m_i_d_i_1_1_midi_file.html">MidiFile</a> &amp;otherFile)=delete</td></tr>
+<tr class="memdesc:aca5922a54077592ba2a3743954287eb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs new file from <code>otherFile</code> (NOT AVAILABLE).  <a href="struct_m_i_d_i_1_1_midi_file.html#aca5922a54077592ba2a3743954287eb1">More...</a><br /></td></tr>
+<tr class="separator:aca5922a54077592ba2a3743954287eb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d14e6df12f54918a8caf500f03fd78e"><td class="memItemLeft" align="right" valign="top"><a id="a8d14e6df12f54918a8caf500f03fd78e"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_m_i_d_i_1_1_midi_file.html#a8d14e6df12f54918a8caf500f03fd78e">~MidiFile</a> ()</td></tr>
 <tr class="memdesc:a8d14e6df12f54918a8caf500f03fd78e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> file. <br /></td></tr>
 <tr class="separator:a8d14e6df12f54918a8caf500f03fd78e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afedcdc7d8ca72afac28d78c0cc8106b3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_m_i_d_i_1_1_midi_file.html">MidiFile</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_m_i_d_i_1_1_midi_file.html#afedcdc7d8ca72afac28d78c0cc8106b3">operator=</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_m_i_d_i_1_1_midi_file.html">MidiFile</a> &amp;otherFile)=delete</td></tr>
+<tr class="memdesc:afedcdc7d8ca72afac28d78c0cc8106b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns <code>otherFile</code> to current (NOT AVAILABLE).  <a href="struct_m_i_d_i_1_1_midi_file.html#afedcdc7d8ca72afac28d78c0cc8106b3">More...</a><br /></td></tr>
+<tr class="separator:afedcdc7d8ca72afac28d78c0cc8106b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a891f363b01a263b145108519e66ab635"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_m_i_d_i_1_1_midi_file.html#a891f363b01a263b145108519e66ab635">read</a> (<a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> &amp;fileType, <a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> &amp;timeDivision, <a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="struct_m_i_d_i_1_1_midi_event_list.html">MidiEventList</a> &amp;midiEventList)</td></tr>
 <tr class="memdesc:a891f363b01a263b145108519e66ab635"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads data from <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> file and returns characteristics in <code>fileType</code>, <code>timeDivision</code> and flattened list of <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> events in <code>midiEventList</code>.  <a href="struct_m_i_d_i_1_1_midi_file.html#a891f363b01a263b145108519e66ab635">More...</a><br /></td></tr>
 <tr class="separator:a891f363b01a263b145108519e66ab635"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -120,7 +126,7 @@ Object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="st
 <div class="textblock"><p>A <code><a class="el" href="struct_m_i_d_i_1_1_midi_file.html" title="A MidiFile object represents an external file with MIDI events according to the MIDI specification; c...">MidiFile</a></code> object represents an external file with <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> events according to the <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> specification; currently only reading of such a file is supported. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a14283685aa122f287cdbb62a114f1264"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a14283685aa122f287cdbb62a114f1264">&#9670;&nbsp;</a></span>MidiFile()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a14283685aa122f287cdbb62a114f1264">&#9670;&nbsp;</a></span>MidiFile() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -145,7 +151,75 @@ Object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="st
 
 </div>
 </div>
+<a id="aca5922a54077592ba2a3743954287eb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca5922a54077592ba2a3743954287eb1">&#9670;&nbsp;</a></span>MidiFile() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">MIDI::MidiFile::MidiFile </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_m_i_d_i_1_1_midi_file.html">MidiFile</a> &amp;&#160;</td>
+          <td class="paramname"><em>otherFile</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs new file from <code>otherFile</code> (NOT AVAILABLE). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">otherFile</td><td>midi file to be copied </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="afedcdc7d8ca72afac28d78c0cc8106b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afedcdc7d8ca72afac28d78c0cc8106b3">&#9670;&nbsp;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_m_i_d_i_1_1_midi_file.html">MidiFile</a>&amp; MIDI::MidiFile::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_m_i_d_i_1_1_midi_file.html">MidiFile</a> &amp;&#160;</td>
+          <td class="paramname"><em>otherFile</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Assigns <code>otherFile</code> to current (NOT AVAILABLE). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">otherFile</td><td>midi file to be assigned </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a891f363b01a263b145108519e66ab635"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a891f363b01a263b145108519e66ab635">&#9670;&nbsp;</a></span>read()</h2>
 

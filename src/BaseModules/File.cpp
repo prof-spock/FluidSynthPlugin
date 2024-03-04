@@ -12,6 +12,7 @@
 /* IMPORTS */
 /*=========*/
 
+#include <cstring>
 #include <stdio.h>
     /** qualified version of FILE from stdio */
     #define StdIO_FILE    FILE
@@ -38,7 +39,9 @@
 /*--------------------*/
 
 using BaseModules::File;
-using BaseModules::StringUtil;
+
+/** abbreviation for StringUtil */
+using STR = BaseModules::StringUtil;
 
 /*====================*/
 
@@ -70,8 +73,7 @@ Boolean File::open (IN String& fileName, IN String& mode)
     Assertion_pre((mode == "a" || mode == "ab"
                    || mode == "r" || mode == "rb"
                    || mode == "w" || mode == "wb"),
-                  StringUtil::expand("file mode must be known - %1",
-                                     mode));
+                  STR::expand("file mode must be known - %1", mode));
     FilePointer file = StdIO_fopen(fileName.c_str(), mode.c_str());
     _descriptor = file;
     Boolean result = (file != NULL);
@@ -99,9 +101,49 @@ Natural File::read (INOUT ByteList& byteList,
 {
     Assertion_pre(isOpen(), "file must be open for reading");
     FilePointer file = (FilePointer) _descriptor;
-    char* characterArray = (char*) byteList.asArray();
-    Natural result =
-        StdIO_fread(characterArray, 1, count, file);
+    char charArray[512];
+    const Natural chunkSize = sizeof(charArray);
+    Natural totalBytesRead = 0;
+
+    for (;;) {
+        Natural listSize = byteList.length();
+        Natural bytesToRead =
+            Natural::minimum(chunkSize, count - totalBytesRead);
+        Natural bytesRead =
+            Natural{StdIO_fread(charArray, sizeof(char),
+                                bytesToRead, file)};
+
+        if (listSize < position + totalBytesRead + bytesRead) {
+            // extend list to take another bytesRead bytes
+            byteList.setLength(listSize + bytesRead);
+        }
+        
+        if (bytesRead == 0) {
+            break;
+        } else {
+            char* ptr = (char*) byteList.asArray();
+            ptr += (size_t)(position + totalBytesRead);
+            std::memcpy(ptr, charArray, (size_t) bytesRead);
+            totalBytesRead += bytesRead;
+        }
+    }
+
+    return totalBytesRead;
+}
+
+/*--------------------*/
+
+StringList File::readLines ()
+{
+    const String newlineReplacement = "%$XX";
+    ByteList byteList;
+    String st;
+
+    read(byteList);
+    st = byteList.decodeToString();
+    st = STR::newlineReplacedString(st, newlineReplacement);
+    StringList result = StringList::makeBySplit(st, newlineReplacement);
+
     return result;
 }
 

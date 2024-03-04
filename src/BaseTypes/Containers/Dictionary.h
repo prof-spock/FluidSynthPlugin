@@ -26,11 +26,28 @@ using BaseTypes::GenericTypes::GenericMap;
 namespace BaseTypes::Containers {
 
     /**
+     * Returns name of dictionary type
+     *
+     * @return type name
+     */
+    String _dictionaryTypeName ();
+    
+    /*--------------------*/
+
+    /**
      * A <C>Dictionary</C> object maps string keys to string values.
      * Every key is associated with at most one value, where the key
      * identity is defined by standard string comparison.
      */
-    struct Dictionary : public GenericMap<String, String> {
+    struct Dictionary
+        : public GenericMap < String, String,
+                              StringUtil::toPrintableString,
+                              StringUtil::toPrintableString,
+                              &_dictionaryTypeName > {
+
+        /*--------------------*/
+        /* constructors       */
+        /*--------------------*/
 
         /**
          * Makes dictionary from list of strings <C>list</C>
@@ -64,15 +81,6 @@ namespace BaseTypes::Containers {
             IN String& st,
             IN String& entrySeparator = StringUtil::entrySeparator,
             IN String& keyValueSeparator = StringUtil::keyValueSeparator);
-
-        /*--------------------*/
-
-        /**
-         * Returns printable representation of dictionary.
-         *
-         * @return string representation of dictionary
-         */
-        String toString () const;
 
     };
 

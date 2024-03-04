@@ -100,17 +100,17 @@ $(document).ready(function(){initNavTree('struct_base_types_1_1_containers_1_1_s
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="struct_base_types_1_1_containers_1_1_string_list__inherit__graph.svg" width="206" height="302"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="struct_base_types_1_1_containers_1_1_string_list__inherit__graph.svg" width="200" height="316"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab7bb7a657355acfef0ca4caffb345456"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_base_types_1_1_containers_1_1_string_list.html#ab7bb7a657355acfef0ca4caffb345456">toString</a> () const</td></tr>
-<tr class="memdesc:ab7bb7a657355acfef0ca4caffb345456"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns printable representation of list.  <a href="struct_base_types_1_1_containers_1_1_string_list.html#ab7bb7a657355acfef0ca4caffb345456">More...</a><br /></td></tr>
-<tr class="separator:ab7bb7a657355acfef0ca4caffb345456"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba8557f422a7d39b5eb948c60d533a19"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_base_types_1_1_containers_1_1_string_list.html#aba8557f422a7d39b5eb948c60d533a19">join</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;separator) const</td></tr>
 <tr class="memdesc:aba8557f422a7d39b5eb948c60d533a19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concatenates all elements in list with <code>separator</code> and returns them.  <a href="struct_base_types_1_1_containers_1_1_string_list.html#aba8557f422a7d39b5eb948c60d533a19">More...</a><br /></td></tr>
 <tr class="separator:aba8557f422a7d39b5eb948c60d533a19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afde12f572ea97afd4671c1de7cb67ce4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_base_types_1_1_containers_1_1_string_list.html">StringList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_base_types_1_1_containers_1_1_string_list.html#afde12f572ea97afd4671c1de7cb67ce4">slice</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.html">Integer</a> firstPosition, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.html">Integer</a> lastPosition=Integer::maximumValue())</td></tr>
+<tr class="memdesc:afde12f572ea97afd4671c1de7cb67ce4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns slice of list starting at <code>firstPosition</code> up to - but not including - <code>lastPosition</code>; in Python style negative indices are allowed signifying counting from the end.  <a href="struct_base_types_1_1_containers_1_1_string_list.html#afde12f572ea97afd4671c1de7cb67ce4">More...</a><br /></td></tr>
+<tr class="separator:afde12f572ea97afd4671c1de7cb67ce4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -233,23 +233,41 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ab7bb7a657355acfef0ca4caffb345456"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab7bb7a657355acfef0ca4caffb345456">&#9670;&nbsp;</a></span>toString()</h2>
+<a id="afde12f572ea97afd4671c1de7cb67ce4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afde12f572ea97afd4671c1de7cb67ce4">&#9670;&nbsp;</a></span>slice()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">String StringList::toString </td>
+          <td class="memname"><a class="el" href="struct_base_types_1_1_containers_1_1_string_list.html">StringList</a> StringList::slice </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.html">Integer</a>&#160;</td>
+          <td class="paramname"><em>firstPosition</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.html">Integer</a>&#160;</td>
+          <td class="paramname"><em>lastPosition</em> = <code>Integer::maximumValue()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns printable representation of list. </p>
-<dl class="section return"><dt>Returns</dt><dd>string representation of list </dd></dl>
+<p>Returns slice of list starting at <code>firstPosition</code> up to - but not including - <code>lastPosition</code>; in Python style negative indices are allowed signifying counting from the end. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">firstPosition</td><td>index position of first element of result </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lastPosition</td><td>index position of first element not included in result </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>sublist slice </dd></dl>
 
 </div>
 </div>

@@ -100,49 +100,49 @@ $(document).ready(function(){initNavTree('_string_set_8h_source.html',''); initR
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">/*--------------------*/</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">using</span> <a class="code" href="namespace_base_types_1_1_primitives.html#a537d2530f5c26feae7d1c1858ae5112e">BaseTypes::Primitives::String_toString</a>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">using</span> BaseTypes::GenericTypes::GenericSet;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">/*====================*/</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_base_types_1_1_containers.html">BaseTypes::Containers</a> {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="struct_base_types_1_1_containers_1_1_string_set.html">   36</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="struct_base_types_1_1_containers_1_1_string_set.html">StringSet</a></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        : <span class="keyword">public</span> GenericSet&lt;String&gt; {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">using</span> BaseTypes::GenericTypes::GenericSet;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">/*====================*/</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_base_types_1_1_containers.html">BaseTypes::Containers</a> {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="namespace_base_types_1_1_containers.html#a05531a29dbe515c3ce323656336fcb15">   35</a></span>&#160;    <a class="code" href="namespace_base_types_1_1_primitives.html#aa1174c1e7bedd8df69fc98453595a127">String</a> <a class="code" href="namespace_base_types_1_1_containers.html#a05531a29dbe515c3ce323656336fcb15">_stringSetTypeName</a> () { <span class="keywordflow">return</span> <span class="stringliteral">&quot;StringSet&quot;</span>; }</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">/*--------------------*/</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="comment">/*--------------------*/</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="struct_base_types_1_1_containers_1_1_string_set.html#a8853219dda50222ee5478c57475ef0e2">   47</a></span>&#160;        <span class="keyword">static</span> <a class="code" href="struct_base_types_1_1_containers_1_1_string_set.html">StringSet</a> <a class="code" href="struct_base_types_1_1_containers_1_1_string_set.html#a8853219dda50222ee5478c57475ef0e2">makeFromList</a> (<a class="code" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="code" href="struct_base_types_1_1_containers_1_1_string_list.html">StringList</a>&amp; list)</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <a class="code" href="struct_base_types_1_1_containers_1_1_string_set.html">StringSet</a> result = <a class="code" href="struct_base_types_1_1_containers_1_1_string_set.html">StringSet</a>();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">const</span> <a class="code" href="namespace_base_types_1_1_primitives.html#aa1174c1e7bedd8df69fc98453595a127">String</a>&amp; element : list) {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                result.add(element);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        }</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="comment">/*--------------------*/</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <a class="code" href="namespace_base_types_1_1_primitives.html#aa1174c1e7bedd8df69fc98453595a127">String</a> toString ()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordflow">return</span> _toString(<span class="stringliteral">&quot;StringSet&quot;</span>, <a class="code" href="namespace_base_types_1_1_primitives.html#a537d2530f5c26feae7d1c1858ae5112e">String_toString</a>);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    };</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="struct_base_types_1_1_containers_1_1_string_set.html">   44</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="struct_base_types_1_1_containers_1_1_string_set.html">StringSet</a></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        : <span class="keyword">public</span> GenericSet&lt;String,</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                            String_toString,</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                            &amp;_stringSetTypeName &gt; {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="comment">/*--------------------*/</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="comment">/* constructors       */</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="comment">/*--------------------*/</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="struct_base_types_1_1_containers_1_1_string_set.html#af405c516721429fb1f401929fd063043">   59</a></span>&#160;        <span class="keyword">static</span> <a class="code" href="struct_base_types_1_1_containers_1_1_string_set.html">StringSet</a> <a class="code" href="struct_base_types_1_1_containers_1_1_string_set.html#af405c516721429fb1f401929fd063043">makeFromList</a> (<a class="code" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="code" href="struct_base_types_1_1_containers_1_1_string_list.html">StringList</a>&amp; list)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <a class="code" href="struct_base_types_1_1_containers_1_1_string_set.html">StringSet</a> result = <a class="code" href="struct_base_types_1_1_containers_1_1_string_set.html">StringSet</a>();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">const</span> <a class="code" href="namespace_base_types_1_1_primitives.html#aa1174c1e7bedd8df69fc98453595a127">String</a>&amp; element : list) {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                result.add(element);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            }</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;}</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    };</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="astruct_base_types_1_1_containers_1_1_string_set_html_a8853219dda50222ee5478c57475ef0e2"><div class="ttname"><a href="struct_base_types_1_1_containers_1_1_string_set.html#a8853219dda50222ee5478c57475ef0e2">BaseTypes::Containers::StringSet::makeFromList</a></div><div class="ttdeci">static StringSet makeFromList(IN StringList &amp;list)</div><div class="ttdoc">Makes set from list of elements list.</div><div class="ttdef"><b>Definition:</b> StringSet.h:47</div></div>
 <div class="ttc" id="anamespace_base_types_1_1_containers_html"><div class="ttname"><a href="namespace_base_types_1_1_containers.html">BaseTypes::Containers</a></div><div class="ttdoc">The package Containers provides container types like dictionaries, maps from string to objects,...</div><div class="ttdef"><b>Definition:</b> BaseTypes/Containers/_NAMESPACE.desc:7</div></div>
 <div class="ttc" id="anamespace_base_types_1_1_primitives_html_aa1174c1e7bedd8df69fc98453595a127"><div class="ttname"><a href="namespace_base_types_1_1_primitives.html#aa1174c1e7bedd8df69fc98453595a127">BaseTypes::Primitives::String</a></div><div class="ttdeci">std::string String</div><div class="ttdoc">The String type represents (Unicode) character sequences.</div><div class="ttdef"><b>Definition:</b> MyString.h:28</div></div>
 <div class="ttc" id="a_global_macros_8h_html_ac2bbd6d630a06a980d9a92ddb9a49928"><div class="ttname"><a href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a></div><div class="ttdeci">#define IN</div><div class="ttdoc">(informal) parameter mode for in parameter</div><div class="ttdef"><b>Definition:</b> GlobalMacros.h:15</div></div>
 <div class="ttc" id="a_string_list_8h_html"><div class="ttname"><a href="_string_list_8h.html">StringList.h</a></div><div class="ttdoc">The StringList specification defines lists of string values with zero-based arbitrary indexed access ...</div></div>
-<div class="ttc" id="astruct_base_types_1_1_containers_1_1_string_set_html"><div class="ttname"><a href="struct_base_types_1_1_containers_1_1_string_set.html">BaseTypes::Containers::StringSet</a></div><div class="ttdoc">A StringSet object is a set of string values with no duplicates and only simple containment access an...</div><div class="ttdef"><b>Definition:</b> StringSet.h:37</div></div>
-<div class="ttc" id="anamespace_base_types_1_1_primitives_html_a537d2530f5c26feae7d1c1858ae5112e"><div class="ttname"><a href="namespace_base_types_1_1_primitives.html#a537d2530f5c26feae7d1c1858ae5112e">BaseTypes::Primitives::String_toString</a></div><div class="ttdeci">String String_toString(IN String &amp;st)</div><div class="ttdoc">Returns simple printable string representation for st.</div><div class="ttdef"><b>Definition:</b> MyString.cpp:23</div></div>
-<div class="ttc" id="astruct_base_types_1_1_containers_1_1_string_list_html"><div class="ttname"><a href="struct_base_types_1_1_containers_1_1_string_list.html">BaseTypes::Containers::StringList</a></div><div class="ttdoc">A StringList object is a list of string values with arbitrary indexed access to positions in the list...</div><div class="ttdef"><b>Definition:</b> StringList.h:37</div></div>
+<div class="ttc" id="astruct_base_types_1_1_containers_1_1_string_set_html"><div class="ttname"><a href="struct_base_types_1_1_containers_1_1_string_set.html">BaseTypes::Containers::StringSet</a></div><div class="ttdoc">A StringSet object is a set of string values with no duplicates and only simple containment access an...</div><div class="ttdef"><b>Definition:</b> StringSet.h:47</div></div>
+<div class="ttc" id="anamespace_base_types_1_1_containers_html_a05531a29dbe515c3ce323656336fcb15"><div class="ttname"><a href="namespace_base_types_1_1_containers.html#a05531a29dbe515c3ce323656336fcb15">BaseTypes::Containers::_stringSetTypeName</a></div><div class="ttdeci">String _stringSetTypeName()</div><div class="ttdoc">Returns name of string set type.</div><div class="ttdef"><b>Definition:</b> StringSet.h:35</div></div>
+<div class="ttc" id="astruct_base_types_1_1_containers_1_1_string_set_html_af405c516721429fb1f401929fd063043"><div class="ttname"><a href="struct_base_types_1_1_containers_1_1_string_set.html#af405c516721429fb1f401929fd063043">BaseTypes::Containers::StringSet::makeFromList</a></div><div class="ttdeci">static StringSet makeFromList(IN StringList &amp;list)</div><div class="ttdoc">Makes set from list of elements list.</div><div class="ttdef"><b>Definition:</b> StringSet.h:59</div></div>
+<div class="ttc" id="astruct_base_types_1_1_containers_1_1_string_list_html"><div class="ttname"><a href="struct_base_types_1_1_containers_1_1_string_list.html">BaseTypes::Containers::StringList</a></div><div class="ttdoc">A StringList object is a list of string values with arbitrary indexed access to positions in the list...</div><div class="ttdef"><b>Definition:</b> StringList.h:50</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

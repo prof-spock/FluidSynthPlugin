@@ -17,11 +17,21 @@
 
 /*--------------------*/
 
-using BaseModules::StringUtil;
 using BaseTypes::Primitives::String;
-using BaseTypes::Primitives::String_toString;
+
+/** abbreviation for StringUtil */
+using STR = BaseModules::StringUtil;
 
 /*====================*/
+
+String BaseTypes::Containers::_stringListTypeName ()
+{
+    return "StringList";
+}
+
+/*--------------------*/
+/* constructors       */
+/*--------------------*/
 
 StringList StringList::fromList (IN initializer_list<String> list)
 {
@@ -31,27 +41,6 @@ StringList StringList::fromList (IN initializer_list<String> list)
         result.append(element);
     }
             
-    return result;
-}
-
-/*--------------------*/
-
-String StringList::toString () const
-{
-    return _toString("StringList", String_toString);
-}
-
-/*--------------------*/
-
-String StringList::join (IN String& separator) const
-{
-    String result;
-    Natural length = size();
-
-    for (Natural i = 0;  i < length;  i++) {
-        result += (i > 0 ? separator : "") + at(i);
-    }
-
     return result;
 }
 
@@ -69,16 +58,41 @@ StringList StringList::makeBySplit (IN String& st,
     Natural position;
 
     do {
-        position = StringUtil::find(remainder, separator);
+        position = STR::find(remainder, separator);
 
         if (position == undefined) {
             result.append(remainder);
         } else {
-            result.append(StringUtil::prefix(remainder, position));
-            remainder = StringUtil::substring(remainder,
-                                              position + separatorLength);
+            result.append(STR::prefix(remainder, position));
+            remainder = STR::substring(remainder,
+                                       position + separatorLength);
         }
     } while (position != undefined);
 
     return result;
+}
+
+/*--------------------*/
+/* complex functions  */
+/*--------------------*/
+
+String StringList::join (IN String& separator) const
+{
+    String result;
+    Natural length = size();
+
+    for (Natural i = 0;  i < length;  i++) {
+        result += (i > 0 ? separator : "") + at(i);
+    }
+
+    return result;
+}
+
+/*--------------------*/
+
+StringList StringList::slice (IN Integer firstPosition,
+                              IN Integer lastPosition)
+{
+    return StringList{GenericList::slice(*this,
+                                         firstPosition, lastPosition)};
 }

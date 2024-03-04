@@ -84,7 +84,9 @@ $(document).ready(function(){initNavTree('_wave_file_8h.html',''); initResizable
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
 <div class="title">WaveFile.h File Reference</div>  </div>
 </div><!--header-->
@@ -107,7 +109,7 @@ $(document).ready(function(){initNavTree('_wave_file_8h.html',''); initResizable
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="_wave_file_8h__dep__incl.svg" width="352" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="_wave_file_8h__dep__incl.svg" width="320" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <p><a href="_wave_file_8h_source.html">Go to the source code of this file.</a></p>
@@ -123,14 +125,59 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespace_audio"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_audio.html">Audio</a></td></tr>
 <tr class="memdesc:namespace_audio"><td class="mdescLeft">&#160;</td><td class="mdescRight">The package <code><a class="el" href="namespace_audio.html" title="The package Audio provides simple audio types.">Audio</a></code> provides simple audio types. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a446754b280b4b7eae79662eeb597e0c0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_wave_file_8h.html#a446754b280b4b7eae79662eeb597e0c0">WaveFileOperationResult_toString</a>(operationResult)</td></tr>
+<tr class="memdesc:a446754b280b4b7eae79662eeb597e0c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the string representation of <code>operationResult</code>.  <a href="_wave_file_8h.html#a446754b280b4b7eae79662eeb597e0c0">More...</a><br /></td></tr>
+<tr class="separator:a446754b280b4b7eae79662eeb597e0c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a695681d4df4135b970ed2032c9243e55"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_audio.html#a695681d4df4135b970ed2032c9243e55">Audio::WaveFileOperationResult</a> { <a class="el" href="namespace_audio.html#a695681d4df4135b970ed2032c9243e55a9a657604c5546ab8e36882f705df23a6">Audio::okay</a> = 1, 
+<a class="el" href="namespace_audio.html#a695681d4df4135b970ed2032c9243e55a33e4c4a81ccda10ec580c59f666fb051">Audio::failed</a>
+ }</td></tr>
+<tr class="memdesc:a695681d4df4135b970ed2032c9243e55"><td class="mdescLeft">&#160;</td><td class="mdescRight">The result of a read or write operation for some wave file.  <a href="namespace_audio.html#a695681d4df4135b970ed2032c9243e55">More...</a><br /></td></tr>
+<tr class="separator:a695681d4df4135b970ed2032c9243e55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <code>WaveFile</code> specification defines an object for accessing a RIFF wave file with several channels. </p>
-<p>Currently only write access is supported.</p>
+<p>Read and write access is supported.</p>
 <dl class="section author"><dt>Author</dt><dd>Dr. Thomas Tensi </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2022-08 </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a446754b280b4b7eae79662eeb597e0c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a446754b280b4b7eae79662eeb597e0c0">&#9670;&nbsp;</a></span>WaveFileOperationResult_toString</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define WaveFileOperationResult_toString</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">operationResult</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    <a class="code" href="namespace_base_types_1_1_primitives.html#aa1174c1e7bedd8df69fc98453595a127">String</a>((<span class="keywordtype">short</span>)(operationResult) == 1 ? <span class="stringliteral">&quot;okay&quot;</span> \</div>
+<div class="line">           : <span class="stringliteral">&quot;failed&quot;</span>)</div>
+</div><!-- fragment -->
+<p>Returns the string representation of <code>operationResult</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">operationResult</td><td>wave file operation result </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>string representation </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="anamespace_base_types_1_1_primitives_html_aa1174c1e7bedd8df69fc98453595a127"><div class="ttname"><a href="namespace_base_types_1_1_primitives.html#aa1174c1e7bedd8df69fc98453595a127">BaseTypes::Primitives::String</a></div><div class="ttdeci">std::string String</div><div class="ttdoc">The String type represents (Unicode) character sequences.</div><div class="ttdef"><b>Definition:</b> MyString.h:28</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

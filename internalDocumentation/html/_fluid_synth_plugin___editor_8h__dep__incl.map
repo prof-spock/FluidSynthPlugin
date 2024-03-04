@@ -1,5 +1,5 @@
 <map id="FluidSynthPlugin_Editor.h" name="FluidSynthPlugin_Editor.h">
-<area shape="rect" id="node1" title="The FluidSynthPlugin_AudioProcessor module handles MIDI events from the DAW via JUCE and have them pr..." alt="" coords="144,5,332,33"/>
-<area shape="rect" id="node2" href="$_fluid_synth_plugin___editor_8cpp.html" title="The FluidSynthPlugin_Editor module implements the editor for the processor of MIDI events from the DA..." alt="" coords="5,81,209,109"/>
-<area shape="rect" id="node3" href="$_fluid_synth_plugin___event_processor_8cpp.html" title="The FluidSynthPlugin_Processor module implements the handling of MIDI events from the DAW via JUCE ha..." alt="" coords="233,81,504,109"/>
+<area shape="rect" id="node1" title="The FluidSynthPlugin_AudioProcessor module handles MIDI events from the DAW via JUCE and have them pr..." alt="" coords="131,5,303,32"/>
+<area shape="rect" id="node2" href="$_fluid_synth_plugin___editor_8cpp.html" title="The FluidSynthPlugin_Editor module implements the editor for the processor of MIDI events from the DA..." alt="" coords="5,80,192,107"/>
+<area shape="rect" id="node3" href="$_fluid_synth_plugin___event_processor_8cpp.html" title="The FluidSynthPlugin_Processor module implements the handling of MIDI events from the DAW via JUCE ha..." alt="" coords="216,80,459,107"/>
 </map>

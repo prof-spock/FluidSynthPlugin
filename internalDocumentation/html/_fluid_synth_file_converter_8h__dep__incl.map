@@ -1,4 +1,4 @@
 <map id="FluidSynthFileConverter.h" name="FluidSynthFileConverter.h">
-<area shape="rect" id="node1" title="The FluidSynthFileConverter specification defines a conversion program from a MIDI file into a wave f..." alt="" coords="13,5,203,33"/>
-<area shape="rect" id="node2" href="$_fluid_synth_file_converter_8cpp.html" title="The FluidSynthFileConverter module implements a conversion from a MIDI file into a wave file using th..." alt="" coords="5,81,211,109"/>
+<area shape="rect" id="node1" title="The FluidSynthFileConverter specification defines a conversion program from a MIDI file into a wave f..." alt="" coords="12,5,183,32"/>
+<area shape="rect" id="node2" href="$_fluid_synth_file_converter_8cpp.html" title="The FluidSynthFileConverter module implements a conversion from a MIDI file into a wave file using th..." alt="" coords="5,80,189,107"/>
 </map>

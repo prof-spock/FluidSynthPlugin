@@ -29,31 +29,28 @@ using BaseTypes::GenericTypes::GenericList;
 namespace Audio {
 
     /**
+     * Returns name of audio sample list type
+     *
+     * @return type name
+     */
+    String _audioSampleListTypeName ();
+    
+    /*--------------------*/
+
+    /**
      * An <C>AudioSampleList</C> object is a list of audio
      * samples with arbitrary indexed access to positions in the
      * list.  Indexing starts at zero and is consecutive.  Lists
      * also allow duplicate elements.
      */
-    struct AudioSampleList : public GenericList<AudioSample>
+    struct AudioSampleList
+        : public GenericList<AudioSample,
+                             AudioSample::toString,
+                             &_audioSampleListTypeName >
     {
 
-        /**
-         * Returns printable representation of list.
-         *
-         * @return string representation of list
-         */
-        String toString () const;
-
         /*--------------------*/
-
-        /**
-         * Returns printable representation of <C>list</C>.
-         *
-         * @param[in] list  list to be converted to string
-         * @return string representation of list
-         */
-        static String toString (IN AudioSampleList& list);
-
+        /* data change        */
         /*--------------------*/
 
         /**
@@ -81,6 +78,26 @@ namespace Audio {
          */
         void extend (IN AudioSampleList& other,
                      IN Natural count = Natural::maximumValue());
+
+        /*--------------------*/
+
+        /**
+         * Returns slice of <C>list</C> starting at
+         * <C>firstPosition</C> up to - but not including -
+         * <C>lastPosition</C>; in Python style negative indices are
+         * allowed signifying counting from the end
+         *
+         * @param[in] list           list to be sliced
+         * @param[in] firstPosition  index position of first element
+         *                           of result
+         * @param[in] lastPosition   index position of first element
+         *                           not included in result
+         * @return  list value at index position
+         */
+        static AudioSampleList
+        slice (IN AudioSampleList& list,
+               IN Integer firstPosition = 0,
+               IN Integer lastPosition = Integer::maximumValue());
 
     };
 

@@ -31,13 +31,28 @@ using BaseTypes::Primitives::Real;
 namespace BaseTypes::Containers {
 
     /**
+     * Returns name of real list type
+     *
+     * @return type name
+     */
+    String _realListTypeName ();
+    
+    /*--------------------*/
+
+    /**
      * A <C>RealList</C> object is a list of real values with
      * arbitrary indexed access to positions in the list.
      * Indexing starts at zero and is consecutive.  Lists also allow
      * duplicate elements.
      */
-    struct RealList : public GenericList<Real>
-    {
+    struct RealList
+        : public GenericList<Real,
+                             Real::toString,
+                             &_realListTypeName > {
+
+        /*--------------------*/
+        /* constructors       */
+        /*--------------------*/
 
         /**
          * Initializes list of reals from initializer list of
@@ -49,14 +64,7 @@ namespace BaseTypes::Containers {
         static RealList fromList (IN initializer_list<Real> list);
 
         /*--------------------*/
-
-        /**
-         * Returns printable representation of list.
-         *
-         * @return string representation of list
-         */
-        String toString () const;
-
+        /* element change     */
         /*--------------------*/
 
         /**

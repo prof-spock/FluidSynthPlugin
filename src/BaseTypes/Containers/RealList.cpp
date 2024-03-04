@@ -21,6 +21,15 @@ using BaseTypes::Containers::RealList;
 
 /*====================*/
 
+String BaseTypes::Containers::_realListTypeName ()
+{
+    return "RealList";
+}
+
+/*--------------------*/
+/* constructors       */
+/*--------------------*/
+
 RealList RealList::fromList (IN initializer_list<Real> list)
 {
     RealList result{};
@@ -33,12 +42,7 @@ RealList RealList::fromList (IN initializer_list<Real> list)
 }
 
 /*--------------------*/
-
-String RealList::toString () const
-{
-    return _toString("RealList", Real::toString);
-}
-
+/* element change     */
 /*--------------------*/
 
 void RealList::fill (IN Real value)

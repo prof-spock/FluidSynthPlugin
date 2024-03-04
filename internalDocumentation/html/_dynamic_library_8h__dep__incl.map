@@ -1,6 +1,8 @@
 <map id="DynamicLibrary.h" name="DynamicLibrary.h">
-<area shape="rect" id="node1" title="The DynamicLibrary class specifies a very simple and crude wrapper around the dynamic library loading..." alt="" coords="166,5,302,33"/>
-<area shape="rect" id="node2" href="$_fluid_synth_8cpp.html" title="The FluidSynth class implements the access to the fluidsynth library via a dynamic loading of it." alt="" coords="5,81,124,109"/>
-<area shape="rect" id="node3" href="$_fluid_synth_settings_8cpp.html" title="The FluidSynthSettings class implements an object&#45;oriented wrapper around an underlying fluidsynth se..." alt="" coords="149,81,319,109"/>
-<area shape="rect" id="node4" href="$_fluid_synth_synthesizer_8cpp.html" title="The FluidSynthSynthesizer class implements an object&#45;oriented wrapper around an underlying fluidsynth..." alt="" coords="343,81,538,109"/>
+<area shape="rect" id="node1" title="The DynamicLibrary class specifies a very simple and crude wrapper around the dynamic library loading..." alt="" coords="348,5,471,32"/>
+<area shape="rect" id="node2" href="$_fluid_synth_8cpp.html" title="The FluidSynth class implements the access to the fluidsynth library via a dynamic loading of it." alt="" coords="5,80,115,107"/>
+<area shape="rect" id="node3" href="$_fluid_synth_settings_8cpp.html" title="The FluidSynthSettings class implements an object&#45;oriented wrapper around an underlying fluidsynth se..." alt="" coords="139,80,296,107"/>
+<area shape="rect" id="node4" href="$_fluid_synth_synthesizer_8cpp.html" title="The FluidSynthSynthesizer class implements an object&#45;oriented wrapper around an underlying fluidsynth..." alt="" coords="320,80,499,107"/>
+<area shape="rect" id="node5" href="$_fluid_synth_file_converter_8cpp.html" title="The FluidSynthFileConverter module implements a conversion from a MIDI file into a wave file using th..." alt="" coords="523,80,707,107"/>
+<area shape="rect" id="node6" href="$_fluid_synth_plugin___event_processor_8cpp.html" title="The FluidSynthPlugin_Processor module implements the handling of MIDI events from the DAW via JUCE ha..." alt="" coords="731,80,973,107"/>
 </map>

@@ -77,12 +77,12 @@ namespace BaseTypes::Primitives {
          * Returns string representation of integer with precision and
          * padding information.
          *
-         * @param[in] precision     minimum number of valid digits
-         * @param[in] padCharacter  character to use for left padding
+         * @param[in] precision  minimum number of valid digits
+         * @param[in] padString  string to use for left padding
          * @return  string representation
          */
         String toString (IN Natural precision = Natural{0},
-                         IN String padCharacter = "0") const
+                         IN String padString = "0") const
         {
             String result = std::to_string(_value);
             const Natural length{result.size()};
@@ -90,7 +90,7 @@ namespace BaseTypes::Primitives {
                 (precision > length ? precision - length : 0);
 
             while (padCount > 0) {
-                result = padCharacter + result;
+                result = padString + result;
                 padCount--;
             }
 
@@ -313,7 +313,8 @@ namespace BaseTypes::Primitives {
         static Natural toNatural (IN Integer& i)
         {
             if (i < 0) {
-                throw std::range_error("negative value not allowed for natural");
+                throw std::range_error("negative value not "
+                                       "allowed for natural");
             }
 
             return Natural{(size_t) (int) i};

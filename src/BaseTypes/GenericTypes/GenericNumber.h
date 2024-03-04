@@ -215,85 +215,91 @@ namespace BaseTypes::GenericTypes {
         /*----------------------*/
 
         /**
-         * Checks whether current value and <C>other</C> are equal.
+         * Checks whether <C>self</C> and <C>other</C> are equal.
          *
-         * @param[in] other   value to be compared
-         * @result  returns equality of <C>this</C> and <C>other</C>
+         * @param[in] self   first value to be compared
+         * @param[in] other  second value to be compared
+         * @result  returns equality of <C>self</C> and <C>other</C>
          */
-        Boolean operator == (IN Type other) const
+        friend Boolean operator == (IN Type self, IN Type other)
         {
-            return (_value == other._value);
+            return (self._value == other._value);
         }
 
         /*--------------------*/
 
         /**
-         * Checks whether current value and <C>other</C> are not equal.
+         * Checks whether <C>self</C> and <C>other</C> are not equal.
          *
-         * @param[in] other   value to be compared
-         * @result  returns inequality of <C>this</C> and <C>other</C>
+         * @param[in] self   first value to be compared
+         * @param[in] other  second value to be compared
+         * @result  returns inequality of <C>self</C> and <C>other</C>
          */
-        Boolean operator != (IN Type other) const
+        friend Boolean operator != (IN Type self, IN Type other)
         {
-            return (_value != other._value);
+            return (self._value != other._value);
         }
 
         /*--------------------*/
 
         /**
-         * Checks whether current value is less than <C>other</C>.
+         * Checks whether <C>self</C> is less than <C>other</C>.
          *
-         * @param[in] other   value to be compared
-         * @result  returns information whether <C>this</C> is less
+         * @param[in] self   first value to be compared
+         * @param[in] other  second value to be compared
+         * @result  returns information whether <C>self</C> is less
          *          than <C>other</C>
          */
-        Boolean operator < (IN Type other) const
+        friend Boolean operator < (IN Type self, IN Type other)
         {
-            return (_value < other._value);
+            return (self._value < other._value);
         }
 
         /*--------------------*/
 
         /**
-         * Checks whether current value is less than or equal to
+         * Checks whether <C>self</C> is less than or equal to
          * <C>other</C>.
          *
-         * @param[in] other   value to be compared
-         * @result  returns information whether <C>this</C> is not
+         * @param[in] self   first value to be compared
+         * @param[in] other  second value to be compared
+         * @result  returns information whether <C>self</C> is not
          *          greater than <C>other</C>
          */
-        Boolean operator <= (IN Type other) const
+        friend Boolean operator <= (IN Type self, IN Type other)
         {
-            return (_value <= other._value);
+            return (self._value <= other._value);
         }
 
         /*--------------------*/
 
         /**
-         * Checks whether current value is greater than <C>other</C>.
+         * Checks whether <C>self</C> is greater than <C>other</C>.
          *
-         * @param[in] other   value to be compared
-         * @result  returns information whether <C>this</C> is greater
+         * @param[in] self   first value to be compared
+         * @param[in] other  second value to be compared
+         * @result  returns information whether <C>self</C> is greater
          *          than <C>other</C>
          */
-        Boolean operator > (IN Type other) const
+        friend Boolean operator > (IN Type self, IN Type other)
         {
-            return (_value > other._value);
+            return (self._value > other._value);
         }
 
         /*--------------------*/
 
         /**
-         * Checks whether current value is greater than or equal to
+         * Checks whether <C>self</C> is greater than or equal to
          * <C>other</C>.
          *
-         * @param[in] other   value to be compared
-         * @result  returns information whether <C>this</C> is not
+         * @param[in] self   first value to be compared
+         * @param[in] other  second value to be compared
+         * @result  returns information whether <C>self</C> is not
          *          less than <C>other</C>
          */
-        Boolean operator >= (IN Type other) const
+        friend Boolean operator >= (IN Type self, IN Type other)
         {
-            return (_value >= other._value);
+            return (self._value >= other._value);
         }
 
         /*--------------------*/

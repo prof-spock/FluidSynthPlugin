@@ -9,6 +9,7 @@ var struct_m_i_d_i_1_1_midi_event =
     [ "kind", "struct_m_i_d_i_1_1_midi_event.html#a4f9749a45305a9b879432bcd7927931d", null ],
     [ "metaKind", "struct_m_i_d_i_1_1_midi_event.html#a1195a46321fda733dad8ec7160a2d0b9", null ],
     [ "operator<", "struct_m_i_d_i_1_1_midi_event.html#aaca9e7ab1acb32058c28175aed78f687", null ],
+    [ "operator=", "struct_m_i_d_i_1_1_midi_event.html#a7fe56d25e335c877d91d77bd02909408", null ],
     [ "rawData", "struct_m_i_d_i_1_1_midi_event.html#a2a846bd5c7b9d01514d9d9f68e82feb8", null ],
     [ "setTime", "struct_m_i_d_i_1_1_midi_event.html#a3091a8b16d45fa66bc88ecf4e755f652", null ],
     [ "time", "struct_m_i_d_i_1_1_midi_event.html#add71eb3ddd4832939e77d6c061fdafa8", null ],

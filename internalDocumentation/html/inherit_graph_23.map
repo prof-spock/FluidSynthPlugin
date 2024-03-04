@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$struct_main_1_1_fluid_synth_plugin_1_1___ring_buffer.html" title="Type for processing of MIDI events into sample list vectors with the possibility of delaying events f..." alt="" coords="5,5,173,49"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,73,32"/>
+<area shape="rect" id="node2" href="$struct_main_1_1_fluid_synth_plugin_1_1___widget_listener.html" title="A listener class for button and text editor events." alt="" coords="121,23,277,65"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,56,73,83"/>
 </map>

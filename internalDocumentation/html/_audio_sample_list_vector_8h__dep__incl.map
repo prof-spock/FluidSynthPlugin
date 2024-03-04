@@ -1,14 +1,14 @@
 <map id="AudioSampleListVector.h" name="AudioSampleListVector.h">
-<area shape="rect" id="node1" title="The AudioSampleListVector specification defines the communication buffer structure for the block proc..." alt="" coords="753,5,939,33"/>
-<area shape="rect" id="node2" href="$_audio_sample_fifo_queue_vector_8h.html" title="The AudioSampleFifoQueueVector specification defines a list of fifo queues for audio samples." alt="" coords="296,81,527,109"/>
-<area shape="rect" id="node5" href="$_audio_sample_list_vector_8cpp.html" title="The AudioSampleListVector body implements the communication buffer structure for the block processing..." alt="" coords="1132,81,1333,109"/>
-<area shape="rect" id="node6" href="$_wave_file_8h.html" title="The WaveFile specification defines an object for accessing a RIFF wave file with several channels." alt="" coords="799,81,893,109"/>
-<area shape="rect" id="node9" href="$_fluid_synth_synthesizer_8h.html" title="The FluidSynthSynthesizer class specifies an object&#45;oriented wrapper around an underlying fluidsynth ..." alt="" coords="929,81,1107,109"/>
-<area shape="rect" id="node12" href="$_midi_event_converter_8h.html" title="The MidiEventConverter specification defines the handling of MIDI events by feeding them to an underl..." alt="" coords="599,81,759,109"/>
-<area shape="rect" id="node3" href="$_audio_sample_fifo_queue_vector_8cpp.html" title="The AudioSampleFifoQueueVector body implements a list of fifo queues for audio samples (this is the f..." alt="" coords="5,157,252,185"/>
-<area shape="rect" id="node4" href="$_fluid_synth_plugin___event_processor_8cpp.html" title="The FluidSynthPlugin_Processor module implements the handling of MIDI events from the DAW via JUCE ha..." alt="" coords="276,157,547,185"/>
-<area shape="rect" id="node7" href="$_wave_file_8cpp.html" title="The WaveFile specification defines an object for accessing a RIFF wave file with several channels." alt="" coords="801,157,912,185"/>
-<area shape="rect" id="node8" href="$_fluid_synth_file_converter_8cpp.html" title="The FluidSynthFileConverter module implements a conversion from a MIDI file into a wave file using th..." alt="" coords="571,157,777,185"/>
-<area shape="rect" id="node10" href="$_fluid_synth_synthesizer_8cpp.html" title="The FluidSynthSynthesizer class implements an object&#45;oriented wrapper around an underlying fluidsynth..." alt="" coords="1137,157,1331,185"/>
-<area shape="rect" id="node11" href="$_midi_event_converter_8cpp.html" title="The MidiEventConverter module implements the handling of MIDI events by feeding them to an underlying..." alt="" coords="937,157,1113,185"/>
+<area shape="rect" id="node1" title="The AudioSampleListVector specification defines the communication buffer structure for the block proc..." alt="" coords="681,5,850,32"/>
+<area shape="rect" id="node2" href="$_audio_sample_fifo_queue_vector_8h.html" title="The AudioSampleFifoQueueVector specification defines a list of fifo queues for audio samples." alt="" coords="269,80,475,107"/>
+<area shape="rect" id="node5" href="$_audio_sample_list_vector_8cpp.html" title="The AudioSampleListVector body implements the communication buffer structure for the block processing..." alt="" coords="1030,80,1213,107"/>
+<area shape="rect" id="node6" href="$_wave_file_8h.html" title="The WaveFile specification defines an object for accessing a RIFF wave file with several channels." alt="" coords="722,80,809,107"/>
+<area shape="rect" id="node9" href="$_fluid_synth_synthesizer_8h.html" title="The FluidSynthSynthesizer class specifies an object&#45;oriented wrapper around an underlying fluidsynth ..." alt="" coords="842,80,1006,107"/>
+<area shape="rect" id="node12" href="$_midi_event_converter_8h.html" title="The MidiEventConverter specification defines the handling of MIDI events by feeding them to an underl..." alt="" coords="542,80,685,107"/>
+<area shape="rect" id="node3" href="$_audio_sample_fifo_queue_vector_8cpp.html" title="The AudioSampleFifoQueueVector body implements a list of fifo queues for audio samples (this is the f..." alt="" coords="5,155,227,181"/>
+<area shape="rect" id="node4" href="$_fluid_synth_plugin___event_processor_8cpp.html" title="The FluidSynthPlugin_Processor module implements the handling of MIDI events from the DAW via JUCE ha..." alt="" coords="251,155,493,181"/>
+<area shape="rect" id="node7" href="$_wave_file_8cpp.html" title="The WaveFile specification defines an object for accessing a RIFF wave file with several channels." alt="" coords="726,155,826,181"/>
+<area shape="rect" id="node8" href="$_fluid_synth_file_converter_8cpp.html" title="The FluidSynthFileConverter module implements a conversion from a MIDI file into a wave file using th..." alt="" coords="517,155,701,181"/>
+<area shape="rect" id="node10" href="$_fluid_synth_synthesizer_8cpp.html" title="The FluidSynthSynthesizer class implements an object&#45;oriented wrapper around an underlying fluidsynth..." alt="" coords="1032,155,1211,181"/>
+<area shape="rect" id="node11" href="$_midi_event_converter_8cpp.html" title="The MidiEventConverter module implements the handling of MIDI events by feeding them to an underlying..." alt="" coords="851,155,1008,181"/>
 </map>

@@ -17,15 +17,18 @@
 /*=========*/
 
 #include <array>
+#include "ElementToStringProc.h"
 #include "Integer.h"
+#include "StringProc.h"
+#include "StringUtil.h"
 
 /*--------------------*/
 
 using std::array;
 
-using BaseTypes::Primitives::Natural;
-using BaseTypes::Primitives::Integer;
-using BaseTypes::Primitives::String;
+using BaseTypes::GenericTypes::ElementToStringProc;
+using BaseTypes::GenericTypes::StringProc;
+using BaseModules::StringUtil;
 
 /*====================*/
 
@@ -40,25 +43,59 @@ namespace BaseTypes::GenericTypes {
      * If the printing of the tuple shall be possible the
      * <C>elementToString</C> function must be provided.
      */
-    template <typename T,
+    template <typename ElementType,
               size_t elementCount,
-              String elementToString (IN T&) = nullptr>
-    struct GenericTuple : public array<T, elementCount>
+              ElementToStringProc<ElementType> elementToString = nullptr,
+              StringProc nameOfType = nullptr>
+    struct GenericTuple : public array<ElementType, elementCount>
     {
 
         /*--------------------*/
-        /* operators          */
+        /* type conversion    */
         /*--------------------*/
 
         /**
-         * Returns value reference to tuple at <C>position</C>.
+         * Converts tuple to linear string representation
+         * prefixed by <C>nameOfType</C> template parameter; when string
+         * conversion function <C>elementToString</C> is not defined,
+         * some surrogate function is used
+         *
+         * @return  single string representation of tuple
+         */
+        String toString () const
+        {
+            String result = "";
+
+            for (Natural i = 0;  i < length();  i++) {
+                result += (i == 0 ? "" : ", ");
+
+                if (elementToString == nullptr) {
+                    result += "?" + std::to_string((int) i) + "?";
+                } else {
+                    const ElementType& element = at(i);
+                    result += (*elementToString)(element);
+                }
+            }
+
+            String typeName = (nameOfType == nullptr ? "Tuple"
+                               : (*nameOfType)());
+            result = StringUtil::expand("%1(%2)", typeName, result);
+            return result;
+        }
+
+        /*--------------------*/
+        /* data access        */
+        /*--------------------*/
+
+        /**
+         * Returns value in tuple at <C>position</C>.
          *
          * @param[in] position  index position
-         * @return  tuple value reference at index position
+         * @return  tuple value at index position
          */
-        T& operator [] (IN Natural position)
+        const ElementType& operator [] (IN Natural position) const
         {
-            return array<T, elementCount>::at((size_t) position);
+            return array<ElementType, elementCount>::at((size_t) position);
         }
 
         /*--------------------*/
@@ -69,13 +106,13 @@ namespace BaseTypes::GenericTypes {
          * @param[in] position  index position
          * @return  tuple value at index position
          */
-        const T& operator [] (IN Natural position) const
+        const ElementType& at (IN Natural position) const
         {
-            return array<T, elementCount>::at((size_t) position);
+            return array<ElementType, elementCount>::at((size_t) position);
         }
 
         /*--------------------*/
-        /* Methods            */
+        /* data change        */
         /*--------------------*/
 
         /**
@@ -84,24 +121,39 @@ namespace BaseTypes::GenericTypes {
          * @param[in] position  index position
          * @return  tuple value reference at index position
          */
-        T& at (IN Natural position)
+        ElementType& operator [] (IN Natural position)
         {
-            return array<T, elementCount>::at((size_t) position);
+            return array<ElementType, elementCount>::at((size_t) position);
         }
 
         /*--------------------*/
 
         /**
-         * Returns value in tuple at <C>position</C>.
+         * Returns value reference to tuple at <C>position</C>.
          *
          * @param[in] position  index position
-         * @return  tuple value at index position
+         * @return  tuple value reference at index position
          */
-        const T& at (IN Natural position) const
+        ElementType& at (IN Natural position)
         {
-            return array<T, elementCount>::at((size_t) position);
+            return array<ElementType, elementCount>::at((size_t) position);
         }
 
+        /*--------------------*/
+
+        /**
+         * Sets element at <C>position</C> to <C>value</C>.
+         *
+         * @param[in] position  index position
+         * @param[in] value     new value at position
+         */
+        void set (IN Natural position, IN ElementType value)
+        {
+            at(position) = value;
+        }
+
+        /*--------------------*/
+        /* measurement        */
         /*--------------------*/
 
         /**
@@ -111,7 +163,7 @@ namespace BaseTypes::GenericTypes {
          * @return  information whether <C>element</C> occurs as element in
          *          tuple
          */
-        Boolean contains (IN T& element) const
+        Boolean contains (IN ElementType& element) const
         {
             return (position(element) >= 0);
         }
@@ -126,7 +178,7 @@ namespace BaseTypes::GenericTypes {
          * @return  first index position of <C>element</C> in tuple
          *          (starting with 0) or -1 when not found
          */
-        Integer position (IN T& element) const
+        Integer position (IN ElementType& element) const
         {
             Integer result{-1};
 
@@ -152,45 +204,6 @@ namespace BaseTypes::GenericTypes {
             return Natural{elementCount};
         }
         
-        /*--------------------*/
-
-        /**
-         * Sets element at <C>position</C> to <C>value</C>.
-         *
-         * @param[in] position  index position
-         * @param[in] value     new value at position
-         */
-        void setAt (IN Natural position, IN T value)
-        {
-            at(position) = value;
-        }
-
-        /*--------------------*/
-        /*--------------------*/
-
-        protected:
-
-            /**
-             * Converts tuple to linear string representation
-             * prefixed by <C>nameOfType</C> assuming an explicit
-             * conversion from element type to string
-             *
-             * @param[in] nameOfType  name of tuple type
-             * @return  single string representation of tuple
-             */
-            String _toString (IN String& nameOfType) const
-            {
-                String result = "";
-
-                for (const T& element : *this) {
-                    result += (result.size() == 0 ? "" : ", ");
-                    result += elementToString(element);
-                }
-
-                result = nameOfType + "(" + result + ")";
-                return result;
-            }
-
     };
 
 }

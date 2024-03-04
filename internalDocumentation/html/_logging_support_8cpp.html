@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('_logging_support_8cpp.html',''); initR
 </div><!--header-->
 <div class="contents">
 
-<p>The <code>LoggingSupport</code> body implements a class for simple entry/exit logging to a file; this logging relies on trace calls at the beginning or end of a function with prefices "&gt;&gt;" and "&lt;&lt;" as well as intermediate log lines with prefix "--"; the name of the function is also logged to give a fully bracketed log.  
+<p>The <code>LoggingSupport</code> body implements a class for simple entry/exit logging to a file or via a callback function; this logging relies on trace calls at the beginning or end of a function with prefices "&gt;&gt;" and "&lt;&lt;" as well as intermediate log lines with prefix "--"; the name of the function is also logged to give a fully bracketed log.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;chrono&gt;</code><br />
 <code>#include &lt;cstdint&gt;</code><br />
@@ -134,13 +134,13 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_support_8cpp.html#ae7c48614d1cdab121e5b4703f3f96835">StdLib_atexit</a>&#160;&#160;&#160;atexit</td></tr>
 <tr class="memdesc:ae7c48614d1cdab121e5b4703f3f96835"><td class="mdescLeft">&#160;</td><td class="mdescRight">qualified version of atexit from stdlib <br /></td></tr>
 <tr class="separator:ae7c48614d1cdab121e5b4703f3f96835"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0d58671e981a2c57f2ff48bd7563019"><td class="memItemLeft" align="right" valign="top"><a id="ad0d58671e981a2c57f2ff48bd7563019"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_support_8cpp.html#ad0d58671e981a2c57f2ff48bd7563019">_expand</a>&#160;&#160;&#160;<a class="el" href="_midi_file_8cpp.html#a94692cc5c1eac2402cbeff7e1eaa95cd">StringUtil::expand</a></td></tr>
-<tr class="memdesc:ad0d58671e981a2c57f2ff48bd7563019"><td class="mdescLeft">&#160;</td><td class="mdescRight">abbreviation for StringUtil::expand <br /></td></tr>
-<tr class="separator:ad0d58671e981a2c57f2ff48bd7563019"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
+<tr class="memitem:a5b6f88d1249b396e351c4a85bcb35b2c"><td class="memItemLeft" align="right" valign="top"><a id="a5b6f88d1249b396e351c4a85bcb35b2c"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_support_8cpp.html#a5b6f88d1249b396e351c4a85bcb35b2c">STR</a> = <a class="el" href="struct_base_modules_1_1_string_util.html">BaseModules::StringUtil</a></td></tr>
+<tr class="memdesc:a5b6f88d1249b396e351c4a85bcb35b2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">abbreviation for StringUtil <br /></td></tr>
+<tr class="separator:a5b6f88d1249b396e351c4a85bcb35b2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ec9a8615bb4c91e73b5190b70ac2c87"><td class="memItemLeft" align="right" valign="top"><a id="a9ec9a8615bb4c91e73b5190b70ac2c87"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_support_8cpp.html#a9ec9a8615bb4c91e73b5190b70ac2c87">Timestamp</a> = <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a></td></tr>
 <tr class="memdesc:a9ec9a8615bb4c91e73b5190b70ac2c87"><td class="mdescLeft">&#160;</td><td class="mdescRight">the timestamp type as provided by the system call <br /></td></tr>
@@ -158,22 +158,22 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a92aa75fc925bc045033fb89a83ce80e0"><td class="memItemLeft" align="right" valign="top"><a id="a92aa75fc925bc045033fb89a83ce80e0"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_support_8cpp.html#a92aa75fc925bc045033fb89a83ce80e0">_writeBufferToFile</a> ()</td></tr>
+<tr class="memdesc:a92aa75fc925bc045033fb89a83ce80e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes all entries in buffer to logging file and clears it. <br /></td></tr>
+<tr class="separator:a92aa75fc925bc045033fb89a83ce80e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91706a3847febcee73058223d6847114"><td class="memItemLeft" align="right" valign="top">static String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_support_8cpp.html#a91706a3847febcee73058223d6847114">_bufferEntryToString</a> (<a class="el" href="struct_base_modules_1_1___logging_buffer_entry.html">_LoggingBufferEntry</a> &amp;bufferEntry)</td></tr>
+<tr class="memdesc:a91706a3847febcee73058223d6847114"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts <code>bufferEntry</code> to string for logging file or callback function.  <a href="_logging_support_8cpp.html#a91706a3847febcee73058223d6847114">More...</a><br /></td></tr>
+<tr class="separator:a91706a3847febcee73058223d6847114"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ba123783ebfc65611a763c874a87626"><td class="memItemLeft" align="right" valign="top">static String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_support_8cpp.html#a7ba123783ebfc65611a763c874a87626">_functionNameFromSignature</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;functionSignature, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;ignoredFunctionNamePrefix)</td></tr>
 <tr class="memdesc:a7ba123783ebfc65611a763c874a87626"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates function name from <code>functionSignature</code>.  <a href="_logging_support_8cpp.html#a7ba123783ebfc65611a763c874a87626">More...</a><br /></td></tr>
 <tr class="separator:a7ba123783ebfc65611a763c874a87626"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4790e291ab04c20505ec9c65a99ccbb6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_support_8cpp.html#a4790e291ab04c20505ec9c65a99ccbb6">_appendEntryToBuffer</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;functionSignature, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="_logging_support_8cpp.html#a9ec9a8615bb4c91e73b5190b70ac2c87">Timestamp</a> time, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;message)</td></tr>
 <tr class="memdesc:a4790e291ab04c20505ec9c65a99ccbb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new entry consisting of <code>functionSignature</code>, <code>time</code> and <code>message</code> to buffer.  <a href="_logging_support_8cpp.html#a4790e291ab04c20505ec9c65a99ccbb6">More...</a><br /></td></tr>
 <tr class="separator:a4790e291ab04c20505ec9c65a99ccbb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91706a3847febcee73058223d6847114"><td class="memItemLeft" align="right" valign="top">static String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_support_8cpp.html#a91706a3847febcee73058223d6847114">_bufferEntryToString</a> (<a class="el" href="struct_base_modules_1_1___logging_buffer_entry.html">_LoggingBufferEntry</a> &amp;bufferEntry)</td></tr>
-<tr class="memdesc:a91706a3847febcee73058223d6847114"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts <code>bufferEntry</code> to string for logging file.  <a href="_logging_support_8cpp.html#a91706a3847febcee73058223d6847114">More...</a><br /></td></tr>
-<tr class="separator:a91706a3847febcee73058223d6847114"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95b03615d3f2cc7273d5975b79621089"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_support_8cpp.html#a95b03615d3f2cc7273d5975b79621089">_openOrCreateFile</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a> isNew)</td></tr>
 <tr class="memdesc:a95b03615d3f2cc7273d5975b79621089"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates or reopens logging file depending on value of <code>isNew</code>.  <a href="_logging_support_8cpp.html#a95b03615d3f2cc7273d5975b79621089">More...</a><br /></td></tr>
 <tr class="separator:a95b03615d3f2cc7273d5975b79621089"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92aa75fc925bc045033fb89a83ce80e0"><td class="memItemLeft" align="right" valign="top"><a id="a92aa75fc925bc045033fb89a83ce80e0"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_support_8cpp.html#a92aa75fc925bc045033fb89a83ce80e0">_writeBufferToFile</a> ()</td></tr>
-<tr class="memdesc:a92aa75fc925bc045033fb89a83ce80e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes all entries in buffer to logging file and clears it. <br /></td></tr>
-<tr class="separator:a92aa75fc925bc045033fb89a83ce80e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -197,11 +197,14 @@ static <a class="el" href="struct_base_types_1_1_containers_1_1_dictionary.html"
 static String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_support_8cpp.html#a864d52335ebe3d029d86a397caac72c7">_ignoredFunctionNamePrefix</a> = &quot;&quot;</td></tr>
 <tr class="memdesc:a864d52335ebe3d029d86a397caac72c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">the name prefix to be ignored in function names <br /></td></tr>
 <tr class="separator:a864d52335ebe3d029d86a397caac72c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1dd675482a31a424931e3c3b0619df8"><td class="memItemLeft" align="right" valign="top">static LoggingCallbackFunction&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_support_8cpp.html#ab1dd675482a31a424931e3c3b0619df8">_callbackFunction</a> = NULL</td></tr>
+<tr class="memdesc:ab1dd675482a31a424931e3c3b0619df8"><td class="mdescLeft">&#160;</td><td class="mdescRight">the function to be directly called when logging (e.g.  <a href="_logging_support_8cpp.html#ab1dd675482a31a424931e3c3b0619df8">More...</a><br /></td></tr>
+<tr class="separator:ab1dd675482a31a424931e3c3b0619df8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae59afe25156f2c6d5aadf5ed0c358d7b"><td class="memItemLeft" align="right" valign="top"><a id="ae59afe25156f2c6d5aadf5ed0c358d7b"></a>
 static const <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_support_8cpp.html#ae59afe25156f2c6d5aadf5ed0c358d7b">_prefixLength</a> = 2</td></tr>
 <tr class="memdesc:ae59afe25156f2c6d5aadf5ed0c358d7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">length of identification prefix for trace messages <br /></td></tr>
 <tr class="separator:ae59afe25156f2c6d5aadf5ed0c358d7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed5cf3b7353bc0883f2f6fc1f0481ec0"><td class="memItemLeft" align="right" valign="top">static StringList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_support_8cpp.html#aed5cf3b7353bc0883f2f6fc1f0481ec0">_standardPrefixList</a></td></tr>
+<tr class="memitem:aed5cf3b7353bc0883f2f6fc1f0481ec0"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_base_types_1_1_containers_1_1_string_list.html">StringList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_support_8cpp.html#aed5cf3b7353bc0883f2f6fc1f0481ec0">_standardPrefixList</a></td></tr>
 <tr class="memdesc:aed5cf3b7353bc0883f2f6fc1f0481ec0"><td class="mdescLeft">&#160;</td><td class="mdescRight">list of allowed two-character prefices in trace template  <a href="_logging_support_8cpp.html#aed5cf3b7353bc0883f2f6fc1f0481ec0">More...</a><br /></td></tr>
 <tr class="separator:aed5cf3b7353bc0883f2f6fc1f0481ec0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b63b707a4a930101810a764051d21a7"><td class="memItemLeft" align="right" valign="top"><a id="a5b63b707a4a930101810a764051d21a7"></a>
@@ -212,10 +215,10 @@ static GenericList&lt; <a class="el" href="struct_base_modules_1_1___logging_buf
 static <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_support_8cpp.html#a59fc0dcf9ba0e5d5a09e354f6966aaa5">_timeIsLogged</a> {false}</td></tr>
 <tr class="memdesc:a59fc0dcf9ba0e5d5a09e354f6966aaa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">flag to tell whether time is logged or omitted <br /></td></tr>
 <tr class="separator:a59fc0dcf9ba0e5d5a09e354f6966aaa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb989b83f09d1593989c38f552ff801f"><td class="memItemLeft" align="right" valign="top"><a id="aeb989b83f09d1593989c38f552ff801f"></a>
-static _LoggingState&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_support_8cpp.html#aeb989b83f09d1593989c38f552ff801f">_loggingState</a> {_LoggingState::inLimbo}</td></tr>
-<tr class="memdesc:aeb989b83f09d1593989c38f552ff801f"><td class="mdescLeft">&#160;</td><td class="mdescRight">the logging state telling whether logging has already a file associated and this file is updated continually or at finalization time <br /></td></tr>
-<tr class="separator:aeb989b83f09d1593989c38f552ff801f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28384b1d6de63a178809bd743c1f7495"><td class="memItemLeft" align="right" valign="top"><a id="a28384b1d6de63a178809bd743c1f7495"></a>
+static <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_support_8cpp.html#a28384b1d6de63a178809bd743c1f7495">_isActive</a> {true}</td></tr>
+<tr class="memdesc:a28384b1d6de63a178809bd743c1f7495"><td class="mdescLeft">&#160;</td><td class="mdescRight">flag to tell whether logging is active or suppressed <br /></td></tr>
+<tr class="separator:a28384b1d6de63a178809bd743c1f7495"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac33112fc45219676add6172b11876331"><td class="memItemLeft" align="right" valign="top"><a id="ac33112fc45219676add6172b11876331"></a>
 static String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_support_8cpp.html#ac33112fc45219676add6172b11876331">_fileName</a> = &quot;&quot;</td></tr>
 <tr class="memdesc:ac33112fc45219676add6172b11876331"><td class="mdescLeft">&#160;</td><td class="mdescRight">the file name of the logging file <br /></td></tr>
@@ -224,13 +227,17 @@ static String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 static <a class="el" href="struct_base_modules_1_1_file.html">File</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_support_8cpp.html#a1e6d84ea253ca2d28f599182bdc6c01a">_file</a></td></tr>
 <tr class="memdesc:a1e6d84ea253ca2d28f599182bdc6c01a"><td class="mdescLeft">&#160;</td><td class="mdescRight">the logging target file <br /></td></tr>
 <tr class="separator:a1e6d84ea253ca2d28f599182bdc6c01a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb989b83f09d1593989c38f552ff801f"><td class="memItemLeft" align="right" valign="top"><a id="aeb989b83f09d1593989c38f552ff801f"></a>
+static _LoggingState&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_support_8cpp.html#aeb989b83f09d1593989c38f552ff801f">_loggingState</a> {_LoggingState::inLimbo}</td></tr>
+<tr class="memdesc:aeb989b83f09d1593989c38f552ff801f"><td class="mdescLeft">&#160;</td><td class="mdescRight">the logging state telling whether logging has already a file associated and this file is updated continually or at finalization time <br /></td></tr>
+<tr class="separator:aeb989b83f09d1593989c38f552ff801f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af00bb3740ecc6498fc74e83b912e16b1"><td class="memItemLeft" align="right" valign="top"><a id="af00bb3740ecc6498fc74e83b912e16b1"></a>
 static <a class="el" href="class_base_modules_1_1___logging_time.html">_LoggingTime</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logging_support_8cpp.html#af00bb3740ecc6498fc74e83b912e16b1">_loggingTime</a> = <a class="el" href="class_base_modules_1_1___logging_time.html">_LoggingTime</a>()</td></tr>
 <tr class="memdesc:af00bb3740ecc6498fc74e83b912e16b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">the current logging time handler <br /></td></tr>
 <tr class="separator:af00bb3740ecc6498fc74e83b912e16b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The <code>LoggingSupport</code> body implements a class for simple entry/exit logging to a file; this logging relies on trace calls at the beginning or end of a function with prefices "&gt;&gt;" and "&lt;&lt;" as well as intermediate log lines with prefix "--"; the name of the function is also logged to give a fully bracketed log. </p>
+<div class="textblock"><p>The <code>LoggingSupport</code> body implements a class for simple entry/exit logging to a file or via a callback function; this logging relies on trace calls at the beginning or end of a function with prefices "&gt;&gt;" and "&lt;&lt;" as well as intermediate log lines with prefix "--"; the name of the function is also logged to give a fully bracketed log. </p>
 <dl class="section author"><dt>Author</dt><dd>Dr. Thomas Tensi </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2021-01 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
@@ -302,7 +309,7 @@ static <a class="el" href="class_base_modules_1_1___logging_time.html">_LoggingT
 </table>
 </div><div class="memdoc">
 
-<p>Converts <code>bufferEntry</code> to string for logging file. </p>
+<p>Converts <code>bufferEntry</code> to string for logging file or callback function. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">bufferEntry</td><td>logging buffer entry to be converted </td></tr>
@@ -394,6 +401,31 @@ static <a class="el" href="class_base_modules_1_1___logging_time.html">_LoggingT
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
+<a id="ab1dd675482a31a424931e3c3b0619df8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1dd675482a31a424931e3c3b0619df8">&#9670;&nbsp;</a></span>_callbackFunction</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">LoggingCallbackFunction _callbackFunction = NULL</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>the function to be directly called when logging (e.g. </p>
+<p>for embedded systems) </p>
+
+</div>
+</div>
 <a id="aed5cf3b7353bc0883f2f6fc1f0481ec0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aed5cf3b7353bc0883f2f6fc1f0481ec0">&#9670;&nbsp;</a></span>_standardPrefixList</h2>
 
@@ -404,7 +436,7 @@ static <a class="el" href="class_base_modules_1_1___logging_time.html">_LoggingT
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">StringList _standardPrefixList</td>
+          <td class="memname"><a class="el" href="struct_base_types_1_1_containers_1_1_string_list.html">StringList</a> _standardPrefixList</td>
         </tr>
       </table>
   </td>
