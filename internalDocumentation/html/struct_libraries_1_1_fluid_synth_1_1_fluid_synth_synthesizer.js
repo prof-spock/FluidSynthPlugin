@@ -15,5 +15,6 @@ var struct_libraries_1_1_fluid_synth_1_1_fluid_synth_synthesizer =
     [ "loadSoundFont", "struct_libraries_1_1_fluid_synth_1_1_fluid_synth_synthesizer.html#af1fc4b8efa33b667d9e7127b18ff34e6", null ],
     [ "operator=", "struct_libraries_1_1_fluid_synth_1_1_fluid_synth_synthesizer.html#a76566baf799d4eccbeaa9dabff24afc0", null ],
     [ "process", "struct_libraries_1_1_fluid_synth_1_1_fluid_synth_synthesizer.html#a5e91963456f841a1567e358f5766c333", null ],
+    [ "setInterpolationMethod", "struct_libraries_1_1_fluid_synth_1_1_fluid_synth_synthesizer.html#a98022ebc4b3badbd45c692f0bb5daf8e", null ],
     [ "_descriptor", "struct_libraries_1_1_fluid_synth_1_1_fluid_synth_synthesizer.html#ae2f6812967dd13733a5eb9d334dcde18", null ]
 ];

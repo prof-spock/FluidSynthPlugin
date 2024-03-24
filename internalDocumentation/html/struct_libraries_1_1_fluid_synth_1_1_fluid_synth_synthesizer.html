@@ -144,6 +144,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5e91963456f841a1567e358f5766c333"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_libraries_1_1_fluid_synth_1_1_fluid_synth_synthesizer.html#a5e91963456f841a1567e358f5766c333">process</a> (<a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_audio_1_1_audio_sample_list_vector.html">AudioSampleListVector</a> &amp;sampleBuffer, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> position, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> sampleCount)</td></tr>
 <tr class="memdesc:a5e91963456f841a1567e358f5766c333"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes <code>sampleCount</code> samples and stores them in buffer <code>sampleBuffer</code> starting at <code>position</code>.  <a href="struct_libraries_1_1_fluid_synth_1_1_fluid_synth_synthesizer.html#a5e91963456f841a1567e358f5766c333">More...</a><br /></td></tr>
 <tr class="separator:a5e91963456f841a1567e358f5766c333"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98022ebc4b3badbd45c692f0bb5daf8e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_libraries_1_1_fluid_synth_1_1_fluid_synth_synthesizer.html#a98022ebc4b3badbd45c692f0bb5daf8e">setInterpolationMethod</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> methodCode)</td></tr>
+<tr class="memdesc:a98022ebc4b3badbd45c692f0bb5daf8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets interpolation method for all channels to given <code>methodCode</code>.  <a href="struct_libraries_1_1_fluid_synth_1_1_fluid_synth_synthesizer.html#a98022ebc4b3badbd45c692f0bb5daf8e">More...</a><br /></td></tr>
+<tr class="separator:a98022ebc4b3badbd45c692f0bb5daf8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -675,6 +678,33 @@ Object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="st
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>information whether processing has been done </dd></dl>
+
+</div>
+</div>
+<a id="a98022ebc4b3badbd45c692f0bb5daf8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98022ebc4b3badbd45c692f0bb5daf8e">&#9670;&nbsp;</a></span>setInterpolationMethod()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a> FluidSynthSynthesizer::setInterpolationMethod </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a>&#160;</td>
+          <td class="paramname"><em>methodCode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets interpolation method for all channels to given <code>methodCode</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">methodCode</td><td>code for sample interpolation method </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>information whether interpolation method change has succeeded </dd></dl>
 
 </div>
 </div>

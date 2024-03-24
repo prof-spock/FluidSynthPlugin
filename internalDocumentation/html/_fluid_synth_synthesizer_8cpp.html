@@ -172,6 +172,10 @@ typedef int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 typedef int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_synthesizer_8cpp.html#a9ed2a9878ee6bffcd4a2dcdd353d11d0">FSSynthesizer_ProcessProc</a>) (Object, int, int, Object, int, Object)</td></tr>
 <tr class="memdesc:a9ed2a9878ee6bffcd4a2dcdd353d11d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">audio buffer processing function type in library <br /></td></tr>
 <tr class="separator:a9ed2a9878ee6bffcd4a2dcdd353d11d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a460b7435657a3cebb4e57bb70eb3d7dd"><td class="memItemLeft" align="right" valign="top"><a id="a460b7435657a3cebb4e57bb70eb3d7dd"></a>
+typedef int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_synthesizer_8cpp.html#a460b7435657a3cebb4e57bb70eb3d7dd">FSSynthesizer_SetInterpolationMethodProc</a>) (Object, int, int)</td></tr>
+<tr class="memdesc:a460b7435657a3cebb4e57bb70eb3d7dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPECIAL FUNCTION: setting function type for interpolation method in library. <br /></td></tr>
+<tr class="separator:a460b7435657a3cebb4e57bb70eb3d7dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -234,9 +238,16 @@ static <a class="el" href="_fluid_synth_synthesizer_8cpp.html#a3e3d7d6f3d3d60988
 static <a class="el" href="_fluid_synth_synthesizer_8cpp.html#a9ed2a9878ee6bffcd4a2dcdd353d11d0">FSSynthesizer_ProcessProc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_synthesizer_8cpp.html#ad7bc72df362fd0fc63404a65e80657b6">FSSynthesizer_process</a></td></tr>
 <tr class="memdesc:ad7bc72df362fd0fc63404a65e80657b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">audio buffer processing function in library <br /></td></tr>
 <tr class="separator:ad7bc72df362fd0fc63404a65e80657b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a503787dc9d8257f79bc513abf57a8e6f"><td class="memItemLeft" align="right" valign="top"><a id="a503787dc9d8257f79bc513abf57a8e6f"></a>
+static <a class="el" href="_fluid_synth_synthesizer_8cpp.html#a460b7435657a3cebb4e57bb70eb3d7dd">FSSynthesizer_SetInterpolationMethodProc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_synthesizer_8cpp.html#a503787dc9d8257f79bc513abf57a8e6f">FSSynthesizer_setInterpolationMethod</a></td></tr>
+<tr class="memdesc:a503787dc9d8257f79bc513abf57a8e6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">interpolation method set function in library <br /></td></tr>
+<tr class="separator:a503787dc9d8257f79bc513abf57a8e6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a688a4a05209bd1f8f445610b7a16e0c9"><td class="memItemLeft" align="right" valign="top">static const String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_synthesizer_8cpp.html#a688a4a05209bd1f8f445610b7a16e0c9">_errorMessageForUndefinedDescriptor</a></td></tr>
 <tr class="memdesc:a688a4a05209bd1f8f445610b7a16e0c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">error message for an undefined descriptor  <a href="_fluid_synth_synthesizer_8cpp.html#a688a4a05209bd1f8f445610b7a16e0c9">More...</a><br /></td></tr>
 <tr class="separator:a688a4a05209bd1f8f445610b7a16e0c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb756e127a77e9ac3b9bfa6ad3e0da20"><td class="memItemLeft" align="right" valign="top">static const String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_synthesizer_8cpp.html#aeb756e127a77e9ac3b9bfa6ad3e0da20">_errorMessageForBadInterpolationMethodCode</a></td></tr>
+<tr class="memdesc:aeb756e127a77e9ac3b9bfa6ad3e0da20"><td class="mdescLeft">&#160;</td><td class="mdescRight">error message for a bad interpolation method  <a href="_fluid_synth_synthesizer_8cpp.html#aeb756e127a77e9ac3b9bfa6ad3e0da20">More...</a><br /></td></tr>
+<tr class="separator:aeb756e127a77e9ac3b9bfa6ad3e0da20"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <code>FluidSynthSynthesizer</code> class implements an object-oriented wrapper around an underlying fluidsynth synthesizer object with dynamic library access. </p>
@@ -278,6 +289,32 @@ static <a class="el" href="_fluid_synth_synthesizer_8cpp.html#a9ed2a9878ee6bffcd
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
+<a id="aeb756e127a77e9ac3b9bfa6ad3e0da20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb756e127a77e9ac3b9bfa6ad3e0da20">&#9670;&nbsp;</a></span>_errorMessageForBadInterpolationMethodCode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const String _errorMessageForBadInterpolationMethodCode</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">=</div>
+<div class="line">    <span class="stringliteral">&quot;interpolation method code must be 0, 1, 4 or 7&quot;</span></div>
+</div><!-- fragment -->
+<p>error message for a bad interpolation method </p>
+
+</div>
+</div>
 <a id="a688a4a05209bd1f8f445610b7a16e0c9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a688a4a05209bd1f8f445610b7a16e0c9">&#9670;&nbsp;</a></span>_errorMessageForUndefinedDescriptor</h2>
 

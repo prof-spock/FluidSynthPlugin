@@ -14,8 +14,10 @@ var _fluid_synth_synthesizer_8cpp =
     [ "FSSynthesizer_PolyTouchProc", "_fluid_synth_synthesizer_8cpp.html#a3b3ff9f58659ab2a447c8776047cdb81", null ],
     [ "FSSynthesizer_ProcessProc", "_fluid_synth_synthesizer_8cpp.html#a9ed2a9878ee6bffcd4a2dcdd353d11d0", null ],
     [ "FSSynthesizer_ProgChangeProc", "_fluid_synth_synthesizer_8cpp.html#ab94ebe776a629f1e98b367a2f10bd8d6", null ],
+    [ "FSSynthesizer_SetInterpolationMethodProc", "_fluid_synth_synthesizer_8cpp.html#a460b7435657a3cebb4e57bb70eb3d7dd", null ],
     [ "FSSynthesizer_SFLoadProc", "_fluid_synth_synthesizer_8cpp.html#a3e3d7d6f3d3d6098887b210372548db9", null ],
     [ "_initializeFunctionsForLibrary", "_fluid_synth_synthesizer_8cpp.html#a1c9d1152afce3310aaf2b720af890a27", null ],
+    [ "_errorMessageForBadInterpolationMethodCode", "_fluid_synth_synthesizer_8cpp.html#aeb756e127a77e9ac3b9bfa6ad3e0da20", null ],
     [ "_errorMessageForUndefinedDescriptor", "_fluid_synth_synthesizer_8cpp.html#a688a4a05209bd1f8f445610b7a16e0c9", null ],
     [ "FSSynthesizer_destroy", "_fluid_synth_synthesizer_8cpp.html#af32029108e9cd6a547bf41ca8dd4f117", null ],
     [ "FSSynthesizer_handleBankChange", "_fluid_synth_synthesizer_8cpp.html#ac01e300af92ef2017de54e857c8535bb", null ],
@@ -29,5 +31,6 @@ var _fluid_synth_synthesizer_8cpp =
     [ "FSSynthesizer_internalBufferSize", "_fluid_synth_synthesizer_8cpp.html#a6306c244d0d23ae59effbbde292d3512", null ],
     [ "FSSynthesizer_loadSoundFont", "_fluid_synth_synthesizer_8cpp.html#a27006c2a660ea7092662662fff3eb920", null ],
     [ "FSSynthesizer_make", "_fluid_synth_synthesizer_8cpp.html#a3ba2f571ebd1647b0ace2de2778b10b3", null ],
-    [ "FSSynthesizer_process", "_fluid_synth_synthesizer_8cpp.html#ad7bc72df362fd0fc63404a65e80657b6", null ]
+    [ "FSSynthesizer_process", "_fluid_synth_synthesizer_8cpp.html#ad7bc72df362fd0fc63404a65e80657b6", null ],
+    [ "FSSynthesizer_setInterpolationMethod", "_fluid_synth_synthesizer_8cpp.html#a503787dc9d8257f79bc513abf57a8e6f", null ]
 ];

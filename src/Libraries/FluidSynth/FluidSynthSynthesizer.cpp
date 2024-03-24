@@ -67,6 +67,11 @@ typedef int (*FSSynthesizer_SFLoadProc)(Object, const char*, int);
 typedef int (*FSSynthesizer_ProcessProc)(Object, int, int,
                                          Object, int, Object);
 
+/** SPECIAL FUNCTION: setting function type for interpolation method
+  * in library */
+typedef int (*FSSynthesizer_SetInterpolationMethodProc)(Object, int, int);
+ 
+
 /*--------------------*/
 
 /** synthesizer creation function in library  */
@@ -108,6 +113,10 @@ static FSSynthesizer_SFLoadProc FSSynthesizer_loadSoundFont;
 /** audio buffer processing function in library */
 static FSSynthesizer_ProcessProc FSSynthesizer_process;
 
+/** interpolation method set function in library */
+static FSSynthesizer_SetInterpolationMethodProc
+            FSSynthesizer_setInterpolationMethod;
+
 /*--------*/
 /* MACROS */
 /*--------*/
@@ -115,6 +124,10 @@ static FSSynthesizer_ProcessProc FSSynthesizer_process;
 /** error message for an undefined descriptor */
 static const String _errorMessageForUndefinedDescriptor =
     "synthesizer object must be defined";
+
+/** error message for a bad interpolation method */
+static const String _errorMessageForBadInterpolationMethodCode =
+    "interpolation method code must be 0, 1, 4 or 7";
 
 /** reports that function with <C>name</C> is not dynamically defined */
 #define _reportBadFunction(name) \
@@ -171,6 +184,9 @@ static void _initializeFunctionsForLibrary (IN Object fsLibrary)
             GPA(FSSynthesizer_SFLoadProc, "fluid_synth_sfload");
         FSSynthesizer_process =
             GPA(FSSynthesizer_ProcessProc, "fluid_synth_process");
+        FSSynthesizer_setInterpolationMethod =
+            GPA(FSSynthesizer_SetInterpolationMethodProc,
+                "fluid_synth_set_interp_method");
     }
     
     Logging_trace("<<");
@@ -528,6 +544,38 @@ FluidSynthSynthesizer::process (INOUT AudioSampleListVector& sampleBuffer,
         convertArray(sampleListB, floatSampleBuffer[1], sampleCount);
 
         isOkay = (operationResult == 0);
+    }
+
+    Logging_trace1("<<: %1", TOSTRING(isOkay));
+    return isOkay;
+}
+
+/*--------------------*/
+
+Boolean
+FluidSynthSynthesizer::setInterpolationMethod (IN Natural methodCode)
+{
+    Logging_trace1(">>: %1", TOSTRING(methodCode));
+    
+    Boolean isOkay = false;
+
+    if (_descriptor == NULL) {
+        Logging_traceError(_errorMessageForUndefinedDescriptor);
+    } else if (FSSynthesizer_setInterpolationMethod == NULL) {
+        _reportBadFunction("setInterpolationMethod");
+    } else if (methodCode != 0 && methodCode != 1
+               && methodCode != 4 && methodCode != 7) {
+        Logging_traceError(_errorMessageForBadInterpolationMethodCode);
+    } else {
+        isOkay = true;
+
+        for (Natural channel = 0;  channel < 16;  channel++) {
+            Integer operationResult =
+                FSSynthesizer_setInterpolationMethod(_descriptor,
+                                                     (int) channel,
+                                                     (int) methodCode);
+            isOkay = isOkay && (operationResult == 0);
+        }
     }
 
     Logging_trace1("<<: %1", TOSTRING(isOkay));

@@ -91,6 +91,7 @@ static Dictionary _settingsKeyToKindMap =
         "synth.default-soundfont           -> S,"
         "synth.dynamic-sample-loading      -> B,"
         "synth.gain                        -> F,"
+        "synth.interpolation-method        -> I,"
         "synth.midi-bank-select            -> S,"
         "synth.min-note-length             -> I,"
         "synth.overflow.age                -> F,"
@@ -206,7 +207,15 @@ Boolean FluidSynthSettings::set (IN String& key, IN String& value)
         if (settingsObject == NULL) {
             Logging_traceError("settings object must be defined");
         } else {
-            if (kind == "B") {
+            if (key == "synth.interpolation-method") {
+                // special handling of interpolation method (which is
+                // not an official parameter
+                Integer intValue = STR::toInteger(value);
+                Logging_trace2("--: kind = %1, value = %2",
+                               kind, TOSTRING(intValue));
+                isOkay = (intValue == 0 || intValue == 1
+                          || intValue == 4 || intValue == 7);
+            } else if (kind == "B") {
                 Integer boolValue = (value == "true" || value == "1"
                                      ? 1 : 0);
                 Logging_trace2("--: kind = %1, value = %2",

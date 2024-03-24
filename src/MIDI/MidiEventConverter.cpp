@@ -106,6 +106,13 @@ namespace MIDI {
         /** a fluidsynth synthesizer object */
         FluidSynthSynthesizer* synthesizer;
 
+        /*--------------------*/
+
+        /** a flag to tell whether synthesizer is available */
+        Boolean synthesizerIsAvailable;
+
+        /*--------------------*/
+
         private:
 
             /** a fluidsynth settings object */
@@ -130,6 +137,7 @@ _MidiEventConverterDescriptor::_MidiEventConverterDescriptor ()
     synthesizer = new FluidSynthSynthesizer(library, _settings);
     synthesizerBufferSize = (!library->isLoaded() ? 0
                              : synthesizer->internalBufferSize());
+    synthesizerIsAvailable = true;
     Logging_trace("<<");
 }
 
@@ -138,6 +146,7 @@ _MidiEventConverterDescriptor::_MidiEventConverterDescriptor ()
 _MidiEventConverterDescriptor::~_MidiEventConverterDescriptor ()
 {
     Logging_trace(">>");
+    synthesizerIsAvailable = false;
     delete synthesizer;
     delete _settings;
     delete library;
@@ -152,13 +161,15 @@ _MidiEventConverterDescriptor::changeSettings (IN String& key,
 {
     Logging_trace2(">>: key = %1, value = %2", key, value);
 
+    const String interpolationMethodKey = "synth.interpolation-method";
     const String programKey = "program";
+    const String sampleRateKey = "synth.sample-rate";
     const String soundFontKey = "soundfont";
     const String verboseKey = "synth.verbose";
-    const String sampleRateKey = "synth.sample-rate";
 
     Boolean isOkay = false;
     settingsDictionary.set(key, value);
+    synthesizerIsAvailable = false;
 
     if (key == programKey) {
         isOkay = _handleProgramChange(value, synthesizer);
@@ -167,9 +178,11 @@ _MidiEventConverterDescriptor::changeSettings (IN String& key,
     } else if (STR::startsWith(key, "synth.")) {
         isOkay = _settings->set(key, value);
 
-        /* restart synthesizer when verbose or sample rate setting is
+        /* restart synthesizer when synthesizer related setting is
          * activated */
-        if (isOkay && (key == verboseKey || key == sampleRateKey)) {
+        if (isOkay
+            && (key == verboseKey || key == sampleRateKey
+                || key == interpolationMethodKey)) {
             delete synthesizer;
             synthesizer = new FluidSynthSynthesizer(library, _settings);
             synthesizerBufferSize = (!library->isLoaded() ? 0
@@ -185,8 +198,18 @@ _MidiEventConverterDescriptor::changeSettings (IN String& key,
                 String programValue = settingsDictionary.at(programKey);
                 isOkay = _handleProgramChange(programValue, synthesizer);
             }
+
+            if (isOkay
+                && settingsDictionary.contains(interpolationMethodKey)) {
+                String methodCodeAsString =
+                    settingsDictionary.at(interpolationMethodKey);
+                Natural methodCode = STR::toNatural(methodCodeAsString);
+                isOkay = synthesizer->setInterpolationMethod(methodCode);
+            }
         }
     }
+
+    synthesizerIsAvailable = true;
     
     Logging_trace1("<<: %1", TOSTRING(isOkay));
     return isOkay;
@@ -513,38 +536,44 @@ MidiEventConverter::processBlock
 
     _MidiEventConverterDescriptor& descriptor =
         TOREFERENCE<_MidiEventConverterDescriptor>(_descriptor);
-    FluidSynthSynthesizer* synthesizer = descriptor.synthesizer;
 
-    /* calculate the times (in samples) */
-    Natural currentTimeInSamples = 0;
-    const Natural endTimeInSamples = sampleCountInChannel;
-    Natural eventIndex = 0;
+    if (!descriptor.synthesizerIsAvailable) {
+        Logging_trace("--: synthesizer is blocked, clear buffer");
+        audioBuffer.setToZero();
+    } else {
+        FluidSynthSynthesizer* synthesizer = descriptor.synthesizer;
 
-    while (currentTimeInSamples < endTimeInSamples) {
-        /* set count of samples to be processed to remaining buffer
-         * length */
-        Natural intervalDurationInSamples =
-            endTimeInSamples - currentTimeInSamples;
+        /* calculate the times (in samples) */
+        Natural currentTimeInSamples = 0;
+        const Natural endTimeInSamples = sampleCountInChannel;
+        Natural eventIndex = 0;
 
-        _handleCurrentMidiEvents(synthesizer,
+        while (currentTimeInSamples < endTimeInSamples) {
+            /* set count of samples to be processed to remaining buffer
+             * length */
+            Natural intervalDurationInSamples =
+                endTimeInSamples - currentTimeInSamples;
+
+            _handleCurrentMidiEvents(synthesizer,
+                                     currentTimeInSamples,
+                                     midiEventList,
+                                     eventIndex);
+
+            if (eventIndex < midiEventList.size()) {
+                /* there are still events open */
+                const MidiEvent& event = midiEventList[eventIndex];
+                const Natural durationToNextEventInSamples =
+                    Integer::toNatural(event.time() - currentTimeInSamples);
+                intervalDurationInSamples =
+                    Natural::minimum(intervalDurationInSamples,
+                                     durationToNextEventInSamples);
+            }
+
+            synthesizer->process(audioBuffer,
                                  currentTimeInSamples,
-                                 midiEventList,
-                                 eventIndex);
-
-        if (eventIndex < midiEventList.size()) {
-            /* there are still events open */
-            const MidiEvent& event = midiEventList[eventIndex];
-            const Natural durationToNextEventInSamples =
-                Integer::toNatural(event.time() - currentTimeInSamples);
-            intervalDurationInSamples =
-                Natural::minimum(intervalDurationInSamples,
-                                 durationToNextEventInSamples);
+                                 intervalDurationInSamples);
+            currentTimeInSamples += intervalDurationInSamples;
         }
-
-        synthesizer->process(audioBuffer,
-                             currentTimeInSamples,
-                             intervalDurationInSamples);
-        currentTimeInSamples += intervalDurationInSamples;
     }
     
     Logging_trace("<<");

@@ -217,18 +217,35 @@ using Main::FluidSynthPlugin::_WidgetListener;
 
 /*====================*/
 
-void _WidgetListener::buttonClicked (juce::Button*)
+/**
+ * Updates text field and error field of <C>editorDescriptor</C>; when
+ * <C>processorIsUpdated</C> is set, the contents of the text field
+ * are written to the audio processor, otherwise only text field
+ * background and error message are updated
+ *
+ * @param[inout] editorDescriptor    descriptor for editor object
+ * @param[in]    processorIsUpdated  information whether text is
+ *                                   written to underlying processor
+ */
+static void
+_updateAfterValidation (INOUT _EditorDescriptor& editorDescriptor,
+                        IN Boolean processorIsUpdated)
 {
-    _EditorDescriptor& editorDescriptor = *_editorDescriptor;
+    
     juce::TextEditor& textEditorWidget =
         editorDescriptor.textEditorWidget;
-    String st{textEditorWidget.getText().toStdString()};
-
-    /* store this locally and update processor */
-    editorDescriptor.settingsString = st;
     FluidSynthPlugin_EventProcessor& processor =
         editorDescriptor.processor;
-    processor.setSettings(st);
+
+    if (!processorIsUpdated) {
+        textEditorWidget.setText(processor.settings(), false);
+    } else {
+        /* store this locally and update processor */
+        String st{textEditorWidget.getText().toStdString()};
+        processor.setSettings(st);
+        editorDescriptor.settingsString = st;
+    }
+
     String errorString = processor.errorString();
     editorDescriptor.errorString = errorString;
 
@@ -239,6 +256,14 @@ void _WidgetListener::buttonClicked (juce::Button*)
     textEditorWidget.setColour(colourId2(TextEditor,background),
                                editorWidgetBackgroundColour);
     textEditorWidget.repaint();
+}
+
+/*====================*/
+
+void _WidgetListener::buttonClicked (juce::Button*)
+{
+    _EditorDescriptor& editorDescriptor = *_editorDescriptor;
+    _updateAfterValidation(editorDescriptor, true);
 }
 
 /*--------------------*/
@@ -361,7 +386,7 @@ void FluidSynthPlugin_Editor::paint (INOUT juce::Graphics& context)
 
 /*--------------------*/
 
-void FluidSynthPlugin_Editor::resized()
+void FluidSynthPlugin_Editor::resized ()
 {
     Logging_trace(">>");
 
@@ -406,6 +431,19 @@ void FluidSynthPlugin_Editor::resized()
     labelWidget.setBounds(_subArea(boundingBox,
                                    labelTopY, labelBottomY));
 
+
+    Logging_trace("<<");
+}
+
+/*--------------------*/
+
+void FluidSynthPlugin_Editor::update ()
+{
+    Logging_trace(">>");
+
+    _EditorDescriptor& editorDescriptor =
+        TOREFERENCE<_EditorDescriptor>(_descriptor);
+    _updateAfterValidation(editorDescriptor, false);
 
     Logging_trace("<<");
 }

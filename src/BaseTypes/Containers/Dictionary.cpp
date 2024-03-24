@@ -71,8 +71,10 @@ Dictionary Dictionary::makeFromString (IN String& st,
     for (const String& dictionaryEntryString : list) {
         String key;
         String value;
-        Boolean isOkay = STR::splitAt(dictionaryEntryString, 
-                                      kvSeparator, key, value);
+        Boolean isOkay =
+            (STR::contains(dictionaryEntryString, kvSeparator)
+             && STR::splitAt(dictionaryEntryString, 
+                             kvSeparator, key, value));
 
         if (isOkay) {
             key   = STR::fromPrintableString(STR::strip(key));

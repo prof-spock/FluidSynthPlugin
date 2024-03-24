@@ -8,5 +8,6 @@ var struct_m_i_d_i_1_1___midi_event_converter_descriptor =
     [ "library", "struct_m_i_d_i_1_1___midi_event_converter_descriptor.html#a335dcbaf47ce17831f0fa98f0f3e8e13", null ],
     [ "settingsDictionary", "struct_m_i_d_i_1_1___midi_event_converter_descriptor.html#a203f3ddf24acc54f08945e34aadab433", null ],
     [ "synthesizer", "struct_m_i_d_i_1_1___midi_event_converter_descriptor.html#a51de84447834e0eafc71f293f268a350", null ],
-    [ "synthesizerBufferSize", "struct_m_i_d_i_1_1___midi_event_converter_descriptor.html#a09fdb9ea53f512792ab6b7b58d4a7d20", null ]
+    [ "synthesizerBufferSize", "struct_m_i_d_i_1_1___midi_event_converter_descriptor.html#a09fdb9ea53f512792ab6b7b58d4a7d20", null ],
+    [ "synthesizerIsAvailable", "struct_m_i_d_i_1_1___midi_event_converter_descriptor.html#a24901474ff814b17dad7547880c4a931", null ]
 ];

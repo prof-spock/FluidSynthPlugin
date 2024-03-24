@@ -228,6 +228,18 @@ namespace Libraries::FluidSynth {
 
         /*--------------------*/
 
+        /**
+         * Sets interpolation method for all channels to given
+         * <C>methodCode</C>.
+         *
+         * @param[in] methodCode  code for sample interpolation method
+         * @return  information whether interpolation method change has
+         *          succeeded
+         */
+        Boolean setInterpolationMethod (IN Natural methodCode);
+
+        /*--------------------*/
+
         protected:
 
             /** descriptor object with internal data */

@@ -776,6 +776,13 @@ void FluidSynthPlugin_EventProcessor::setSettings (IN String& st)
         TOREFERENCE<_EventProcessorDescriptor>(_descriptor);
     descriptor.setSettings(st);
 
+    FluidSynthPlugin_Editor* editor =
+        (FluidSynthPlugin_Editor*) getActiveEditor();
+
+    if (editor != nullptr) {
+        editor->update();
+    }
+
     Logging_trace("<<");
 }
 

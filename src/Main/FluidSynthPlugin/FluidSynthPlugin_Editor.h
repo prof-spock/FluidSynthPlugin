@@ -69,6 +69,13 @@ namespace Main::FluidSynthPlugin {
 
         /*--------------------*/
 
+        /**
+         * Rereads data of underlying processor.
+         */
+        void update ();
+
+        /*--------------------*/
+
         private:
 
             /** the reference to an internal editor descriptor */

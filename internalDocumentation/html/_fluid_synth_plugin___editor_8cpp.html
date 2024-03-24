@@ -137,6 +137,9 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:acf320c595eb3e46292bc951862c43893"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___editor_8cpp.html#acf320c595eb3e46292bc951862c43893">_updateAfterValidation</a> (<a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_main_1_1_fluid_synth_plugin_1_1___editor_descriptor.html">_EditorDescriptor</a> &amp;editorDescriptor, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a> processorIsUpdated)</td></tr>
+<tr class="memdesc:acf320c595eb3e46292bc951862c43893"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates text field and error field of <code>editorDescriptor</code>; when <code>processorIsUpdated</code> is set, the contents of the text field are written to the audio processor, otherwise only text field background and error message are updated.  <a href="_fluid_synth_plugin___editor_8cpp.html#acf320c595eb3e46292bc951862c43893">More...</a><br /></td></tr>
+<tr class="separator:acf320c595eb3e46292bc951862c43893"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1860cb4df3bc6e63dc1268d64541e94a"><td class="memItemLeft" align="right" valign="top">static juce::Rectangle&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___editor_8cpp.html#a1860cb4df3bc6e63dc1268d64541e94a">_subArea</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> juce::Rectangle&lt; int &gt; rectangle, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_percentage.html">Percentage</a> startY, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_percentage.html">Percentage</a> endY)</td></tr>
 <tr class="memdesc:a1860cb4df3bc6e63dc1268d64541e94a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a new rectangle as a subarea of <code>rectangle</code> with a horizontal indentation of 5% and a vertical range (in percentages) from <code>startY</code> to <code>endY</code>  <a href="_fluid_synth_plugin___editor_8cpp.html#a1860cb4df3bc6e63dc1268d64541e94a">More...</a><br /></td></tr>
 <tr class="separator:a1860cb4df3bc6e63dc1268d64541e94a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -233,6 +236,51 @@ static juce::Colour&#160;</td><td class="memItemRight" valign="bottom"><a class=
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>rectangle with 5% horizontal indentation and given y-interval </dd></dl>
+
+</div>
+</div>
+<a id="acf320c595eb3e46292bc951862c43893"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf320c595eb3e46292bc951862c43893">&#9670;&nbsp;</a></span>_updateAfterValidation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void _updateAfterValidation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_main_1_1_fluid_synth_plugin_1_1___editor_descriptor.html">_EditorDescriptor</a> &amp;&#160;</td>
+          <td class="paramname"><em>editorDescriptor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a>&#160;</td>
+          <td class="paramname"><em>processorIsUpdated</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Updates text field and error field of <code>editorDescriptor</code>; when <code>processorIsUpdated</code> is set, the contents of the text field are written to the audio processor, otherwise only text field background and error message are updated. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">editorDescriptor</td><td>descriptor for editor object </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">processorIsUpdated</td><td>information whether text is written to underlying processor </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

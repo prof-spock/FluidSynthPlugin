@@ -496,7 +496,8 @@ from~\cite{reference:fsSettingsDocumentation}).
                              bank select messages}
                             {string}
         \parameterTableALine{synth.min-note-length}
-                            {}
+                            {sets the minimum note duration in
+                             milliseconds}
                             {integer}
         \parameterTableALine{synth.overflow.age}
                             {tells how event age is accounted for in
@@ -575,22 +576,33 @@ from~\cite{reference:fsSettingsDocumentation}).
   \label{figure:allowedSettingsC}
 \end{centeredFigure}
 
-Besides the standard settings from \FluidSynth\ there are two special
-settings available: \embeddedCode{soundfont} and
-\embeddedCode{program}.
+Besides the standard settings from \FluidSynth\ there are three
+special settings available: \embeddedCode{program},
+\embeddedCode{soundfont} and
+\embeddedCode{synth.interpolation-method}.
 
 \begin{centeredFigure}
     \begin{parameterTableA}
-        \parameterTableALine{soundfont}
-                            {gives the path to the soundfont and may
-                             contain environment variables enclosed by
-                             \embeddedCode{\$\{} and \embeddedCode{\}}}
-                            {string}
         \parameterTableALine{program}
                             {gives the program to use as the default;
                              format is bankNumber:programNumber where
                              counting for both numbers starts at zero}
                             {string}
+        \parameterTableALine{soundfont}
+                            {gives the path to the soundfont and may
+                             contain environment variables enclosed by
+                             \embeddedCode{\$\{} and \embeddedCode{\}}}
+                            {string}
+        \parameterTableALine{synth.interpolation-method}
+                            {sets synthesis interpolation method on
+                             all MIDI channels: the variants are
+                             \embeddedCode{0} for no interpolation,
+                             \embeddedCode{1} for straight-line
+                             interpolation, \embeddedCode{4} for
+                             fourth-order interpolation and
+                             \embeddedCode{7} for seventh-order
+                             interpolation}
+                            {integer (0, 1, 4, 7)}
     \end{parameterTableA}
     \caption{Additional Settings in \FluidSynthPlugin\ and
         \FluidSynthConverter}

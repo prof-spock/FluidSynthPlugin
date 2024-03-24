@@ -1,5 +1,8 @@
 var NAVTREEINDEX1 =
 {
+"_logging_support_8cpp.html":[3,0,49],
+"_logging_support_8cpp.html#a1e6d84ea253ca2d28f599182bdc6c01a":[3,0,49,14],
+"_logging_support_8cpp.html#a28384b1d6de63a178809bd743c1f7495":[3,0,49,17],
 "_logging_support_8cpp.html#a4790e291ab04c20505ec9c65a99ccbb6":[3,0,49,6],
 "_logging_support_8cpp.html#a5632926cf5227c4992163bb21559f516":[3,0,49,20],
 "_logging_support_8cpp.html#a59fc0dcf9ba0e5d5a09e354f6966aaa5":[3,0,49,24],
@@ -246,8 +249,5 @@ var NAVTREEINDEX1 =
 "_percentage_8h.html":[3,0,69],
 "_percentage_8h_source.html":[3,0,69],
 "_radians_8h.html":[3,0,70],
-"_radians_8h_source.html":[3,0,70],
-"_real_8h.html":[3,0,71],
-"_real_8h_source.html":[3,0,71],
-"_real_list_8cpp.html":[3,0,72]
+"_radians_8h_source.html":[3,0,70]
 };
