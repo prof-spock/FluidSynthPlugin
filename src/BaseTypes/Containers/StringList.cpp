@@ -72,6 +72,23 @@ StringList StringList::makeBySplit (IN String& st,
     return result;
 }
 
+
+/*--------------------*/
+/* type conversions   */
+/*--------------------*/
+
+String StringList::toString () const
+{
+    return GenericList::toString();
+}
+
+/*--------------------*/
+
+String StringList::toString (IN StringList& list)
+{
+    return list.toString();
+}
+
 /*--------------------*/
 /* complex functions  */
 /*--------------------*/

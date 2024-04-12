@@ -12,9 +12,11 @@ var struct_libraries_1_1_fluid_synth_1_1_fluid_synth_synthesizer =
     [ "handlePolyTouch", "struct_libraries_1_1_fluid_synth_1_1_fluid_synth_synthesizer.html#a4e162f416a071bb26c8bc3f2bb38fb20", null ],
     [ "handleProgramChange", "struct_libraries_1_1_fluid_synth_1_1_fluid_synth_synthesizer.html#aea654711e59d23aa87ec9d71f8c0c0f1", null ],
     [ "internalBufferSize", "struct_libraries_1_1_fluid_synth_1_1_fluid_synth_synthesizer.html#af0e716357998a7f81ce99755548b7036", null ],
+    [ "library", "struct_libraries_1_1_fluid_synth_1_1_fluid_synth_synthesizer.html#adb25ee2d40671bc79d6f328e081ee263", null ],
     [ "loadSoundFont", "struct_libraries_1_1_fluid_synth_1_1_fluid_synth_synthesizer.html#af1fc4b8efa33b667d9e7127b18ff34e6", null ],
     [ "operator=", "struct_libraries_1_1_fluid_synth_1_1_fluid_synth_synthesizer.html#a76566baf799d4eccbeaa9dabff24afc0", null ],
     [ "process", "struct_libraries_1_1_fluid_synth_1_1_fluid_synth_synthesizer.html#a5e91963456f841a1567e358f5766c333", null ],
     [ "setInterpolationMethod", "struct_libraries_1_1_fluid_synth_1_1_fluid_synth_synthesizer.html#a98022ebc4b3badbd45c692f0bb5daf8e", null ],
+    [ "underlyingObject", "struct_libraries_1_1_fluid_synth_1_1_fluid_synth_synthesizer.html#ae2786ca4b9dc92faebadaced669125f3", null ],
     [ "_descriptor", "struct_libraries_1_1_fluid_synth_1_1_fluid_synth_synthesizer.html#ae2f6812967dd13733a5eb9d334dcde18", null ]
 ];

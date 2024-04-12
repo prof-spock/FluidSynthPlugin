@@ -20,12 +20,14 @@
 #include "Real.h"
 #include "Natural.h"
 #include "MidiEventList.h"
+#include "StringList.h"
 
 /*--------------------*/
 
 using Audio::AudioSampleListVector;
 
 using BaseTypes::Containers::Dictionary;
+using BaseTypes::Containers::StringList;
 using BaseTypes::Primitives::Natural;
 using BaseTypes::Primitives::Object;
 using BaseTypes::Primitives::Real;
@@ -49,8 +51,14 @@ namespace MIDI {
 
         /**
          * Creates a fluidsynth MIDI event converter
+         *
+         * @param[in] audioIsSuppressedForBadSettings  tells that no
+         *                                             audio is
+         *                                             produced when
+         *                                             settings are
+         *                                             inconsistent
          */
-        MidiEventConverter ();
+        MidiEventConverter (IN Boolean audioIsSuppressedForBadSettings);
 
         /*--------------------*/
 
@@ -82,6 +90,96 @@ namespace MIDI {
         MidiEventConverter&
         operator= (IN MidiEventConverter& otherConverter)
             = delete;
+
+        /*--------------------*/
+        /* property queries   */
+        /*--------------------*/
+
+        /**
+         * Returns the version of the underlying fluidsynth library.
+         *
+         * @return  associated FluidSynth version
+         */
+        String fsLibraryVersion () const;
+
+        /*--------------------*/
+
+        /**
+         * Gets the event converter setting given by <C>key</C> into
+         * <C>value</C> and returns whether <C>key</C> exists
+         *
+         * @param[in]  key    settings name
+         * @param[out] value  value at key as string 
+         * @return  information whether key has associated value
+         */
+        Boolean getSetting (IN String& key,
+                            OUT String& value);
+
+        /*--------------------*/
+
+        /**
+         * Tells whether the underlying fluidsynth library has been
+         * correctly loaded.
+         *
+         * @return  information about successful loading of FluidSynth
+         */
+        Boolean isCorrectlyInitialized () const;
+        
+        /*--------------------*/
+
+        /**
+         * Returns list of presets together with their bank and
+         * program numbers with bank, program and name separated by
+         * tabulators
+         *
+         * @return  list of strings each with bank, program and name
+         *          separated by tabulators
+         */
+        StringList presetList () const;
+        
+        /*--------------------*/
+
+        /**
+         * Returns the underlying buffer size of the fluidsynth
+         * synthesizer.
+         *
+         * @return  synthesizer buffer size (in samples)
+         */
+        Natural synthesizerBufferSize () const;
+
+        /*--------------------*/
+        /* property change    */
+        /*--------------------*/
+
+        /**
+         * Resets all settings of the event converter.
+         */
+        void resetSettings ();
+
+        /*--------------------*/
+
+        /**
+         * Sets setting of event converter given by <C>key</C> to new
+         * value given by <C>value</C>
+         *
+         * @param[in] key    settings name
+         * @param[in] value  value for key as string 
+         * @return  information whether set operation has been successful
+         */
+        Boolean setSetting (IN String& key,
+                            IN String& value);
+
+        /*--------------------*/
+
+        /**
+         * Sets several settings of event converter from
+         * <C>dictionary</C>
+         *
+         * @param[in] dictionary    list of key-value pairs defining
+         *                          new setting
+         * @return  information whether set operation has been successful
+         */
+        Boolean setSettings (IN Dictionary& dictionary);
 
         /*--------------------*/
         /* event handling     */
@@ -124,52 +222,16 @@ namespace MIDI {
                            IN Natural sampleCountInChannel);
 
         /*--------------------*/
-        /* property queries   */
-        /*--------------------*/
 
         /**
-         * Tells whether the underlying fluidsynth library has been
-         * correctly loaded.
+         * Handles MIDI event <C>event</C> for synthesizer
+         * immediately.
          *
-         * @return  information about successful loading of FluidSynth
+         * @param[in] event  midi event to be processed
+         * @return  information whether midi event handling has been
+         *          successful
          */
-        Boolean isCorrectlyInitialized () const;
-        
-        /*--------------------*/
-
-        /**
-         * Returns the underlying buffer size of the fluidsynth
-         * synthesizer.
-         *
-         * @return  synthesizer buffer size (in samples)
-         */
-        Natural synthesizerBufferSize () const;
-
-        /*--------------------*/
-        /* property change    */
-        /*--------------------*/
-
-        /**
-         * Sets setting of event converter given by <C>key</C> to new
-         * value given by <C>value</C>
-         *
-         * @param[in] key    settings name
-         * @param[in] value  value for key as string 
-         * @return  information whether set operation has been successful
-         */
-        Boolean set (IN String& key, IN String& value);
-
-        /*--------------------*/
-
-        /**
-         * Sets several settings of event converter from
-         * <C>dictionary</C>
-         *
-         * @param[in] dictionary    list of key-value pairs defining
-         *                          new setting
-         * @return  information whether set operation has been successful
-         */
-        Boolean set (IN Dictionary& dictionary);
+        Boolean processMidiEvent (IN MidiEvent& event);
 
         /*--------------------*/
         /* persistence        */

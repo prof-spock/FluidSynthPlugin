@@ -145,6 +145,18 @@ namespace Main::FluidSynthPlugin {
         const juce::String getName () const override;
 
         /*--------------------*/
+
+        /**
+         * Returns list of presets together with their bank and
+         * program numbers with bank, program and name separated by
+         * tabulators
+         *
+         * @return  list of strings each with bank, program and name
+         *          separated by tabulators
+         */
+        StringList presetList () const;
+        
+        /*--------------------*/
         /* property change    */
         /*--------------------*/
 
@@ -183,6 +195,24 @@ namespace Main::FluidSynthPlugin {
         /*---------------------------*/
 
         /**
+         * Returns the error string for current settings (if any).
+         *
+         * @return current error string
+         */
+        String errorString () const;
+
+        /*--------------------*/
+
+        /**
+         * Returns the version of the underlying fluidsynth library.
+         *
+         * @return  associated FluidSynth version
+         */
+        String fsLibraryVersion () const;
+
+        /*--------------------*/
+
+        /**
          * Returns the current value of the settings string.
          *
          * @return current settings string
@@ -197,15 +227,6 @@ namespace Main::FluidSynthPlugin {
          * @param[in] st  new value for settings string
          */
         void setSettings (IN String& st);
-
-        /*--------------------*/
-
-        /**
-         * Returns the error string for current settings (if any).
-         *
-         * @return current error string
-         */
-        String errorString () const;
 
         /*--------------------*/
         /* event handling     */

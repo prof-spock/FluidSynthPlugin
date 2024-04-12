@@ -1,5 +1,5 @@
 <map id="Main::FluidSynthPlugin::_WidgetListener" name="Main::FluidSynthPlugin::_WidgetListener">
-<area shape="rect" id="node1" title="A listener class for button and text editor events." alt="" coords="82,131,257,252"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,152,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="177,5,343,83"/>
+<area shape="rect" id="node1" title="A listener class for button and text editor events." alt="" coords="23,131,197,252"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,5,73,83"/>
+<area shape="rect" id="node3" title=" " alt="" coords="97,5,264,83"/>
 </map>

@@ -58,7 +58,7 @@ var sectionId = 'dynsection-0';
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title="The FluidSynthPlugin_AudioProcessor module handles MIDI events from the DAW via JUCE and have them pr...">
+<g id="a_node1"><a xlink:title="The FluidSynthPlugin_Editor specification implements the editor for the processor of MIDI events from...">
 <polygon fill="#bfbfbf" stroke="black" points="919.5,-179.5 919.5,-198.5 1048.5,-198.5 1048.5,-179.5 919.5,-179.5"/>
 <text text-anchor="middle" x="984" y="-186.5" font-family="Helvetica,sans-Serif" font-size="10.00">FluidSynthPlugin_Editor.h</text>
 </a>

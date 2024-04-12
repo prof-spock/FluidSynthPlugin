@@ -375,7 +375,7 @@ namespace BaseTypes::GenericTypes {
                 const Natural listLength = length();
                 setLength(listLength + otherLength);
 
-                // shift original data to the right
+                /* shift original data to the right */
                 for (Natural i = listLength;  i > 0;) {
                     i--;
                     set(i + otherLength, at(i));
@@ -534,7 +534,7 @@ namespace BaseTypes::GenericTypes {
             Integer result{-1};
 
             if (otherLength <= currentLength) {
-                // do a naive search
+                /* do a naive search */
                 for (Natural i = 0;  i <= currentLength - otherLength;  i++) {
                     Boolean isFound = true;
 

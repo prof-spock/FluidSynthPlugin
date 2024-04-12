@@ -25,3 +25,16 @@ namespace ProjectInfo
     const int          versionNumber  = JucePlugin_VersionCode;
 }
 #endif
+
+/*--------------------*/
+/* helper definitions */
+/*--------------------*/
+
+/** combines className and prefix into a JUCE colour id name */
+#define colourId2(className, prefix)                    \
+    juce::className::ColourIds::prefix##ColourId
+
+/** combines className, prefix and partText into a JUCE colour
+ * id name */
+#define colourId3(className, prefix, partText)                  \
+    juce::className::ColourIds::prefix##Colour##partText##Id

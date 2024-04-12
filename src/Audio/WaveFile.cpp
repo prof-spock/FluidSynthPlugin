@@ -174,7 +174,7 @@ WaveFile__readHeader (IN ByteList& byteList,
     Natural fileSize;
 
     {
-        // read general data
+        /* read general data */
         WaveFile__skipString(byteList, position, "RIFF");
         fileSize = WaveFile__readNatural(byteList, position, 4) + 8;
         WaveFile__assertEquality(expectedFileSize, fileSize, "file size");
@@ -341,7 +341,7 @@ static Integer WaveFile__readInteger (IN ByteList& byteList,
         char b = (char) byteList[lastPosition - i];
 
         if (i == 0) {
-            // extract sign bit
+            /* extract sign bit */
             isNegative = ((b & 0x80) > 0);
             b &= 0x7F;
         }
@@ -534,7 +534,6 @@ static void WaveFile__skipString (IN ByteList& byteList,
     Natural lastPosition = position + count - 1;
     WaveFile__assertIndexInRange(byteList, lastPosition);
 
-    Boolean isOkay = true;
     String st = "";
 
     for (Natural i = 0;  i < count;  i++) {

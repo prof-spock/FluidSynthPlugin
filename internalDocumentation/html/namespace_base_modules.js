@@ -5,6 +5,7 @@ var namespace_base_modules =
     [ "CommandLineArgument", "struct_base_modules_1_1_command_line_argument.html", "struct_base_modules_1_1_command_line_argument" ],
     [ "CommandLineArgumentHandler", "struct_base_modules_1_1_command_line_argument_handler.html", "struct_base_modules_1_1_command_line_argument_handler" ],
     [ "CommandLineArgumentList", "struct_base_modules_1_1_command_line_argument_list.html", null ],
+    [ "Environment", "struct_base_modules_1_1_environment.html", "struct_base_modules_1_1_environment" ],
     [ "File", "struct_base_modules_1_1_file.html", "struct_base_modules_1_1_file" ],
     [ "Logging", "struct_base_modules_1_1_logging.html", "struct_base_modules_1_1_logging" ],
     [ "OperatingSystem", "struct_base_modules_1_1_operating_system.html", "struct_base_modules_1_1_operating_system" ],

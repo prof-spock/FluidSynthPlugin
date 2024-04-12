@@ -22,7 +22,6 @@
     #define StdLib_atexit atexit
 
 #include "Assertion.h"
-#include "Dictionary.h"
 #include "File.h"
 #include "LoggingSupport.h"
 #include "OperatingSystem.h"
@@ -35,7 +34,6 @@ using namespace std::chrono;
 using BaseModules::File;
 using BaseModules::Logging;
 using BaseModules::OperatingSystem;
-using BaseTypes::Containers::Dictionary;
 using BaseTypes::GenericTypes::GenericList;
 
 /** abbreviation for StringUtil */

@@ -66,7 +66,7 @@
   MASTERTRACKHEIGHT 0 0
   MASTERPEAKCOL 16576
   MASTERMUTESOLO 0
-  MASTERTRACKVIEW 0 0.6667 0.5 0.5 -1 -1 -1 0 0 0 -1 -1 0 0
+  MASTERTRACKVIEW 0 0.6667 0.5 0.5 0 -1 0 0 0 0 -1 -1 0 0
   MASTERHWOUT 0 0 1 0 0 0 0 -1
   MASTER_NCH 2 2
   MASTER_VOLUME 1 0 -1 -1 1
@@ -80,10 +80,11 @@
     DOCKED 0
     BYPASS 0 0 0
     <JS analysis/gfxanalyzer ""
-      8.6 -90 0 0 2500 0 1000 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      8 -250 0 0.39 500 0 1000 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "cancellation control -250dB"
     >
     JS_DIMS 594 335
-    FLOAT 704 61 612 382
+    PRESETNAME "cancellation control -250dB"
+    FLOAT 1066 201 612 382
     FXID {E71DF572-C8A1-4838-A52E-4C69249D1799}
     WAK 0 0
   >
@@ -118,7 +119,7 @@
     PLAYOFFS 0 1
     ISBUS 1 1
     BUSCOMP 0 0 0 0 0
-    SHOWINMIX 1 0.6667 0.5 1 0.5 -1 -1 -1
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 -1 0
     SEL 0
     REC 0 0 0 0 0 0 0 0
     VU 2
@@ -148,8 +149,8 @@
     PLAYOFFS 0 1
     ISBUS 0 0
     BUSCOMP 0 0 0 0 0
-    SHOWINMIX 1 0.6667 0.5 1 0.5 -1 -1 -1
-    SEL 1
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 -1 0
+    SEL 0
     REC 0 0 0 0 0 0 0 0
     VU 2
     TRACKHEIGHT 0 0 0 0 -1 0 0
@@ -264,7 +265,7 @@
     PLAYOFFS 0 1
     ISBUS 0 0
     BUSCOMP 0 0 0 0 0
-    SHOWINMIX 1 0.6667 0.5 1 0.5 -1 -1 -1
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 -1 0
     SEL 0
     REC 0 0 0 0 0 0 0 0
     VU 2
@@ -312,7 +313,7 @@
     PLAYOFFS 0 1
     ISBUS 2 -1
     BUSCOMP 0 0 0 0 0
-    SHOWINMIX 1 0.6667 0.5 1 0.5 -1 -1 -1
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 -1 0
     SEL 0
     REC 0 0 0 0 0 0 0 0
     VU 2
@@ -360,7 +361,7 @@
     PLAYOFFS 0 1
     ISBUS 1 1
     BUSCOMP 0 0 0 0 0
-    SHOWINMIX 1 0.6667 0.5 1 0.5 -1 -1 -1
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 -1 0
     SEL 0
     REC 0 0 0 0 0 0 0 0
     VU 2
@@ -384,7 +385,7 @@
     PLAYOFFS 0 1
     ISBUS 0 0
     BUSCOMP 0 0 0 0 0
-    SHOWINMIX 1 0.6667 0.5 1 0.5 -1 -1 -1
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 -1 0
     SEL 0
     REC 0 0 0 0 0 0 0 0
     VU 2
@@ -632,7 +633,7 @@
     PLAYOFFS 0 1
     ISBUS 0 0
     BUSCOMP 0 0 0 0 0
-    SHOWINMIX 1 0.6667 0.5 1 0.5 -1 -1 -1
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 -1 0
     SEL 0
     REC 0 0 0 0 0 0 0 0
     VU 2
@@ -680,7 +681,7 @@
     PLAYOFFS 0 1
     ISBUS 2 -1
     BUSCOMP 0 0 0 0 0
-    SHOWINMIX 1 0.6667 0.5 1 0.5 -1 -1 -1
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 -1 0
     SEL 0
     REC 0 0 0 0 0 0 0 0
     VU 2
@@ -728,7 +729,7 @@
     PLAYOFFS 0 1
     ISBUS 1 1
     BUSCOMP 0 0 0 0 0
-    SHOWINMIX 1 0.6667 0.5 1 0.5 -1 -1 -1
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 -1 0
     SEL 0
     REC 0 0 0 0 0 0 0 0
     VU 2
@@ -752,7 +753,7 @@
     PLAYOFFS 0 1
     ISBUS 0 0
     BUSCOMP 0 0 0 0 0
-    SHOWINMIX 1 0.6667 0.5 1 0.5 -1 -1 -1
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 -1 0
     SEL 0
     REC 0 0 0 0 0 0 0 0
     VU 2
@@ -960,7 +961,7 @@
     PLAYOFFS 0 1
     ISBUS 0 0
     BUSCOMP 0 0 0 0 0
-    SHOWINMIX 1 0.6667 0.5 1 0.5 -1 -1 -1
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 -1 0
     SEL 0
     REC 0 0 0 0 0 0 0 0
     VU 2
@@ -1008,8 +1009,8 @@
     PLAYOFFS 0 1
     ISBUS 2 -1
     BUSCOMP 0 0 0 0 0
-    SHOWINMIX 1 1 0.5 1 0.5 -1 -1 -1
-    SEL 0
+    SHOWINMIX 1 0.665399 0.5 1 0.5 0 -1 0
+    SEL 1
     REC 0 0 0 0 0 0 0 0
     VU 2
     TRACKHEIGHT 0 0 0 0 -1 0 0

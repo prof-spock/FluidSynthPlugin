@@ -1,0 +1,5 @@
+<map id="FluidSynthPlugin_EditorSupport.h" name="FluidSynthPlugin_EditorSupport.h">
+<area shape="rect" id="node1" title="The FluidSynthPlugin_EditorSupport specification defines support services for the editor of the Fluid..." alt="" coords="106,5,323,32"/>
+<area shape="rect" id="node2" href="$_fluid_synth_plugin___editor_8cpp.html" title="The FluidSynthPlugin_Editor module implements the editor for the processor of MIDI events from the DA..." alt="" coords="5,80,192,107"/>
+<area shape="rect" id="node3" href="$_fluid_synth_plugin___editor_support_8cpp.html" title="The FluidSynthPlugin_EditorSupport module implements support services for the editor of the FluidSynt..." alt="" coords="217,80,447,107"/>
+</map>

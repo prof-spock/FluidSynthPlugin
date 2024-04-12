@@ -89,7 +89,7 @@ static Boolean _analyzeSimpleNumberString (IN String& st,
             }
         }
 
-        // at least one character must be left
+        /* at least one character must be left */
         digitString = STR::substring(st, i);
         isOkay = (digitString.length() > 0);
     

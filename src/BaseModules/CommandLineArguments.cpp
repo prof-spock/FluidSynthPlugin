@@ -239,6 +239,15 @@ String CommandLineArgument::toString (IN CommandLineArgument& argument)
     return argument.toString();
 }
 
+/*-------------------------*/
+/* CommandLineArgumentList */
+/*-------------------------*/
+
+String BaseModules::_commandLineArgumentListTypeName ()
+{
+    return "CommandLineArgumentList";
+}
+    
 /*----------------------------*/
 /* CommandLineArgumentHandler */
 /*----------------------------*/

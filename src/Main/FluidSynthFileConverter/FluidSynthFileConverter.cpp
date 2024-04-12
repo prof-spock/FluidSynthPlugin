@@ -577,7 +577,8 @@ _makeMidiEventConverter (IN Dictionary& settings)
 {
     Logging_trace1(">>: settings = %1", settings.toString());
 
-    MidiEventConverter* midiEventConverter = new MidiEventConverter();
+    MidiEventConverter* midiEventConverter =
+        new MidiEventConverter(false);
     Boolean isOkay = midiEventConverter->isCorrectlyInitialized();
 
     if (!isOkay) {
@@ -586,7 +587,8 @@ _makeMidiEventConverter (IN Dictionary& settings)
         midiEventConverter = NULL;
     } else {
         for (auto& [key, value] : settings) {
-            Boolean settingIsOkay = midiEventConverter->set(key, value);
+            Boolean settingIsOkay =
+                midiEventConverter->setSetting(key, value);
 
             if (!settingIsOkay) {
                 String errorMessage =

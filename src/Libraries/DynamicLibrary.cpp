@@ -47,7 +47,6 @@ using STR = BaseModules::StringUtil;
     Object _loadLibrary (IN String& pathName)
     {
         Windows::DWORD dwFlags = LOAD_LIBRARY_SEARCH_DEFAULT_DIRS;
-        // Windows::DWORD dwFlags = 0;
         Object result =
             (Object) Windows::LoadLibraryExA((char*) pathName.c_str(),
                                              NULL, dwFlags);

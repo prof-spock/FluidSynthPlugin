@@ -1,0 +1,5 @@
+<map id="BuildDateAndTime.h" name="BuildDateAndTime.h">
+<area shape="rect" id="node1" title="The BuildDateAndTime specification defines two string functions returning the build date and time." alt="" coords="110,5,250,32"/>
+<area shape="rect" id="node2" href="$_build_date_and_time_8cpp.html" title="The BuildDateAndTime body implements two string functions returning the build date and time." alt="" coords="5,80,160,107"/>
+<area shape="rect" id="node3" href="$_fluid_synth_plugin___editor_8cpp.html" title="The FluidSynthPlugin_Editor module implements the editor for the processor of MIDI events from the DA..." alt="" coords="184,80,371,107"/>
+</map>

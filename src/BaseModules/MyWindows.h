@@ -404,10 +404,3 @@ namespace Windows {
     Windows::WCHAR temp[500];                                      \
     Windows::MultiByteToWideChar(CP_ACP, 0, source.c_str(), -1, temp, 500); \
     Windows::LPWSTR target = &temp[0];
-
-//    std::mbtowc(nullptr, 0, 0);                       \
-//    const char* end = source + std::strlen(source);
-//    int ret{};
-//    for (wchar_t wc; (ret = std::mbtowc(&wc, ptr, end - ptr)) > 0; ptr += ret)
-//        std::wcout << wc;
-

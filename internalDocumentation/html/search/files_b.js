@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['object_2eh_845',['Object.h',['../_object_8h.html',1,'']]],
-  ['operatingsystem_2ecpp_846',['OperatingSystem.cpp',['../_operating_system_8cpp.html',1,'']]],
-  ['operatingsystem_2eh_847',['OperatingSystem.h',['../_operating_system_8h.html',1,'']]]
+  ['natural_2eh_991',['Natural.h',['../_natural_8h.html',1,'']]],
+  ['naturallist_2ecpp_992',['NaturalList.cpp',['../_natural_list_8cpp.html',1,'']]],
+  ['naturallist_2eh_993',['NaturalList.h',['../_natural_list_8h.html',1,'']]],
+  ['naturalset_2eh_994',['NaturalSet.h',['../_natural_set_8h.html',1,'']]]
 ];

@@ -1,0 +1,6 @@
+<map id="BuildDateAndTime.h" name="BuildDateAndTime.h">
+<area shape="rect" id="node1" title="The BuildDateAndTime specification defines two string functions returning the build date and time." alt="" coords="16,5,156,32"/>
+<area shape="rect" id="node2" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="43,80,129,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,155,60,181"/>
+<area shape="rect" id="node4" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="84,155,197,181"/>
+</map>

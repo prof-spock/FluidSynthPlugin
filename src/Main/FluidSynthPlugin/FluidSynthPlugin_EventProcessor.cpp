@@ -14,6 +14,7 @@
 
 #include "AudioSampleFifoQueueVector.h"
 #include "DynamicLibrary.h"
+#include "Environment.h"
 #include "FluidSynthPlugin_Editor.h"
 #include "MidiEventConverter.h"
 #include "MyArray.h"
@@ -25,6 +26,7 @@
 
 using Audio::AudioSampleList;
 using Audio::AudioSampleFifoQueueVector;
+using BaseModules::Environment;
 using BaseModules::OperatingSystem;
 using BaseTypes::Containers::convertArray;
 using BaseTypes::Primitives::Integer;
@@ -45,16 +47,8 @@ using STR = BaseModules::StringUtil;
 /** the number MIDI programs allowed */
 #define _midiProgramCount 128
 
-/** settings key used for program change */
-static const String _settingsKeyForProgram = "program";
-
-/** text for marking the begin of an environment variable in a
- * string */
-static const String _environmentVariableLeadIn = "${";
-
-/** text for marking the end of an environment variable in a
- * string */
-static const String _environmentVariableLeadOut = "}";
+/** settings key used for preset change */
+static const String _settingsKeyForPreset = "preset";
 
 /** error message for missing library initialization */
 static const String _errorMessageForBadLibraryInitialization =
@@ -68,41 +62,6 @@ static const String _fsBufferingCompensationKey =
 /*====================*/
 /* PRIVATE FEATURES   */
 /*====================*/
-
-/**
- * Scans <C>st</C> for references to environment variables and
- * replaces them.  Undefined variables are replaced by "???".
- *
- * @param[inout]  st  string to be processed
- */
-static void _replaceEnvironmentVariables (INOUT String& st)
-{
-    Logging_trace1(">>: %1", st);
-
-    const Natural leadInLength  = _environmentVariableLeadIn.length();
-    const Natural totalBracketLength =
-        leadInLength + _environmentVariableLeadOut.length();
-
-    while (STR::contains(st, _environmentVariableLeadIn)) {
-        Natural startPosition = STR::find(st, _environmentVariableLeadIn);
-        Natural endPosition = 
-            STR::find(st, _environmentVariableLeadOut, startPosition);
-        String variable =
-            STR::substring(st, startPosition,
-                           endPosition - startPosition + 1);
-        String variableName =
-            STR::substring(st, leadInLength,
-                           (Natural{variable.length()}
-                            - totalBracketLength));
-        String variableValue =
-            OperatingSystem::environmentValue(variableName, "???");
-        STR::replace(st, variable, variableValue);
-    }
-
-    Logging_trace1("<<: %1", st);
-}
-
-/*--------------------*/
 
 /**
  * Processes samples to bring sample count to a multiple of
@@ -245,12 +204,12 @@ namespace Main::FluidSynthPlugin {
          *                                 returned
          */
         void processBlock
-        (INOUT FluidSynthPlugin_EventProcessor* processor,
-         INOUT _EventProcessorDescriptor& descriptor,
-         IN Integer currentTime,
-         IN MidiEventList& midiEventList,
-         OUT AudioSampleListVector& sampleListVector,
-         IN Natural audioFrameCount);
+                 (INOUT FluidSynthPlugin_EventProcessor* processor,
+                  INOUT _EventProcessorDescriptor& descriptor,
+                  IN Integer currentTime,
+                  IN MidiEventList& midiEventList,
+                  OUT AudioSampleListVector& sampleListVector,
+                  IN Natural audioFrameCount);
 
     };
 
@@ -442,15 +401,15 @@ _RingBuffer::processBlock
 _EventProcessorDescriptor::_EventProcessorDescriptor
     (FluidSynthPlugin_EventProcessor* parent)
         : eventProcessor(parent),
-          midiEventConverter{new MidiEventConverter()},
+          midiEventConverter{new MidiEventConverter(true)},
           currentProgramIndex{0},
           fluidSynthBufferingIsCompensated{false}
 {
     if (!isCorrectlyInitialized()) {
         errorMessageList.append(_errorMessageForBadLibraryInitialization);
     } else {
-        midiEventConverter->set(_settingsKeyForProgram,
-                                TOSTRING(currentProgramIndex));
+        midiEventConverter->setSetting(_settingsKeyForPreset,
+                                       TOSTRING(currentProgramIndex));
     }
 }
 
@@ -484,21 +443,24 @@ void _EventProcessorDescriptor::setSettings (IN String& st)
         errorMessageList.append(_errorMessageForBadLibraryInitialization);
     }
 
+    midiEventConverter->resetSettings();
     settingsString = st;
 
     const String entrySeparator{"#"};
     const String nlSt = STR::newlineReplacedString(st, entrySeparator);
     Dictionary d =
         Dictionary::makeFromString(nlSt, entrySeparator, "=");
+    StringList keyList = 
+        Dictionary::makeKeyListFromString(nlSt, entrySeparator, "=");
 
-    for (auto & [key, value] : d) {
-        _replaceEnvironmentVariables(value);
+    for (String key : keyList) {
+        String value = Environment::expand(d.at(key));
 
         if (key == _fsBufferingCompensationKey) {
             fluidSynthBufferingIsCompensated =
                 (STR::toLowercase(value) == "true");
         } else {
-            Boolean isOkay = midiEventConverter->set(key, value);
+            Boolean isOkay = midiEventConverter->setSetting(key, value);
 
             if (libraryIsAvailable && !isOkay) {
                 String errorMessage =
@@ -531,7 +493,7 @@ _convertFromJuceEventList(IN juce::MidiBuffer& juceMidiEventList)
     MidiEventList result;
 
     /* traverse all the events */
-    for (const juce::MidiMessageMetadata& metadata : juceMidiEventList) {
+    for (juce::MidiMessageMetadata metadata : juceMidiEventList) {
         Natural eventTime{(size_t) metadata.samplePosition};
         const juce::uint8* byteList = metadata.data;
         ByteList midiDataList;
@@ -716,6 +678,18 @@ const juce::String FluidSynthPlugin_EventProcessor::getName () const
 }
 
 /*--------------------*/
+
+StringList FluidSynthPlugin_EventProcessor::presetList () const
+{
+    Logging_trace(">>");
+    _EventProcessorDescriptor& descriptor =
+        TOREFERENCE<_EventProcessorDescriptor>(_descriptor);
+    StringList result = descriptor.midiEventConverter->presetList();
+    Logging_trace1("<<: %1", result.toString());
+    return result;
+}
+        
+/*--------------------*/
 /* property change    */
 /*--------------------*/
 
@@ -732,14 +706,28 @@ FluidSynthPlugin_EventProcessor::createEditor ()
 void FluidSynthPlugin_EventProcessor::setCurrentProgram (int index)
 {
     String indexAsString = TOSTRING(Integer{index});
+    Logging_trace1(">>: %1", indexAsString);
     Assertion_pre(0 <= index && index < _midiProgramCount,
                   STR::expand("must be a MIDI program number: %1",
                               indexAsString));
+
     _EventProcessorDescriptor& descriptor =
         TOREFERENCE<_EventProcessorDescriptor>(_descriptor);
     descriptor.currentProgramIndex = index;
-    descriptor.midiEventConverter->set(_settingsKeyForProgram,
-                                       ":" + indexAsString);
+    MidiEventConverter& midiEventConverter =
+        TOREFERENCE<MidiEventConverter>(descriptor.midiEventConverter);
+    ByteList byteList;
+    byteList.setLength(2);
+    byteList.set(1, Byte{index});
+
+    for (Byte midiChannel = 0;  midiChannel < 16;  midiChannel++) {
+        Byte statusByte = Byte{0xC0} + midiChannel;
+        byteList.set(0, statusByte);
+        MidiEvent programChangeEvent{0, byteList};
+        midiEventConverter.processMidiEvent(programChangeEvent);
+    }
+
+    Logging_trace("<<");
 }
 
 /*--------------------*/
@@ -753,6 +741,40 @@ FluidSynthPlugin_EventProcessor::changeProgramName (int, const juce::String&)
 /*---------------------------*/
 /* parameter access & change */
 /*---------------------------*/
+
+String FluidSynthPlugin_EventProcessor::errorString () const
+{
+    Logging_trace(">>");
+
+    _EventProcessorDescriptor& descriptor =
+        TOREFERENCE<_EventProcessorDescriptor>(_descriptor);
+
+    StringList& errorMessageList = descriptor.errorMessageList;
+    String result;
+
+    if (!errorMessageList.isEmpty()) {
+        result = errorMessageList[0];
+    }
+
+    Logging_trace1("<<: %1", result);
+    return result;
+}
+
+/*--------------------*/
+
+String FluidSynthPlugin_EventProcessor::fsLibraryVersion () const
+{
+    Logging_trace(">>");
+
+    _EventProcessorDescriptor& descriptor =
+        TOREFERENCE<_EventProcessorDescriptor>(_descriptor);
+    String result = descriptor.midiEventConverter->fsLibraryVersion();
+
+    Logging_trace1("<< %1", result);
+    return result;
+}
+
+/*--------------------*/
 
 String FluidSynthPlugin_EventProcessor::settings () const
 {
@@ -784,26 +806,6 @@ void FluidSynthPlugin_EventProcessor::setSettings (IN String& st)
     }
 
     Logging_trace("<<");
-}
-
-/*--------------------*/
-
-String FluidSynthPlugin_EventProcessor::errorString () const
-{
-    Logging_trace(">>");
-
-    _EventProcessorDescriptor& descriptor =
-        TOREFERENCE<_EventProcessorDescriptor>(_descriptor);
-
-    StringList& errorMessageList = descriptor.errorMessageList;
-    String result;
-
-    if (!errorMessageList.isEmpty()) {
-        result = errorMessageList[0];
-    }
-
-    Logging_trace1("<<: %1", result);
-    return result;
 }
 
 /*--------------------*/

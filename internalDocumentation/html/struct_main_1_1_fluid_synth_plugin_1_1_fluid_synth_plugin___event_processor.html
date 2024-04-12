@@ -143,6 +143,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a81eed48a5d75cc48b28a9c28e375e375"><td class="memItemLeft" align="right" valign="top">const juce::String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#a81eed48a5d75cc48b28a9c28e375e375">getName</a> () const override</td></tr>
 <tr class="memdesc:a81eed48a5d75cc48b28a9c28e375e375"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name of this plugin for JUCE.  <a href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#a81eed48a5d75cc48b28a9c28e375e375">More...</a><br /></td></tr>
 <tr class="separator:a81eed48a5d75cc48b28a9c28e375e375"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3b141bd4cfba4a047844df8563c6bdd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_base_types_1_1_containers_1_1_string_list.html">StringList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#ad3b141bd4cfba4a047844df8563c6bdd">presetList</a> () const</td></tr>
+<tr class="memdesc:ad3b141bd4cfba4a047844df8563c6bdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns list of presets together with their bank and program numbers with bank, program and name separated by tabulators.  <a href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#ad3b141bd4cfba4a047844df8563c6bdd">More...</a><br /></td></tr>
+<tr class="separator:ad3b141bd4cfba4a047844df8563c6bdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96707fce3965a387af739c255e0d9dea"><td class="memItemLeft" align="right" valign="top">juce::AudioProcessorEditor *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#a96707fce3965a387af739c255e0d9dea">createEditor</a> () override</td></tr>
 <tr class="memdesc:a96707fce3965a387af739c255e0d9dea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the associated editor for this processor (a very simplistic editor with a simple UI).  <a href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#a96707fce3965a387af739c255e0d9dea">More...</a><br /></td></tr>
 <tr class="separator:a96707fce3965a387af739c255e0d9dea"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -152,15 +155,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aef3480b7f97d31ff77a473e561863215"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#aef3480b7f97d31ff77a473e561863215">changeProgramName</a> (int index, const juce::String &amp;newName) override</td></tr>
 <tr class="memdesc:aef3480b7f97d31ff77a473e561863215"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the program name for this processor given by <code>index</code>.  <a href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#aef3480b7f97d31ff77a473e561863215">More...</a><br /></td></tr>
 <tr class="separator:aef3480b7f97d31ff77a473e561863215"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a521d917134ed111b613e70e5b34d1a1b"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#a521d917134ed111b613e70e5b34d1a1b">errorString</a> () const</td></tr>
+<tr class="memdesc:a521d917134ed111b613e70e5b34d1a1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the error string for current settings (if any).  <a href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#a521d917134ed111b613e70e5b34d1a1b">More...</a><br /></td></tr>
+<tr class="separator:a521d917134ed111b613e70e5b34d1a1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a778c6df76530183fa27f56d4f8e62ed1"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#a778c6df76530183fa27f56d4f8e62ed1">fsLibraryVersion</a> () const</td></tr>
+<tr class="memdesc:a778c6df76530183fa27f56d4f8e62ed1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the version of the underlying fluidsynth library.  <a href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#a778c6df76530183fa27f56d4f8e62ed1">More...</a><br /></td></tr>
+<tr class="separator:a778c6df76530183fa27f56d4f8e62ed1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2cc34e1b34b675d27c57c6a947dcae0"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#af2cc34e1b34b675d27c57c6a947dcae0">settings</a> () const</td></tr>
 <tr class="memdesc:af2cc34e1b34b675d27c57c6a947dcae0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current value of the settings string.  <a href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#af2cc34e1b34b675d27c57c6a947dcae0">More...</a><br /></td></tr>
 <tr class="separator:af2cc34e1b34b675d27c57c6a947dcae0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42a215cac536a06abe5eeea10b484f79"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#a42a215cac536a06abe5eeea10b484f79">setSettings</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;st)</td></tr>
 <tr class="memdesc:a42a215cac536a06abe5eeea10b484f79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the settings string to <code>st</code>.  <a href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#a42a215cac536a06abe5eeea10b484f79">More...</a><br /></td></tr>
 <tr class="separator:a42a215cac536a06abe5eeea10b484f79"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a521d917134ed111b613e70e5b34d1a1b"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#a521d917134ed111b613e70e5b34d1a1b">errorString</a> () const</td></tr>
-<tr class="memdesc:a521d917134ed111b613e70e5b34d1a1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the error string for current settings (if any).  <a href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#a521d917134ed111b613e70e5b34d1a1b">More...</a><br /></td></tr>
-<tr class="separator:a521d917134ed111b613e70e5b34d1a1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9342cf558f1f623bde3905c52719481"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#aa9342cf558f1f623bde3905c52719481">prepareToPlay</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> double sampleRate, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> int maximumExpectedSamplesPerBlock) override</td></tr>
 <tr class="memdesc:aa9342cf558f1f623bde3905c52719481"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informs the processor to be prepared for playback.  <a href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#aa9342cf558f1f623bde3905c52719481">More...</a><br /></td></tr>
 <tr class="separator:aa9342cf558f1f623bde3905c52719481"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -306,6 +312,26 @@ Object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="st
 
 <p>Returns the error string for current settings (if any). </p>
 <dl class="section return"><dt>Returns</dt><dd>current error string </dd></dl>
+
+</div>
+</div>
+<a id="a778c6df76530183fa27f56d4f8e62ed1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a778c6df76530183fa27f56d4f8e62ed1">&#9670;&nbsp;</a></span>fsLibraryVersion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String FluidSynthPlugin_EventProcessor::fsLibraryVersion </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the version of the underlying fluidsynth library. </p>
+<dl class="section return"><dt>Returns</dt><dd>associated FluidSynth version </dd></dl>
 
 </div>
 </div>
@@ -589,6 +615,26 @@ Object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="st
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="ad3b141bd4cfba4a047844df8563c6bdd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3b141bd4cfba4a047844df8563c6bdd">&#9670;&nbsp;</a></span>presetList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_base_types_1_1_containers_1_1_string_list.html">StringList</a> FluidSynthPlugin_EventProcessor::presetList </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns list of presets together with their bank and program numbers with bank, program and name separated by tabulators. </p>
+<dl class="section return"><dt>Returns</dt><dd>list of strings each with bank, program and name separated by tabulators </dd></dl>
 
 </div>
 </div>

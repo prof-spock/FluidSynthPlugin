@@ -99,7 +99,7 @@ $(document).ready(function(){initNavTree('struct_base_types_1_1_containers_1_1_d
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="struct_base_types_1_1_containers_1_1_dictionary__inherit__graph.svg" width="236" height="302"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="struct_base_types_1_1_containers_1_1_dictionary__inherit__graph.svg" width="236" height="316"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
@@ -110,6 +110,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a11e7179d705605b4851d3cbf04406ba5"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_base_types_1_1_containers_1_1_dictionary.html">Dictionary</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_base_types_1_1_containers_1_1_dictionary.html#a11e7179d705605b4851d3cbf04406ba5">makeFromString</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;st, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;entrySeparator=StringUtil::entrySeparator, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;keyValueSeparator=StringUtil::keyValueSeparator)</td></tr>
 <tr class="memdesc:a11e7179d705605b4851d3cbf04406ba5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes dictionary from a string <code>st</code> gained by serializing a dictionary via <code>toString</code>;.  <a href="struct_base_types_1_1_containers_1_1_dictionary.html#a11e7179d705605b4851d3cbf04406ba5">More...</a><br /></td></tr>
 <tr class="separator:a11e7179d705605b4851d3cbf04406ba5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa373f05cc631a03e49a100fd8c340fca"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_base_types_1_1_containers_1_1_string_list.html">StringList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_base_types_1_1_containers_1_1_dictionary.html#aa373f05cc631a03e49a100fd8c340fca">makeKeyListFromString</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;st, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;entrySeparator=StringUtil::entrySeparator, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;keyValueSeparator=StringUtil::keyValueSeparator)</td></tr>
+<tr class="memdesc:aa373f05cc631a03e49a100fd8c340fca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes ordered key list from a string <code>st</code> with same separator logic as <code>makeFromString</code>  <a href="struct_base_types_1_1_containers_1_1_dictionary.html#aa373f05cc631a03e49a100fd8c340fca">More...</a><br /></td></tr>
+<tr class="separator:aa373f05cc631a03e49a100fd8c340fca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A <code><a class="el" href="struct_base_types_1_1_containers_1_1_dictionary.html" title="A Dictionary object maps string keys to string values.">Dictionary</a></code> object maps string keys to string values. </p>
@@ -192,6 +195,59 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Makes dictionary from a string <code>st</code> gained by serializing a dictionary via <code>toString</code>;. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">st</td><td>string with serialized form of dictionary </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">entrySeparator</td><td>separator between different entries </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">keyValueSeparator</td><td>separator between a key and its value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>dictionary with keys and values as given in <code>st</code> </dd></dl>
+
+</div>
+</div>
+<a id="aa373f05cc631a03e49a100fd8c340fca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa373f05cc631a03e49a100fd8c340fca">&#9670;&nbsp;</a></span>makeKeyListFromString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_base_types_1_1_containers_1_1_string_list.html">StringList</a> Dictionary::makeKeyListFromString </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;&#160;</td>
+          <td class="paramname"><em>st</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;&#160;</td>
+          <td class="paramname"><em>entrySeparator</em> = <code>StringUtil::entrySeparator</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;&#160;</td>
+          <td class="paramname"><em>keyValueSeparator</em> = <code>StringUtil::keyValueSeparator</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Makes ordered key list from a string <code>st</code> with same separator logic as <code>makeFromString</code> </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">st</td><td>string with serialized form of dictionary </td></tr>

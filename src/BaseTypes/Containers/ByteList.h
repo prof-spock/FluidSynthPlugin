@@ -46,7 +46,7 @@ namespace BaseTypes::Containers {
     struct ByteList :
         public GenericList<Byte,
                            Byte::toString,
-                           &_byteListTypeName > {
+                           _byteListTypeName > {
 
         /*--------------------*/
         /* constructors       */

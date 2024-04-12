@@ -23,6 +23,10 @@ var files_dup =
     [ "Boolean.h", "_boolean_8h.html", [
       [ "Boolean", "struct_base_types_1_1_primitives_1_1_boolean.html", "struct_base_types_1_1_primitives_1_1_boolean" ]
     ] ],
+    [ "BuildInformation.cpp", "_build_information_8cpp.html", null ],
+    [ "BuildInformation.h", "_build_information_8h.html", [
+      [ "BuildInformation", "struct_main_1_1_build_information.html", "struct_main_1_1_build_information" ]
+    ] ],
     [ "Byte.h", "_byte_8h.html", [
       [ "Byte", "struct_base_types_1_1_primitives_1_1_byte.html", "struct_base_types_1_1_primitives_1_1_byte" ]
     ] ],
@@ -37,6 +41,10 @@ var files_dup =
     [ "Dictionary.h", "_dictionary_8h.html", "_dictionary_8h" ],
     [ "DynamicLibrary.h", "_dynamic_library_8h.html", [
       [ "DynamicLibrary", "struct_libraries_1_1_dynamic_library.html", "struct_libraries_1_1_dynamic_library" ]
+    ] ],
+    [ "Environment.cpp", "_environment_8cpp.html", "_environment_8cpp" ],
+    [ "Environment.h", "_environment_8h.html", [
+      [ "Environment", "struct_base_modules_1_1_environment.html", "struct_base_modules_1_1_environment" ]
     ] ],
     [ "File.cpp", "_file_8cpp.html", "_file_8cpp" ],
     [ "File.h", "_file_8h.html", [
@@ -54,6 +62,10 @@ var files_dup =
     [ "FluidSynthPlugin_Editor.h", "_fluid_synth_plugin___editor_8h.html", [
       [ "FluidSynthPlugin_Editor", "struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___editor.html", "struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___editor" ]
     ] ],
+    [ "FluidSynthPlugin_EditorSupport.cpp", "_fluid_synth_plugin___editor_support_8cpp.html", "_fluid_synth_plugin___editor_support_8cpp" ],
+    [ "FluidSynthPlugin_EditorSupport.h", "_fluid_synth_plugin___editor_support_8h.html", [
+      [ "FluidSynthPlugin_EditorSupport", "struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___editor_support.html", "struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___editor_support" ]
+    ] ],
     [ "FluidSynthPlugin_EventProcessor.cpp", "_fluid_synth_plugin___event_processor_8cpp.html", "_fluid_synth_plugin___event_processor_8cpp" ],
     [ "FluidSynthPlugin_EventProcessor.h", "_fluid_synth_plugin___event_processor_8h.html", [
       [ "FluidSynthPlugin_EventProcessor", "struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html", "struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor" ]
@@ -61,6 +73,10 @@ var files_dup =
     [ "FluidSynthSettings.cpp", "_fluid_synth_settings_8cpp.html", "_fluid_synth_settings_8cpp" ],
     [ "FluidSynthSettings.h", "_fluid_synth_settings_8h.html", [
       [ "FluidSynthSettings", "struct_libraries_1_1_fluid_synth_1_1_fluid_synth_settings.html", "struct_libraries_1_1_fluid_synth_1_1_fluid_synth_settings" ]
+    ] ],
+    [ "FluidSynthSoundFont.cpp", "_fluid_synth_sound_font_8cpp.html", "_fluid_synth_sound_font_8cpp" ],
+    [ "FluidSynthSoundFont.h", "_fluid_synth_sound_font_8h.html", [
+      [ "FluidSynthSoundFont", "struct_libraries_1_1_fluid_synth_1_1_fluid_synth_sound_font.html", "struct_libraries_1_1_fluid_synth_1_1_fluid_synth_sound_font" ]
     ] ],
     [ "FluidSynthSynthesizer.cpp", "_fluid_synth_synthesizer_8cpp.html", "_fluid_synth_synthesizer_8cpp" ],
     [ "FluidSynthSynthesizer.h", "_fluid_synth_synthesizer_8h.html", [
@@ -76,7 +92,6 @@ var files_dup =
     [ "JucePlugin-Standalone.cpp", "_juce_plugin-_standalone_8cpp.html", null ],
     [ "JucePlugin-util.cpp", "_juce_plugin-util_8cpp.html", null ],
     [ "JucePlugin-VST_1.cpp", "_juce_plugin-_v_s_t__1_8cpp.html", null ],
-    [ "JucePlugin-VST_2.cpp", "_juce_plugin-_v_s_t__2_8cpp.html", null ],
     [ "JucePluginDefines.h", "_juce_plugin_defines_8h.html", "_juce_plugin_defines_8h" ],
     [ "Logging.h", "_logging_8h.html", "_logging_8h" ],
     [ "LoggingSupport.cpp", "_logging_support_8cpp.html", "_logging_support_8cpp" ],
@@ -97,6 +112,10 @@ var files_dup =
     [ "MidiFile.h", "_midi_file_8h.html", [
       [ "MidiFile", "struct_m_i_d_i_1_1_midi_file.html", "struct_m_i_d_i_1_1_midi_file" ]
     ] ],
+    [ "MidiPresetIdentification.cpp", "_midi_preset_identification_8cpp.html", "_midi_preset_identification_8cpp" ],
+    [ "MidiPresetIdentification.h", "_midi_preset_identification_8h.html", [
+      [ "MidiPresetIdentification", "struct_m_i_d_i_1_1_midi_preset_identification.html", "struct_m_i_d_i_1_1_midi_preset_identification" ]
+    ] ],
     [ "MyArray.h", "_my_array_8h.html", "_my_array_8h" ],
     [ "MyString.cpp", "_my_string_8cpp.html", "_my_string_8cpp" ],
     [ "MyString.h", "_my_string_8h.html", "_my_string_8h" ],
@@ -106,6 +125,9 @@ var files_dup =
     ] ],
     [ "NaturalList.cpp", "_natural_list_8cpp.html", "_natural_list_8cpp" ],
     [ "NaturalList.h", "_natural_list_8h.html", "_natural_list_8h" ],
+    [ "NaturalSet.h", "_natural_set_8h.html", [
+      [ "NaturalSet", "struct_base_types_1_1_containers_1_1_natural_set.html", null ]
+    ] ],
     [ "Object.h", "_object_8h.html", "_object_8h" ],
     [ "OperatingSystem.cpp", "_operating_system_8cpp.html", "_operating_system_8cpp" ],
     [ "OperatingSystem.h", "_operating_system_8h.html", [

@@ -2,8 +2,10 @@
 <area shape="rect" id="node1" title="The FluidSynth class specifies an object&#45;oriented wrapper around the fluidsynth library and also allo..." alt="" coords="87,5,182,32"/>
 <area shape="rect" id="node2" href="$_fluid_synth_8cpp.html" title="The FluidSynth class implements the access to the fluidsynth library via a dynamic loading of it." alt="" coords="5,80,115,107"/>
 <area shape="rect" id="node3" href="$_fluid_synth_settings_8h.html" title="The FluidSynthSettings class specifies an object&#45;oriented wrapper around an underlying fluidsynth set..." alt="" coords="139,80,282,107"/>
-<area shape="rect" id="node4" href="$_fluid_synth_settings_8cpp.html" title="The FluidSynthSettings class implements an object&#45;oriented wrapper around an underlying fluidsynth se..." alt="" coords="39,155,196,181"/>
-<area shape="rect" id="node5" href="$_fluid_synth_synthesizer_8h.html" title="The FluidSynthSynthesizer class specifies an object&#45;oriented wrapper around an underlying fluidsynth ..." alt="" coords="221,155,385,181"/>
-<area shape="rect" id="node6" href="$_fluid_synth_synthesizer_8cpp.html" title="The FluidSynthSynthesizer class implements an object&#45;oriented wrapper around an underlying fluidsynth..." alt="" coords="117,229,296,256"/>
-<area shape="rect" id="node7" href="$_midi_event_converter_8cpp.html" title="The MidiEventConverter module implements the handling of MIDI events by feeding them to an underlying..." alt="" coords="320,229,477,256"/>
+<area shape="rect" id="node4" href="$_fluid_synth_settings_8cpp.html" title="The FluidSynthSettings class implements an object&#45;oriented wrapper around an underlying fluidsynth se..." alt="" coords="40,155,197,181"/>
+<area shape="rect" id="node5" href="$_fluid_synth_synthesizer_8h.html" title="The FluidSynthSynthesizer class specifies an object&#45;oriented wrapper around an underlying fluidsynth ..." alt="" coords="222,155,386,181"/>
+<area shape="rect" id="node6" href="$_fluid_synth_sound_font_8h.html" title="The FluidSynthSoundFont class specifies an object&#45;oriented wrapper around an underlying fluidsynth so..." alt="" coords="129,229,287,256"/>
+<area shape="rect" id="node9" href="$_fluid_synth_synthesizer_8cpp.html" title="The FluidSynthSynthesizer class implements an object&#45;oriented wrapper around an underlying fluidsynth..." alt="" coords="312,229,491,256"/>
+<area shape="rect" id="node7" href="$_fluid_synth_sound_font_8cpp.html" title="The FluidSynthSoundFont class implements an object&#45;oriented wrapper around an underlying fluidsynth s..." alt="" coords="27,304,199,331"/>
+<area shape="rect" id="node8" href="$_midi_event_converter_8cpp.html" title="The MidiEventConverter module implements the handling of MIDI events by feeding them to an underlying..." alt="" coords="224,304,381,331"/>
 </map>

@@ -48,7 +48,7 @@ namespace MIDI {
     struct MidiEventList
         : public GenericList<MidiEvent,
                              MidiEvent::toString,
-                             &_midiEventListTypeName > {
+                             _midiEventListTypeName > {
 
         /*--------------------*/
         /* construction       */

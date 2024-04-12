@@ -48,7 +48,7 @@ namespace BaseTypes::Containers {
     struct RealList
         : public GenericList<Real,
                              Real::toString,
-                             &_realListTypeName > {
+                             _realListTypeName > {
 
         /*--------------------*/
         /* constructors       */

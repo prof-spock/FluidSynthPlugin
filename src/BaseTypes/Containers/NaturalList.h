@@ -44,7 +44,7 @@ namespace BaseTypes::Containers {
     struct NaturalList
         : public GenericList<Natural,
                              Natural::toString,
-                             &_naturalListTypeName > {
+                             _naturalListTypeName > {
 
         /*--------------------*/
         /* constructors       */

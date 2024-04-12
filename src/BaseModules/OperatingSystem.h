@@ -17,10 +17,12 @@
 /*=========*/
 
 #include "Boolean.h"
+#include "Dictionary.h"
 #include "Natural.h"
 
 /*--------------------*/
 
+using BaseTypes::Containers::Dictionary;
 using BaseTypes::Primitives::Boolean;
 using BaseTypes::Primitives::Natural;
 using BaseTypes::Primitives::String;
@@ -96,20 +98,6 @@ namespace BaseModules {
          * @return  information on directory name of file
          */
         static String dirname (IN String& fileName);
-
-        /*--------------------*/
-
-        /**
-         * Returns associated value for <C>variableName</C> as string
-         * from the environment.
-         *
-         * @param[in] variableName  name of environment variable
-         * @param[in] defaultValue  value to be returned when
-         *                          environment variable is not set
-         * @return  associated environment value as string
-         */
-        static String environmentValue (IN String variableName,
-                                        IN String defaultValue = "???");
 
         /*--------------------*/
 

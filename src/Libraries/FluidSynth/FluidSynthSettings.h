@@ -59,11 +59,12 @@ namespace Libraries::FluidSynth {
         /*--------------------*/
 
         /**
-         * Returns the underlying settings object.
+         * Returns the underlying settings object from the FluidSynth
+         * library.
          *
          * @return  underlying fluidsynth settings object
          */
-        Object fsSettings () const;
+        Object underlyingObject () const;
 
         /*--------------------*/
 

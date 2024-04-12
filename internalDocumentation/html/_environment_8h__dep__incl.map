@@ -1,0 +1,6 @@
+<map id="Environment.h" name="Environment.h">
+<area shape="rect" id="node1" title="The Environment specification defines operating system services related to environment variables." alt="" coords="190,5,294,32"/>
+<area shape="rect" id="node2" href="$_environment_8cpp.html" title="The Environment body implements operating system services related to environment variables." alt="" coords="5,80,124,107"/>
+<area shape="rect" id="node3" href="$_fluid_synth_plugin___editor_8cpp.html" title="The FluidSynthPlugin_Editor module implements the editor for the processor of MIDI events from the DA..." alt="" coords="149,80,335,107"/>
+<area shape="rect" id="node4" href="$_fluid_synth_plugin___event_processor_8cpp.html" title="The FluidSynthPlugin_Processor module implements the handling of MIDI events from the DAW via JUCE ha..." alt="" coords="359,80,602,107"/>
+</map>

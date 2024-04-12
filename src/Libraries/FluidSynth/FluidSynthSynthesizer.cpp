@@ -19,6 +19,7 @@
 
 /*--------------------*/
 
+using BaseTypes::Containers::clearArray;
 using BaseTypes::Containers::convertArray;
 using Libraries::DynamicLibrary;
 using Libraries::FluidSynth::FluidSynthSynthesizer;
@@ -31,7 +32,7 @@ using Libraries::FluidSynth::FluidSynthSynthesizer;
 typedef Object (*FSSynthesizer_CreationProc)(Object);
 
 /** synthesizer destruction function type in library */
-typedef void (*FS_DestructionProc)(Object);
+typedef void (*FSSynthesizer_DestructionProc)(Object);
 
 /** MIDI bank selection function type in library */
 typedef int (*FSSynthesizer_BankChangeProc)(Object, int, int);
@@ -78,7 +79,7 @@ typedef int (*FSSynthesizer_SetInterpolationMethodProc)(Object, int, int);
 static FSSynthesizer_CreationProc FSSynthesizer_make;
 
 /** synthesizer destruction function in library */
-static FS_DestructionProc FSSynthesizer_destroy;
+static FSSynthesizer_DestructionProc FSSynthesizer_destroy;
 
 /** the internal buffer size (raster) in library */
 static FSSynthesizer_BufferSizeProc FSSynthesizer_internalBufferSize;
@@ -117,6 +118,9 @@ static FSSynthesizer_ProcessProc FSSynthesizer_process;
 static FSSynthesizer_SetInterpolationMethodProc
             FSSynthesizer_setInterpolationMethod;
 
+/** flag to tell whether function pointers have been initialized */
+static Boolean _functionsAreInitialized = false;
+
 /*--------*/
 /* MACROS */
 /*--------*/
@@ -141,6 +145,26 @@ static const String _errorMessageForBadInterpolationMethodCode =
 /* PRIVATE FEATURES   */
 /*====================*/
 
+namespace Libraries::FluidSynth {
+
+    struct _SynthesizerDescriptor {
+
+        /** the underlying synthesizer object */
+        Object synthesizer = NULL;
+
+        /** the associated fluidsynth library */
+        FluidSynth* associatedLibrary = NULL;
+
+    };
+}
+
+/*====================*/
+
+/*--------------------*/
+/*--------------------*/
+
+
+
 /**
  * Connects static functions dynamically to functions from DLL
  * <C>fsLibrary</C>
@@ -153,11 +177,11 @@ static void _initializeFunctionsForLibrary (IN Object fsLibrary)
 
     if (fsLibrary == NULL) {
         Logging_traceError("fluidsynth library not loaded");
-    } else {
+    } else if (!_functionsAreInitialized) {
         FSSynthesizer_make =
             GPA(FSSynthesizer_CreationProc, "new_fluid_synth");
         FSSynthesizer_destroy =
-            GPA(FS_DestructionProc, "delete_fluid_synth");
+            GPA(FSSynthesizer_DestructionProc, "delete_fluid_synth");
 
         FSSynthesizer_internalBufferSize =
             GPA(FSSynthesizer_BufferSizeProc,
@@ -187,10 +211,14 @@ static void _initializeFunctionsForLibrary (IN Object fsLibrary)
         FSSynthesizer_setInterpolationMethod =
             GPA(FSSynthesizer_SetInterpolationMethodProc,
                 "fluid_synth_set_interp_method");
+
+        _functionsAreInitialized = true;
     }
     
     Logging_trace("<<");
 }
+
+
 
 /*====================*/
 /* PUBLIC FEATURES    */
@@ -202,15 +230,21 @@ FluidSynthSynthesizer::FluidSynthSynthesizer (IN FluidSynth* library,
 {
     Logging_trace(">>");
 
+    _descriptor = new _SynthesizerDescriptor();
+    _SynthesizerDescriptor& descriptor =
+        TOREFERENCE<_SynthesizerDescriptor>(_descriptor);
+    
     if (!library->isLoaded()) {
         Logging_traceError("library or settings object is undefined");
     } else {
-        _initializeFunctionsForLibrary(library->dynamicLibrary());
+        descriptor.associatedLibrary = (FluidSynth*) library;
+        _initializeFunctionsForLibrary(library->underlyingObject());
 
         if (FSSynthesizer_make == NULL) {
             _reportBadFunction("make");
         } else {
-            _descriptor = FSSynthesizer_make(settings->fsSettings());
+            descriptor.synthesizer =
+                FSSynthesizer_make(settings->underlyingObject());
         }
     }
     
@@ -224,18 +258,26 @@ FluidSynthSynthesizer::~FluidSynthSynthesizer ()
     Logging_trace(">>");
 
     if (_descriptor != NULL) {
-        if (FSSynthesizer_destroy == NULL) {
-            _reportBadFunction("destroy");
-        } else {
-            FSSynthesizer_destroy(_descriptor);
+        _SynthesizerDescriptor& descriptor =
+            TOREFERENCE<_SynthesizerDescriptor>(_descriptor);
+
+        if (descriptor.synthesizer != NULL) {
+            if (FSSynthesizer_destroy == NULL) {
+                _reportBadFunction("destroy");
+            } else {
+                FSSynthesizer_destroy(descriptor.synthesizer);
+            }
         }
-        
+
+        delete &descriptor;
         _descriptor = NULL;
     }
 
     Logging_trace("<<");
 }
 
+/*--------------------*/
+/* property access    */
 /*--------------------*/
 
 Natural FluidSynthSynthesizer::internalBufferSize () const
@@ -248,13 +290,51 @@ Natural FluidSynthSynthesizer::internalBufferSize () const
     } else if (FSSynthesizer_internalBufferSize == NULL) {
         _reportBadFunction("internalBufferSize");
     } else {
-        result = FSSynthesizer_internalBufferSize(_descriptor);
+        _SynthesizerDescriptor& descriptor =
+            TOREFERENCE<_SynthesizerDescriptor>(_descriptor);
+        result = FSSynthesizer_internalBufferSize(descriptor.synthesizer);
     }
     
     Logging_trace1("<<: %1", TOSTRING(result));
     return result;
 }
+
+/*--------------------*/
+
+FluidSynth* FluidSynthSynthesizer::library () const
+{
+    FluidSynth* result = NULL;
+
+    if (_descriptor == NULL) {
+        Logging_traceError(_errorMessageForUndefinedDescriptor);
+    } else {
+        _SynthesizerDescriptor& descriptor =
+            TOREFERENCE<_SynthesizerDescriptor>(_descriptor);
+        result = descriptor.associatedLibrary;
+    }
+
+    return result;
+}
+
+/*--------------------*/
+
+Object FluidSynthSynthesizer::underlyingObject () const
+{
+    Object result = NULL;
+
+    if (_descriptor == NULL) {
+        Logging_traceError(_errorMessageForUndefinedDescriptor);
+    } else {
+        _SynthesizerDescriptor& descriptor =
+            TOREFERENCE<_SynthesizerDescriptor>(_descriptor);
+        result = descriptor.synthesizer;
+    }
+
+    return result;
+}
         
+/*--------------------*/
+/* change             */
 /*--------------------*/
 
 Boolean
@@ -271,8 +351,10 @@ FluidSynthSynthesizer::handleBankChange (IN Natural channel,
     } else if (FSSynthesizer_handleBankChange == NULL) {
         _reportBadFunction("bankChange");
     } else {
+        _SynthesizerDescriptor& descriptor =
+            TOREFERENCE<_SynthesizerDescriptor>(_descriptor);
         Integer operationResult =
-            FSSynthesizer_handleBankChange(_descriptor,
+            FSSynthesizer_handleBankChange(descriptor.synthesizer,
                                            (int) channel,
                                            (int) bankNumber);
         isOkay = (operationResult == 0);
@@ -298,8 +380,10 @@ Boolean FluidSynthSynthesizer::handleControlChange (IN Natural channel,
     } else if (FSSynthesizer_handleControlChange == NULL) {
         _reportBadFunction("controlChange");
     } else {
+        _SynthesizerDescriptor& descriptor =
+            TOREFERENCE<_SynthesizerDescriptor>(_descriptor);
         Integer operationResult =
-            FSSynthesizer_handleControlChange(_descriptor,
+            FSSynthesizer_handleControlChange(descriptor.synthesizer,
                                               (int) channel,
                                               (int) controller,
                                               (int) value);
@@ -326,8 +410,10 @@ Boolean FluidSynthSynthesizer::handleMonoTouch (IN Natural channel,
     } else if (FSSynthesizer_handleMonoTouch == NULL) {
         _reportBadFunction("monoTouch");
     } else {
+        _SynthesizerDescriptor& descriptor =
+            TOREFERENCE<_SynthesizerDescriptor>(_descriptor);
         Integer operationResult =
-            FSSynthesizer_handleMonoTouch(_descriptor,
+            FSSynthesizer_handleMonoTouch(descriptor.synthesizer,
                                           (int) channel,
                                           (int) key,
                                           (int) value);
@@ -353,8 +439,10 @@ Boolean FluidSynthSynthesizer::handleNoteOff (IN Natural channel,
     } else if (FSSynthesizer_handleNoteOff == NULL) {
         _reportBadFunction("noteoff");
     } else {
+        _SynthesizerDescriptor& descriptor =
+            TOREFERENCE<_SynthesizerDescriptor>(_descriptor);
         Integer operationResult =
-            FSSynthesizer_handleNoteOff(_descriptor,
+            FSSynthesizer_handleNoteOff(descriptor.synthesizer,
                                         (int) channel,
                                         (int) note);
         isOkay = (operationResult == 0);
@@ -381,8 +469,10 @@ Boolean FluidSynthSynthesizer::handleNoteOn (IN Natural channel,
     } else if (FSSynthesizer_handleNoteOn == NULL) {
         _reportBadFunction("noteon");
     } else {
+        _SynthesizerDescriptor& descriptor =
+            TOREFERENCE<_SynthesizerDescriptor>(_descriptor);
         Integer operationResult =
-            FSSynthesizer_handleNoteOn(_descriptor,
+            FSSynthesizer_handleNoteOn(descriptor.synthesizer,
                                        (int) channel,
                                        (int) note,
                                        (int) velocity);
@@ -408,8 +498,10 @@ Boolean FluidSynthSynthesizer::handlePitchBend (IN Natural channel,
     } else if (FSSynthesizer_handlePitchBend == NULL) {
         _reportBadFunction("pitchBend");
     } else {
+        _SynthesizerDescriptor& descriptor =
+            TOREFERENCE<_SynthesizerDescriptor>(_descriptor);
         Integer operationResult =
-            FSSynthesizer_handlePitchBend(_descriptor,
+            FSSynthesizer_handlePitchBend(descriptor.synthesizer,
                                           (int) channel,
                                           (int) value);
         isOkay = (operationResult == 0);
@@ -434,8 +526,10 @@ Boolean FluidSynthSynthesizer::handlePolyTouch (IN Natural channel,
     } else if (FSSynthesizer_handlePolyTouch == NULL) {
         _reportBadFunction("polyTouch");
     } else {
+        _SynthesizerDescriptor& descriptor =
+            TOREFERENCE<_SynthesizerDescriptor>(_descriptor);
         Integer operationResult =
-            FSSynthesizer_handlePolyTouch(_descriptor,
+            FSSynthesizer_handlePolyTouch(descriptor.synthesizer,
                                           (int) channel,
                                           (int) value);
         isOkay = (operationResult == 0);
@@ -461,8 +555,10 @@ FluidSynthSynthesizer::handleProgramChange (IN Natural channel,
     } else if (FSSynthesizer_handleProgramChange == NULL) {
         _reportBadFunction("programChange");
     } else {
+        _SynthesizerDescriptor& descriptor =
+            TOREFERENCE<_SynthesizerDescriptor>(_descriptor);
         Integer operationResult =
-            FSSynthesizer_handleProgramChange(_descriptor,
+            FSSynthesizer_handleProgramChange(descriptor.synthesizer,
                                               (int) channel,
                                               (int) programNumber);
         isOkay = (operationResult == 0);
@@ -485,8 +581,10 @@ Boolean FluidSynthSynthesizer::loadSoundFont (IN String& soundFontPath)
     } else if (FSSynthesizer_loadSoundFont == NULL) {
         _reportBadFunction("loadSoundFont");
     } else {
+        _SynthesizerDescriptor& descriptor =
+            TOREFERENCE<_SynthesizerDescriptor>(_descriptor);
         int soundFontId =
-            FSSynthesizer_loadSoundFont(_descriptor,
+            FSSynthesizer_loadSoundFont(descriptor.synthesizer,
                                         soundFontPath.c_str(), 1);
 
         if (soundFontId < 0) {
@@ -522,18 +620,21 @@ FluidSynthSynthesizer::process (INOUT AudioSampleListVector& sampleBuffer,
     } else if (FSSynthesizer_process == NULL) {
         _reportBadFunction("process");
     } else {
+        _SynthesizerDescriptor& descriptor =
+            TOREFERENCE<_SynthesizerDescriptor>(_descriptor);
+
         /* provide a stereo buffer with sample count frames */
         float* floatSampleBuffer[] = {
             (float*) makeLocalArray(float, sampleCount),
             (float*) makeLocalArray(float, sampleCount)
         };
 
-        clearArray(floatSampleBuffer[0], float, sampleCount);
-        clearArray(floatSampleBuffer[1], float, sampleCount);
+        clearArray(floatSampleBuffer[0], sampleCount, 0.0f);
+        clearArray(floatSampleBuffer[1], sampleCount, 0.0f);
         
         /* mix dry audio and effects into sample buffer */
         Integer operationResult =
-            FSSynthesizer_process(_descriptor,
+            FSSynthesizer_process(descriptor.synthesizer,
                                   (int) sampleCount,
                                   (int) channelCount, floatSampleBuffer,
                                   (int) channelCount, floatSampleBuffer);
@@ -567,11 +668,14 @@ FluidSynthSynthesizer::setInterpolationMethod (IN Natural methodCode)
                && methodCode != 4 && methodCode != 7) {
         Logging_traceError(_errorMessageForBadInterpolationMethodCode);
     } else {
+        _SynthesizerDescriptor& descriptor =
+            TOREFERENCE<_SynthesizerDescriptor>(_descriptor);
+        Object synthesizer = descriptor.synthesizer;
         isOkay = true;
 
         for (Natural channel = 0;  channel < 16;  channel++) {
             Integer operationResult =
-                FSSynthesizer_setInterpolationMethod(_descriptor,
+                FSSynthesizer_setInterpolationMethod(synthesizer,
                                                      (int) channel,
                                                      (int) methodCode);
             isOkay = isOkay && (operationResult == 0);

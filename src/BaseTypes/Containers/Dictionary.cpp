@@ -85,3 +85,35 @@ Dictionary Dictionary::makeFromString (IN String& st,
 
     return result;
 }
+
+/*--------------------*/
+
+StringList Dictionary::makeKeyListFromString (IN String& st,
+                                              IN String& entrySeparator,
+                                              IN String& keyValueSeparator)
+{
+    StringList result;
+
+    /* remove leading and trailing white space from separators to also
+       allow omitted blanks in st */
+    const String eSeparator = STR::strip(entrySeparator);
+    const String kvSeparator = STR::strip(keyValueSeparator);
+
+    const StringList list = StringList::makeBySplit(st, eSeparator);
+
+    for (const String& dictionaryEntryString : list) {
+        String key;
+        String value;
+        Boolean isOkay =
+            (STR::contains(dictionaryEntryString, kvSeparator)
+             && STR::splitAt(dictionaryEntryString, 
+                             kvSeparator, key, value));
+
+        if (isOkay) {
+            key   = STR::fromPrintableString(STR::strip(key));
+            result.append(key);
+        }
+    }
+
+    return result;
+}

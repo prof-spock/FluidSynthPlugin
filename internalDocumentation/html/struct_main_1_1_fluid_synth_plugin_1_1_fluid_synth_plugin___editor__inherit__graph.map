@@ -1,4 +1,5 @@
 <map id="Main::FluidSynthPlugin::FluidSynthPlugin_Editor" name="Main::FluidSynthPlugin::FluidSynthPlugin_Editor">
-<area shape="rect" id="node1" title="A very simple editor for the FluidSynth plugin." alt="" coords="5,131,195,281"/>
-<area shape="rect" id="node2" title=" " alt="" coords="10,5,190,83"/>
+<area shape="rect" id="node1" title="A very simple editor for the FluidSynth plugin." alt="" coords="105,131,294,311"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,5,185,83"/>
+<area shape="rect" id="node3" title=" " alt="" coords="209,5,397,83"/>
 </map>

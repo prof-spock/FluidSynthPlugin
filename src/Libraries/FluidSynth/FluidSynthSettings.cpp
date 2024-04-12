@@ -61,6 +61,9 @@ static FSSettings_SetNumProc FSSettings_setNum = NULL;
 /** setting function for string value in library */
 static FSSettings_SetStrProc FSSettings_setStr = NULL;
 
+/** flag to tell whether function pointers have been initialized */
+static Boolean _functionsAreInitialized = false;
+
 /*--------*/
 /* MACROS */
 /*--------*/
@@ -126,7 +129,7 @@ static void _initializeFunctionsForLibrary (IN Object fsLibrary)
 
     if (fsLibrary == NULL) {
         Logging_traceError("fluidsynth library not loaded");
-    } else {
+    } else if (!_functionsAreInitialized) {
         FSSettings_make =
             GPA(FSSettings_CreationProc, "new_fluid_settings");
         FSSettings_destroy =
@@ -137,6 +140,8 @@ static void _initializeFunctionsForLibrary (IN Object fsLibrary)
             GPA(FSSettings_SetNumProc, "fluid_settings_setnum");
         FSSettings_setStr =
             GPA(FSSettings_SetStrProc, "fluid_settings_setstr");
+
+        _functionsAreInitialized = true;
     }
     
     Logging_trace("<<");
@@ -157,7 +162,7 @@ FluidSynthSettings::FluidSynthSettings (IN FluidSynth* library)
     if (!library->isLoaded()) {
         Logging_traceError("library is undefined");
     } else {
-        _initializeFunctionsForLibrary(library->dynamicLibrary());
+        _initializeFunctionsForLibrary(library->underlyingObject());
 
         if (FSSettings_make == NULL) {
             reportBadFunction("make");
@@ -208,8 +213,8 @@ Boolean FluidSynthSettings::set (IN String& key, IN String& value)
             Logging_traceError("settings object must be defined");
         } else {
             if (key == "synth.interpolation-method") {
-                // special handling of interpolation method (which is
-                // not an official parameter
+                /* special handling of interpolation method (which is
+                   not an official parameter */
                 Integer intValue = STR::toInteger(value);
                 Logging_trace2("--: kind = %1, value = %2",
                                kind, TOSTRING(intValue));
@@ -277,7 +282,7 @@ Boolean FluidSynthSettings::set (IN String& key, IN String& value)
 
 /*--------------------*/
 
-Object FluidSynthSettings::fsSettings () const
+Object FluidSynthSettings::underlyingObject () const
 {
     return _descriptor;
 }

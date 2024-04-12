@@ -74,7 +74,7 @@ data they typically produce audio output with a difference of less
 than -200dBFS in a spectrum analysis.
 
 Those components are currently available - as x86_64 versions - for
-Windows and Linux as VST3, MacOSX version are in preparation.
+Windows and Linux as VST3, for MacOSX as VST3 and AU.
 
 All the code is open-source; hence you can check and adapt it to your
 needs.
@@ -85,8 +85,8 @@ The installation is as follows:
 
    1. Expand the appropriate binary archive of
       <TT>FluidSynthPlugin</TT> for your platform from this
-      [repository](./releases) into the directory for VST plugins of
-      your DAW.
+      [repository](../../releases) into the directory for VST plugins
+      of your DAW.
 
    2. The distribution also contains a documentation [pdf
       file](./FluidSynthPlugin-documentation.pdf) in subdirectory doc

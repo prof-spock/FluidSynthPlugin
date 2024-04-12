@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['logging_2eh_827',['Logging.h',['../_logging_8h.html',1,'']]],
-  ['loggingsupport_2ecpp_828',['LoggingSupport.cpp',['../_logging_support_8cpp.html',1,'']]],
-  ['loggingsupport_2eh_829',['LoggingSupport.h',['../_logging_support_8h.html',1,'']]]
+  ['juceplugin_2dstandalone_2ecpp_970',['JucePlugin-Standalone.cpp',['../_juce_plugin-_standalone_8cpp.html',1,'']]],
+  ['juceplugin_2dutil_2ecpp_971',['JucePlugin-util.cpp',['../_juce_plugin-util_8cpp.html',1,'']]],
+  ['juceplugin_2dvst_5f1_2ecpp_972',['JucePlugin-VST_1.cpp',['../_juce_plugin-_v_s_t__1_8cpp.html',1,'']]],
+  ['juceplugindefines_2eh_973',['JucePluginDefines.h',['../_juce_plugin_defines_8h.html',1,'']]]
 ];

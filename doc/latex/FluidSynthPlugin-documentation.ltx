@@ -15,7 +15,6 @@
     \usepackage{listings}        % ==> listings
     \usepackage{lmodern}         % ==> scaling of cmr fonts
     \usepackage{titlesec}        % ==> titleformat
-
     \usepackage{microtype}  % for better justification, requires later
                             % engine of LaTeX like e.g. pdflatex
 
@@ -44,7 +43,7 @@
     \fancyhead[RO]{\slshape \leftmark}
     %--
     \fancyfoot[LE]{\thepage}
-    \fancyfoot[CE]{~}
+    \fancyfoot[CE]{v\programVersion}
     \fancyfoot[RE]{Dr.~Thomas Tensi}
     \fancyfoot[LO]{FluidSynth Plugin and Pedantic Command Line Processor}
     \fancyfoot[CO]{~}
@@ -209,6 +208,8 @@
         \productName{Pedantic\-Fluid\-Synth\-Converter}%
     }
 
+    \newcommand{\programVersion}{0.7.0}
+
     \newcommand{\settingsCaption}[1]{%
         Common Synthesizer Settings for \FluidSynthPlugin\ and
         \FluidSynthConverter\ (Part~#1)%
@@ -229,8 +230,8 @@
   \large
   \begin{tabular}{>{\bf}p{2.5cm}p{10.5cm}}
       Author:&Dr.~Thomas Tensi\\
-      Date:&2024-03-04\\
-      Version:&0.5\\
+      Date:&2024-04-11\\
+      Version:&\programVersion\\
       Platforms:&VST3 on Windows~x64,\\
                 &VST3/AU on MacOSX (x86\_64)\\
                 &VST3 on Linux (x86\_64)\\
@@ -287,7 +288,7 @@ reproduction of the external rendering pipeline within the DAW.
 So the first component of this package is a DAW plugin called
 ``\FluidSynthPlugin''.  It has a simplistic interface where you
 specify a soundfont, several fluidsynth settings and possibly a MIDI
-program to be selected by putting text data in a text field.  Then you
+preset to be selected by putting text data in a text field.  Then you
 are able to convert an incoming MIDI stream in a DAW to audio using
 the \FluidSynth\ library.
 
@@ -342,6 +343,11 @@ Antoine Schmitt, Pedro López-Cabanillas, Josh Green, David Henningsson
 and Tom Moebert.  Without your effort this would not have been
 possible!
 
+I would also like to thank S. Christian Collins for very helpful
+discussions and his suggestions to improve the plugin, especially the
+great input to enhance the user interface beyond the original academic
+approach.
+
 %===============================================
 \chapter{Installation of the \FluidSynthPlugins}
 %===============================================
@@ -366,7 +372,7 @@ The installation is as follows:
 
    \item When installing the plugin and program on Windows, they
          require the so-called Microsoft Visual C++ Redistributable
-         library~\ref{reference:visualCLibrary}.  Very often this is
+         library~\cite{reference:visualCLibrary}.  Very often this is
          already installed on your system; if not, you have to install
          it from the Microsoft site.
 
@@ -380,10 +386,22 @@ The installation is as follows:
 
 \end{enumerate}
 
-Note that the plugin directory and the directory of the
-\FluidSynthConverter\ contain a dynamically linked library version of
-\FluidSynth\ as well as related libraries.  You can easily exchange
-those libraries for more current versions.
+Note that the connection to the \FluidSynth\ version can be changed
+\emph{since that library is dynamically linked}.  This has been a
+major design goal to be able to update the \FluidSynth\ functionality
+without having to update the \FluidSynthPlugins.
+
+That means that although the plugin directory and the directory of the
+\FluidSynthConverter\ contain a version of \FluidSynth\ as well as
+related libraries, you can easily exchange those for more current
+versions or delete them and just use the \FluidSynth\ library already
+installed on your system.  For that you just have to delete the DLL
+(Windows), DYLIB (MACOSX) or SO (Linux) files in the plugin and
+converter directories.
+
+The version of the underlying \FluidSynth\ library can be found in the
+\embeddedCode{About...} dialog in the context menu of the
+\FluidSynthPlugin\ text widget.
 
 %==============================================
 \chapter{Description of the \FluidSynthPlugins}
@@ -577,16 +595,18 @@ from~\cite{reference:fsSettingsDocumentation}).
 \end{centeredFigure}
 
 Besides the standard settings from \FluidSynth\ there are three
-special settings available: \embeddedCode{program},
+special settings available: \embeddedCode{preset}
 \embeddedCode{soundfont} and
 \embeddedCode{synth.interpolation-method}.
 
 \begin{centeredFigure}
     \begin{parameterTableA}
-        \parameterTableALine{program}
-                            {gives the program to use as the default;
+        \parameterTableALine{preset \textit{or} program}
+                            {gives the preset to use;
                              format is bankNumber:programNumber where
-                             counting for both numbers starts at zero}
+                             counting for both numbers starts at zero; 
+                             the program number is mandatory, the bank
+                             number defaults to zero}
                             {string}
         \parameterTableALine{soundfont}
                             {gives the path to the soundfont and may
@@ -626,6 +646,10 @@ enclosed by \embeddedCode{\$\{} and \embeddedCode{\}}, for example
 \section{Using the \FluidSynthPlugin}
 %------------------------------------
 
+%....................
+\subsection{Overview}
+%....................
+
 The ``\FluidSynthPlugin'' is a MIDI instrument in a DAW converting
 incoming MIDI input into an outgoing audio stream.
 
@@ -645,7 +669,7 @@ the plugin looks like.
 \end{centeredFigure}
 
 Each line may contain a \FluidSynth\ setting or a definition for
-\embeddedCode{soundfont} or \embeddedCode{program}.  A setting
+\embeddedCode{soundfont} or \embeddedCode{preset}.  A setting
 consists of a key string (like
 e.g. \embeddedCode{synth.reverb.active}), an equal sign and a value
 appropriate for the setting.  Leading and trailing blanks are ignored;
@@ -665,6 +689,14 @@ example, in figure~\ref{figure:fsPluginError} the soundfont path seems
 to be incorrect: this has to be corrected before any other error will
 be analyzed.
 
+When there is an error for the soundfont or the preset settings,
+\textbf{no sound will be produced}; errors for other settings do not
+affect the rendering, but, of course, either the default values or
+previous successful values are used for those parameters.
+
+All settings are processed in the order given.  So it is recommended
+to put the soundfont first.
+
 \begin{centeredFigure}
   \centeredExternalPicture{0.75}{FluidSynthPlugin-error.png}
   \caption{Error Message in \FluidSynthPlugin}
@@ -674,17 +706,18 @@ be analyzed.
 Note that also some error message is displayed, when the fluidsynth
 library cannot be found by the plugin.  In that case please make sure
 that the installation has been correctly done (the plugin expects its
-dynamic libraries in the directory of the plugin vst3 file).
+dynamic libraries in the directory of the plugin vst3 file or ---~when
+not available~--- in the appropriate system paths).
 
 For the VST3 plugin there is a problem caused by the VST3 API that
 has two consequences:
 \begin{itemize}
 
     \item Each program change in the MIDI event stream is converted
-          into a preset change.  Unfortunately those changes might
-          not correctly sequenced with the notes in the stream and
-          hence notes immediately following that change (within a few
-          milliseconds) might still use the previous sound.
+          into a plugin preset change.  Unfortunately those changes
+          might not becorrectly sequenced with the notes in the stream
+          and hence notes immediately following that change (within a
+          few milliseconds) might still use the previous sound.
 
     \item Even though the \FluidSynthPlugin\ and its underlying
           library would support it, it is not possible to use multiple
@@ -693,6 +726,109 @@ has two consequences:
           single preset at a time.}
 
 \end{itemize}
+
+All bank and program changes in the MIDI stream are suppressed when
+there is a valid definition for a \embeddedCode{preset} in the edit
+field.
+
+%.......................................
+\subsection{User Interface Enhancements}
+%.......................................
+
+It might be tedious to write all things manually into the edit field.
+Most of the settings have to be done like that, but at least the
+soundfont and the preset can be edited more comfortably.
+
+\paragraph{Setting the Soundfont}
+%''''''''''''''''''''''''''''''''
+
+There are two ways to set the soundfont:
+
+\begin{enumerate}
+    \item The edit field has a context menu with menu item
+          \embeddedCode{Select Soundfont File...}.  When this item is
+          clicked (with the right mouse button), a file selection
+          dialog pops up where a soundfont file may be selected.  When
+          the selection is successfully done, the soundfont entry in
+          the edit field is updated (see
+          figures~\ref{figure:fileSelectionDialog}a and b).
+
+    \item Alternatively a soundfont can be dragged onto the edit
+          field.  The field only accepts a single .sf2 or .sf3 files
+          as dragged files.  When the file is successfully dropped,
+          the soundfont entry in the edit field is updated.
+
+          Unfortunately that mechanism does not yet work in Linux
+          \cite{reference:juceDND} and will be hopefully available in
+          a later version of the underlying JUCE framework.
+
+\end{enumerate}
+
+\begin{centeredFigure}
+    \begin{tabular}{ccc}
+        \externalPicture{0.55}{FluidSynthPlugin-contextMenu.png}
+        &\qquad
+        &\externalPicture{0.6}{fileSelectionDialog.png}\\
+        (a)&&(b)\\
+    \end{tabular}
+    \caption{Edit Field Context Menu (a) and File Selection Dialog (b)}
+    \label{figure:fileSelectionDialog}
+\end{centeredFigure}
+
+Note that in both cases the edit field is selectively updated with the
+new file name and by that change set into the ``unregistered''mode
+with the white background.  When you want to make the soundfont
+selection effective, you have to press the \embeddedCode{Confirm}
+button in the main plugin window to register those changes.
+
+As a simple optimization the plugin checks the soundfont file path for
+a prefix given by some environment variable and replaces the longest
+match found by a reference to that environment variable.
+
+\paragraph{Setting the Preset}
+%'''''''''''''''''''''''''''''
+
+In the plugin edit field the soundfont preset is given as a pair of
+bank number and program number separated by a colon.  One might know
+most of the General MIDI preset numbers by heart, but very often it
+is tricky to find the correct one especially for soundfonts that do
+not adhere to that convention.
+
+As a shortcut one can again right-click into the text field to show
+its context menu (see figure~\ref{figure:fileSelectionDialog}a) and
+select the menu item \embeddedCode{Select Preset...}.
+
+A preset selection dialog with two columns comes up (see
+figure~\ref{figure:presetSelectionDialog}).  In the left column a
+bank can be elected, in the right column on program within the bank.
+Note that a bank selection in the left column does \textbf{not at all}
+change the currently selected bank and program.  This is indicated by
+a marker to the left of the bank with the selected program.
+
+When changing the selected bank, the associated programs are scrolled
+such that a similar program number is visible as the currently
+selected program number.  The idea behind that automatic scrolling is
+that normally programs in different banks with similar numbers
+represent similar sounds.
+
+A new preset is \textbf{only} selected by clicking on a program in the
+right column.  This is indicated by the marker to the left of that
+program which also is moved to the containing bank.  Note that also
+the selection bar is only visible on that specific entry.
+
+\begin{centeredFigure}
+    \centeredExternalPicture{0.85}{presetSelectionDialog.png}
+    \caption{Preset Selection Dialog}
+    \label{figure:presetSelectionDialog}
+\end{centeredFigure}
+
+When the preset selection is confirmed by \embeddedCode{Ok} (or by
+double-clicking the item) the edit field is again selectively updated
+with the new preset number and by that change set into the
+``unregistered'' mode with the white background.  When you want to
+make the preset selection effective, you have to press the
+\embeddedCode{Confirm} button in the main plugin window to register
+those changes.
 
 %---------------------------------------
 \section{Using the \FluidSynthConverter}
@@ -1083,7 +1219,7 @@ Minimum prerequisites for building are:
     XCode, clang or gcc), and
     
   \item an installation of the build automation platform
-    CMAKE~\cite{reference:cmake} with version 3.10 or later
+    CMAKE~\cite{reference:cmake} with version 3.20 or later
 
 \end{itemize}
 
@@ -1303,6 +1439,12 @@ directory \embeddedCode{/tmp} (in that order).
     \textit{JUCE Audio Framework.}\\
     \hyperlink{https://www.juce.com}
 
+
+  \bibitem[JUCEDND]{reference:juceDND}
+    Raw Material Software Limited.\\
+    \textit{JUCE Forum: Drag and Drop not working under VST in Linux.}\\
+    \hyperlink{https://forum.juce.com/t/drag-and-drop-not-working-under-vst-in-linux/50410}
+    
   \bibitem[JuicySFPlugin]{reference:juiceSfPlugin}
     Alex and Jamie Birch.\\
     \textit{Juicy SF Plugin.}\\
@@ -1313,7 +1455,6 @@ directory \embeddedCode{/tmp} (in that order).
     \textit{LilypondToBandVideoConverter --- Converter from Written
             Music to Notation Videos.}\\
     \hyperlink{https://github.com/prof-spock/LilypondToBandVideoConverter}
-
 
   \bibitem[REAPER]{reference:reaper}
     Cockos Incorporated.\\

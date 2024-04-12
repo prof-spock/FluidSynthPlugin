@@ -1,8 +1,8 @@
 /**
  * @file
- * The <C>FluidSynthPlugin_AudioProcessor</C> module handles MIDI
- * events from the DAW via JUCE and have them processed by the
- * FluidSynth library.
+ * The <C>FluidSynthPlugin_Editor</C> specification implements the
+ * editor for the processor of MIDI events from the DAW via JUCE to
+ * the FluidSynth library.
  *
  * @author Dr. Thomas Tensi
  * @date   2022-04
@@ -29,7 +29,9 @@ namespace Main::FluidSynthPlugin {
     /**
      * A very simple editor for the FluidSynth plugin.
      */
-    struct FluidSynthPlugin_Editor : public juce::AudioProcessorEditor {
+    struct FluidSynthPlugin_Editor :
+        public juce::AudioProcessorEditor,
+               juce::FileDragAndDropTarget {
 
         /*-----------------------*/
         /* setup and destruction */
@@ -49,7 +51,33 @@ namespace Main::FluidSynthPlugin {
         ~FluidSynthPlugin_Editor() override;
 
         /*--------------------*/
+        /* queries            */
+        /*--------------------*/
+
+        /**
+         * Tells whether file names in <C>fileNameList</C> are
+         * interesting for this plugin editor
+         */
+        bool isInterestedInFileDrag (const juce::StringArray &fileNameList)
+            override;
+
+        /*--------------------*/
         /* event handling     */
+        /*--------------------*/
+
+        /**
+         * Tells that files with names in <C>fileNameList</C> are
+         * dropped onto this plugin editor at (<C>x</C>,<C>y</C>)
+         *
+         * @param fileNameList  list of files dropped
+         * @param x             x-position of drop
+         * @param y             y-position of drop
+         */
+        void filesDropped (const juce::StringArray &fileNameList,
+                           int x,
+                           int y)
+            override;
+
         /*--------------------*/
 
         /**

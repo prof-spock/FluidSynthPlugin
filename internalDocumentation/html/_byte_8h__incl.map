@@ -1,11 +1,12 @@
 <map id="Byte.h" name="Byte.h">
-<area shape="rect" id="node1" title="The Byte specification and body provides a value object type for byte values." alt="" coords="63,5,123,32"/>
+<area shape="rect" id="node1" title="The Byte specification and body provides a value object type for byte values." alt="" coords="73,5,133,32"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,155,64,181"/>
-<area shape="rect" id="node3" href="$_natural_8h.html" title="The Natural specification and body provides a value object type for naturals (positive integers with ..." alt="" coords="95,80,169,107"/>
-<area shape="rect" id="node4" href="$_assertion_8h.html" title="The Assertion specification defines macros for pre&#45; and postconditions in functions or methods." alt="" coords="88,155,176,181"/>
-<area shape="rect" id="node7" title=" " alt="" coords="200,155,323,181"/>
-<area shape="rect" id="node8" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="347,155,432,181"/>
-<area shape="rect" id="node5" title=" " alt="" coords="93,229,171,256"/>
-<area shape="rect" id="node6" title=" " alt="" coords="225,229,279,256"/>
-<area shape="rect" id="node9" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="333,229,446,256"/>
+<area shape="rect" id="node3" title=" " alt="" coords="72,80,133,107"/>
+<area shape="rect" id="node4" href="$_natural_8h.html" title="The Natural specification and body provides a value object type for naturals (positive integers with ..." alt="" coords="157,80,232,107"/>
+<area shape="rect" id="node5" href="$_assertion_8h.html" title="The Assertion specification defines macros for pre&#45; and postconditions in functions or methods." alt="" coords="88,155,176,181"/>
+<area shape="rect" id="node8" title=" " alt="" coords="200,155,323,181"/>
+<area shape="rect" id="node9" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="347,155,432,181"/>
+<area shape="rect" id="node6" title=" " alt="" coords="93,229,171,256"/>
+<area shape="rect" id="node7" title=" " alt="" coords="225,229,279,256"/>
+<area shape="rect" id="node10" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="333,229,446,256"/>
 </map>

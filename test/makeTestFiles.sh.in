@@ -1,28 +1,26 @@
 #!/bin/bash
 # makeTestFiles - renders several MIDI files with standard FluidSynth
 #                 and pedantic FluidSynth File Converter
-
-pushd "$(dirname -- "$0")"
-scriptDirectory="$PWD"
-popd
-
-# selected platform "Windows-AMD64", "Darwin-x86_64" or "Linux-x86_64"
-platform=@platformName@/Release
-
-sampleRateList="44100 48000"
-soundFont="SimpleTestSoundfont.sf2"
-
-# === standard FluidSynth ===
-fsProgram=fluidsynth
-
-# === (Pedantic) FluidSynth File Converter ===
-fsfcProgram=${scriptDirectory}/../targetPlatforms/${platform}
-fsfcProgram=${fsfcProgram}/FluidSynthFileConverter
-fsfcProgram=${fsfcProgram}/FluidSynthFileConverter
+#
+# $1 configuration name (optional)
 
 # ============================================================
 
-function renderMidiFileWithSampleRate () {
+function _popd () {
+    # popd directory stack without output
+    popd >/dev/null
+}
+
+#--------------------
+
+function _pushd () {
+    # pushd directory stack without output
+    pushd $1 >/dev/null
+}
+
+#--------------------
+
+function _renderMidiFileWithSampleRate () {
     prefix=$1
     sampleRate=$2
 
@@ -41,21 +39,49 @@ function renderMidiFileWithSampleRate () {
 
 #--------------------
 
-function renderMidiFile () {
+function _renderMidiFile () {
     prefix=$1
 
     for sampleRate in ${sampleRateList}; do
-        renderMidiFileWithSampleRate ${prefix} ${sampleRate}
+        _renderMidiFileWithSampleRate ${prefix} ${sampleRate}
     done
 }
 
-# ============================================================
+# ==========
+# == MAIN ==
+# ==========
 
-pushd ${scriptDirectory}
+_pushd "$(dirname -- "$0")"
+scriptDirectory="$PWD"
+_popd
+
+# set configuration
+if [ "$1" != "" ]; then
+    configuration=$1
+else
+    configuration=Release
+fi
+
+# selected platform "Windows-AMD64", "Darwin-x86_64" or "Linux-x86_64"
+platform=@platformName@/${configuration}
+
+sampleRateList="44100 48000"
+soundFont="SimpleTestSoundfont.sf2"
+
+# === standard FluidSynth ===
+fsProgram=fluidsynth
+
+# === (Pedantic) FluidSynth File Converter ===
+fsfcProgram=${scriptDirectory}/../targetPlatforms/${platform}
+fsfcProgram=${fsfcProgram}/FluidSynthFileConverter
+fsfcProgram=${fsfcProgram}/FluidSynthFileConverter
+
+
+_pushd ${scriptDirectory}
 prefixList="test_bass test_drums test_keyboard"
 
 for prefix in ${prefixList}; do
-    renderMidiFile ${prefix}
+    _renderMidiFile ${prefix}
 done
 
-popd
+_popd

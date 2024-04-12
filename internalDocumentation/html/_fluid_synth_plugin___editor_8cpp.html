@@ -85,7 +85,7 @@ $(document).ready(function(){initNavTree('_fluid_synth_plugin___editor_8cpp.html
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
@@ -95,9 +95,11 @@ $(document).ready(function(){initNavTree('_fluid_synth_plugin___editor_8cpp.html
 
 <p>The <code>FluidSynthPlugin_Editor</code> module implements the editor for the processor of <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> events from the DAW via JUCE to the FluidSynth library.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="_logging_8h_source.html">Logging.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_percentage_8h_source.html">Percentage.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="_assertion_8h_source.html">Assertion.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_environment_8h_source.html">Environment.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_logging_8h_source.html">Logging.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_fluid_synth_plugin___editor_8h_source.html">FluidSynthPlugin_Editor.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_fluid_synth_plugin___editor_support_8h_source.html">FluidSynthPlugin_EditorSupport.h</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for FluidSynthPlugin_Editor.cpp:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -110,6 +112,9 @@ $(document).ready(function(){initNavTree('_fluid_synth_plugin___editor_8cpp.html
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_main_1_1_fluid_synth_plugin_1_1___widget_listener.html">Main::FluidSynthPlugin::_WidgetListener</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A listener class for button and text editor events.  <a href="struct_main_1_1_fluid_synth_plugin_1_1___widget_listener.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_main_1_1_fluid_synth_plugin_1_1___text_widget.html">Main::FluidSynthPlugin::_TextWidget</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A redefinition of the text editor adding popup menu items.  <a href="struct_main_1_1_fluid_synth_plugin_1_1___text_widget.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_main_1_1_fluid_synth_plugin_1_1___editor_descriptor.html">Main::FluidSynthPlugin::_EditorDescriptor</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The internal data for the editor combined into a type.  <a href="struct_main_1_1_fluid_synth_plugin_1_1___editor_descriptor.html#details">More...</a><br /></td></tr>
@@ -124,68 +129,297 @@ Namespaces</h2></td></tr>
 <tr class="memdesc:namespace_main_1_1_fluid_synth_plugin"><td class="mdescLeft">&#160;</td><td class="mdescRight">The package <code><a class="el" href="namespace_main_1_1_fluid_synth_plugin.html" title="The package FluidSynthPlugin provides classes for the FluidSynthPlugin MIDI instrument based on the f...">FluidSynthPlugin</a></code> provides classes for the <b><a class="el" href="namespace_main_1_1_fluid_synth_plugin.html" title="The package FluidSynthPlugin provides classes for the FluidSynthPlugin MIDI instrument based on the f...">FluidSynthPlugin</a></b> <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> instrument based on the fluidsynth library. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:af7be7eef1e44f60f2b1b790d7ad8caee"><td class="memItemLeft" align="right" valign="top"><a id="af7be7eef1e44f60f2b1b790d7ad8caee"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___editor_8cpp.html#af7be7eef1e44f60f2b1b790d7ad8caee">colourId2</a>(className,  prefix)&#160;&#160;&#160;    juce::className::ColourIds::prefix##ColourId</td></tr>
-<tr class="memdesc:af7be7eef1e44f60f2b1b790d7ad8caee"><td class="mdescLeft">&#160;</td><td class="mdescRight">combines className and prefix into a JUCE colour id name <br /></td></tr>
-<tr class="separator:af7be7eef1e44f60f2b1b790d7ad8caee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2b53325ddd9b181278ce46c7a10d2d2"><td class="memItemLeft" align="right" valign="top"><a id="ab2b53325ddd9b181278ce46c7a10d2d2"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___editor_8cpp.html#ab2b53325ddd9b181278ce46c7a10d2d2">colourId3</a>(className,  prefix,  partText)&#160;&#160;&#160;    juce::className::ColourIds::prefix##Colour##partText##Id</td></tr>
-<tr class="memdesc:ab2b53325ddd9b181278ce46c7a10d2d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">combines className, prefix and partText into a JUCE colour id name <br /></td></tr>
-<tr class="separator:ab2b53325ddd9b181278ce46c7a10d2d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a5b6f88d1249b396e351c4a85bcb35b2c"><td class="memItemLeft" align="right" valign="top"><a id="a5b6f88d1249b396e351c4a85bcb35b2c"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___editor_8cpp.html#a5b6f88d1249b396e351c4a85bcb35b2c">STR</a> = <a class="el" href="struct_base_modules_1_1_string_util.html">BaseModules::StringUtil</a></td></tr>
+<tr class="memdesc:a5b6f88d1249b396e351c4a85bcb35b2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">abbreviation for StringUtil <br /></td></tr>
+<tr class="separator:a5b6f88d1249b396e351c4a85bcb35b2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:ad50b691aad884cd5dda1326d0670a563"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___editor_8cpp.html#ad50b691aad884cd5dda1326d0670a563">_adaptSettingsString</a> (<a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> String &amp;st, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;key, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;value)</td></tr>
+<tr class="memdesc:ad50b691aad884cd5dda1326d0670a563"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces occurences of <code>key</code> in dictionary string <code>st</code> by <code>value</code>; record separator is a newline, field separator an equals sign.  <a href="_fluid_synth_plugin___editor_8cpp.html#ad50b691aad884cd5dda1326d0670a563">More...</a><br /></td></tr>
+<tr class="separator:ad50b691aad884cd5dda1326d0670a563"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abff013efb819e3243ba1c74bc3e4e5d3"><td class="memItemLeft" align="right" valign="top">static String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___editor_8cpp.html#abff013efb819e3243ba1c74bc3e4e5d3">_normalizedFileName</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;st)</td></tr>
+<tr class="memdesc:abff013efb819e3243ba1c74bc3e4e5d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adapts file name <code>st</code> by replacing backslashes and trying to match environment variables as possible prefices.  <a href="_fluid_synth_plugin___editor_8cpp.html#abff013efb819e3243ba1c74bc3e4e5d3">More...</a><br /></td></tr>
+<tr class="separator:abff013efb819e3243ba1c74bc3e4e5d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53be0900b44b6450c78c4490cddfd1db"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___editor_8cpp.html#a53be0900b44b6450c78c4490cddfd1db">_repaintTextWidget</a> (<a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_main_1_1_fluid_synth_plugin_1_1___editor_descriptor.html">_EditorDescriptor</a> &amp;editorDescriptor, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> juce::Colour backgroundColour)</td></tr>
+<tr class="memdesc:a53be0900b44b6450c78c4490cddfd1db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Repaints text widget of <code>editorDescriptor</code> with background color <code>backgroundColour</code>  <a href="_fluid_synth_plugin___editor_8cpp.html#a53be0900b44b6450c78c4490cddfd1db">More...</a><br /></td></tr>
+<tr class="separator:a53be0900b44b6450c78c4490cddfd1db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed4c03850580a9bbbffcae9218991bc0"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___editor_8cpp.html#aed4c03850580a9bbbffcae9218991bc0">_setKeyInWidget</a> (<a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_main_1_1_fluid_synth_plugin_1_1___editor_descriptor.html">_EditorDescriptor</a> &amp;editorDescriptor, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;key, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;value)</td></tr>
+<tr class="memdesc:aed4c03850580a9bbbffcae9218991bc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Selectively updates string in text editor with information <code>key</code> and <code>value</code>  <a href="_fluid_synth_plugin___editor_8cpp.html#aed4c03850580a9bbbffcae9218991bc0">More...</a><br /></td></tr>
+<tr class="separator:aed4c03850580a9bbbffcae9218991bc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf320c595eb3e46292bc951862c43893"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___editor_8cpp.html#acf320c595eb3e46292bc951862c43893">_updateAfterValidation</a> (<a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_main_1_1_fluid_synth_plugin_1_1___editor_descriptor.html">_EditorDescriptor</a> &amp;editorDescriptor, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a> processorIsUpdated)</td></tr>
 <tr class="memdesc:acf320c595eb3e46292bc951862c43893"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates text field and error field of <code>editorDescriptor</code>; when <code>processorIsUpdated</code> is set, the contents of the text field are written to the audio processor, otherwise only text field background and error message are updated.  <a href="_fluid_synth_plugin___editor_8cpp.html#acf320c595eb3e46292bc951862c43893">More...</a><br /></td></tr>
 <tr class="separator:acf320c595eb3e46292bc951862c43893"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee94dab7d38fd2bc822da385524eb3cb"><td class="memItemLeft" align="right" valign="top">static String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___editor_8cpp.html#aee94dab7d38fd2bc822da385524eb3cb">_valueFromKeyList</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;st, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_containers_1_1_string_list.html">StringList</a> &amp;keyList, <a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> String &amp;effectiveKey)</td></tr>
+<tr class="memdesc:aee94dab7d38fd2bc822da385524eb3cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns value from first match of <code>keyList</code> in settings string <code>st</code>  <a href="_fluid_synth_plugin___editor_8cpp.html#aee94dab7d38fd2bc822da385524eb3cb">More...</a><br /></td></tr>
+<tr class="separator:aee94dab7d38fd2bc822da385524eb3cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10c2b3d4292d065ac5338cc9edc58ee1"><td class="memItemLeft" align="right" valign="top">static String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___editor_8cpp.html#a10c2b3d4292d065ac5338cc9edc58ee1">_valueFromWidget</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_main_1_1_fluid_synth_plugin_1_1___editor_descriptor.html">_EditorDescriptor</a> &amp;editorDescriptor, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_containers_1_1_string_list.html">StringList</a> &amp;keyList, <a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> String &amp;effectiveKey)</td></tr>
+<tr class="memdesc:a10c2b3d4292d065ac5338cc9edc58ee1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns value from first matching key from <code>keyList</code> in <code>editorDescriptor</code>.  <a href="_fluid_synth_plugin___editor_8cpp.html#a10c2b3d4292d065ac5338cc9edc58ee1">More...</a><br /></td></tr>
+<tr class="separator:a10c2b3d4292d065ac5338cc9edc58ee1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1860cb4df3bc6e63dc1268d64541e94a"><td class="memItemLeft" align="right" valign="top">static juce::Rectangle&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___editor_8cpp.html#a1860cb4df3bc6e63dc1268d64541e94a">_subArea</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> juce::Rectangle&lt; int &gt; rectangle, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_percentage.html">Percentage</a> startY, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_percentage.html">Percentage</a> endY)</td></tr>
 <tr class="memdesc:a1860cb4df3bc6e63dc1268d64541e94a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a new rectangle as a subarea of <code>rectangle</code> with a horizontal indentation of 5% and a vertical range (in percentages) from <code>startY</code> to <code>endY</code>  <a href="_fluid_synth_plugin___editor_8cpp.html#a1860cb4df3bc6e63dc1268d64541e94a">More...</a><br /></td></tr>
 <tr class="separator:a1860cb4df3bc6e63dc1268d64541e94a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a5517faaa78b8c2212b29925ddd301b6b"><td class="memItemLeft" align="right" valign="top"><a id="a5517faaa78b8c2212b29925ddd301b6b"></a>
-static juce::Colour&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___editor_8cpp.html#a5517faaa78b8c2212b29925ddd301b6b">_backgroundColour</a> {0xffd0d0d0}</td></tr>
-<tr class="memdesc:a5517faaa78b8c2212b29925ddd301b6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">the background color for this editor widget <br /></td></tr>
-<tr class="separator:a5517faaa78b8c2212b29925ddd301b6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1231c7e06b10c08edb93f5a2374acd8"><td class="memItemLeft" align="right" valign="top"><a id="ab1231c7e06b10c08edb93f5a2374acd8"></a>
-static juce::Colour&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___editor_8cpp.html#ab1231c7e06b10c08edb93f5a2374acd8">_buttonColour</a> {0xffc0c0c0}</td></tr>
-<tr class="memdesc:ab1231c7e06b10c08edb93f5a2374acd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">the color of the button in this editor widget <br /></td></tr>
-<tr class="separator:ab1231c7e06b10c08edb93f5a2374acd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94323d7c604af9a53e08deed703e074e"><td class="memItemLeft" align="right" valign="top"><a id="a94323d7c604af9a53e08deed703e074e"></a>
-static juce::Colour&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___editor_8cpp.html#a94323d7c604af9a53e08deed703e074e">_labelTextColour</a> = juce::Colours::white</td></tr>
-<tr class="memdesc:a94323d7c604af9a53e08deed703e074e"><td class="mdescLeft">&#160;</td><td class="mdescRight">the color for labels in this editor widget <br /></td></tr>
-<tr class="separator:a94323d7c604af9a53e08deed703e074e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aead3ae6400352c78d396649aa577435f"><td class="memItemLeft" align="right" valign="top"><a id="aead3ae6400352c78d396649aa577435f"></a>
-static juce::Colour&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___editor_8cpp.html#aead3ae6400352c78d396649aa577435f">_errorInformationTextColour</a> = juce::Colours::red</td></tr>
-<tr class="memdesc:aead3ae6400352c78d396649aa577435f"><td class="mdescLeft">&#160;</td><td class="mdescRight">the color for labels in this editor widget <br /></td></tr>
-<tr class="separator:aead3ae6400352c78d396649aa577435f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2399cfc6c602c570745ded4839f7e00d"><td class="memItemLeft" align="right" valign="top">static juce::Colour&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___editor_8cpp.html#a2399cfc6c602c570745ded4839f7e00d">_standardEditorBackgroundColour</a></td></tr>
-<tr class="memdesc:a2399cfc6c602c570745ded4839f7e00d"><td class="mdescLeft">&#160;</td><td class="mdescRight">the background color for the text edit field in this editor widget  <a href="_fluid_synth_plugin___editor_8cpp.html#a2399cfc6c602c570745ded4839f7e00d">More...</a><br /></td></tr>
-<tr class="separator:a2399cfc6c602c570745ded4839f7e00d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab008dc8ca229033d08942ea9aa4915a4"><td class="memItemLeft" align="right" valign="top"><a id="ab008dc8ca229033d08942ea9aa4915a4"></a>
-static juce::Colour&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___editor_8cpp.html#ab008dc8ca229033d08942ea9aa4915a4">_stableEditorBackgroundColour</a> {0xffe0e0e0}</td></tr>
-<tr class="memdesc:ab008dc8ca229033d08942ea9aa4915a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">the background color for the text in this editor widget when the data has been confirmed by the user <br /></td></tr>
-<tr class="separator:ab008dc8ca229033d08942ea9aa4915a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a356102df86eba1406606e61ee9605a27"><td class="memItemLeft" align="right" valign="top"><a id="a356102df86eba1406606e61ee9605a27"></a>
-static juce::Colour&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___editor_8cpp.html#a356102df86eba1406606e61ee9605a27">_erroneousEditorBackgroundColour</a> {0xffffe0e0}</td></tr>
-<tr class="memdesc:a356102df86eba1406606e61ee9605a27"><td class="mdescLeft">&#160;</td><td class="mdescRight">the background color for the text in this editor widget when the data has been checked as erroneous by the system <br /></td></tr>
-<tr class="separator:a356102df86eba1406606e61ee9605a27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4a124be7d559802de2f6bacf4e01ecd"><td class="memItemLeft" align="right" valign="top"><a id="ad4a124be7d559802de2f6bacf4e01ecd"></a>
-static juce::Colour&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___editor_8cpp.html#ad4a124be7d559802de2f6bacf4e01ecd">_textColour</a> = juce::Colours::black</td></tr>
-<tr class="memdesc:ad4a124be7d559802de2f6bacf4e01ecd"><td class="mdescLeft">&#160;</td><td class="mdescRight">the text color in the edit field of this editor widget <br /></td></tr>
-<tr class="separator:ad4a124be7d559802de2f6bacf4e01ecd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e32ebce7bb59b1f0fb58750d983316e"><td class="memItemLeft" align="right" valign="top">static juce::NotificationType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___editor_8cpp.html#a1e32ebce7bb59b1f0fb58750d983316e">_noNotification</a></td></tr>
-<tr class="memdesc:a1e32ebce7bb59b1f0fb58750d983316e"><td class="mdescLeft">&#160;</td><td class="mdescRight">no notification kind for some widget  <a href="_fluid_synth_plugin___editor_8cpp.html#a1e32ebce7bb59b1f0fb58750d983316e">More...</a><br /></td></tr>
-<tr class="separator:a1e32ebce7bb59b1f0fb58750d983316e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0e196e39282fdcae869f61c64064ef2"><td class="memItemLeft" align="right" valign="top"><a id="ab0e196e39282fdcae869f61c64064ef2"></a>
+static const juce::Colour&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___editor_8cpp.html#ab0e196e39282fdcae869f61c64064ef2">_Colour_background</a> {0xffd0d0d0}</td></tr>
+<tr class="memdesc:ab0e196e39282fdcae869f61c64064ef2"><td class="mdescLeft">&#160;</td><td class="mdescRight">the background color for this editor widget <br /></td></tr>
+<tr class="separator:ab0e196e39282fdcae869f61c64064ef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34466721931a32005c6f2653eff5dcbb"><td class="memItemLeft" align="right" valign="top"><a id="a34466721931a32005c6f2653eff5dcbb"></a>
+static const juce::Colour&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___editor_8cpp.html#a34466721931a32005c6f2653eff5dcbb">_Colour_button</a> {0xffc0c0c0}</td></tr>
+<tr class="memdesc:a34466721931a32005c6f2653eff5dcbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">the color of the button in this editor widget <br /></td></tr>
+<tr class="separator:a34466721931a32005c6f2653eff5dcbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6df728ca9eaf36b8180e9f6958343c36"><td class="memItemLeft" align="right" valign="top"><a id="a6df728ca9eaf36b8180e9f6958343c36"></a>
+static const juce::Colour&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___editor_8cpp.html#a6df728ca9eaf36b8180e9f6958343c36">_Colour_labelText</a> = juce::Colours::white</td></tr>
+<tr class="memdesc:a6df728ca9eaf36b8180e9f6958343c36"><td class="mdescLeft">&#160;</td><td class="mdescRight">the color for labels in this editor widget <br /></td></tr>
+<tr class="separator:a6df728ca9eaf36b8180e9f6958343c36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ca67fe7d654b930af8928e2299bffc6"><td class="memItemLeft" align="right" valign="top"><a id="a7ca67fe7d654b930af8928e2299bffc6"></a>
+static const juce::Colour&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___editor_8cpp.html#a7ca67fe7d654b930af8928e2299bffc6">_Colour_errorInformationText</a> = juce::Colours::red</td></tr>
+<tr class="memdesc:a7ca67fe7d654b930af8928e2299bffc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">the color for labels in this editor widget <br /></td></tr>
+<tr class="separator:a7ca67fe7d654b930af8928e2299bffc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46d63abea7715ab9eb93c0d7712a82da"><td class="memItemLeft" align="right" valign="top">static const juce::Colour&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___editor_8cpp.html#a46d63abea7715ab9eb93c0d7712a82da">_Colour_standardEditorBackground</a></td></tr>
+<tr class="memdesc:a46d63abea7715ab9eb93c0d7712a82da"><td class="mdescLeft">&#160;</td><td class="mdescRight">the background color for the text edit field in this editor widget  <a href="_fluid_synth_plugin___editor_8cpp.html#a46d63abea7715ab9eb93c0d7712a82da">More...</a><br /></td></tr>
+<tr class="separator:a46d63abea7715ab9eb93c0d7712a82da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad645557a61b68651612ff93800ede619"><td class="memItemLeft" align="right" valign="top"><a id="ad645557a61b68651612ff93800ede619"></a>
+static const juce::Colour&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___editor_8cpp.html#ad645557a61b68651612ff93800ede619">_Colour_stableEditorBackground</a> {0xffe0e0e0}</td></tr>
+<tr class="memdesc:ad645557a61b68651612ff93800ede619"><td class="mdescLeft">&#160;</td><td class="mdescRight">the background color for the text in this editor widget when the data has been confirmed by the user <br /></td></tr>
+<tr class="separator:ad645557a61b68651612ff93800ede619"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84618bc4ce4254808d37e562bf4bf193"><td class="memItemLeft" align="right" valign="top"><a id="a84618bc4ce4254808d37e562bf4bf193"></a>
+static const juce::Colour&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___editor_8cpp.html#a84618bc4ce4254808d37e562bf4bf193">_Colour_erroneousEditorBackground</a> {0xffffe0e0}</td></tr>
+<tr class="memdesc:a84618bc4ce4254808d37e562bf4bf193"><td class="mdescLeft">&#160;</td><td class="mdescRight">the background color for the text in this editor widget when the data has been checked as erroneous by the system <br /></td></tr>
+<tr class="separator:a84618bc4ce4254808d37e562bf4bf193"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af11f0c952ba2de2892562a09e86fd9da"><td class="memItemLeft" align="right" valign="top"><a id="af11f0c952ba2de2892562a09e86fd9da"></a>
+static const juce::Colour&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___editor_8cpp.html#af11f0c952ba2de2892562a09e86fd9da">_Colour_text</a> = juce::Colours::black</td></tr>
+<tr class="memdesc:af11f0c952ba2de2892562a09e86fd9da"><td class="mdescLeft">&#160;</td><td class="mdescRight">the text color in the edit field of this editor widget <br /></td></tr>
+<tr class="separator:af11f0c952ba2de2892562a09e86fd9da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4686cd10dd0c805c56144ab34aff818f"><td class="memItemLeft" align="right" valign="top">static const juce::NotificationType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___editor_8cpp.html#a4686cd10dd0c805c56144ab34aff818f">_noNotification</a></td></tr>
+<tr class="memdesc:a4686cd10dd0c805c56144ab34aff818f"><td class="mdescLeft">&#160;</td><td class="mdescRight">no notification kind for some widget  <a href="_fluid_synth_plugin___editor_8cpp.html#a4686cd10dd0c805c56144ab34aff818f">More...</a><br /></td></tr>
+<tr class="separator:a4686cd10dd0c805c56144ab34aff818f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1329bb7ed9b2f52f36a74f0a3db27430"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="struct_base_types_1_1_containers_1_1_string_list.html">StringList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___editor_8cpp.html#a1329bb7ed9b2f52f36a74f0a3db27430">_KeyNameList_soundFont</a></td></tr>
+<tr class="memdesc:a1329bb7ed9b2f52f36a74f0a3db27430"><td class="mdescLeft">&#160;</td><td class="mdescRight">key strings used for soundfont specification  <a href="_fluid_synth_plugin___editor_8cpp.html#a1329bb7ed9b2f52f36a74f0a3db27430">More...</a><br /></td></tr>
+<tr class="separator:a1329bb7ed9b2f52f36a74f0a3db27430"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71c30773a8dbc53576b165b9cea95717"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="struct_base_types_1_1_containers_1_1_string_list.html">StringList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___editor_8cpp.html#a71c30773a8dbc53576b165b9cea95717">_KeyNameList_preset</a></td></tr>
+<tr class="memdesc:a71c30773a8dbc53576b165b9cea95717"><td class="mdescLeft">&#160;</td><td class="mdescRight">key strings used for preset specification  <a href="_fluid_synth_plugin___editor_8cpp.html#a71c30773a8dbc53576b165b9cea95717">More...</a><br /></td></tr>
+<tr class="separator:a71c30773a8dbc53576b165b9cea95717"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab770d8bd674d5399043b0ee6a84888f0"><td class="memItemLeft" align="right" valign="top"><a id="ab770d8bd674d5399043b0ee6a84888f0"></a>
+static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___editor_8cpp.html#ab770d8bd674d5399043b0ee6a84888f0">_ContextItemIndex_about</a> = -1002</td></tr>
+<tr class="memdesc:ab770d8bd674d5399043b0ee6a84888f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">context menu item index for about dialog <br /></td></tr>
+<tr class="separator:ab770d8bd674d5399043b0ee6a84888f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a330d03fb122f579eee3819eba52952e3"><td class="memItemLeft" align="right" valign="top"><a id="a330d03fb122f579eee3819eba52952e3"></a>
+static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___editor_8cpp.html#a330d03fb122f579eee3819eba52952e3">_ContextItemIndex_file</a> = -1001</td></tr>
+<tr class="memdesc:a330d03fb122f579eee3819eba52952e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">context menu item index for soundfont selection <br /></td></tr>
+<tr class="separator:a330d03fb122f579eee3819eba52952e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a609664b539f1c63093853107514f0ef0"><td class="memItemLeft" align="right" valign="top"><a id="a609664b539f1c63093853107514f0ef0"></a>
+static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___editor_8cpp.html#a609664b539f1c63093853107514f0ef0">_ContextItemIndex_preset</a> = -1000</td></tr>
+<tr class="memdesc:a609664b539f1c63093853107514f0ef0"><td class="mdescLeft">&#160;</td><td class="mdescRight">context menu item index for preset selection <br /></td></tr>
+<tr class="separator:a609664b539f1c63093853107514f0ef0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bd23a4b06bdb5bee6f68c8e19081539"><td class="memItemLeft" align="right" valign="top"><a id="a1bd23a4b06bdb5bee6f68c8e19081539"></a>
+static const String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___editor_8cpp.html#a1bd23a4b06bdb5bee6f68c8e19081539">_ContextItemText_about</a> = &quot;About...&quot;</td></tr>
+<tr class="memdesc:a1bd23a4b06bdb5bee6f68c8e19081539"><td class="mdescLeft">&#160;</td><td class="mdescRight">context menu item text for about dialog <br /></td></tr>
+<tr class="separator:a1bd23a4b06bdb5bee6f68c8e19081539"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab80f613a3586b6d60584be1df549870d"><td class="memItemLeft" align="right" valign="top"><a id="ab80f613a3586b6d60584be1df549870d"></a>
+static const String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___editor_8cpp.html#ab80f613a3586b6d60584be1df549870d">_ContextItemText_file</a> = &quot;Select SoundFont File...&quot;</td></tr>
+<tr class="memdesc:ab80f613a3586b6d60584be1df549870d"><td class="mdescLeft">&#160;</td><td class="mdescRight">context menu item text for soundfont selection <br /></td></tr>
+<tr class="separator:ab80f613a3586b6d60584be1df549870d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20bcfc0c700776af6c500a2b21936349"><td class="memItemLeft" align="right" valign="top"><a id="a20bcfc0c700776af6c500a2b21936349"></a>
+static const String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___editor_8cpp.html#a20bcfc0c700776af6c500a2b21936349">_ContextItemText_preset</a> = &quot;Select Preset...&quot;</td></tr>
+<tr class="memdesc:a20bcfc0c700776af6c500a2b21936349"><td class="mdescLeft">&#160;</td><td class="mdescRight">context menu item text for preset selection <br /></td></tr>
+<tr class="separator:a20bcfc0c700776af6c500a2b21936349"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <code>FluidSynthPlugin_Editor</code> module implements the editor for the processor of <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> events from the DAW via JUCE to the FluidSynth library. </p>
 <dl class="section author"><dt>Author</dt><dd>Dr. Thomas Tensi </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2022-04 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="ad50b691aad884cd5dda1326d0670a563"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad50b691aad884cd5dda1326d0670a563">&#9670;&nbsp;</a></span>_adaptSettingsString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a> _adaptSettingsString </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> String &amp;&#160;</td>
+          <td class="paramname"><em>st</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Replaces occurences of <code>key</code> in dictionary string <code>st</code> by <code>value</code>; record separator is a newline, field separator an equals sign. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">st</td><td>dictionary string to be adapted </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">key</td><td>key to be searched for </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>new value for key </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>information whether some change was done </dd></dl>
+
+</div>
+</div>
+<a id="abff013efb819e3243ba1c74bc3e4e5d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abff013efb819e3243ba1c74bc3e4e5d3">&#9670;&nbsp;</a></span>_normalizedFileName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static String _normalizedFileName </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;&#160;</td>
+          <td class="paramname"><em>st</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Adapts file name <code>st</code> by replacing backslashes and trying to match environment variables as possible prefices. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">st</td><td>original file name </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>adapted version of file name with backlashes replaced and possible prefix environment variable inserted </dd></dl>
+
+</div>
+</div>
+<a id="a53be0900b44b6450c78c4490cddfd1db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53be0900b44b6450c78c4490cddfd1db">&#9670;&nbsp;</a></span>_repaintTextWidget()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void _repaintTextWidget </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_main_1_1_fluid_synth_plugin_1_1___editor_descriptor.html">_EditorDescriptor</a> &amp;&#160;</td>
+          <td class="paramname"><em>editorDescriptor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> juce::Colour&#160;</td>
+          <td class="paramname"><em>backgroundColour</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Repaints text widget of <code>editorDescriptor</code> with background color <code>backgroundColour</code> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">editorDescriptor</td><td>descriptor for editor object </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">backgroundColour</td><td>new background color for text widget </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aed4c03850580a9bbbffcae9218991bc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed4c03850580a9bbbffcae9218991bc0">&#9670;&nbsp;</a></span>_setKeyInWidget()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void _setKeyInWidget </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_main_1_1_fluid_synth_plugin_1_1___editor_descriptor.html">_EditorDescriptor</a> &amp;&#160;</td>
+          <td class="paramname"><em>editorDescriptor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Selectively updates string in text editor with information <code>key</code> and <code>value</code> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">editorDescriptor</td><td>descriptor for editor object </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">key</td><td>key to be updated </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>new value for key </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a1860cb4df3bc6e63dc1268d64541e94a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1860cb4df3bc6e63dc1268d64541e94a">&#9670;&nbsp;</a></span>_subArea()</h2>
 
@@ -284,9 +518,8 @@ static juce::Colour&#160;</td><td class="memItemRight" valign="bottom"><a class=
 
 </div>
 </div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="a1e32ebce7bb59b1f0fb58750d983316e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1e32ebce7bb59b1f0fb58750d983316e">&#9670;&nbsp;</a></span>_noNotification</h2>
+<a id="aee94dab7d38fd2bc822da385524eb3cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee94dab7d38fd2bc822da385524eb3cb">&#9670;&nbsp;</a></span>_valueFromKeyList()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -295,7 +528,27 @@ static juce::Colour&#160;</td><td class="memItemRight" valign="bottom"><a class=
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">juce::NotificationType _noNotification</td>
+          <td class="memname">static String _valueFromKeyList </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;&#160;</td>
+          <td class="paramname"><em>st</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_containers_1_1_string_list.html">StringList</a> &amp;&#160;</td>
+          <td class="paramname"><em>keyList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> String &amp;&#160;</td>
+          <td class="paramname"><em>effectiveKey</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -304,15 +557,22 @@ static juce::Colour&#160;</td><td class="memItemRight" valign="bottom"><a class=
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">=</div>
-<div class="line">    juce::NotificationType::dontSendNotification</div>
-</div><!-- fragment -->
-<p>no notification kind for some widget </p>
+
+<p>Returns value from first match of <code>keyList</code> in settings string <code>st</code> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">st</td><td>settings string (with newline as record separator) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">keyList</td><td>list of keys to be found (first match wins) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">effectiveKey</td><td>key effectively used for value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>value for key (or empty string when not found) </dd></dl>
 
 </div>
 </div>
-<a id="a2399cfc6c602c570745ded4839f7e00d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2399cfc6c602c570745ded4839f7e00d">&#9670;&nbsp;</a></span>_standardEditorBackgroundColour</h2>
+<a id="a10c2b3d4292d065ac5338cc9edc58ee1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10c2b3d4292d065ac5338cc9edc58ee1">&#9670;&nbsp;</a></span>_valueFromWidget()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -321,7 +581,61 @@ static juce::Colour&#160;</td><td class="memItemRight" valign="bottom"><a class=
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">juce::Colour _standardEditorBackgroundColour</td>
+          <td class="memname">static String _valueFromWidget </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_main_1_1_fluid_synth_plugin_1_1___editor_descriptor.html">_EditorDescriptor</a> &amp;&#160;</td>
+          <td class="paramname"><em>editorDescriptor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_containers_1_1_string_list.html">StringList</a> &amp;&#160;</td>
+          <td class="paramname"><em>keyList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> String &amp;&#160;</td>
+          <td class="paramname"><em>effectiveKey</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns value from first matching key from <code>keyList</code> in <code>editorDescriptor</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">editorDescriptor</td><td>descriptor for editor object </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">keyList</td><td>list of keys to be found (first match wins) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">effectiveKey</td><td>key effectively used for value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>value for key (or empty string when not found) </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a46d63abea7715ab9eb93c0d7712a82da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46d63abea7715ab9eb93c0d7712a82da">&#9670;&nbsp;</a></span>_Colour_standardEditorBackground</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const juce::Colour _Colour_standardEditorBackground</td>
         </tr>
       </table>
   </td>
@@ -334,6 +648,84 @@ static juce::Colour&#160;</td><td class="memItemRight" valign="bottom"><a class=
 <div class="line">    juce::Colours::white</div>
 </div><!-- fragment -->
 <p>the background color for the text edit field in this editor widget </p>
+
+</div>
+</div>
+<a id="a71c30773a8dbc53576b165b9cea95717"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71c30773a8dbc53576b165b9cea95717">&#9670;&nbsp;</a></span>_KeyNameList_preset</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="struct_base_types_1_1_containers_1_1_string_list.html">StringList</a> _KeyNameList_preset</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">=</div>
+<div class="line">    StringList::makeBySplit(<span class="stringliteral">&quot;preset,program&quot;</span>, <span class="stringliteral">&quot;,&quot;</span>)</div>
+</div><!-- fragment -->
+<p>key strings used for preset specification </p>
+
+</div>
+</div>
+<a id="a1329bb7ed9b2f52f36a74f0a3db27430"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1329bb7ed9b2f52f36a74f0a3db27430">&#9670;&nbsp;</a></span>_KeyNameList_soundFont</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="struct_base_types_1_1_containers_1_1_string_list.html">StringList</a> _KeyNameList_soundFont</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">=</div>
+<div class="line">    StringList::makeBySplit(<span class="stringliteral">&quot;soundfont&quot;</span>, <span class="stringliteral">&quot;,&quot;</span>)</div>
+</div><!-- fragment -->
+<p>key strings used for soundfont specification </p>
+
+</div>
+</div>
+<a id="a4686cd10dd0c805c56144ab34aff818f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4686cd10dd0c805c56144ab34aff818f">&#9670;&nbsp;</a></span>_noNotification</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const juce::NotificationType _noNotification</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">=</div>
+<div class="line">    juce::NotificationType::dontSendNotification</div>
+</div><!-- fragment -->
+<p>no notification kind for some widget </p>
 
 </div>
 </div>

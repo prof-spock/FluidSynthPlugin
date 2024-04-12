@@ -86,8 +86,17 @@ namespace Libraries::FluidSynth {
          *
          * @return  underlying dynamic library object
          */
-        Object dynamicLibrary () const;
+        Object underlyingObject () const;
   
+        /*--------------------*/
+
+        /**
+         * Returns fluidsynth version as a string
+         *
+         * @return library version
+         */
+        String version () const;
+
         /*--------------------*/
   
         private:

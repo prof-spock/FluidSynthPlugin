@@ -19,8 +19,6 @@
 #include <cstring>
     /** a qualified version of memcpy */
     #define CString_memcpy  memcpy
-    /** a qualified version of memset */
-    #define CString_memset  memset
 
 #include "Natural.h"
 
@@ -49,12 +47,20 @@ namespace BaseTypes::Containers {
      * Sets all elements in <C>array</C> of <C>count</C> elements of
      * type <C>ElementType</C> to zero.
      *
-     * @param[in] array        element array to be cleared
      * @tparam    ElementType  type of element
+     * @param[in] array        element array to be cleared
      * @param[in] count        count of elements to be cleared
+     * @param[in] zero         zero value in given element type
      */
-    #define clearArray(array, ElementType, count) \
-        CString_memset(array, 0, (int) (count) * sizeof(ElementType))
+    template<typename ElementType>
+    void clearArray (ElementType* array,
+                     Natural count,
+                     ElementType zero)
+    {
+        for (Natural i = 0;  i < count;  i++) {
+            *array++ = zero;
+        }
+    }
 
     /*--------------------*/
 

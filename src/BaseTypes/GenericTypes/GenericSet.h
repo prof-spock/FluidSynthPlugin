@@ -17,7 +17,6 @@
 /*=========*/
 
 #include <set>
-#include "Boolean.h"
 #include "ElementToStringProc.h"
 #include "Natural.h"
 #include "StringProc.h"
@@ -29,8 +28,6 @@ using std::set;
 using BaseModules::StringUtil;
 using BaseTypes::GenericTypes::ElementToStringProc;
 using BaseTypes::GenericTypes::StringProc;
-using BaseTypes::Primitives::Boolean;
-using BaseTypes::Primitives::Natural;
 
 /*====================*/
 
@@ -114,7 +111,7 @@ namespace BaseTypes::GenericTypes {
          */
         Boolean isEmpty () const
         {
-            return set<ElementType>.length() == 0;
+            return set<ElementType>::length() == 0;
         }
 
         /*--------------------*/

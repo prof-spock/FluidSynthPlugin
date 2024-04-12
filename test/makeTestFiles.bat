@@ -4,7 +4,10 @@ REM                 and pedantic FluidSynth File Converter
 
 SET scriptDirectory=%~dp0.
 
-SET platform=Windows-AMD64\Release
+SET configuration=Release
+IF NOT "%1"=="" SET configuration=%1
+
+SET platform=Windows-AMD64\%configuration%
 SET sampleRateList=44100 48000
 
 REM === path of standard FluidSynth ===

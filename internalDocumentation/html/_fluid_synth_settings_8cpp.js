@@ -9,6 +9,7 @@ var _fluid_synth_settings_8cpp =
     [ "FSSettings_SetStrProc", "_fluid_synth_settings_8cpp.html#aa06f553e0f512ea606d1c47db7fa00a5", null ],
     [ "STR", "_fluid_synth_settings_8cpp.html#a5b6f88d1249b396e351c4a85bcb35b2c", null ],
     [ "_initializeFunctionsForLibrary", "_fluid_synth_settings_8cpp.html#a1c9d1152afce3310aaf2b720af890a27", null ],
+    [ "_functionsAreInitialized", "_fluid_synth_settings_8cpp.html#ab4297750293feb181265d1000d8d1c1d", null ],
     [ "_settingsKeyToKindMap", "_fluid_synth_settings_8cpp.html#a629e72ed18e86abd293a8598df5e89f0", null ],
     [ "FSSettings_destroy", "_fluid_synth_settings_8cpp.html#a7af17807effcf0643c4e09f9d5c5e39f", null ],
     [ "FSSettings_make", "_fluid_synth_settings_8cpp.html#ac37dc3019e821d6937086e7e56c965d9", null ],

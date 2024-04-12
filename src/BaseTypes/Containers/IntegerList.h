@@ -46,7 +46,7 @@ namespace BaseTypes::Containers {
     struct IntegerList
         : public GenericList<Integer,
                              Integer::toString,
-                             &_integerListTypeName > {
+                             _integerListTypeName > {
 
         /*--------------------*/
         /* constructors       */

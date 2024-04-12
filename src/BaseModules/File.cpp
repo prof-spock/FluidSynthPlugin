@@ -114,7 +114,7 @@ Natural File::read (INOUT ByteList& byteList,
                                 bytesToRead, file)};
 
         if (listSize < position + totalBytesRead + bytesRead) {
-            // extend list to take another bytesRead bytes
+            /* extend list to take another bytesRead bytes */
             byteList.setLength(listSize + bytesRead);
         }
         

@@ -1,0 +1,5 @@
+<map id="FluidSynthSoundFont.h" name="FluidSynthSoundFont.h">
+<area shape="rect" id="node1" title="The FluidSynthSoundFont class specifies an object&#45;oriented wrapper around an underlying fluidsynth so..." alt="" coords="107,5,265,32"/>
+<area shape="rect" id="node2" href="$_fluid_synth_sound_font_8cpp.html" title="The FluidSynthSoundFont class implements an object&#45;oriented wrapper around an underlying fluidsynth s..." alt="" coords="5,80,177,107"/>
+<area shape="rect" id="node3" href="$_midi_event_converter_8cpp.html" title="The MidiEventConverter module implements the handling of MIDI events by feeding them to an underlying..." alt="" coords="202,80,359,107"/>
+</map>

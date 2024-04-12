@@ -100,7 +100,7 @@ $(document).ready(function(){initNavTree('struct_main_1_1_fluid_synth_plugin_1_1
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___editor__inherit__graph.svg" width="200" height="287"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___editor__inherit__graph.svg" width="403" height="316"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -112,6 +112,13 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___editor.html#a8ca5ed11c543fd3552aaa58076c47e98">~FluidSynthPlugin_Editor</a> () override</td></tr>
 <tr class="memdesc:a8ca5ed11c543fd3552aaa58076c47e98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys a FluidSynth plugin editor. <br /></td></tr>
 <tr class="separator:a8ca5ed11c543fd3552aaa58076c47e98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b6ce59efc4752b0e4ded44b7aaffb8b"><td class="memItemLeft" align="right" valign="top"><a id="a6b6ce59efc4752b0e4ded44b7aaffb8b"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___editor.html#a6b6ce59efc4752b0e4ded44b7aaffb8b">isInterestedInFileDrag</a> (const juce::StringArray &amp;fileNameList) override</td></tr>
+<tr class="memdesc:a6b6ce59efc4752b0e4ded44b7aaffb8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether file names in <code>fileNameList</code> are interesting for this plugin editor. <br /></td></tr>
+<tr class="separator:a6b6ce59efc4752b0e4ded44b7aaffb8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ea7afe4e56d627d0228e98d10b725d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___editor.html#a6ea7afe4e56d627d0228e98d10b725d7">filesDropped</a> (const juce::StringArray &amp;fileNameList, int x, int y) override</td></tr>
+<tr class="memdesc:a6ea7afe4e56d627d0228e98d10b725d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells that files with names in <code>fileNameList</code> are dropped onto this plugin editor at (<code>x</code>,<code>y</code>)  <a href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___editor.html#a6ea7afe4e56d627d0228e98d10b725d7">More...</a><br /></td></tr>
+<tr class="separator:a6ea7afe4e56d627d0228e98d10b725d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a411963470bb4ce2d46cca10e4af080"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___editor.html#a3a411963470bb4ce2d46cca10e4af080">paint</a> (<a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> juce::Graphics &amp;context) override</td></tr>
 <tr class="memdesc:a3a411963470bb4ce2d46cca10e4af080"><td class="mdescLeft">&#160;</td><td class="mdescRight">Paints the editor based on a graphics context.  <a href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___editor.html#a3a411963470bb4ce2d46cca10e4af080">More...</a><br /></td></tr>
 <tr class="separator:a3a411963470bb4ce2d46cca10e4af080"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -161,6 +168,58 @@ Object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="st
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a6ea7afe4e56d627d0228e98d10b725d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ea7afe4e56d627d0228e98d10b725d7">&#9670;&nbsp;</a></span>filesDropped()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FluidSynthPlugin_Editor::filesDropped </td>
+          <td>(</td>
+          <td class="paramtype">const juce::StringArray &amp;&#160;</td>
+          <td class="paramname"><em>fileNameList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tells that files with names in <code>fileNameList</code> are dropped onto this plugin editor at (<code>x</code>,<code>y</code>) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fileNameList</td><td>list of files dropped </td></tr>
+    <tr><td class="paramname">x</td><td>x-position of drop </td></tr>
+    <tr><td class="paramname">y</td><td>y-position of drop </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a3a411963470bb4ce2d46cca10e4af080"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3a411963470bb4ce2d46cca10e4af080">&#9670;&nbsp;</a></span>paint()</h2>
 

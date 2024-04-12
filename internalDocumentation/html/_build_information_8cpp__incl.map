@@ -1,0 +1,8 @@
+<map id="BuildInformation.cpp" name="BuildInformation.cpp">
+<area shape="rect" id="node1" title="The BuildInformation body implements four functions returning build date and time,..." alt="" coords="17,5,155,32"/>
+<area shape="rect" id="node2" href="$_build_information_8h.html" title="The BuildInformation specification defines four functions returning build date and time,..." alt="" coords="23,80,149,107"/>
+<area shape="rect" id="node3" href="$_boolean_8h.html" title="The Boolean specification and body provides a value object type for boolean values." alt="" coords="46,155,126,181"/>
+<area shape="rect" id="node4" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="43,229,129,256"/>
+<area shape="rect" id="node5" title=" " alt="" coords="5,304,60,331"/>
+<area shape="rect" id="node6" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="84,304,197,331"/>
+</map>

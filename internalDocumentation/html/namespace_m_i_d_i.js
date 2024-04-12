@@ -7,5 +7,6 @@ var namespace_m_i_d_i =
     [ "MidiEventKind", "struct_m_i_d_i_1_1_midi_event_kind.html", "struct_m_i_d_i_1_1_midi_event_kind" ],
     [ "MidiEventList", "struct_m_i_d_i_1_1_midi_event_list.html", "struct_m_i_d_i_1_1_midi_event_list" ],
     [ "MidiFile", "struct_m_i_d_i_1_1_midi_file.html", "struct_m_i_d_i_1_1_midi_file" ],
-    [ "MidiMetaEventKind", "struct_m_i_d_i_1_1_midi_meta_event_kind.html", "struct_m_i_d_i_1_1_midi_meta_event_kind" ]
+    [ "MidiMetaEventKind", "struct_m_i_d_i_1_1_midi_meta_event_kind.html", "struct_m_i_d_i_1_1_midi_meta_event_kind" ],
+    [ "MidiPresetIdentification", "struct_m_i_d_i_1_1_midi_preset_identification.html", "struct_m_i_d_i_1_1_midi_preset_identification" ]
 ];

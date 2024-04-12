@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['percentage_750',['Percentage',['../struct_base_types_1_1_primitives_1_1_percentage.html',1,'BaseTypes::Primitives']]]
+  ['operatingsystem_889',['OperatingSystem',['../struct_base_modules_1_1_operating_system.html',1,'BaseModules']]]
 ];

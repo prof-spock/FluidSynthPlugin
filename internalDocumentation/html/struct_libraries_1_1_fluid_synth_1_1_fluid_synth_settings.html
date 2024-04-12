@@ -108,9 +108,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a592efd5c4e07dd40fef7e369aa598b90"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_libraries_1_1_fluid_synth_1_1_fluid_synth_settings.html#a592efd5c4e07dd40fef7e369aa598b90">set</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;key, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;value)</td></tr>
 <tr class="memdesc:a592efd5c4e07dd40fef7e369aa598b90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets setting given by <code>key</code> to new value given by <code>value</code>; the value type is adjusted internally.  <a href="struct_libraries_1_1_fluid_synth_1_1_fluid_synth_settings.html#a592efd5c4e07dd40fef7e369aa598b90">More...</a><br /></td></tr>
 <tr class="separator:a592efd5c4e07dd40fef7e369aa598b90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2c2d44c3528a4805bda8919202f0964"><td class="memItemLeft" align="right" valign="top">Object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_libraries_1_1_fluid_synth_1_1_fluid_synth_settings.html#ae2c2d44c3528a4805bda8919202f0964">fsSettings</a> () const</td></tr>
-<tr class="memdesc:ae2c2d44c3528a4805bda8919202f0964"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the underlying settings object.  <a href="struct_libraries_1_1_fluid_synth_1_1_fluid_synth_settings.html#ae2c2d44c3528a4805bda8919202f0964">More...</a><br /></td></tr>
-<tr class="separator:ae2c2d44c3528a4805bda8919202f0964"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9887a760560751c0b9ac4e923dd01f4"><td class="memItemLeft" align="right" valign="top">Object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_libraries_1_1_fluid_synth_1_1_fluid_synth_settings.html#ad9887a760560751c0b9ac4e923dd01f4">underlyingObject</a> () const</td></tr>
+<tr class="memdesc:ad9887a760560751c0b9ac4e923dd01f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the underlying settings object from the <a class="el" href="struct_libraries_1_1_fluid_synth_1_1_fluid_synth.html" title="An object-oriented wrapper around the fluidsynth library and also allows its dynamic loading.">FluidSynth</a> library.  <a href="struct_libraries_1_1_fluid_synth_1_1_fluid_synth_settings.html#ad9887a760560751c0b9ac4e923dd01f4">More...</a><br /></td></tr>
+<tr class="separator:ad9887a760560751c0b9ac4e923dd01f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -149,26 +149,6 @@ Object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="st
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ae2c2d44c3528a4805bda8919202f0964"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae2c2d44c3528a4805bda8919202f0964">&#9670;&nbsp;</a></span>fsSettings()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Object FluidSynthSettings::fsSettings </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns the underlying settings object. </p>
-<dl class="section return"><dt>Returns</dt><dd>underlying fluidsynth settings object </dd></dl>
-
-</div>
-</div>
 <a id="a592efd5c4e07dd40fef7e369aa598b90"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a592efd5c4e07dd40fef7e369aa598b90">&#9670;&nbsp;</a></span>set()</h2>
 
@@ -204,6 +184,26 @@ Object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="st
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>information whether setting was successful </dd></dl>
+
+</div>
+</div>
+<a id="ad9887a760560751c0b9ac4e923dd01f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9887a760560751c0b9ac4e923dd01f4">&#9670;&nbsp;</a></span>underlyingObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Object FluidSynthSettings::underlyingObject </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the underlying settings object from the <a class="el" href="struct_libraries_1_1_fluid_synth_1_1_fluid_synth.html" title="An object-oriented wrapper around the fluidsynth library and also allows its dynamic loading.">FluidSynth</a> library. </p>
+<dl class="section return"><dt>Returns</dt><dd>underlying fluidsynth settings object </dd></dl>
 
 </div>
 </div>

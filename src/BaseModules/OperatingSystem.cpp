@@ -13,9 +13,6 @@
 /*=========*/
 
 #include <cstdlib>
-    /** qualified version of getenv from stdlib */
-    #define StdLib_getenv getenv
-
 #include <filesystem>
 
 #include <stdio.h>
@@ -50,10 +47,6 @@ using STR = BaseModules::StringUtil;
 /*====================*/
 
 #ifdef _WIN32
-
-    /*=====================*/
-    /* WINDOWS DEFINITIONS */
-    /*=====================*/
 
     /**
      * Returns path of directory of current library or executable
@@ -104,10 +97,16 @@ using STR = BaseModules::StringUtil;
         String result;
 
         if (isExecutable) {
+            size_t effectiveLength;
             constexpr size_t length = 1000;
             char executablePath[length];
-            readlink("/proc/self/exe", executablePath, length);
+            effectiveLength = readlink("/proc/self/exe", executablePath,
+                                       length);
             result = std::string(executablePath);
+
+            if (effectiveLength < 0 || effectiveLength == length) {
+                Logging_traceError("--: readlink failed");
+            }
         } else {
             Dl_info libraryData;
             Boolean isOkay =
@@ -217,26 +216,6 @@ String OperatingSystem::dirname (IN String& fileName)
 
 /*--------------------*/
 
-String OperatingSystem::environmentValue (IN String variableName,
-                                          IN String defaultValue)
-{
-    Logging_trace2(">>: variable = '%1', default = '%2'",
-                   variableName, defaultValue);
-    char* value = (char*) StdLib_getenv((char*) variableName.c_str());
-    String result;
-
-    if (value == NULL) {
-        result = defaultValue;
-    } else {
-        result = String(value);
-    }
-
-    Logging_trace1("<<: %1", result);
-    return result;
-}
-
-/*--------------------*/
-
 String OperatingSystem::executableDirectoryPath (IN Boolean isExecutable)
 {
     Logging_trace(">>");
@@ -251,9 +230,9 @@ String OperatingSystem::temporaryDirectoryPath ()
 {
     Logging_trace(">>");
 
-    char* environmentPath = (char*) StdLib_getenv("tmp");
+    char* environmentPath = std::getenv("tmp");
     environmentPath = (environmentPath != NULL ? environmentPath
-                       : (char*) StdLib_getenv("temp"));
+                       : std::getenv("temp"));
     environmentPath = (environmentPath != NULL ? environmentPath
                        : (char*) "/tmp");
     String result = String(environmentPath);

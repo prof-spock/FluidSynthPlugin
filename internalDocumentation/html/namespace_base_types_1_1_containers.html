@@ -107,6 +107,9 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_base_types_1_1_containers_1_1_natural_list.html">NaturalList</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A <code><a class="el" href="struct_base_types_1_1_containers_1_1_natural_list.html" title="A NaturalList object is a list of non-negative integer values with arbitrary indexed access to positi...">NaturalList</a></code> object is a list of non-negative integer values with arbitrary indexed access to positions in the list.  <a href="struct_base_types_1_1_containers_1_1_natural_list.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_base_types_1_1_containers_1_1_natural_set.html">NaturalSet</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A <code><a class="el" href="struct_base_types_1_1_containers_1_1_natural_set.html" title="A NaturalSet object is a set of naturals with no duplicates and only simple containment access and th...">NaturalSet</a></code> object is a set of naturals with no duplicates and only simple containment access and the ability to add and remove elements.  <a href="struct_base_types_1_1_containers_1_1_natural_set.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_base_types_1_1_containers_1_1_real_list.html">RealList</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A <code><a class="el" href="struct_base_types_1_1_containers_1_1_real_list.html" title="A RealList object is a list of real values with arbitrary indexed access to positions in the list.">RealList</a></code> object is a list of real values with arbitrary indexed access to positions in the list.  <a href="struct_base_types_1_1_containers_1_1_real_list.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -125,6 +128,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a3d7620ee3746f4bdbc98ffd42fecaeb8"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_base_types_1_1_containers.html#a3d7620ee3746f4bdbc98ffd42fecaeb8">_integerListTypeName</a> ()</td></tr>
 <tr class="memdesc:a3d7620ee3746f4bdbc98ffd42fecaeb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns name of integer list type.  <a href="namespace_base_types_1_1_containers.html#a3d7620ee3746f4bdbc98ffd42fecaeb8">More...</a><br /></td></tr>
 <tr class="separator:a3d7620ee3746f4bdbc98ffd42fecaeb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2010d99f32d31e440a56c1269cea74b"><td class="memTemplParams" colspan="2">template&lt;typename ElementType &gt; </td></tr>
+<tr class="memitem:aa2010d99f32d31e440a56c1269cea74b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_base_types_1_1_containers.html#aa2010d99f32d31e440a56c1269cea74b">clearArray</a> (ElementType *array, <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> count, ElementType zero)</td></tr>
+<tr class="memdesc:aa2010d99f32d31e440a56c1269cea74b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets all elements in <code>array</code> of <code>count</code> elements of type <code>ElementType</code> to zero.  <a href="namespace_base_types_1_1_containers.html#aa2010d99f32d31e440a56c1269cea74b">More...</a><br /></td></tr>
+<tr class="separator:aa2010d99f32d31e440a56c1269cea74b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afced1b14c2210243df502d894a7e9483"><td class="memTemplParams" colspan="2">template&lt;typename ElementType &gt; </td></tr>
 <tr class="memitem:afced1b14c2210243df502d894a7e9483"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_base_types_1_1_containers.html#afced1b14c2210243df502d894a7e9483">copyArray</a> (ElementType *&amp;targetPtr, const ElementType *&amp;sourcePtr, <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> count)</td></tr>
 <tr class="memdesc:afced1b14c2210243df502d894a7e9483"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies <code>count</code> elements from array pointed to by <code>sourcePtr</code> of type <code>ElementType</code> to array pointed to by <code>targetPtr</code> (also of type <code>ElementType</code>).  <a href="namespace_base_types_1_1_containers.html#afced1b14c2210243df502d894a7e9483">More...</a><br /></td></tr>
@@ -264,6 +271,58 @@ Functions</h2></td></tr>
 
 <p>Returns name of string list type. </p>
 <dl class="section return"><dt>Returns</dt><dd>type name </dd></dl>
+
+</div>
+</div>
+<a id="aa2010d99f32d31e440a56c1269cea74b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2010d99f32d31e440a56c1269cea74b">&#9670;&nbsp;</a></span>clearArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ElementType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void BaseTypes::Containers::clearArray </td>
+          <td>(</td>
+          <td class="paramtype">ElementType *&#160;</td>
+          <td class="paramname"><em>array</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a>&#160;</td>
+          <td class="paramname"><em>count</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ElementType&#160;</td>
+          <td class="paramname"><em>zero</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets all elements in <code>array</code> of <code>count</code> elements of type <code>ElementType</code> to zero. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">ElementType</td><td>type of element </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">array</td><td>element array to be cleared </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">count</td><td>count of elements to be cleared </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">zero</td><td>zero value in given element type </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

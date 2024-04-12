@@ -46,7 +46,7 @@ namespace Audio {
     struct AudioSampleList
         : public GenericList<AudioSample,
                              AudioSample::toString,
-                             &_audioSampleListTypeName >
+                             _audioSampleListTypeName >
     {
 
         /*--------------------*/

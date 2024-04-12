@@ -80,7 +80,7 @@ namespace Libraries::FluidSynth {
             = delete;
 
         /*--------------------*/
-        /* queries            */
+        /* property access    */
         /*--------------------*/
 
         /**
@@ -90,6 +90,27 @@ namespace Libraries::FluidSynth {
          */
         Natural internalBufferSize () const;
         
+        /*--------------------*/
+
+        /**
+         * Returns the associated fluid synth library object
+         *
+         * @return library of synthesizer
+         */
+        FluidSynth* library () const;
+        
+        /*--------------------*/
+
+        /**
+         * Returns the underlying synthesizer object from the
+         * FluidSynth library.
+         *
+         * @return  underlying fluidsynth synthesizer object
+         */
+        Object underlyingObject () const;
+
+        /*--------------------*/
+        /* change             */
         /*--------------------*/
 
         /**
@@ -238,6 +259,7 @@ namespace Libraries::FluidSynth {
          */
         Boolean setInterpolationMethod (IN Natural methodCode);
 
+        /*--------------------*/
         /*--------------------*/
 
         protected:

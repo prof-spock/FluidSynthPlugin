@@ -87,7 +87,8 @@ $(document).ready(function(){initNavTree('_midi_event_converter_8cpp.html',''); 
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">MidiEventConverter.cpp File Reference</div>  </div>
 </div><!--header-->
@@ -97,8 +98,9 @@ $(document).ready(function(){initNavTree('_midi_event_converter_8cpp.html',''); 
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="_boolean_8h_source.html">Boolean.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_logging_8h_source.html">Logging.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_fluid_synth_synthesizer_8h_source.html">FluidSynthSynthesizer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_fluid_synth_sound_font_8h_source.html">FluidSynthSoundFont.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_midi_event_converter_8h_source.html">MidiEventConverter.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_midi_preset_identification_8h_source.html">MidiPresetIdentification.h</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for MidiEventConverter.cpp:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -135,18 +137,22 @@ using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_mi
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ad90e075b83048e9ec0b0598e0bc95ee1"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_midi_event_converter_8cpp.html#ad90e075b83048e9ec0b0598e0bc95ee1">_handleMidiEvent</a> (<a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_libraries_1_1_fluid_synth_1_1_fluid_synth_synthesizer.html">FluidSynthSynthesizer</a> *synthesizer, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_m_i_d_i_1_1_midi_event.html">MidiEvent</a> &amp;event)</td></tr>
-<tr class="memdesc:ad90e075b83048e9ec0b0598e0bc95ee1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> event <code>event</code> for <code>synthesizer</code>  <a href="_midi_event_converter_8cpp.html#ad90e075b83048e9ec0b0598e0bc95ee1">More...</a><br /></td></tr>
-<tr class="separator:ad90e075b83048e9ec0b0598e0bc95ee1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a561f0cddc5ea608290e1f1c3abb47b15"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_midi_event_converter_8cpp.html#a561f0cddc5ea608290e1f1c3abb47b15">_handleProgramChange</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;value, <a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_libraries_1_1_fluid_synth_1_1_fluid_synth_synthesizer.html">FluidSynthSynthesizer</a> *synthesizer)</td></tr>
-<tr class="memdesc:a561f0cddc5ea608290e1f1c3abb47b15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles bank and program change depending on for given string <code>value</code> on <code>synthesizer</code>.  <a href="_midi_event_converter_8cpp.html#a561f0cddc5ea608290e1f1c3abb47b15">More...</a><br /></td></tr>
-<tr class="separator:a561f0cddc5ea608290e1f1c3abb47b15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6efc7461db180b78e74820d3c1c15bd8"><td class="memItemLeft" align="right" valign="top">static String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_midi_event_converter_8cpp.html#a6efc7461db180b78e74820d3c1c15bd8">_findSuitablePreset</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_libraries_1_1_fluid_synth_1_1_fluid_synth_sound_font.html">FluidSynthSoundFont</a> &amp;soundFont)</td></tr>
+<tr class="memdesc:a6efc7461db180b78e74820d3c1c15bd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds and returns smallest preset number in <code>soundFont</code>.  <a href="_midi_event_converter_8cpp.html#a6efc7461db180b78e74820d3c1c15bd8">More...</a><br /></td></tr>
+<tr class="separator:a6efc7461db180b78e74820d3c1c15bd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2b3e6bd3b82bbd06853c5a8e4203cea"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_midi_event_converter_8cpp.html#aa2b3e6bd3b82bbd06853c5a8e4203cea">_setPreset</a> (<a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_libraries_1_1_fluid_synth_1_1_fluid_synth_synthesizer.html">FluidSynthSynthesizer</a> &amp;synthesizer, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> bankNumber, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> programNumber)</td></tr>
+<tr class="memdesc:aa2b3e6bd3b82bbd06853c5a8e4203cea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets preset on all channels of <code>synthesizer</code> to <code>bankNumber</code> and <code>programNumber</code>  <a href="_midi_event_converter_8cpp.html#aa2b3e6bd3b82bbd06853c5a8e4203cea">More...</a><br /></td></tr>
+<tr class="separator:aa2b3e6bd3b82bbd06853c5a8e4203cea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2cb3ad46a3e82c2e0cf5507efba1ce7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_midi_event_converter_8cpp.html#ad2cb3ad46a3e82c2e0cf5507efba1ce7">_clearSampleListVector</a> (<a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_audio_1_1_audio_sample_list_vector.html">AudioSampleListVector</a> &amp;sampleListVector, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> sampleCountInChannel)</td></tr>
 <tr class="memdesc:ad2cb3ad46a3e82c2e0cf5507efba1ce7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear <code>sampleListVector</code>.  <a href="_midi_event_converter_8cpp.html#ad2cb3ad46a3e82c2e0cf5507efba1ce7">More...</a><br /></td></tr>
 <tr class="separator:ad2cb3ad46a3e82c2e0cf5507efba1ce7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af35b8f81ce157ee9f8c002a121c10b86"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_midi_event_converter_8cpp.html#af35b8f81ce157ee9f8c002a121c10b86">_handleCurrentMidiEvents</a> (<a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_libraries_1_1_fluid_synth_1_1_fluid_synth_synthesizer.html">FluidSynthSynthesizer</a> *synthesizer, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> referenceTimeInSamples, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_m_i_d_i_1_1_midi_event_list.html">MidiEventList</a> &amp;eventList, <a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> &amp;eventIndex)</td></tr>
-<tr class="memdesc:af35b8f81ce157ee9f8c002a121c10b86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> events in <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> event list <code>eventList</code> at or after <code>eventIndex</code> scheduled at <code>referenceTimeInSamples</code> using Fluidsynth <code>synthesizer</code>  <a href="_midi_event_converter_8cpp.html#af35b8f81ce157ee9f8c002a121c10b86">More...</a><br /></td></tr>
-<tr class="separator:af35b8f81ce157ee9f8c002a121c10b86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:afcd17a278568c67676edeed78fcf5974"><td class="memItemLeft" align="right" valign="top"><a id="afcd17a278568c67676edeed78fcf5974"></a>
+static const String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_midi_event_converter_8cpp.html#afcd17a278568c67676edeed78fcf5974">_presetKey</a> = &quot;preset&quot;</td></tr>
+<tr class="memdesc:afcd17a278568c67676edeed78fcf5974"><td class="mdescLeft">&#160;</td><td class="mdescRight">the name of the key for the <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> preset with bank and program <br /></td></tr>
+<tr class="separator:afcd17a278568c67676edeed78fcf5974"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <code>MidiEventConverter</code> module implements the handling of <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> events by feeding them to an underlying FluidSynth library. </p>
@@ -198,8 +204,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="af35b8f81ce157ee9f8c002a121c10b86"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af35b8f81ce157ee9f8c002a121c10b86">&#9670;&nbsp;</a></span>_handleCurrentMidiEvents()</h2>
+<a id="a6efc7461db180b78e74820d3c1c15bd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6efc7461db180b78e74820d3c1c15bd8">&#9670;&nbsp;</a></span>_findSuitablePreset()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -208,28 +214,57 @@ Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void _handleCurrentMidiEvents </td>
+          <td class="memname">static String _findSuitablePreset </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_libraries_1_1_fluid_synth_1_1_fluid_synth_synthesizer.html">FluidSynthSynthesizer</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_libraries_1_1_fluid_synth_1_1_fluid_synth_sound_font.html">FluidSynthSoundFont</a> &amp;&#160;</td>
+          <td class="paramname"><em>soundFont</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Finds and returns smallest preset number in <code>soundFont</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">soundFont</td><td>sound font to be analyzed </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>bank and program number of smallest numbered preset </dd></dl>
+
+</div>
+</div>
+<a id="aa2b3e6bd3b82bbd06853c5a8e4203cea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2b3e6bd3b82bbd06853c5a8e4203cea">&#9670;&nbsp;</a></span>_setPreset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a> _setPreset </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_libraries_1_1_fluid_synth_1_1_fluid_synth_synthesizer.html">FluidSynthSynthesizer</a> &amp;&#160;</td>
           <td class="paramname"><em>synthesizer</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a>&#160;</td>
-          <td class="paramname"><em>referenceTimeInSamples</em>, </td>
+          <td class="paramname"><em>bankNumber</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_m_i_d_i_1_1_midi_event_list.html">MidiEventList</a> &amp;&#160;</td>
-          <td class="paramname"><em>eventList</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> &amp;&#160;</td>
-          <td class="paramname"><em>eventIndex</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a>&#160;</td>
+          <td class="paramname"><em>programNumber</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -244,109 +279,16 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Processes <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> events in <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> event list <code>eventList</code> at or after <code>eventIndex</code> scheduled at <code>referenceTimeInSamples</code> using Fluidsynth <code>synthesizer</code> </p>
+<p>Sets preset on all channels of <code>synthesizer</code> to <code>bankNumber</code> and <code>programNumber</code> </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">synthesizer</td><td>fluidsynth synthesizer object </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">referenceTimeInSamples</td><td>reference time for midi events </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">eventList</td><td>list of midi events </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">eventIndex</td><td>pointer to current position in <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> event list </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">synthesizer</td><td>current synthesizer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bankNumber</td><td>bank number to be set </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">programNumber</td><td>program number to be set </td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="ad90e075b83048e9ec0b0598e0bc95ee1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad90e075b83048e9ec0b0598e0bc95ee1">&#9670;&nbsp;</a></span>_handleMidiEvent()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a> _handleMidiEvent </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_libraries_1_1_fluid_synth_1_1_fluid_synth_synthesizer.html">FluidSynthSynthesizer</a> *&#160;</td>
-          <td class="paramname"><em>synthesizer</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_m_i_d_i_1_1_midi_event.html">MidiEvent</a> &amp;&#160;</td>
-          <td class="paramname"><em>event</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Handles <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> event <code>event</code> for <code>synthesizer</code> </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">synthesizer</td><td>fluidsynth synthesizer object </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">event</td><td>JUCE midi event </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>information whether midi event handling has been successful </dd></dl>
-
-</div>
-</div>
-<a id="a561f0cddc5ea608290e1f1c3abb47b15"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a561f0cddc5ea608290e1f1c3abb47b15">&#9670;&nbsp;</a></span>_handleProgramChange()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a> _handleProgramChange </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;&#160;</td>
-          <td class="paramname"><em>value</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_libraries_1_1_fluid_synth_1_1_fluid_synth_synthesizer.html">FluidSynthSynthesizer</a> *&#160;</td>
-          <td class="paramname"><em>synthesizer</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Handles bank and program change depending on for given string <code>value</code> on <code>synthesizer</code>. </p>
-<p>value contains channel, bank and program numbers separated by a slash and a colon. The channel number comes first followed by a slash followed by the bank number and a colon and finally the program number. If the channel is missing, all channels are affected, if the bank is missing, bank number 0 is assumed; an empty bank is ignored and an empty program is erroneous.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>string value for channel, bank and/or program </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">synthesizer</td><td>fluidsynth synthesizer object </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>information whether program change handling has been successful </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>information whether preset change has been successful </dd></dl>
 
 </div>
 </div>

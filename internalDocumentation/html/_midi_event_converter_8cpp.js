@@ -4,7 +4,7 @@ var _midi_event_converter_8cpp =
     [ "_channelCount", "_midi_event_converter_8cpp.html#a90038ac52e6f9024df48154a95fae645", null ],
     [ "STR", "_midi_event_converter_8cpp.html#a5b6f88d1249b396e351c4a85bcb35b2c", null ],
     [ "_clearSampleListVector", "_midi_event_converter_8cpp.html#ad2cb3ad46a3e82c2e0cf5507efba1ce7", null ],
-    [ "_handleCurrentMidiEvents", "_midi_event_converter_8cpp.html#af35b8f81ce157ee9f8c002a121c10b86", null ],
-    [ "_handleMidiEvent", "_midi_event_converter_8cpp.html#ad90e075b83048e9ec0b0598e0bc95ee1", null ],
-    [ "_handleProgramChange", "_midi_event_converter_8cpp.html#a561f0cddc5ea608290e1f1c3abb47b15", null ]
+    [ "_findSuitablePreset", "_midi_event_converter_8cpp.html#a6efc7461db180b78e74820d3c1c15bd8", null ],
+    [ "_setPreset", "_midi_event_converter_8cpp.html#aa2b3e6bd3b82bbd06853c5a8e4203cea", null ],
+    [ "_presetKey", "_midi_event_converter_8cpp.html#afcd17a278568c67676edeed78fcf5974", null ]
 ];

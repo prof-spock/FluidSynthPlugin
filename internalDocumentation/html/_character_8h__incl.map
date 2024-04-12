@@ -1,12 +1,13 @@
 <map id="Character.h" name="Character.h">
-<area shape="rect" id="node1" title="The Character specification and body provides a value object type for character values." alt="" coords="10,5,99,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,229,64,256"/>
-<area shape="rect" id="node3" href="$_byte_8h.html" title="The Byte specification and body provides a value object type for byte values." alt="" coords="59,80,119,107"/>
-<area shape="rect" id="node4" href="$_natural_8h.html" title="The Natural specification and body provides a value object type for naturals (positive integers with ..." alt="" coords="109,155,184,181"/>
-<area shape="rect" id="node5" href="$_assertion_8h.html" title="The Assertion specification defines macros for pre&#45; and postconditions in functions or methods." alt="" coords="88,229,176,256"/>
-<area shape="rect" id="node8" title=" " alt="" coords="200,229,323,256"/>
-<area shape="rect" id="node9" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="347,229,432,256"/>
-<area shape="rect" id="node6" title=" " alt="" coords="93,304,171,331"/>
-<area shape="rect" id="node7" title=" " alt="" coords="225,304,279,331"/>
-<area shape="rect" id="node10" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="333,304,446,331"/>
+<area shape="rect" id="node1" title="The Character specification and body provides a value object type for character values." alt="" coords="5,5,95,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="13,229,71,256"/>
+<area shape="rect" id="node3" href="$_byte_8h.html" title="The Byte specification and body provides a value object type for byte values." alt="" coords="80,80,140,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="105,155,166,181"/>
+<area shape="rect" id="node5" href="$_natural_8h.html" title="The Natural specification and body provides a value object type for naturals (positive integers with ..." alt="" coords="190,155,265,181"/>
+<area shape="rect" id="node6" href="$_assertion_8h.html" title="The Assertion specification defines macros for pre&#45; and postconditions in functions or methods." alt="" coords="95,229,183,256"/>
+<area shape="rect" id="node9" title=" " alt="" coords="207,229,330,256"/>
+<area shape="rect" id="node10" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="354,229,439,256"/>
+<area shape="rect" id="node7" title=" " alt="" coords="100,304,179,331"/>
+<area shape="rect" id="node8" title=" " alt="" coords="232,304,287,331"/>
+<area shape="rect" id="node11" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="340,304,453,331"/>
 </map>

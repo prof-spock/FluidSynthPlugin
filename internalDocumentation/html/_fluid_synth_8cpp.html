@@ -83,7 +83,10 @@ $(document).ready(function(){initNavTree('_fluid_synth_8cpp.html',''); initResiz
 
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a>  </div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">FluidSynth.cpp File Reference</div>  </div>
 </div><!--header-->
@@ -105,16 +108,83 @@ $(document).ready(function(){initNavTree('_fluid_synth_8cpp.html',''); initResiz
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
+<tr class="memitem:aba26261f70b35fe5d7d27b7d60c33b70"><td class="memItemLeft" align="right" valign="top"><a id="aba26261f70b35fe5d7d27b7d60c33b70"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_8cpp.html#aba26261f70b35fe5d7d27b7d60c33b70">reportBadFunction</a>(name)&#160;&#160;&#160;    <a class="el" href="_logging_8h.html#abda43432e1824d87522abc061e616939">Logging_traceError</a>(&quot;settings '&quot; name &quot;' function undefined&quot;)</td></tr>
+<tr class="memdesc:aba26261f70b35fe5d7d27b7d60c33b70"><td class="mdescLeft">&#160;</td><td class="mdescRight">reports that function with <code>name</code> is not dynamically defined <br /></td></tr>
+<tr class="separator:aba26261f70b35fe5d7d27b7d60c33b70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2eddf0f1f16313b56d83951421f26e77"><td class="memItemLeft" align="right" valign="top"><a id="a2eddf0f1f16313b56d83951421f26e77"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_8cpp.html#a2eddf0f1f16313b56d83951421f26e77">GPA</a>(signature,  name)&#160;&#160;&#160;    (signature) ((<a class="el" href="struct_libraries_1_1_dynamic_library.html">DynamicLibrary</a>*) fsLibrary)-&gt;getFunctionByName(name)</td></tr>
+<tr class="memdesc:a2eddf0f1f16313b56d83951421f26e77"><td class="mdescLeft">&#160;</td><td class="mdescRight">simple macro for dynamic binding of a function <br /></td></tr>
+<tr class="separator:a2eddf0f1f16313b56d83951421f26e77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3899ed280ea135f08fcbec190e86a678"><td class="memItemLeft" align="right" valign="top"><a id="a3899ed280ea135f08fcbec190e86a678"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_8cpp.html#a3899ed280ea135f08fcbec190e86a678">_libraryName</a>&#160;&#160;&#160;&quot;libfluidsynth.so.3&quot;</td></tr>
 <tr class="memdesc:a3899ed280ea135f08fcbec190e86a678"><td class="mdescLeft">&#160;</td><td class="mdescRight">the library name for the fluidsynth dynamic library <br /></td></tr>
 <tr class="separator:a3899ed280ea135f08fcbec190e86a678"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a40c1168e92cf00bce0635e4d28ed51bd"><td class="memItemLeft" align="right" valign="top"><a id="a40c1168e92cf00bce0635e4d28ed51bd"></a>
+typedef char *(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_8cpp.html#a40c1168e92cf00bce0635e4d28ed51bd">FSynth_VersionProc</a>) (void)</td></tr>
+<tr class="memdesc:a40c1168e92cf00bce0635e4d28ed51bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">version function type in library <br /></td></tr>
+<tr class="separator:a40c1168e92cf00bce0635e4d28ed51bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a1c9d1152afce3310aaf2b720af890a27"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_8cpp.html#a1c9d1152afce3310aaf2b720af890a27">_initializeFunctionsForLibrary</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> Object fsLibrary)</td></tr>
+<tr class="memdesc:a1c9d1152afce3310aaf2b720af890a27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Connects static functions dynamically to functions from DLL <code>fsLibrary</code>  <a href="_fluid_synth_8cpp.html#a1c9d1152afce3310aaf2b720af890a27">More...</a><br /></td></tr>
+<tr class="separator:a1c9d1152afce3310aaf2b720af890a27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ac02740e9f31db5fbf79813215149638d"><td class="memItemLeft" align="right" valign="top"><a id="ac02740e9f31db5fbf79813215149638d"></a>
+static <a class="el" href="_fluid_synth_8cpp.html#a40c1168e92cf00bce0635e4d28ed51bd">FSynth_VersionProc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_8cpp.html#ac02740e9f31db5fbf79813215149638d">FSynth_version</a> = NULL</td></tr>
+<tr class="memdesc:ac02740e9f31db5fbf79813215149638d"><td class="mdescLeft">&#160;</td><td class="mdescRight">version function in library <br /></td></tr>
+<tr class="separator:ac02740e9f31db5fbf79813215149638d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4297750293feb181265d1000d8d1c1d"><td class="memItemLeft" align="right" valign="top"><a id="ab4297750293feb181265d1000d8d1c1d"></a>
+static <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_8cpp.html#ab4297750293feb181265d1000d8d1c1d">_functionsAreInitialized</a> = false</td></tr>
+<tr class="memdesc:ab4297750293feb181265d1000d8d1c1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">flag to tell whether function pointers have been initialized <br /></td></tr>
+<tr class="separator:ab4297750293feb181265d1000d8d1c1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <code>FluidSynth</code> class implements the access to the fluidsynth library via a dynamic loading of it. </p>
 <dl class="section author"><dt>Author</dt><dd>Dr. Thomas Tensi </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2022-04 </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a1c9d1152afce3310aaf2b720af890a27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c9d1152afce3310aaf2b720af890a27">&#9670;&nbsp;</a></span>_initializeFunctionsForLibrary()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void _initializeFunctionsForLibrary </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> Object&#160;</td>
+          <td class="paramname"><em>fsLibrary</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Connects static functions dynamically to functions from DLL <code>fsLibrary</code> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">fsLibrary</td><td>underlying fluidsynth library </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

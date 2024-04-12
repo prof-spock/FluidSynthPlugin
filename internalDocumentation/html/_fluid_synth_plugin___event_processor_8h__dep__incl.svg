@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="_fluid_synth_plugin___editor_8h.html" target="_top" xlink:title="The FluidSynthPlugin_AudioProcessor module handles MIDI events from the DAW via JUCE and have them pr...">
+<g id="a_node2"><a xlink:href="_fluid_synth_plugin___editor_8h.html" target="_top" xlink:title="The FluidSynthPlugin_Editor specification implements the editor for the processor of MIDI events from...">
 <polygon fill="white" stroke="black" points="94.5,-56.5 94.5,-75.5 223.5,-75.5 223.5,-56.5 94.5,-56.5"/>
 <text text-anchor="middle" x="159" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">FluidSynthPlugin_Editor.h</text>
 </a>

@@ -17,6 +17,7 @@
 /*--------------------*/
 
 using Audio::AudioSampleList;
+using BaseTypes::Containers::clearArray;
 using BaseTypes::Containers::copyArray;
 
 /*====================*/
@@ -38,7 +39,7 @@ void AudioSampleList::setToZero (IN Natural position,
         const Natural effectiveCount =
             Natural::minimum(currentLength - position, count);
         AudioSample* sampleArray = asArray(position);
-        clearArray(sampleArray, AudioSample, effectiveCount);
+        clearArray(sampleArray, effectiveCount, AudioSample{0.0f});
     }
 }
 
