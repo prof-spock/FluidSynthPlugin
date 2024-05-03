@@ -721,7 +721,7 @@ has two consequences:
 
     \item Even though the \FluidSynthPlugin\ and its underlying
           library would support it, it is not possible to use multiple
-          MIDI channels with different sounds within a single plugin
+          MIDI channels with different sounds within a singleplugin
           instance.  \textbf{Each plugin instance can only play a
           single preset at a time.}
 
@@ -754,8 +754,8 @@ There are two ways to set the soundfont:
           figures~\ref{figure:fileSelectionDialog}a and b).
 
     \item Alternatively a soundfont can be dragged onto the edit
-          field.  The field only accepts a single .sf2 or .sf3 files
-          as dragged files.  When the file is successfully dropped,
+          field.  The field only accepts a single .sf2 or .sf3 file
+          as the dragged file.  When the file is successfully dropped,
           the soundfont entry in the edit field is updated.
 
           Unfortunately that mechanism does not yet work in Linux
@@ -800,7 +800,7 @@ select the menu item \embeddedCode{Select Preset...}.
 
 A preset selection dialog with two columns comes up (see
 figure~\ref{figure:presetSelectionDialog}).  In the left column a
-bank can be elected, in the right column on program within the bank.
+bank can be selected, in the right column on program within the bank.
 Note that a bank selection in the left column does \textbf{not at all}
 change the currently selected bank and program.  This is indicated by
 a marker to the left of the bank with the selected program.
@@ -813,7 +813,7 @@ represent similar sounds.
 
 A new preset is \textbf{only} selected by clicking on a program in the
 right column.  This is indicated by the marker to the left of that
-program which also is moved to the containing bank.  Note that also
+program which also is moved onto its containing bank.  Note that also
 the selection bar is only visible on that specific entry.
 
 \begin{centeredFigure}
@@ -1030,10 +1030,10 @@ direct way to set the modulators in the underlying
 \(t_{fragment}<t_{play}\) one could reset all modulators at playback
 start and first silently have the synthesizer process samples for a
 duration of \(t_{play} - t_{fragment}\) to bring its modulators to the
-correct phases before then putting out the ``real'' samples. But this
-is tedious, takes a lot of processing time and also does not solve the
-problem of having the playback starting before the fragment start
-time.
+correct phases before finally putting out the ``real'' samples.  But
+this is tedious, takes a lot of processing time and also does not help
+in a situation where the playback has to start \textbf{before} the
+start time of the corresponding fragment.
 
 So there is no good solution for that.
 
@@ -1344,6 +1344,14 @@ where XXX is the target name.
         the HTML doxygen documentation for the code\\\hline
       \subTarget pdfDocumentation&
         the PDF manual for the plugins\\\hline
+      SupportLibraries&
+        the static libraries supporting the effects\\\hline
+      \subTarget CommonProjectLibrary&
+        the static library with utility classes (like e.g. lists or
+        logging)\\\hline
+      \subTarget JuceFramework&
+        the static library with utility classes from the JUCE
+        framework\\\hline
       FluidSynthFileConverter&
         the program for the command line \FluidSynthConverter\\\hline
       FluidSynthPlugins&
@@ -1354,11 +1362,6 @@ where XXX is the target name.
         the VST3 library for the \FluidSynthPlugin\\\hline
       \subTarget FluidSynthPlugins\_AU&
         the AU libraries for the \FluidSynthPlugin\ (only on MacOSX)\\\hline
-      SupportLibraries&
-        the static libraries supporting the effects\\\hline
-      \subTarget JuceFramework&
-        the static library with utility classes from the JUCE
-        framework\\\hline
     \end{tabular}
   \end{center}
   \caption{Available Build Targets for CMAKE}

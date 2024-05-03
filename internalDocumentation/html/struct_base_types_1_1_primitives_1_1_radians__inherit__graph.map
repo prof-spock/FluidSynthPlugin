@@ -1,5 +1,5 @@
 <map id="BaseTypes::Primitives::Radians" name="BaseTypes::Primitives::Radians">
-<area shape="rect" id="node1" title="A Radians object is a real&#45;valued and represents the range from 0 to 2pi." alt="" coords="17,681,168,803"/>
-<area shape="rect" id="node2" href="$struct_base_types_1_1_primitives_1_1_real.html" title="An Real object wraps a value of some associated primitive float point type in an object." alt="" coords="14,160,171,633"/>
+<area shape="rect" id="node1" title="A Radians object is a real&#45;valued and represents the range from 0 to 2pi." alt="" coords="17,696,168,817"/>
+<area shape="rect" id="node2" href="$struct_base_types_1_1_primitives_1_1_real.html" title="An Real object wraps a value of some associated primitive float point type in an object." alt="" coords="14,160,171,648"/>
 <area shape="rect" id="node3" title=" " alt="" coords="5,5,180,112"/>
 </map>

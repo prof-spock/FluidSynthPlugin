@@ -17,6 +17,7 @@ var struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor 
     [ "isMidiEffect", "struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#a7b038cae1ef5635cc8cc333278385d3f", null ],
     [ "prepareToPlay", "struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#aa9342cf558f1f623bde3905c52719481", null ],
     [ "presetList", "struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#ad3b141bd4cfba4a047844df8563c6bdd", null ],
+    [ "processBlock", "struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#a26ce33c19a860b09fa32b27d8138d049", null ],
     [ "processBlock", "struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#a656d62a347f8b24092a81d81933c7f9e", null ],
     [ "producesMidi", "struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#ad227db9612c954027cf46dd952b2a7a2", null ],
     [ "releaseResources", "struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#af3a8442a592298e8fda37d2ba47b463f", null ],

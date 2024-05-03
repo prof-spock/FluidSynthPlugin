@@ -3,6 +3,8 @@ var struct_base_types_1_1_primitives_1_1_integer =
     [ "Integer", "struct_base_types_1_1_primitives_1_1_integer.html#a4e03d9446760f94842cdb563b48145b3", null ],
     [ "Integer", "struct_base_types_1_1_primitives_1_1_integer.html#a9a41778e1ad878d9132b958170b43d69", null ],
     [ "Integer", "struct_base_types_1_1_primitives_1_1_integer.html#a4181f72f43bac1f672a42988999783db", null ],
+    [ "abs", "struct_base_types_1_1_primitives_1_1_integer.html#adf8a3c55289883d18c6d4fe0f970c346", null ],
+    [ "abs", "struct_base_types_1_1_primitives_1_1_integer.html#ab5fdc560e69ae6e2583fff5f450234a1", null ],
     [ "ceiling", "struct_base_types_1_1_primitives_1_1_integer.html#a92ba7e94c9be242d901bf0bf9fa8c1d0", null ],
     [ "floor", "struct_base_types_1_1_primitives_1_1_integer.html#ac52a3e662743a3f54e94c953f95a7bf3", null ],
     [ "mod", "struct_base_types_1_1_primitives_1_1_integer.html#a0af78fb1bde213f979532a63cd543e30", null ],

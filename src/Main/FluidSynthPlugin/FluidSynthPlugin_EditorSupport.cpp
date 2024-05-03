@@ -651,6 +651,10 @@ _PresetSelectionComponent
     Natural bankNumber;
     Natural programNumber;
     Boolean isOkay = presetIdentification.split(bankNumber, programNumber);
+    Logging_trace4("--: isOkay = %1, presetId = '%2',"
+                   " bankNumber = %3, programNumber = %4",
+                   TOSTRING(isOkay), presetIdentification.toString(),
+                   TOSTRING(bankNumber), TOSTRING(programNumber));
 
     _bankNumberListModel.setData(bankNumberStringList);
     _bankNumberListModel.setMarkedItem(bankNumber);

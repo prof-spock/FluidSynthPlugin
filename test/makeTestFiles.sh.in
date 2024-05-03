@@ -63,7 +63,7 @@ else
 fi
 
 # selected platform "Windows-AMD64", "Darwin-x86_64" or "Linux-x86_64"
-platform=@platformName@/${configuration}
+platform=@GLOB_platformName@/${configuration}
 
 sampleRateList="44100 48000"
 soundFont="SimpleTestSoundfont.sf2"
@@ -75,7 +75,6 @@ fsProgram=fluidsynth
 fsfcProgram=${scriptDirectory}/../targetPlatforms/${platform}
 fsfcProgram=${fsfcProgram}/FluidSynthFileConverter
 fsfcProgram=${fsfcProgram}/FluidSynthFileConverter
-
 
 _pushd ${scriptDirectory}
 prefixList="test_bass test_drums test_keyboard"

@@ -100,7 +100,8 @@ $(document).ready(function(){initNavTree('struct_main_1_1_fluid_synth_plugin_1_1
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor__inherit__graph.svg" width="262" height="375"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor__inherit__graph.svg" width="262" height="375"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -174,6 +175,9 @@ Public Member Functions</h2></td></tr>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#af3a8442a592298e8fda37d2ba47b463f">releaseResources</a> () override</td></tr>
 <tr class="memdesc:af3a8442a592298e8fda37d2ba47b463f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells processor to release resources after playback. <br /></td></tr>
 <tr class="separator:af3a8442a592298e8fda37d2ba47b463f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26ce33c19a860b09fa32b27d8138d049"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#a26ce33c19a860b09fa32b27d8138d049">processBlock</a> (juce::AudioBuffer&lt; double &gt; &amp;audioBuffer, juce::MidiBuffer &amp;midiEventList) override</td></tr>
+<tr class="memdesc:a26ce33c19a860b09fa32b27d8138d049"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes a block of double samples and <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> information with this audio processor.  <a href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#a26ce33c19a860b09fa32b27d8138d049">More...</a><br /></td></tr>
+<tr class="separator:a26ce33c19a860b09fa32b27d8138d049"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a656d62a347f8b24092a81d81933c7f9e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#a656d62a347f8b24092a81d81933c7f9e">processBlock</a> (juce::AudioBuffer&lt; float &gt; &amp;audioBuffer, juce::MidiBuffer &amp;midiEventList) override</td></tr>
 <tr class="memdesc:a656d62a347f8b24092a81d81933c7f9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes a block of float samples and <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> information with this audio processor.  <a href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html#a656d62a347f8b24092a81d81933c7f9e">More...</a><br /></td></tr>
 <tr class="separator:a656d62a347f8b24092a81d81933c7f9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -638,8 +642,53 @@ Object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="st
 
 </div>
 </div>
+<a id="a26ce33c19a860b09fa32b27d8138d049"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26ce33c19a860b09fa32b27d8138d049">&#9670;&nbsp;</a></span>processBlock() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FluidSynthPlugin_EventProcessor::processBlock </td>
+          <td>(</td>
+          <td class="paramtype">juce::AudioBuffer&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>audioBuffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">juce::MidiBuffer &amp;&#160;</td>
+          <td class="paramname"><em>midiEventList</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Processes a block of double samples and <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> information with this audio processor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">audioBuffer</td><td>combination of input (ignored here) and output sample lists in double format </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">midiEventList</td><td>list of midi messages to be processed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a656d62a347f8b24092a81d81933c7f9e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a656d62a347f8b24092a81d81933c7f9e">&#9670;&nbsp;</a></span>processBlock()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a656d62a347f8b24092a81d81933c7f9e">&#9670;&nbsp;</a></span>processBlock() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">

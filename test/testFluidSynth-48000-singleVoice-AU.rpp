@@ -1,0 +1,456 @@
+<REAPER_PROJECT 0.1 "7.14/OSX64-clang" 1713633061
+  <NOTES 0 2
+  >
+  RIPPLE 0
+  GROUPOVERRIDE 0 0 0
+  AUTOXFADE 129
+  ENVATTACH 0
+  POOLEDENVATTACH 0
+  MIXERUIFLAGS 11 48
+  PEAKGAIN 1
+  FEEDBACK 0
+  PANLAW 1
+  PROJOFFS 0 0 0
+  MAXPROJLEN 0 600
+  GRID 3199 8 1 8 1 0 0 0
+  TIMEMODE 1 5 -1 30 0 0 -1
+  VIDEO_CONFIG 0 0 256
+  PANMODE 3
+  CURSOR 1.44
+  ZOOM 44.16024430827731 0 0
+  VZOOMEX 5 0
+  USE_REC_CFG 0
+  RECMODE 1
+  SMPTESYNC 0 30 100 40 1000 300 0 0 1 0 0
+  LOOP 1
+  LOOPGRAN 0 4
+  RECORD_PATH "" ""
+  <RECORD_CFG
+    ZXZhdxgAAA==
+  >
+  <APPLYFX_CFG
+  >
+  RENDER_FILE ""
+  RENDER_PATTERN ""
+  RENDER_FMT 0 2 0
+  RENDER_1X 0
+  RENDER_RANGE 1 0 0 18 1000
+  RENDER_RESAMPLE 3 10 1
+  RENDER_ADDTOPROJ 0
+  RENDER_STEMS 0
+  RENDER_DITHER 0
+  TIMELOCKMODE 1
+  TEMPOENVLOCKMODE 1
+  ITEMMIX 1
+  DEFPITCHMODE 589824 0
+  TAKELANE 1
+  SAMPLERATE 48000 1 0
+  <RENDER_CFG
+    ZXZhdxgAAA==
+  >
+  LOCK 1
+  <METRONOME 6 2
+    VOL 0.25 0.125
+    FREQ 800 1600 1
+    BEATLEN 4
+    SAMPLES "" ""
+    PATTERN 2863311530 2863311529
+    MULT 1
+  >
+  GLOBAL_AUTO -1
+  TEMPO 125 4 4
+  PLAYRATE 1 0 0.25 4
+  SELECTION 5.75854875283447 11.51854875283447
+  SELECTION2 5.75854875283447 11.51854875283447
+  MASTERAUTOMODE 0
+  MASTERTRACKHEIGHT 0 0
+  MASTERPEAKCOL 16576
+  MASTERMUTESOLO 0
+  MASTERTRACKVIEW 0 0.6667 0 0.5 0 -1 0 0 0 0 -1 -1 0 0
+  MASTERHWOUT 0 0 1 0 0 0 0 -1
+  MASTER_NCH 2 2
+  MASTER_VOLUME 1 0 -1 -1 1
+  MASTER_PANMODE 3
+  MASTER_FX 1
+  MASTER_SEL 0
+  <MASTERFXLIST
+    WNDRECT 114 435 1102 565
+    SHOW 0
+    LASTSEL 0
+    DOCKED 0
+    BYPASS 0 0 0
+    <JS analysis/gfxanalyzer ""
+      8 -250 0 0.39 500 0 1000 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "cancellation control -250dB"
+    >
+    JS_DIMS 594 335
+    PRESETNAME "cancellation control -250dB"
+    FLOATPOS 718 527 612 382
+    FXID {E71DF572-C8A1-4838-A52E-4C69249D1799}
+    WAK 0 2
+  >
+  <MASTERPLAYSPEEDENV
+    EGUID {7A4C00F4-6249-47B8-B338-37329644B909}
+    ACT 0 -1
+    VIS 0 1 1
+    LANEHEIGHT 0 0
+    ARM 0
+    DEFSHAPE 0 -1 -1
+  >
+  <TEMPOENVEX
+    EGUID {094CCB32-472D-491B-9BC3-30D5DE271DA8}
+    ACT 0 -1
+    VIS 1 0 1
+    LANEHEIGHT 0 0
+    ARM 0
+    DEFSHAPE 1 -1 -1
+  >
+  MARKER 1 5.76 TEST 9 33488896 1 B {C7AADAF7-B5DC-40AE-93BA-5C2B15F4DAB4} 0
+  MARKER 1 11.51854875283447 "" 9
+  <PROJBAY
+  >
+  <TRACK {E38A68E7-F206-43BD-A1E0-29C469CFCC4E}
+    NAME "TEST bass"
+    PEAKCOL 16842751
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 1 1
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 -1 0
+    SEL 0
+    REC 0 0 0 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 -1 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {E38A68E7-F206-43BD-A1E0-29C469CFCC4E}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+  >
+  <TRACK {47C20E7B-E5FE-451D-BB77-DA2551C3A790}
+    NAME "MIDI bass"
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 1
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 -1 0
+    SEL 0
+    REC 0 0 0 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 -1 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {47C20E7B-E5FE-451D-BB77-DA2551C3A790}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+    <FXCHAIN
+      WNDRECT 308 197 639 475
+      SHOW 0
+      LASTSEL 1
+      DOCKED 0
+      BYPASS 1 0 0
+      <VST "VST3i: FluidSynthPlugin (DrTT)" FluidSynthPlugin.vst3 0 "" 2009459215{ABCDEF019182FAEB44725454466C7569} ""
+        D+rFd+5e7f4CAAAAAQAAAAAAAAACAAAAAAAAAAIAAAABAAAAAAAAAAIAAAAAAAAAzQAAAAEAAAAAABAA
+        vQAAAAEAAABzb3VuZGZvbnQgPSAke3NvdW5kZm9udHN9L1NpbXBsZVRlc3RTb3VuZGZvbnQuc2YyCnN5bnRoLnJldmVyYi5hY3RpdmUgPSAwCnN5bnRoLmNob3J1cy5h
+        Y3RpdmUgPSAwCnN5bnRoLmdhaW4gPSAxLjAKcHJvZ3JhbSA9IDA6MzQAAAAAAAAAAEpVQ0VQcml2YXRlRGF0YQABAUJ5cGFzcwABAQMAHQAAAAAAAABKVUNFUHJpdmF0
+        ZURhdGEAAAAAAAAAAA==
+        AAAQAAAA
+      >
+      FLOATPOS 0 0 0 0
+      FXID {E9CFC7CF-EED2-48F5-953B-C58311100459}
+      WAK 0 0
+      BYPASS 0 0 0
+      <AU "AUi: FluidSynthPlugin (DrTT)" "DrTT: FluidSynthPlugin" "" 1635085685 1181513065 1148343380
+        6QMAAAAAAAACAAAAAQAAAAAAAAACAAAAAAAAAAIAAAABAAAAAAAAAAIAAAAAAAAAcQMAADw/eG1sIHZlcnNpb249IjEuMCIgZW5jb2Rpbmc9IlVURi04Ij8+CjwhRE9D
+        VFlQRSBwbGlzdCBQVUJMSUMgIi0vL0FwcGxlLy9EVEQgUExJU1QgMS4wLy9FTiIgImh0dHA6Ly93d3cuYXBwbGUuY29tL0RURHMvUHJvcGVydHlMaXN0LTEuMC5kdGQi
+        Pgo8cGxpc3QgdmVyc2lvbj0iMS4wIj4KPGRpY3Q+Cgk8a2V5PmRhdGE8L2tleT4KCTxkYXRhPgoJPC9kYXRhPgoJPGtleT5lbGVtZW50LW5hbWU8L2tleT4KCTxkaWN0
+        PgoJCTxrZXk+MTwva2V5PgoJCTxkaWN0PgoJCQk8a2V5PjA8L2tleT4KCQkJPHN0cmluZz5JbnB1dDwvc3RyaW5nPgoJCTwvZGljdD4KCQk8a2V5PjI8L2tleT4KCQk8
+        ZGljdD4KCQkJPGtleT4wPC9rZXk+CgkJCTxzdHJpbmc+T3V0cHV0PC9zdHJpbmc+CgkJPC9kaWN0PgoJPC9kaWN0PgoJPGtleT5qdWNlUGx1Z2luU3RhdGU8L2tleT4K
+        CTxkYXRhPgoJYzI5MWJtUm1iMjUwSUQwZ0pIdHpiM1Z1WkdadmJuUnpmUzlUYVcxd2JHVlVaWE4wVTI5MWJtUm1iMjUwTG5ObU1ncHoKCWVXNTBhQzV5WlhabGNtSXVZ
+        V04wYVhabElEMGdNQXB6ZVc1MGFDNWphRzl5ZFhNdVlXTjBhWFpsSUQwZ01BcHplVzUwCglhQzVuWVdsdUlEMGdNUzR3Q25CeWIyZHlZVzBnUFNBd09qTTAKCTwvZGF0
+        YT4KCTxrZXk+bWFudWZhY3R1cmVyPC9rZXk+Cgk8aW50ZWdlcj4xMTQ4MzQzMzgwPC9pbnRlZ2VyPgoJPGtleT5uYW1lPC9rZXk+Cgk8c3RyaW5nPlVudGl0bGVkPC9z
+        dHJpbmc+Cgk8a2V5PnN1YnR5cGU8L2tleT4KCTxpbnRlZ2VyPjExODE1MTMwNjU8L2ludGVnZXI+Cgk8a2V5PnR5cGU8L2tleT4KCTxpbnRlZ2VyPjE2MzUwODU2ODU8
+        L2ludGVnZXI+Cgk8a2V5PnZlcnNpb248L2tleT4KCTxpbnRlZ2VyPjA8L2ludGVnZXI+CjwvZGljdD4KPC9wbGlzdD4KAQAAAAAAAAAAAA==
+      >
+      FLOATPOS 0 0 0 0
+      FXID {C39EBFA9-06BD-A741-BF0E-505DDA6E0E1A}
+      WAK 0 0
+    >
+    <ITEM
+      POSITION 0
+      SNAPOFFS 0
+      LENGTH 15.36
+      LOOP 0
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0 0
+      FADEOUT 1 0 0 1 0 0 0
+      MUTE 0 0
+      LOCK 1
+      BEAT 2
+      SEL 1
+      IGUID {FAD9328C-8FBA-4693-A273-926B883FD20F}
+      IID 2348
+      NAME "bass: test_bass.mid"
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {A5B7E8AA-4BA8-4EE0-B5B7-80610E6F1AA8}
+      <SOURCE MIDI
+        HASDATA 1 384 QN
+        CCINTERP 32
+        POOLEDEVTS {1EEC0DCD-5F12-47F3-BD5B-56C10B11E18E}
+        E 1 90 1a 54 -1
+        E 192 90 1a 00 -1
+        E 1 90 1a 4f
+        E 189 90 1a 00
+        E 1 90 1a 62
+        E 191 90 1a 00
+        E 1 90 1a 4e
+        E 192 90 1a 00
+        E 1 90 26 57
+        E 191 90 26 00
+        E 1 90 26 53
+        E 191 90 26 00
+        E 0 90 1a 63
+        E 192 90 1a 00
+        E 5 90 1d 4f
+        E 186 90 1d 00
+        E 1 90 1d 5a
+        E 192 90 1d 00
+        E 10 90 1a 50
+        E 181 90 1a 00
+        E 1 90 1a 6b
+        E 191 90 1a 00
+        E 1 90 1a 50
+        E 191 90 1a 00
+        E 1 90 1a 5c
+        E 191 90 1a 00
+        E 1 90 1a 50
+        E 191 90 1a 00
+        E 1 90 1a 5d
+        E 192 90 1a 00
+        E 1 90 1f 4a
+        E 191 c0 00 00
+        E 0 90 1f 00
+        E 6 90 1f 59
+        E 186 90 1f 00
+        E 0 90 1a 50
+        E 191 90 1a 00
+        E 1 90 1a 68
+        E 192 90 1a 00
+        E 2 90 1a 56
+        E 189 90 1a 00
+        E 1 90 1a 56
+        E 191 90 1a 00
+        E 1 90 1a 4c
+        E 191 90 1a 00
+        E 1 90 1a 5f
+        E 192 90 1a 00
+        E 5 90 24 50
+        E 187 90 24 00
+        E 5 90 24 5a
+        E 187 90 24 00
+        E 7 90 1a 51
+        E 185 90 1a 00
+        E 0 90 1d 67
+        E 192 90 1d 00
+        E 2 90 29 4a
+        E 190 90 29 00
+        E 7 90 1f 4e
+        E 185 90 1f 00
+        E 9 90 2b 56
+        E 183 90 2b 00
+        E 0 90 21 68
+        E 192 90 21 00
+        E 6 90 2d 4b
+        e 186 c0 23 00
+        E 0 90 2d 00
+        E 3 90 1a 59
+        E 189 90 1a 00
+        E 7 90 1a 4e
+        E 184 90 1a 00
+        E 1 90 1a 65
+        E 192 90 1a 00
+        E 4 90 1a 4e
+        E 188 90 1a 00
+        E 3 90 26 59
+        E 188 90 26 00
+        E 1 90 26 52
+        E 192 90 26 00
+        E 0 90 1a 64
+        E 192 90 1a 00
+        E 3 90 1d 58
+        E 188 90 1d 00
+        E 1 90 1d 5a
+        E 192 90 1d 00
+        E 1 90 1a 49
+        E 190 90 1a 00
+        E 1 90 1a 6b
+        E 191 90 1a 00
+        E 1 90 1a 57
+        E 192 90 1a 00
+        E 5 90 1a 55
+        E 187 90 1a 00
+        E 1 90 1a 51
+        E 190 90 1a 00
+        E 1 90 1a 64
+        E 192 90 1a 00
+        E 1 90 1f 51
+        E 191 90 1f 00
+        E 3 90 1f 61
+        E 189 90 1f 00
+        E 6 90 1a 53
+        E 185 90 1a 00
+        E 1 90 1a 66
+        E 192 90 1a 00
+        E 11 90 1a 50
+        E 181 90 1a 00
+        E 8 90 1a 4e
+        E 184 90 1a 00
+        E 4 90 1a 50
+        E 187 90 1a 00
+        E 1 90 1a 62
+        E 192 90 1a 00
+        E 3 90 24 53
+        E 189 90 24 00
+        E 3 90 24 59
+        E 189 90 24 00
+        E 1 90 1a 4b
+        E 191 90 1a 00
+        E 0 90 21 64
+        E 192 90 21 00
+        E 1 90 21 56
+        E 191 90 21 00
+        E 0 90 1f 55
+        E 192 90 1f 00
+        E 5 90 1f 54
+        E 187 90 1f 00
+        E 0 90 1d 62
+        E 192 90 1d 00
+        E 1 90 1d 50
+        E 191 80 1d 00
+        E 0 b0 7b 00
+        CCINTERP 32
+        CHASE_CC_TAKEOFFS 1
+        GUID {EDA95709-F287-419F-B023-C9A646BA9702}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 12955
+        VELLANE -1 66 0 0 1
+        CFGEDITVIEW 0 0.083415 64 12 0 -1 0 0 0 0.5
+        KEYSNAP 0
+        TRACKSEL 255
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        CFGEDIT 1 1 0 0 0 4 1 1 1 1 1 0.25 0 32 1364 731 0 0 0 0 0 0 0 0 0 0.5 1 0 1 64
+      >
+    >
+  >
+  <TRACK {41D486AC-B28B-4A95-9EE5-0FC706AD9F19}
+    NAME "FluidSynth WAV (bass)"
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 1 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 -1 0
+    SEL 0
+    REC 0 0 0 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 -1 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {41D486AC-B28B-4A95-9EE5-0FC706AD9F19}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+    <ITEM
+      POSITION 0
+      SNAPOFFS 0
+      LENGTH 15.36
+      LOOP 0
+      ALLTAKES 0
+      FADEIN 1 0.01 0 1 0 0 0
+      FADEOUT 1 0.01 0 1 0 0 0
+      MUTE 0 0
+      LOCK 1
+      BEAT 2
+      SEL 0
+      IGUID {9F592BA8-7527-45C3-93D5-834A6343E2B5}
+      IID 18
+      NAME FS-test_bass-48000.wav
+      VOLPAN 1 0 1 -1
+      SOFFS 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {DBAFF318-F862-4D7A-88F2-EE37C845419D}
+      <SOURCE WAVE
+        FILE "FS-test_bass-48000.wav"
+      >
+    >
+  >
+  <TRACK {9CF647CE-3644-4156-9A55-7B910A9765CA}
+    NAME "FSFC WAV (bass)"
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 2 -1
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.665399 0.5 1 0.5 0 -1 0
+    SEL 0
+    REC 0 0 0 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 -1 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {9CF647CE-3644-4156-9A55-7B910A9765CA}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+    <ITEM
+      POSITION 0
+      SNAPOFFS 0
+      LENGTH 15.36
+      LOOP 0
+      ALLTAKES 0
+      FADEIN 1 0.01 0 1 0 0 0
+      FADEOUT 1 0.01 0 1 0 0 0
+      MUTE 0 0
+      LOCK 1
+      BEAT 2
+      SEL 0
+      IGUID {1F01E7D5-B048-45F8-A961-BC495BEF851B}
+      IID 19
+      NAME FSFC-test_bass-48000.wav
+      VOLPAN 1 0 1 -1
+      SOFFS 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {645E0DC8-18C1-4568-A8B0-4DB210E248E8}
+      <SOURCE WAVE
+        FILE "FSFC-test_bass-48000.wav"
+      >
+    >
+  >
+>

@@ -16,7 +16,6 @@ var _fluid_synth_plugin___editor_8cpp =
     [ "_Colour_button", "_fluid_synth_plugin___editor_8cpp.html#a34466721931a32005c6f2653eff5dcbb", null ],
     [ "_Colour_erroneousEditorBackground", "_fluid_synth_plugin___editor_8cpp.html#a84618bc4ce4254808d37e562bf4bf193", null ],
     [ "_Colour_errorInformationText", "_fluid_synth_plugin___editor_8cpp.html#a7ca67fe7d654b930af8928e2299bffc6", null ],
-    [ "_Colour_labelText", "_fluid_synth_plugin___editor_8cpp.html#a6df728ca9eaf36b8180e9f6958343c36", null ],
     [ "_Colour_stableEditorBackground", "_fluid_synth_plugin___editor_8cpp.html#ad645557a61b68651612ff93800ede619", null ],
     [ "_Colour_standardEditorBackground", "_fluid_synth_plugin___editor_8cpp.html#a46d63abea7715ab9eb93c0d7712a82da", null ],
     [ "_Colour_text", "_fluid_synth_plugin___editor_8cpp.html#af11f0c952ba2de2892562a09e86fd9da", null ],

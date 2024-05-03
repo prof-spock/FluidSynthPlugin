@@ -150,6 +150,39 @@ namespace BaseTypes::Primitives {
         }
 
         /*--------------------*/
+
+        /**
+         * Returns string representation of integer <C>i</C> with
+         * default precision and padding information.
+         *
+         * @param[in] i  integer value to be converted to a string
+         * @return  string representation
+         */
+        static String toString (IN Integer& i)
+        {
+            return i.toString();
+        }
+
+        /*--------------------*/
+
+        /**
+         * Returns natural representation of integer <C>i</C>; fails
+         * when integer is negative.
+         *
+         * @param[in] i  integer value to be converted to a natural
+         * @return  natural representation
+         */
+        static Natural toNatural (IN Integer& i)
+        {
+            if (i < 0) {
+                throw std::range_error("negative value not "
+                                       "allowed for natural");
+            }
+
+            return Natural{(size_t) (int) i};
+        }
+
+        /*--------------------*/
         /* operators          */
         /*--------------------*/
 
@@ -218,6 +251,19 @@ namespace BaseTypes::Primitives {
         /*-----------------------------*/
 
         /**
+         * Returns the absolute value of <C>x</C> as integer value.
+         *
+         * @param[in] i  some integer value
+         * @return  the absolute value of <C>i</C>
+         */
+        static Integer abs (IN Integer i)
+        {
+            return Integer{std::abs((int) i)};
+        }
+
+        /*--------------------*/
+
+        /**
          * Returns the ceiling of <C>x</C> as integer value.
          *
          * @param[in] x  some real value
@@ -269,7 +315,8 @@ namespace BaseTypes::Primitives {
          * @param[in] exponent  some integer value
          * @return  base^exponent
          */
-        static Integer power (IN Integer base, IN Integer exponent)
+        static Integer power (IN Integer base,
+                              IN Integer exponent)
         {
             return Integer{(int) pow(base._value, exponent._value)};
         }
@@ -288,40 +335,20 @@ namespace BaseTypes::Primitives {
         }
 
         /*--------------------*/
-
-        /**
-         * Returns string representation of integer <C>i</C> with
-         * default precision and padding information.
-         *
-         * @param[in] i  integer value to be converted to a string
-         * @return  string representation
-         */
-        static String toString (IN Integer& i)
-        {
-            return i.toString();
-        }
-
-        /*--------------------*/
-
-        /**
-         * Returns natural representation of integer <C>i</C>; fails
-         * when integer is negative.
-         *
-         * @param[in] i  integer value to be converted to a natural
-         * @return  natural representation
-         */
-        static Natural toNatural (IN Integer& i)
-        {
-            if (i < 0) {
-                throw std::range_error("negative value not "
-                                       "allowed for natural");
-            }
-
-            return Natural{(size_t) (int) i};
-        }
-
-        /*--------------------*/
         /* advanced methods   */
+        /*--------------------*/
+
+        /**
+         * Returns the absolute value of current value as integer
+         * value.
+         *
+         * @return  the absolute value of current value
+         */
+        Integer abs ()
+        {
+            return Integer::abs(*this);
+        }
+
         /*--------------------*/
 
         /**

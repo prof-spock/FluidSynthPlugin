@@ -151,6 +151,9 @@ using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fl
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:aadfe2aed0594ae4ee8061e69ce5cdc20"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.html">Integer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___event_processor_8cpp.html#aadfe2aed0594ae4ee8061e69ce5cdc20">_readTimeInSamples</a> (juce::AudioPlayHead *playHead)</td></tr>
+<tr class="memdesc:aadfe2aed0594ae4ee8061e69ce5cdc20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads current time in samples and returns its value.  <a href="_fluid_synth_plugin___event_processor_8cpp.html#aadfe2aed0594ae4ee8061e69ce5cdc20">More...</a><br /></td></tr>
+<tr class="separator:aadfe2aed0594ae4ee8061e69ce5cdc20"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85073e88896b7e6a0474da612f6cc235"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___event_processor_8cpp.html#a85073e88896b7e6a0474da612f6cc235">_resetBlockProcessing</a> (<a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_m_i_d_i_1_1_midi_event_converter.html">MidiEventConverter</a> *eventConverter, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> unprocessedSampleCount, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> newOffsetInSamples, <a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="struct_audio_1_1_audio_sample_list_vector.html">AudioSampleListVector</a> &amp;sampleBuffer)</td></tr>
 <tr class="memdesc:a85073e88896b7e6a0474da612f6cc235"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes samples to bring sample count to a multiple of synthesizer buffer size.  <a href="_fluid_synth_plugin___event_processor_8cpp.html#a85073e88896b7e6a0474da612f6cc235">More...</a><br /></td></tr>
 <tr class="separator:a85073e88896b7e6a0474da612f6cc235"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -160,12 +163,14 @@ Functions</h2></td></tr>
 <tr class="memitem:a99e0fe3bd7a94f811d6ef82f157eb8f5"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_m_i_d_i_1_1_midi_event_list.html">MidiEventList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___event_processor_8cpp.html#a99e0fe3bd7a94f811d6ef82f157eb8f5">_convertFromJuceEventList</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> juce::MidiBuffer &amp;juceMidiEventList)</td></tr>
 <tr class="memdesc:a99e0fe3bd7a94f811d6ef82f157eb8f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts JUCE <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> event list to local <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> event list.  <a href="_fluid_synth_plugin___event_processor_8cpp.html#a99e0fe3bd7a94f811d6ef82f157eb8f5">More...</a><br /></td></tr>
 <tr class="separator:a99e0fe3bd7a94f811d6ef82f157eb8f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a660ef424f8aafc62e3b3e2545a03baa9"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___event_processor_8cpp.html#a660ef424f8aafc62e3b3e2545a03baa9">_copyToJuceBuffer</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_audio_1_1_audio_sample_list_vector.html">AudioSampleListVector</a> sampleListVector, <a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> juce::AudioBuffer&lt; float &gt; &amp;audioBuffer)</td></tr>
-<tr class="memdesc:a660ef424f8aafc62e3b3e2545a03baa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies data from <code>sampleListVector</code> to JUCE <code>audioBuffer</code>.  <a href="_fluid_synth_plugin___event_processor_8cpp.html#a660ef424f8aafc62e3b3e2545a03baa9">More...</a><br /></td></tr>
-<tr class="separator:a660ef424f8aafc62e3b3e2545a03baa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aadfe2aed0594ae4ee8061e69ce5cdc20"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.html">Integer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___event_processor_8cpp.html#aadfe2aed0594ae4ee8061e69ce5cdc20">_readTimeInSamples</a> (juce::AudioPlayHead *playHead)</td></tr>
-<tr class="memdesc:aadfe2aed0594ae4ee8061e69ce5cdc20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads current time in samples and returns its value.  <a href="_fluid_synth_plugin___event_processor_8cpp.html#aadfe2aed0594ae4ee8061e69ce5cdc20">More...</a><br /></td></tr>
-<tr class="separator:aadfe2aed0594ae4ee8061e69ce5cdc20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaccdae593325bcedd99860983a68a1a5"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:aaccdae593325bcedd99860983a68a1a5"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___event_processor_8cpp.html#aaccdae593325bcedd99860983a68a1a5">_copyToJuceBuffer</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_audio_1_1_audio_sample_list_vector.html">AudioSampleListVector</a> sampleListVector, <a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> juce::AudioBuffer&lt; T &gt; &amp;audioBuffer)</td></tr>
+<tr class="memdesc:aaccdae593325bcedd99860983a68a1a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies data from <code>sampleListVector</code> to JUCE <code>audioBuffer</code>.  <a href="_fluid_synth_plugin___event_processor_8cpp.html#aaccdae593325bcedd99860983a68a1a5">More...</a><br /></td></tr>
+<tr class="separator:aaccdae593325bcedd99860983a68a1a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2dac08e003ec457f248bc18341a299df"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a2dac08e003ec457f248bc18341a299df"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___event_processor_8cpp.html#a2dac08e003ec457f248bc18341a299df">_processBlock</a> (<a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html">FluidSynthPlugin_EventProcessor</a> *processor, <a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_main_1_1_fluid_synth_plugin_1_1___event_processor_descriptor.html">_EventProcessorDescriptor</a> &amp;descriptor, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> juce::MidiBuffer &amp;juceMidiEventList, <a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> juce::AudioBuffer&lt; T &gt; &amp;audioBuffer)</td></tr>
+<tr class="memdesc:a2dac08e003ec457f248bc18341a299df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes events in <code>juceMidiEventList</code> using <code>processor</code> and its <code>descriptor</code> and returns block of samples in <code>audioBuffer</code>; note that the processing might be delayed to adapt to the raster size of the underlying fluidsynth synthesizer.  <a href="_fluid_synth_plugin___event_processor_8cpp.html#a2dac08e003ec457f248bc18341a299df">More...</a><br /></td></tr>
+<tr class="separator:a2dac08e003ec457f248bc18341a299df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad8f2c863bffc2e87f6f3dc7a500b94f9"><td class="memItemLeft" align="right" valign="top">juce::AudioProcessor *JUCE_CALLTYPE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_plugin___event_processor_8cpp.html#ad8f2c863bffc2e87f6f3dc7a500b94f9">createPluginFilter</a> ()</td></tr>
 <tr class="memdesc:ad8f2c863bffc2e87f6f3dc7a500b94f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides a callback for JUCE to create a FluidSynth audio processor.  <a href="_fluid_synth_plugin___event_processor_8cpp.html#ad8f2c863bffc2e87f6f3dc7a500b94f9">More...</a><br /></td></tr>
 <tr class="separator:ad8f2c863bffc2e87f6f3dc7a500b94f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -223,11 +228,13 @@ static const String&#160;</td><td class="memItemRight" valign="bottom"><a class=
 
 </div>
 </div>
-<a id="a660ef424f8aafc62e3b3e2545a03baa9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a660ef424f8aafc62e3b3e2545a03baa9">&#9670;&nbsp;</a></span>_copyToJuceBuffer()</h2>
+<a id="aaccdae593325bcedd99860983a68a1a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaccdae593325bcedd99860983a68a1a5">&#9670;&nbsp;</a></span>_copyToJuceBuffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -241,7 +248,7 @@ static const String&#160;</td><td class="memItemRight" valign="bottom"><a class=
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> juce::AudioBuffer&lt; float &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> juce::AudioBuffer&lt; T &gt; &amp;&#160;</td>
           <td class="paramname"><em>audioBuffer</em>&#160;</td>
         </tr>
         <tr>
@@ -262,6 +269,67 @@ static const String&#160;</td><td class="memItemRight" valign="bottom"><a class=
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">sampleListVector</td><td>list of rendered samples </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">audioBuffer</td><td>JUCE audio buffer to be changed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2dac08e003ec457f248bc18341a299df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2dac08e003ec457f248bc18341a299df">&#9670;&nbsp;</a></span>_processBlock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void _processBlock </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html">FluidSynthPlugin_EventProcessor</a> *&#160;</td>
+          <td class="paramname"><em>processor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_main_1_1_fluid_synth_plugin_1_1___event_processor_descriptor.html">_EventProcessorDescriptor</a> &amp;&#160;</td>
+          <td class="paramname"><em>descriptor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> juce::MidiBuffer &amp;&#160;</td>
+          <td class="paramname"><em>juceMidiEventList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> juce::AudioBuffer&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>audioBuffer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Processes events in <code>juceMidiEventList</code> using <code>processor</code> and its <code>descriptor</code> and returns block of samples in <code>audioBuffer</code>; note that the processing might be delayed to adapt to the raster size of the underlying fluidsynth synthesizer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">processor</td><td>event processor object </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">descriptor</td><td>associated processor descriptor </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">juceMidiEventList</td><td>list of midi events starting at given time </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">audioBuffer</td><td>vector of audio sample lists returned </td></tr>
   </table>
   </dd>
 </dl>

@@ -95,7 +95,7 @@ FluidSynth::FluidSynth ()
     DynamicLibrary* library = new DynamicLibrary(_libraryName);
     _descriptor = library;
 
-    Boolean isLoaded = (library->underlyingTechnicalLibrary() != NULL);
+    Boolean isLoaded = library->isLoaded();
 
     if (isLoaded) {
         _initializeFunctionsForLibrary(library);

@@ -7,6 +7,6 @@ var struct_libraries_1_1_dynamic_library =
     [ "getFunctionByName", "struct_libraries_1_1_dynamic_library.html#aba1c55b94f3491a5d5cd2795e6623f64", null ],
     [ "isLoaded", "struct_libraries_1_1_dynamic_library.html#a23445f3c53c84d4a2c48c7d5c3767acf", null ],
     [ "operator=", "struct_libraries_1_1_dynamic_library.html#af2259f012a53c9a8a7c335e9a65f945a", null ],
-    [ "underlyingTechnicalLibrary", "struct_libraries_1_1_dynamic_library.html#a8b26b14ce7a6aeeeb081d9b9113479d0", null ],
+    [ "underlyingObject", "struct_libraries_1_1_dynamic_library.html#a4c2e1cb12cc1666bf587d6ab14cb8a03", null ],
     [ "_descriptor", "struct_libraries_1_1_dynamic_library.html#a422ed9c848b6096d638e8946e1cc3bbb", null ]
 ];

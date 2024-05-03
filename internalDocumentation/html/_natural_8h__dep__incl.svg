@@ -169,18 +169,18 @@ var sectionId = 'dynsection-1';
 <path fill="none" stroke="midnightblue" d="M1170.51,-443.86C1191.09,-433.85 1218.84,-420.35 1236.71,-411.65"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="1168.8,-440.8 1161.33,-448.32 1171.86,-447.1 1168.8,-440.8"/>
 </g>
-<!-- Node53 -->
+<!-- Node54 -->
 <g id="node41" class="node">
-<title>Node53</title>
+<title>Node54</title>
 <g id="a_node41"><a xlink:href="_integer_8h.html" target="_top" xlink:title="The Integer specification and body provides a value object type for ints.">
 <polygon fill="white" stroke="black" points="1801.5,-336.5 1801.5,-355.5 1855.5,-355.5 1855.5,-336.5 1801.5,-336.5"/>
 <text text-anchor="middle" x="1828.5" y="-343.5" font-family="Helvetica,sans-Serif" font-size="10.00">Integer.h</text>
 </a>
 </g>
 </g>
-<!-- Node1&#45;&gt;Node53 -->
+<!-- Node1&#45;&gt;Node54 -->
 <g id="edge67" class="edge">
-<title>Node1&#45;&gt;Node53</title>
+<title>Node1&#45;&gt;Node54</title>
 <path fill="none" stroke="midnightblue" d="M1182.08,-456.32C1313.07,-453.74 1735.57,-443.05 1787.5,-412 1809.03,-399.13 1821.05,-370.11 1825.92,-355.6"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="1181.67,-452.83 1171.74,-456.52 1181.8,-459.83 1181.67,-452.83"/>
 </g>
@@ -199,18 +199,18 @@ var sectionId = 'dynsection-1';
 <path fill="none" stroke="midnightblue" d="M1181.36,-450.26C1274.86,-432.84 1523.1,-381.9 1716.5,-300 1754.29,-284 1794.91,-257.18 1814.53,-243.53"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="1180.71,-446.82 1171.51,-452.07 1181.98,-453.7 1180.71,-446.82"/>
 </g>
-<!-- Node62 -->
+<!-- Node63 -->
 <g id="node46" class="node">
-<title>Node62</title>
+<title>Node63</title>
 <g id="a_node46"><a xlink:href="_fluid_synth_8h.html" target="_top" xlink:title="The FluidSynth class specifies an object&#45;oriented wrapper around the fluidsynth library and also allo...">
 <polygon fill="white" stroke="black" points="2307,-392.5 2307,-411.5 2378,-411.5 2378,-392.5 2307,-392.5"/>
 <text text-anchor="middle" x="2342.5" y="-399.5" font-family="Helvetica,sans-Serif" font-size="10.00">FluidSynth.h</text>
 </a>
 </g>
 </g>
-<!-- Node1&#45;&gt;Node62 -->
+<!-- Node1&#45;&gt;Node63 -->
 <g id="edge80" class="edge">
-<title>Node1&#45;&gt;Node62</title>
+<title>Node1&#45;&gt;Node63</title>
 <path fill="none" stroke="midnightblue" d="M1181.9,-455.59C1319.07,-450.5 1797.73,-432.31 2192.5,-412 2231.58,-409.99 2276.36,-407.25 2306.75,-405.32"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="1181.74,-452.09 1171.88,-455.96 1182,-459.09 1181.74,-452.09"/>
 </g>
@@ -886,72 +886,72 @@ var sectionId = 'dynsection-1';
 <path fill="none" stroke="midnightblue" d="M1423.21,-288.11C1489.41,-285.71 1620.12,-276.8 1725.5,-244 1744.1,-238.21 1745.86,-229.65 1764.5,-224 1898.08,-183.5 1937.85,-204.1 2076.5,-188 2079.44,-187.66 2082.45,-187.31 2085.48,-186.96"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="1423.04,-284.62 1413.16,-288.45 1423.27,-291.61 1423.04,-284.62"/>
 </g>
-<!-- Node53&#45;&gt;Node6 -->
+<!-- Node54&#45;&gt;Node6 -->
 <g id="edge75" class="edge">
-<title>Node53&#45;&gt;Node6</title>
+<title>Node54&#45;&gt;Node6</title>
 <path fill="none" stroke="midnightblue" d="M1865.56,-344.4C1949.36,-342.45 2159.57,-334.25 2331.5,-300 2417.58,-282.85 2707.5,-266.78 2707.5,-179 2707.5,-179 2707.5,-179 2707.5,-121 2707.5,-28.97 1272.55,-13.83 892.79,-11.43"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="1865.43,-340.9 1855.51,-344.62 1865.58,-347.9 1865.43,-340.9"/>
 </g>
-<!-- Node53&#45;&gt;Node45 -->
+<!-- Node54&#45;&gt;Node45 -->
 <g id="edge76" class="edge">
-<title>Node53&#45;&gt;Node45</title>
+<title>Node54&#45;&gt;Node45</title>
 <path fill="none" stroke="midnightblue" d="M1808.75,-330.12C1777.76,-306.77 1718.69,-262.27 1693.9,-243.59"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="1806.95,-333.15 1817.04,-336.37 1811.16,-327.56 1806.95,-333.15"/>
 </g>
-<!-- Node54 -->
+<!-- Node55 -->
 <g id="node42" class="node">
-<title>Node54</title>
+<title>Node55</title>
 <g id="a_node42"><a xlink:href="_real_8h.html" target="_top" xlink:title="The Real specification defines a value object type for real values.">
 <polygon fill="white" stroke="red" points="1663.5,-280.5 1663.5,-299.5 1707.5,-299.5 1707.5,-280.5 1663.5,-280.5"/>
 <text text-anchor="middle" x="1685.5" y="-287.5" font-family="Helvetica,sans-Serif" font-size="10.00">Real.h</text>
 </a>
 </g>
 </g>
-<!-- Node53&#45;&gt;Node54 -->
+<!-- Node54&#45;&gt;Node55 -->
 <g id="edge68" class="edge">
-<title>Node53&#45;&gt;Node54</title>
+<title>Node54&#45;&gt;Node55</title>
 <path fill="none" stroke="midnightblue" d="M1796.41,-332.88C1769.36,-322.67 1731.34,-308.31 1707.58,-299.34"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="1795.25,-336.19 1805.84,-336.44 1797.72,-329.64 1795.25,-336.19"/>
 </g>
-<!-- Node60 -->
+<!-- Node61 -->
 <g id="node45" class="node">
-<title>Node60</title>
+<title>Node61</title>
 <g id="a_node45"><a xlink:href="_midi_preset_identification_8h.html" target="_top" xlink:title="The MidiPresetIdentification specification defines the identification of a MIDI preset as a tuple of ...">
 <polygon fill="white" stroke="red" points="2091,-224.5 2091,-243.5 2216,-243.5 2216,-224.5 2091,-224.5"/>
 <text text-anchor="middle" x="2153.5" y="-231.5" font-family="Helvetica,sans-Serif" font-size="10.00">MidiPresetIdentification.h</text>
 </a>
 </g>
 </g>
-<!-- Node53&#45;&gt;Node60 -->
+<!-- Node54&#45;&gt;Node61 -->
 <g id="edge77" class="edge">
-<title>Node53&#45;&gt;Node60</title>
+<title>Node54&#45;&gt;Node61</title>
 <path fill="none" stroke="midnightblue" d="M1863.24,-333.24C1929.01,-310.98 2070.26,-263.17 2128.06,-243.61"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="1862.08,-329.94 1853.73,-336.46 1864.33,-336.57 1862.08,-329.94"/>
 </g>
-<!-- Node55 -->
+<!-- Node56 -->
 <g id="node43" class="node">
-<title>Node55</title>
+<title>Node56</title>
 <g id="a_node43"><a xlink:href="_audio_sample_8h.html" target="_top" xlink:title="The AudioSample specification and body provides the definition of the audio sample (a real value).">
 <polygon fill="white" stroke="black" points="534,-224.5 534,-243.5 617,-243.5 617,-224.5 534,-224.5"/>
 <text text-anchor="middle" x="575.5" y="-231.5" font-family="Helvetica,sans-Serif" font-size="10.00">AudioSample.h</text>
 </a>
 </g>
 </g>
-<!-- Node54&#45;&gt;Node55 -->
+<!-- Node55&#45;&gt;Node56 -->
 <g id="edge69" class="edge">
-<title>Node54&#45;&gt;Node55</title>
+<title>Node55&#45;&gt;Node56</title>
 <path fill="none" stroke="midnightblue" d="M1653.03,-287.76C1488.18,-281.44 747.81,-252.77 645.5,-244 636.34,-243.21 626.54,-242.12 617.26,-240.96"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="1653.34,-291.27 1663.46,-288.16 1653.6,-284.28 1653.34,-291.27"/>
 </g>
-<!-- Node54&#45;&gt;Node39 -->
+<!-- Node55&#45;&gt;Node39 -->
 <g id="edge71" class="edge">
-<title>Node54&#45;&gt;Node39</title>
+<title>Node55&#45;&gt;Node39</title>
 <path fill="none" stroke="midnightblue" d="M1717.1,-276.9C1743.57,-266.76 1780.69,-252.55 1804.16,-243.56"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="1715.62,-273.72 1707.53,-280.56 1718.12,-280.25 1715.62,-273.72"/>
 </g>
-<!-- Node55&#45;&gt;Node33 -->
+<!-- Node56&#45;&gt;Node33 -->
 <g id="edge70" class="edge">
-<title>Node55&#45;&gt;Node33</title>
+<title>Node56&#45;&gt;Node33</title>
 <path fill="none" stroke="midnightblue" d="M523.43,-228.36C442.75,-220.98 282.76,-205.59 147.5,-188 144.57,-187.62 141.56,-187.21 138.52,-186.78"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="523.53,-231.88 533.8,-229.3 524.16,-224.91 523.53,-231.88"/>
 </g>
@@ -973,48 +973,48 @@ var sectionId = 'dynsection-1';
 <path fill="none" stroke="midnightblue" d="M1890.04,-226.86C1975.13,-218.55 2130.78,-203.01 2263.5,-188 2267.94,-187.5 2272.53,-186.96 2277.15,-186.42"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="1889.63,-223.38 1880.02,-227.84 1890.31,-230.35 1889.63,-223.38"/>
 </g>
-<!-- Node60&#45;&gt;Node25 -->
+<!-- Node61&#45;&gt;Node25 -->
 <g id="edge78" class="edge">
-<title>Node60&#45;&gt;Node25</title>
+<title>Node61&#45;&gt;Node25</title>
 <path fill="none" stroke="midnightblue" d="M2192.24,-221.57C2226.76,-211.38 2276.51,-196.7 2307.64,-187.52"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="2191.1,-218.26 2182.5,-224.44 2193.08,-224.97 2191.1,-218.26"/>
 </g>
-<!-- Node60&#45;&gt;Node28 -->
+<!-- Node61&#45;&gt;Node28 -->
 <g id="edge79" class="edge">
-<title>Node60&#45;&gt;Node28</title>
+<title>Node61&#45;&gt;Node28</title>
 <path fill="none" stroke="midnightblue" d="M2153.5,-213.8C2153.5,-204.91 2153.5,-194.78 2153.5,-187.75"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="2150,-214.08 2153.5,-224.08 2157,-214.08 2150,-214.08"/>
 </g>
-<!-- Node62&#45;&gt;Node19 -->
+<!-- Node63&#45;&gt;Node19 -->
 <g id="edge81" class="edge">
-<title>Node62&#45;&gt;Node19</title>
+<title>Node63&#45;&gt;Node19</title>
 <path fill="none" stroke="midnightblue" d="M2387.73,-389.8C2462.53,-369.72 2614.37,-322.21 2721.5,-244 2743.47,-227.96 2762.27,-201.4 2771.11,-187.73"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="2386.47,-386.51 2377.7,-392.45 2388.26,-393.28 2386.47,-386.51"/>
 </g>
-<!-- Node63 -->
+<!-- Node64 -->
 <g id="node47" class="node">
-<title>Node63</title>
+<title>Node64</title>
 <g id="a_node47"><a xlink:href="_fluid_synth_settings_8h.html" target="_top" xlink:title="The FluidSynthSettings class specifies an object&#45;oriented wrapper around an underlying fluidsynth set...">
 <polygon fill="white" stroke="black" points="2289,-336.5 2289,-355.5 2396,-355.5 2396,-336.5 2289,-336.5"/>
 <text text-anchor="middle" x="2342.5" y="-343.5" font-family="Helvetica,sans-Serif" font-size="10.00">FluidSynthSettings.h</text>
 </a>
 </g>
 </g>
-<!-- Node62&#45;&gt;Node63 -->
+<!-- Node63&#45;&gt;Node64 -->
 <g id="edge82" class="edge">
-<title>Node62&#45;&gt;Node63</title>
+<title>Node63&#45;&gt;Node64</title>
 <path fill="none" stroke="midnightblue" d="M2342.5,-381.8C2342.5,-372.91 2342.5,-362.78 2342.5,-355.75"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="2339,-382.08 2342.5,-392.08 2346,-382.08 2339,-382.08"/>
 </g>
-<!-- Node63&#45;&gt;Node20 -->
+<!-- Node64&#45;&gt;Node20 -->
 <g id="edge83" class="edge">
-<title>Node63&#45;&gt;Node20</title>
+<title>Node64&#45;&gt;Node20</title>
 <path fill="none" stroke="midnightblue" d="M2365.85,-331.06C2421.53,-297.81 2560.88,-214.6 2606.09,-187.61"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="2363.85,-328.18 2357.06,-336.31 2367.44,-334.19 2363.85,-328.18"/>
 </g>
-<!-- Node63&#45;&gt;Node37 -->
+<!-- Node64&#45;&gt;Node37 -->
 <g id="edge84" class="edge">
-<title>Node63&#45;&gt;Node37</title>
+<title>Node64&#45;&gt;Node37</title>
 <path fill="none" stroke="midnightblue" d="M2320.67,-330.62C2305.69,-320.76 2286.3,-307.99 2273.64,-299.65"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="2319.05,-333.75 2329.33,-336.32 2322.9,-327.9 2319.05,-333.75"/>
 </g>

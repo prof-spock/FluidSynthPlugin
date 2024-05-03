@@ -139,6 +139,7 @@ var files_dup =
     [ "Radians.h", "_radians_8h.html", [
       [ "Radians", "struct_base_types_1_1_primitives_1_1_radians.html", "struct_base_types_1_1_primitives_1_1_radians" ]
     ] ],
+    [ "Real.cpp", "_real_8cpp.html", "_real_8cpp" ],
     [ "Real.h", "_real_8h.html", [
       [ "Real", "struct_base_types_1_1_primitives_1_1_real.html", "struct_base_types_1_1_primitives_1_1_real" ]
     ] ],

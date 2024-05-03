@@ -254,6 +254,22 @@ namespace Main::FluidSynthPlugin {
         /*--------------------*/
 
         /**
+         * Processes a block of double samples and MIDI information
+         * with this audio processor.
+         *
+         * @param[inout] audioBuffer    combination of input (ignored
+         *                              here) and output sample lists
+         *                              in double format
+         * @param[in]    midiEventList  list of midi messages to be
+         *                              processed 
+         */
+        void processBlock (juce::AudioBuffer<double>& audioBuffer,
+                           juce::MidiBuffer& midiEventList)
+            override;
+
+        /*--------------------*/
+
+        /**
          * Processes a block of float samples and MIDI information
          * with this audio processor.
          *

@@ -6,16 +6,16 @@
 <area shape="rect" id="node4" title=" " alt="" coords="5,229,104,256"/>
 <area shape="rect" id="node5" href="$_audio_sample_8h.html" title="The AudioSample specification and body provides the definition of the audio sample (a real value)." alt="" coords="129,229,239,256"/>
 <area shape="rect" id="node16" href="$_audio_sample_list_8cpp-inc.html" title="The AudioSampleList body implements a simple list of audio samples (this is the effective code includ..." alt="" coords="263,229,430,256"/>
-<area shape="rect" id="node6" href="$_real_8h.html" title="The Real specification defines a value object type for real values." alt="" coords="155,304,213,331"/>
-<area shape="rect" id="node7" title=" " alt="" coords="136,528,195,555"/>
-<area shape="rect" id="node8" href="$_integer_8h.html" title="The Integer specification and body provides a value object type for ints." alt="" coords="183,379,255,405"/>
-<area shape="rect" id="node9" title=" " alt="" coords="193,603,271,629"/>
-<area shape="rect" id="node10" href="$_natural_8h.html" title="The Natural specification and body provides a value object type for naturals (positive integers with ..." alt="" coords="276,453,351,480"/>
-<area shape="rect" id="node11" href="$_assertion_8h.html" title="The Assertion specification defines macros for pre&#45; and postconditions in functions or methods." alt="" coords="269,528,357,555"/>
-<area shape="rect" id="node13" title=" " alt="" coords="491,528,613,555"/>
-<area shape="rect" id="node14" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="381,528,467,555"/>
-<area shape="rect" id="node12" title=" " alt="" coords="295,603,350,629"/>
-<area shape="rect" id="node15" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="374,603,487,629"/>
-<area shape="rect" id="node17" href="$_my_array_8h.html" title="The MyArray specification and body defines a generic array type for stack allocated arrays represente..." alt="" coords="305,304,388,331"/>
-<area shape="rect" id="node18" title=" " alt="" coords="351,379,412,405"/>
+<area shape="rect" id="node6" href="$_real_8h.html" title="The Real specification defines a value object type for real values." alt="" coords="156,304,215,331"/>
+<area shape="rect" id="node7" href="$_integer_8h.html" title="The Integer specification and body provides a value object type for ints." alt="" coords="151,379,223,405"/>
+<area shape="rect" id="node8" title=" " alt="" coords="179,528,237,555"/>
+<area shape="rect" id="node9" title=" " alt="" coords="141,603,219,629"/>
+<area shape="rect" id="node10" href="$_natural_8h.html" title="The Natural specification and body provides a value object type for naturals (positive integers with ..." alt="" coords="281,453,356,480"/>
+<area shape="rect" id="node11" href="$_assertion_8h.html" title="The Assertion specification defines macros for pre&#45; and postconditions in functions or methods." alt="" coords="261,528,349,555"/>
+<area shape="rect" id="node13" title=" " alt="" coords="483,528,605,555"/>
+<area shape="rect" id="node14" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="373,528,459,555"/>
+<area shape="rect" id="node12" title=" " alt="" coords="279,603,334,629"/>
+<area shape="rect" id="node15" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="359,603,473,629"/>
+<area shape="rect" id="node17" href="$_my_array_8h.html" title="The MyArray specification and body defines a generic array type for stack allocated arrays represente..." alt="" coords="304,304,387,331"/>
+<area shape="rect" id="node18" title=" " alt="" coords="247,379,308,405"/>
 </map>

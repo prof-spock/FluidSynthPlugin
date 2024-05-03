@@ -1,12 +1,12 @@
 <map id="Real.h" name="Real.h">
-<area shape="rect" id="node1" title="The Real specification defines a value object type for real values." alt="" coords="346,5,405,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="409,229,467,256"/>
-<area shape="rect" id="node3" href="$_integer_8h.html" title="The Integer specification and body provides a value object type for ints." alt="" coords="303,80,375,107"/>
+<area shape="rect" id="node1" title="The Real specification defines a value object type for real values." alt="" coords="46,5,105,32"/>
+<area shape="rect" id="node2" href="$_integer_8h.html" title="The Integer specification and body provides a value object type for ints." alt="" coords="39,80,111,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="46,229,105,256"/>
 <area shape="rect" id="node4" title=" " alt="" coords="5,304,84,331"/>
-<area shape="rect" id="node5" href="$_natural_8h.html" title="The Natural specification and body provides a value object type for naturals (positive integers with ..." alt="" coords="275,155,350,181"/>
-<area shape="rect" id="node6" href="$_assertion_8h.html" title="The Assertion specification defines macros for pre&#45; and postconditions in functions or methods." alt="" coords="41,229,129,256"/>
-<area shape="rect" id="node8" title=" " alt="" coords="153,229,275,256"/>
-<area shape="rect" id="node9" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="299,229,385,256"/>
-<area shape="rect" id="node7" title=" " alt="" coords="157,304,212,331"/>
-<area shape="rect" id="node10" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="285,304,399,331"/>
+<area shape="rect" id="node5" href="$_natural_8h.html" title="The Natural specification and body provides a value object type for naturals (positive integers with ..." alt="" coords="135,155,210,181"/>
+<area shape="rect" id="node6" href="$_assertion_8h.html" title="The Assertion specification defines macros for pre&#45; and postconditions in functions or methods." alt="" coords="129,229,217,256"/>
+<area shape="rect" id="node8" title=" " alt="" coords="350,229,473,256"/>
+<area shape="rect" id="node9" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="241,229,326,256"/>
+<area shape="rect" id="node7" title=" " alt="" coords="147,304,201,331"/>
+<area shape="rect" id="node10" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="227,304,340,331"/>
 </map>

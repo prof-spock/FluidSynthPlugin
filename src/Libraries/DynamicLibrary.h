@@ -106,7 +106,7 @@ namespace Libraries {
          *
          * @return  underlying technical library object
          */
-        Object underlyingTechnicalLibrary () const;
+        Object underlyingObject () const;
 
         /*--------------------*/
 

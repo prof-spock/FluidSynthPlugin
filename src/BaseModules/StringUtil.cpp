@@ -16,6 +16,7 @@
 #include <cstdarg>
 #include <cwchar>
 
+#include "Assertion.h"
 #include "StringUtil.h"
 
 /*--------------------*/
@@ -29,16 +30,18 @@ using STR = BaseModules::StringUtil;
   * not found  */
 static const size_t _notFound = std::string::npos;
 
+/** the character representing a blank character */
+static const Character _blankCharacter{' '};
+
 /** the character representing a minus sign in a number */
 static const Character _minusCharacter{'-'};
+
+/** the character representing a plus sign in a number */
+static const Character _plusCharacter{'+'};
 
 /** the character representing a decimal point in a number
  *  (assuming an international locale) */
 static const Character _decimalPointCharacter{'.'};
-
-/** the value representing an undefined real value (e.g.
- *  (when a conversion to real fails) */
-static const Real _undefinedReal = Real::maximumValue();
 
 /** list of all digit characters */
 static const String _digitCharacterList = "0123456789";
@@ -54,6 +57,8 @@ static const String _ucAlphaDigitCharacterList =
 /*--------------------*/
 /* PRIVATE ROUTINES   */
 /*--------------------*/
+
+#define isDigitChar(ch)   isdigit((char) ch)
 
 /**
  * Analyzes <C>st</C> for being a correct natural or integer
@@ -336,25 +341,64 @@ Boolean StringUtil::isReal (IN String& st)
 {
     Boolean result;
     const Natural stringLength = st.length();
+    const Character firstCharacter =
+        (stringLength == 0 ? _blankCharacter : characterAt(st, 0));
+    const Boolean hasSign = (firstCharacter == _minusCharacter
+                             || firstCharacter == _plusCharacter);
 
     if (stringLength == 0) {
         result = false;
-    } else if (stringLength == 1 && characterAt(st, 0) == _minusCharacter) {
+    } else if (stringLength == 1 && hasSign) {
         result = false;
     } else {
-        result = true;
-        Boolean isBeforeDecimalPoint = true;
-        const Natural firstIndex =
-            (characterAt(st, 0) == _minusCharacter ? 1 : 0);
+        enum struct State {
+            atMantissaSign, inIntegralPart, inFractionalPart,
+            atExponentSign, inExponent
+        };
 
-        for (Natural i = firstIndex; i < stringLength;  i++) {
+        State state = State::atMantissaSign;
+        result = true;
+
+        for (Natural i = 0;  i < stringLength;  i++) {
             const Character ch{characterAt(st, i)};
 
-            if (ch == _decimalPointCharacter && isBeforeDecimalPoint) {
-                isBeforeDecimalPoint = false;
-            } else if (!isdigit((char) ch)) {
-                result = false;
-                break;
+            if (state == State::atMantissaSign) {
+                if (ch == _plusCharacter || ch == _minusCharacter
+                    || ch == _blankCharacter || isDigitChar(ch)) {
+                    state = State::inIntegralPart;
+                } else if (ch == _decimalPointCharacter) {
+                    state = State::inFractionalPart;
+                } else {
+                    result = false;
+                    break;
+                }
+            } else if (state == State::inIntegralPart) {
+                if (ch == _decimalPointCharacter) {
+                    state = State::inFractionalPart;
+                } else if (!isDigitChar(ch)) {
+                    result = false;
+                    break;
+                }
+            } else if (state == State::inFractionalPart) {
+                if (ch == 'E' || ch == 'e') {
+                    state = State::atExponentSign;
+                } else if (!isDigitChar(ch)) {
+                    result = false;
+                    break;
+                }
+            } else if (state == State::atExponentSign) {
+                if (ch == _plusCharacter || ch == _minusCharacter
+                    || isDigitChar(ch)) {
+                    state = State::inExponent;
+                } else {
+                    result = false;
+                    break;
+                }
+            } else if (state == State::inExponent) {
+                if (!isDigitChar(ch)) {
+                    result = false;
+                    break;
+                }
             }
         }
     }
@@ -378,6 +422,40 @@ String StringUtil::newlineReplacedString (IN String& st,
     replace(result, "\r\n", replacement);
     replace(result, "\n", replacement);
     replace(result, "\r", replacement);
+    return result;
+}
+
+/*--------------------*/
+
+String StringUtil::paddedLeft (IN String& st,
+                               IN Natural desiredLength,
+                               IN String& ch)
+{
+    Assertion_check(ch.length() == 1,
+                    "padding must use a single character");
+    String result = st;
+
+    while (result.length() < desiredLength) {
+        result = ch + result;
+    }
+
+    return result;
+}
+
+/*--------------------*/
+
+String StringUtil::paddedRight (IN String& st,
+                                IN Natural desiredLength,
+                                IN String& ch)
+{
+    Assertion_check(ch.length() == 1,
+                    "padding must use a single character");
+    String result = st;
+
+    while (result.length() < desiredLength) {
+        result += ch;
+    }
+
     return result;
 }
 
@@ -563,7 +641,7 @@ Percentage StringUtil::toPercentage (IN String& st)
 
 Real StringUtil::toReal (IN String& st)
 {
-    return toReal(st, _undefinedReal);
+    return toReal(st, Real::maximumValue());
 }
 
 /*--------------------*/
@@ -648,9 +726,11 @@ String StringUtil::toString (IN Real r)
 String StringUtil::toString (IN Real r,
                              IN Natural precision,
                              IN Natural fractionalDigitCount,
-                             IN String padString)
+                             IN String padString,
+                             IN Boolean scientificNotationIsForced)
 {
-    return r.toString(precision, fractionalDigitCount, padString);
+    return r.toString(precision, fractionalDigitCount, padString,
+                      scientificNotationIsForced);
 }
 
 /*--------------------*/

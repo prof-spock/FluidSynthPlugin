@@ -83,6 +83,7 @@ $(document).ready(function(){initNavTree('_string_util_8cpp.html',''); initResiz
 
 <div class="header">
   <div class="summary">
+<a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
@@ -96,15 +97,22 @@ $(document).ready(function(){initNavTree('_string_util_8cpp.html',''); initResiz
 <div class="textblock"><code>#include &lt;cctype&gt;</code><br />
 <code>#include &lt;cstdarg&gt;</code><br />
 <code>#include &lt;cwchar&gt;</code><br />
+<code>#include &quot;<a class="el" href="_assertion_8h_source.html">Assertion.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_string_util_8h_source.html">StringUtil.h</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for StringUtil.cpp:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="_string_util_8cpp__incl.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="_string_util_8cpp__incl.svg" width="604" height="560"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a7f46a1c825b529bd0e8ac599b98899d1"><td class="memItemLeft" align="right" valign="top"><a id="a7f46a1c825b529bd0e8ac599b98899d1"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>isDigitChar</b>(ch)&#160;&#160;&#160;isdigit((char) ch)</td></tr>
+<tr class="separator:a7f46a1c825b529bd0e8ac599b98899d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:a5b6f88d1249b396e351c4a85bcb35b2c"><td class="memItemLeft" align="right" valign="top"><a id="a5b6f88d1249b396e351c4a85bcb35b2c"></a>
@@ -130,17 +138,22 @@ static const size_t&#160;</td><td class="memItemRight" valign="bottom"><a class=
 <tr class="memdesc:a0e6930a7ca032c5dd033280e503dfa23"><td class="mdescLeft">&#160;</td><td class="mdescRight">the value returned in the standard library when something is not found <br  />
  <br /></td></tr>
 <tr class="separator:a0e6930a7ca032c5dd033280e503dfa23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa7bd5cbd88c4b25003cadf4d6a2207a"><td class="memItemLeft" align="right" valign="top"><a id="afa7bd5cbd88c4b25003cadf4d6a2207a"></a>
+static const <a class="el" href="struct_base_types_1_1_primitives_1_1_character.html">Character</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_string_util_8cpp.html#afa7bd5cbd88c4b25003cadf4d6a2207a">_blankCharacter</a> {' '}</td></tr>
+<tr class="memdesc:afa7bd5cbd88c4b25003cadf4d6a2207a"><td class="mdescLeft">&#160;</td><td class="mdescRight">the character representing a blank character <br /></td></tr>
+<tr class="separator:afa7bd5cbd88c4b25003cadf4d6a2207a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0a1dafa582d8f3077efa1432ca46d01"><td class="memItemLeft" align="right" valign="top"><a id="af0a1dafa582d8f3077efa1432ca46d01"></a>
 static const <a class="el" href="struct_base_types_1_1_primitives_1_1_character.html">Character</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_string_util_8cpp.html#af0a1dafa582d8f3077efa1432ca46d01">_minusCharacter</a> {'-'}</td></tr>
 <tr class="memdesc:af0a1dafa582d8f3077efa1432ca46d01"><td class="mdescLeft">&#160;</td><td class="mdescRight">the character representing a minus sign in a number <br /></td></tr>
 <tr class="separator:af0a1dafa582d8f3077efa1432ca46d01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4d648a69617f932b4bcbcecc61b72c9"><td class="memItemLeft" align="right" valign="top"><a id="ac4d648a69617f932b4bcbcecc61b72c9"></a>
+static const <a class="el" href="struct_base_types_1_1_primitives_1_1_character.html">Character</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_string_util_8cpp.html#ac4d648a69617f932b4bcbcecc61b72c9">_plusCharacter</a> {'+'}</td></tr>
+<tr class="memdesc:ac4d648a69617f932b4bcbcecc61b72c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">the character representing a plus sign in a number <br /></td></tr>
+<tr class="separator:ac4d648a69617f932b4bcbcecc61b72c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa728a4127d699c6f04ddf3e72bff18c4"><td class="memItemLeft" align="right" valign="top"><a id="aa728a4127d699c6f04ddf3e72bff18c4"></a>
 static const <a class="el" href="struct_base_types_1_1_primitives_1_1_character.html">Character</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_string_util_8cpp.html#aa728a4127d699c6f04ddf3e72bff18c4">_decimalPointCharacter</a> {'.'}</td></tr>
 <tr class="memdesc:aa728a4127d699c6f04ddf3e72bff18c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">the character representing a decimal point in a number (assuming an international locale) <br /></td></tr>
 <tr class="separator:aa728a4127d699c6f04ddf3e72bff18c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adcb051288f3043c71f9b4cceafc11152"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_string_util_8cpp.html#adcb051288f3043c71f9b4cceafc11152">_undefinedReal</a> = Real::maximumValue()</td></tr>
-<tr class="memdesc:adcb051288f3043c71f9b4cceafc11152"><td class="mdescLeft">&#160;</td><td class="mdescRight">the value representing an undefined real value (e.g.  <a href="_string_util_8cpp.html#adcb051288f3043c71f9b4cceafc11152">More...</a><br /></td></tr>
-<tr class="separator:adcb051288f3043c71f9b4cceafc11152"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51f4aaff0c36e94563eb83d76a4c5989"><td class="memItemLeft" align="right" valign="top"><a id="a51f4aaff0c36e94563eb83d76a4c5989"></a>
 static const String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_string_util_8cpp.html#a51f4aaff0c36e94563eb83d76a4c5989">_digitCharacterList</a> = &quot;0123456789&quot;</td></tr>
 <tr class="memdesc:a51f4aaff0c36e94563eb83d76a4c5989"><td class="mdescLeft">&#160;</td><td class="mdescRight">list of all digit characters <br /></td></tr>
@@ -365,31 +378,6 @@ static const String&#160;</td><td class="memItemRight" valign="bottom"><a class=
 <div class="line">    <span class="stringliteral">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;</span></div>
 </div><!-- fragment -->
 <p>list of all lowercase alpha digit characters </p>
-
-</div>
-</div>
-<a id="adcb051288f3043c71f9b4cceafc11152"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adcb051288f3043c71f9b4cceafc11152">&#9670;&nbsp;</a></span>_undefinedReal</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a> _undefinedReal = Real::maximumValue()</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>the value representing an undefined real value (e.g. </p>
-<p>(when a conversion to real fails) </p>
 
 </div>
 </div>

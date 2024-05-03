@@ -263,10 +263,13 @@ IF(MSVC)
     )
 ELSE()
     LIST(APPEND cppOptions_common
-         -ffast-math          # fast floating point calculation
-         -O0                  # no optimization
-         -Ofast               # favors fast code
-         -pedantic            # set strict standard conformance
+         -ffast-math                  # fast floating point calculation
+         -fvisibility=hidden          # default symbol visibility is
+                                      # hidden
+         -fvisibility-inlines-hidden  # hide inline functions
+         -O0                          # no optimization
+         -Ofast                       # favors fast code
+         -pedantic                    # set strict standard conformance
     )
 
     IF(MACOSX)

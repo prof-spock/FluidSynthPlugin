@@ -1,46 +1,46 @@
 <map id="FluidSynthFileConverter.cpp" name="FluidSynthFileConverter.cpp">
-<area shape="rect" id="node1" title="The FluidSynthFileConverter module implements a conversion from a MIDI file into a wave file using th..." alt="" coords="772,5,956,32"/>
-<area shape="rect" id="node2" href="$_fluid_synth_file_converter_8h.html" title="The FluidSynthFileConverter specification defines a conversion program from a MIDI file into a wave f..." alt="" coords="5,80,176,107"/>
-<area shape="rect" id="node3" href="$_assertion_8h.html" title="The Assertion specification defines macros for pre&#45; and postconditions in functions or methods." alt="" coords="819,603,907,629"/>
-<area shape="rect" id="node6" href="$_command_line_arguments_8h.html" title="The CommandLineArguments specification defines a handler for command&#45;line arguments converting them t..." alt="" coords="1735,80,1913,107"/>
-<area shape="rect" id="node10" href="$_dynamic_library_8h.html" title="The DynamicLibrary class specifies a very simple and crude wrapper around the dynamic library loading..." alt="" coords="649,229,772,256"/>
-<area shape="rect" id="node15" href="$_file_8h.html" title="The File specification defines a class for simple file handling based on C stdio." alt="" coords="847,229,902,256"/>
-<area shape="rect" id="node24" href="$_logging_8h.html" title="The Logging specification defines macros for entry&#45;, exit&#45; and intermediate logging of functions into..." alt="" coords="410,155,489,181"/>
-<area shape="rect" id="node32" href="$_midi_event_converter_8h.html" title="The MidiEventConverter specification defines the handling of MIDI events by feeding them to an underl..." alt="" coords="1465,80,1607,107"/>
-<area shape="rect" id="node42" href="$_midi_file_8h.html" title="The MidiFile specification defines the services of a MIDI file; currently only file reading is suppor..." alt="" coords="1014,80,1093,107"/>
-<area shape="rect" id="node43" href="$_operating_system_8h.html" title="The OperatingSystem specification defines a class for several operating system related utility functi..." alt="" coords="745,80,879,107"/>
-<area shape="rect" id="node44" href="$_wave_file_8h.html" title="The WaveFile specification defines an object for accessing a RIFF wave file with several channels." alt="" coords="1182,80,1269,107"/>
-<area shape="rect" id="node4" title=" " alt="" coords="1293,677,1371,704"/>
-<area shape="rect" id="node5" title=" " alt="" coords="834,677,889,704"/>
-<area shape="rect" id="node7" href="$_dictionary_8h.html" title="The Dictionary specification defines maps from string keys to string values." alt="" coords="1779,155,1869,181"/>
-<area shape="rect" id="node9" title=" " alt="" coords="1243,453,1341,480"/>
-<area shape="rect" id="node8" title=" " alt="" coords="1779,229,1882,256"/>
-<area shape="rect" id="node11" href="$_boolean_8h.html" title="The Boolean specification and body provides a value object type for boolean values." alt="" coords="684,304,764,331"/>
-<area shape="rect" id="node14" href="$_object_8h.html" title="The Object specification and body provides the root object type." alt="" coords="839,304,910,331"/>
-<area shape="rect" id="node12" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="709,603,795,629"/>
-<area shape="rect" id="node13" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="695,677,809,704"/>
-<area shape="rect" id="node16" href="$_byte_list_8h.html" title="The ByteList specification defines lists of byte values with zero&#45;based arbitrary indexed access to p..." alt="" coords="934,304,1015,331"/>
-<area shape="rect" id="node17" href="$_byte_8h.html" title="The Byte specification and body provides a value object type for byte values." alt="" coords="653,453,713,480"/>
-<area shape="rect" id="node22" href="$_string_list_8h.html" title="The StringList specification defines lists of string values with zero&#45;based arbitrary indexed access ..." alt="" coords="1029,379,1117,405"/>
-<area shape="rect" id="node18" title=" " alt="" coords="1077,603,1136,629"/>
-<area shape="rect" id="node19" title=" " alt="" coords="652,528,713,555"/>
-<area shape="rect" id="node20" href="$_natural_8h.html" title="The Natural specification and body provides a value object type for naturals (positive integers with ..." alt="" coords="955,528,1029,555"/>
-<area shape="rect" id="node21" title=" " alt="" coords="931,603,1053,629"/>
-<area shape="rect" id="node23" title=" " alt="" coords="1050,453,1147,480"/>
-<area shape="rect" id="node25" title=" " alt="" coords="251,229,317,256"/>
-<area shape="rect" id="node26" href="$_logging_support_8h.html" title="The LoggingSupport specification defines a class for simple entry/exit logging to a file or via an ar..." alt="" coords="452,229,575,256"/>
-<area shape="rect" id="node27" href="$_string_util_8h.html" title="The StringUtil specification defines several string routines not included in the standard C++ library..." alt="" coords="341,229,427,256"/>
-<area shape="rect" id="node28" href="$_character_8h.html" title="The Character specification and body provides a value object type for character values." alt="" coords="570,379,659,405"/>
-<area shape="rect" id="node29" href="$_percentage_8h.html" title="The Percentage specification and body provides a simple percentage type." alt="" coords="561,304,660,331"/>
-<area shape="rect" id="node30" href="$_real_8h.html" title="The Real specification defines a value object type for real values." alt="" coords="1612,379,1671,405"/>
-<area shape="rect" id="node31" href="$_integer_8h.html" title="The Integer specification and body provides a value object type for ints." alt="" coords="1552,453,1624,480"/>
-<area shape="rect" id="node33" href="$_audio_sample_list_vector_8h.html" title="The AudioSampleListVector specification defines the communication buffer structure for the block proc..." alt="" coords="1329,155,1498,181"/>
-<area shape="rect" id="node40" href="$_midi_event_list_8h.html" title="The MidiEventList specification defines lists of MIDI events with zero&#45;based arbitrary indexed access..." alt="" coords="1142,155,1253,181"/>
-<area shape="rect" id="node34" href="$_audio_sample_list_8h.html" title="The AudioSampleList specification defines lists of audio samples with zero&#45;based arbitrary indexed ac..." alt="" coords="1573,229,1704,256"/>
-<area shape="rect" id="node39" href="$_audio_sample_list_vector_8cpp-inc.html" title="The AudioSampleListVector body implements the communication buffer structure for the block processing..." alt="" coords="1294,229,1498,256"/>
-<area shape="rect" id="node35" href="$_audio_sample_8h.html" title="The AudioSample specification and body provides the definition of the audio sample (a real value)." alt="" coords="1586,304,1697,331"/>
-<area shape="rect" id="node36" href="$_audio_sample_list_8cpp-inc.html" title="The AudioSampleList body implements a simple list of audio samples (this is the effective code includ..." alt="" coords="1395,304,1562,331"/>
-<area shape="rect" id="node37" href="$_my_array_8h.html" title="The MyArray specification and body defines a generic array type for stack allocated arrays represente..." alt="" coords="1395,379,1477,405"/>
-<area shape="rect" id="node38" title=" " alt="" coords="1416,453,1477,480"/>
-<area shape="rect" id="node41" href="$_midi_event_8h.html" title="The MidiEvent specification defines a single MIDI event and the MIDI event kind enumeration." alt="" coords="926,229,1015,256"/>
+<area shape="rect" id="node1" title="The FluidSynthFileConverter module implements a conversion from a MIDI file into a wave file using th..." alt="" coords="584,5,768,32"/>
+<area shape="rect" id="node2" href="$_fluid_synth_file_converter_8h.html" title="The FluidSynthFileConverter specification defines a conversion program from a MIDI file into a wave f..." alt="" coords="167,80,337,107"/>
+<area shape="rect" id="node3" href="$_assertion_8h.html" title="The Assertion specification defines macros for pre&#45; and postconditions in functions or methods." alt="" coords="1228,603,1316,629"/>
+<area shape="rect" id="node6" href="$_command_line_arguments_8h.html" title="The CommandLineArguments specification defines a handler for command&#45;line arguments converting them t..." alt="" coords="785,80,964,107"/>
+<area shape="rect" id="node10" href="$_dynamic_library_8h.html" title="The DynamicLibrary class specifies a very simple and crude wrapper around the dynamic library loading..." alt="" coords="455,229,577,256"/>
+<area shape="rect" id="node15" href="$_file_8h.html" title="The File specification defines a class for simple file handling based on C stdio." alt="" coords="602,229,657,256"/>
+<area shape="rect" id="node24" href="$_logging_8h.html" title="The Logging specification defines macros for entry&#45;, exit&#45; and intermediate logging of functions into..." alt="" coords="195,155,274,181"/>
+<area shape="rect" id="node32" href="$_midi_event_converter_8h.html" title="The MidiEventConverter specification defines the handling of MIDI events by feeding them to an underl..." alt="" coords="1365,80,1507,107"/>
+<area shape="rect" id="node42" href="$_midi_file_8h.html" title="The MidiFile specification defines the services of a MIDI file; currently only file reading is suppor..." alt="" coords="1541,80,1619,107"/>
+<area shape="rect" id="node43" href="$_operating_system_8h.html" title="The OperatingSystem specification defines a class for several operating system related utility functi..." alt="" coords="413,80,547,107"/>
+<area shape="rect" id="node44" href="$_wave_file_8h.html" title="The WaveFile specification defines an object for accessing a RIFF wave file with several channels." alt="" coords="674,80,761,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="1313,677,1391,704"/>
+<area shape="rect" id="node5" title=" " alt="" coords="1163,677,1218,704"/>
+<area shape="rect" id="node7" href="$_dictionary_8h.html" title="The Dictionary specification defines maps from string keys to string values." alt="" coords="813,155,904,181"/>
+<area shape="rect" id="node9" title=" " alt="" coords="1273,453,1372,480"/>
+<area shape="rect" id="node8" title=" " alt="" coords="783,229,886,256"/>
+<area shape="rect" id="node11" href="$_boolean_8h.html" title="The Boolean specification and body provides a value object type for boolean values." alt="" coords="461,304,541,331"/>
+<area shape="rect" id="node14" href="$_object_8h.html" title="The Object specification and body provides the root object type." alt="" coords="617,304,687,331"/>
+<area shape="rect" id="node12" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="675,603,760,629"/>
+<area shape="rect" id="node13" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="661,677,774,704"/>
+<area shape="rect" id="node16" href="$_byte_list_8h.html" title="The ByteList specification defines lists of byte values with zero&#45;based arbitrary indexed access to p..." alt="" coords="711,304,793,331"/>
+<area shape="rect" id="node17" href="$_byte_8h.html" title="The Byte specification and body provides a value object type for byte values." alt="" coords="430,453,490,480"/>
+<area shape="rect" id="node22" href="$_string_list_8h.html" title="The StringList specification defines lists of string values with zero&#45;based arbitrary indexed access ..." alt="" coords="1263,379,1351,405"/>
+<area shape="rect" id="node18" title=" " alt="" coords="784,603,843,629"/>
+<area shape="rect" id="node19" title=" " alt="" coords="429,528,491,555"/>
+<area shape="rect" id="node20" href="$_natural_8h.html" title="The Natural specification and body provides a value object type for naturals (positive integers with ..." alt="" coords="833,528,908,555"/>
+<area shape="rect" id="node21" title=" " alt="" coords="867,603,989,629"/>
+<area shape="rect" id="node23" title=" " alt="" coords="1427,453,1525,480"/>
+<area shape="rect" id="node25" title=" " alt="" coords="153,229,218,256"/>
+<area shape="rect" id="node26" href="$_logging_support_8h.html" title="The LoggingSupport specification defines a class for simple entry/exit logging to a file or via an ar..." alt="" coords="5,229,128,256"/>
+<area shape="rect" id="node27" href="$_string_util_8h.html" title="The StringUtil specification defines several string routines not included in the standard C++ library..." alt="" coords="242,229,329,256"/>
+<area shape="rect" id="node28" href="$_character_8h.html" title="The Character specification and body provides a value object type for character values." alt="" coords="350,379,439,405"/>
+<area shape="rect" id="node29" href="$_percentage_8h.html" title="The Percentage specification and body provides a simple percentage type." alt="" coords="339,304,437,331"/>
+<area shape="rect" id="node30" href="$_real_8h.html" title="The Real specification defines a value object type for real values." alt="" coords="1375,379,1433,405"/>
+<area shape="rect" id="node31" href="$_integer_8h.html" title="The Integer specification and body provides a value object type for ints." alt="" coords="1665,453,1737,480"/>
+<area shape="rect" id="node33" href="$_audio_sample_list_vector_8h.html" title="The AudioSampleListVector specification defines the communication buffer structure for the block proc..." alt="" coords="1058,155,1227,181"/>
+<area shape="rect" id="node40" href="$_midi_event_list_8h.html" title="The MidiEventList specification defines lists of MIDI events with zero&#45;based arbitrary indexed access..." alt="" coords="1525,155,1635,181"/>
+<area shape="rect" id="node34" href="$_audio_sample_list_8h.html" title="The AudioSampleList specification defines lists of audio samples with zero&#45;based arbitrary indexed ac..." alt="" coords="1252,229,1383,256"/>
+<area shape="rect" id="node39" href="$_audio_sample_list_vector_8cpp-inc.html" title="The AudioSampleListVector body implements the communication buffer structure for the block processing..." alt="" coords="910,229,1114,256"/>
+<area shape="rect" id="node35" href="$_audio_sample_8h.html" title="The AudioSample specification and body provides the definition of the audio sample (a real value)." alt="" coords="1271,304,1382,331"/>
+<area shape="rect" id="node36" href="$_audio_sample_list_8cpp-inc.html" title="The AudioSampleList body implements a simple list of audio samples (this is the effective code includ..." alt="" coords="931,304,1098,331"/>
+<area shape="rect" id="node37" href="$_my_array_8h.html" title="The MyArray specification and body defines a generic array type for stack allocated arrays represente..." alt="" coords="948,379,1031,405"/>
+<area shape="rect" id="node38" title=" " alt="" coords="959,453,1020,480"/>
+<area shape="rect" id="node41" href="$_midi_event_8h.html" title="The MidiEvent specification defines a single MIDI event and the MIDI event kind enumeration." alt="" coords="1138,229,1227,256"/>
 </map>

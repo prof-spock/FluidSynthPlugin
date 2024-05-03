@@ -15,10 +15,8 @@
 /* IMPORTS */
 /*=========*/
 
-#include <cmath>
-#undef max
-
 #include "Integer.h"
+#undef max
 
 /*====================*/
 
@@ -44,10 +42,7 @@ namespace BaseTypes::Primitives {
          *
          * @return information, whether a real value is a double
          */
-        static Boolean hasDoublePrecision ()
-        {
-            return true;
-        }
+        static Boolean hasDoublePrecision ();
 
         /*--------------------*/
         /* constructors       */
@@ -56,9 +51,7 @@ namespace BaseTypes::Primitives {
         /**
          * Initializes real to an unspecified value.
          */
-        Real ()
-        {
-        }
+        Real ();
 
         /*--------------------*/
 
@@ -67,10 +60,7 @@ namespace BaseTypes::Primitives {
          *
          * @param[in] d  double precision floating point value
          */
-        Real (IN double d)
-        {
-            _value = d;
-        }
+        Real (IN double d);
 
         /*--------------------*/
 
@@ -79,10 +69,7 @@ namespace BaseTypes::Primitives {
          *
          * @param[in] f  single precision floating point value
          */
-        Real (IN float f)
-        {
-            _value = f;
-        }
+        Real (IN float f);
 
         /*--------------------*/
 
@@ -91,10 +78,7 @@ namespace BaseTypes::Primitives {
          *
          * @param[in] i  integer value
          */
-        Real (IN Integer i)
-        {
-            _value = (int) i;
-        }
+        Real (IN Integer i);
 
         /*--------------------*/
 
@@ -103,10 +87,7 @@ namespace BaseTypes::Primitives {
          *
          * @param[in] n  natural value
          */
-        Real (IN Natural n)
-        {
-            _value = (size_t) n;
-        }
+        Real (IN Natural n);
 
         /*--------------------*/
         /* type conversions   */
@@ -116,29 +97,22 @@ namespace BaseTypes::Primitives {
          * Returns string representation of real with precision and
          * padding information.
          *
-         * @param[in] precision              minimum number of valid
-         *                                   digits
-         * @param[in] fractionalDigitCount   number of decimal digits
-         * @param[in] padString              string to use for left
-         *                                   padding
+         * @param[in] precision                   minimum number of
+         *                                        valid digits
+         * @param[in] fractionalDigitCount        number of decimal
+         *                                        digits
+         * @param[in] padString                   string to use for
+         *                                        left and right padding
+         * @param[in] scientificNotationIsForced  tells whether number
+         *                                        must be formatted
+         *                                        using scientific
+         *                                        notation
          * @return  string representation
          */
         String toString (IN Natural precision = 0,
                          IN Natural fractionalDigitCount = 0,
-                         IN String padString = "0") const
-        {
-            String result = std::to_string(_value);
-            const Natural length{result.size()};
-            Natural padCount =
-                (precision > length ? precision - length : 0);
-
-            while (padCount > 0) {
-                result = padString + result;
-                padCount--;
-            }
-
-            return result;
-        }
+                         IN String padString = "0",
+                         IN Boolean scientificNotationIsForced = false) const;
 
         /*--------------------*/
 
@@ -148,10 +122,7 @@ namespace BaseTypes::Primitives {
          *
          * @return current value as double
          */
-        explicit operator double () const
-        {
-            return (double) _value;
-        }
+        explicit operator double () const;
 
         /*--------------------*/
 
@@ -161,10 +132,7 @@ namespace BaseTypes::Primitives {
          *
          * @return current value as float
          */
-        explicit operator float () const
-        {
-            return (float) _value;
-        }
+        explicit operator float () const;
 
         /*--------------------*/
 
@@ -174,10 +142,7 @@ namespace BaseTypes::Primitives {
          *
          * @return current value as int
          */
-        explicit operator int () const
-        {
-            return (int) _value;
-        }
+        explicit operator int () const;
 
         /*--------------------*/
 
@@ -187,10 +152,7 @@ namespace BaseTypes::Primitives {
          *
          * @return current value as integer
          */
-        explicit operator Integer () const
-        {
-            return Integer{(int) _value};
-        }
+        explicit operator Integer () const;
 
         /*--------------------*/
 
@@ -200,10 +162,7 @@ namespace BaseTypes::Primitives {
          *
          * @return current value as natural
          */
-        explicit operator Natural () const
-        {
-            return Natural{(size_t) _value};
-        }
+        explicit operator Natural () const;
 
         /*-----------------------------*/
         /* advanced functions (static) */
@@ -215,10 +174,7 @@ namespace BaseTypes::Primitives {
          * @param[in] r  some real value
          * @return  the absolute value of <C>r</C>
          */
-        static Real abs (IN Real r)
-        {
-            return Real{std::abs(r._value)};
-        }
+        static Real abs (IN Real r);
 
         /*--------------------*/
 
@@ -229,10 +185,7 @@ namespace BaseTypes::Primitives {
          * @return  the least integer value that is greater or equal to
          *          <C>r</C>
          */
-        static Real ceiling (IN Real r)
-        {
-            return Real{std::ceil(r._value)};
-        }
+        static Real ceiling (IN Real r);
 
         /*--------------------*/
 
@@ -242,10 +195,7 @@ namespace BaseTypes::Primitives {
           * @param[in] x  real value
           * @return  the cosine of x
           */
-        static Real cos (IN Real x)
-        {
-            return Real{std::cos(x._value)};
-        }
+        static Real cos (IN Real x);
 
         /*--------------------*/
 
@@ -255,10 +205,7 @@ namespace BaseTypes::Primitives {
           * @param[in] x  real value
           * @return  e^x
           */
-        static Real exp (IN Real x)
-        {
-            return Real{std::exp(x._value)};
-        }
+        static Real exp (IN Real x);
 
         /*--------------------*/
 
@@ -269,10 +216,7 @@ namespace BaseTypes::Primitives {
          * @return  the largest integer value that is smaller or equal to
          *          <C>r</C>
          */
-        static Real floor (IN Real r)
-        {
-            return Real{std::floor(r._value)};
-        }
+        static Real floor (IN Real r);
 
         /*--------------------*/
 
@@ -289,13 +233,7 @@ namespace BaseTypes::Primitives {
          */
         static Real forceToInterval (IN Real x,
                                      IN Real lowerEndPoint,
-                                     IN Real upperEndPoint)
-        {
-            Assertion_pre(lowerEndPoint <= upperEndPoint,
-                          "interval must be non-empty");
-            return (x < lowerEndPoint ? lowerEndPoint
-                    : (x > upperEndPoint ? upperEndPoint : x));
-        }
+                                     IN Real upperEndPoint);
 
         /*--------------------*/
 
@@ -308,13 +246,7 @@ namespace BaseTypes::Primitives {
          * @return  the fractional part after the decimal point with the
          *          sign of x
          */
-        static Real fractionalPart (IN Real x)
-        {
-            double result = std::abs(x._value);
-            result -= std::floor(result);
-            result = copysign(result, x._value);
-            return Real{result};
-        }
+        static Real fractionalPart (IN Real x);
 
         /*--------------------*/
 
@@ -327,10 +259,7 @@ namespace BaseTypes::Primitives {
          * @return  the integral part before the decimal point with the
          *          sign of x
          */
-        static Real integralPart (IN Real x)
-        {
-            return x - x.fractionalPart();
-        }
+        static Real integralPart (IN Real x);
 
         /*--------------------*/
 
@@ -340,10 +269,7 @@ namespace BaseTypes::Primitives {
           * @param[in] x  real value
           * @return  ln(x)
           */
-        static Real log (IN Real x)
-        {
-            return Real{std::log(x._value)};
-        }
+        static Real log (IN Real x);
 
         /*--------------------*/
 
@@ -355,14 +281,7 @@ namespace BaseTypes::Primitives {
           * @param[in] d  the positive real divisor value
           * @return remainder of division in range [0,d)
           */
-        static Real mod (IN Real x, IN Real d)
-        {
-            const double xv = x._value;
-            const double dv = d._value;
-            double result = fmod(xv, dv);
-            result += (result < 0 ? dv : 0.0);
-            return result;
-        }
+        static Real mod (IN Real x, IN Real d);
 
         /*--------------------*/
 
@@ -373,10 +292,7 @@ namespace BaseTypes::Primitives {
          * @param[in] exponent  some real value
          * @return  base^exponent
          */
-        static Real power (IN Real base, IN Real exponent)
-        {
-            return Real{pow(base._value, exponent._value)};
-        }
+        static Real power (IN Real base, IN Real exponent);
 
         /*--------------------*/
 
@@ -392,12 +308,7 @@ namespace BaseTypes::Primitives {
          *          <C>decimalPlaceCount</C> decimal places
          */
         static Real round (IN Real x,
-                           IN Natural decimalPlaceCount = 0)
-        {
-            const double factor =
-                std::pow(10.0, (double) decimalPlaceCount);
-            return ((int) Integer::round(x._value * factor) / factor);
-        }
+                           IN Natural decimalPlaceCount = 0);
 
         /*--------------------*/
 
@@ -407,10 +318,7 @@ namespace BaseTypes::Primitives {
           * @param[in] x  real value
           * @return  the sine of x
           */
-        static Real sin (IN Real x)
-        {
-            return Real{std::sin(x._value)};
-        }
+        static Real sin (IN Real x);
 
         /*--------------------*/
 
@@ -420,10 +328,7 @@ namespace BaseTypes::Primitives {
           * @param[in] x  real value
           * @return  the hyperbolic sine of x
           */
-        static Real sinh (IN Real x)
-        {
-            return Real{std::sinh(x._value)};
-        }
+        static Real sinh (IN Real x);
 
         /*--------------------*/
 
@@ -433,10 +338,7 @@ namespace BaseTypes::Primitives {
           * @param[in] x  real value to be squared
           * @return x^2
           */
-        static Real sqr (IN Real x)
-        {
-            return x * x;
-        }
+        static Real sqr (IN Real x);
 
         /*--------------------*/
 
@@ -446,10 +348,7 @@ namespace BaseTypes::Primitives {
           * @param[in] x  real value to be rooted
           * @return x^{1/2}
           */
-        static Real sqrt (IN Real x)
-        {
-            return Real{std::sqrt(x._value)};
-        }
+        static Real sqrt (IN Real x);
 
         /*--------------------*/
 
@@ -460,10 +359,7 @@ namespace BaseTypes::Primitives {
          * @param[in] r  real value to be converted to a string
          * @return  string representation
          */
-        static String toString (IN Real& r)
-        {
-            return r.toString();
-        }
+        static String toString (IN Real& r);
 
         /*--------------------*/
         /* advanced functions */
@@ -474,10 +370,7 @@ namespace BaseTypes::Primitives {
          *
          * @return  the absolute value of current value
          */
-        Real abs () const
-        {
-            return abs(*this);
-        }
+        Real abs () const;
 
         /*--------------------*/
 
@@ -487,10 +380,7 @@ namespace BaseTypes::Primitives {
          * @return  the least integer value that is greater or equal to
          *          current value
          */
-        Real ceiling () const
-        {
-            return ceiling(*this);
-        }
+        Real ceiling () const;
 
         /*--------------------*/
 
@@ -499,10 +389,7 @@ namespace BaseTypes::Primitives {
           *
           * @return  the cosine of current value
           */
-        Real cos () const
-        {
-            return cos(*this);
-        }
+        Real cos () const;
 
         /*--------------------*/
 
@@ -512,10 +399,7 @@ namespace BaseTypes::Primitives {
           * @param[in] x  real value
           * @return  e^x
           */
-        Real exp () const
-        {
-            return exp(*this);
-        }
+        Real exp () const;
 
         /*--------------------*/
 
@@ -525,10 +409,7 @@ namespace BaseTypes::Primitives {
          * @return  the largest integer value that is smaller or equal
          *          to current value
          */
-        Real floor () const
-        {
-            return floor(*this);
-        }
+        Real floor () const;
 
         /*--------------------*/
 
@@ -542,10 +423,7 @@ namespace BaseTypes::Primitives {
          *                                <C>upperEndPoint</C>]
          */
         Real forceToInterval (IN Real lowerEndPoint,
-                              IN Real upperEndPoint) const
-        {
-            return forceToInterval(*this, lowerEndPoint, upperEndPoint);
-        }
+                              IN Real upperEndPoint) const;
 
         /*--------------------*/
 
@@ -557,10 +435,19 @@ namespace BaseTypes::Primitives {
          * @return  the positive fractional part after the decimal point
          *          of current value
          */
-        Real fractionalPart () const
-        {
-            return fractionalPart(*this);
-        }
+        Real fractionalPart () const;
+
+        /*--------------------*/
+
+        /**
+         * Strips off fractional part from current value and only
+         * returns digits before the decimal point; for negative
+         * values a negative value is produced
+         *
+         * @return  the integral part of current value before the
+         *          decimal point with the sign
+         */
+        Real integralPart () const;
 
         /*--------------------*/
 
@@ -571,10 +458,7 @@ namespace BaseTypes::Primitives {
           * @param[in] d  the real divisor value
           * @return remainder of division in range [0,i)
           */
-        Real mod (IN Real d) const
-        {
-            return mod(*this, d);
-        }
+        Real mod (IN Real d) const;
 
         /*--------------------*/
 
@@ -583,10 +467,7 @@ namespace BaseTypes::Primitives {
           *
           * @return  ln(x)
           */
-        Real log () const
-        {
-            return log(*this);
-        }
+        Real log () const;
 
         /*--------------------*/
 
@@ -596,10 +477,7 @@ namespace BaseTypes::Primitives {
          * @param[in] exponent  some real value
          * @return  current^exponent
          */
-        Real power (IN Real exponent) const
-        {
-            return power(*this, exponent);
-        }
+        Real power (IN Real exponent) const;
 
         /*--------------------*/
 
@@ -612,10 +490,7 @@ namespace BaseTypes::Primitives {
          * @return  the current real value rounded to
          *          <C>decimalPlaceCount</C> decimal places
          */
-        Real round (IN Natural decimalPlaceCount = 0) const
-        {
-            return round(*this, decimalPlaceCount);
-        }
+        Real round (IN Natural decimalPlaceCount = 0) const;
 
         /*--------------------*/
 
@@ -624,10 +499,7 @@ namespace BaseTypes::Primitives {
           *
           * @return  the sine of current value
           */
-        Real sin () const
-        {
-            return sin(*this);
-        }
+        Real sin () const;
 
         /*--------------------*/
 
@@ -636,10 +508,7 @@ namespace BaseTypes::Primitives {
           *
           * @return  the hyperbolic sine of current value
           */
-        Real sinh () const
-        {
-            return sinh(*this);
-        }
+        Real sinh () const;
 
         /*--------------------*/
 
@@ -648,10 +517,7 @@ namespace BaseTypes::Primitives {
           *
           * @return x^2
           */
-        Real sqr () const
-        {
-            return sqr(*this);
-        }
+        Real sqr () const;
 
         /*--------------------*/
 
@@ -660,10 +526,7 @@ namespace BaseTypes::Primitives {
           *
           * @return x^{1/2}
           */
-        Real sqrt () const
-        {
-            return sqrt(*this);
-        }
+        Real sqrt () const;
 
         /*--------------------*/
         /* constants          */
@@ -674,15 +537,9 @@ namespace BaseTypes::Primitives {
         static const Real two;       /**< 2 */
         static const Real pi;        /**< pi */
         static const Real twoPi;     /**< 2*pi */
+        static const Real ten;       /**< 10 */
         static const Real infinity;  /**< infinity */
 
     };
-
-    inline const Real Real::zero{0.0};
-    inline const Real Real::one{1.0};
-    inline const Real Real::two{2.0};
-    inline const Real Real::pi{3.1415926535897932385};
-    inline const Real Real::twoPi{two * pi};
-    inline const Real Real::infinity{maximumValue()};
 
 }

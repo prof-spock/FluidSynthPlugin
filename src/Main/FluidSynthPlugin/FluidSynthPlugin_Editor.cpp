@@ -40,9 +40,6 @@ static const juce::Colour _Colour_background{0xffd0d0d0};
 static const juce::Colour _Colour_button{0xffc0c0c0};
 
 /** the color for labels in this editor widget */
-static const juce::Colour _Colour_labelText = juce::Colours::white;
-
-/** the color for labels in this editor widget */
 static const juce::Colour _Colour_errorInformationText = juce::Colours::red;
 
 /** the background color for the text edit field in this editor widget */
@@ -278,6 +275,7 @@ static Boolean _adaptSettingsString (INOUT String& st,
     Boolean isChanged = false;
     Boolean isFound = false;
     StringList recordList = StringList::makeBySplit(nlSt, recordSeparator);
+    StringList adaptedList;
 
     for (String& record : recordList) {
         String recordKey;
@@ -285,7 +283,9 @@ static Boolean _adaptSettingsString (INOUT String& st,
         Boolean hasSeparator = STR::splitAt(record, fieldSeparator,
                                             recordKey, recordValue);
 
-        if (hasSeparator) {
+        if (!hasSeparator) {
+            isChanged = true;
+        } else {
             recordKey   = STR::strip(recordKey);
             recordValue = STR::strip(recordValue);
 
@@ -297,19 +297,21 @@ static Boolean _adaptSettingsString (INOUT String& st,
                     STR::replace(record, recordValue, value);
                 }
             }
+
+            adaptedList.append(record);
         }
     }
 
-    // if the key is not found, add a new record
+    /* if the key is not found, add a new record */
     if (!isFound) {
         String record = key + " = " + value;
-        recordList.append(record);
+        adaptedList.append(record);
         isChanged = true;
     }
 
-    // when there is some change, update st
+    /* when there is some change, update st */
     if (isChanged) {
-        st = recordList.join("\n");
+        st = adaptedList.join("\n");
     }
 
     Logging_trace1("<<: %1", TOSTRING(isChanged));
@@ -455,6 +457,7 @@ static String _valueFromKeyList (IN String& st,
     const String nlSt = STR::newlineReplacedString(st, entrySeparator);
     Dictionary d =
         Dictionary::makeFromString(nlSt, entrySeparator, "=");
+    effectiveKey = keyList.at(0);
 
     for (String key : keyList) {
         if (d.contains(key)) {

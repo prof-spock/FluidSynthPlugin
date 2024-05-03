@@ -60,88 +60,22 @@ static const String _fsBufferingCompensationKey =
     "fsBufferCompensationIsDone";
 
 /*====================*/
-/* PRIVATE FEATURES   */
+/* PROTOTYPES         */
 /*====================*/
 
-/**
- * Processes samples to bring sample count to a multiple of
- * synthesizer buffer size.
- *
- * @param[inout]  eventConverter          underlying fluidsynth event
- *                                        converter
- * @param[in]     unprocessedSampleCount  offset in samples to bring the
- *                                        buffer to underlying synthesizer
- *                                        raster
- * @param[in]     newOffsetInSamples      the new offset to bring the buffer
- *                                        to underlying synthesizer raster
- * @param[out]    sampleBuffer            the new offset to bring the buffer
- *                                        to underlying synthesizer raster
- */
+static Integer _readTimeInSamples (juce::AudioPlayHead* playHead);
+
 static void
 _resetBlockProcessing (INOUT MidiEventConverter* eventConverter,
                        IN Natural unprocessedSampleCount,
                        IN Natural newOffsetInSamples,
-                       OUT AudioSampleListVector& sampleBuffer)
-{
-    Logging_trace2(">>: unprocessedSampleCount = %1, newOffset = %2",
-                   TOSTRING(unprocessedSampleCount),
-                   TOSTRING(newOffsetInSamples));
+                       OUT AudioSampleListVector& sampleBuffer);
 
-    const MidiEventList& emptyEventList{};
-
-    /* provide samples to fill buffer up to buffer */
-    if (unprocessedSampleCount > 0) {
-        eventConverter->processBlock(emptyEventList, sampleBuffer,
-                                     unprocessedSampleCount);
-        Logging_trace1("--: samples filled = %1",
-                       sampleBuffer.toString(unprocessedSampleCount, true));
-    }
-
-    eventConverter->processBlock(emptyEventList, sampleBuffer,
-                                 newOffsetInSamples);
-    Logging_trace1("<<: sampleBuffer = %1",
-                   sampleBuffer.toString(newOffsetInSamples, true));
-}
-
-/*--------------------*/
-
-/**
- * Scans events in <C>midiEventList</C>, keeps all elements less than
- * <C>splitTime</C> in that list and puts all elements greater or
- * equal into <C>otherEventList</C>.
- *
- * @param[inout] midiEventList   event list to be split
- * @param[in]    splitTime       time where element list is split
- * @param[inout] otherEventList  event list where elements greater
- *                               or equal to split time are put
- */
 static void _splitListAtTime (INOUT MidiEventList& midiEventList,
                               IN Natural splitTime,
-                              INOUT MidiEventList& otherEventList)
-{
-    otherEventList.clear();
-    Natural i;
-    const Natural eventCount = midiEventList.length();
+                              INOUT MidiEventList& otherEventList);
 
-    /* find split position */
-    for (i = 0;  i < eventCount;  i++) {
-        const MidiEvent& event = midiEventList[i];
-        if (event.time() >= splitTime) {
-            break;
-        }
-    }
-
-    const Natural splitPosition = i;
-
-    /* copy the events larger than split time to other list */
-    for (;  i < eventCount;  i++) {
-        otherEventList.append(midiEventList[i]);
-    }
-
-    midiEventList.setLength(splitPosition);
-}
-
-/*--------------------*/
+/*====================*/
 
 namespace Main::FluidSynthPlugin {
 
@@ -520,9 +454,10 @@ _convertFromJuceEventList(IN juce::MidiBuffer& juceMidiEventList)
  * @param[in]  sampleListVector  list of rendered samples
  * @param[out] audioBuffer       JUCE audio buffer to be changed
  */
+template <typename T>
 static void
 _copyToJuceBuffer (IN AudioSampleListVector sampleListVector,
-                   OUT juce::AudioBuffer<float>& audioBuffer)
+                   OUT juce::AudioBuffer<T>& audioBuffer)
 {
     Logging_trace(">>");
 
@@ -532,10 +467,67 @@ _copyToJuceBuffer (IN AudioSampleListVector sampleListVector,
     for (Natural channel = 0;  channel < channelCount;  channel++) {
         const AudioSample* sampleList =
             sampleListVector[channel].asArray();
-        float* otherSampleList =
-            (float*) audioBuffer.getWritePointer((int) channel);
+        T* otherSampleList =
+            (T*) audioBuffer.getWritePointer((int) channel);
         convertArray(otherSampleList, sampleList, frameCount);
     }
+}
+
+/*--------------------*/
+
+/**
+ * Processes events in <C>juceMidiEventList</C> using <C>processor</C>
+ * and its <C>descriptor</C> and returns block of samples in
+ * <C>audioBuffer</C>; note that the processing might be delayed to
+ * adapt to the raster size of the underlying fluidsynth synthesizer
+ *
+ * @param[inout] processor          event processor object
+ * @param[inout] descriptor         associated processor descriptor
+ * @param[in]    juceMidiEventList  list of midi events starting at
+ *                                  given time
+ * @param[out]   audioBuffer        vector of audio sample lists
+ *                                  returned
+ */
+template <typename T>
+static void
+_processBlock (INOUT FluidSynthPlugin_EventProcessor* processor,
+               INOUT _EventProcessorDescriptor& descriptor,
+               IN juce::MidiBuffer& juceMidiEventList,
+               OUT juce::AudioBuffer<T>& audioBuffer)
+{
+    Logging_trace(">>");
+
+    Integer currentTime = _readTimeInSamples(processor->getPlayHead());
+
+    /* provide a sample list vector from audioBuffer */
+    MidiEventList midiEventList =
+        _convertFromJuceEventList(juceMidiEventList);
+    const Natural channelCount =
+        Natural{(size_t) audioBuffer.getNumChannels()};
+    const Natural audioFrameCount =
+        Natural{(size_t) audioBuffer.getNumSamples()};
+    AudioSampleListVector sampleListVector{channelCount};
+    sampleListVector.setFrameCount(audioFrameCount);
+
+    if (!descriptor.fluidSynthBufferingIsCompensated) {
+        /* do a direct processing of the events to a sample list
+         * vector */
+        MidiEventConverter* eventConverter =
+            descriptor.midiEventConverter;
+        eventConverter->processBlock(midiEventList,
+                                     sampleListVector, audioFrameCount);
+    } else {
+        _RingBuffer& ringBuffer = descriptor.ringBuffer;
+        ringBuffer.processBlock(processor, descriptor,
+                                currentTime, midiEventList,
+                                sampleListVector, audioFrameCount);
+    }
+
+    Logging_trace1("--: currentSamples = %1",
+                   sampleListVector.toString(audioFrameCount, true));
+    _copyToJuceBuffer<T>(sampleListVector, audioBuffer);
+
+    Logging_trace("<<");
 }
 
 /*--------------------*/
@@ -546,8 +538,7 @@ _copyToJuceBuffer (IN AudioSampleListVector sampleListVector,
  * @param[in] playHead  the JUCE audio play head
  * @return  current time (as a real value)
  */
-static
-Integer _readTimeInSamples (juce::AudioPlayHead* playHead)
+static Integer _readTimeInSamples (juce::AudioPlayHead* playHead)
 {
     Integer currentTimeInSamples  = Integer::maximumValue();;
 
@@ -559,6 +550,86 @@ Integer _readTimeInSamples (juce::AudioPlayHead* playHead)
     return currentTimeInSamples;
 }
 
+/*--------------------*/
+
+/**
+ * Processes samples to bring sample count to a multiple of
+ * synthesizer buffer size.
+ *
+ * @param[inout]  eventConverter          underlying fluidsynth event
+ *                                        converter
+ * @param[in]     unprocessedSampleCount  offset in samples to bring the
+ *                                        buffer to underlying synthesizer
+ *                                        raster
+ * @param[in]     newOffsetInSamples      the new offset to bring the buffer
+ *                                        to underlying synthesizer raster
+ * @param[out]    sampleBuffer            the new offset to bring the buffer
+ *                                        to underlying synthesizer raster
+ */
+static void
+_resetBlockProcessing (INOUT MidiEventConverter* eventConverter,
+                       IN Natural unprocessedSampleCount,
+                       IN Natural newOffsetInSamples,
+                       OUT AudioSampleListVector& sampleBuffer)
+{
+    Logging_trace2(">>: unprocessedSampleCount = %1, newOffset = %2",
+                   TOSTRING(unprocessedSampleCount),
+                   TOSTRING(newOffsetInSamples));
+
+    const MidiEventList& emptyEventList{};
+
+    /* provide samples to fill buffer up to buffer */
+    if (unprocessedSampleCount > 0) {
+        eventConverter->processBlock(emptyEventList, sampleBuffer,
+                                     unprocessedSampleCount);
+        Logging_trace1("--: samples filled = %1",
+                       sampleBuffer.toString(unprocessedSampleCount, true));
+    }
+
+    eventConverter->processBlock(emptyEventList, sampleBuffer,
+                                 newOffsetInSamples);
+    Logging_trace1("<<: sampleBuffer = %1",
+                   sampleBuffer.toString(newOffsetInSamples, true));
+}
+
+/*--------------------*/
+
+/**
+ * Scans events in <C>midiEventList</C>, keeps all elements less than
+ * <C>splitTime</C> in that list and puts all elements greater or
+ * equal into <C>otherEventList</C>.
+ *
+ * @param[inout] midiEventList   event list to be split
+ * @param[in]    splitTime       time where element list is split
+ * @param[inout] otherEventList  event list where elements greater
+ *                               or equal to split time are put
+ */
+static void _splitListAtTime (INOUT MidiEventList& midiEventList,
+                              IN Natural splitTime,
+                              INOUT MidiEventList& otherEventList)
+{
+    otherEventList.clear();
+    Natural i;
+    const Natural eventCount = midiEventList.length();
+
+    /* find split position */
+    for (i = 0;  i < eventCount;  i++) {
+        const MidiEvent& event = midiEventList[i];
+        if (event.time() >= splitTime) {
+            break;
+        }
+    }
+
+    const Natural splitPosition = i;
+
+    /* copy the events larger than split time to other list */
+    for (;  i < eventCount;  i++) {
+        otherEventList.append(midiEventList[i]);
+    }
+
+    midiEventList.setLength(splitPosition);
+}
+
 /*====================*/
 /* PUBLIC FEATURES    */
 /*====================*/
@@ -568,7 +639,11 @@ Integer _readTimeInSamples (juce::AudioPlayHead* playHead)
 /*--------------------*/
 
 FluidSynthPlugin_EventProcessor::FluidSynthPlugin_EventProcessor ()
-    : _descriptor{NULL}
+    : _descriptor{NULL},
+      juce::AudioProcessor(juce::AudioProcessor::BusesProperties()
+                           .withOutput("Output",
+                                       juce::AudioChannelSet::stereo(),
+                                       true))
 {
     Logging_initializeWithDefaults("FluidSynthPlugin",
                                    "FluidSynthPlugin.");
@@ -605,7 +680,7 @@ FluidSynthPlugin_EventProcessor::~FluidSynthPlugin_EventProcessor ()
 bool
 FluidSynthPlugin_EventProcessor::supportsDoublePrecisionProcessing () const
 {
-    return false;
+    return true;
 }
 
 
@@ -883,46 +958,27 @@ void FluidSynthPlugin_EventProcessor::releaseResources ()
 
 void
 FluidSynthPlugin_EventProcessor::processBlock
+    (juce::AudioBuffer<double>& audioBuffer,
+     juce::MidiBuffer& juceMidiEventList)
+{
+    Logging_trace(">>");
+    _EventProcessorDescriptor& descriptor =
+        TOREFERENCE<_EventProcessorDescriptor>(_descriptor);
+    _processBlock<double>(this, descriptor, juceMidiEventList, audioBuffer);
+    Logging_trace("<<");
+}
+
+/*--------------------*/
+
+void
+FluidSynthPlugin_EventProcessor::processBlock
     (juce::AudioBuffer<float>& audioBuffer,
      juce::MidiBuffer& juceMidiEventList)
 {
     Logging_trace(">>");
-
     _EventProcessorDescriptor& descriptor =
         TOREFERENCE<_EventProcessorDescriptor>(_descriptor);
-
-    Integer currentTime = _readTimeInSamples(getPlayHead());
-    Logging_trace1("--: currentTime = %1 [samples]",
-                   TOSTRING(currentTime));
-
-    /* provide a sample list vector from audioBuffer */
-    MidiEventList midiEventList =
-        _convertFromJuceEventList(juceMidiEventList);
-    const Natural channelCount =
-        Natural{(size_t) audioBuffer.getNumChannels()};
-    const Natural audioFrameCount =
-        Natural{(size_t) audioBuffer.getNumSamples()};
-    AudioSampleListVector sampleListVector{channelCount};
-    sampleListVector.setFrameCount(audioFrameCount);
-
-    if (!descriptor.fluidSynthBufferingIsCompensated) {
-        /* do a direct processing of the events to a sample list
-         * vector */
-        MidiEventConverter* eventConverter =
-            descriptor.midiEventConverter;
-        eventConverter->processBlock(midiEventList,
-                                     sampleListVector, audioFrameCount);
-    } else {
-        _RingBuffer& ringBuffer = descriptor.ringBuffer;
-        ringBuffer.processBlock(this, descriptor,
-                                currentTime, midiEventList,
-                                sampleListVector, audioFrameCount);
-    }
-
-    Logging_trace1("--: currentSamples = %1",
-                   sampleListVector.toString(audioFrameCount, true));
-    _copyToJuceBuffer(sampleListVector, audioBuffer);
-
+    _processBlock<float>(this, descriptor, juceMidiEventList, audioBuffer);
     Logging_trace("<<");
 }
 

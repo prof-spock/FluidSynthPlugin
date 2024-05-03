@@ -1,12 +1,13 @@
 <map id="Percentage.h" name="Percentage.h">
-<area shape="rect" id="node1" title="The Percentage specification and body provides a simple percentage type." alt="" coords="1648,5,1747,32"/>
-<area shape="rect" id="node2" href="$_string_util_8h.html" title="The StringUtil specification defines several string routines not included in the standard C++ library..." alt="" coords="1654,80,1741,107"/>
+<area shape="rect" id="node1" title="The Percentage specification and body provides a simple percentage type." alt="" coords="1692,5,1791,32"/>
+<area shape="rect" id="node2" href="$_string_util_8h.html" title="The StringUtil specification defines several string routines not included in the standard C++ library..." alt="" coords="1698,80,1785,107"/>
 <area shape="rect" id="node3" href="$_file_8cpp.html" title="The File body implements a class for simple file handling based on C stdio." alt="" coords="1445,155,1513,181"/>
 <area shape="rect" id="node4" href="$_logging_8h.html" title="The Logging specification defines macros for entry&#45;, exit&#45; and intermediate logging of functions into..." alt="" coords="1537,155,1615,181"/>
 <area shape="rect" id="node27" href="$_midi_preset_identification_8cpp.html" title="The MidiPresetIdentification body implements the identification of a MIDI preset as a tuple of bank a..." alt="" coords="3063,229,3244,256"/>
 <area shape="rect" id="node28" href="$_string_util_8cpp.html" title="The StringUtil body implements several string routines not included in the standard C++ library (like..." alt="" coords="1691,155,1791,181"/>
 <area shape="rect" id="node29" href="$_natural_list_8cpp.html" title="The NaturalList body implements lists of non&#45;negative integer values with zero&#45;based arbitrary indexe..." alt="" coords="1816,155,1925,181"/>
 <area shape="rect" id="node30" href="$_string_list_8cpp.html" title="The StringList body implements lists of string values with zero&#45;based arbitrary indexed access to pos..." alt="" coords="1950,155,2053,181"/>
+<area shape="rect" id="node31" href="$_real_8cpp.html" title="The Real body implements a value object type for real values." alt="" coords="2077,155,2150,181"/>
 <area shape="rect" id="node5" href="$_audio_sample_fifo_queue_8cpp-inc.html" title="The AudioSampleFifoQueue body implements a fifo queue for audio samples with popping off access to th..." alt="" coords="2834,229,3038,256"/>
 <area shape="rect" id="node10" href="$_fluid_synth_plugin___event_processor_8cpp.html" title="The FluidSynthPlugin_Processor module implements the handling of MIDI events from the DAW via JUCE ha..." alt="" coords="5,453,248,480"/>
 <area shape="rect" id="node11" href="$_audio_sample_fifo_queue_vector_8cpp-inc.html" title="The AudioSampleFifoQueueVector body implements a list of fifo queues for audio samples (this is the e..." alt="" coords="212,304,455,331"/>

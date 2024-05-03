@@ -1,29 +1,29 @@
 <map id="MidiEventList.cpp" name="MidiEventList.cpp">
-<area shape="rect" id="node1" title="The MIDIEventList body implements sequences of integer values with zero&#45;based arbitrary indexed acces..." alt="" coords="457,5,581,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="92,155,157,181"/>
-<area shape="rect" id="node3" href="$_logging_8h.html" title="The Logging specification defines macros for entry&#45;, exit&#45; and intermediate logging of functions into..." alt="" coords="268,80,347,107"/>
-<area shape="rect" id="node24" href="$_midi_event_list_8h.html" title="The MidiEventList specification defines lists of MIDI events with zero&#45;based arbitrary indexed access..." alt="" coords="724,80,835,107"/>
-<area shape="rect" id="node27" href="$_object_8h.html" title="The Object specification and body provides the root object type." alt="" coords="671,229,741,256"/>
-<area shape="rect" id="node4" href="$_logging_support_8h.html" title="The LoggingSupport specification defines a class for simple entry/exit logging to a file or via an ar..." alt="" coords="182,155,305,181"/>
-<area shape="rect" id="node14" href="$_string_util_8h.html" title="The StringUtil specification defines several string routines not included in the standard C++ library..." alt="" coords="329,155,416,181"/>
-<area shape="rect" id="node5" href="$_boolean_8h.html" title="The Boolean specification and body provides a value object type for boolean values." alt="" coords="186,229,266,256"/>
-<area shape="rect" id="node9" href="$_natural_8h.html" title="The Natural specification and body provides a value object type for naturals (positive integers with ..." alt="" coords="219,453,294,480"/>
+<area shape="rect" id="node1" title="The MIDIEventList body implements sequences of integer values with zero&#45;based arbitrary indexed acces..." alt="" coords="387,5,511,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="79,155,144,181"/>
+<area shape="rect" id="node3" href="$_logging_8h.html" title="The Logging specification defines macros for entry&#45;, exit&#45; and intermediate logging of functions into..." alt="" coords="255,80,333,107"/>
+<area shape="rect" id="node24" href="$_midi_event_list_8h.html" title="The MidiEventList specification defines lists of MIDI events with zero&#45;based arbitrary indexed access..." alt="" coords="605,80,716,107"/>
+<area shape="rect" id="node27" href="$_object_8h.html" title="The Object specification and body provides the root object type." alt="" coords="639,229,709,256"/>
+<area shape="rect" id="node4" href="$_logging_support_8h.html" title="The LoggingSupport specification defines a class for simple entry/exit logging to a file or via an ar..." alt="" coords="169,155,291,181"/>
+<area shape="rect" id="node14" href="$_string_util_8h.html" title="The StringUtil specification defines several string routines not included in the standard C++ library..." alt="" coords="316,155,403,181"/>
+<area shape="rect" id="node5" href="$_boolean_8h.html" title="The Boolean specification and body provides a value object type for boolean values." alt="" coords="154,229,234,256"/>
+<area shape="rect" id="node9" href="$_natural_8h.html" title="The Natural specification and body provides a value object type for naturals (positive integers with ..." alt="" coords="265,453,339,480"/>
 <area shape="rect" id="node6" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="19,528,105,555"/>
-<area shape="rect" id="node7" title=" " alt="" coords="232,603,287,629"/>
+<area shape="rect" id="node7" title=" " alt="" coords="144,603,199,629"/>
 <area shape="rect" id="node8" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="5,603,119,629"/>
-<area shape="rect" id="node10" title=" " alt="" coords="387,528,446,555"/>
-<area shape="rect" id="node11" href="$_assertion_8h.html" title="The Assertion specification defines macros for pre&#45; and postconditions in functions or methods." alt="" coords="275,528,363,555"/>
-<area shape="rect" id="node13" title=" " alt="" coords="129,528,251,555"/>
-<area shape="rect" id="node12" title=" " alt="" coords="340,603,419,629"/>
-<area shape="rect" id="node15" href="$_character_8h.html" title="The Character specification and body provides a value object type for character values." alt="" coords="264,304,353,331"/>
-<area shape="rect" id="node18" href="$_percentage_8h.html" title="The Percentage specification and body provides a simple percentage type." alt="" coords="341,229,439,256"/>
-<area shape="rect" id="node21" href="$_string_list_8h.html" title="The StringList specification defines lists of string values with zero&#45;based arbitrary indexed access ..." alt="" coords="607,304,695,331"/>
-<area shape="rect" id="node16" href="$_byte_8h.html" title="The Byte specification and body provides a value object type for byte values." alt="" coords="516,379,576,405"/>
-<area shape="rect" id="node17" title=" " alt="" coords="571,453,633,480"/>
-<area shape="rect" id="node19" href="$_real_8h.html" title="The Real specification defines a value object type for real values." alt="" coords="378,304,437,331"/>
-<area shape="rect" id="node20" href="$_integer_8h.html" title="The Integer specification and body provides a value object type for ints." alt="" coords="419,379,491,405"/>
-<area shape="rect" id="node22" title=" " alt="" coords="748,379,845,405"/>
-<area shape="rect" id="node23" title=" " alt="" coords="614,379,713,405"/>
-<area shape="rect" id="node25" href="$_midi_event_8h.html" title="The MidiEvent specification defines a single MIDI event and the MIDI event kind enumeration." alt="" coords="559,155,648,181"/>
-<area shape="rect" id="node26" href="$_byte_list_8h.html" title="The ByteList specification defines lists of byte values with zero&#45;based arbitrary indexed access to p..." alt="" coords="565,229,647,256"/>
+<area shape="rect" id="node10" title=" " alt="" coords="455,528,514,555"/>
+<area shape="rect" id="node11" href="$_assertion_8h.html" title="The Assertion specification defines macros for pre&#45; and postconditions in functions or methods." alt="" coords="129,528,217,555"/>
+<area shape="rect" id="node13" title=" " alt="" coords="241,528,363,555"/>
+<area shape="rect" id="node12" title=" " alt="" coords="292,603,371,629"/>
+<area shape="rect" id="node15" href="$_character_8h.html" title="The Character specification and body provides a value object type for character values." alt="" coords="457,304,547,331"/>
+<area shape="rect" id="node18" href="$_percentage_8h.html" title="The Percentage specification and body provides a simple percentage type." alt="" coords="258,229,357,256"/>
+<area shape="rect" id="node21" href="$_string_list_8h.html" title="The StringList specification defines lists of string values with zero&#45;based arbitrary indexed access ..." alt="" coords="622,304,710,331"/>
+<area shape="rect" id="node16" href="$_byte_8h.html" title="The Byte specification and body provides a value object type for byte values." alt="" coords="540,379,600,405"/>
+<area shape="rect" id="node17" title=" " alt="" coords="539,453,601,480"/>
+<area shape="rect" id="node19" href="$_real_8h.html" title="The Real specification defines a value object type for real values." alt="" coords="301,304,359,331"/>
+<area shape="rect" id="node20" href="$_integer_8h.html" title="The Integer specification and body provides a value object type for ints." alt="" coords="365,379,437,405"/>
+<area shape="rect" id="node22" title=" " alt="" coords="625,379,723,405"/>
+<area shape="rect" id="node23" title=" " alt="" coords="747,379,846,405"/>
+<area shape="rect" id="node25" href="$_midi_event_8h.html" title="The MidiEvent specification defines a single MIDI event and the MIDI event kind enumeration." alt="" coords="529,155,619,181"/>
+<area shape="rect" id="node26" href="$_byte_list_8h.html" title="The ByteList specification defines lists of byte values with zero&#45;based arbitrary indexed access to p..." alt="" coords="533,229,615,256"/>
 </map>

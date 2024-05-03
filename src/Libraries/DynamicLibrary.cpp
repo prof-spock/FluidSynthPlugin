@@ -174,7 +174,7 @@ Boolean DynamicLibrary::isLoaded () const
 
 /*--------------------*/
 
-Object DynamicLibrary::underlyingTechnicalLibrary () const
+Object DynamicLibrary::underlyingObject () const
 {
     return _descriptor;
 }

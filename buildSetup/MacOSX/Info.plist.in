@@ -6,13 +6,13 @@
 	<array>
 		<dict>
 			<key>description</key>
-			<string>FluidSynthPlugin</string>
+			<string>${JUCE_auPluginName}</string>
 			<key>factoryFunction</key>
-			<string>FluidSynthPluginAUFactory</string>
+			<string>${JUCE_auPluginName}AUFactory</string>
 			<key>manufacturer</key>
 			<string>${JUCE_manufacturerName}</string>
 			<key>name</key>
-			<string>${JUCE_manufacturerName}: FluidSynthPlugin</string>
+			<string>${JUCE_auLongPluginName}</string>
 			<key>sandboxSafe</key>
 			<true/>
 			<key>subtype</key>
@@ -28,11 +28,11 @@
 	<key>CFBundleDevelopmentRegion</key>
             <string>English</string>
 	<key>CFBundleExecutable</key>
-            <string>FluidSynthPlugin</string>
+            <string>${JUCE_auPluginName}</string>
 	<key>CFBundleIdentifier</key>
-	    <string>eu.tensi.thomas.FluidSynthPlugin</string>
+	    <string>${JUCE_bundlePrefix}.${JUCE_auPluginName}</string>
 	<key>CFBundleName</key>
-            <string>FluidSynthPlugin</string>
+            <string>${JUCE_auPluginName}</string>
 	<key>CFBundlePackageType</key>
             <string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
@@ -44,12 +44,13 @@
 	<key>CFBundleVersion</key>
             <string>1.0</string>
 	<key>CSResourcesFileMapped</key> <true/>
-        <key>LSMinimumSystemVersion</key><string>10.11</string>
+        <key>LSMinimumSystemVersion</key>
+	    <string>$(MACOSX_DEPLOYMENT_TARGET)</string>
 	<key>NSHumanReadableCopyright</key>
 	    <string></string>
 	<key>NSMainNibFile</key>
 	    <string>RecentFilesMenuTemplate.nib</string>
 	<key>NSPrincipalClass</key>
-	    <string>FluidSynthPlugin</string>
+	    <string>SoX${pluginName}</string>
 </dict>
 </plist>
