@@ -48,5 +48,5 @@ String BuildInformation::time ()
 
 String BuildInformation::version ()
 {
-    return "0.7.0";
+    return "0.7.5";
 }

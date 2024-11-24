@@ -614,7 +614,7 @@ static Boolean _setPreset (INOUT FluidSynthSynthesizer& synthesizer,
     }
     
 
-    Logging_trace1("<<: %1", isOkay);
+    Logging_trace1("<<: %1", TOSTRING(isOkay));
     return isOkay;
 }
 
@@ -874,7 +874,7 @@ Boolean MidiEventConverter::processMidiEvent (IN MidiEvent& event)
         TOREFERENCE<_MidiEventConverterDescriptor>(_descriptor);
     Boolean result = descriptor.processMidiEvent(event);
     
-    Logging_trace1("<<: %1", result);
+    Logging_trace1("<<: %1", TOSTRING(result));
     return result;
 }
 

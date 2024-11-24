@@ -639,11 +639,11 @@ static void _splitListAtTime (INOUT MidiEventList& midiEventList,
 /*--------------------*/
 
 FluidSynthPlugin_EventProcessor::FluidSynthPlugin_EventProcessor ()
-    : _descriptor{NULL},
-      juce::AudioProcessor(juce::AudioProcessor::BusesProperties()
+    : juce::AudioProcessor(juce::AudioProcessor::BusesProperties()
                            .withOutput("Output",
                                        juce::AudioChannelSet::stereo(),
-                                       true))
+                                       true)),
+      _descriptor{NULL}
 {
     Logging_initializeWithDefaults("FluidSynthPlugin",
                                    "FluidSynthPlugin.");

@@ -121,6 +121,16 @@ My thanks go to the FluidSynth team: Peter Hanappe, Conrad Berhörster, Antoine 
 
 Special thanks go to S. Christian Collins for very helpful discussions and his suggestions to improve the plugin, especially the great input to enhance the user interface beyond the original academic approach.
 
+## License
+
+There are two license models for this project:
+
+  - The source code is provided with an [**MIT license**](./LICENSE.txt).
+
+  - The VST and AU files given in the release are provided with an [**AGPL v3 license**](BINARY_LICENSE.txt) since they contain parts of the JUCE framework.
+
+This means that if you do *not* use the given binaries and compile the source code by yourself, the MIT license applies.  If you *do* use the binaries, then the AGPL v3 license applies.
+
 [FluidSynth]: https://www.fluidsynth.org
 [FluidSynthVST]: https://github.com/AZSlow3/FluidSynthVST
 [JUCE]: http://www.juce.com/

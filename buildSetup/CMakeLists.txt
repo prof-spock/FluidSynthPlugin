@@ -265,17 +265,17 @@ IF(WINDOWS)
     )
 ELSEIF(MACOSX)
     LIST(APPEND dynamicLibraryNameList
-         libFLAC.8.dylib libffi.8.dylib libfluidsynth.3.dylib
-         libglib-2.0.0.dylib libgobject-2.0.0.dylib libgthread-2.0.0.dylib
-         libiconv.2.dylib libintl.8.dylib libncurses.6.dylib
-         libogg.0.dylib libopus.0.dylib libpcre.1.dylib
-         libreadline.8.dylib libsndfile.1.dylib libvorbis.0.dylib
-         libvorbisenc.2.dylib
+         libFLAC.12.dylib libfluidsynth.3.dylib libglib-2.0.0.dylib
+         libgthread-2.0.0.dylib libiconv.2.dylib libintl.8.dylib
+         libmp3lame.0.dylib libmpg123.0.dylib libncurses.6.dylib
+         libogg.0.dylib libopus.0.dylib libpcre2-8.0.dylib
+         libreadline.8.dylib libSDL2-2.0.0.dylib libsndfile.1.dylib
+         libvorbis.0.dylib libvorbisenc.2.dylib
     )
 ELSEIF(LINUX)
-    LIST(APPEND dynamicLibraryNameList
-        libfluidsynth.so.3
-    )
+    # no dynamic libraries used => for Linux FluidSynth must be
+    # installed
+    SET(dynamicLibraryNameList )
 ENDIF()
  
 LIST(APPEND dynamicLibraryList ${dynamicLibraryNameList})

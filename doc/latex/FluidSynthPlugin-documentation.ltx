@@ -208,7 +208,7 @@
         \productName{Pedantic\-Fluid\-Synth\-Converter}%
     }
 
-    \newcommand{\programVersion}{0.7.0}
+    \newcommand{\programVersion}{0.7.5}
 
     \newcommand{\settingsCaption}[1]{%
         Common Synthesizer Settings for \FluidSynthPlugin\ and
@@ -230,7 +230,7 @@
   \large
   \begin{tabular}{>{\bf}p{2.5cm}p{10.5cm}}
       Author:&Dr.~Thomas Tensi\\
-      Date:&2024-04-11\\
+      Date:&2024-11-24\\
       Version:&\programVersion\\
       Platforms:&VST3 on Windows~x64,\\
                 &VST3/AU on MacOSX (x86\_64)\\
@@ -239,6 +239,7 @@
   \vfill
 \end{titlepage}
 \tableofcontents
+
 
 %=====================
 \chapter{Introduction}
@@ -348,6 +349,7 @@ discussions and his suggestions to improve the plugin, especially the
 great input to enhance the user interface beyond the original academic
 approach.
 
+
 %===============================================
 \chapter{Installation of the \FluidSynthPlugins}
 %===============================================
@@ -365,16 +367,31 @@ The installation is as follows:
          subdirectory \embeddedCode{test} (see
          section~\ref{section:regressionTest}) somewhere.
 
-   \item When installing the plugins on MacOSX, note that those are
-         \textbf{not signed}; so you have to explicitly remove the
-         quarantine flag from them  (e.g.\ by applying the command
-         \embeddedCode{sudo xattr -rd com.apple.quarantine «vstPath»}).
+   \item Depending on your target operating system, additional steps
+         might be necessary:
+         
+         \begin{itemize}
 
-   \item When installing the plugin and program on Windows, they
-         require the so-called Microsoft Visual C++ Redistributable
-         library~\cite{reference:visualCLibrary}.  Very often this is
-         already installed on your system; if not, you have to install
-         it from the Microsoft site.
+             \item When installing the plugins on Linux, you have to
+                   ensure that the \embeddedCode{fluidsynth}
+                   package is already installed.
+                   Appendix~\ref{chapter:fluidSynthInstallation} gives
+                   details on how to do that.
+
+             \item When installing the plugins on MacOSX, note that
+                   those are \textbf{not signed}; so you have to
+                   explicitly remove the quarantine flag from them
+                   (e.g.\ by applying the command \embeddedCode{sudo
+                       xattr -rd com.apple.quarantine «vstPath»}).
+
+             \item When installing the plugin and program on Windows,
+                   they require the so-called Microsoft Visual C++
+                   Redistributable library
+                   \cite{reference:visualCLibrary}.  Very often this is
+                   already installed on your system; if not, you have to
+                   install it from the Microsoft site.
+
+         \end{itemize}
 
    \item Restart your DAW and rescan the plugins.  You should now be
          able to select the \FluidSynthPlugin.
@@ -391,17 +408,20 @@ Note that the connection to the \FluidSynth\ version can be changed
 major design goal to be able to update the \FluidSynth\ functionality
 without having to update the \FluidSynthPlugins.
 
-That means that although the plugin directory and the directory of the
+For Linux this is just done by installing a new
+\embeddedCode{fluidsynth} package, for Windows and MacOSX both the
+plugin directory and the directory of the
 \FluidSynthConverter\ contain a version of \FluidSynth\ as well as
-related libraries, you can easily exchange those for more current
+related libraries.  You can easily exchange those for more current
 versions or delete them and just use the \FluidSynth\ library already
 installed on your system.  For that you just have to delete the DLL
-(Windows), DYLIB (MACOSX) or SO (Linux) files in the plugin and
-converter directories.
+(Windows) or DYLIB (MACOSX) files in the plugin and converter
+directories.
 
 The version of the underlying \FluidSynth\ library can be found in the
 \embeddedCode{About...} dialog in the context menu of the
 \FluidSynthPlugin\ text widget.
+
 
 %==============================================
 \chapter{Description of the \FluidSynthPlugins}
@@ -1112,6 +1132,7 @@ value, e.g.\ by writing the following text:
 sampleOffset = 20
 \end{commandLine}
 
+
 %=============================
 \chapter{Regression Test}
 \label{section:regressionTest}
@@ -1166,6 +1187,7 @@ depth).
   \label{figure:regressionTestNoiseFloor}
 \end{centeredFigure}
 
+
 %====================================
 \chapter{Notes on the Implementation}
 \label{chapter:implementation}
@@ -1177,7 +1199,7 @@ depth).
 
 The implementation of the \FluidSynthPlugin\ and the
 \FluidSynthConverter\ is done in C++.  The former relies on the JUCE
-library~\cite{reference:juce} and both ---~of course~--- use the
+library \cite{reference:juce} and both ---~of course~--- use the
 \FluidSynth\ library.  The sequencer from that library is not used,
 because it also has some event rasterization (independent from the
 inevitable internal rasterization of the library).
@@ -1213,13 +1235,13 @@ Minimum prerequisites for building are:
   \item a clone of the GIT-project at \hyperlink{\gitPluginPath}
   
   \item an installation of the audio framework
-    JUCE~\cite{reference:juce} with version 5 or later,
+        JUCE \cite{reference:juce} with version 5 or later,
     
   \item some C++ compiler suite for your platform (e.g. Visual Studio,
-    XCode, clang or gcc), and
+        XCode, clang or gcc), and
     
   \item an installation of the build automation platform
-    CMAKE~\cite{reference:cmake} with version 3.20 or later
+        CMAKE~\cite{reference:cmake} with version 3.20 or later
 
 \end{itemize}
 
@@ -1227,11 +1249,11 @@ For documentation generation you can \emph{optionally} install:
 \begin{itemize}
 
   \item a \LaTeX\ installation ---~like e.g. MikTeX~--- (for the
-    manual), and
+        manual), and
 
-  \item doxygen~\cite{reference:doxygen} and
-    graphviz~\cite{reference:graphviz} for the internal program
-    documentation
+  \item doxygen \cite{reference:doxygen} and graphviz
+        \cite{reference:graphviz} for the internal program
+        documentation
 
 \end{itemize}
 
@@ -1397,10 +1419,37 @@ All logging files go into the directory specified by the environment
 variables \embeddedCode{tmp}, \embeddedCode{temp} or into the
 directory \embeddedCode{/tmp} (in that order).
 
+
+%================
+\chapter{License}
+%================
+
+There are two license models for this project:
+
+\begin{itemize}
+
+  \item The source code is provided with an \textbf{MIT license}
+        \cite{reference:license_MIT}.
+
+  \item The VST and AU files given in the releases are provided with
+        an \textbf{AGPL~v3 license} \cite{reference:license_AGPL}
+        since they contain parts of the JUCE framework.
+\end{itemize}
+
+This means that if you do \emph{not} use the given binaries and
+compile the source code by yourself, the MIT license applies.  If you
+\emph{do} use the binaries directly, then the AGPL~v3 license applies.
+
+
 %===========================================
 \begin{thebibliography}{FluidSynthSettings}
 \addcontentsline{toc}{chapter}{Bibliography}
 %===========================================
+
+  \bibitem[AGPL]{reference:license_AGPL}
+    Free Software Foundation.\\
+    \textit{GNU Affero General Public License.}\\
+    \hyperlink{https://www.gnu.org/licenses/agpl-3.0.html}
 
   \bibitem[CMAKE]{reference:cmake}
     Kitware, Inc.\\
@@ -1459,6 +1508,11 @@ directory \embeddedCode{/tmp} (in that order).
             Music to Notation Videos.}\\
     \hyperlink{https://github.com/prof-spock/LilypondToBandVideoConverter}
 
+  \bibitem[MIT]{reference:license_MIT}
+    Massachusetts Institute of Technology.\\
+    \textit{MIT License.}\\
+    \hyperlink{https://opensource.org/license/mit}
+
   \bibitem[REAPER]{reference:reaper}
     Cockos Incorporated.\\
     \textit{Reaper Digital Audio Workstation.}\\
@@ -1470,4 +1524,48 @@ directory \embeddedCode{/tmp} (in that order).
     \hyperlink{https://learn.microsoft.com/cpp/windows/latest-supported-vc-redist}
 
 \end{thebibliography}
+
+\appendix
+
+%===================================================
+\chapter{Installing the FluidSynth Package in Linux}
+\label{chapter:fluidSynthInstallation}
+%===================================================
+
+On Linux the \FluidSynthPlugin\ requires an existing installation of
+\FluidSynth\ on the system.  You would normally expect this to be part
+of the delivery, but because there are several Linux distributions
+available, it is difficult to do this.
+
+Installation of \FluidSynth\ on some Linux distribution is done on the
+command-line via a so-called \emph{package manager} ---~that
+unfortunately depends on the distribution~---.  It requires super-user
+priviledges and can be done as described in the following table:
+
+\newcommand{\installation}[1]{\embeddedCode{sudo #1 fluidsynth}}
+\renewcommand{\arraystretch}{1.2}
+
+\begin{center}
+    \begin{tabular}{|p{2.5cm}|p{6.5cm}|}
+        \hline
+        \rowcolor{parameterTableHeadingBackgroundColor}
+        \textbf{Distribution} & \textbf{Installation Command}\\\hline
+        Arch       & \installation{pacman -S}\\\hline
+        CentOS     & \installation{dnf install}\\\hline
+        Debian     & \installation{apt install}\\\hline
+        Fedora     & \installation{dnf install}\\\hline
+        Gentoo     & \installation{emerge}\\\hline
+        Kali Linux & \installation{apt install}\\\hline
+        Mint       & \installation{apt install}\\\hline
+        openSuse   & \installation{zypper install}\\\hline
+        RHEL       & \installation{dnf install}\\\hline
+        Slackware  & \installation{slackpkg install}\\\hline
+        Ubuntu     & \installation{apt install}\\\hline
+    \end{tabular}
+\end{center}
+
+From time to time you should upgrade the \FluidSynth\ package via that
+package manager to make sure that the \FluidSynthPlugin\ always works
+with the current \FluidSynth\ library.
+
 \end{document}
