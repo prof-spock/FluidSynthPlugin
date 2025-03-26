@@ -85,13 +85,6 @@ namespace BaseModules {
      * arguments for the main program derived from the raw command-line
      * arguments
      */
-    // struct CommandLineArgumentList
-    //     : public GenericList<CommandLineArgument,
-    //                          CommandLineArgument::toString,
-    //                          &> {
-    //
-    // };
-
     struct CommandLineArgumentList
         : public GenericList<CommandLineArgument,
                              CommandLineArgument::toString,

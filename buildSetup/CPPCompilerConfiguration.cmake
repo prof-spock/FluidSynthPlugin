@@ -73,13 +73,13 @@ FUNCTION(appendToCommonDefineClauses)
         )
     ENDIF(WINDOWS)
 
-    IF(MACOSX)
+    IF(MACOS)
         LIST(APPEND cppDefinitions_common
              JucePlugin_Build_AU=1
              JUCE_MAC=1
              APPLE
         )
-    ENDIF(MACOSX)
+    ENDIF(MACOS)
 
     IF(LINUX)
         LIST(APPEND cppDefinitions_common
@@ -117,11 +117,11 @@ FUNCTION(appendToManufacturerAndSuiteDefineClauses)
          JucePlugin_AAXManufacturerCode=JucePlugin_ManufacturerCode
     )
 
-    IF(MACOSX)
+    IF(MACOS)
         LIST(APPEND manufacturerAndSuiteDefineClauseList
              JucePlugin_AUManufacturerCode=JucePlugin_ManufacturerCode
         )
-    ENDIF(MACOSX)
+    ENDIF(MACOS)
 
     SET(manufacturerAndSuiteDefineClauseList
         ${manufacturerAndSuiteDefineClauseList} PARENT_SCOPE)
@@ -135,9 +135,9 @@ FUNCTION(setSupportedProgrammingLanguages)
     SET(CMAKE_CXX_STANDARD 20 PARENT_SCOPE)
     SET(CMAKE_CXX_STANDARD_REQUIRED True PARENT_SCOPE)
 
-    IF(MACOSX)
+    IF(MACOS)
         ENABLE_LANGUAGE(OBJC)
-    ENDIF(MACOSX)
+    ENDIF(MACOS)
 ENDFUNCTION(setSupportedProgrammingLanguages)
 
 #--------------------
@@ -148,9 +148,10 @@ FUNCTION(setCommonAndReleaseWarnings)
 
     IF(MSVC)
         # --- list of warning numbers to be ignored
-        LIST(APPEND ignoredWarningList_common
+        SET(ignoredWarningList_common
               4100 # unreferenced formal parameter
-              4244 # possible loss of data by onversion 
+              4244 # possible loss of data by onversion
+              4458 # declaration hides class member
               4505 # unreferenced local function
               5105 # macro expansion producing 'defined' has undefined
                    # behavior
@@ -160,13 +161,13 @@ FUNCTION(setCommonAndReleaseWarnings)
              26812 # enum type unscoped
         )
 
-        LIST(APPEND ignoredWarningList_release
+        SET(ignoredWarningList_release
               4101 # unreferenced local variable
               4189 # variable declared and initialized but not used
         )
     ELSE()
         # --- list of warnings to be ignored
-        LIST(APPEND ignoredWarningList_common
+        SET(ignoredWarningList_common
              address             # remove warning for impossible null
                                  # pointer
              delete-incomplete   # remove warning for void deletion
@@ -175,7 +176,7 @@ FUNCTION(setCommonAndReleaseWarnings)
              unused-function     # remove warning for unused function
         )
 
-        LIST(APPEND ignoredWarningList_release
+        SET(ignoredWarningList_release
              unused-variable     # remove warning for unused variable
         )
 
@@ -219,7 +220,7 @@ ELSE()
     SET(CLANG 0)
 ENDIF()
 
-# --- set languages to C++ and Objective-C (for MacOSX)
+# --- set languages to C++ and Objective-C (for MacOS)
 setSupportedProgrammingLanguages()
 
 # --- append to settings from specific effect suite
@@ -261,6 +262,8 @@ IF(MSVC)
          /Od                  # no optimization
          /Zi                  # debug information in database
     )
+
+    SET(cppLinkerOptions_common )
 ELSE()
     LIST(APPEND cppOptions_common
          -ffast-math                  # fast floating point calculation
@@ -272,19 +275,10 @@ ELSE()
          -pedantic                    # set strict standard conformance
     )
 
-    IF(MACOSX)
+    IF(MACOS)
         LIST(APPEND cppOptions_common
              -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk)
-    ENDIF(MACOSX)
-
-    # warn about undefined symbols when linking
-    IF(MACOSX)
-        LIST(APPEND cppLinkerOptions_common
-             -Wl,-undefined,error)
-    ELSE()
-        LIST(APPEND cppLinkerOptions_common
-             -Wl,-no-undefined)
-    ENDIF(MACOSX)           
+    ENDIF(MACOS)
 
     LIST(APPEND cppOptions_release
          -O3                  # extreme optimization
@@ -299,15 +293,25 @@ ELSE()
          -Og                  # debugging compatible optimization
          -g                   # debug information in object files
     )
+
+    # warn about undefined symbols when linking
+    IF(MACOS)
+        # LIST(APPEND cppLinkerOptions_common
+        #      -Wl,-undefined,error)
+    ELSE()
+        # LIST(APPEND cppLinkerOptions_common
+        #      -Wl,-no-undefined)
+    ENDIF(MACOS)           
 ENDIF()
 
 LIST(APPEND cppWarningOptions
      ${cppWarningOptions_common}
      $<$<CONFIG:Release>:${cppWarningOptions_release}>)
 
+SET(CMAKE_EXE_LINKER_FLAGS ${cppLinkerOptions_common} CACHE STRING "" FORCE)
+SET(CMAKE_MODULE_LINKER_FLAGS ${cppLinkerOptions_common} CACHE STRING "" FORCE)
 SET(CMAKE_SHARED_LINKER_FLAGS ${cppLinkerOptions_common} CACHE STRING "" FORCE)
-
-SET(CMAKE_CXX_FLAGS_RELWITHDEBINFO CACHE STRING "" FORCE)
+SET(CMAKE_STATIC_LINKER_FLAGS ${cppLinkerOptions_common} CACHE STRING "" FORCE)
 
 #====================
 
@@ -328,6 +332,8 @@ FUNCTION(addCompilerFlags targetName warningsAreEnabled)
     # compile with logging enabled globally for a debug configuration
     # TARGET_COMPILE_DEFINITIONS(${targetName} PRIVATE
     #                            $<$<CONFIG:Debug>:LOGGING_IS_ACTIVE>)
+    # TARGET_COMPILE_DEFINITIONS(${targetName} PRIVATE
+    #                            $<$<CONFIG:Release>:LOGGING_IS_ACTIVE>)
 
     # options
     TARGET_COMPILE_OPTIONS(${targetName} PRIVATE ${cppOptions_common})
@@ -337,4 +343,11 @@ FUNCTION(addCompilerFlags targetName warningsAreEnabled)
     ELSE()
         TARGET_COMPILE_OPTIONS(${targetName} PRIVATE ${Warning_disableAll})
     ENDIF()
+
+    TARGET_COMPILE_OPTIONS(${targetName} PRIVATE
+                           $<$<CONFIG:Debug>:${cppOptions_debug}>)
+    TARGET_COMPILE_OPTIONS(${targetName} PRIVATE
+                           $<$<CONFIG:Release>:${cppOptions_release}>)
+    TARGET_COMPILE_OPTIONS(${targetName} PRIVATE
+                           $<$<CONFIG:RelWithDebInfo>:${cppOptions_relWithDebInfo}>)
 ENDFUNCTION(addCompilerFlags)

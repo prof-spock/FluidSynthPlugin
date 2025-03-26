@@ -1,6 +1,25 @@
 var NAVTREEINDEX6 =
 {
+"struct_windows_1_1tag_r_e_c_t.html#a11ad15bcaa2511b9aaaccc41583f6e12":[2,0,6,8,1],
+"struct_windows_1_1tag_r_e_c_t.html#a2f7c98a060ec18c81b2dcd0f4f58e53f":[2,0,6,8,2],
+"struct_windows_1_1tag_r_e_c_t.html#ae1aa31eac70a80ca040b0955cda90d28":[2,0,6,8,0],
+"struct_windows_1_1tag_r_e_c_t.html#af722a8478da0404145976d7516b16977":[2,0,6,8,3],
+"struct_windows_1_1tag_r_g_b_q_u_a_d.html":[2,0,6,9],
+"struct_windows_1_1tag_r_g_b_q_u_a_d.html#a7855b1062bbb96af5e0a68a7ce605487":[2,0,6,9,2],
+"struct_windows_1_1tag_r_g_b_q_u_a_d.html#a96210d53929ec23ae14afaf68f8d59d3":[2,0,6,9,0],
+"struct_windows_1_1tag_r_g_b_q_u_a_d.html#aeaead1ef6fe8768083bc398c618c4a12":[2,0,6,9,3],
+"struct_windows_1_1tag_r_g_b_q_u_a_d.html#af3a8cb99d89114b3bc541f1a7152fd03":[2,0,6,9,1],
+"struct_windows_1_1tag_w_n_d_c_l_a_s_s_e_x_w.html":[2,0,6,10],
+"struct_windows_1_1tag_w_n_d_c_l_a_s_s_e_x_w.html#a1fed543d13327f683d2c4b62c105a809":[2,0,6,10,6],
+"struct_windows_1_1tag_w_n_d_c_l_a_s_s_e_x_w.html#a3ea9588c7812da740f08b9335b7e09cd":[2,0,6,10,11],
+"struct_windows_1_1tag_w_n_d_c_l_a_s_s_e_x_w.html#a523c7fe0891e92bca56d3b4b169ae582":[2,0,6,10,1],
+"struct_windows_1_1tag_w_n_d_c_l_a_s_s_e_x_w.html#a57f65aecd4596dcd2f3f3228fec4d5d1":[2,0,6,10,9],
+"struct_windows_1_1tag_w_n_d_c_l_a_s_s_e_x_w.html#a77e357da5dba3388874cc426cf4c95c0":[2,0,6,10,2],
+"struct_windows_1_1tag_w_n_d_c_l_a_s_s_e_x_w.html#aa95566ea2ec1ecd1aecee6327497b167":[2,0,6,10,7],
+"struct_windows_1_1tag_w_n_d_c_l_a_s_s_e_x_w.html#ab3f092227afcde58c187f3642b12cff1":[2,0,6,10,4],
+"struct_windows_1_1tag_w_n_d_c_l_a_s_s_e_x_w.html#ac36cbddb8ec4a9d9893ff67abf65ebce":[2,0,6,10,8],
+"struct_windows_1_1tag_w_n_d_c_l_a_s_s_e_x_w.html#acd76942c6dad9e8fe0ae66973df40371":[2,0,6,10,10],
+"struct_windows_1_1tag_w_n_d_c_l_a_s_s_e_x_w.html#ad3893db7e8a86c018f709440ee32b686":[2,0,6,10,0],
 "struct_windows_1_1tag_w_n_d_c_l_a_s_s_e_x_w.html#ae34a1855945a45434654bfd0895f9737":[2,0,6,10,3],
-"struct_windows_1_1tag_w_n_d_c_l_a_s_s_e_x_w.html#af282773c89a8019274d3d32f7b38d6a2":[2,0,6,10,5],
-"":[2,0,6]
+"struct_windows_1_1tag_w_n_d_c_l_a_s_s_e_x_w.html#af282773c89a8019274d3d32f7b38d6a2":[2,0,6,10,5]
 };

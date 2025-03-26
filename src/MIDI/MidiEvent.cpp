@@ -38,12 +38,12 @@ static Byte _eventByteToKindCode (IN Byte b)
 {
     Byte result;
 
-    if (b == 0xF0) {
+    if (b == '\xF0') {
         result = 7;
-    } else if (b == 0xFF) {
+    } else if (b == '\xFF') {
         result = 8;
     } else {
-        result = ((char) b & 0x70) >> 4;
+        result = ((char) b & '\x70') >> 4;
     }
 
     return result;
@@ -96,15 +96,15 @@ static String _eventKindCodeToString (IN Byte kindCode)
 /* constant values    */
 /*--------------------*/
 
-MidiEventKind MidiEventKind::noteOff{0x80};
-MidiEventKind MidiEventKind::noteOn{0x90};
-MidiEventKind MidiEventKind::polyTouch{0xA0};
-MidiEventKind MidiEventKind::controlChange{0xB0};
-MidiEventKind MidiEventKind::programChange{0xC0};
-MidiEventKind MidiEventKind::monoTouch{0xD0};
-MidiEventKind MidiEventKind::pitchBend{0xE0};
-MidiEventKind MidiEventKind::systemExclusive{0xF0};
-MidiEventKind MidiEventKind::meta{0xFF};
+MidiEventKind MidiEventKind::noteOff{'\x80'};
+MidiEventKind MidiEventKind::noteOn{'\x90'};
+MidiEventKind MidiEventKind::polyTouch{'\xA0'};
+MidiEventKind MidiEventKind::controlChange{'\xB0'};
+MidiEventKind MidiEventKind::programChange{'\xC0'};
+MidiEventKind MidiEventKind::monoTouch{'\xD0'};
+MidiEventKind MidiEventKind::pitchBend{'\xE0'};
+MidiEventKind MidiEventKind::systemExclusive{'\xF0'};
+MidiEventKind MidiEventKind::meta{'\xFF'};
 
 /*--------------------*/
 /* con-/destruction   */
@@ -194,35 +194,35 @@ static String _metaEventByteToString (IN Byte b)
 {
     String result;
 
-    if (b == 0x00) {
+    if (b == '\x00') {
         result = "sequenceNumber";
-    } else if (b == 0x01) {
+    } else if (b == '\x01') {
         result = "text";
-    } else if (b == 0x02) {
+    } else if (b == '\x02') {
         result = "copyright";
-    } else if (b == 0x03) {
+    } else if (b == '\x03') {
         result = "trackName";
-    } else if (b == 0x04) {
+    } else if (b == '\x04') {
         result = "instrumentName";
-    } else if (b == 0x05) {
+    } else if (b == '\x05') {
         result = "lyric";
-    } else if (b == 0x06) {
+    } else if (b == '\x06') {
         result = "marker";
-    } else if (b == 0x07) {
+    } else if (b == '\x07') {
         result = "cuePoint";
-    } else if (b == 0x20) {
+    } else if (b == '\x20') {
         result = "channelPrefix";
-    } else if (b == 0x2F) {
+    } else if (b == '\x2F') {
         result = "trackEnd";
-    } else if (b == 0x51) {
+    } else if (b == '\x51') {
         result = "tempo";
-    } else if (b == 0x54) {
+    } else if (b == '\x54') {
         result = "smpteOffset";
-    } else if (b == 0x58) {
+    } else if (b == '\x58') {
         result = "timeSignature";
-    } else if (b == 0x59) {
+    } else if (b == '\x59') {
         result = "keySignature";
-    } else if (b == 0x7F) {
+    } else if (b == '\x7F') {
         result = "sequencerMeta";
     } else {
         Assertion_check(false, "illegal value for meta event kind");
@@ -242,7 +242,7 @@ static String _metaEventByteToString (IN Byte b)
  */
 static Boolean _metaEventHasTextData (IN Byte b)
 {
-    return (b >= 0x01 && b <= 0x07);
+    return (b >= '\x01' && b <= '\x07');
 }
 
 /*=====================================*/
@@ -253,30 +253,30 @@ static Boolean _metaEventHasTextData (IN Byte b)
 /* constant values    */
 /*--------------------*/
 
-MidiMetaEventKind MidiMetaEventKind::sequenceNumber{0x00};
-MidiMetaEventKind MidiMetaEventKind::text{0x01};
-MidiMetaEventKind MidiMetaEventKind::copyright{0x02};
-MidiMetaEventKind MidiMetaEventKind::trackName{0x03};
-MidiMetaEventKind MidiMetaEventKind::instrumentName{0x04};
-MidiMetaEventKind MidiMetaEventKind::lyric{0x05};
-MidiMetaEventKind MidiMetaEventKind::marker{0x06};
-MidiMetaEventKind MidiMetaEventKind::cuePoint{0x07};
-MidiMetaEventKind MidiMetaEventKind::channelPrefix{0x20};
-MidiMetaEventKind MidiMetaEventKind::trackEnd{0x2F};
-MidiMetaEventKind MidiMetaEventKind::tempo{0x51};
-MidiMetaEventKind MidiMetaEventKind::smpteOffset{0x54};
-MidiMetaEventKind MidiMetaEventKind::timeSignature{0x58};
-MidiMetaEventKind MidiMetaEventKind::keySignature{0x59};
-MidiMetaEventKind MidiMetaEventKind::sequencerMeta{0x7F};
+MidiMetaEventKind MidiMetaEventKind::sequenceNumber{'\x00'};
+MidiMetaEventKind MidiMetaEventKind::text{'\x01'};
+MidiMetaEventKind MidiMetaEventKind::copyright{'\x02'};
+MidiMetaEventKind MidiMetaEventKind::trackName{'\x03'};
+MidiMetaEventKind MidiMetaEventKind::instrumentName{'\x04'};
+MidiMetaEventKind MidiMetaEventKind::lyric{'\x05'};
+MidiMetaEventKind MidiMetaEventKind::marker{'\x06'};
+MidiMetaEventKind MidiMetaEventKind::cuePoint{'\x07'};
+MidiMetaEventKind MidiMetaEventKind::channelPrefix{'\x20'};
+MidiMetaEventKind MidiMetaEventKind::trackEnd{'\x2F'};
+MidiMetaEventKind MidiMetaEventKind::tempo{'\x51'};
+MidiMetaEventKind MidiMetaEventKind::smpteOffset{'\x54'};
+MidiMetaEventKind MidiMetaEventKind::timeSignature{'\x58'};
+MidiMetaEventKind MidiMetaEventKind::keySignature{'\x59'};
+MidiMetaEventKind MidiMetaEventKind::sequencerMeta{'\x7F'};
 
 /*--------------------*/
 /* con-/destruction   */
 /*--------------------*/
 
 MidiMetaEventKind::MidiMetaEventKind (IN Byte b)
+    : _value{b}
 {
     Logging_trace1(">>: %1", TOSTRING(b));
-    _value = b;
     Logging_trace1("<<: %1", this->toString());
 }
 
@@ -284,10 +284,10 @@ MidiMetaEventKind::MidiMetaEventKind (IN Byte b)
 
 Boolean MidiMetaEventKind::isValid (IN Byte b)
 {
-    return (b <= 0x07
-            || b == 0x20 || b == 0x2F
-            || b == 0x51 || b == 0x54 || b == 0x58 || b == 0x59
-            || b == 0x7F);
+    return (b <= '\x07'
+            || b == '\x20' || b == '\x2F'
+            || b == '\x51' || b == '\x54' || b == '\x58' || b == '\x59'
+            || b == '\x7F');
 }
 
 /*--------------------*/
@@ -473,7 +473,7 @@ String MidiEvent::toString () const
         Boolean hasTextString = false;
         dataListRepresentation = _eventKindCodeToString(eventKind);
 
-        if (eventByte == 0xFF) {
+        if (eventByte == '\xFF') {
             Byte metaEventByte = dataList.at(dataIndex++);
             dataListRepresentation +=
                 " " + _metaEventByteToString(metaEventByte);
@@ -504,9 +504,9 @@ String MidiEvent::toString () const
 
 Boolean MidiEvent::operator < (IN MidiEvent& other) const
 {
-    _MidiEventDescriptor& self =
+    const _MidiEventDescriptor& self =
         TOREFERENCE<_MidiEventDescriptor>(_descriptor);
-    _MidiEventDescriptor& otherRecord =
+    const _MidiEventDescriptor& otherRecord =
         TOREFERENCE<_MidiEventDescriptor>(other._descriptor);
     Integer timeA = self.time;
     Integer timeB = otherRecord.time;
@@ -517,8 +517,8 @@ Boolean MidiEvent::operator < (IN MidiEvent& other) const
     } else if (timeA > timeB) {
         result = false;
     } else {
-        Byte metaCode = 0xFF;
-        Byte trackEndCode = 0x2F;
+        Byte metaCode = '\xFF';
+        Byte trackEndCode = '\x2F';
         Byte eventCodeA = self.midiDataList[0];
         Byte eventCodeB = otherRecord.midiDataList[0];
         Boolean isTrackEndA =
@@ -547,7 +547,7 @@ Boolean MidiEvent::operator < (IN MidiEvent& other) const
 Integer MidiEvent::time () const
 {
     Logging_trace(">>");
-    _MidiEventDescriptor& self =
+    const _MidiEventDescriptor& self =
         TOREFERENCE<_MidiEventDescriptor>(_descriptor);
     Integer result = self.time;
     Logging_trace1("<<: %1", TOSTRING(result));
@@ -559,9 +559,9 @@ Integer MidiEvent::time () const
 ByteList MidiEvent::rawData () const
 {
     Logging_trace(">>");
-    _MidiEventDescriptor& self =
+    const _MidiEventDescriptor& self =
         TOREFERENCE<_MidiEventDescriptor>(_descriptor);
-    ByteList& result = self.midiDataList;
+    const ByteList& result = self.midiDataList;
     Logging_trace1("<<: %1", result.toString());
     return result;
 }
@@ -591,8 +591,8 @@ MidiEventKind MidiEvent::kind () const
 MidiMetaEventKind MidiEvent::metaKind () const
 {
     Logging_trace(">>");
-    MidiEventKind kind{_getDataByteNOLOG(0)};
-    Assertion_pre(kind == MidiEventKind::meta,
+    MidiEventKind eventKind{_getDataByteNOLOG(0)};
+    Assertion_pre(eventKind == MidiEventKind::meta,
                   "event kind must be 'meta'");
     MidiMetaEventKind result{_getDataByteNOLOG(1)};
     Logging_trace1("<<: %1", result.toString());

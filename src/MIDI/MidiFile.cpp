@@ -64,6 +64,10 @@ static String _fileHead{"MThd"};
 /** the string used a a RIFF track head marker for a MIDI file */
 static String _trackHead{"MTrk"};
 
+/** the running status byte when a midi event does not specify
+    a status byte */
+static Byte _previousStatusByte = 0;
+
 /*--------------------*/
 /*--------------------*/
 
@@ -143,7 +147,6 @@ static Natural _readNatural (IN ByteList& byteList,
     return Natural{(size_t) i};
 }
 
-
 /*--------------------*/
 
 /**
@@ -167,6 +170,13 @@ static MidiEvent _readMidiEvent (IN Natural time,
     Logging_trace1(">>: position = %1", TOSTRING(position));
 
     Byte eventByte = _readByte(byteList, position);
+
+    if (eventByte < 128) {
+        /* use previous "running status" */
+        position--;
+        eventByte = _previousStatusByte;
+    }
+
     Assertion_check(MidiEventKind::isValid(eventByte),
                     STR::expand("bad MIDI format: expected"
                                 " event byte, got %1",
@@ -202,6 +212,7 @@ static MidiEvent _readMidiEvent (IN Natural time,
         eventLength = eventKind.byteCount() - 1;
         eventDataList = _readByteList(byteList, position, eventLength);
         eventDataList.prepend(eventByte);
+        _previousStatusByte = eventByte;
     }
 
     MidiEvent result{time, eventDataList};
@@ -415,7 +426,7 @@ void MidiFile::read (OUT Natural& fileType,
                      OUT MidiEventList& midiEventList)
 {
     Logging_trace(">>");
-    String& fileName = TOREFERENCE<String>(_descriptor);
+    const String& fileName = TOREFERENCE<String>(_descriptor);
     Assertion_pre(OperatingSystem::fileExists(fileName),
                   STR::expand("file must exist: %1", fileName));
 

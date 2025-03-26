@@ -1,7 +1,7 @@
 /**
  * @file
  * The <C>JucePlugin-AU_2</C> connects to the JUCE framework client
- * functions for an AudioUnit in OSX.
+ * functions for an AudioUnit in MacOS.
  *
  * @author Dr. Thomas Tensi
  * @date   2021-01

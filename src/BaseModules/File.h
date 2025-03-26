@@ -174,7 +174,7 @@ namespace BaseModules {
          *
          * @return  information whether file is open
          */
-        Boolean isOpen ();
+        Boolean isOpen () const;
 
         /*--------------------*/
         /* complex commands   */

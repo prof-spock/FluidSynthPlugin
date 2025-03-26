@@ -37,9 +37,11 @@ using MIDI::MidiEventList;
  */
 static int _midiEventComparator (IN void* a, IN void* b)
 {
-    MidiEvent& eventA = TOREFERENCE<MidiEvent>((Object) a);
-    MidiEvent& eventB = TOREFERENCE<MidiEvent>((Object) b);
     int result = 0;
+    const MidiEvent& eventA =
+        TOREFERENCE<MidiEvent>(const_cast<Object>(a));
+    const MidiEvent& eventB =
+        TOREFERENCE<MidiEvent>(const_cast<Object>(b));
 
     if (eventA < eventB) {
         result = -1;

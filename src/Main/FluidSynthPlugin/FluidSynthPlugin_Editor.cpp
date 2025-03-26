@@ -39,8 +39,11 @@ static const juce::Colour _Colour_background{0xffd0d0d0};
 /** the color of the button in this editor widget */
 static const juce::Colour _Colour_button{0xffc0c0c0};
 
-/** the color for labels in this editor widget */
-static const juce::Colour _Colour_errorInformationText = juce::Colours::red;
+/** the color for error messages in this editor widget */
+static const juce::Colour _Colour_errorMessageText = juce::Colours::red;
+
+/** the color for normal messages in this editor widget */
+static const juce::Colour _Colour_standardMessageText = juce::Colours::black;
 
 /** the background color for the text edit field in this editor widget */
 static const juce::Colour _Colour_standardEditorBackground =
@@ -191,14 +194,15 @@ namespace Main::FluidSynthPlugin {
         /** a button widget for confirming the change */
         juce::Button& buttonWidget;
 
-        /** a label for showing error information (if applicable) */
-        juce::Label& errorInformationWidget;
+        /** a label for showing messages */
+        juce::Label& messageWidget;
 
         /** the current settings string stored in the editor */
         String settingsString;
 
-        /** the current error string (if any) */
-        String errorString;
+        /** the current message string (either showing an error or the
+         * preset information) */
+        String messageString;
 
         /*--------------------*/
         /* con-/destruction   */
@@ -354,6 +358,19 @@ static
 void _repaintTextWidget (INOUT _EditorDescriptor& editorDescriptor,
                          IN juce::Colour backgroundColour)
 {
+    const FluidSynthPlugin_EventProcessor& processor =
+        editorDescriptor.processor;
+
+    /* update message widget */
+    const juce::Colour messageTextColour =
+        (processor.isInErrorState()
+         ? _Colour_errorMessageText : _Colour_standardMessageText);
+    editorDescriptor.messageString = processor.messageString();
+    juce::Label& messageWidget = editorDescriptor.messageWidget;
+    messageWidget.setColour(colourId2(Label, text), messageTextColour);
+    messageWidget.repaint();
+
+    /* update text editor widget */
     juce::TextEditor& textEditorWidget =
         editorDescriptor.textEditorWidget;
     textEditorWidget.setColour(colourId2(TextEditor,background),
@@ -388,49 +405,6 @@ static void _setKeyInWidget (INOUT _EditorDescriptor& editorDescriptor,
                            _Colour_standardEditorBackground);
     }
     
-    Logging_trace("<<");
-}
-
-/*--------------------*/
-    
-/**
- * Updates text field and error field of <C>editorDescriptor</C>; when
- * <C>processorIsUpdated</C> is set, the contents of the text field
- * are written to the audio processor, otherwise only text field
- * background and error message are updated
- *
- * @param[inout] editorDescriptor    descriptor for editor object
- * @param[in]    processorIsUpdated  information whether text is
- *                                   written to underlying processor
- */
-static void
-_updateAfterValidation (INOUT _EditorDescriptor& editorDescriptor,
-                        IN Boolean processorIsUpdated)
-{
-    Logging_trace(">>");
-
-    juce::TextEditor& textEditorWidget =
-        editorDescriptor.textEditorWidget;
-    FluidSynthPlugin_EventProcessor& processor =
-        editorDescriptor.processor;
-
-    if (!processorIsUpdated) {
-        textEditorWidget.setText(processor.settings(), false);
-    } else {
-        /* store this locally and update processor */
-        String st{textEditorWidget.getText().toStdString()};
-        processor.setSettings(st);
-        editorDescriptor.settingsString = st;
-    }
-
-    String errorString = processor.errorString();
-    editorDescriptor.errorString = errorString;
-    juce::Colour backgroundColour =
-        (errorString == ""
-         ? _Colour_stableEditorBackground
-         : _Colour_erroneousEditorBackground);
-    _repaintTextWidget(editorDescriptor, backgroundColour);
-
     Logging_trace("<<");
 }
 
@@ -488,12 +462,64 @@ static String _valueFromWidget (IN _EditorDescriptor& editorDescriptor,
                                 OUT String& effectiveKey)
 {
     Logging_trace1(">>: keyList = %1", keyList.toString());
-
     String result = _valueFromKeyList(editorDescriptor.settingsString,
                                       keyList, effectiveKey);
     Logging_trace2("<<: result = %1, effectiveKey = %2",
                    result, effectiveKey);
     return result;
+}
+
+/*--------------------*/
+    
+/**
+ * Updates text field and error field of <C>editorDescriptor</C>; when
+ * <C>processorIsUpdated</C> is set, the contents of the text field
+ * are written to the audio processor, otherwise only text field
+ * background and message are updated
+ *
+ * @param[inout] editorDescriptor    descriptor for editor object
+ * @param[in]    processorIsUpdated  information whether text is
+ *                                   written to underlying processor
+ */
+static void
+_updateAfterValidation (INOUT _EditorDescriptor& editorDescriptor,
+                        IN Boolean processorIsUpdated)
+{
+    Logging_trace(">>");
+
+    juce::TextEditor& textEditorWidget =
+        editorDescriptor.textEditorWidget;
+    FluidSynthPlugin_EventProcessor& processor =
+        editorDescriptor.processor;
+
+    if (!processorIsUpdated) {
+        textEditorWidget.setText(processor.settings(), false);
+    } else {
+        /* store this locally and update processor */
+        String st{textEditorWidget.getText().toStdString()};
+        processor.setSettings(st);
+        editorDescriptor.settingsString = st;
+    }
+
+    const Boolean processorHasError = processor.isInErrorState();
+    const juce::Colour backgroundColour =
+        (processorHasError
+         ? _Colour_erroneousEditorBackground
+         : _Colour_stableEditorBackground);
+    _repaintTextWidget(editorDescriptor, backgroundColour);
+
+    if (!processorHasError) {
+        String variableName;
+        const String presetValue = _valueFromWidget(editorDescriptor,
+                                                    _KeyNameList_preset,
+                                                    variableName);
+
+        if (presetValue == "") {
+            editorDescriptor.messageString = "";
+        }
+    }
+
+    Logging_trace("<<");
 }
 
 /*====================*/
@@ -505,8 +531,9 @@ _EditorDescriptor::_EditorDescriptor
     : processor{processor},
       textEditorWidget{*(new _TextWidget(this))},
       buttonWidget{*(new juce::TextButton())},
-      errorInformationWidget{*(new juce::Label())},
+      messageWidget{*(new juce::Label())},
       settingsString{processor.settings()},
+      messageString{processor.messageString()},
       _widgetListener{*(new _WidgetListener(this))}
 {
     textEditorWidget.addListener(&_widgetListener);
@@ -525,9 +552,13 @@ _EditorDescriptor::_EditorDescriptor
     buttonWidget.setColour(colourId3(TextButton, text, Off),
                            _Colour_text);
 
-    errorInformationWidget.setText("", _noNotification);
-    errorInformationWidget.setColour(colourId2(Label, text),
-                                     _Colour_errorInformationText);
+    const Real fontHeight{messageWidget.getFont().getHeight()};
+    juce::Font messageFont =
+        juce::Font{static_cast<float>(fontHeight) * 0.8f,
+                   juce::Font::bold};
+    messageWidget.setColour(colourId2(Label, text),
+                            _Colour_standardMessageText);
+    messageWidget.setFont(messageFont);
 }
 
 /*--------------------*/
@@ -535,7 +566,7 @@ _EditorDescriptor::_EditorDescriptor
 _EditorDescriptor::~_EditorDescriptor ()
 {
     delete &buttonWidget;
-    delete &errorInformationWidget;
+    delete &messageWidget;
     delete &textEditorWidget;
     delete &_widgetListener;
 }
@@ -575,7 +606,8 @@ _EditorDescriptor::handleContextMenuSelection (Integer menuItemIndex)
             StringList presetList = processor.presetList();
             isChanged =
                 FluidSynthPlugin_EditorSupport
-                    ::selectPresetByDialog(presetList, identification);
+                    ::selectPresetByDialog(presetList, identification,
+                                           processor);
             st = (isChanged ? identification.toString() : previousValue);
         }
 
@@ -583,6 +615,7 @@ _EditorDescriptor::handleContextMenuSelection (Integer menuItemIndex)
         if (isChanged) {
             st = (isFileSelection ? _normalizedFileName(st) : st);
             _setKeyInWidget(*this, variableName, st);
+            _updateAfterValidation(*this, true);
         }
     }
 
@@ -665,7 +698,6 @@ void _WidgetListener::buttonClicked (juce::Button*)
 void _WidgetListener::textEditorTextChanged (juce::TextEditor &)
 {
     _EditorDescriptor& editorDescriptor = *_editorDescriptor;
-    editorDescriptor.errorString = "";
     _repaintTextWidget(editorDescriptor,
                        _Colour_standardEditorBackground);
 }
@@ -726,7 +758,7 @@ FluidSynthPlugin_Editor
 
     addAndMakeVisible(editorDescriptor.textEditorWidget);
     addAndMakeVisible(editorDescriptor.buttonWidget);
-    addAndMakeVisible(editorDescriptor.errorInformationWidget);
+    addAndMakeVisible(editorDescriptor.messageWidget);
 
     setResizable(true, true);
     setSize(400, 400);
@@ -801,12 +833,12 @@ void FluidSynthPlugin_Editor::paint (INOUT juce::Graphics& context)
 
     _EditorDescriptor& editorDescriptor =
         TOREFERENCE<_EditorDescriptor>(_descriptor);
-    juce::Label& errorWidget = editorDescriptor.errorInformationWidget;
-    String errorWidgetString = errorWidget.getText().toStdString();
-    String errorString = editorDescriptor.errorString;
+    juce::Label& messageWidget = editorDescriptor.messageWidget;
+    String messageWidgetString = messageWidget.getText().toStdString();
+    String messageString = editorDescriptor.messageString;
 
-    if (errorWidgetString != errorString) {
-        errorWidget.setText(errorString, _noNotification);
+    if (messageWidgetString != messageString) {
+        messageWidget.setText(messageString, _noNotification);
         resized();
     }
 
@@ -828,31 +860,26 @@ void FluidSynthPlugin_Editor::resized ()
         editorDescriptor.textEditorWidget;
     juce::Button& buttonWidget =
         editorDescriptor.buttonWidget;
-    juce::Label& errorInformationWidget =
-        editorDescriptor.errorInformationWidget;
+    juce::Label& messageWidget =
+        editorDescriptor.messageWidget;
 
     /* layout the widgets and the text */
     auto boundingBox = getLocalBounds();
-    const Boolean errorsMustBeShown = (editorDescriptor.errorString > "");
     Percentage deltaY = 2.0;
     Percentage labelHeight = 5.0;
     Percentage buttonHeight = 8.0;
 
     Percentage buttonTopY = 85.0;
     Percentage textTopY = 5.0;
-    Percentage textBottomY = (buttonTopY - deltaY
-                              - (errorsMustBeShown
-                                 ?  labelHeight + deltaY
-                                 : 0.0));
-    Percentage errorTopY = textBottomY + deltaY;
-    Percentage errorBottomY = (errorTopY
-                               + (errorsMustBeShown ? labelHeight : 0.0));
+    Percentage textBottomY = buttonTopY - deltaY * 2.0 - labelHeight;
+    Percentage messageTopY = textBottomY + deltaY;
+    Percentage messageBottomY = messageTopY + labelHeight;
     Percentage buttonBottomY = buttonTopY + buttonHeight;
 
     textEditorWidget.setBounds(_subArea(boundingBox,
                                         textTopY, textBottomY));
-    errorInformationWidget.setBounds(_subArea(boundingBox,
-                                              errorTopY, errorBottomY));
+    messageWidget.setBounds(_subArea(boundingBox,
+                                     messageTopY, messageBottomY));
     buttonWidget.setBounds(_subArea(boundingBox,
                                     buttonTopY, buttonBottomY));
 

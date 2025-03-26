@@ -40,7 +40,7 @@
 /** the four byte code for the plugin for AU */
 #define JucePlugin_AUSubType             JucePlugin_PluginCode
 
-/** the bundle path for MacOSX */
+/** the bundle path for MacOS */
 #define JucePlugin_CFBundleIdentifier    _PluginPathName
 
 /** the name for IAA plugins */

@@ -79,8 +79,8 @@ namespace BaseModules {
          *                          environment variable is not set
          * @return  associated environment value as string
          */
-        static String value (IN String variableName,
-                             IN String defaultValue = "???");
+        static String value (IN String& variableName,
+                             IN String& defaultValue = "???");
 
 
     };

@@ -62,7 +62,7 @@ String ByteList::decodeToString () const
 StringList
 ByteList::asStringListWithBase (IN Natural base,
                                 IN Natural precision,
-                                IN String padString) const
+                                IN String& padString) const
 {
     StringList result;
 

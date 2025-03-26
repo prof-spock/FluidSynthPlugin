@@ -173,7 +173,7 @@ Real::Real (IN Natural n)
 
 String Real::toString (IN Natural precision,
                        IN Natural fractionalDigitCount,
-                       IN String padString,
+                       IN String& padString,
                        IN Boolean scientificNotationIsForced) const
 {
     const Natural p = Natural::maximum(precision, fractionalDigitCount + 1);
@@ -188,15 +188,15 @@ String Real::toString (IN Natural precision,
         result = (std::signbit(_value) ? "-inf" : "+inf");
         result = STR::paddedRight(result, totalWidth, " ");
     } else {
-        String integralPart;
-        String fractionalPart;
+        String integralPartAsString;
+        String fractionalPartAsString;
         String sign;
         String suffix;
 
         if (_value == 0.0) {
             sign = " ";
-            integralPart = "0";
-            fractionalPart = "";
+            integralPartAsString = "0";
+            fractionalPartAsString = "";
         } else {
             Real v = abs(_value);
             sign = (_value < 0.0 ? "-" : "+");
@@ -216,29 +216,29 @@ String Real::toString (IN Natural precision,
             Natural iP = (Natural) v.integralPart();
 
             do {
-                integralPart = (STR::substring(_digitList, iP % 10, 1)
-                                + integralPart);
+                integralPartAsString = (STR::substring(_digitList, iP % 10, 1)
+                                        + integralPartAsString);
                 iP /= 10;
             } while (iP > 0);
 
             Real fP = v.fractionalPart();
 
             while (fP > 0.0
-                   && fractionalPart.length() < fracDigitCount) {
+                   && fractionalPartAsString.length() < fracDigitCount) {
                 fP *= Real::ten;
                 Natural digit = (Natural) fP.floor();
                 fP -= Real{digit};
-                fractionalPart += STR::substring(_digitList, digit, 1);
+                fractionalPartAsString += STR::substring(_digitList, digit, 1);
             }
         }
             
         result =
             STR::expand("%1%2.%3%4",
                         sign,
-                        STR::paddedLeft(integralPart,
+                        STR::paddedLeft(integralPartAsString,
                                         integralDigitCount,
                                         padString),
-                        STR::paddedRight(fractionalPart,
+                        STR::paddedRight(fractionalPartAsString,
                                          fractionalDigitCount,
                                          padString),
                         suffix);

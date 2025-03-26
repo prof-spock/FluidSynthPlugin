@@ -14,7 +14,6 @@
 
 #include "Logging.h"
 #include "MidiPresetIdentification.h"
-#include "StringUtil.h"
 
 /*--------------------*/
 
@@ -30,8 +29,8 @@ using STR = BaseModules::StringUtil;
 /*--------------------*/
 
 MidiPresetIdentification::MidiPresetIdentification (IN String& st)
+    : _data{st}
 {
-    _data = st;
 }
 
 /*--------------------*/
@@ -39,9 +38,9 @@ MidiPresetIdentification::MidiPresetIdentification (IN String& st)
 MidiPresetIdentification
 ::MidiPresetIdentification (IN Natural bankNumber,
                             IN Natural programNumber)
+    : _data{STR::expand("%1:%2",
+                        TOSTRING(bankNumber), TOSTRING(programNumber))}
 {
-    _data = STR::expand("%1:%2",
-                        TOSTRING(bankNumber), TOSTRING(programNumber));
 }
 
 /*--------------------*/

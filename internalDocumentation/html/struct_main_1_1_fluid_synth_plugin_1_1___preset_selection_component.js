@@ -1,6 +1,6 @@
 var struct_main_1_1_fluid_synth_plugin_1_1___preset_selection_component =
 [
-    [ "_PresetSelectionComponent", "struct_main_1_1_fluid_synth_plugin_1_1___preset_selection_component.html#a3bffff98284df9b5025cb437c9a6d5eb", null ],
+    [ "_PresetSelectionComponent", "struct_main_1_1_fluid_synth_plugin_1_1___preset_selection_component.html#a990dcda25ab7663ccefcf2c00f7b459f", null ],
     [ "buttonClicked", "struct_main_1_1_fluid_synth_plugin_1_1___preset_selection_component.html#a68ad2ca4708383cd8dbf8f3699124dd7", null ],
     [ "confirm", "struct_main_1_1_fluid_synth_plugin_1_1___preset_selection_component.html#a703b6d609fdb00169df1f170ee93b322", null ],
     [ "handleListBoxSelection", "struct_main_1_1_fluid_synth_plugin_1_1___preset_selection_component.html#aa3be2e50f06bd2074f377cd5ebe4dc7b", null ],
@@ -17,6 +17,7 @@ var struct_main_1_1_fluid_synth_plugin_1_1___preset_selection_component =
     [ "_listBoxFont", "struct_main_1_1_fluid_synth_plugin_1_1___preset_selection_component.html#a9e6a205e1739cbe19cc16f366762252c", null ],
     [ "_okayButtonWidget", "struct_main_1_1_fluid_synth_plugin_1_1___preset_selection_component.html#a77a6ecf8d5c0c90d5578e7add84f48cb", null ],
     [ "_presetIdentification", "struct_main_1_1_fluid_synth_plugin_1_1___preset_selection_component.html#a6006de6285d448f990419b33c08714fc", null ],
+    [ "_processor", "struct_main_1_1_fluid_synth_plugin_1_1___preset_selection_component.html#affe49f95bd08655b707b0686202f2ac4", null ],
     [ "_programColumnHeadingWidget", "struct_main_1_1_fluid_synth_plugin_1_1___preset_selection_component.html#a531cf32fc1ee0549bd19aed818b8dff8", null ],
     [ "_programListBoxWidget", "struct_main_1_1_fluid_synth_plugin_1_1___preset_selection_component.html#a184fbee4cba69bffbd306b56b669cb43", null ],
     [ "_programListModel", "struct_main_1_1_fluid_synth_plugin_1_1___preset_selection_component.html#a03c155b987440b5ad21ebfc79f0e3d43", null ]

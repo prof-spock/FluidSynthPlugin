@@ -39,6 +39,9 @@ static const Character _minusCharacter{'-'};
 /** the character representing a plus sign in a number */
 static const Character _plusCharacter{'+'};
 
+/** the list of sign characters */
+static const String _signCharacterList = "+-";
+
 /** the character representing a decimal point in a number
  *  (assuming an international locale) */
 static const Character _decimalPointCharacter{'.'};
@@ -341,10 +344,8 @@ Boolean StringUtil::isReal (IN String& st)
 {
     Boolean result;
     const Natural stringLength = st.length();
-    const Character firstCharacter =
-        (stringLength == 0 ? _blankCharacter : characterAt(st, 0));
-    const Boolean hasSign = (firstCharacter == _minusCharacter
-                             || firstCharacter == _plusCharacter);
+    const Boolean hasSign =
+        STR::contains(_signCharacterList, STR::firstCharacter(st));
 
     if (stringLength == 0) {
         result = false;
@@ -581,7 +582,7 @@ String StringUtil::substring (IN String& st,
 
 Byte StringUtil::toByte (IN String& st)
 {
-    return (isByte(st) ? Byte{(int) toNatural(st)} : 0);
+    return (isByte(st) ? Byte{(int) toNatural(st)} : Byte(0));
 }
 
 /*--------------------*/
@@ -683,7 +684,7 @@ String StringUtil::toString (IN Integer i)
 
 String StringUtil::toString (IN Integer i,
                              IN Natural precision,
-                             IN String padString)
+                             IN String& padString)
 {
     return i.toString(precision, padString);
 }
@@ -699,7 +700,7 @@ String StringUtil::toString (IN Natural n)
 
 String StringUtil::toString (IN Natural n,
                              IN Natural precision,
-                             IN String padString)
+                             IN String& padString)
 {
     return n.toString(precision, padString);
 }
@@ -709,7 +710,7 @@ String StringUtil::toString (IN Natural n,
 String StringUtil::toStringWithBase (IN Natural n,
                                      IN Natural base,
                                      IN Natural precision,
-                                     IN String padString)
+                                     IN String& padString)
 {
     return n.toStringWithBase(base, precision, padString);
 }
@@ -726,7 +727,7 @@ String StringUtil::toString (IN Real r)
 String StringUtil::toString (IN Real r,
                              IN Natural precision,
                              IN Natural fractionalDigitCount,
-                             IN String padString,
+                             IN String& padString,
                              IN Boolean scientificNotationIsForced)
 {
     return r.toString(precision, fractionalDigitCount, padString,
@@ -740,7 +741,7 @@ String StringUtil::toString (IN std::wstring& st)
     size_t length = st.size() + 1;
     String result;
     result.resize(length);
-    const wchar_t* wCharPtr = (wchar_t*) st.c_str();
+    const wchar_t* wCharPtr = const_cast<wchar_t*>(st.c_str());
     std::mbstate_t state{};
     std::wcsrtombs(&result[0], &wCharPtr, length, &state);
     return result;
@@ -809,8 +810,8 @@ std::wstring StringUtil::toWideString (IN String& st)
     size_t length = st.size() + 1;
     std::wstring result;
     result.resize(length);
-    wchar_t* wCharPtr = (wchar_t*) result.c_str();
-    const char* charPtr = (char*) st.c_str();
+    wchar_t* wCharPtr = const_cast<wchar_t*>(result.c_str());
+    const char* charPtr = st.c_str();
     std::mbstate_t state{};
     std::mbsrtowcs(wCharPtr, &charPtr, length, &state);
     return result;

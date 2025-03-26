@@ -21,6 +21,6 @@ var struct_base_types_1_1_primitives_1_1_natural =
     [ "power", "struct_base_types_1_1_primitives_1_1_natural.html#a44e366bb3581f12f64dfd420d1e8dc50", null ],
     [ "round", "struct_base_types_1_1_primitives_1_1_natural.html#ad97822aaef0ee15b6ec03c500d83062f", null ],
     [ "toString", "struct_base_types_1_1_primitives_1_1_natural.html#a06230fc62cf08c4d2c356fce8d060b44", null ],
-    [ "toString", "struct_base_types_1_1_primitives_1_1_natural.html#a76bca3077eb8da29eb6aad98daeafe72", null ],
-    [ "toStringWithBase", "struct_base_types_1_1_primitives_1_1_natural.html#a4f570a00378732b8088fe6de71b331a4", null ]
+    [ "toString", "struct_base_types_1_1_primitives_1_1_natural.html#a00e96fda48b0bdb35e8709b9140a1163", null ],
+    [ "toStringWithBase", "struct_base_types_1_1_primitives_1_1_natural.html#a263cce02b93e703af5a871b796f8b3bd", null ]
 ];

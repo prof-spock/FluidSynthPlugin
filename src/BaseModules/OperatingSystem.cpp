@@ -66,8 +66,8 @@ using STR = BaseModules::StringUtil;
             Windows::DWORD flags =
                 (GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS | 
                  GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT);
-            Windows::LPWSTR address =
-                (Windows::LPWSTR) &_executableDirectoryPath;
+            const Windows::LPWSTR address =
+                reinterpret_cast<Windows::LPWSTR>(&_executableDirectoryPath);
             Windows::GetModuleHandleExW(flags, address, &component);
         }
         
@@ -97,7 +97,7 @@ using STR = BaseModules::StringUtil;
         String result;
 
         if (isExecutable) {
-            size_t effectiveLength;
+            ssize_t effectiveLength;
             constexpr size_t length = 1000;
             char executablePath[length];
             effectiveLength = readlink("/proc/self/exe", executablePath,
@@ -110,7 +110,8 @@ using STR = BaseModules::StringUtil;
         } else {
             Dl_info libraryData;
             Boolean isOkay =
-                (dladdr((void*) &_executableDirectoryPath, &libraryData) != 0);
+                (dladdr(reinterpret_cast<void*>(&_executableDirectoryPath),
+                        &libraryData) != 0);
             result = isOkay ? TOSTRING(libraryData.dli_fname) : "";
         }
 
@@ -164,9 +165,11 @@ StringList OperatingSystem::fileNameList (IN String& directoryName,
 
 /*--------------------*/
 
-String OperatingSystem::basename (IN String& fileName)
+String OperatingSystem::basename (IN String& fileName,
+                                  IN Boolean extensionIsShown)
 {
-    Logging_trace1(">>: %1", fileName);
+    Logging_trace2(">>: fileName = %1, extensionIsShown = %2",
+                   fileName, TOSTRING(extensionIsShown));
 
     String result;
 
@@ -182,6 +185,14 @@ String OperatingSystem::basename (IN String& fileName)
         result = fileName;
     } else {
         result = STR::substring(fileName, position + 1);
+    }
+
+    if (!extensionIsShown) {
+        Natural dotPosition = STR::findFromEnd(result, ".");
+
+        if (position != undefined) {
+            result = STR::prefix(result, dotPosition);
+        }
     }
     
     Logging_trace1("<<: %1", result);
@@ -234,7 +245,7 @@ String OperatingSystem::temporaryDirectoryPath ()
     environmentPath = (environmentPath != NULL ? environmentPath
                        : std::getenv("temp"));
     environmentPath = (environmentPath != NULL ? environmentPath
-                       : (char*) "/tmp");
+                       : reinterpret_cast<char*>(const_cast<char*>("/tmp")));
     String result = String(environmentPath);
 
     Logging_trace1("<<: %1", result);

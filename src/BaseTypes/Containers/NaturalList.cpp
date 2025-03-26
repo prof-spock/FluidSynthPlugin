@@ -13,6 +13,7 @@
 /*=========*/
 
 #include <cstdarg>
+
 #include "NaturalList.h"
 #include "StringUtil.h"
 
@@ -52,7 +53,7 @@ NaturalList NaturalList::fromList (IN initializer_list<Natural> list)
 StringList
 NaturalList::asStringListWithBase (IN Natural base,
                                    IN Natural precision,
-                                   IN String padString) const
+                                   IN String& padString) const
 {
     StringList result;
 

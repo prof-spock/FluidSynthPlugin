@@ -52,8 +52,8 @@ namespace MIDI {
          * @param[in] bankNumber     bank number of preset
          * @param[in] programNumber  program number of preset
          */
-        MidiPresetIdentification (IN Natural bankNumber,
-                                  IN Natural programNumber);
+        MidiPresetIdentification (IN Natural bankNumber = 0,
+                                  IN Natural programNumber = 0);
 
         /*--------------------*/
         /* type conversion    */

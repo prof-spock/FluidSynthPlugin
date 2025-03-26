@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AudioComponents</key>
+	<array>
+		<dict>
+			<key>description</key>
+			<string>${JUCE_auPluginName}</string>
+			<key>factoryFunction</key>
+			<string>${JUCE_auPluginName}AUFactory</string>
+			<key>manufacturer</key>
+			<string>${JUCE_manufacturerName}</string>
+			<key>name</key>
+			<string>${JUCE_auLongPluginName}</string>
+			<key>sandboxSafe</key>
+			<true/>
+			<key>subtype</key>
+			<string>${JUCE_auSubType}</string>
+			<key>type</key>
+			<string>${JUCE_auMainType}</string>
+			<key>version</key>
+			<integer>65536</integer>
+		</dict>
+	</array>
+        <key>BuildMachineOSBuild</key>
+	    <string>19H1217</string>
+	<key>CFBundleDevelopmentRegion</key>
+            <string>English</string>
+	<key>CFBundleExecutable</key>
+            <string>${JUCE_auPluginName}</string>
+	<key>CFBundleIdentifier</key>
+	    <string>${JUCE_bundlePrefix}.${JUCE_auPluginName}</string>
+	<key>CFBundleName</key>
+            <string>${JUCE_auPluginName}</string>
+	<key>CFBundlePackageType</key>
+            <string>BNDL</string>
+	<key>CFBundleShortVersionString</key>
+            <string>1.0.0</string>
+	<key>CFBundleSignature</key>
+            <string>????</string>
+        <key>CFBundleSupportedPlatforms</key>
+	    <array><string>MacOSX</string></array>
+	<key>CFBundleVersion</key>
+            <string>1.0</string>
+	<key>CSResourcesFileMapped</key> <true/>
+        <key>LSMinimumSystemVersion</key>
+	    <string>$(MACOSX_DEPLOYMENT_TARGET)</string>
+	<key>NSHumanReadableCopyright</key>
+	    <string></string>
+	<key>NSMainNibFile</key>
+	    <string>RecentFilesMenuTemplate.nib</string>
+	<key>NSPrincipalClass</key>
+	    <string>SoX${pluginName}</string>
+</dict>
+</plist>

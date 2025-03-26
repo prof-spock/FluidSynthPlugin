@@ -144,7 +144,7 @@ namespace Audio {
         WaveFileOperationResult write (IN Natural sampleRate,
                                        IN Natural channelCount,
                                        IN Natural audioFrameCount,
-                                       IN String typeCode,
+                                       IN String& typeCode,
                                        IN Natural sampleWidthInBytes,
                                        IN AudioSampleListVector& sampleBuffer);
 

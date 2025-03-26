@@ -57,7 +57,7 @@ static void WaveFile__skipBytes (IN ByteList& byteList,
 
 static void WaveFile__skipString (IN ByteList& byteList,
                                   INOUT Natural& position,
-                                  IN String st);
+                                  IN String& reference);
 
 static void WaveFile__writeInteger (INOUT ByteList& byteList,
                                     INOUT Natural& position,
@@ -528,7 +528,7 @@ static void WaveFile__skipBytes (IN ByteList& byteList,
  */
 static void WaveFile__skipString (IN ByteList& byteList,
                                   INOUT Natural& position,
-                                  IN String reference)
+                                  IN String& reference)
 {
     Natural count = reference.size();
     Natural lastPosition = position + count - 1;
@@ -957,7 +957,7 @@ WaveFileOperationResult WaveFile::read (OUT Natural& sampleRate,
 WaveFileOperationResult WaveFile::write (IN Natural sampleRate,
                                          IN Natural channelCount,
                                          IN Natural audioFrameCount,
-                                         IN String typeCode,
+                                         IN String& typeCode,
                                          IN Natural sampleWidthInBytes,
                                          IN AudioSampleListVector& sampleBuffer)
 {
@@ -984,7 +984,7 @@ WaveFileOperationResult WaveFile::write (IN Natural sampleRate,
                       "sample width for real must be 4 or 8");
 
         /* open file */
-        String& fileName = TOREFERENCE<String>(_descriptor);
+        const String& fileName = TOREFERENCE<String>(_descriptor);
         File waveFile;
         Boolean isOkay = waveFile.open(fileName, "wb");
         Assertion_check(isOkay,

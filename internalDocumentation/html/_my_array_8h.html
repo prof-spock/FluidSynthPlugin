@@ -127,7 +127,7 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_my_array_8h.html#a92f67422dae01fc66ac6cbf525c5c95c">CString_memcpy</a>&#160;&#160;&#160;memcpy</td></tr>
 <tr class="memdesc:a92f67422dae01fc66ac6cbf525c5c95c"><td class="mdescLeft">&#160;</td><td class="mdescRight">a qualified version of memcpy <br /></td></tr>
 <tr class="separator:a92f67422dae01fc66ac6cbf525c5c95c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adede199e40286fbec7786ebdc3b1b299"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_my_array_8h.html#adede199e40286fbec7786ebdc3b1b299">makeLocalArray</a>(ElementType,  count)&#160;&#160;&#160;        (ElementType*) alloca((int) (count) * sizeof(ElementType))</td></tr>
+<tr class="memitem:adede199e40286fbec7786ebdc3b1b299"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_my_array_8h.html#adede199e40286fbec7786ebdc3b1b299">makeLocalArray</a>(ElementType,  count)</td></tr>
 <tr class="memdesc:adede199e40286fbec7786ebdc3b1b299"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates an array of <code>count</code> elements of type <code>ElementType</code> on the stack.  <a href="_my_array_8h.html#adede199e40286fbec7786ebdc3b1b299">More...</a><br /></td></tr>
 <tr class="separator:adede199e40286fbec7786ebdc3b1b299"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -172,11 +172,13 @@ Functions</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;        (ElementType*) alloca((int) (count) * sizeof(ElementType))</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<b>Value:</b><div class="fragment"><div class="line">        <span class="keyword">static_cast&lt;</span>ElementType*<span class="keyword">&gt;</span>(alloca(<span class="keyword">sizeof</span>(ElementType) \</div>
+<div class="line">                                  * (<span class="keywordtype">size_t</span>)(count)))</div>
+</div><!-- fragment -->
 <p>Allocates an array of <code>count</code> elements of type <code>ElementType</code> on the stack. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">

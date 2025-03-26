@@ -12,6 +12,7 @@
 /* IMPORTS */
 /*=========*/
 
+#include <algorithm>
 #include <cstdarg>
 #include "RealList.h"
 
@@ -54,7 +55,10 @@ void RealList::fill (IN Real value)
 
 void RealList::multiply (IN Real value)
 {
-    for (Real& entry : *this) {
-        entry *= value;
-    }
+    const auto multiplyByValueProc =
+        [value] (Real &element) {
+            element *= value;
+        };
+
+    std::for_each(begin(), end(), multiplyByValueProc);
 }

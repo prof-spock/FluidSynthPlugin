@@ -104,9 +104,9 @@ $(document).ready(function(){initNavTree('struct_base_types_1_1_containers_1_1_d
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a457343526573c054b264c1e9209c2dc6"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_base_types_1_1_containers_1_1_dictionary.html">Dictionary</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_base_types_1_1_containers_1_1_dictionary.html#a457343526573c054b264c1e9209c2dc6">makeFromList</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_containers_1_1_string_list.html">StringList</a> &amp;list)</td></tr>
-<tr class="memdesc:a457343526573c054b264c1e9209c2dc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes dictionary from list of strings <code>list</code> taking even-indexed entries as keys and odd-indexed entries as associated values.  <a href="struct_base_types_1_1_containers_1_1_dictionary.html#a457343526573c054b264c1e9209c2dc6">More...</a><br /></td></tr>
-<tr class="separator:a457343526573c054b264c1e9209c2dc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af67cc84daa041462a5b4f69eb3c8a073"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_base_types_1_1_containers_1_1_dictionary.html">Dictionary</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_base_types_1_1_containers_1_1_dictionary.html#af67cc84daa041462a5b4f69eb3c8a073">fromList</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_containers_1_1_string_list.html">StringList</a> &amp;list)</td></tr>
+<tr class="memdesc:af67cc84daa041462a5b4f69eb3c8a073"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes dictionary from list of strings <code>list</code> taking even-indexed entries as keys and odd-indexed entries as associated values.  <a href="struct_base_types_1_1_containers_1_1_dictionary.html#af67cc84daa041462a5b4f69eb3c8a073">More...</a><br /></td></tr>
+<tr class="separator:af67cc84daa041462a5b4f69eb3c8a073"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11e7179d705605b4851d3cbf04406ba5"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_base_types_1_1_containers_1_1_dictionary.html">Dictionary</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_base_types_1_1_containers_1_1_dictionary.html#a11e7179d705605b4851d3cbf04406ba5">makeFromString</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;st, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;entrySeparator=StringUtil::entrySeparator, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;keyValueSeparator=StringUtil::keyValueSeparator)</td></tr>
 <tr class="memdesc:a11e7179d705605b4851d3cbf04406ba5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes dictionary from a string <code>st</code> gained by serializing a dictionary via <code>toString</code>;.  <a href="struct_base_types_1_1_containers_1_1_dictionary.html#a11e7179d705605b4851d3cbf04406ba5">More...</a><br /></td></tr>
 <tr class="separator:a11e7179d705605b4851d3cbf04406ba5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -118,8 +118,8 @@ Static Public Member Functions</h2></td></tr>
 <div class="textblock"><p>A <code><a class="el" href="struct_base_types_1_1_containers_1_1_dictionary.html" title="A Dictionary object maps string keys to string values.">Dictionary</a></code> object maps string keys to string values. </p>
 <p>Every key is associated with at most one value, where the key identity is defined by standard string comparison. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a457343526573c054b264c1e9209c2dc6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a457343526573c054b264c1e9209c2dc6">&#9670;&nbsp;</a></span>makeFromList()</h2>
+<a id="af67cc84daa041462a5b4f69eb3c8a073"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af67cc84daa041462a5b4f69eb3c8a073">&#9670;&nbsp;</a></span>fromList()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -128,7 +128,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_base_types_1_1_containers_1_1_dictionary.html">Dictionary</a> Dictionary::makeFromList </td>
+          <td class="memname"><a class="el" href="struct_base_types_1_1_containers_1_1_dictionary.html">Dictionary</a> Dictionary::fromList </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_containers_1_1_string_list.html">StringList</a> &amp;&#160;</td>
           <td class="paramname"><em>list</em></td><td>)</td>

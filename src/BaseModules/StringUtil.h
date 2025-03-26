@@ -571,7 +571,7 @@ namespace BaseModules {
          */
         static String toString (IN Integer i,
                                 IN Natural precision,
-                                IN String padString = "0");
+                                IN String& padString = "0");
 
         /*--------------------*/
 
@@ -596,7 +596,7 @@ namespace BaseModules {
          */
         static String toString (IN Natural n,
                                 IN Natural precision,
-                                IN String padString = "0");
+                                IN String& padString = "0");
 
         /*--------------------*/
 
@@ -613,7 +613,7 @@ namespace BaseModules {
         static String toStringWithBase (IN Natural n,
                                         IN Natural base,
                                         IN Natural precision = 0,
-                                        IN String padString = "0");
+                                        IN String& padString = "0");
 
         /*--------------------*/
 
@@ -648,7 +648,7 @@ namespace BaseModules {
         static String toString (IN Real r,
                                 IN Natural precision,
                                 IN Natural fractionalDigitCount,
-                                IN String padString = "0",
+                                IN String& padString = "0",
                                 IN Boolean scientificNotationIsForced = false);
 
         /*--------------------*/

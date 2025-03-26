@@ -139,7 +139,7 @@ static const String _errorMessageForBadInterpolationMethodCode =
 
 /** simple macro for dynamic binding of a function */
 #define GPA(signature, name) \
-    (signature) ((DynamicLibrary*) fsLibrary)->getFunctionByName(name)
+    (signature)((DynamicLibrary*) fsLibrary)->getFunctionByName(name)
 
 /*====================*/
 /* PRIVATE FEATURES   */
@@ -237,7 +237,8 @@ FluidSynthSynthesizer::FluidSynthSynthesizer (IN FluidSynth* library,
     if (!library->isLoaded()) {
         Logging_traceError("library or settings object is undefined");
     } else {
-        descriptor.associatedLibrary = (FluidSynth*) library;
+        descriptor.associatedLibrary =
+            (FluidSynth*) library;
         _initializeFunctionsForLibrary(library->underlyingObject());
 
         if (FSSynthesizer_make == NULL) {
@@ -308,7 +309,7 @@ FluidSynth* FluidSynthSynthesizer::library () const
     if (_descriptor == NULL) {
         Logging_traceError(_errorMessageForUndefinedDescriptor);
     } else {
-        _SynthesizerDescriptor& descriptor =
+        const _SynthesizerDescriptor& descriptor =
             TOREFERENCE<_SynthesizerDescriptor>(_descriptor);
         result = descriptor.associatedLibrary;
     }
@@ -325,7 +326,7 @@ Object FluidSynthSynthesizer::underlyingObject () const
     if (_descriptor == NULL) {
         Logging_traceError(_errorMessageForUndefinedDescriptor);
     } else {
-        _SynthesizerDescriptor& descriptor =
+        const _SynthesizerDescriptor& descriptor =
             TOREFERENCE<_SynthesizerDescriptor>(_descriptor);
         result = descriptor.synthesizer;
     }
@@ -625,8 +626,8 @@ FluidSynthSynthesizer::process (INOUT AudioSampleListVector& sampleBuffer,
 
         /* provide a stereo buffer with sample count frames */
         float* floatSampleBuffer[] = {
-            (float*) makeLocalArray(float, sampleCount),
-            (float*) makeLocalArray(float, sampleCount)
+            static_cast<float*>(makeLocalArray(float, sampleCount)),
+            static_cast<float*>(makeLocalArray(float, sampleCount))
         };
 
         clearArray(floatSampleBuffer[0], sampleCount, 0.0f);

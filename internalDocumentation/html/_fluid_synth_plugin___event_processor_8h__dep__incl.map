@@ -1,6 +1,8 @@
 <map id="FluidSynthPlugin_EventProcessor.h" name="FluidSynthPlugin_EventProcessor.h">
-<area shape="rect" id="node1" title="The FluidSynthPlugin_Processor specification defines the handling of MIDI events from the DAW via JUC..." alt="" coords="103,5,332,32"/>
-<area shape="rect" id="node2" href="$_fluid_synth_plugin___editor_8h.html" title="The FluidSynthPlugin_Editor specification implements the editor for the processor of MIDI events from..." alt="" coords="131,80,303,107"/>
-<area shape="rect" id="node3" href="$_fluid_synth_plugin___editor_8cpp.html" title="The FluidSynthPlugin_Editor module implements the editor for the processor of MIDI events from the DA..." alt="" coords="5,155,192,181"/>
-<area shape="rect" id="node4" href="$_fluid_synth_plugin___event_processor_8cpp.html" title="The FluidSynthPlugin_Processor module implements the handling of MIDI events from the DAW via JUCE ha..." alt="" coords="216,155,459,181"/>
+<area shape="rect" id="node1" title="The FluidSynthPlugin_Processor specification defines the handling of MIDI events from the DAW via JUC..." alt="" coords="251,5,480,32"/>
+<area shape="rect" id="node2" href="$_fluid_synth_plugin___editor_8h.html" title="The FluidSynthPlugin_Editor specification implements the editor for the processor of MIDI events from..." alt="" coords="170,80,342,107"/>
+<area shape="rect" id="node5" href="$_fluid_synth_plugin___editor_support_8h.html" title="The FluidSynthPlugin_EditorSupport specification defines support services for the editor of the Fluid..." alt="" coords="366,80,583,107"/>
+<area shape="rect" id="node3" href="$_fluid_synth_plugin___editor_8cpp.html" title="The FluidSynthPlugin_Editor module implements the editor for the processor of MIDI events from the DA..." alt="" coords="272,155,459,181"/>
+<area shape="rect" id="node4" href="$_fluid_synth_plugin___event_processor_8cpp.html" title="The FluidSynthPlugin_Processor module implements the handling of MIDI events from the DAW via JUCE ha..." alt="" coords="5,155,248,181"/>
+<area shape="rect" id="node6" href="$_fluid_synth_plugin___editor_support_8cpp.html" title="The FluidSynthPlugin_EditorSupport module implements support services for the editor of the FluidSynt..." alt="" coords="483,155,714,181"/>
 </map>

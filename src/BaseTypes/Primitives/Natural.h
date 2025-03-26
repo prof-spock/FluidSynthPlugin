@@ -89,7 +89,7 @@ namespace BaseTypes::Primitives {
          */
         String toStringWithBase (IN Natural base,
                                  IN Natural precision = 0,
-                                 IN String padString = "0") const
+                                 IN String& padString = "0") const
         {
             Assertion_pre(base >= 2 && base <= 36,
                           "base must be between 2 and 36");
@@ -128,7 +128,7 @@ namespace BaseTypes::Primitives {
          * @return  string representation
          */
         String toString (IN Natural precision = 0,
-                         IN String padString = "0") const
+                         IN String& padString = "0") const
         {
             return toStringWithBase(10, precision, padString);
         }

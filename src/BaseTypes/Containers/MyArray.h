@@ -39,7 +39,8 @@ namespace BaseTypes::Containers {
      * @return array with <C>count</C> entries of type <C>ElementType</C>
      */
     #define makeLocalArray(ElementType, count) \
-        (ElementType*) alloca((int) (count) * sizeof(ElementType))
+        static_cast<ElementType*>(alloca(sizeof(ElementType) \
+                                  * (size_t)(count)))
 
     /*--------------------*/
 

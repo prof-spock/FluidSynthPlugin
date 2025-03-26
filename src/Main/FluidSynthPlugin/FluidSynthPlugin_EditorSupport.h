@@ -16,11 +16,7 @@
 /* IMPORTS */
 /*=========*/
 
-#include "Boolean.h"
-#include "MidiPresetIdentification.h"
-
-using BaseTypes::Primitives::Boolean;
-using MIDI::MidiPresetIdentification;
+#include "FluidSynthPlugin_EventProcessor.h"
 
 /*====================*/
 
@@ -54,18 +50,21 @@ namespace Main::FluidSynthPlugin {
          * with presets given by <C>presetList</C> and updates
          * <C>presetNumber<C> if selected
          *
-         * @param[in]    programList           list of programs with
-         *                                     entries consisting of
-         *                                     bank, program and name
-         *                                     separated by tabulators
-         * @param[inout] presetIdentification  bank and program (when
-         *                                     selected)
+         * @param[in]     presetList            list of programs with
+         *                                      entries consisting of
+         *                                      bank, program and name
+         *                                      separated by tabulators
+         * @param[inout]  presetIdentification  bank and program (when
+         *                                      selected)
+         * @param[inout]  eventProcessor        the underlying event
+         *                                      processor
          * @return  information whether selected value is valid
          */
         static
         Boolean selectPresetByDialog
                     (IN StringList& presetList,
-                     INOUT MidiPresetIdentification& presetIdentification);
+                     INOUT MidiPresetIdentification& presetIdentification,
+                     INOUT FluidSynthPlugin_EventProcessor& eventProcessor);
         
         /*--------------------*/
 

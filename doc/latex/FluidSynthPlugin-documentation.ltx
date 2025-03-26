@@ -208,7 +208,7 @@
         \productName{Pedantic\-Fluid\-Synth\-Converter}%
     }
 
-    \newcommand{\programVersion}{0.7.5}
+    \newcommand{\programVersion}{0.7.6}
 
     \newcommand{\settingsCaption}[1]{%
         Common Synthesizer Settings for \FluidSynthPlugin\ and
@@ -230,10 +230,10 @@
   \large
   \begin{tabular}{>{\bf}p{2.5cm}p{10.5cm}}
       Author:&Dr.~Thomas Tensi\\
-      Date:&2024-11-24\\
+      Date:&2025-03-21\\
       Version:&\programVersion\\
       Platforms:&VST3 on Windows~x64,\\
-                &VST3/AU on MacOSX (x86\_64)\\
+                &VST3/AU on MacOS (x86\_64)\\
                 &VST3 on Linux (x86\_64)\\
   \end{tabular}
   \vfill
@@ -378,7 +378,7 @@ The installation is as follows:
                    Appendix~\ref{chapter:fluidSynthInstallation} gives
                    details on how to do that.
 
-             \item When installing the plugins on MacOSX, note that
+             \item When installing the plugins on MacOS, note that
                    those are \textbf{not signed}; so you have to
                    explicitly remove the quarantine flag from them
                    (e.g.\ by applying the command \embeddedCode{sudo
@@ -409,13 +409,13 @@ major design goal to be able to update the \FluidSynth\ functionality
 without having to update the \FluidSynthPlugins.
 
 For Linux this is just done by installing a new
-\embeddedCode{fluidsynth} package, for Windows and MacOSX both the
+\embeddedCode{fluidsynth} package, for Windows and MacOS both the
 plugin directory and the directory of the
 \FluidSynthConverter\ contain a version of \FluidSynth\ as well as
 related libraries.  You can easily exchange those for more current
 versions or delete them and just use the \FluidSynth\ library already
 installed on your system.  For that you just have to delete the DLL
-(Windows) or DYLIB (MACOSX) files in the plugin and converter
+(Windows) or DYLIB (MacOS) files in the plugin and converter
 directories.
 
 The version of the underlying \FluidSynth\ library can be found in the
@@ -735,15 +735,22 @@ has two consequences:
 
     \item Each program change in the MIDI event stream is converted
           into a plugin preset change.  Unfortunately those changes
-          might not becorrectly sequenced with the notes in the stream
-          and hence notes immediately following that change (within a
-          few milliseconds) might still use the previous sound.
+          might not be correctly sequenced with the notes in the
+          stream and hence notes immediately following that change
+          (within a few milliseconds) might still use the previous
+          sound.
 
     \item Even though the \FluidSynthPlugin\ and its underlying
           library would support it, it is not possible to use multiple
-          MIDI channels with different sounds within a singleplugin
+          MIDI channels with different sounds within a single plugin
           instance.  \textbf{Each plugin instance can only play a
-          single preset at a time.}
+          single preset at a time.}\footnote{Similar and much more
+          prominent plugins like e.g. the sfz-player sforzando
+          \cite{reference:sforzando} follow the same single instrument
+          approach. If you really need multiple channels, you can
+          split the channels of the input within the DAW and then have
+          a FluidSynthPlugin per channel. Furthermore then are even
+          able to post-process each instrument differently.}
 
 \end{itemize}
 
@@ -836,6 +843,8 @@ right column.  This is indicated by the marker to the left of that
 program which also is moved onto its containing bank.  Note that also
 the selection bar is only visible on that specific entry.
 
+The selected preset is immediately audible in the current effect.
+
 \begin{centeredFigure}
     \centeredExternalPicture{0.85}{presetSelectionDialog.png}
     \caption{Preset Selection Dialog}
@@ -845,10 +854,12 @@ the selection bar is only visible on that specific entry.
 When the preset selection is confirmed by \embeddedCode{Ok} (or by
 double-clicking the item) the edit field is again selectively updated
 with the new preset number and by that change set into the
-``unregistered'' mode with the white background.  When you want to
-make the preset selection effective, you have to press the
-\embeddedCode{Confirm} button in the main plugin window to register
-those changes.
+``unregistered'' mode with the white background.  To make the preset
+selection effective, you have to press the \embeddedCode{Confirm}
+button in the main plugin window to register those changes.
+
+When the preset selection is confirmed by \embeddedCode{Cancel} the
+previous preset is restored and the edit field is unchanged.
 
 %---------------------------------------
 \section{Using the \FluidSynthConverter}
@@ -1212,7 +1223,7 @@ restrictions have to be adhered to.
 The complete source code of the \FluidSynthPlugin\ and the
 \FluidSynthConverter\ is open-source for easy review and adaptation.
 Currently there is only a tool chain for VST3 plugins under Windows
-10, VST3 and AU plugins under MacOSX and VST3 under Linux, but in
+10, VST3 and AU plugins under MacOS and VST3 under Linux, but in
 principle the code is easily portable to other plugin formats or
 platforms.
 
@@ -1383,7 +1394,7 @@ where XXX is the target name.
       \subTarget FluidSynthPlugins\_VST&
         the VST3 library for the \FluidSynthPlugin\\\hline
       \subTarget FluidSynthPlugins\_AU&
-        the AU libraries for the \FluidSynthPlugin\ (only on MacOSX)\\\hline
+        the AU libraries for the \FluidSynthPlugin\ (only on MacOS)\\\hline
     \end{tabular}
   \end{center}
   \caption{Available Build Targets for CMAKE}
@@ -1517,6 +1528,11 @@ compile the source code by yourself, the MIT license applies.  If you
     Cockos Incorporated.\\
     \textit{Reaper Digital Audio Workstation.}\\
     \hyperlink{https://www.reaper.fm}
+
+  \bibitem[Sforzando]{reference:sforzando}
+    Plogue Art et Technologie, Inc.\\
+    \textit{Sforzando.}\\
+    \hyperlink{https://www.plogue.com/products/sforzando.html}
 
   \bibitem[VCCLib]{reference:visualCLibrary}
     Microsoft.\\

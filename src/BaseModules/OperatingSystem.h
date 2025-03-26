@@ -81,11 +81,14 @@ namespace BaseModules {
          * Returns the base name of file or directory name
          * <C>fileName</C>.
          *
-         * @param[in] fileName  name of file or directory
+         * @param[in] fileName          name of file or directory
+         * @param[in] extensionIsShown  tells whether extension should
+         *                              be left (or removed)
          * @return  information on base name of file without
          *          enclosing directory
          */
-        static String basename (IN String& fileName);
+        static String basename (IN String& fileName,
+                                IN Boolean extensionIsShown = true);
 
         /*--------------------*/
 

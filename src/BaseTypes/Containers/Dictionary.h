@@ -60,7 +60,7 @@ namespace BaseTypes::Containers {
          *          <C>list</C>
          * @pre list.size() % 2 == 0
          */
-        static Dictionary makeFromList (IN StringList& list);
+        static Dictionary fromList (IN StringList& list);
 
         /*--------------------*/
 

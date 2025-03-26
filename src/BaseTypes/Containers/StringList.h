@@ -80,8 +80,6 @@ namespace BaseTypes::Containers {
         /* type conversions   */
         /*--------------------*/
 
-        /*--------------------*/
-
         /**
          * Converts list to linear string representation prefixed
          *

@@ -34,5 +34,5 @@ namespace BaseTypes::Primitives {
 template <typename Type>
 Type& TOREFERENCE (BaseTypes::Primitives::Object object)
 {
-    return *((Type*) object);
+    return *(reinterpret_cast<Type*>(object));
 }

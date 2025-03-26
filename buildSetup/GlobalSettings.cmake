@@ -8,7 +8,7 @@
 # #################
 
 SET(WINDOWS ${WIN32})
-SET(MACOSX  ${APPLE})
+SET(MACOS   ${APPLE})
 
 IF(UNIX AND NOT APPLE)
     SET(LINUX 1)
@@ -33,7 +33,7 @@ ELSE()
     SET(GLOB_juceFileExtension mm)
     SET(GLOB_nullDeviceName "/dev/null")
     SET(GLOB_vst3LibraryNameExtension ".so")
-    SET(GLOB_vst3PlatformName "x86_64-macosx")
+    SET(GLOB_vst3PlatformName "x86_64-macos")
 ENDIF()
 
 SET(GLOB_platformName
@@ -92,10 +92,10 @@ ELSE()
     SET(GLOB_debuggerVisualizationFileName )
 ENDIF()
 
-# --- MacOSX specific files ---
-IF(MACOSX)
+# --- MacOS specific files ---
+IF(MACOS)
     CMAKE_PATH(SET GLOB_macOSMiscDirectory NORMALIZE
-               ${CMAKE_CURRENT_SOURCE_DIR}/MacOSX)
+               ${CMAKE_CURRENT_SOURCE_DIR}/MacOS)
     CMAKE_PATH(SET GLOB_plistFileTemplate NORMALIZE
                ${GLOB_macOSMiscDirectory}/Info.plist.in)
     SET(GLOB_nibFileName RecentFilesMenuTemplate.nib)
@@ -107,7 +107,7 @@ ENDIF()
 # --- Apple framework files and bundle settings ---
 # -------------------------------------------------
 
-IF(NOT MACOSX)
+IF(NOT MACOS)
     SET(GLOB_frameworkNameList )
 ELSE()
     # included frameworks
@@ -127,7 +127,7 @@ ELSE()
     # references
     CMAKE_PATH(SET dynamicLibraryAdaptationScript NORMALIZE
                ${GLOB_macOSMiscDirectory}/adaptLibraryFileLinkage.sh)
-ENDIF(NOT MACOSX)
+ENDIF(NOT MACOS)
 
 # #################
 # ### FUNCTIONS ###
@@ -141,7 +141,7 @@ FUNCTION(GLOB_adaptLibraryFileLinkage
          originalDynamicLibrariesDirectory
          effectiveDynamicLibrariesDirectory
          dynamicLibraryNameList)
-    # copies library files in MacOSX given by <dynamicLibraryNameList>
+    # copies library files in MacOS given by <dynamicLibraryNameList>
     # from <originalDynamicLibrariesDirectory> to intermediate
     # directory <effectiveDynamicLibrariesDirectory> and changes
     # library path references in those libraries to a relative path
@@ -333,7 +333,7 @@ FUNCTION(GLOB_makeTarget_juceFramework
          ${jucePrefix}_gui_extra.${GLOB_juceFileExtension}
     )
 
-    IF(MACOSX)
+    IF(MACOS)
         LIST(APPEND srcJuceFacadeFileList
              ${jucePrefix}_audio_ausdk_base.cpp
              ${jucePrefix}_audio_ausdk_buffer.cpp
@@ -348,7 +348,7 @@ FUNCTION(GLOB_makeTarget_juceFramework
              ${jucePrefix}_audio_ausdk_plugindispatch.cpp
              ${jucePrefix}_audio_ausdk_scopeelement.cpp
         )
-    ENDIF(MACOSX)
+    ENDIF(MACOS)
 
     SET(targetName JuceFramework)
 
@@ -383,7 +383,7 @@ FUNCTION(GLOB_makeTarget_pluginAU
     # list of additional include directories and <libraryList> the
     # list of statically linked libraries
 
-    IF(MACOSX)
+    IF(MACOS)
         SET(plistFileName ${pluginName}_AppleInfo.plist)
         SET(principalClassName "NSApplication")
 
@@ -430,7 +430,7 @@ FUNCTION(GLOB_makeTarget_pluginAU
         ADD_CUSTOM_COMMAND(TARGET ${targetName} POST_BUILD
                            COMMAND mkdir -p ${resourcePath})
         GLOB_addPluginNibFileForAUTarget(${targetName} ${resourcePath})
-    ENDIF(MACOSX)
+    ENDIF(MACOS)
 ENDFUNCTION(GLOB_makeTarget_pluginAU)
 
 #--------------------
@@ -465,7 +465,7 @@ FUNCTION(GLOB_makeTarget_pluginVST
     # linked libraries; for Unix the <unixLibraryList> is additionally
     # provided
 
-    IF(MACOSX)
+    IF(MACOS)
         # on Apple platform a VST plugin is a library bundle
         ADD_LIBRARY(${targetName} MODULE
                     ${GLOB_debuggerVisualizationFileName}
@@ -482,13 +482,13 @@ FUNCTION(GLOB_makeTarget_pluginVST
     TARGET_INCLUDE_DIRECTORIES(${targetName} PUBLIC ${includeDirectoryList})
     TARGET_LINK_LIBRARIES(${targetName} ${libraryList})
 
-    IF(MACOSX)
+    IF(MACOS)
         # add framework libraries
         FOREACH(frameworkName ${GLOB_frameworkNameList})
             TARGET_LINK_LIBRARIES(${targetName}
                                   "-framework ${frameworkName}")
         ENDFOREACH(frameworkName)
-    ENDIF(MACOSX)
+    ENDIF(MACOS)
 
     IF(LINUX)
         TARGET_LINK_LIBRARIES(${targetName} ${unixLibraryList})
@@ -497,7 +497,7 @@ FUNCTION(GLOB_makeTarget_pluginVST
 
     # put library into a bundle structure regardless of operating
     # system
-    IF(MACOSX)
+    IF(MACOS)
         SET_TARGET_PROPERTIES(${targetName} PROPERTIES
                               BUNDLE TRUE
                               BUNDLE_EXTENSION vst3
@@ -560,7 +560,7 @@ FUNCTION(GLOB_install_pluginAU libraryName dynamicLibraryList)
     # install AU plugin given by <libraryName> together with dynamic
     # libraries in <dynamicLibraryList>
 
-    IF(MACOSX)
+    IF(MACOS)
         CMAKE_PATH(SET targetAUDirectory NORMALIZE
                    ${GLOB_platformTargetSubdirectory}/AU)
         SET(targetContentsAUDirectory )
@@ -577,7 +577,7 @@ FUNCTION(GLOB_install_pluginAU libraryName dynamicLibraryList)
                 DESTINATION ${targetAUDirectory})
         INSTALL(FILES ${dynamicLibraryList}
                 DESTINATION ${targetAUContentsDirectory})
-    ENDIF(MACOSX)
+    ENDIF(MACOS)
 ENDFUNCTION(GLOB_install_pluginAU)
 
 #--------------------
@@ -590,7 +590,7 @@ FUNCTION(GLOB_install_pluginVST libraryName dynamicLibraryList)
                ${GLOB_platformTargetSubdirectory}/VST3)
     FILE(REMOVE_RECURSE ${targetVST3Directory})
 
-    IF(NOT MACOSX)
+    IF(NOT MACOS)
         CMAKE_PATH(SET targetVST3Path NORMALIZE
                    ${targetVST3Directory}/${libraryName}.vst3)
         INSTALL(DIRECTORY ${GLOB_buildDirectory}/${libraryName}.vst3/Contents

@@ -36,7 +36,7 @@ INCLUDE(LocalConfiguration.cmake)
 
 # the name stems of all plugins to produce (currently only a single
 # one)
-LIST(APPEND pluginNameList FluidSynthPlugin)
+SET(pluginNameList FluidSynthPlugin)
 
 # the name of the file converter
 SET(converterName FluidSynthFileConverter)
@@ -82,7 +82,7 @@ CMAKE_PATH(SET srcFluidSynthConverterDirectory NORMALIZE
 CMAKE_PATH(SET originalDynamicLibrariesDirectory NORMALIZE
            ${CMAKE_CURRENT_SOURCE_DIR}/../libraries/${GLOB_platformName})
 
-IF(NOT MACOSX)
+IF(NOT MACOS)
     # no transformation needed: all libraries stay in their original
     # location
     CMAKE_PATH(SET effectiveDynamicLibrariesDirectory NORMALIZE
@@ -103,23 +103,23 @@ CMAKE_PATH(SET testFileDirectory NORMALIZE
 CMAKE_PATH(SET juceModulesDirectory NORMALIZE
            ${JUCE_DIR}/modules)
 
-LIST(APPEND standardIncludeDirectoryList
-     ${srcAudioSupportDirectory}
-     ${srcBaseModulesDirectory}
-     ${srcContainersDirectory}
-     ${srcGenericTypesDirectory}
-     ${srcPrimitivesDirectory}
-     ${srcLibrariesDirectory}
-     ${srcMainRootDirectory}
-     ${srcMidiSupportDirectory}
-     ${srcFluidSynthLibDirectory}
+SET(standardIncludeDirectoryList
+    ${srcAudioSupportDirectory}
+    ${srcBaseModulesDirectory}
+    ${srcContainersDirectory}
+    ${srcGenericTypesDirectory}
+    ${srcPrimitivesDirectory}
+    ${srcLibrariesDirectory}
+    ${srcMainRootDirectory}
+    ${srcMidiSupportDirectory}
+    ${srcFluidSynthLibDirectory}
 )
 
-LIST(APPEND additionalIncludeDirectoryList
-     ${srcJuceFacadeDirectory}
-     ${juceModulesDirectory}
-     ${juceModulesDirectory}/juce_audio_plugin_client/AU
-     ${juceModulesDirectory}/juce_audio_processors/format_types/VST3_SDK
+SET(additionalIncludeDirectoryList
+    ${srcJuceFacadeDirectory}
+    ${juceModulesDirectory}
+    ${juceModulesDirectory}/juce_audio_plugin_client/AU
+    ${juceModulesDirectory}/juce_audio_processors/format_types/VST3_SDK
 )
 
 # --- add dynamic linkage library for MacOS and Unix ---
@@ -130,10 +130,10 @@ ENDIF(NOT WINDOWS)
 # --- add include directories and libraries for Unix ---
 IF(LINUX)
     FIND_PACKAGE(PkgConfig REQUIRED) 
-    LIST(APPEND relevantPackageList freetype2)
+    SET(relevantPackageList freetype2)
     PKG_CHECK_MODULES(linuxPackages ${relevantPackageList})
-    LIST(APPEND unixIncludeDirectoryList /usr/include/freetype2)
-    LIST(APPEND unixLibraryList ${linuxPackages_LINK_LIBRARIES})
+    SET(unixIncludeDirectoryList /usr/include/freetype2)
+    SET(unixLibraryList ${linuxPackages_LINK_LIBRARIES})
 
     LIST(APPEND additionalIncludeDirectoryList
          ${unixIncludeDirectoryList}
@@ -144,14 +144,14 @@ ENDIF(LINUX)
 # === source files ===
 # ====================
 
-LIST(APPEND srcAudioModulesFileList
-     ${srcAudioSupportDirectory}/AudioSampleFifoQueue.cpp
-     ${srcAudioSupportDirectory}/AudioSampleFifoQueueVector.cpp
-     ${srcAudioSupportDirectory}/AudioSampleList.cpp
-     ${srcAudioSupportDirectory}/AudioSampleListVector.cpp
+SET(srcAudioModulesFileList
+    ${srcAudioSupportDirectory}/AudioSampleFifoQueue.cpp
+    ${srcAudioSupportDirectory}/AudioSampleFifoQueueVector.cpp
+    ${srcAudioSupportDirectory}/AudioSampleList.cpp
+    ${srcAudioSupportDirectory}/AudioSampleListVector.cpp
 )
 
-LIST(APPEND srcBaseModulesFileList
+SET(srcBaseModulesFileList
     ${srcBaseModulesDirectory}/Environment.cpp
     ${srcBaseModulesDirectory}/File.cpp
     ${srcBaseModulesDirectory}/LoggingSupport.cpp
@@ -159,40 +159,40 @@ LIST(APPEND srcBaseModulesFileList
     ${srcBaseModulesDirectory}/StringUtil.cpp
 )
 
-LIST(APPEND srcContainersFileList
-     ${srcContainersDirectory}/ByteList.cpp
-     ${srcContainersDirectory}/Dictionary.cpp
-     ${srcContainersDirectory}/NaturalList.cpp
-     ${srcContainersDirectory}/StringList.cpp
+SET(srcContainersFileList
+    ${srcContainersDirectory}/ByteList.cpp
+    ${srcContainersDirectory}/Dictionary.cpp
+    ${srcContainersDirectory}/NaturalList.cpp
+    ${srcContainersDirectory}/StringList.cpp
 )
 
-LIST(APPEND srcPrimitivesFileList
-     ${srcPrimitivesDirectory}/MyString.cpp
-     ${srcPrimitivesDirectory}/Real.cpp
+SET(srcPrimitivesFileList
+    ${srcPrimitivesDirectory}/MyString.cpp
+    ${srcPrimitivesDirectory}/Real.cpp
 )
 
-LIST(APPEND srcFluidSynthMidiSupportFileList
-     ${srcMidiSupportDirectory}/MidiEvent.cpp
-     ${srcMidiSupportDirectory}/MidiEventList.cpp
-     ${srcMidiSupportDirectory}/MidiEventConverter.cpp
-     ${srcMidiSupportDirectory}/MidiPresetIdentification.cpp
+SET(srcFluidSynthMidiSupportFileList
+    ${srcMidiSupportDirectory}/MidiEvent.cpp
+    ${srcMidiSupportDirectory}/MidiEventList.cpp
+    ${srcMidiSupportDirectory}/MidiEventConverter.cpp
+    ${srcMidiSupportDirectory}/MidiPresetIdentification.cpp
 )
 
-LIST(APPEND srcFluidSynthLibraryFileList
-     ${srcLibrariesDirectory}/DynamicLibrary.cpp
-     ${srcFluidSynthLibDirectory}/FluidSynth.cpp
-     ${srcFluidSynthLibDirectory}/FluidSynthSettings.cpp
-     ${srcFluidSynthLibDirectory}/FluidSynthSoundFont.cpp
-     ${srcFluidSynthLibDirectory}/FluidSynthSynthesizer.cpp
+SET(srcFluidSynthLibraryFileList
+    ${srcLibrariesDirectory}/DynamicLibrary.cpp
+    ${srcFluidSynthLibDirectory}/FluidSynth.cpp
+    ${srcFluidSynthLibDirectory}/FluidSynthSettings.cpp
+    ${srcFluidSynthLibDirectory}/FluidSynthSoundFont.cpp
+    ${srcFluidSynthLibDirectory}/FluidSynthSynthesizer.cpp
 )
 
-LIST(APPEND commonSrcFileList
-     ${srcAudioModulesFileList}
-     ${srcBaseModulesFileList}
-     ${srcContainersFileList}
-     ${srcPrimitivesFileList}
-     ${srcFluidSynthMidiSupportFileList}
-     ${srcFluidSynthLibraryFileList}
+SET(commonSrcFileList
+    ${srcAudioModulesFileList}
+    ${srcBaseModulesFileList}
+    ${srcContainersFileList}
+    ${srcPrimitivesFileList}
+    ${srcFluidSynthMidiSupportFileList}
+    ${srcFluidSynthLibraryFileList}
 )
 
 LIST(APPEND allSrcFileList ${commonSrcFileList})
@@ -208,12 +208,12 @@ FOREACH(pluginName ${pluginNameList})
 
     SET(fileListName src${pluginName}FileList_VST)
 
-    LIST(APPEND ${fileListName}
-         ${srcMainRootDirectory}/BuildInformation.cpp
-         ${effectDirectory}/${pluginName}_Editor.cpp
-         ${effectDirectory}/${pluginName}_EditorSupport.cpp
-         ${effectDirectory}/${pluginName}_EventProcessor.cpp
-         ${effectDirectory}/JucePlugin-VST_1.${GLOB_juceFileExtension}
+    SET(${fileListName}
+        ${srcMainRootDirectory}/BuildInformation.cpp
+        ${effectDirectory}/${pluginName}_Editor.cpp
+        ${effectDirectory}/${pluginName}_EditorSupport.cpp
+        ${effectDirectory}/${pluginName}_EventProcessor.cpp
+        ${effectDirectory}/JucePlugin-VST_1.${GLOB_juceFileExtension}
     )
     
     IF(WINDOWS)
@@ -230,47 +230,47 @@ ENDFOREACH(pluginName)
 # --- for some plugin                                           ---
 # -----------------------------------------------------------------
 
-IF(MACOSX)
+IF(MACOS)
     FOREACH(pluginName ${pluginNameList})
         CMAKE_PATH(SET effectDirectory NORMALIZE
                    ${src${pluginName}Directory})
 
         SET(fileListName src${pluginName}FileList_AU)
 
-        LIST(APPEND ${fileListName}
-             ${srcMainRootDirectory}/BuildInformation.cpp
-             ${effectDirectory}/${pluginName}_EventProcessor.cpp
-             ${effectDirectory}/${pluginName}_Editor.cpp
-             ${effectDirectory}/${pluginName}_EditorSupport.cpp
-             ${effectDirectory}/JucePlugin-util.cpp
-             ${effectDirectory}/JucePlugin-AU_1.mm
-             ${effectDirectory}/JucePlugin-AU_2.mm
-             ${effectDirectory}/JucePlugin-Standalone.cpp
+        SET(${fileListName}
+            ${srcMainRootDirectory}/BuildInformation.cpp
+            ${effectDirectory}/${pluginName}_EventProcessor.cpp
+            ${effectDirectory}/${pluginName}_Editor.cpp
+            ${effectDirectory}/${pluginName}_EditorSupport.cpp
+            ${effectDirectory}/JucePlugin-util.cpp
+            ${effectDirectory}/JucePlugin-AU_1.mm
+            ${effectDirectory}/JucePlugin-AU_2.mm
+            ${effectDirectory}/JucePlugin-Standalone.cpp
         )
 
-        SET(allSrcFileList ${allSrcFileList} ${${fileListName}})
+        LIST(APPEND allSrcFileList ${${fileListName}})
     ENDFOREACH(pluginName)
-ENDIF(MACOSX)
+ENDIF(MACOS)
 
 # -------------------------------------------------------------------
 # --- the list of dynamic libraries per platform                  ---
 # -------------------------------------------------------------------
 
 IF(WINDOWS)
-    LIST(APPEND dynamicLibraryNameList
-         libfluidsynth-3.dll libgcc_s_sjlj-1.dll libglib-2.0-0.dll
-         libgobject-2.0-0.dll libgomp-1.dll libgthread-2.0-0.dll
-         libinstpatch-2.dll libintl-8.dll libsndfile-1.dll libstdc++-6.dll
-         libwinpthread-1.dll
+    SET(dynamicLibraryNameList
+        libfluidsynth-3.dll libgcc_s_sjlj-1.dll libglib-2.0-0.dll
+        libgobject-2.0-0.dll libgomp-1.dll libgthread-2.0-0.dll
+        libinstpatch-2.dll libintl-8.dll sdl3.dll sndfile.dll
+        libstdc++-6.dll libwinpthread-1.dll
     )
-ELSEIF(MACOSX)
-    LIST(APPEND dynamicLibraryNameList
-         libFLAC.12.dylib libfluidsynth.3.dylib libglib-2.0.0.dylib
-         libgthread-2.0.0.dylib libiconv.2.dylib libintl.8.dylib
-         libmp3lame.0.dylib libmpg123.0.dylib libncurses.6.dylib
-         libogg.0.dylib libopus.0.dylib libpcre2-8.0.dylib
-         libreadline.8.dylib libSDL2-2.0.0.dylib libsndfile.1.dylib
-         libvorbis.0.dylib libvorbisenc.2.dylib
+ELSEIF(MACOS)
+    SET(dynamicLibraryNameList
+        libFLAC.12.dylib libfluidsynth.3.dylib libglib-2.0.0.dylib
+        libgthread-2.0.0.dylib libiconv.2.dylib libintl.8.dylib
+        libmp3lame.0.dylib libmpg123.0.dylib libncurses.6.dylib
+        libogg.0.dylib libopus.0.dylib libpcre2-8.0.dylib
+        libreadline.8.dylib libSDL2-2.0.0.dylib libsndfile.1.dylib
+        libvorbis.0.dylib libvorbisenc.2.dylib
     )
 ELSEIF(LINUX)
     # no dynamic libraries used => for Linux FluidSynth must be
@@ -278,7 +278,7 @@ ELSEIF(LINUX)
     SET(dynamicLibraryNameList )
 ENDIF()
  
-LIST(APPEND dynamicLibraryList ${dynamicLibraryNameList})
+SET(dynamicLibraryList ${dynamicLibraryNameList})
 LIST(TRANSFORM dynamicLibraryList
      PREPEND ${effectiveDynamicLibrariesDirectory}/)
 
@@ -286,15 +286,15 @@ LIST(TRANSFORM dynamicLibraryList
 SET(testFileName makeTestFiles.${GLOB_batchFileExtension})
 
 IF(WINDOWS)
-    LIST(APPEND regressionTestFileList
-         ${testFileDirectory}/${testFileName}
+    SET(regressionTestFileList
+        ${testFileDirectory}/${testFileName}
     )
 ELSE()
     CONFIGURE_FILE(${testFileDirectory}/makeTestFiles.sh.in
                    ${GLOB_buildDirectory}/${testFileName}
                    @ONLY)
-    LIST(APPEND regressionTestFileList
-         ${GLOB_buildDirectory}/${testFileName}
+    SET(regressionTestFileList
+        ${GLOB_buildDirectory}/${testFileName}
     )
 ENDIF()
 
@@ -308,7 +308,7 @@ LIST(APPEND regressionTestFileList
      ${testFileDirectory}/testFluidSynth-48000-singleVoice-VST3.rpp
 )
 
-IF(MACOSX)
+IF(MACOS)
     LIST(APPEND regressionTestFileList
          ${testFileDirectory}/testFluidSynth-48000-singleVoice-AU.rpp
     )
@@ -344,10 +344,10 @@ ADD_DEPENDENCIES(SupportLibraries JuceFramework)
 ADD_CUSTOM_TARGET(FluidSynthPlugins ALL)
 
 # -----------------------------------------------------------------
-# --- adapt library files on MacOSX                             ---
+# --- adapt library files on MacOS                              ---
 # -----------------------------------------------------------------
 
-IF(MACOSX)
+IF(MACOS)
     GLOB_adaptLibraryFileLinkage(${originalDynamicLibrariesDirectory}
                                  ${effectiveDynamicLibrariesDirectory}
                                  "${dynamicLibraryNameList}"
@@ -359,13 +359,13 @@ ENDIF()
 # -----------------------------------------------------------------
 
 SET(targetName ${converterName})
-LIST(APPEND fluidSynthConverterFileList
-     ${srcBaseModulesDirectory}/CommandLineArguments.cpp
-     ${srcMidiSupportDirectory}/MidiFile.cpp
-     ${srcAudioSupportDirectory}/WaveFile.cpp
-     ${srcFluidSynthConverterDirectory}/FluidSynthFileConverter.cpp
-     ${srcFluidSynthConverterDirectory}/MainStub.cpp
-     ${GLOB_debuggerVisualizationFileName}
+SET(fluidSynthConverterFileList
+    ${srcBaseModulesDirectory}/CommandLineArguments.cpp
+    ${srcMidiSupportDirectory}/MidiFile.cpp
+    ${srcAudioSupportDirectory}/WaveFile.cpp
+    ${srcFluidSynthConverterDirectory}/FluidSynthFileConverter.cpp
+    ${srcFluidSynthConverterDirectory}/MainStub.cpp
+    ${GLOB_debuggerVisualizationFileName}
 )
 
 ADD_EXECUTABLE(${targetName} ${fluidSynthConverterFileList})
@@ -400,7 +400,7 @@ ENDFOREACH(pluginName)
 # --- AUv3 client plus the static library of that plugin        ---
 # -----------------------------------------------------------------
 
-IF(MACOSX)
+IF(MACOS)
     FOREACH(pluginName ${pluginNameList})
         SET(libraryName ${pluginName})
         SET(targetName ${libraryName}_AU)

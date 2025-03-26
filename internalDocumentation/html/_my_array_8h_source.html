@@ -109,56 +109,57 @@ $(document).ready(function(){initNavTree('_my_array_8h_source.html',''); initRes
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_base_types_1_1_containers.html">BaseTypes::Containers</a> {</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
 <div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="_my_array_8h.html#adede199e40286fbec7786ebdc3b1b299">   41</a></span>&#160;<span class="preprocessor">    #define makeLocalArray(ElementType, count) \</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">        (ElementType*) alloca((int) (count) * sizeof(ElementType))</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment">/*--------------------*/</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ElementType&gt;</div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="namespace_base_types_1_1_containers.html#aa2010d99f32d31e440a56c1269cea74b">   56</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_base_types_1_1_containers.html#aa2010d99f32d31e440a56c1269cea74b">clearArray</a> (ElementType* array,</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                     <a class="code" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> count,</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                     ElementType zero)</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">for</span> (<a class="code" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> i = 0;  i &lt; count;  i++) {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            *array++ = zero;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        }</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="comment">/*--------------------*/</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ElementType&gt;</div>
-<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="namespace_base_types_1_1_containers.html#afced1b14c2210243df502d894a7e9483">   79</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_base_types_1_1_containers.html#afced1b14c2210243df502d894a7e9483">copyArray</a> (ElementType*&amp; targetPtr,</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                    <span class="keyword">const</span> ElementType*&amp; sourcePtr,</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                    <a class="code" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> count)</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    {</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keyword">const</span> <a class="code" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> byteCount = <a class="code" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a>{<span class="keyword">sizeof</span>(ElementType)} * count;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <a class="code" href="_my_array_8h.html#a92f67422dae01fc66ac6cbf525c5c95c">CString_memcpy</a>(targetPtr, sourcePtr, (<span class="keywordtype">size_t</span>) byteCount);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        targetPtr += (size_t) count;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    }</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="comment">/*--------------------*/</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> TargetElementType, <span class="keyword">typename</span> SourceElementType&gt;</div>
-<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="namespace_base_types_1_1_containers.html#ad9ff90b44a90517d01b1c510f881b26a">  106</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_base_types_1_1_containers.html#ad9ff90b44a90517d01b1c510f881b26a">convertArray</a> (<a class="code" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> TargetElementType* targetPtr,</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                       <a class="code" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> SourceElementType* sourcePtr,</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                       <a class="code" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="code" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> count)</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    {</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordflow">for</span> (<a class="code" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> i = 0;  i &lt; count;  i++) {</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            *targetPtr++ = (TargetElementType) *sourcePtr++;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        }</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    }</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;}</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">        static_cast&lt;ElementType*&gt;(alloca(sizeof(ElementType) \</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">                                  * (size_t)(count)))</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">/*--------------------*/</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ElementType&gt;</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="namespace_base_types_1_1_containers.html#aa2010d99f32d31e440a56c1269cea74b">   57</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_base_types_1_1_containers.html#aa2010d99f32d31e440a56c1269cea74b">clearArray</a> (ElementType* array,</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                     <a class="code" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> count,</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                     ElementType zero)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">for</span> (<a class="code" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> i = 0;  i &lt; count;  i++) {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            *array++ = zero;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="comment">/*--------------------*/</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ElementType&gt;</div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="namespace_base_types_1_1_containers.html#afced1b14c2210243df502d894a7e9483">   80</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_base_types_1_1_containers.html#afced1b14c2210243df502d894a7e9483">copyArray</a> (ElementType*&amp; targetPtr,</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                    <span class="keyword">const</span> ElementType*&amp; sourcePtr,</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                    <a class="code" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> count)</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    {</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keyword">const</span> <a class="code" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> byteCount = <a class="code" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a>{<span class="keyword">sizeof</span>(ElementType)} * count;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <a class="code" href="_my_array_8h.html#a92f67422dae01fc66ac6cbf525c5c95c">CString_memcpy</a>(targetPtr, sourcePtr, (<span class="keywordtype">size_t</span>) byteCount);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        targetPtr += (size_t) count;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="comment">/*--------------------*/</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> TargetElementType, <span class="keyword">typename</span> SourceElementType&gt;</div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="namespace_base_types_1_1_containers.html#ad9ff90b44a90517d01b1c510f881b26a">  107</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_base_types_1_1_containers.html#ad9ff90b44a90517d01b1c510f881b26a">convertArray</a> (<a class="code" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> TargetElementType* targetPtr,</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                       <a class="code" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> SourceElementType* sourcePtr,</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                       <a class="code" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="code" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> count)</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    {</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keywordflow">for</span> (<a class="code" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> i = 0;  i &lt; count;  i++) {</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            *targetPtr++ = (TargetElementType) *sourcePtr++;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        }</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    }</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="astruct_base_types_1_1_primitives_1_1_natural_html"><div class="ttname"><a href="struct_base_types_1_1_primitives_1_1_natural.html">BaseTypes::Primitives::Natural</a></div><div class="ttdoc">An Natural object wraps a value of the associated primitive type in an object.</div><div class="ttdef"><b>Definition:</b> Natural.h:40</div></div>
 <div class="ttc" id="anamespace_base_types_1_1_containers_html"><div class="ttname"><a href="namespace_base_types_1_1_containers.html">BaseTypes::Containers</a></div><div class="ttdoc">The package Containers provides container types like dictionaries, maps from string to objects,...</div><div class="ttdef"><b>Definition:</b> BaseTypes/Containers/_NAMESPACE.desc:7</div></div>
 <div class="ttc" id="a_natural_8h_html"><div class="ttname"><a href="_natural_8h.html">Natural.h</a></div><div class="ttdoc">The Natural specification and body provides a value object type for naturals (positive integers with ...</div></div>
-<div class="ttc" id="anamespace_base_types_1_1_containers_html_aa2010d99f32d31e440a56c1269cea74b"><div class="ttname"><a href="namespace_base_types_1_1_containers.html#aa2010d99f32d31e440a56c1269cea74b">BaseTypes::Containers::clearArray</a></div><div class="ttdeci">void clearArray(ElementType *array, Natural count, ElementType zero)</div><div class="ttdoc">Sets all elements in array of count elements of type ElementType to zero.</div><div class="ttdef"><b>Definition:</b> MyArray.h:56</div></div>
+<div class="ttc" id="anamespace_base_types_1_1_containers_html_aa2010d99f32d31e440a56c1269cea74b"><div class="ttname"><a href="namespace_base_types_1_1_containers.html#aa2010d99f32d31e440a56c1269cea74b">BaseTypes::Containers::clearArray</a></div><div class="ttdeci">void clearArray(ElementType *array, Natural count, ElementType zero)</div><div class="ttdoc">Sets all elements in array of count elements of type ElementType to zero.</div><div class="ttdef"><b>Definition:</b> MyArray.h:57</div></div>
 <div class="ttc" id="a_global_macros_8h_html_ac2bbd6d630a06a980d9a92ddb9a49928"><div class="ttname"><a href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a></div><div class="ttdeci">#define IN</div><div class="ttdoc">(informal) parameter mode for in parameter</div><div class="ttdef"><b>Definition:</b> GlobalMacros.h:15</div></div>
 <div class="ttc" id="a_my_array_8h_html_a92f67422dae01fc66ac6cbf525c5c95c"><div class="ttname"><a href="_my_array_8h.html#a92f67422dae01fc66ac6cbf525c5c95c">CString_memcpy</a></div><div class="ttdeci">#define CString_memcpy</div><div class="ttdoc">a qualified version of memcpy</div><div class="ttdef"><b>Definition:</b> MyArray.h:21</div></div>
-<div class="ttc" id="anamespace_base_types_1_1_containers_html_ad9ff90b44a90517d01b1c510f881b26a"><div class="ttname"><a href="namespace_base_types_1_1_containers.html#ad9ff90b44a90517d01b1c510f881b26a">BaseTypes::Containers::convertArray</a></div><div class="ttdeci">void convertArray(OUT TargetElementType *targetPtr, IN SourceElementType *sourcePtr, IN Natural count)</div><div class="ttdoc">Copies count elements from array pointed to by sourcePtr of type SourceElementType to array pointed t...</div><div class="ttdef"><b>Definition:</b> MyArray.h:106</div></div>
+<div class="ttc" id="anamespace_base_types_1_1_containers_html_ad9ff90b44a90517d01b1c510f881b26a"><div class="ttname"><a href="namespace_base_types_1_1_containers.html#ad9ff90b44a90517d01b1c510f881b26a">BaseTypes::Containers::convertArray</a></div><div class="ttdeci">void convertArray(OUT TargetElementType *targetPtr, IN SourceElementType *sourcePtr, IN Natural count)</div><div class="ttdoc">Copies count elements from array pointed to by sourcePtr of type SourceElementType to array pointed t...</div><div class="ttdef"><b>Definition:</b> MyArray.h:107</div></div>
 <div class="ttc" id="a_global_macros_8h_html_aec78e7a9e90a406a56f859ee456e8eae"><div class="ttname"><a href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a></div><div class="ttdeci">#define OUT</div><div class="ttdoc">(informal) parameter mode for out parameter</div><div class="ttdef"><b>Definition:</b> GlobalMacros.h:19</div></div>
-<div class="ttc" id="anamespace_base_types_1_1_containers_html_afced1b14c2210243df502d894a7e9483"><div class="ttname"><a href="namespace_base_types_1_1_containers.html#afced1b14c2210243df502d894a7e9483">BaseTypes::Containers::copyArray</a></div><div class="ttdeci">void copyArray(ElementType *&amp;targetPtr, const ElementType *&amp;sourcePtr, Natural count)</div><div class="ttdoc">Copies count elements from array pointed to by sourcePtr of type ElementType to array pointed to by t...</div><div class="ttdef"><b>Definition:</b> MyArray.h:79</div></div>
+<div class="ttc" id="anamespace_base_types_1_1_containers_html_afced1b14c2210243df502d894a7e9483"><div class="ttname"><a href="namespace_base_types_1_1_containers.html#afced1b14c2210243df502d894a7e9483">BaseTypes::Containers::copyArray</a></div><div class="ttdeci">void copyArray(ElementType *&amp;targetPtr, const ElementType *&amp;sourcePtr, Natural count)</div><div class="ttdoc">Copies count elements from array pointed to by sourcePtr of type ElementType to array pointed to by t...</div><div class="ttdef"><b>Definition:</b> MyArray.h:80</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

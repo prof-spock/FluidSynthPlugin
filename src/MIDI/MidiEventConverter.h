@@ -113,7 +113,7 @@ namespace MIDI {
          * @return  information whether key has associated value
          */
         Boolean getSetting (IN String& key,
-                            OUT String& value);
+                            OUT String& value) const;
 
         /*--------------------*/
 
@@ -128,14 +128,32 @@ namespace MIDI {
         /*--------------------*/
 
         /**
-         * Returns list of presets together with their bank and
-         * program numbers with bank, program and name separated by
-         * tabulators
+         * Returns list of presets for currently loaded soundfont
+         * together with their bank and program numbers with bank,
+         * program and name separated by tabulators
          *
          * @return  list of strings each with bank, program and name
          *          separated by tabulators
          */
         StringList presetList () const;
+        
+        /*--------------------*/
+
+        /**
+         * Returns name of current preset
+         *
+         * @return  preset name
+         */
+        String presetName () const;
+        
+        /*--------------------*/
+
+        /**
+         * Returns name of currently loaded soundfont
+         *
+         * @return  soundfont name
+         */
+        String soundFontName () const;
         
         /*--------------------*/
 

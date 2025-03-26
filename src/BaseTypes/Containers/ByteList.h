@@ -87,7 +87,7 @@ namespace BaseTypes::Containers {
         StringList
         asStringListWithBase (IN Natural base,
                               IN Natural precision = 0,
-                              IN String padString = "0") const;
+                              IN String& padString = "0") const;
 
     };
 

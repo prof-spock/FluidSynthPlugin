@@ -320,7 +320,7 @@ _renderSynchronousEvents (INOUT MidiEventConverter& midiEventConverter,
                           IN MidiEventList& synchronousEventList,
                           IN Natural trailingSampleCount,
                           INOUT AudioSampleListVector& temporaryBuffer,
-                          INOUT AudioSampleListVector& sampleBuffer);
+                          INOUT AudioSampleListVector& targetBuffer);
 
 static Real _updatedTimeFactor (IN MidiEvent& event,
                                 IN Natural midiTicksPerQuarterNote);

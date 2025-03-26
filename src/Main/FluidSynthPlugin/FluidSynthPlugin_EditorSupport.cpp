@@ -231,14 +231,19 @@ namespace Main::FluidSynthPlugin {
          * Initializes a preset selection component with presets
          * given by <C>presetList</C>
          *
-         * @param[in] presetList            list of programs with entries
-         *                                  consisting of bank, program and
-         *                                  name separated by tabulators
-         * @param[in] presetIdentification  bank and program (when selected)
+         * @param[in]     presetList            list of programs with
+         *                                      entries consisting of
+         *                                      bank, program and name
+         *                                      separated by tabulators
+         * @param[in]     presetIdentification  bank and program (when
+         *                                      selected)
+         * @param[inout]  processor             the underlying event
+         *                                      processor
          */
         _PresetSelectionComponent
             (IN StringList& presetList,
-             IN MidiPresetIdentification& presetIdentification);
+             IN MidiPresetIdentification& presetIdentification,
+             INOUT FluidSynthPlugin_EventProcessor& processor);
 
         /*--------------------*/
 
@@ -306,6 +311,9 @@ namespace Main::FluidSynthPlugin {
         /*--------------------*/
 
         private:
+
+            /** the underlying event processor */
+            FluidSynthPlugin_EventProcessor& _processor;
 
             /** the bank and program selected */
             MidiPresetIdentification _presetIdentification;
@@ -616,9 +624,12 @@ juce::Rectangle<int> _toDeviceRectangle (IN juce::Component* component,
 /*===========================*/
 
 _PresetSelectionComponent
-::_PresetSelectionComponent (IN StringList& presetList,
-                             IN MidiPresetIdentification& presetIdentification)
-    : _presetIdentification{presetIdentification},
+::_PresetSelectionComponent
+      (IN StringList& presetList,
+       IN MidiPresetIdentification& presetIdentification,
+       INOUT FluidSynthPlugin_EventProcessor& processor)
+    : _processor{processor},
+      _presetIdentification{presetIdentification},
       _bankNumberList{},
       _bankNumberToProgramListMap{},
       _bankNumberListModel{this, _Identification_bank},
@@ -776,7 +787,9 @@ _PresetSelectionComponent::handleListBoxSelection (IN String& listBoxName,
 
     if (isOkay) {
         _programListModel.setMarkedItem(markedProgramNumber);
-        _highlightMarkedRowInListBox(_programListBoxWidget, _programListModel);
+        _highlightMarkedRowInListBox(_programListBoxWidget,
+                                     _programListModel);
+        _processor.setPreset(_presetIdentification);
         _programListBoxWidget.deselectAllRows();
         _programListBoxWidget.repaint();
     }
@@ -1063,13 +1076,24 @@ Boolean FluidSynthPlugin_EditorSupport::selectFileByDialog
 
 Boolean FluidSynthPlugin_EditorSupport::selectPresetByDialog
             (IN StringList& presetList,
-             INOUT MidiPresetIdentification& presetIdentification)
+             INOUT MidiPresetIdentification& presetIdentification,
+             INOUT FluidSynthPlugin_EventProcessor& eventProcessor)
 {
     Logging_trace2(">>: presetIdentification = %1, presetList = %2",
                    presetIdentification.toString(),
                    presetList.toString());
+
+    /* store previous preset value */
+    MidiPresetIdentification previousPresetIdentification =
+        eventProcessor.preset();
+    presetIdentification =
+        (presetIdentification.isEmpty()
+         ? previousPresetIdentification
+         : presetIdentification);
+
     _PresetSelectionComponent presetSelector{presetList,
-                                             presetIdentification};
+                                             presetIdentification,
+                                             eventProcessor};
 
     juce::DialogWindow::showModalDialog(_Title_presetSelection,
                                         &presetSelector,
@@ -1078,7 +1102,11 @@ Boolean FluidSynthPlugin_EditorSupport::selectPresetByDialog
                                         false, true, true);
     
     presetIdentification = presetSelector.presetIdentification();
-    Boolean result = (!presetIdentification.isEmpty());
+    Boolean result = !presetIdentification.isEmpty();
+
+    if (!result) {
+        eventProcessor.setPreset(previousPresetIdentification);
+    }
 
     Logging_trace2("<<: result = %1, presetIdentification = %2",
                    TOSTRING(result), presetIdentification.toString());

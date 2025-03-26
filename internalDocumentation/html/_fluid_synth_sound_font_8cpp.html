@@ -97,6 +97,7 @@ $(document).ready(function(){initNavTree('_fluid_synth_sound_font_8cpp.html','')
 <div class="textblock"><code>#include &quot;<a class="el" href="_dynamic_library_8h_source.html">DynamicLibrary.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_fluid_synth_sound_font_8h_source.html">FluidSynthSoundFont.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_logging_8h_source.html">Logging.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_operating_system_8h_source.html">OperatingSystem.h</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for FluidSynthSoundFont.cpp:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -112,7 +113,7 @@ Macros</h2></td></tr>
 <tr class="memdesc:aa02185245b001317dc65e243cef54b5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">reports that function with <code>name</code> is not dynamically defined <br /></td></tr>
 <tr class="separator:aa02185245b001317dc65e243cef54b5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2eddf0f1f16313b56d83951421f26e77"><td class="memItemLeft" align="right" valign="top"><a id="a2eddf0f1f16313b56d83951421f26e77"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_sound_font_8cpp.html#a2eddf0f1f16313b56d83951421f26e77">GPA</a>(signature,  name)&#160;&#160;&#160;    (signature) ((<a class="el" href="struct_libraries_1_1_dynamic_library.html">DynamicLibrary</a>*) fsLibrary)-&gt;getFunctionByName(name)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_sound_font_8cpp.html#a2eddf0f1f16313b56d83951421f26e77">GPA</a>(signature,  name)&#160;&#160;&#160;    (signature)((<a class="el" href="struct_libraries_1_1_dynamic_library.html">DynamicLibrary</a>*) fsLibrary)-&gt;getFunctionByName(name)</td></tr>
 <tr class="memdesc:a2eddf0f1f16313b56d83951421f26e77"><td class="mdescLeft">&#160;</td><td class="mdescRight">simple macro for dynamic binding of a function <br /></td></tr>
 <tr class="separator:a2eddf0f1f16313b56d83951421f26e77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -135,14 +136,14 @@ typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" 
 typedef Object(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_sound_font_8cpp.html#a93c630493fe8b2e229da5949900bba3c">FSSoundFont_EnumerationSuccessorProc</a>) (Object)</td></tr>
 <tr class="memdesc:a93c630493fe8b2e229da5949900bba3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">sound font preset enumeration successor function type in library <br /></td></tr>
 <tr class="separator:a93c630493fe8b2e229da5949900bba3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01baf5d27f973bb41b1f82ce16b9c097"><td class="memItemLeft" align="right" valign="top"><a id="a01baf5d27f973bb41b1f82ce16b9c097"></a>
+typedef const char *(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_sound_font_8cpp.html#a01baf5d27f973bb41b1f82ce16b9c097">FSSoundFont_ObjectNameQueryProc</a>) (Object)</td></tr>
+<tr class="memdesc:a01baf5d27f973bb41b1f82ce16b9c097"><td class="mdescLeft">&#160;</td><td class="mdescRight">sound font object name query type in library <br /></td></tr>
+<tr class="separator:a01baf5d27f973bb41b1f82ce16b9c097"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add1d073381347e73ac0750ea1d62b302"><td class="memItemLeft" align="right" valign="top"><a id="add1d073381347e73ac0750ea1d62b302"></a>
 typedef int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_sound_font_8cpp.html#add1d073381347e73ac0750ea1d62b302">FSSoundFont_PresetBankNumQueryProc</a>) (Object)</td></tr>
 <tr class="memdesc:add1d073381347e73ac0750ea1d62b302"><td class="mdescLeft">&#160;</td><td class="mdescRight">sound font preset bank number query type in library <br /></td></tr>
 <tr class="separator:add1d073381347e73ac0750ea1d62b302"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc452b03b43d3e7f4bea6e9842cdce58"><td class="memItemLeft" align="right" valign="top"><a id="afc452b03b43d3e7f4bea6e9842cdce58"></a>
-typedef const char *(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_sound_font_8cpp.html#afc452b03b43d3e7f4bea6e9842cdce58">FSSoundFont_PresetNameQueryProc</a>) (Object)</td></tr>
-<tr class="memdesc:afc452b03b43d3e7f4bea6e9842cdce58"><td class="mdescLeft">&#160;</td><td class="mdescRight">sound font preset name query type in library <br /></td></tr>
-<tr class="separator:afc452b03b43d3e7f4bea6e9842cdce58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec766eb8323a63bfa8272fafebf0f2b4"><td class="memItemLeft" align="right" valign="top"><a id="aec766eb8323a63bfa8272fafebf0f2b4"></a>
 typedef int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_sound_font_8cpp.html#aec766eb8323a63bfa8272fafebf0f2b4">FSSoundFont_PresetProgNumQueryProc</a>) (Object)</td></tr>
 <tr class="memdesc:aec766eb8323a63bfa8272fafebf0f2b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">sound font preset program number query type in library <br /></td></tr>
@@ -168,10 +169,10 @@ static <a class="el" href="_fluid_synth_sound_font_8cpp.html#a3942c47354947b74b5
 <tr class="memdesc:a9259228522334495ed359edf78119e72"><td class="mdescLeft">&#160;</td><td class="mdescRight">soundfont creation function in library <br  />
  <br /></td></tr>
 <tr class="separator:a9259228522334495ed359edf78119e72"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b417198ecb5e4062c351fc9248ba2b8"><td class="memItemLeft" align="right" valign="top"><a id="a3b417198ecb5e4062c351fc9248ba2b8"></a>
-static <a class="el" href="_fluid_synth_sound_font_8cpp.html#aff39de48a722907037a645df1e98f4bd">FSSoundFont_EnumerationResetProc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_sound_font_8cpp.html#a3b417198ecb5e4062c351fc9248ba2b8">FSSoundFont_resetPresetEnumeration</a></td></tr>
-<tr class="memdesc:a3b417198ecb5e4062c351fc9248ba2b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">sound font preset enumeration reset function in library <br /></td></tr>
-<tr class="separator:a3b417198ecb5e4062c351fc9248ba2b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5796a8f535346c028accfa299c590869"><td class="memItemLeft" align="right" valign="top"><a id="a5796a8f535346c028accfa299c590869"></a>
+static <a class="el" href="_fluid_synth_sound_font_8cpp.html#a01baf5d27f973bb41b1f82ce16b9c097">FSSoundFont_ObjectNameQueryProc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_sound_font_8cpp.html#a5796a8f535346c028accfa299c590869">FSSoundFont_name</a></td></tr>
+<tr class="memdesc:a5796a8f535346c028accfa299c590869"><td class="mdescLeft">&#160;</td><td class="mdescRight">sound font name query in library <br /></td></tr>
+<tr class="separator:a5796a8f535346c028accfa299c590869"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7fc81edc9167a0a76fe648bbd7203fd5"><td class="memItemLeft" align="right" valign="top"><a id="a7fc81edc9167a0a76fe648bbd7203fd5"></a>
 static <a class="el" href="_fluid_synth_sound_font_8cpp.html#a93c630493fe8b2e229da5949900bba3c">FSSoundFont_EnumerationSuccessorProc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_sound_font_8cpp.html#a7fc81edc9167a0a76fe648bbd7203fd5">FSSoundFont_nextPresetInEnumeration</a></td></tr>
 <tr class="memdesc:a7fc81edc9167a0a76fe648bbd7203fd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">sound font preset enumeration reset function in library <br /></td></tr>
@@ -180,10 +181,10 @@ static <a class="el" href="_fluid_synth_sound_font_8cpp.html#a93c630493fe8b2e229
 static <a class="el" href="_fluid_synth_sound_font_8cpp.html#add1d073381347e73ac0750ea1d62b302">FSSoundFont_PresetBankNumQueryProc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_sound_font_8cpp.html#a8f4ddd69775a1cb8df2cd23f720d97d3">FSSoundFont_presetBankNum</a></td></tr>
 <tr class="memdesc:a8f4ddd69775a1cb8df2cd23f720d97d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">sound font preset bank number query in library <br /></td></tr>
 <tr class="separator:a8f4ddd69775a1cb8df2cd23f720d97d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a037f0ba0495401177bedf5ee258f5edb"><td class="memItemLeft" align="right" valign="top"><a id="a037f0ba0495401177bedf5ee258f5edb"></a>
-static <a class="el" href="_fluid_synth_sound_font_8cpp.html#afc452b03b43d3e7f4bea6e9842cdce58">FSSoundFont_PresetNameQueryProc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_sound_font_8cpp.html#a037f0ba0495401177bedf5ee258f5edb">FSSoundFont_presetName</a></td></tr>
-<tr class="memdesc:a037f0ba0495401177bedf5ee258f5edb"><td class="mdescLeft">&#160;</td><td class="mdescRight">sound font preset name query in library <br /></td></tr>
-<tr class="separator:a037f0ba0495401177bedf5ee258f5edb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5074405f7d9c60d3621f3613f4fa0eca"><td class="memItemLeft" align="right" valign="top"><a id="a5074405f7d9c60d3621f3613f4fa0eca"></a>
+static <a class="el" href="_fluid_synth_sound_font_8cpp.html#a01baf5d27f973bb41b1f82ce16b9c097">FSSoundFont_ObjectNameQueryProc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_sound_font_8cpp.html#a5074405f7d9c60d3621f3613f4fa0eca">FSSoundFont_presetName</a></td></tr>
+<tr class="memdesc:a5074405f7d9c60d3621f3613f4fa0eca"><td class="mdescLeft">&#160;</td><td class="mdescRight">sound font preset name query in library <br /></td></tr>
+<tr class="separator:a5074405f7d9c60d3621f3613f4fa0eca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeab4b87644a07bc3633bbd62a32043aa"><td class="memItemLeft" align="right" valign="top"><a id="aeab4b87644a07bc3633bbd62a32043aa"></a>
 static <a class="el" href="_fluid_synth_sound_font_8cpp.html#aec766eb8323a63bfa8272fafebf0f2b4">FSSoundFont_PresetProgNumQueryProc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_sound_font_8cpp.html#aeab4b87644a07bc3633bbd62a32043aa">FSSoundFont_presetProgNum</a></td></tr>
 <tr class="memdesc:aeab4b87644a07bc3633bbd62a32043aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">sound font preset program number query in library <br /></td></tr>
@@ -192,6 +193,10 @@ static <a class="el" href="_fluid_synth_sound_font_8cpp.html#aec766eb8323a63bfa8
 static <a class="el" href="_fluid_synth_sound_font_8cpp.html#a4c633a1817c97ba8ea4ef44d4efa052f">FSSoundFont_PresetQueryProc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_sound_font_8cpp.html#a2f42686366b1586387dd328d4b86d9cd">FSSoundFont_presetQuery</a></td></tr>
 <tr class="memdesc:a2f42686366b1586387dd328d4b86d9cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">sound font preset query in library <br /></td></tr>
 <tr class="separator:a2f42686366b1586387dd328d4b86d9cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b417198ecb5e4062c351fc9248ba2b8"><td class="memItemLeft" align="right" valign="top"><a id="a3b417198ecb5e4062c351fc9248ba2b8"></a>
+static <a class="el" href="_fluid_synth_sound_font_8cpp.html#aff39de48a722907037a645df1e98f4bd">FSSoundFont_EnumerationResetProc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_sound_font_8cpp.html#a3b417198ecb5e4062c351fc9248ba2b8">FSSoundFont_resetPresetEnumeration</a></td></tr>
+<tr class="memdesc:a3b417198ecb5e4062c351fc9248ba2b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">sound font preset enumeration reset function in library <br /></td></tr>
+<tr class="separator:a3b417198ecb5e4062c351fc9248ba2b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab4297750293feb181265d1000d8d1c1d"><td class="memItemLeft" align="right" valign="top"><a id="ab4297750293feb181265d1000d8d1c1d"></a>
 static <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_fluid_synth_sound_font_8cpp.html#ab4297750293feb181265d1000d8d1c1d">_functionsAreInitialized</a> = false</td></tr>
 <tr class="memdesc:ab4297750293feb181265d1000d8d1c1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">flag to tell whether function pointers have been initialized <br /></td></tr>

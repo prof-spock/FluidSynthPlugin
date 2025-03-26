@@ -93,8 +93,17 @@ namespace Libraries::FluidSynth {
          * @param[in] programNumber  program number of preset
          * @return  information whether preset exists at position
          */
-        Boolean hasProgram (IN Natural bankNumber,
-                            IN Natural programNumber) const;
+        Boolean hasPreset (IN Natural bankNumber,
+                           IN Natural programNumber) const;
+        
+        /*--------------------*/
+
+        /**
+         * Tells the name of the current soundfont
+         *
+         * @return  name of soundfont
+         */
+        String name () const;
         
         /*--------------------*/
 
@@ -107,6 +116,20 @@ namespace Libraries::FluidSynth {
          *          separated by tabulators
          */
         StringList presetList () const;
+        
+        /*--------------------*/
+
+        /**
+         * Tells the name of the preset at <C>bankNumber</C> and
+         * <C>programNumber</C>, returns question mark string when not
+         * found
+         *
+         * @param[in] bankNumber     bank number of preset
+         * @param[in] programNumber  program number of preset
+         * @return  name of preset
+         */
+        String presetName (IN Natural bankNumber,
+                           IN Natural programNumber) const;
         
         /*--------------------*/
 

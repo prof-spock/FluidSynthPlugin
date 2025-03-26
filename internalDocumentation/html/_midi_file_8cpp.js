@@ -12,5 +12,6 @@ var _midi_file_8cpp =
     [ "_readVariableLengthNatural", "_midi_file_8cpp.html#a29cb8b889cefaa5d2528210250a35d50", null ],
     [ "_badByteListMessage", "_midi_file_8cpp.html#a1c9cbaadf0b70e0a6259d5f296369ded", null ],
     [ "_fileHead", "_midi_file_8cpp.html#a8f2300076fb3ae8415445a126d028b3c", null ],
+    [ "_previousStatusByte", "_midi_file_8cpp.html#a8ced59a71fd69da23ad655ccecfa6c76", null ],
     [ "_trackHead", "_midi_file_8cpp.html#ac07bfddbebdd3ceea1f1816d442b30e8", null ]
 ];

@@ -1,6 +1,6 @@
 var struct_m_i_d_i_1_1_midi_event_kind =
 [
-    [ "MidiEventKind", "struct_m_i_d_i_1_1_midi_event_kind.html#abc93d45e8eb678f19c1187731107ad62", null ],
+    [ "MidiEventKind", "struct_m_i_d_i_1_1_midi_event_kind.html#a5f0e2f3c5e490c81d7f84b837a6ce344", null ],
     [ "byteCount", "struct_m_i_d_i_1_1_midi_event_kind.html#ab8c971ea1f18f81a368abdaa3c41754b", null ],
     [ "isValid", "struct_m_i_d_i_1_1_midi_event_kind.html#a4c6eaa885c85a2ce96be20923830cf8a", null ],
     [ "toString", "struct_m_i_d_i_1_1_midi_event_kind.html#a7f33c60b670de0f25a205d09adf01e64", null ],

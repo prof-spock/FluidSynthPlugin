@@ -78,7 +78,7 @@ namespace MIDI {
          *
          * @param[in] b  byte value to be converted into event kind
          */
-        MidiEventKind (IN Byte b = 0xFF);
+        MidiEventKind (IN Byte b = '\xFF');
 
         /*--------------------*/
 

@@ -137,12 +137,53 @@ Functions</h2></td></tr>
 <tr class="memitem:a537d2530f5c26feae7d1c1858ae5112e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_base_types_1_1_primitives.html#aa1174c1e7bedd8df69fc98453595a127">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_base_types_1_1_primitives.html#a537d2530f5c26feae7d1c1858ae5112e">String_toString</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="namespace_base_types_1_1_primitives.html#aa1174c1e7bedd8df69fc98453595a127">String</a> &amp;st)</td></tr>
 <tr class="memdesc:a537d2530f5c26feae7d1c1858ae5112e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns simple printable string representation for <code>st</code>.  <a href="namespace_base_types_1_1_primitives.html#a537d2530f5c26feae7d1c1858ae5112e">More...</a><br /></td></tr>
 <tr class="separator:a537d2530f5c26feae7d1c1858ae5112e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71e0b0d5231035b5cc28fc08c9ae5bb1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_base_types_1_1_primitives.html#aa1174c1e7bedd8df69fc98453595a127">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_base_types_1_1_primitives.html#a71e0b0d5231035b5cc28fc08c9ae5bb1">String_normalize</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="namespace_base_types_1_1_primitives.html#aa1174c1e7bedd8df69fc98453595a127">String</a> &amp;st, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="namespace_base_types_1_1_primitives.html#aa1174c1e7bedd8df69fc98453595a127">String</a> &amp;lineSeparator=&quot;§&quot;)</td></tr>
+<tr class="memdesc:a71e0b0d5231035b5cc28fc08c9ae5bb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns <code>st</code> with newlines replaced by <code>lineSeparator</code>.  <a href="namespace_base_types_1_1_primitives.html#a71e0b0d5231035b5cc28fc08c9ae5bb1">More...</a><br /></td></tr>
+<tr class="separator:a71e0b0d5231035b5cc28fc08c9ae5bb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The package <code><a class="el" href="namespace_base_types_1_1_primitives.html" title="The package Primitives wraps elementary types of C++ like ints and chars into types like Integer,...">Primitives</a></code> wraps elementary types of C++ like ints and chars into types like <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.html" title="An Integer object wraps a value of the associated primitive type in an object.">Integer</a>, <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html" title="An Natural object wraps a value of the associated primitive type in an object.">Natural</a>, String etc. </p>
 <p>also including convenience types like <a class="el" href="struct_base_types_1_1_primitives_1_1_percentage.html" title="A Percentage object is real-valued and represents a percentage (normalized to the 0 to 100 range).">Percentage</a> or <a class="el" href="struct_base_types_1_1_primitives_1_1_radians.html" title="A Radians object is a real-valued and represents the range from 0 to 2pi.">Radians</a>.</p>
 <p>This approach allows a more consistent program documentation. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="a71e0b0d5231035b5cc28fc08c9ae5bb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71e0b0d5231035b5cc28fc08c9ae5bb1">&#9670;&nbsp;</a></span>String_normalize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_base_types_1_1_primitives.html#aa1174c1e7bedd8df69fc98453595a127">String</a> BaseTypes::Primitives::String_normalize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="namespace_base_types_1_1_primitives.html#aa1174c1e7bedd8df69fc98453595a127">String</a> &amp;&#160;</td>
+          <td class="paramname"><em>st</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="namespace_base_types_1_1_primitives.html#aa1174c1e7bedd8df69fc98453595a127">String</a> &amp;&#160;</td>
+          <td class="paramname"><em>lineSeparator</em> = <code>&quot;§&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns <code>st</code> with newlines replaced by <code>lineSeparator</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">st</td><td>string to be converted </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lineSeparator</td><td>replacement string for newlines </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>string with newlines replaced </dd></dl>
+
+</div>
+</div>
 <a id="a537d2530f5c26feae7d1c1858ae5112e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a537d2530f5c26feae7d1c1858ae5112e">&#9670;&nbsp;</a></span>String_toString()</h2>
 

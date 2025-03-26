@@ -116,14 +116,14 @@ String Environment::expand (IN String& st)
         String variableName =
             STR::substring(result,
                            variableNamePosition, variableNameLength);
-        char* value = std::getenv(variableName.c_str());
+        char* variableValue = std::getenv(variableName.c_str());
 
-        if (value == NULL) {
+        if (variableValue == NULL) {
             /* start search one position further... */
             leadInPosition++;
         } else {
             String key = _bracedVariableName(variableName);
-            STR::replace(result, key, String{value});
+            STR::replace(result, key, String{variableValue});
         }
     }
     
@@ -143,10 +143,11 @@ Boolean Environment::replacePrefix (INOUT String& st)
     Dictionary environment = all();
     Boolean result = false;
     
-    for (auto & [variableName, value] : environment) {
-        Natural valueLength = value.length();
+    for (auto & [variableName, variableValue] : environment) {
+        Natural valueLength = variableValue.length();
 
-        if (valueLength > prefixLength && STR::startsWith(st, value)) {
+        if (valueLength > prefixLength
+            && STR::startsWith(st, variableValue)) {
             /* this is a new and longer match */
             prefixLength = valueLength;
             bestVariableName = variableName;
@@ -167,8 +168,8 @@ Boolean Environment::replacePrefix (INOUT String& st)
 
 /*--------------------*/
 
-String Environment::value (IN String variableName,
-                           IN String defaultValue)
+String Environment::value (IN String& variableName,
+                           IN String& defaultValue)
 {
     Logging_trace2(">>: variable = '%1', default = '%2'",
                    variableName, defaultValue);

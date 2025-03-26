@@ -84,6 +84,7 @@ $(document).ready(function(){initNavTree('_my_string_8cpp.html',''); initResizab
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">MyString.cpp File Reference</div>  </div>
@@ -93,12 +94,13 @@ $(document).ready(function(){initNavTree('_my_string_8cpp.html',''); initResizab
 <p>The <code>String</code> body implements a standard string type.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="_my_string_8h_source.html">MyString.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_string_util_8h_source.html">StringUtil.h</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for MyString.cpp:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="_my_string_8cpp__incl.svg" width="203" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="_my_string_8cpp__incl.svg" width="599" height="560"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -110,11 +112,21 @@ Namespaces</h2></td></tr>
 <tr class="memdesc:namespace_base_types_1_1_primitives"><td class="mdescLeft">&#160;</td><td class="mdescRight">The package <code><a class="el" href="namespace_base_types_1_1_primitives.html" title="The package Primitives wraps elementary types of C++ like ints and chars into types like Integer,...">Primitives</a></code> wraps elementary types of C++ like ints and chars into types like <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.html" title="An Integer object wraps a value of the associated primitive type in an object.">Integer</a>, <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html" title="An Natural object wraps a value of the associated primitive type in an object.">Natural</a>, String etc. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a5b6f88d1249b396e351c4a85bcb35b2c"><td class="memItemLeft" align="right" valign="top"><a id="a5b6f88d1249b396e351c4a85bcb35b2c"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_my_string_8cpp.html#a5b6f88d1249b396e351c4a85bcb35b2c">STR</a> = <a class="el" href="struct_base_modules_1_1_string_util.html">BaseModules::StringUtil</a></td></tr>
+<tr class="memdesc:a5b6f88d1249b396e351c4a85bcb35b2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">abbreviation for StringUtil <br /></td></tr>
+<tr class="separator:a5b6f88d1249b396e351c4a85bcb35b2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a537d2530f5c26feae7d1c1858ae5112e"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_base_types_1_1_primitives.html#a537d2530f5c26feae7d1c1858ae5112e">BaseTypes::Primitives::String_toString</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;st)</td></tr>
 <tr class="memdesc:a537d2530f5c26feae7d1c1858ae5112e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns simple printable string representation for <code>st</code>.  <a href="namespace_base_types_1_1_primitives.html#a537d2530f5c26feae7d1c1858ae5112e">More...</a><br /></td></tr>
 <tr class="separator:a537d2530f5c26feae7d1c1858ae5112e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71e0b0d5231035b5cc28fc08c9ae5bb1"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_base_types_1_1_primitives.html#a71e0b0d5231035b5cc28fc08c9ae5bb1">BaseTypes::Primitives::String_normalize</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;st, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;lineSeparator=&quot;§&quot;)</td></tr>
+<tr class="memdesc:a71e0b0d5231035b5cc28fc08c9ae5bb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns <code>st</code> with newlines replaced by <code>lineSeparator</code>.  <a href="namespace_base_types_1_1_primitives.html#a71e0b0d5231035b5cc28fc08c9ae5bb1">More...</a><br /></td></tr>
+<tr class="separator:a71e0b0d5231035b5cc28fc08c9ae5bb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <code>String</code> body implements a standard string type. </p>

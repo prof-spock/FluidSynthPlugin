@@ -813,11 +813,39 @@ FluidSynthPlugin_EventProcessor::changeProgramName (int, const juce::String&)
     /* does not apply */
 }
 
-/*---------------------------*/
-/* parameter access & change */
-/*---------------------------*/
+/*--------------------*/
+/* property access    */
+/*--------------------*/
 
-String FluidSynthPlugin_EventProcessor::errorString () const
+Boolean FluidSynthPlugin_EventProcessor::isInErrorState () const
+{
+    Logging_trace(">>");
+
+    const _EventProcessorDescriptor& descriptor =
+        TOREFERENCE<_EventProcessorDescriptor>(_descriptor);
+    const Boolean result = !descriptor.errorMessageList.isEmpty();
+
+    Logging_trace1("<< %1", result);
+    return result;
+}
+
+/*--------------------*/
+
+String FluidSynthPlugin_EventProcessor::fsLibraryVersion () const
+{
+    Logging_trace(">>");
+
+    const _EventProcessorDescriptor& descriptor =
+        TOREFERENCE<_EventProcessorDescriptor>(_descriptor);
+    String result = descriptor.midiEventConverter->fsLibraryVersion();
+
+    Logging_trace1("<< %1", result);
+    return result;
+}
+
+/*--------------------*/
+
+String FluidSynthPlugin_EventProcessor::messageString () const
 {
     Logging_trace(">>");
 
@@ -829,6 +857,14 @@ String FluidSynthPlugin_EventProcessor::errorString () const
 
     if (!errorMessageList.isEmpty()) {
         result = errorMessageList[0];
+    } else {
+        /* no error messages, construct message from soundfont name
+         * and preset name */
+        const MidiEventConverter* midiEventConverter =
+            descriptor.midiEventConverter;
+        result = STR::expand("preset: %1 - %2",
+                             midiEventConverter->soundFontName(),
+                             midiEventConverter->presetName());
     }
 
     Logging_trace1("<<: %1", result);
@@ -837,15 +873,22 @@ String FluidSynthPlugin_EventProcessor::errorString () const
 
 /*--------------------*/
 
-String FluidSynthPlugin_EventProcessor::fsLibraryVersion () const
+MidiPresetIdentification
+FluidSynthPlugin_EventProcessor::preset () const
 {
     Logging_trace(">>");
 
-    _EventProcessorDescriptor& descriptor =
+    const _EventProcessorDescriptor& descriptor =
         TOREFERENCE<_EventProcessorDescriptor>(_descriptor);
-    String result = descriptor.midiEventConverter->fsLibraryVersion();
+    const MidiEventConverter* midiEventConverter =
+        descriptor.midiEventConverter;
+    String value;
+    const Boolean isOkay =
+        midiEventConverter->getSetting(_settingsKeyForPreset, value);
+    value = (!isOkay ? "0:0" : value);
+    const MidiPresetIdentification result{value};
 
-    Logging_trace1("<< %1", result);
+    Logging_trace1("<<: %1", result.toString());
     return result;
 }
 
@@ -855,12 +898,30 @@ String FluidSynthPlugin_EventProcessor::settings () const
 {
     Logging_trace(">>");
 
-    _EventProcessorDescriptor& descriptor =
+    const _EventProcessorDescriptor& descriptor =
         TOREFERENCE<_EventProcessorDescriptor>(_descriptor);
     String result = descriptor.settingsString;
 
     Logging_trace1("<<: %1", STR::newlineReplacedString(result));
     return result;
+}
+
+/*--------------------*/
+/* property change    */
+/*--------------------*/
+
+void FluidSynthPlugin_EventProcessor
+::setPreset (IN MidiPresetIdentification& preset)
+{
+    Logging_trace(">>");
+
+    _EventProcessorDescriptor& descriptor =
+        TOREFERENCE<_EventProcessorDescriptor>(_descriptor);
+    MidiEventConverter* midiEventConverter =
+        descriptor.midiEventConverter;
+    midiEventConverter->setSetting(_settingsKeyForPreset, preset.toString());
+    
+    Logging_trace("<<");
 }
 
 /*--------------------*/

@@ -11,12 +11,12 @@ LIST(APPEND manufacturerAndSuiteDefineClauseList
      JucePlugin_ManufacturerWebsite="https://github.com/prof-spock/FluidSynthPlugin"
 )
 
-IF(MACOSX)
+IF(MACOS)
     # add 'aumu' as AU plugin type
     LIST(APPEND manufacturerAndSuiteDefineClauseList
          JucePlugin_AUMainType=0x61756c75
     )
-ENDIF(MACOSX)
+ENDIF(MACOS)
 
 LIST(APPEND cppDefinitions_common
      JUCE_APP_VERSION=1.0.0

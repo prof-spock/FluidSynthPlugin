@@ -30,7 +30,7 @@ Hence another tool in this package circumvents the rasterization by the player o
 
 When using both components (command-line and DAW) on the same MIDI data they typically produce audio output with a difference of less than -200dBFS in a spectrum analysis.
 
-Those components are currently available - as x86_64 versions - for Windows and Linux as VST3, for MacOSX as VST3 and AU.
+Those components are currently available - as x86_64 versions - for Windows and Linux as VST3, for MacOS as VST3 and AU.
 
 All the code is open-source; hence you can check and adapt it to your needs.
 
@@ -42,7 +42,13 @@ The installation is as follows:
 
    2. The distribution also contains a documentation [pdf file](./FluidSynthPlugin-documentation.pdf) in subdirectory doc and test files in subdirectory test (for details on the regression test see below).
 
-   3. When installing the plugins and program on Windows, they require the so-called *Microsoft Visual C++ Redistributable* library.  Very often this is already installed on your system; if not, you have to install it from the [Microsoft][VCCLib] site.
+   3. Depending on your target operating system, additional steps might be necessary:
+         
+      - When installing the plugins on Linux, you have to ensure that the fluidsynth package is already installed (e.g.  with <TT>sudo apt install fluidsynth</TT>).
+
+      - When installing the plugins on MacOS, note that those are *not signed*; so you have to explicitly remove the quarantine flag from them (e.g. by applying the command <TT>sudo xattr -rd com.apple.quarantine «vstPath»</TT>).
+
+      - When installing the plugin and program on Windows, they require the so-called Microsoft Visual C++ Redistributable library.  Very often this is already installed on your system; if not, you have to install it from the [Microsoft][VCCLib] site.
 
    4. Restart your DAW and rescan the plugins.  You should now be able to select the <TT>FluidSynthPlugin</TT>.
 

@@ -1,9 +1,10 @@
 <map id="OperatingSystem.h" name="OperatingSystem.h">
-<area shape="rect" id="node1" title="The OperatingSystem specification defines a class for several operating system related utility functi..." alt="" coords="392,5,527,32"/>
+<area shape="rect" id="node1" title="The OperatingSystem specification defines a class for several operating system related utility functi..." alt="" coords="481,5,616,32"/>
 <area shape="rect" id="node2" href="$_wave_file_8cpp.html" title="The WaveFile specification defines an object for accessing a RIFF wave file with several channels." alt="" coords="5,80,105,107"/>
 <area shape="rect" id="node3" href="$_logging_support_8cpp.html" title="The LoggingSupport body implements a class for simple entry/exit logging to a file or via a callback ..." alt="" coords="129,80,267,107"/>
 <area shape="rect" id="node4" href="$_operating_system_8cpp.html" title="The OperatingSystem body implements a class for several operating system related utility functions (l..." alt="" coords="291,80,439,107"/>
-<area shape="rect" id="node5" href="$_fluid_synth_file_converter_8cpp.html" title="The FluidSynthFileConverter module implements a conversion from a MIDI file into a wave file using th..." alt="" coords="463,80,647,107"/>
-<area shape="rect" id="node6" href="$_fluid_synth_plugin___event_processor_8cpp.html" title="The FluidSynthPlugin_Processor module implements the handling of MIDI events from the DAW via JUCE ha..." alt="" coords="671,80,914,107"/>
-<area shape="rect" id="node7" href="$_midi_file_8cpp.html" title="The MidiFile implementation implements the services of a MIDI file; currently only file reading is su..." alt="" coords="939,80,1031,107"/>
+<area shape="rect" id="node5" href="$_fluid_synth_sound_font_8cpp.html" title="The FluidSynthSoundFont class implements an object&#45;oriented wrapper around an underlying fluidsynth s..." alt="" coords="463,80,635,107"/>
+<area shape="rect" id="node6" href="$_fluid_synth_file_converter_8cpp.html" title="The FluidSynthFileConverter module implements a conversion from a MIDI file into a wave file using th..." alt="" coords="659,80,843,107"/>
+<area shape="rect" id="node7" href="$_fluid_synth_plugin___event_processor_8cpp.html" title="The FluidSynthPlugin_Processor module implements the handling of MIDI events from the DAW via JUCE ha..." alt="" coords="867,80,1110,107"/>
+<area shape="rect" id="node8" href="$_midi_file_8cpp.html" title="The MidiFile implementation implements the services of a MIDI file; currently only file reading is su..." alt="" coords="1135,80,1227,107"/>
 </map>

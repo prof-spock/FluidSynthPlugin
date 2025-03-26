@@ -74,7 +74,7 @@ static Boolean _functionsAreInitialized = false;
 
 /** simple macro for dynamic binding of a function */
 #define GPA(signature, name) \
-    (signature) ((DynamicLibrary*) fsLibrary)->getFunctionByName(name)
+    (signature)((DynamicLibrary*) fsLibrary)->getFunctionByName(name)
 
 /*====================*/
 /* PRIVATE FEATURES    */

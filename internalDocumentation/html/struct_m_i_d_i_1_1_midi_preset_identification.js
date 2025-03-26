@@ -1,7 +1,7 @@
 var struct_m_i_d_i_1_1_midi_preset_identification =
 [
     [ "MidiPresetIdentification", "struct_m_i_d_i_1_1_midi_preset_identification.html#a6ac30375dd3e3bccbf6b9523944b8404", null ],
-    [ "MidiPresetIdentification", "struct_m_i_d_i_1_1_midi_preset_identification.html#ab788d7b55f770673a204e5be04f97586", null ],
+    [ "MidiPresetIdentification", "struct_m_i_d_i_1_1_midi_preset_identification.html#a09ebce9fc16e99f8abb0390030be846c", null ],
     [ "clear", "struct_m_i_d_i_1_1_midi_preset_identification.html#a2433d357be48aac83e90d4d86cbb3f0d", null ],
     [ "isEmpty", "struct_m_i_d_i_1_1_midi_preset_identification.html#a7fa838e5f704a358ee3b3901969e2f62", null ],
     [ "isValid", "struct_m_i_d_i_1_1_midi_preset_identification.html#ac7b7b24786a0e2b999be58da3b932290", null ],

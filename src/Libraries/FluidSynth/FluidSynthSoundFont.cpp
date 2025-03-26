@@ -15,9 +15,11 @@
 #include "DynamicLibrary.h"
 #include "FluidSynthSoundFont.h"
 #include "Logging.h"
+#include "OperatingSystem.h"
 
 /*--------------------*/
 
+using BaseModules::OperatingSystem;
 using Libraries::DynamicLibrary;
 using Libraries::FluidSynth::FluidSynthSoundFont;
 
@@ -37,11 +39,11 @@ typedef void (*FSSoundFont_EnumerationResetProc)(Object);
 /** sound font preset enumeration successor function type in library */
 typedef Object (*FSSoundFont_EnumerationSuccessorProc)(Object);
 
+/** sound font object name query type in library */
+typedef const char* (*FSSoundFont_ObjectNameQueryProc)(Object);
+
 /** sound font preset bank number query type in library */
 typedef int (*FSSoundFont_PresetBankNumQueryProc)(Object);
-
-/** sound font preset name query type in library */
-typedef const char* (*FSSoundFont_PresetNameQueryProc)(Object);
 
 /** sound font preset program number query type in library */
 typedef int (*FSSoundFont_PresetProgNumQueryProc)(Object);
@@ -54,8 +56,8 @@ typedef Object (*FSSoundFont_PresetQueryProc)(Object, int, int);
 /** soundfont creation function in library  */
 static FSSoundFont_ConstructionProc FSSoundFont_make;
 
-/** sound font preset enumeration reset function in library */
-static FSSoundFont_EnumerationResetProc FSSoundFont_resetPresetEnumeration;
+/** sound font name query in library */
+static FSSoundFont_ObjectNameQueryProc FSSoundFont_name;
 
 /** sound font preset enumeration reset function in library */
 static FSSoundFont_EnumerationSuccessorProc
@@ -65,13 +67,16 @@ static FSSoundFont_EnumerationSuccessorProc
 static FSSoundFont_PresetBankNumQueryProc FSSoundFont_presetBankNum;
 
 /** sound font preset name query in library */
-static FSSoundFont_PresetNameQueryProc FSSoundFont_presetName;
+static FSSoundFont_ObjectNameQueryProc FSSoundFont_presetName;
 
 /** sound font preset program number query in library */
 static FSSoundFont_PresetProgNumQueryProc FSSoundFont_presetProgNum;
 
 /** sound font preset query in library */
 static FSSoundFont_PresetQueryProc FSSoundFont_presetQuery;
+
+/** sound font preset enumeration reset function in library */
+static FSSoundFont_EnumerationResetProc FSSoundFont_resetPresetEnumeration;
 
 /** flag to tell whether function pointers have been initialized */
 static Boolean _functionsAreInitialized = false;
@@ -90,7 +95,7 @@ static const String _errorMessageForUndefinedDescriptor =
 
 /** simple macro for dynamic binding of a function */
 #define GPA(signature, name) \
-    (signature) ((DynamicLibrary*) fsLibrary)->getFunctionByName(name)
+    (signature)((DynamicLibrary*) fsLibrary)->getFunctionByName(name)
 
 /*====================*/
 /* PRIVATE FEATURES   */
@@ -155,9 +160,8 @@ static void _initializeFunctionsForLibrary (IN Object fsLibrary)
         FSSoundFont_make =
             GPA(FSSoundFont_ConstructionProc, "fluid_synth_get_sfont");
 
-        FSSoundFont_resetPresetEnumeration =
-            GPA(FSSoundFont_EnumerationResetProc,
-                "fluid_sfont_iteration_start");
+        FSSoundFont_name =
+            GPA(FSSoundFont_ObjectNameQueryProc, "fluid_sfont_get_name");
         FSSoundFont_nextPresetInEnumeration = 
             GPA(FSSoundFont_EnumerationSuccessorProc,
                 "fluid_sfont_iteration_next");
@@ -166,11 +170,15 @@ static void _initializeFunctionsForLibrary (IN Object fsLibrary)
             GPA(FSSoundFont_PresetBankNumQueryProc,
                 "fluid_preset_get_banknum");
         FSSoundFont_presetName =
-            GPA(FSSoundFont_PresetNameQueryProc, "fluid_preset_get_name");
+            GPA(FSSoundFont_ObjectNameQueryProc, "fluid_preset_get_name");
         FSSoundFont_presetProgNum =
             GPA(FSSoundFont_PresetProgNumQueryProc, "fluid_preset_get_num");
         FSSoundFont_presetQuery =
             GPA(FSSoundFont_PresetQueryProc, "fluid_sfont_get_preset");
+
+        FSSoundFont_resetPresetEnumeration =
+            GPA(FSSoundFont_EnumerationResetProc,
+                "fluid_sfont_iteration_start");
 
         _functionsAreInitialized = true;
     }
@@ -193,7 +201,7 @@ FluidSynthSoundFont::FluidSynthSoundFont
 {
     Logging_trace(">>");
 
-    FluidSynth* library =
+    const FluidSynth* library =
         (synthesizer == NULL ? NULL : synthesizer->library());
 
     if (synthesizer == NULL || library == NULL || !library->isLoaded()) {
@@ -224,8 +232,8 @@ FluidSynthSoundFont::~FluidSynthSoundFont ()
 /* queries            */
 /*--------------------*/
 
-Boolean FluidSynthSoundFont::hasProgram (IN Natural bankNumber,
-                                         IN Natural programNumber) const
+Boolean FluidSynthSoundFont::hasPreset (IN Natural bankNumber,
+                                        IN Natural programNumber) const
 {
     Logging_trace2(">>: bank = %1, program = %2",
                    TOSTRING(bankNumber), TOSTRING(programNumber));
@@ -236,9 +244,10 @@ Boolean FluidSynthSoundFont::hasProgram (IN Natural bankNumber,
         Logging_traceError(_errorMessageForUndefinedDescriptor);
     } else if (_allFSFunctionsAreAvailable()) {
         Object self = _descriptor;
-        Object preset = FSSoundFont_presetQuery(self,
-                                                (int) bankNumber,
-                                                (int) programNumber);
+        const Object preset =
+            FSSoundFont_presetQuery(self,
+                                    (int) bankNumber,
+                                    (int) programNumber);
         result = (preset != NULL);
     }
 
@@ -246,6 +255,26 @@ Boolean FluidSynthSoundFont::hasProgram (IN Natural bankNumber,
     return result;
 }
         
+/*--------------------*/
+
+String FluidSynthSoundFont::name () const
+{
+    Logging_trace(">>");
+
+    String result;
+
+    if (_descriptor == NULL) {
+        Logging_traceError(_errorMessageForUndefinedDescriptor);
+    } else if (_allFSFunctionsAreAvailable()) {
+        Object self = _descriptor;
+        result = String{FSSoundFont_name(self)};
+        result = OperatingSystem::basename(result, false);
+    }
+
+    Logging_trace1("<<: %1", result.toString());
+    return result;
+}
+
 /*--------------------*/
 
 StringList FluidSynthSoundFont::presetList () const
@@ -279,5 +308,24 @@ StringList FluidSynthSoundFont::presetList () const
     }
 
     Logging_trace1("<<: %1", result.toString());
+    return result;
+}
+
+/*--------------------*/
+
+String FluidSynthSoundFont::presetName (IN Natural bankNumber,
+                                        IN Natural programNumber) const
+{
+    Logging_trace2(">>: bank = %1, program = %2",
+                   TOSTRING(bankNumber), TOSTRING(programNumber));
+
+    Object fsSoundfont = _descriptor;
+    Object preset = FSSoundFont_presetQuery(fsSoundfont,
+                                            (int) bankNumber,
+                                            (int) programNumber);
+    String result =
+        (preset == NULL ? "???" : FSSoundFont_presetName(preset));
+
+    Logging_trace1("<<: %1", result);
     return result;
 }

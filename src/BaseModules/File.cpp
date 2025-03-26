@@ -85,7 +85,7 @@ Boolean File::open (IN String& fileName, IN String& mode)
 void File::close ()
 {
     if (_descriptor != NULL) {
-        FilePointer file = (FilePointer) _descriptor;
+        FilePointer file = static_cast<FilePointer>(_descriptor);
         StdIO_fclose(file);
         _descriptor = NULL;
     }
@@ -100,7 +100,7 @@ Natural File::read (INOUT ByteList& byteList,
                     IN Natural count)
 {
     Assertion_pre(isOpen(), "file must be open for reading");
-    FilePointer file = (FilePointer) _descriptor;
+    FilePointer file = static_cast<FilePointer>(_descriptor);
     char charArray[512];
     const Natural chunkSize = sizeof(charArray);
     Natural totalBytesRead = 0;
@@ -121,9 +121,10 @@ Natural File::read (INOUT ByteList& byteList,
         if (bytesRead == 0) {
             break;
         } else {
-            char* ptr = (char*) byteList.asArray();
+            char* ptr =
+                reinterpret_cast<char*>(static_cast<Byte*>(byteList.asArray()));
             ptr += (size_t)(position + totalBytesRead);
-            std::memcpy(ptr, charArray, (size_t) bytesRead);
+            std::memcpy(ptr, charArray, static_cast<size_t>(bytesRead));
             totalBytesRead += bytesRead;
         }
     }
@@ -154,8 +155,8 @@ Natural File::write (IN ByteList& byteList,
                      IN Natural count)
 {
     Assertion_pre(isOpen(), "file must be open for writing");
-    FilePointer file = (FilePointer) _descriptor;
-    char* characterArray = (char*) byteList.asArray();
+    FilePointer file = static_cast<FilePointer>(_descriptor);
+    const char* characterArray = reinterpret_cast<const char*>(byteList.asArray());
     Natural result = StdIO_fwrite(&characterArray[(size_t) position],
                                   1, (size_t) count, file);
     return result;
@@ -166,7 +167,7 @@ Natural File::write (IN ByteList& byteList,
 void File::writeString (IN String& st)
 {
     Assertion_pre(isOpen(), "file must be open for writing");
-    FilePointer file = (FilePointer) _descriptor;
+    FilePointer file = static_cast<FilePointer>(_descriptor);
     StdIO_fputs(st.c_str(), file);
 }
 
@@ -176,10 +177,15 @@ void File::writeString (IN String& st)
 
 Natural File::length (IN String& fileName)
 {
+    Natural result = 0;
     FilePointer file = StdIO_fopen(fileName.c_str(), "rb");
-    StdIO_fseek(file, 0, SEEK_END);
-    Natural result = (size_t) StdIO_ftell(file);
-    StdIO_fclose(file);
+
+    if (file != NULL) {
+        StdIO_fseek(file, 0, SEEK_END);
+        result = (size_t) StdIO_ftell(file);
+        StdIO_fclose(file);
+    }
+
     return result;
 }
 
@@ -187,7 +193,7 @@ Natural File::length (IN String& fileName)
 /* queries            */
 /*--------------------*/
 
-Boolean File::isOpen ()
+Boolean File::isOpen () const
 {
     return _descriptor != NULL;
 }

@@ -10,7 +10,7 @@ var _wave_file_8cpp =
     [ "WaveFile__readReal", "_wave_file_8cpp.html#a4133a26d5899eddbe11fb69a864ab4b8", null ],
     [ "WaveFile__readRealDataFromByteList", "_wave_file_8cpp.html#a97205a2e4cc7ce07d9157783f7e5cf95", null ],
     [ "WaveFile__skipBytes", "_wave_file_8cpp.html#aaa7d710c1d78cf7924b9560fd8f38060", null ],
-    [ "WaveFile__skipString", "_wave_file_8cpp.html#af4437f5a4767d144c8a4dd450311a684", null ],
+    [ "WaveFile__skipString", "_wave_file_8cpp.html#a2f567733880328394fea4ad9accc3efc", null ],
     [ "WaveFile__writeHeader", "_wave_file_8cpp.html#af0515bd56e7ee1bd6deadcc16806e5f2", null ],
     [ "WaveFile__writeIntDataToByteList", "_wave_file_8cpp.html#af8f5417a4de50c672188d5a9608514f4", null ],
     [ "WaveFile__writeInteger", "_wave_file_8cpp.html#a2b58954745d343e6a0608a73e3cda89d", null ],

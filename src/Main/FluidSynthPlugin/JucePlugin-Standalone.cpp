@@ -1,7 +1,7 @@
 /**
  * @file
  * The <C>JucePlugin-Standalone</C> connects to the JUCE framework client
- * functions for standalone applications (e.g. apps on OSX).
+ * functions for standalone applications (e.g. apps on MacOS).
  *
  * @author Dr. Thomas Tensi
  * @date   2022-04

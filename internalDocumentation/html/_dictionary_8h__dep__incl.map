@@ -1,20 +1,21 @@
 <map id="Dictionary.h" name="Dictionary.h">
-<area shape="rect" id="node1" title="The Dictionary specification defines maps from string keys to string values." alt="" coords="1038,5,1129,32"/>
-<area shape="rect" id="node2" href="$_command_line_arguments_8h.html" title="The CommandLineArguments specification defines a handler for command&#45;line arguments converting them t..." alt="" coords="226,80,405,107"/>
-<area shape="rect" id="node5" href="$_environment_8h.html" title="The Environment specification defines operating system services related to environment variables." alt="" coords="887,80,991,107"/>
-<area shape="rect" id="node9" href="$_operating_system_8h.html" title="The OperatingSystem specification defines a class for several operating system related utility functi..." alt="" coords="1016,80,1151,107"/>
-<area shape="rect" id="node14" href="$_dictionary_8cpp.html" title="The Dictionary body implements maps from string keys to string values." alt="" coords="1175,80,1280,107"/>
-<area shape="rect" id="node15" href="$_fluid_synth_8cpp.html" title="The FluidSynth class implements the access to the fluidsynth library via a dynamic loading of it." alt="" coords="1305,80,1414,107"/>
-<area shape="rect" id="node16" href="$_fluid_synth_settings_8cpp.html" title="The FluidSynthSettings class implements an object&#45;oriented wrapper around an underlying fluidsynth se..." alt="" coords="1438,80,1595,107"/>
-<area shape="rect" id="node17" href="$_midi_event_converter_8h.html" title="The MidiEventConverter specification defines the handling of MIDI events by feeding them to an underl..." alt="" coords="551,80,693,107"/>
+<area shape="rect" id="node1" title="The Dictionary specification defines maps from string keys to string values." alt="" coords="1215,5,1306,32"/>
+<area shape="rect" id="node2" href="$_command_line_arguments_8h.html" title="The CommandLineArguments specification defines a handler for command&#45;line arguments converting them t..." alt="" coords="407,80,586,107"/>
+<area shape="rect" id="node5" href="$_environment_8h.html" title="The Environment specification defines operating system services related to environment variables." alt="" coords="946,80,1050,107"/>
+<area shape="rect" id="node9" href="$_operating_system_8h.html" title="The OperatingSystem specification defines a class for several operating system related utility functi..." alt="" coords="1193,80,1328,107"/>
+<area shape="rect" id="node15" href="$_dictionary_8cpp.html" title="The Dictionary body implements maps from string keys to string values." alt="" coords="1352,80,1457,107"/>
+<area shape="rect" id="node16" href="$_fluid_synth_8cpp.html" title="The FluidSynth class implements the access to the fluidsynth library via a dynamic loading of it." alt="" coords="1482,80,1591,107"/>
+<area shape="rect" id="node17" href="$_fluid_synth_settings_8cpp.html" title="The FluidSynthSettings class implements an object&#45;oriented wrapper around an underlying fluidsynth se..." alt="" coords="1615,80,1773,107"/>
+<area shape="rect" id="node18" href="$_midi_event_converter_8h.html" title="The MidiEventConverter specification defines the handling of MIDI events by feeding them to an underl..." alt="" coords="637,80,780,107"/>
 <area shape="rect" id="node3" href="$_command_line_arguments_8cpp.html" title="The CommandLineArguments body implements a handler for command&#45;line arguments converting them to a li..." alt="" coords="5,155,199,181"/>
-<area shape="rect" id="node4" href="$_fluid_synth_file_converter_8cpp.html" title="The FluidSynthFileConverter module implements a conversion from a MIDI file into a wave file using th..." alt="" coords="223,155,407,181"/>
+<area shape="rect" id="node4" href="$_fluid_synth_file_converter_8cpp.html" title="The FluidSynthFileConverter module implements a conversion from a MIDI file into a wave file using th..." alt="" coords="405,155,589,181"/>
 <area shape="rect" id="node6" href="$_environment_8cpp.html" title="The Environment body implements operating system services related to environment variables." alt="" coords="880,155,999,181"/>
 <area shape="rect" id="node7" href="$_fluid_synth_plugin___editor_8cpp.html" title="The FluidSynthPlugin_Editor module implements the editor for the processor of MIDI events from the DA..." alt="" coords="1023,155,1210,181"/>
 <area shape="rect" id="node8" href="$_fluid_synth_plugin___event_processor_8cpp.html" title="The FluidSynthPlugin_Processor module implements the handling of MIDI events from the DAW via JUCE ha..." alt="" coords="613,155,855,181"/>
-<area shape="rect" id="node10" href="$_wave_file_8cpp.html" title="The WaveFile specification defines an object for accessing a RIFF wave file with several channels." alt="" coords="1523,155,1623,181"/>
-<area shape="rect" id="node11" href="$_logging_support_8cpp.html" title="The LoggingSupport body implements a class for simple entry/exit logging to a file or via a callback ..." alt="" coords="1647,155,1784,181"/>
-<area shape="rect" id="node12" href="$_operating_system_8cpp.html" title="The OperatingSystem body implements a class for several operating system related utility functions (l..." alt="" coords="1235,155,1383,181"/>
-<area shape="rect" id="node13" href="$_midi_file_8cpp.html" title="The MidiFile implementation implements the services of a MIDI file; currently only file reading is su..." alt="" coords="1407,155,1499,181"/>
-<area shape="rect" id="node18" href="$_midi_event_converter_8cpp.html" title="The MidiEventConverter module implements the handling of MIDI events by feeding them to an underlying..." alt="" coords="431,155,589,181"/>
+<area shape="rect" id="node10" href="$_wave_file_8cpp.html" title="The WaveFile specification defines an object for accessing a RIFF wave file with several channels." alt="" coords="1547,155,1647,181"/>
+<area shape="rect" id="node11" href="$_logging_support_8cpp.html" title="The LoggingSupport body implements a class for simple entry/exit logging to a file or via a callback ..." alt="" coords="1671,155,1808,181"/>
+<area shape="rect" id="node12" href="$_operating_system_8cpp.html" title="The OperatingSystem body implements a class for several operating system related utility functions (l..." alt="" coords="1832,155,1980,181"/>
+<area shape="rect" id="node13" href="$_fluid_synth_sound_font_8cpp.html" title="The FluidSynthSoundFont class implements an object&#45;oriented wrapper around an underlying fluidsynth s..." alt="" coords="1235,155,1407,181"/>
+<area shape="rect" id="node14" href="$_midi_file_8cpp.html" title="The MidiFile implementation implements the services of a MIDI file; currently only file reading is su..." alt="" coords="1431,155,1523,181"/>
+<area shape="rect" id="node19" href="$_midi_event_converter_8cpp.html" title="The MidiEventConverter module implements the handling of MIDI events by feeding them to an underlying..." alt="" coords="223,155,381,181"/>
 </map>

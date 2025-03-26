@@ -12,7 +12,7 @@ var _logging_support_8cpp =
       [ "isDone", "_logging_support_8cpp.html#ae1d9048d43db9507aa672f29446e5c14a16f169c333c51345791d66e74f233054", null ]
     ] ],
     [ "_appendEntryToBuffer", "_logging_support_8cpp.html#a4790e291ab04c20505ec9c65a99ccbb6", null ],
-    [ "_bufferEntryToString", "_logging_support_8cpp.html#a91706a3847febcee73058223d6847114", null ],
+    [ "_bufferEntryToString", "_logging_support_8cpp.html#a28e2b50e0cc08c35308b2ddedaa313cc", null ],
     [ "_functionNameFromSignature", "_logging_support_8cpp.html#a7ba123783ebfc65611a763c874a87626", null ],
     [ "_openOrCreateFile", "_logging_support_8cpp.html#a95b03615d3f2cc7273d5975b79621089", null ],
     [ "_writeBufferToFile", "_logging_support_8cpp.html#a92aa75fc925bc045033fb89a83ce80e0", null ],

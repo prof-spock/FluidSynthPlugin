@@ -32,7 +32,7 @@ String BaseTypes::Containers::_dictionaryTypeName ()
 /* constructors       */
 /*--------------------*/
 
-Dictionary Dictionary::makeFromList (IN StringList& list)
+Dictionary Dictionary::fromList (IN StringList& list)
 {
     Dictionary result;
 

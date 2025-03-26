@@ -39,7 +39,8 @@ using STR = BaseModules::StringUtil;
     Boolean _addToSearchPath (IN String& searchPath)
     {
         std::wstring sp = STR::toWideString(searchPath);
-        return Windows::SetDllDirectoryW((Windows::LPCWSTR) sp.c_str());
+        return Windows::SetDllDirectoryW(
+            static_cast<Windows::LPCWSTR>(sp.c_str()));
     }
 
     /*--------------------*/
@@ -48,8 +49,9 @@ using STR = BaseModules::StringUtil;
     {
         Windows::DWORD dwFlags = LOAD_LIBRARY_SEARCH_DEFAULT_DIRS;
         Object result =
-            (Object) Windows::LoadLibraryExA((char*) pathName.c_str(),
-                                             NULL, dwFlags);
+            static_cast<Object>(
+                Windows::LoadLibraryExA(const_cast<char*>(pathName.c_str()),
+                                        NULL, dwFlags));
 
         if (result == NULL) {
             /* just for debugging the library loading */
@@ -65,7 +67,8 @@ using STR = BaseModules::StringUtil;
 
     void _freeLibrary (Object descriptor)
     {
-        Windows::FreeLibrary((Windows::HMODULE) descriptor);
+        Windows::FreeLibrary(
+            static_cast<Windows::HMODULE>(descriptor));
     }
 
     /*--------------------*/
@@ -73,8 +76,9 @@ using STR = BaseModules::StringUtil;
     Object _getFunctionByName (IN Object descriptor,
                                IN String& functionName)
     {
-        return Windows::GetProcAddress((Windows::HMODULE) descriptor,
-                                       (char*) functionName.c_str());
+        return Windows::GetProcAddress(
+            static_cast<Windows::HMODULE>(descriptor),
+            const_cast<char*>(functionName.c_str()));
     }
 
 #else

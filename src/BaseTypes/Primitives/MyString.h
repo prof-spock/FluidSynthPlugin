@@ -37,4 +37,17 @@ namespace BaseTypes::Primitives {
     */
     String String_toString (IN String& st);
 
+    /*--------------------*/
+
+    /**
+    * Returns <C>st</C> with newlines replaced by
+    * <C>lineSeparator</C>.
+    * 
+    * @param[in] st             string to be converted
+    * @param[in] lineSeparator  replacement string for newlines
+    * @return string with newlines replaced
+    */
+    String String_normalize (IN String& st,
+                             IN String& lineSeparator = "§");
+
 }

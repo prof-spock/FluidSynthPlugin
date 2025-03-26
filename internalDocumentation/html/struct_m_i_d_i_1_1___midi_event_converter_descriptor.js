@@ -1,9 +1,11 @@
 var struct_m_i_d_i_1_1___midi_event_converter_descriptor =
 [
     [ "_MidiEventConverterDescriptor", "struct_m_i_d_i_1_1___midi_event_converter_descriptor.html#aadbd733a8f5d79fb4e632581d38728d7", null ],
+    [ "_MidiEventConverterDescriptor", "struct_m_i_d_i_1_1___midi_event_converter_descriptor.html#abe9eb7458990cfefeb6e73d32bbdeb08", null ],
     [ "~_MidiEventConverterDescriptor", "struct_m_i_d_i_1_1___midi_event_converter_descriptor.html#a586334675a83252157810a4e8feecb0b", null ],
     [ "handleProgramChange", "struct_m_i_d_i_1_1___midi_event_converter_descriptor.html#a80653148eb50075eea6c6b9142aa6927", null ],
     [ "handleSoundFontChange", "struct_m_i_d_i_1_1___midi_event_converter_descriptor.html#a47f8965e5eb95829f05607685e478f0e", null ],
+    [ "operator=", "struct_m_i_d_i_1_1___midi_event_converter_descriptor.html#a61c7794c841487cf9f74a02438e34a38", null ],
     [ "processMidiEvent", "struct_m_i_d_i_1_1___midi_event_converter_descriptor.html#afe1fb02481bb2057b6c475a724d1b15e", null ],
     [ "processMidiEventList", "struct_m_i_d_i_1_1___midi_event_converter_descriptor.html#a0b1a6d158e5832a32476ecaa4c714d98", null ],
     [ "resetSettings", "struct_m_i_d_i_1_1___midi_event_converter_descriptor.html#a5afd9738bed70514dee0cf35fa014f46", null ],
@@ -11,6 +13,7 @@ var struct_m_i_d_i_1_1___midi_event_converter_descriptor =
     [ "_audioIsSuppressedForBadSettings", "struct_m_i_d_i_1_1___midi_event_converter_descriptor.html#ac9b3436c1a8d7a003e4bd49283272734", null ],
     [ "_hasValidPreset", "struct_m_i_d_i_1_1___midi_event_converter_descriptor.html#a0b8dbdfcee273e6e03f64b40f904c16e", null ],
     [ "_settings", "struct_m_i_d_i_1_1___midi_event_converter_descriptor.html#abadda2b4545d0d7dd00f83a80b41aeef", null ],
+    [ "presetName", "struct_m_i_d_i_1_1___midi_event_converter_descriptor.html#a5255d5d3c60494425184d637f80f3a49", null ],
     [ "settingsDictionary", "struct_m_i_d_i_1_1___midi_event_converter_descriptor.html#a203f3ddf24acc54f08945e34aadab433", null ],
     [ "soundFontIsOkay", "struct_m_i_d_i_1_1___midi_event_converter_descriptor.html#a0006ac5caefa71972518dbc441adc3e2", null ],
     [ "synthesizer", "struct_m_i_d_i_1_1___midi_event_converter_descriptor.html#a51de84447834e0eafc71f293f268a350", null ],

@@ -34,7 +34,7 @@ using STR = BaseModules::StringUtil;
 /* PROTOTYPES         */
 /*--------------------*/
 
-static Boolean _checkStringForKind (IN String& element,
+static Boolean _checkStringForKind (IN String& st,
                                     IN String& elementKind);
 
 /*--------------------*/

@@ -104,7 +104,7 @@ $(document).ready(function(){initNavTree('_object_8h_source.html',''); initResiz
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Type&gt;</div>
 <div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="_object_8h.html#acb69fd94a2c9714d9eb96f90dbcc32be">   35</a></span>&#160;Type&amp; <a class="code" href="_object_8h.html#acb69fd94a2c9714d9eb96f90dbcc32be">TOREFERENCE</a> (<a class="code" href="namespace_base_types_1_1_primitives.html#ae4ec4f5b067a6d6ad32fffce5dd749ad">BaseTypes::Primitives::Object</a> <span class="keywordtype">object</span>)</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">return</span> *((Type*) <span class="keywordtype">object</span>);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">return</span> *(<span class="keyword">reinterpret_cast&lt;</span>Type*<span class="keyword">&gt;</span>(object));</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

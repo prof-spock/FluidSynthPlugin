@@ -1,8 +1,11 @@
 <map id="MidiPresetIdentification.h" name="MidiPresetIdentification.h">
-<area shape="rect" id="node1" title="The MidiPresetIdentification specification defines the identification of a MIDI preset as a tuple of ..." alt="" coords="343,5,510,32"/>
-<area shape="rect" id="node2" href="$_fluid_synth_plugin___editor_support_8h.html" title="The FluidSynthPlugin_EditorSupport specification defines support services for the editor of the Fluid..." alt="" coords="106,80,323,107"/>
-<area shape="rect" id="node5" href="$_midi_event_converter_8cpp.html" title="The MidiEventConverter module implements the handling of MIDI events by feeding them to an underlying..." alt="" coords="348,80,505,107"/>
-<area shape="rect" id="node6" href="$_midi_preset_identification_8cpp.html" title="The MidiPresetIdentification body implements the identification of a MIDI preset as a tuple of bank a..." alt="" coords="529,80,711,107"/>
-<area shape="rect" id="node3" href="$_fluid_synth_plugin___editor_8cpp.html" title="The FluidSynthPlugin_Editor module implements the editor for the processor of MIDI events from the DA..." alt="" coords="5,155,192,181"/>
-<area shape="rect" id="node4" href="$_fluid_synth_plugin___editor_support_8cpp.html" title="The FluidSynthPlugin_EditorSupport module implements support services for the editor of the FluidSynt..." alt="" coords="217,155,447,181"/>
+<area shape="rect" id="node1" title="The MidiPresetIdentification specification defines the identification of a MIDI preset as a tuple of ..." alt="" coords="499,5,666,32"/>
+<area shape="rect" id="node2" href="$_fluid_synth_plugin___event_processor_8h.html" title="The FluidSynthPlugin_Processor specification defines the handling of MIDI events from the DAW via JUC..." alt="" coords="251,80,480,107"/>
+<area shape="rect" id="node8" href="$_midi_event_converter_8cpp.html" title="The MidiEventConverter module implements the handling of MIDI events by feeding them to an underlying..." alt="" coords="504,80,661,107"/>
+<area shape="rect" id="node9" href="$_midi_preset_identification_8cpp.html" title="The MidiPresetIdentification body implements the identification of a MIDI preset as a tuple of bank a..." alt="" coords="685,80,867,107"/>
+<area shape="rect" id="node3" href="$_fluid_synth_plugin___editor_8h.html" title="The FluidSynthPlugin_Editor specification implements the editor for the processor of MIDI events from..." alt="" coords="170,155,342,181"/>
+<area shape="rect" id="node6" href="$_fluid_synth_plugin___editor_support_8h.html" title="The FluidSynthPlugin_EditorSupport specification defines support services for the editor of the Fluid..." alt="" coords="366,155,583,181"/>
+<area shape="rect" id="node4" href="$_fluid_synth_plugin___editor_8cpp.html" title="The FluidSynthPlugin_Editor module implements the editor for the processor of MIDI events from the DA..." alt="" coords="272,229,459,256"/>
+<area shape="rect" id="node5" href="$_fluid_synth_plugin___event_processor_8cpp.html" title="The FluidSynthPlugin_Processor module implements the handling of MIDI events from the DAW via JUCE ha..." alt="" coords="5,229,248,256"/>
+<area shape="rect" id="node7" href="$_fluid_synth_plugin___editor_support_8cpp.html" title="The FluidSynthPlugin_EditorSupport module implements support services for the editor of the FluidSynt..." alt="" coords="483,229,714,256"/>
 </map>

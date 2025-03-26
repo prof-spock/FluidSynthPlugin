@@ -106,9 +106,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a10e2b6a1806855f2e55a62a2c6b9160e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_base_types_1_1_containers_1_1_string_list.html">StringList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_base_modules_1_1_operating_system.html#a10e2b6a1806855f2e55a62a2c6b9160e">fileNameList</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;directoryName, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a> plainFilesOnly=true)</td></tr>
 <tr class="memdesc:a10e2b6a1806855f2e55a62a2c6b9160e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns list of files in directory named <code>directoryName</code>; if <code>plainFilesOnly</code> is set, only plain files are returned, otherwise only the names of the sub-directories.  <a href="struct_base_modules_1_1_operating_system.html#a10e2b6a1806855f2e55a62a2c6b9160e">More...</a><br /></td></tr>
 <tr class="separator:a10e2b6a1806855f2e55a62a2c6b9160e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9a26c52b3d248a3ffb9e4d1a05a933f"><td class="memItemLeft" align="right" valign="top">static String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_base_modules_1_1_operating_system.html#ad9a26c52b3d248a3ffb9e4d1a05a933f">basename</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;fileName)</td></tr>
-<tr class="memdesc:ad9a26c52b3d248a3ffb9e4d1a05a933f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the base name of file or directory name <code>fileName</code>.  <a href="struct_base_modules_1_1_operating_system.html#ad9a26c52b3d248a3ffb9e4d1a05a933f">More...</a><br /></td></tr>
-<tr class="separator:ad9a26c52b3d248a3ffb9e4d1a05a933f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff45308aa547cb4a3baa360ced388488"><td class="memItemLeft" align="right" valign="top">static String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_base_modules_1_1_operating_system.html#aff45308aa547cb4a3baa360ced388488">basename</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;fileName, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a> extensionIsShown=true)</td></tr>
+<tr class="memdesc:aff45308aa547cb4a3baa360ced388488"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the base name of file or directory name <code>fileName</code>.  <a href="struct_base_modules_1_1_operating_system.html#aff45308aa547cb4a3baa360ced388488">More...</a><br /></td></tr>
+<tr class="separator:aff45308aa547cb4a3baa360ced388488"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3da76af6d2663565ddb6dee7fedda025"><td class="memItemLeft" align="right" valign="top">static String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_base_modules_1_1_operating_system.html#a3da76af6d2663565ddb6dee7fedda025">dirname</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;fileName)</td></tr>
 <tr class="memdesc:a3da76af6d2663565ddb6dee7fedda025"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the directory name of file or directory name <code>fileName</code>.  <a href="struct_base_modules_1_1_operating_system.html#a3da76af6d2663565ddb6dee7fedda025">More...</a><br /></td></tr>
 <tr class="separator:a3da76af6d2663565ddb6dee7fedda025"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -126,8 +126,8 @@ Static Public Member Functions</h2></td></tr>
 <div class="textblock"><p>The <code><a class="el" href="struct_base_modules_1_1_operating_system.html" title="The OperatingSystem specification defines a class for several operating system related utility functi...">OperatingSystem</a></code> specification defines a class for several operating system related utility functions (like e.g. </p>
 <p>file name transformations or checking whether a file exists). </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ad9a26c52b3d248a3ffb9e4d1a05a933f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad9a26c52b3d248a3ffb9e4d1a05a933f">&#9670;&nbsp;</a></span>basename()</h2>
+<a id="aff45308aa547cb4a3baa360ced388488"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff45308aa547cb4a3baa360ced388488">&#9670;&nbsp;</a></span>basename()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -139,8 +139,18 @@ Static Public Member Functions</h2></td></tr>
           <td class="memname">String OperatingSystem::basename </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> String &amp;&#160;</td>
-          <td class="paramname"><em>fileName</em></td><td>)</td>
+          <td class="paramname"><em>fileName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a>&#160;</td>
+          <td class="paramname"><em>extensionIsShown</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -154,6 +164,7 @@ Static Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">fileName</td><td>name of file or directory </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">extensionIsShown</td><td>tells whether extension should be left (or removed) </td></tr>
   </table>
   </dd>
 </dl>

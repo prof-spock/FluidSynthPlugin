@@ -45,7 +45,7 @@ static Boolean _functionsAreInitialized = false;
 
 /** simple macro for dynamic binding of a function */
 #define GPA(signature, name) \
-    (signature) ((DynamicLibrary*) fsLibrary)->getFunctionByName(name)
+    (signature)((DynamicLibrary*) fsLibrary)->getFunctionByName(name)
 
 /*====================*/
 /* PRIVATE FEATURES    */
@@ -95,15 +95,15 @@ FluidSynth::FluidSynth ()
     DynamicLibrary* library = new DynamicLibrary(_libraryName);
     _descriptor = library;
 
-    Boolean isLoaded = library->isLoaded();
+    Boolean libraryIsLoaded = library->isLoaded();
 
-    if (isLoaded) {
+    if (libraryIsLoaded) {
         _initializeFunctionsForLibrary(library);
     }
 
-    String message = (isLoaded
-                      ? "library loaded"
-                      : "could not load library");
+    const String message = (libraryIsLoaded
+                            ? "library loaded"
+                            : "could not load library");
 
     Logging_trace1("<<: %1", message);
 }
@@ -127,7 +127,8 @@ FluidSynth::~FluidSynth ()
 Boolean FluidSynth::isLoaded () const
 {
     Logging_trace(">>");
-    DynamicLibrary* library = (DynamicLibrary*) _descriptor;
+    const DynamicLibrary* library =
+        static_cast<DynamicLibrary*>(_descriptor);
     Boolean result = library->isLoaded();
     Logging_trace1("<<: %1", TOSTRING(result));
     return result;

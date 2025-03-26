@@ -16,6 +16,7 @@
 /* IMPORTS */
 /*=========*/
 
+#include <iterator>
 #include <vector>
 
 #include "Boolean.h"
@@ -270,21 +271,22 @@ namespace BaseTypes::GenericTypes {
                                                  = Integer::maximumValue())
         {
             const Natural listLength = list.length();
-            const Natural first =
+            const Natural firstIndex =
                 (firstPosition >= 0 ?
                  Natural{firstPosition}
                  : listLength - Natural{-firstPosition});
-            Natural last =
+            Natural lastIndex =
                 (lastPosition >= 0
                  ? Natural{lastPosition}
                  : listLength - Natural{-lastPosition});
-            last = Natural::maximum(first,
-                                    Natural::minimum(last, listLength));
-            const Natural newSize = last - first;
+            lastIndex = Natural::maximum(firstIndex,
+                                         Natural::minimum(lastIndex,
+                                                          listLength));
+            const Natural newSize = lastIndex - firstIndex;
 
             GenericList result{newSize};
             Natural i = 0;
-            Natural j = first;
+            Natural j = firstIndex;
 
             while (i < newSize) {
                 result.set(i++, list.at(j++));
@@ -395,7 +397,7 @@ namespace BaseTypes::GenericTypes {
          * @param[in] position  index position
          * @param[in] value     new value at position
          */
-        void set (IN Natural position, IN ElementType value)
+        void set (IN Natural position, IN ElementType& value)
         {
             at(position) = value;
         }
@@ -421,7 +423,7 @@ namespace BaseTypes::GenericTypes {
          * @param[in] newSize  new size of list
          * @param[in] value    value to be filled into list
          */
-        void setLength (IN Natural newSize, IN ElementType value)
+        void setLength (IN Natural newSize, IN ElementType& value)
         {
             _ElementTypeVector::resize((size_t) newSize, value);
         }
@@ -478,7 +480,7 @@ namespace BaseTypes::GenericTypes {
          */
         Boolean isEmpty () const
         {
-            return (this->size() == 0);
+            return _ElementTypeVector::empty();
         }
 
         /*--------------------*/
@@ -568,10 +570,8 @@ namespace BaseTypes::GenericTypes {
                             IN ListTypeB& sourceList)
         {
             targetList.clear();
-
-            for (auto element : sourceList) {
-                targetList.emplace_back(element);
-            }
+            std::copy(sourceList.begin(), sourceList.end(),
+                      std::back_inserter(targetList));
         }
 
     };

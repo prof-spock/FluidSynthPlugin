@@ -82,7 +82,7 @@ namespace BaseTypes::Primitives {
          * @return  string representation
          */
         String toString (IN Natural precision = Natural{0},
-                         IN String padString = "0") const
+                         IN String& padString = "0") const
         {
             String result = std::to_string(_value);
             const Natural length{result.size()};
@@ -326,7 +326,7 @@ namespace BaseTypes::Primitives {
         /**
          * Rounds <C>x</C> to the nearest integer value.
          *
-         * @param[in] x  some real value
+         * @param[in] x  some double value
          * @return  the integer value with least distance to <C>x</C>
          */
         static Integer round (IN double x)

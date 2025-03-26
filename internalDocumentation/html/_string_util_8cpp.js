@@ -12,5 +12,6 @@ var _string_util_8cpp =
     [ "_minusCharacter", "_string_util_8cpp.html#af0a1dafa582d8f3077efa1432ca46d01", null ],
     [ "_notFound", "_string_util_8cpp.html#a0e6930a7ca032c5dd033280e503dfa23", null ],
     [ "_plusCharacter", "_string_util_8cpp.html#ac4d648a69617f932b4bcbcecc61b72c9", null ],
+    [ "_signCharacterList", "_string_util_8cpp.html#a81c8717cc0e818c937f4bb7845101f81", null ],
     [ "_ucAlphaDigitCharacterList", "_string_util_8cpp.html#a341631b7830bb4e242e343223cf6f29a", null ]
 ];

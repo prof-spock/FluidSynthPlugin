@@ -139,7 +139,7 @@ namespace BaseTypes::GenericTypes {
          */
         ElementType someElement ()
         {
-            *(set<ElementType>::begin());
+            return *(set<ElementType>::begin());
         }
 
         /*--------------------*/

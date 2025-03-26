@@ -182,14 +182,14 @@ namespace BaseModules {
              * Initializes logging time object.
              */
             _LoggingTime ()
+                : _timeFractionalDigitCount{0},
+                  _timeFactor{1},
+                  _effectiveDSTOffsetInMilliseconds{
+                      (_isDST() ? _dstOffsetInMilliseconds : Natural{0})},
+                  _previousSystemTime{0},
+                  _previousTimeOfDay{0},
+                  _previousTimeOfDayString{""}
             {
-                _timeFractionalDigitCount = 0;
-                _timeFactor = 1;
-                _previousTimeOfDay = 0;
-                _previousTimeOfDayString = "";
-
-                _effectiveDSTOffsetInMilliseconds =
-                    (_isDST() ? _dstOffsetInMilliseconds : Natural{0});
             }
 
             /*--------------------*/
@@ -375,7 +375,7 @@ static _LoggingTime _loggingTime = _LoggingTime();
 /* Prototypes         */
 /*--------------------*/
 
-static String _bufferEntryToString (_LoggingBufferEntry& bufferEntry);
+static String _bufferEntryToString (IN _LoggingBufferEntry& bufferEntry);
 
 static String _functionNameFromSignature (IN String& functionSignature,
                                           IN String& ignoredFunctionNamePrefix);
@@ -422,7 +422,7 @@ void _appendEntryToBuffer (IN String& functionSignature,
  * @param[in] bufferEntry  logging buffer entry to be converted
  * @return  string representation of logging buffer entry
  */
-static String _bufferEntryToString (_LoggingBufferEntry& bufferEntry)
+static String _bufferEntryToString (IN _LoggingBufferEntry& bufferEntry)
 {
     const String& functionSignature = bufferEntry.functionSignature;
     const String& message           = bufferEntry.message;
@@ -538,7 +538,7 @@ static void _openOrCreateFile (IN Boolean isNew)
  */
 static void _writeBufferToFile ()
 {
-    for (_LoggingBufferEntry& bufferEntry : _buffer) {
+    for (const _LoggingBufferEntry& bufferEntry : _buffer) {
         String line = _bufferEntryToString(bufferEntry) + "\n";
         _file.writeString(line);
     }

@@ -18,10 +18,12 @@
 
 #include "JuceHeaders.h"
 #include "Object.h"
+#include "MidiPresetIdentification.h"
 
 /*--------------------*/
 
 using BaseTypes::Primitives::Object;
+using MIDI::MidiPresetIdentification;
 
 /*====================*/
 
@@ -190,16 +192,16 @@ namespace Main::FluidSynthPlugin {
         void changeProgramName (int index,
                                 const juce::String& newName) override;
 
-        /*---------------------------*/
-        /* parameter access & change */
-        /*---------------------------*/
+        /*--------------------*/
+        /* property access    */
+        /*--------------------*/
 
         /**
-         * Returns the error string for current settings (if any).
+         * Tells whether processor is in erroneous state.
          *
-         * @return current error string
+         * @return  information whether processor cannot work
          */
-        String errorString () const;
+        Boolean isInErrorState () const;
 
         /*--------------------*/
 
@@ -213,11 +215,42 @@ namespace Main::FluidSynthPlugin {
         /*--------------------*/
 
         /**
+         * Returns the message string for current settings: either an
+         * error information or an information about soundfont and
+         * preset.
+         *
+         * @return current message string
+         */
+        String messageString () const;
+
+        /*--------------------*/
+
+        /**
+         * Returns the active preset.
+         *
+         * @return  current preset in processor
+         */
+        MidiPresetIdentification preset () const;
+
+        /*--------------------*/
+
+        /**
          * Returns the current value of the settings string.
          *
          * @return current settings string
          */
         String settings () const;
+
+        /*--------------------*/
+        /* property change    */
+        /*--------------------*/
+
+        /**
+         * Sets the active preset to <C>preset</C>.
+         *
+         * @param[in] preset  new value for preset
+         */
+        void setPreset (IN MidiPresetIdentification& preset);
 
         /*--------------------*/
 

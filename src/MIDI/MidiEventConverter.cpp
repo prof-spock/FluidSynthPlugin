@@ -11,7 +11,6 @@
 /* IMPORTS */
 /*=========*/
 
-#include "Boolean.h"
 #include "Logging.h"
 #include "FluidSynthSoundFont.h"
 #include "MidiEventConverter.h"
@@ -21,7 +20,6 @@
 
 using Audio::AudioSample;
 using Audio::AudioSampleList;
-using BaseTypes::Primitives::Boolean;
 using Libraries::FluidSynth::FluidSynthSoundFont;
 using MIDI::MidiEventConverter;
 using MIDI::MidiEventKind;
@@ -50,6 +48,9 @@ static Boolean _setPreset (INOUT FluidSynthSynthesizer& synthesizer,
 
 /** the name of the key for the MIDI preset with bank and program */
 static const String _presetKey = "preset";
+
+/** the number of the drums midi channel */
+static const Natural _drumsMidiChannel = 10;
 
 /*====================*/
 
@@ -81,7 +82,12 @@ namespace MIDI {
          * playback */
         Boolean synthesizerIsAvailable;
 
+        /** the name of the currently active preset (either set in the
+         * settings or via a program change) */
+        String presetName;
+
         /*--------------------*/
+        /* con-/destruction   */
         /*--------------------*/
 
         /** Sets up the processor descriptor.
@@ -95,9 +101,35 @@ namespace MIDI {
 
         /*--------------------*/
 
+        /**
+         * Constructs new descriptor from <C>otherDescriptor</C>
+         * (NOT AVAILABLE!)
+         *
+         * @param[in] otherDescriptor  descriptor to be copied
+         */
+        _MidiEventConverterDescriptor
+            (IN _MidiEventConverterDescriptor& otherDescriptor) = delete;
+
+        /*--------------------*/
+
         /** Destroys the processor descriptor */
         ~_MidiEventConverterDescriptor ();
 
+        /*--------------------*/
+        /* assignment         */
+        /*--------------------*/
+
+        /**
+         * Assigns current descriptor from <C>otherDescriptor</C>
+         * (NOT AVAILABLE!)
+         *
+         * @param[in] otherDescriptor  descriptor to be assigned
+         */
+        _MidiEventConverterDescriptor& operator=
+            (IN _MidiEventConverterDescriptor& otherDescriptor) = delete;
+
+        /*--------------------*/
+        /* property change    */
         /*--------------------*/
 
         /**
@@ -122,7 +154,7 @@ namespace MIDI {
          * ignored and an empty program is erroneous.
          *
          * @param[in] value           string value for bank and/or
-         *                             program
+         *                            program
          * @param[in] changeIsForced  tells whether program change
          *                            must be done unconditionally
          * @return  information whether program change handling has
@@ -208,7 +240,7 @@ _MidiEventConverterDescriptor
 {
     Logging_trace(">>");
 
-    FluidSynth* library = new FluidSynth();
+    const FluidSynth* library = new FluidSynth();
     _settings = new FluidSynthSettings(library);
     _audioIsSuppressedForBadSettings = audioIsSuppressedForBadSettings;
     synthesizer = new FluidSynthSynthesizer(library, _settings);
@@ -294,7 +326,7 @@ _MidiEventConverterDescriptor::setSetting (IN String& key,
     if (isOkay && updateLevel == UpdateLevel::restart) {
         /* restart synthesizer when synthesizer related setting is
          * activated */
-        FluidSynth* library = synthesizer->library();
+        const FluidSynth* library = synthesizer->library();
         delete synthesizer;
         synthesizer = new FluidSynthSynthesizer(library, _settings);
         synthesizerBufferSize = (!library->isLoaded() ? 0
@@ -369,12 +401,17 @@ Boolean _MidiEventConverterDescriptor::handleProgramChange
         } else {
             FluidSynthSoundFont soundFont{synthesizer};
 
-            if (soundFont.hasProgram(bankNumber, programNumber)) {
-                isOkay = _setPreset(*synthesizer, bankNumber, programNumber);
-            } else {
+            if (!soundFont.hasPreset(bankNumber, programNumber)) {
                 /* program does not exist in current soundfont => skip */
                 Logging_traceError1(errorMessageTemplate, value);
                 isOkay = false;
+            } else {
+                isOkay = _setPreset(*synthesizer, bankNumber, programNumber);
+
+                if (isOkay) {
+                    presetName =
+                        soundFont.presetName(bankNumber, programNumber);
+                }
             }
         }
 
@@ -393,11 +430,9 @@ Boolean _MidiEventConverterDescriptor::handleSoundFontChange
     Logging_trace1(">>: %1", value);
 
     soundFontIsOkay = synthesizer->loadSoundFont(value);
-    /* reset bank and program to 0 */
-    Boolean isOkay =
-        (soundFontIsOkay && _setPreset(*synthesizer, 0, 0));
+    Boolean isOkay = soundFontIsOkay;
     _hasValidPreset = false;
-    
+
     Logging_trace1("<<: %1", TOSTRING(isOkay));
     return isOkay;
 }
@@ -419,7 +454,7 @@ Boolean _MidiEventConverterDescriptor::processMidiEvent (IN MidiEvent& event)
             const Natural controller = (Natural) event.getDataByte(1);
             const Natural value      = (Natural) event.getDataByte(2);
             const Boolean isBankChange =
-                (controller == 0 && controller != 32);
+                (controller == 0 && controller == 32);
 
             if (_hasValidPreset && isBankChange) {
                 Logging_trace("--: skipped bank change when preset is valid");
@@ -555,7 +590,7 @@ static String _findSuitablePreset (IN FluidSynthSoundFont& soundFont)
 
     while (!isFound && bankNumber < 16384) {
         while (!isFound && programNumber < 128) {
-            if (soundFont.hasProgram(bankNumber, programNumber)) {
+            if (soundFont.hasPreset(bankNumber, programNumber)) {
                 isFound = true;
                 break;
             }
@@ -654,14 +689,14 @@ MidiEventConverter::~MidiEventConverter ()
 /*--------------------*/
 
 Boolean MidiEventConverter::getSetting (IN String& key,
-                                        OUT String& value)
+                                        OUT String& value) const
 {
     Logging_trace1(">>: %1", key);
 
     _MidiEventConverterDescriptor& descriptor =
         TOREFERENCE<_MidiEventConverterDescriptor>(_descriptor);
-    Dictionary& settings = descriptor.settingsDictionary;
-    Boolean isOkay = settings.contains(key);
+    const Dictionary& settings = descriptor.settingsDictionary;
+    const Boolean isOkay = settings.contains(key);
 
     if (isOkay) {
         value = settings.at(key);
@@ -677,9 +712,9 @@ Boolean MidiEventConverter::getSetting (IN String& key,
 Boolean MidiEventConverter::isCorrectlyInitialized () const
 {
     Logging_trace(">>");
-    _MidiEventConverterDescriptor& descriptor =
+    const _MidiEventConverterDescriptor& descriptor =
         TOREFERENCE<_MidiEventConverterDescriptor>(_descriptor);
-    FluidSynth* library = descriptor.synthesizer->library();
+    const FluidSynth* library = descriptor.synthesizer->library();
     Boolean result = (library->isLoaded());
     Logging_trace1("<<: %1", TOSTRING(result));
     return result;
@@ -691,9 +726,9 @@ String MidiEventConverter::fsLibraryVersion () const
 {
     Logging_trace(">>");
 
-    _MidiEventConverterDescriptor& descriptor =
+    const _MidiEventConverterDescriptor& descriptor =
         TOREFERENCE<_MidiEventConverterDescriptor>(_descriptor);
-    FluidSynth* library = descriptor.synthesizer->library();
+    const FluidSynth* library = descriptor.synthesizer->library();
     String result = library->version();
 
     Logging_trace1("<< %1", result);
@@ -705,7 +740,7 @@ String MidiEventConverter::fsLibraryVersion () const
 StringList MidiEventConverter::presetList () const
 {
     Logging_trace(">>");
-    _MidiEventConverterDescriptor& descriptor =
+    const _MidiEventConverterDescriptor& descriptor =
         TOREFERENCE<_MidiEventConverterDescriptor>(_descriptor);
 
     FluidSynthSoundFont soundFont{descriptor.synthesizer};
@@ -717,12 +752,40 @@ StringList MidiEventConverter::presetList () const
 
 /*--------------------*/
 
-Natural
-MidiEventConverter::synthesizerBufferSize () const
+String MidiEventConverter::presetName () const
 {
     Logging_trace(">>");
 
-    _MidiEventConverterDescriptor& descriptor =
+    const _MidiEventConverterDescriptor& descriptor =
+        TOREFERENCE<_MidiEventConverterDescriptor>(_descriptor);
+    const String result = descriptor.presetName;
+
+    Logging_trace1("<< %1", result.toString());
+    return result;
+}
+
+/*--------------------*/
+
+String MidiEventConverter::soundFontName () const
+{
+    Logging_trace(">>");
+
+    const _MidiEventConverterDescriptor& descriptor =
+        TOREFERENCE<_MidiEventConverterDescriptor>(_descriptor);
+    FluidSynthSoundFont soundFont{descriptor.synthesizer};
+    const String result = soundFont.name();
+
+    Logging_trace1("<< %1", result.toString());
+    return result;
+}
+
+/*--------------------*/
+
+Natural MidiEventConverter::synthesizerBufferSize () const
+{
+    Logging_trace(">>");
+
+    const _MidiEventConverterDescriptor& descriptor =
         TOREFERENCE<_MidiEventConverterDescriptor>(_descriptor);
     Natural result = descriptor.synthesizerBufferSize;
 
@@ -888,7 +951,7 @@ String MidiEventConverter::getStateInformation ()
 
     /* the state of the Midi instrument is just the serialized
        settings dictionary */
-    _MidiEventConverterDescriptor& descriptor =
+    const _MidiEventConverterDescriptor& descriptor =
         TOREFERENCE<_MidiEventConverterDescriptor>(_descriptor);
     const String result = descriptor.settingsDictionary.toString();
 

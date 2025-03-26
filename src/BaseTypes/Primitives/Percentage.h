@@ -91,7 +91,7 @@ namespace BaseTypes::Primitives {
          */
         String toString (IN Natural precision = 0,
                          IN Natural fractionalDigitCount = 0,
-                         IN String padString = "0") const
+                         IN String& padString = "0") const
         {
             String result = std::to_string(_value);
             const Natural length{result.size()};

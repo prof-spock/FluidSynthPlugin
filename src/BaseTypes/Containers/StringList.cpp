@@ -37,7 +37,7 @@ StringList StringList::fromList (IN initializer_list<String> list)
 {
     StringList result{};
 
-    for (String element : list) {
+    for (const String& element : list) {
         result.append(element);
     }
             
