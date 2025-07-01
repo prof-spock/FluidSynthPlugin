@@ -1,22 +1,46 @@
 <map id="WaveFile.h" name="WaveFile.h">
-<area shape="rect" id="node1" title="The WaveFile specification defines an object for accessing a RIFF wave file with several channels." alt="" coords="439,5,525,32"/>
-<area shape="rect" id="node2" href="$_audio_sample_list_vector_8h.html" title="The AudioSampleListVector specification defines the communication buffer structure for the block proc..." alt="" coords="215,80,384,107"/>
-<area shape="rect" id="node10" href="$_natural_8h.html" title="The Natural specification and body provides a value object type for naturals (positive integers with ..." alt="" coords="197,453,271,480"/>
-<area shape="rect" id="node20" href="$_object_8h.html" title="The Object specification and body provides the root object type." alt="" coords="520,80,591,107"/>
-<area shape="rect" id="node3" href="$_audio_sample_list_8h.html" title="The AudioSampleList specification defines lists of audio samples with zero&#45;based arbitrary indexed ac..." alt="" coords="234,155,365,181"/>
-<area shape="rect" id="node19" href="$_audio_sample_list_vector_8cpp-inc.html" title="The AudioSampleListVector body implements the communication buffer structure for the block processing..." alt="" coords="5,155,209,181"/>
-<area shape="rect" id="node4" title=" " alt="" coords="346,229,445,256"/>
-<area shape="rect" id="node5" href="$_audio_sample_8h.html" title="The AudioSample specification and body provides the definition of the audio sample (a real value)." alt="" coords="20,229,131,256"/>
-<area shape="rect" id="node16" href="$_audio_sample_list_8cpp-inc.html" title="The AudioSampleList body implements a simple list of audio samples (this is the effective code includ..." alt="" coords="155,229,321,256"/>
-<area shape="rect" id="node6" href="$_real_8h.html" title="The Real specification defines a value object type for real values." alt="" coords="62,304,121,331"/>
-<area shape="rect" id="node7" href="$_integer_8h.html" title="The Integer specification and body provides a value object type for ints." alt="" coords="87,379,159,405"/>
-<area shape="rect" id="node8" title=" " alt="" coords="105,528,163,555"/>
-<area shape="rect" id="node9" title=" " alt="" coords="67,603,145,629"/>
-<area shape="rect" id="node11" href="$_assertion_8h.html" title="The Assertion specification defines macros for pre&#45; and postconditions in functions or methods." alt="" coords="187,528,275,555"/>
-<area shape="rect" id="node13" title=" " alt="" coords="409,528,531,555"/>
-<area shape="rect" id="node14" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="299,528,385,555"/>
-<area shape="rect" id="node12" title=" " alt="" coords="205,603,260,629"/>
-<area shape="rect" id="node15" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="285,603,399,629"/>
-<area shape="rect" id="node17" href="$_my_array_8h.html" title="The MyArray specification and body defines a generic array type for stack allocated arrays represente..." alt="" coords="197,304,279,331"/>
-<area shape="rect" id="node18" title=" " alt="" coords="271,379,333,405"/>
+<area shape="rect" id="Node000001" title="The WaveFile specification defines an object for accessing a RIFF wave file with several channels." alt="" coords="439,5,525,31"/>
+<area shape="rect" id="Node000002" href="$_audio_sample_list_vector_8h.html" title="The AudioSampleListVector specification defines the communication buffer structure for the block proc..." alt="" coords="215,79,384,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="454,33,343,76,341,71,452,28"/>
+<area shape="rect" id="Node000010" href="$_natural_8h.html" title="The Natural specification and body provides a value object type for naturals (positive integers with ..." alt="" coords="197,445,271,471"/>
+<area shape="poly" id="edge23_Node000001_Node000010" title=" " alt="" coords="485,31,485,163,485,313,479,345,464,372,440,395,412,413,347,439,286,453,284,447,346,433,410,408,437,390,459,369,474,343,479,312,479,163,479,31"/>
+<area shape="rect" id="Node000020" href="$_object_8h.html" title="The Object specification and body provides the root object type." alt="" coords="520,79,591,104"/>
+<area shape="poly" id="edge24_Node000001_Node000020" title=" " alt="" coords="496,29,535,67,532,71,492,33"/>
+<area shape="rect" id="Node000003" href="$_audio_sample_list_8h.html" title="The AudioSampleList specification defines lists of audio samples with zero&#45;based arbitrary indexed ac..." alt="" coords="234,152,365,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="302,104,302,138,297,138,297,104"/>
+<area shape="rect" id="Node000019" href="$_audio_sample_list_vector_8cpp-inc.html" title="The AudioSampleListVector body implements the communication buffer structure for the block processing..." alt="" coords="5,152,209,177"/>
+<area shape="poly" id="edge22_Node000002_Node000019" title=" " alt="" coords="269,107,153,149,151,144,268,102"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="346,225,445,251"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="316,175,370,215,367,219,313,180"/>
+<area shape="rect" id="Node000005" href="$_audio_sample_8h.html" title="The AudioSample specification and body provides the definition of the audio sample (a real value)." alt="" coords="20,225,131,251"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="264,180,125,224,124,219,263,175"/>
+<area shape="rect" id="Node000016" href="$_audio_sample_list_8cpp-inc.html" title="The AudioSampleList body implements a simple list of audio samples (this is the effective code includ..." alt="" coords="155,225,321,251"/>
+<area shape="poly" id="edge18_Node000003_Node000016" title=" " alt="" coords="291,179,259,217,255,213,287,176"/>
+<area shape="rect" id="Node000006" href="$_real_8h.html" title="The Real specification defines a value object type for real values." alt="" coords="62,299,121,324"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="81,250,88,285,83,286,75,252"/>
+<area shape="rect" id="Node000007" href="$_integer_8h.html" title="The Integer specification and body provides a value object type for ints." alt="" coords="87,372,159,397"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="99,323,115,359,110,361,94,325"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="105,519,163,544"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="127,398,135,505,129,505,122,398"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="67,592,145,617"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="121,398,102,460,95,502,95,544,102,578,97,579,90,544,90,501,97,459,116,397"/>
+<area shape="poly" id="edge9_Node000007_Node000010" title=" " alt="" coords="143,395,206,435,203,440,140,400"/>
+<area shape="poly" id="edge10_Node000010_Node000008" title=" " alt="" coords="219,473,163,513,160,508,216,469"/>
+<area shape="rect" id="Node000011" href="$_assertion_8h.html" title="The Assertion specification defines macros for pre&#45; and postconditions in functions or methods." alt="" coords="187,519,275,544"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="236,471,235,505,230,505,231,471"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="409,519,531,544"/>
+<area shape="poly" id="edge14_Node000010_Node000013" title=" " alt="" coords="272,468,420,512,418,517,271,473"/>
+<area shape="rect" id="Node000014" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="299,519,385,544"/>
+<area shape="poly" id="edge15_Node000010_Node000014" title=" " alt="" coords="253,468,314,509,311,513,250,473"/>
+<area shape="poly" id="edge12_Node000011_Node000009" title=" " alt="" coords="213,546,140,587,137,583,210,542"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="205,592,260,617"/>
+<area shape="poly" id="edge13_Node000011_Node000012" title=" " alt="" coords="234,544,235,578,230,579,229,544"/>
+<area shape="poly" id="edge16_Node000014_Node000012" title=" " alt="" coords="326,546,264,587,261,582,323,542"/>
+<area shape="rect" id="Node000015" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="285,592,399,617"/>
+<area shape="poly" id="edge17_Node000014_Node000015" title=" " alt="" coords="345,544,345,578,339,578,339,544"/>
+<area shape="rect" id="Node000017" href="$_my_array_8h.html" title="The MyArray specification and body defines a generic array type for stack allocated arrays represente..." alt="" coords="197,299,279,324"/>
+<area shape="poly" id="edge19_Node000016_Node000017" title=" " alt="" coords="241,251,241,285,235,285,235,251"/>
+<area shape="poly" id="edge21_Node000017_Node000010" title=" " alt="" coords="240,325,237,432,232,432,235,324"/>
+<area shape="rect" id="Node000018" title=" " alt="" coords="271,372,333,397"/>
+<area shape="poly" id="edge20_Node000017_Node000018" title=" " alt="" coords="251,323,285,360,281,364,247,326"/>
 </map>

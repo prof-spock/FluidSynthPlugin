@@ -111,7 +111,7 @@ static void _adaptForScientificNotation (INOUT Real& value,
  */
 static Real _tenPower (IN Natural exponent)
 {
-    Real result{Real::one};
+    Real result = Real::one;
 
     for (Natural count = 0;  count < exponent;  count++) {
         result *= Real::ten;
@@ -210,7 +210,7 @@ String Real::toString (IN Natural precision,
                                         suffix);
 
             /* round last digit of fractional part */
-            v += Real::one / _tenPower(fracDigitCount) / Real::two;
+            v += Real::one / (_tenPower(fracDigitCount) * Real::two);
         
             /* construct integral and fractional parts */
             Natural iP = (Natural) v.integralPart();
@@ -225,7 +225,7 @@ String Real::toString (IN Natural precision,
 
             while (fP > 0.0
                    && fractionalPartAsString.length() < fracDigitCount) {
-                fP *= Real::ten;
+                fP *= 10.0;
                 Natural digit = (Natural) fP.floor();
                 fP -= Real{digit};
                 fractionalPartAsString += STR::substring(_digitList, digit, 1);

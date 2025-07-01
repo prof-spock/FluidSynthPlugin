@@ -1,5 +1,7 @@
 <map id="BuildInformation.h" name="BuildInformation.h">
-<area shape="rect" id="node1" title="The BuildInformation specification defines four functions returning build date and time,..." alt="" coords="116,5,241,32"/>
-<area shape="rect" id="node2" href="$_build_information_8cpp.html" title="The BuildInformation body implements four functions returning build date and time,..." alt="" coords="5,80,144,107"/>
-<area shape="rect" id="node3" href="$_fluid_synth_plugin___editor_support_8cpp.html" title="The FluidSynthPlugin_EditorSupport module implements support services for the editor of the FluidSynt..." alt="" coords="169,80,399,107"/>
+<area shape="rect" id="Node000001" title="The BuildInformation specification defines four functions returning build date and time,..." alt="" coords="116,5,241,31"/>
+<area shape="rect" id="Node000002" href="$_build_information_8cpp.html" title="The BuildInformation body implements four functions returning build date and time,..." alt="" coords="5,79,144,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,41,93,81,90,76,149,36"/>
+<area shape="rect" id="Node000003" href="$_fluid_synth_plugin___editor_support_8cpp.html" title="The FluidSynthPlugin_EditorSupport module implements support services for the editor of the FluidSynt..." alt="" coords="169,79,399,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="209,36,268,76,265,81,206,41"/>
 </map>

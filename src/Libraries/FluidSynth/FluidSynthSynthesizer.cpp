@@ -37,9 +37,6 @@ typedef void (*FSSynthesizer_DestructionProc)(Object);
 /** MIDI bank selection function type in library */
 typedef int (*FSSynthesizer_BankChangeProc)(Object, int, int);
 
-/** internal buffer size function type in library */
-typedef int (*FSSynthesizer_BufferSizeProc)(Object);
-
 /** MIDI control change function type in library */
 typedef int (*FSSynthesizer_ControlChangeProc)(Object, int, int, int);
 
@@ -58,15 +55,19 @@ typedef int (*FSSynthesizer_PitchBendProc)(Object, int, int);
 /** poly touch function type in library */
 typedef int (*FSSynthesizer_PolyTouchProc)(Object, int, int);
 
+/** audio buffer processing function type in library */
+typedef int (*FSSynthesizer_ProcessProc)(Object, int, int,
+                                         Object, int, Object);
+
 /** MIDI program change function type in library */
 typedef int (*FSSynthesizer_ProgChangeProc)(Object, int, int);
 
 /** sound font load function type in library */
 typedef int (*FSSynthesizer_SFLoadProc)(Object, const char*, int);
 
-/** audio buffer processing function type in library */
-typedef int (*FSSynthesizer_ProcessProc)(Object, int, int,
-                                         Object, int, Object);
+/** internal size function type in library */
+typedef int (*FSSynthesizer_SizeProc)(Object);
+
 
 /** SPECIAL FUNCTION: setting function type for interpolation method
   * in library */
@@ -82,7 +83,10 @@ static FSSynthesizer_CreationProc FSSynthesizer_make;
 static FSSynthesizer_DestructionProc FSSynthesizer_destroy;
 
 /** the internal buffer size (raster) in library */
-static FSSynthesizer_BufferSizeProc FSSynthesizer_internalBufferSize;
+static FSSynthesizer_SizeProc FSSynthesizer_internalBufferSize;
+
+/** the number of audio channel pairs in library */
+static FSSynthesizer_SizeProc FSSynthesizer_audioChannelPairCount;
 
 /** MIDI bank select function type in library */
 static FSSynthesizer_BankChangeProc FSSynthesizer_handleBankChange;
@@ -184,8 +188,11 @@ static void _initializeFunctionsForLibrary (IN Object fsLibrary)
             GPA(FSSynthesizer_DestructionProc, "delete_fluid_synth");
 
         FSSynthesizer_internalBufferSize =
-            GPA(FSSynthesizer_BufferSizeProc,
+            GPA(FSSynthesizer_SizeProc,
                 "fluid_synth_get_internal_bufsize");
+        FSSynthesizer_audioChannelPairCount =
+            GPA(FSSynthesizer_SizeProc,
+                "fluid_synth_count_audio_channels");
         FSSynthesizer_handleBankChange =
             GPA(FSSynthesizer_BankChangeProc, "fluid_synth_bank_select");
         FSSynthesizer_handleControlChange = 
@@ -299,6 +306,8 @@ Natural FluidSynthSynthesizer::internalBufferSize () const
     Logging_trace1("<<: %1", TOSTRING(result));
     return result;
 }
+
+
 
 /*--------------------*/
 
@@ -620,30 +629,57 @@ FluidSynthSynthesizer::process (INOUT AudioSampleListVector& sampleBuffer,
         Logging_traceError(_errorMessageForUndefinedDescriptor);
     } else if (FSSynthesizer_process == NULL) {
         _reportBadFunction("process");
+    } else if (FSSynthesizer_audioChannelPairCount == NULL) {
+        _reportBadFunction("audioChannelPairCount");
     } else {
+        int i;
         _SynthesizerDescriptor& descriptor =
             TOREFERENCE<_SynthesizerDescriptor>(_descriptor);
 
-        /* provide a stereo buffer with sample count frames */
-        float* floatSampleBuffer[] = {
-            static_cast<float*>(makeLocalArray(float, sampleCount)),
-            static_cast<float*>(makeLocalArray(float, sampleCount))
+        /* count of channels that FluidSynth can handle */
+        const Natural fluidSynthChannelCount =
+            2 * FSSynthesizer_audioChannelPairCount(descriptor.synthesizer);
+        int effectiveChannelCount =
+            (size_t) Natural::minimum(channelCount + channelCount % 2,
+                                      fluidSynthChannelCount);
+            
+        /* provide a float buffer for FluidSynth with <sampleCount> frames */
+        float** floatSampleBuffer =
+            static_cast<float**>(makeLocalArray(float*,
+                                                effectiveChannelCount));
+
+        for (i = 0;  i < effectiveChannelCount;  i++) {
+            floatSampleBuffer[i] = 
+                static_cast<float*>(makeLocalArray(float, sampleCount));
+            clearArray(floatSampleBuffer[i], sampleCount, 0.0f);
         };
 
-        clearArray(floatSampleBuffer[0], sampleCount, 0.0f);
-        clearArray(floatSampleBuffer[1], sampleCount, 0.0f);
-        
         /* mix dry audio and effects into sample buffer */
         Integer operationResult =
             FSSynthesizer_process(descriptor.synthesizer,
                                   (int) sampleCount,
-                                  (int) channelCount, floatSampleBuffer,
-                                  (int) channelCount, floatSampleBuffer);
+                                  effectiveChannelCount, floatSampleBuffer,
+                                  effectiveChannelCount, floatSampleBuffer);
 
-        AudioSample* sampleListA = sampleBuffer[0].asArray(position);
-        AudioSample* sampleListB = sampleBuffer[1].asArray(position);
-        convertArray(sampleListA, floatSampleBuffer[0], sampleCount);
-        convertArray(sampleListB, floatSampleBuffer[1], sampleCount);
+        /* provide an audio sample buffer with <sampleCount> frames */
+        AudioSample** sampleList =
+            static_cast<AudioSample**>(makeLocalArray(AudioSample*,
+                                                      channelCount));
+
+        effectiveChannelCount =
+            (size_t) Natural::minimum(channelCount, effectiveChannelCount);
+
+        /* copy the channel data from FluidSynth into <sampleBuffer> */
+        for (i = 0;  i < effectiveChannelCount;  i++) {
+            convertArray(sampleBuffer[i].asArray(position),
+                         floatSampleBuffer[i], sampleCount);
+        }
+
+        /* clear remaining channels (if any) */
+        while (i < (int) channelCount) {
+            clearArray(sampleBuffer[i++].asArray(position),
+                       sampleCount, AudioSample{0.0});
+        }
 
         isOkay = (operationResult == 0);
     }

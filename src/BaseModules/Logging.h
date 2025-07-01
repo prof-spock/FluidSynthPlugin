@@ -88,6 +88,12 @@ using BaseModules::StringUtil;
                 Logging::setIgnoredFunctionNamePrefix(prefix)
 
     /**
+     * Enables or disables thread information in logs
+     */
+    #define Logging_setTracingOfThreadID(threadIDIsLogged) \
+                Logging::setTracingOfThreadID(threadIDIsLogged)
+
+    /**
      * Enables or disables time information in logs with some
      * precision beyond seconds
      */
@@ -149,6 +155,11 @@ using BaseModules::StringUtil;
      * (empty)
      */
     #define Logging_setIgnoredFunctionNamePrefix(prefix)
+
+    /**
+     * Enables or disables thread information in logs
+     */
+    #define Logging_setTracingOfThreadID(threadIDIsLogged)
 
     /**
      * Enables or disables time information in logs with some

@@ -1,3 +1,11 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$struct_m_i_d_i_1_1_midi_meta_event_kind.html" title="the kind of a MIDI meta event" alt="" coords="5,5,172,32"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="29,5,149,31"/>
+<area shape="rect" id="Node000001" href="$struct_main_1_1_fluid_synth_plugin_1_1___preset_selection_component.html" title="A selection component for soundfont presets." alt="" coords="220,7,415,47"/>
+<area shape="poly" id="edge23_Node000000_Node000001" title=" " alt="" coords="163,18,220,21,220,26,162,24"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="15,55,162,80"/>
+<area shape="poly" id="edge24_Node000002_Node000001" title=" " alt="" coords="175,50,219,42,220,47,176,55"/>
+<area shape="rect" id="Node000003" href="$struct_main_1_1_fluid_synth_plugin_1_1___widget_listener.html" title="A listener class for button and text editor events." alt="" coords="239,79,395,119"/>
+<area shape="poly" id="edge25_Node000002_Node000003" title=" " alt="" coords="176,77,239,86,239,91,175,82"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,104,172,129"/>
+<area shape="poly" id="edge26_Node000004_Node000003" title=" " alt="" coords="186,107,239,103,239,108,186,112"/>
 </map>

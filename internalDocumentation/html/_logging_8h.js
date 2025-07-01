@@ -1,5 +1,7 @@
 var _logging_8h =
 [
+    [ "Logging", "struct_logging.html", "struct_logging" ],
+    [ "StringUtil", "struct_string_util.html", "struct_string_util" ],
     [ "_expand", "_logging_8h.html#ad0d58671e981a2c57f2ff48bd7563019", null ],
     [ "_Logging_trace", "_logging_8h.html#acb33cbdf21f5bb7ab924607995c9a94f", null ],
     [ "_Logging_traceError", "_logging_8h.html#ae78b681f18b62d63b53a7eabded40db3", null ],
@@ -11,6 +13,7 @@ var _logging_8h =
     [ "Logging_setCallbackFunction", "_logging_8h.html#a96735ef5204bae69438032ac8a9a80ff", null ],
     [ "Logging_setFileName", "_logging_8h.html#a0ed6d2e89d966d66513413f61dcd919b", null ],
     [ "Logging_setIgnoredFunctionNamePrefix", "_logging_8h.html#acf38b27d4d71b187d814e77e9b0dbf87", null ],
+    [ "Logging_setTracingOfThreadID", "_logging_8h.html#a9838e9c7ffa046bfa07fb06708c67f6b", null ],
     [ "Logging_setTracingWithTime", "_logging_8h.html#aac45c29927adab4c35d2c8d271943e15", null ],
     [ "Logging_trace", "_logging_8h.html#a1c73428608a1317df3f144c354535ef7", null ],
     [ "Logging_trace1", "_logging_8h.html#a6c1081b18e91cbafb22f042045a8174c", null ],

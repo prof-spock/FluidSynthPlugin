@@ -35,7 +35,9 @@ namespace BaseTypes::Primitives {
                              IN String& lineSeparator)
     {
         String result = st;
-        STR::replace(result, "\n", lineSeparator);
+        STR::replace(result, "\r\n", lineSeparator);
+        STR::replace(result, "\n",   lineSeparator);
+        STR::replace(result, "\r",   lineSeparator);
         return result;
     }
 

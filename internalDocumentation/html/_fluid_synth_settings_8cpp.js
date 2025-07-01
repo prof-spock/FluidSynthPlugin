@@ -1,5 +1,6 @@
 var _fluid_synth_settings_8cpp =
 [
+    [ "FluidSynthSettings", "struct_fluid_synth_settings.html", "struct_fluid_synth_settings" ],
     [ "GPA", "_fluid_synth_settings_8cpp.html#a2eddf0f1f16313b56d83951421f26e77", null ],
     [ "reportBadFunction", "_fluid_synth_settings_8cpp.html#aba26261f70b35fe5d7d27b7d60c33b70", null ],
     [ "FSSettings_CreationProc", "_fluid_synth_settings_8cpp.html#a80ddb0ce46d549dbd1eb9fc793f12a9b", null ],
@@ -7,7 +8,6 @@ var _fluid_synth_settings_8cpp =
     [ "FSSettings_SetIntProc", "_fluid_synth_settings_8cpp.html#ae1cebe63d397486c7540026ba897004c", null ],
     [ "FSSettings_SetNumProc", "_fluid_synth_settings_8cpp.html#a702eb0209b580a1bf1b6e10476e5dbd9", null ],
     [ "FSSettings_SetStrProc", "_fluid_synth_settings_8cpp.html#aa06f553e0f512ea606d1c47db7fa00a5", null ],
-    [ "STR", "_fluid_synth_settings_8cpp.html#a5b6f88d1249b396e351c4a85bcb35b2c", null ],
     [ "_initializeFunctionsForLibrary", "_fluid_synth_settings_8cpp.html#a1c9d1152afce3310aaf2b720af890a27", null ],
     [ "_functionsAreInitialized", "_fluid_synth_settings_8cpp.html#ab4297750293feb181265d1000d8d1c1d", null ],
     [ "_settingsKeyToKindMap", "_fluid_synth_settings_8cpp.html#a629e72ed18e86abd293a8598df5e89f0", null ],

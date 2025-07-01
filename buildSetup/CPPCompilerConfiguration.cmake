@@ -1,71 +1,92 @@
 # -*- coding: utf-8 -*-
 #
-# Local Settings for the C++-Compiler in CMAKE for DrTT JUCE plugins
+# Local Settings for the C++-Compiler in CMAKE for DrTT JUCE programs
 #
+
+SET(CMPCONF_compilerIsCLANG 0)
+SET(CMPCONF_compilerIsGCC   0)
+SET(CMPCONF_compilerIsMSVC  0)
+
+IF (CMAKE_CXX_COMPILER_ID MATCHES ".*Clang")
+    SET(CMPCONF_compilerIsCLANG 1)
+ELSEIF(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+    SET(CMPCONF_compilerIsGCC   1)
+ELSEIF(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+    SET(CMPCONF_compilerIsMSVC  1)
+ENDIF()
+
+IF(CMPCONF_compilerIsMSVC)
+    SET(CMPCONF_Warning_disablingPrefix /wd)
+    SET(CMPCONF_Warning_disableAll /W0)
+    SET(CMPCONF_Warning_maximumLevel /W4)
+ELSE()
+    SET(CMPCONF_Warning_disablingPrefix -Wno-)
+    SET(CMPCONF_Warning_disableAll -w)
+    SET(CMPCONF_Warning_maximumLevel -Wall)
+ENDIF()
 
 # #################
 # ### FUNCTIONS ###
 # #################
 
-IF(MSVC)
-    SET(Warning_disablingPrefix /wd)
-    SET(Warning_disableAll /W0)
-    SET(Warning_maximumLevel /W4)
-ELSE()
-    SET(Warning_disablingPrefix -Wno-)
-    SET(Warning_disableAll -w)
-    SET(Warning_maximumLevel -Wall)
-ENDIF()
+FUNCTION(CMPCONF_addCompilerFlags targetName warningsAreEnabled)
+    # adds compiler flags to target <targetName> taking into account
+    # whether warnings are enabled via <warningsAreEnabled>
 
+    MESSAGE(STATUS
+            "target " ${targetName}
+            ": compiler warnings = " ${warningsAreEnabled})
 
-FUNCTION(appendToCommonDefineClauses)
+    # definitions
+    TARGET_COMPILE_DEFINITIONS(${targetName} PRIVATE
+                               ${CMPCONF_cppDefinitions_common})
+
+    TARGET_COMPILE_DEFINITIONS(${targetName} PRIVATE
+                               $<IF:$<CONFIG:Release>,NDEBUG,DEBUG>)
+
+    IF(CMPCONF_debugVersionHasLogging STREQUAL "X")
+        # compile with logging enabled globally for a debug
+        # configuration
+        TARGET_COMPILE_DEFINITIONS(${targetName} PRIVATE
+                                   $<$<CONFIG:Debug>:LOGGING_IS_ACTIVE>)
+    ENDIF()
+
+    # options
+    TARGET_COMPILE_OPTIONS(${targetName} PRIVATE
+                           ${CMPCONF_cppOptions_common})
+
+    IF(warningsAreEnabled)
+        TARGET_COMPILE_OPTIONS(${targetName} PRIVATE
+                               ${CMPCONF_cppWarningOptions})
+    ELSE()
+        TARGET_COMPILE_OPTIONS(${targetName} PRIVATE
+                               ${CMPCONF_Warning_disableAll})
+    ENDIF()
+
+    TARGET_COMPILE_OPTIONS(${targetName} PRIVATE
+                           $<$<CONFIG:Debug>:${CMPCONF_cppOptions_debug}>)
+    TARGET_COMPILE_OPTIONS(${targetName} PRIVATE
+                           $<$<CONFIG:Release>:${CMPCONF_cppOptions_release}>)
+    TARGET_COMPILE_OPTIONS(${targetName} PRIVATE
+                           $<$<CONFIG:RelWithDebInfo>:${CMPCONF_cppOptions_relWithDebInfo}>)
+ENDFUNCTION(CMPCONF_addCompilerFlags)
+
+#--------------------
+
+FUNCTION(CMPCONF_appendToCommonDefineClauses)
     # appends all define clauses common to all build configurations
 
-    LIST(APPEND cppDefinitions_common
+    LIST(APPEND CMPCONF_cppDefinitions_common
         _LIB
         _UNICODE
-        JUCE_DISPLAY_SPLASH_SCREEN=1
-        JUCE_DONT_DECLARE_PROJECTINFO=1
-        JUCE_GLOBAL_MODULE_SETTINGS_INCLUDED=1
-        JUCE_MODAL_LOOPS_PERMITTED=1
-        JUCE_MODULE_AVAILABLE_juce_audio_basics=1
-        JUCE_MODULE_AVAILABLE_juce_audio_devices=1
-        JUCE_MODULE_AVAILABLE_juce_audio_formats=1
-        JUCE_MODULE_AVAILABLE_juce_audio_plugin_client=1
-        JUCE_MODULE_AVAILABLE_juce_audio_processors=1
-        JUCE_MODULE_AVAILABLE_juce_audio_utils=1
-        JUCE_MODULE_AVAILABLE_juce_core=1
-        JUCE_MODULE_AVAILABLE_juce_data_structures=1
-        JUCE_MODULE_AVAILABLE_juce_events=1
-        JUCE_MODULE_AVAILABLE_juce_graphics=1
-        JUCE_MODULE_AVAILABLE_juce_gui_basics=1
-        JUCE_MODULE_AVAILABLE_juce_gui_extra=1
-        JUCE_REPORT_APP_USAGE=0
-        JUCE_SHARED_CODE=1
-        JUCE_STANDALONE_APPLICATION=JucePlugin_Build_Standalone
-        JUCE_STRICT_REFCOUNTEDPOINTER=1
-        JUCE_USE_DARK_SPLASH_SCREEN=0
-        JUCE_VST3_CAN_REPLACE_VST2=0
-        JucePlugin_AAXDisableBypass=0
-        JucePlugin_AAXDisableMultiMono=0
-        JucePlugin_Build_AAX=0
-        JucePlugin_Build_AUv3=0
-        JucePlugin_Build_RTAS=0
-        JucePlugin_Build_Standalone=0
-        JucePlugin_Build_Unity=0
-        JucePlugin_Build_VST3=1
-        JucePlugin_Build_VST=0
-        JucePlugin_EditorRequiresKeyboardFocus=0
-        JucePlugin_Enable_IAA=0
         PRIMITIVE_TYPES_ARE_INLINED
         UNICODE
     )
     
     # --- add specific settings per platform ---
     IF(WINDOWS)
-        LIST(APPEND cppDefinitions_common
+        LIST(APPEND CMPCONF_cppDefinitions_common
              _CRT_SECURE_NO_WARNINGS
-             JucePlugin_Build_AU=0
              NOMINMAX
              _WINDOWS
              _WINDLL
@@ -74,62 +95,29 @@ FUNCTION(appendToCommonDefineClauses)
     ENDIF(WINDOWS)
 
     IF(MACOS)
-        LIST(APPEND cppDefinitions_common
-             JucePlugin_Build_AU=1
-             JUCE_MAC=1
+        LIST(APPEND CMPCONF_cppDefinitions_common
              APPLE
         )
     ENDIF(MACOS)
 
     IF(LINUX)
-        LIST(APPEND cppDefinitions_common
-             JucePlugin_Build_AU=0
-             JUCE_WEB_BROWSER=0
-             JUCE_USE_CURL=0
-             JUCE_USE_XCURSOR=0
-             JUCE_USE_XINERAMA=0
-             JUCE_USE_XRANDR=0
-             JUCE_USE_XRENDER=0
+        LIST(APPEND CMPCONF_cppDefinitions_common
              LINUX=1
              UNIX
         )
     ENDIF(LINUX)
 
-    appendToManufacturerAndSuiteDefineClauses()
-
     # --- combine defines into single list ---
-    LIST(APPEND cppDefinitions_common
+    LIST(APPEND CMPCONF_cppDefinitions_common
          ${manufacturerAndSuiteDefineClauseList})
 
-    SET(cppDefinitions_common ${cppDefinitions_common} PARENT_SCOPE)
-ENDFUNCTION(appendToCommonDefineClauses)
+    SET(CMPCONF_cppDefinitions_common
+        ${CMPCONF_cppDefinitions_common} PARENT_SCOPE)
+ENDFUNCTION(CMPCONF_appendToCommonDefineClauses)
 
 #--------------------
 
-FUNCTION(appendToManufacturerAndSuiteDefineClauses)
-    # appends define clauses for manufacturer and effects suite
-
-    # add global manufacturer settings
-    LIST(APPEND manufacturerAndSuiteDefineClauseList
-         JucePlugin_Manufacturer="DrTT"
-         JucePlugin_ManufacturerEmail=""
-         JucePlugin_ManufacturerCode=0x44725454
-         JucePlugin_AAXManufacturerCode=JucePlugin_ManufacturerCode
-    )
-
-    IF(MACOS)
-        LIST(APPEND manufacturerAndSuiteDefineClauseList
-             JucePlugin_AUManufacturerCode=JucePlugin_ManufacturerCode
-        )
-    ENDIF(MACOS)
-
-    SET(manufacturerAndSuiteDefineClauseList
-        ${manufacturerAndSuiteDefineClauseList} PARENT_SCOPE)
-ENDFUNCTION(appendToManufacturerAndSuiteDefineClauses)
-
-#--------------------
-
-FUNCTION(setSupportedProgrammingLanguages)
+FUNCTION(CMPCONF_setSupportedProgrammingLanguages)
     # defines programming languages supported for this build
 
     SET(CMAKE_CXX_STANDARD 20 PARENT_SCOPE)
@@ -138,18 +126,20 @@ FUNCTION(setSupportedProgrammingLanguages)
     IF(MACOS)
         ENABLE_LANGUAGE(OBJC)
     ENDIF(MACOS)
-ENDFUNCTION(setSupportedProgrammingLanguages)
+ENDFUNCTION(CMPCONF_setSupportedProgrammingLanguages)
 
 #--------------------
 
-FUNCTION(setCommonAndReleaseWarnings)
+FUNCTION(CMPCONF_setCommonAndReleaseWarnings)
     # calculates warnings for common and release builds and returns
     # them as <cppWarningOptions_common> and <cppWarningOptions_release>
 
-    IF(MSVC)
+    IF(CMPCONF_compilerIsMSVC)
         # --- list of warning numbers to be ignored
-        SET(ignoredWarningList_common
+        SET(CMPCONF_ignoredWarningList_common
               4100 # unreferenced formal parameter
+              4127 # constant boolean condition
+              4146 # unary minus applied to unsigned type
               4244 # possible loss of data by onversion
               4458 # declaration hides class member
               4505 # unreferenced local function
@@ -161,77 +151,78 @@ FUNCTION(setCommonAndReleaseWarnings)
              26812 # enum type unscoped
         )
 
-        SET(ignoredWarningList_release
+        SET(CMPCONF_ignoredWarningList_release
               4101 # unreferenced local variable
               4189 # variable declared and initialized but not used
         )
     ELSE()
         # --- list of warnings to be ignored
-        SET(ignoredWarningList_common
-             address             # remove warning for impossible null
-                                 # pointer
-             delete-incomplete   # remove warning for void deletion
-             ignored-qualifiers  # remove warning for const qualifier
-                                 # on functions
-             unused-function     # remove warning for unused function
+        SET(CMPCONF_ignoredWarningList_common
+             address                 # remove warning for impossible null
+                                     # pointer
+             delete-incomplete       # remove warning for void deletion
+             ignored-qualifiers      # remove warning for const qualifier
+                                     # on functions
+             unused-function         # remove warning for unused function
         )
 
-        SET(ignoredWarningList_release
-             unused-variable     # remove warning for unused variable
+        SET(CMPCONF_ignoredWarningList_release
+             unused-variable         # remove warning for unused variable
         )
 
-        IF(CLANG)
-            LIST(APPEND ignoredWarningList_common
-                 ambiguous-reversed-operator # remove C++20 warning on
-                                             # reversed equal operator
-            )
-        ELSE()
-            LIST(APPEND ignoredWarningList_common
+        IF(CMPCONF_compilerIsGCC)
+            LIST(APPEND CMPCONF_ignoredWarningList_common
+                 parentheses              # remove recommended parentheses
                  unused-but-set-variable  # remove warning for unused
                                           # variable
-        )
+            )
+        ENDIF()
 
-        ENDIF(CLANG)
-    ENDIF(MSVC)
+        IF(CMPCONF_compilerIsCLANG)
+            LIST(APPEND CMPCONF_ignoredWarningList_common
+                 ambiguous-reversed-operator # remove C++20 warning on
+                                             # reversed equal operator
+                 logical-op-parentheses      # remove recommended parentheses
+                                             # in logical expressions
+            )
+        ENDIF(CMPCONF_compilerIsCLANG)
+    ENDIF(CMPCONF_compilerIsMSVC)
 
-    LIST(APPEND cppWarningOptions_common ${Warning_maximumLevel})
+    LIST(APPEND CMPCONF_cppWarningOptions_common
+         ${CMPCONF_Warning_maximumLevel})
 
-    FOREACH(warning ${ignoredWarningList_common})
-        LIST(APPEND cppWarningOptions_common
-             ${Warning_disablingPrefix}${warning})
+    FOREACH(warning ${CMPCONF_ignoredWarningList_common})
+        LIST(APPEND CMPCONF_cppWarningOptions_common
+             ${CMPCONF_Warning_disablingPrefix}${warning})
     ENDFOREACH()         
 
-    SET(cppWarningOptions_release)
+    SET(CMPCONF_cppWarningOptions_release)
 
-    FOREACH(warning ${ignoredWarningList_release})
-        LIST(APPEND cppWarningOptions_release
-            ${Warning_disablingPrefix}${warning})
+    FOREACH(warning ${CMPCONF_ignoredWarningList_release})
+        LIST(APPEND CMPCONF_cppWarningOptions_release
+            ${CMPCONF_Warning_disablingPrefix}${warning})
     ENDFOREACH()
 
-    SET(cppWarningOptions_common ${cppWarningOptions_common} PARENT_SCOPE)
-    SET(cppWarningOptions_release ${cppWarningOptions_release} PARENT_SCOPE)
-ENDFUNCTION(setCommonAndReleaseWarnings)
+    SET(CMPCONF_cppWarningOptions_common
+        ${CMPCONF_cppWarningOptions_common} PARENT_SCOPE)
+    SET(CMPCONF_cppWarningOptions_release
+        ${CMPCONF_cppWarningOptions_release} PARENT_SCOPE)
+ENDFUNCTION(CMPCONF_setCommonAndReleaseWarnings)
 
 # ########################################
 
-IF (${CMAKE_CXX_COMPILER_ID} MATCHES ".*Clang")
-    SET(CLANG 1)
-ELSE()
-    SET(CLANG 0)
-ENDIF()
-
 # --- set languages to C++ and Objective-C (for MacOS)
-setSupportedProgrammingLanguages()
+CMPCONF_setSupportedProgrammingLanguages()
 
 # --- append to settings from specific effect suite
-appendToCommonDefineClauses()
+CMPCONF_appendToCommonDefineClauses()
 
 # --- collect warnings
-setCommonAndReleaseWarnings()
+CMPCONF_setCommonAndReleaseWarnings()
 
 # --- define flags per compiler ---
-IF(MSVC)
-    LIST(APPEND cppOptions_common
+IF(CMPCONF_compilerIsMSVC)
+    LIST(APPEND CMPCONF_cppOptions_common
          /bigobj              # increase number of addressable sections
          /diagnostics:column  # format of diagnostics message
          /EHsc                # exception handling: stack unwinding
@@ -247,25 +238,25 @@ IF(MSVC)
          /Zc:wchar_t          # wchar is native
     )
 
-    LIST(APPEND cppOptions_release
+    LIST(APPEND CMPCONF_cppOptions_release
          /Gw                  # global program optimization
          /O2                  # generate fast code
          /Qpar                # enables loop parallelization
     )
 
-    LIST(APPEND cppOptions_relWithDebInfo
+    LIST(APPEND CMPCONF_cppOptions_relWithDebInfo
          /Z7                  # debug information in file
          /Od                  # no optimization
     )
 
-    LIST(APPEND cppOptions_debug
+    LIST(APPEND CMPCONF_cppOptions_debug
          /Od                  # no optimization
          /Zi                  # debug information in database
     )
 
-    SET(cppLinkerOptions_common )
+    SET(CMPCONF_cppLinkerOptions_common )
 ELSE()
-    LIST(APPEND cppOptions_common
+    LIST(APPEND CMPCONF_cppOptions_common
          -ffast-math                  # fast floating point calculation
          -fvisibility=hidden          # default symbol visibility is
                                       # hidden
@@ -276,78 +267,43 @@ ELSE()
     )
 
     IF(MACOS)
-        LIST(APPEND cppOptions_common
+        LIST(APPEND CMPCONF_cppOptions_common
              -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk)
     ENDIF(MACOS)
 
-    LIST(APPEND cppOptions_release
+    LIST(APPEND CMPCONF_cppOptions_release
          -O3                  # extreme optimization
     )
 
-    LIST(APPEND cppOptions_relWithDebInfo
+    LIST(APPEND CMPCONF_cppOptions_relWithDebInfo
          -Og                  # debugging compatible optimization
          -g                   # debug information in object files
     )
 
-    LIST(APPEND cppOptions_debug
+    LIST(APPEND CMPCONF_cppOptions_debug
          -Og                  # debugging compatible optimization
          -g                   # debug information in object files
     )
 
     # warn about undefined symbols when linking
     IF(MACOS)
-        # LIST(APPEND cppLinkerOptions_common
+        # LIST(APPEND CMPCONF_cppLinkerOptions_common
         #      -Wl,-undefined,error)
     ELSE()
-        # LIST(APPEND cppLinkerOptions_common
+        # LIST(APPEND CMPCONF_cppLinkerOptions_common
         #      -Wl,-no-undefined)
     ENDIF(MACOS)           
 ENDIF()
 
-LIST(APPEND cppWarningOptions
-     ${cppWarningOptions_common}
-     $<$<CONFIG:Release>:${cppWarningOptions_release}>)
+LIST(APPEND CMPCONF_cppWarningOptions
+     ${CMPCONF_cppWarningOptions_common}
+     $<$<CONFIG:Release>:${CMPCONF_cppWarningOptions_release}>)
 
-SET(CMAKE_EXE_LINKER_FLAGS ${cppLinkerOptions_common} CACHE STRING "" FORCE)
-SET(CMAKE_MODULE_LINKER_FLAGS ${cppLinkerOptions_common} CACHE STRING "" FORCE)
-SET(CMAKE_SHARED_LINKER_FLAGS ${cppLinkerOptions_common} CACHE STRING "" FORCE)
-SET(CMAKE_STATIC_LINKER_FLAGS ${cppLinkerOptions_common} CACHE STRING "" FORCE)
-
-#====================
-
-FUNCTION(addCompilerFlags targetName warningsAreEnabled)
-    # adds compiler flags to target <targetName> taking into account
-    # whether warnings are enabled via <warningsAreEnabled>
-    MESSAGE(STATUS
-            "target " ${targetName}
-            ": compiler warnings = " ${warningsAreEnabled})
-
-    # definitions
-    TARGET_COMPILE_DEFINITIONS(${targetName} PRIVATE
-                               ${cppDefinitions_common})
-
-    TARGET_COMPILE_DEFINITIONS(${targetName} PRIVATE
-                               $<IF:$<CONFIG:Release>,NDEBUG,DEBUG>)
-
-    # compile with logging enabled globally for a debug configuration
-    # TARGET_COMPILE_DEFINITIONS(${targetName} PRIVATE
-    #                            $<$<CONFIG:Debug>:LOGGING_IS_ACTIVE>)
-    # TARGET_COMPILE_DEFINITIONS(${targetName} PRIVATE
-    #                            $<$<CONFIG:Release>:LOGGING_IS_ACTIVE>)
-
-    # options
-    TARGET_COMPILE_OPTIONS(${targetName} PRIVATE ${cppOptions_common})
-
-    IF(warningsAreEnabled)
-        TARGET_COMPILE_OPTIONS(${targetName} PRIVATE ${cppWarningOptions})
-    ELSE()
-        TARGET_COMPILE_OPTIONS(${targetName} PRIVATE ${Warning_disableAll})
-    ENDIF()
-
-    TARGET_COMPILE_OPTIONS(${targetName} PRIVATE
-                           $<$<CONFIG:Debug>:${cppOptions_debug}>)
-    TARGET_COMPILE_OPTIONS(${targetName} PRIVATE
-                           $<$<CONFIG:Release>:${cppOptions_release}>)
-    TARGET_COMPILE_OPTIONS(${targetName} PRIVATE
-                           $<$<CONFIG:RelWithDebInfo>:${cppOptions_relWithDebInfo}>)
-ENDFUNCTION(addCompilerFlags)
+SET(CMAKE_EXE_LINKER_FLAGS ${CMPCONF_cppLinkerOptions_common}
+    CACHE STRING "" FORCE)
+SET(CMAKE_MODULE_LINKER_FLAGS ${CMPCONF_cppLinkerOptions_common}
+    CACHE STRING "" FORCE)
+SET(CMAKE_SHARED_LINKER_FLAGS ${CMPCONF_cppLinkerOptions_common}
+    CACHE STRING "" FORCE)
+SET(CMAKE_STATIC_LINKER_FLAGS ${CMPCONF_cppLinkerOptions_common}
+    CACHE STRING "" FORCE)

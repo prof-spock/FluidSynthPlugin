@@ -8,6 +8,7 @@ var struct_base_modules_1_1_logging =
     [ "setCallbackFunction", "struct_base_modules_1_1_logging.html#a432263fd727b415687363b95d60c2ecf", null ],
     [ "setFileName", "struct_base_modules_1_1_logging.html#ab4d7a5c504f4e9c7edb3bdda8276e02c", null ],
     [ "setIgnoredFunctionNamePrefix", "struct_base_modules_1_1_logging.html#aded857df8493b28c3b5c5234fc452997", null ],
+    [ "setTracingOfThreadID", "struct_base_modules_1_1_logging.html#a58723f5caa6b4c2e5b54bccefd85a10a", null ],
     [ "setTracingWithTime", "struct_base_modules_1_1_logging.html#ab915ef17aed709c4648e464e110d0b8b", null ],
     [ "trace", "struct_base_modules_1_1_logging.html#a30eace2050c4204b663927924ba9f2b6", null ],
     [ "traceError", "struct_base_modules_1_1_logging.html#a84dbeeebab71321e02d849b226bd769f", null ]

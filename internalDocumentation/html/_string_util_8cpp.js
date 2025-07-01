@@ -1,7 +1,5 @@
 var _string_util_8cpp =
 [
-    [ "isDigitChar", "_string_util_8cpp.html#a7f46a1c825b529bd0e8ac599b98899d1", null ],
-    [ "STR", "_string_util_8cpp.html#a5b6f88d1249b396e351c4a85bcb35b2c", null ],
     [ "_analyzeSimpleNumberString", "_string_util_8cpp.html#a736aa70a0076d6e633704d7fec040e37", null ],
     [ "_convertDigitString", "_string_util_8cpp.html#a0535c44b059dc4b6e6d33898a9fe1ef4", null ],
     [ "_toNaturalWithBaseAndDefault", "_string_util_8cpp.html#abf0416b300a098de08d5129ef531da62", null ],

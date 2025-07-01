@@ -1,11 +1,19 @@
 <map id="FluidSynth.h" name="FluidSynth.h">
-<area shape="rect" id="node1" title="The FluidSynth class specifies an object&#45;oriented wrapper around the fluidsynth library and also allo..." alt="" coords="87,5,182,32"/>
-<area shape="rect" id="node2" href="$_fluid_synth_8cpp.html" title="The FluidSynth class implements the access to the fluidsynth library via a dynamic loading of it." alt="" coords="5,80,115,107"/>
-<area shape="rect" id="node3" href="$_fluid_synth_settings_8h.html" title="The FluidSynthSettings class specifies an object&#45;oriented wrapper around an underlying fluidsynth set..." alt="" coords="139,80,282,107"/>
-<area shape="rect" id="node4" href="$_fluid_synth_settings_8cpp.html" title="The FluidSynthSettings class implements an object&#45;oriented wrapper around an underlying fluidsynth se..." alt="" coords="40,155,197,181"/>
-<area shape="rect" id="node5" href="$_fluid_synth_synthesizer_8h.html" title="The FluidSynthSynthesizer class specifies an object&#45;oriented wrapper around an underlying fluidsynth ..." alt="" coords="222,155,386,181"/>
-<area shape="rect" id="node6" href="$_fluid_synth_sound_font_8h.html" title="The FluidSynthSoundFont class specifies an object&#45;oriented wrapper around an underlying fluidsynth so..." alt="" coords="129,229,287,256"/>
-<area shape="rect" id="node9" href="$_fluid_synth_synthesizer_8cpp.html" title="The FluidSynthSynthesizer class implements an object&#45;oriented wrapper around an underlying fluidsynth..." alt="" coords="312,229,491,256"/>
-<area shape="rect" id="node7" href="$_fluid_synth_sound_font_8cpp.html" title="The FluidSynthSoundFont class implements an object&#45;oriented wrapper around an underlying fluidsynth s..." alt="" coords="27,304,199,331"/>
-<area shape="rect" id="node8" href="$_midi_event_converter_8cpp.html" title="The MidiEventConverter module implements the handling of MIDI events by feeding them to an underlying..." alt="" coords="224,304,381,331"/>
+<area shape="rect" id="Node000001" title="The FluidSynth class specifies an object&#45;oriented wrapper around the fluidsynth library and also allo..." alt="" coords="87,5,182,31"/>
+<area shape="rect" id="Node000002" href="$_fluid_synth_8cpp.html" title="The FluidSynth class implements the access to the fluidsynth library via a dynamic loading of it." alt="" coords="5,79,115,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,42,74,80,70,77,111,38"/>
+<area shape="rect" id="Node000003" href="$_fluid_synth_settings_8h.html" title="The FluidSynthSettings class specifies an object&#45;oriented wrapper around an underlying fluidsynth set..." alt="" coords="139,79,282,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="159,38,200,76,196,80,155,42"/>
+<area shape="rect" id="Node000004" href="$_fluid_synth_settings_8cpp.html" title="The FluidSynthSettings class implements an object&#45;oriented wrapper around an underlying fluidsynth se..." alt="" coords="40,152,197,177"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="187,114,135,154,132,150,184,110"/>
+<area shape="rect" id="Node000005" href="$_fluid_synth_synthesizer_8h.html" title="The FluidSynthSynthesizer class specifies an object&#45;oriented wrapper around an underlying fluidsynth ..." alt="" coords="222,152,386,177"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="238,110,290,150,287,154,235,114"/>
+<area shape="rect" id="Node000006" href="$_fluid_synth_sound_font_8h.html" title="The FluidSynthSoundFont class specifies an object&#45;oriented wrapper around an underlying fluidsynth so..." alt="" coords="129,225,287,251"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="279,188,225,227,222,223,276,183"/>
+<area shape="rect" id="Node000009" href="$_fluid_synth_synthesizer_8cpp.html" title="The FluidSynthSynthesizer class implements an object&#45;oriented wrapper around an underlying fluidsynth..." alt="" coords="312,225,491,251"/>
+<area shape="poly" id="edge8_Node000005_Node000009" title=" " alt="" coords="332,183,387,223,384,227,329,188"/>
+<area shape="rect" id="Node000007" href="$_fluid_synth_sound_font_8cpp.html" title="The FluidSynthSoundFont class implements an object&#45;oriented wrapper around an underlying fluidsynth s..." alt="" coords="27,299,199,324"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="183,261,130,301,127,296,180,257"/>
+<area shape="rect" id="Node000008" href="$_midi_event_converter_8cpp.html" title="The MidiEventConverter module implements the handling of MIDI events by feeding them to an underlying..." alt="" coords="224,299,381,324"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="236,257,289,296,286,301,233,261"/>
 </map>

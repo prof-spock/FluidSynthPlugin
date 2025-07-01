@@ -1,4 +1,5 @@
 <map id="BaseTypes::Containers::ByteList" name="BaseTypes::Containers::ByteList">
-<area shape="rect" id="node1" title="A ByteList object is a list of byte values with arbitrary indexed access to positions in the list." alt="" coords="27,160,195,281"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,216,112"/>
+<area shape="rect" id="Node000001" title="A ByteList object is a list of byte values with arbitrary indexed access to positions in the list." alt="" coords="5,148,173,308"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="10,5,169,100"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="92,114,92,148,87,148,87,114"/>
 </map>

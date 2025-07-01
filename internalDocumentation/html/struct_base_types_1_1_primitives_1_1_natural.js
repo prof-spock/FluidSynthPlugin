@@ -17,6 +17,8 @@ var struct_base_types_1_1_primitives_1_1_natural =
     [ "operator++", "struct_base_types_1_1_primitives_1_1_natural.html#a352a476d33c8773c5e91c9b9fbaa6e1a", null ],
     [ "operator--", "struct_base_types_1_1_primitives_1_1_natural.html#af8effa72b677732d44f8c080d9185193", null ],
     [ "operator--", "struct_base_types_1_1_primitives_1_1_natural.html#ac30e8160f061dfa92bf85c0981ce03da", null ],
+    [ "operator<<", "struct_base_types_1_1_primitives_1_1_natural.html#adeafa37a323fd3b36b33fa320b67615d", null ],
+    [ "operator>>", "struct_base_types_1_1_primitives_1_1_natural.html#af0bd61089aae500312c1771b000e278a", null ],
     [ "power", "struct_base_types_1_1_primitives_1_1_natural.html#aefc75101cf6aad8675ea42bf24fd6e5d", null ],
     [ "power", "struct_base_types_1_1_primitives_1_1_natural.html#a44e366bb3581f12f64dfd420d1e8dc50", null ],
     [ "round", "struct_base_types_1_1_primitives_1_1_natural.html#ad97822aaef0ee15b6ec03c500d83062f", null ],

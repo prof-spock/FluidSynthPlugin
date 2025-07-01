@@ -8,16 +8,19 @@ CMAKE_MINIMUM_REQUIRED(VERSION 3.20)
 
 PROJECT(FluidSynthPlugin
         VERSION 1.0
-        LANGUAGES CXX)
+        LANGUAGES C CXX)
 
 # =============================
 # === program configuration ===
 # =============================
 
 INCLUDE(GlobalSettings.cmake)
+INCLUDE(GlobalSettings_Plugin.cmake)
 
 # --- compiler ---
-INCLUDE(PluginCPPCompilerSettings.cmake)
+INCLUDE(PluginSpecificCompilerSettings.cmake)
+# first JUCE plugin settings, then global compiler settings
+INCLUDE(CPPCompilerConfiguration_Plugin.cmake)
 INCLUDE(CPPCompilerConfiguration.cmake)
 
 # --- LaTeX ---
@@ -169,6 +172,7 @@ SET(srcContainersFileList
 SET(srcPrimitivesFileList
     ${srcPrimitivesDirectory}/MyString.cpp
     ${srcPrimitivesDirectory}/Real.cpp
+    ${srcPrimitivesDirectory}/TimeAndDuration.cpp
 )
 
 SET(srcFluidSynthMidiSupportFileList
@@ -213,7 +217,7 @@ FOREACH(pluginName ${pluginNameList})
         ${effectDirectory}/${pluginName}_Editor.cpp
         ${effectDirectory}/${pluginName}_EditorSupport.cpp
         ${effectDirectory}/${pluginName}_EventProcessor.cpp
-        ${effectDirectory}/JucePlugin-VST_1.${GLOB_juceFileExtension}
+        ${effectDirectory}/JucePlugin-VST_1.${GLOBP_juceFileExtension}
     )
     
     IF(WINDOWS)
@@ -332,7 +336,7 @@ CMAKE_PATH(SET jucePrefix NORMALIZE
            ${srcJuceFacadeDirectory}/include_juce)
 
 # --- juce library with classes from JUCE ---
-GLOB_makeTarget_juceFramework(${jucePrefix})
+GLOBP_makeTarget_juceFramework(${jucePrefix})
 
 ADD_CUSTOM_TARGET(SupportLibraries ALL)
 ADD_DEPENDENCIES(SupportLibraries JuceFramework)
@@ -369,7 +373,7 @@ SET(fluidSynthConverterFileList
 )
 
 ADD_EXECUTABLE(${targetName} ${fluidSynthConverterFileList})
-addCompilerFlags(${targetName} TRUE)
+CMPCONF_addCompilerFlags(${targetName} TRUE)
 TARGET_LINK_LIBRARIES(${targetName} CommonProjectLibrary)
 ADD_DEPENDENCIES(FluidSynthPlugins ${targetName})
 
@@ -384,7 +388,7 @@ FOREACH(pluginName ${pluginNameList})
     SET(sourceFileList ${src${pluginName}FileList_VST})
     SET(libraryList CommonProjectLibrary JuceFramework)
 
-    GLOB_makeTarget_pluginVST(
+    GLOBP_makeTarget_pluginVST(
         ${targetName} ${pluginName} ${libraryName}
         "${sourceFileList}"
         "${additionalIncludeDirectoryList}"
@@ -407,12 +411,12 @@ IF(MACOS)
         SET(sourceFileList ${src${pluginName}FileList_AU})
         SET(libraryList CommonProjectLibrary JuceFramework)
 
-        GLOB_makeTarget_pluginAU(${targetName} ${pluginName} ${libraryName}
-                                 ${pluginName} "DrTT: ${pluginName}"
-                                 "aumu" "Flui"
-                                 "${sourceFileList}"
-                                 "${additionalIncludeDirectoryList}"
-                                 "${libraryList}"
+        GLOBP_makeTarget_pluginAU(${targetName} ${pluginName} ${libraryName}
+                                  ${pluginName} "DrTT: ${pluginName}"
+                                  "aumu" "Flui"
+                                  "${sourceFileList}"
+                                  "${additionalIncludeDirectoryList}"
+                                  "${libraryList}"
         )
 
         ADD_DEPENDENCIES(FluidSynthPlugins ${targetName})
@@ -429,7 +433,7 @@ GLOB_makeTarget_documentation("documentation" "${allSrcFileList}")
 # === INSTALLATION ===
 # ====================
 
-IF(MSVC)
+IF(CMPCONF_compilerIsMSVC)
     # make installation part of build in MSVC
     SET(CMAKE_VS_INCLUDE_INSTALL_TO_DEFAULT_BUILD 1)
 ENDIF()
@@ -452,6 +456,6 @@ INSTALL(FILES ${dynamicLibraryList}
 # --- install the VST3i and AU plugins to platform directory ---
 FOREACH(pluginName ${pluginNameList})
     SET(libraryName ${pluginName})
-    GLOB_install_pluginVST(${libraryName} "${dynamicLibraryList}")
-    GLOB_install_pluginAU(${libraryName} "${dynamicLibraryList}")
+    GLOBP_install_pluginVST(${libraryName} "${dynamicLibraryList}")
+    GLOBP_install_pluginAU(${libraryName} "${dynamicLibraryList}")
 ENDFOREACH(pluginName)

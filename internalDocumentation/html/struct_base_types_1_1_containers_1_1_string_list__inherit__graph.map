@@ -1,4 +1,5 @@
 <map id="BaseTypes::Containers::StringList" name="BaseTypes::Containers::StringList">
-<area shape="rect" id="node1" title="A StringList object is a list of string values with arbitrary indexed access to positions in the list..." alt="" coords="31,175,188,340"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,213,127"/>
+<area shape="rect" id="Node000001" title="A StringList object is a list of string values with arbitrary indexed access to positions in the list..." alt="" coords="17,148,166,328"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,177,100"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="94,114,94,148,89,148,89,114"/>
 </map>

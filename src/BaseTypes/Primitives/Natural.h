@@ -189,6 +189,7 @@ namespace BaseTypes::Primitives {
         }
 
         /*--------------------*/
+
         /**
          * Sets current value to modulus of current value and
          * <C>other</C>.
@@ -247,6 +248,36 @@ namespace BaseTypes::Primitives {
         Natural operator -- ()
         {
             return Natural{--_value};
+        }
+
+        /*--------------------*/
+
+        /**
+         * Returns the left shift result of current value and
+         * <C>other</C>.
+         *
+         * @param[in] other  other natural value to be used as
+         *                   shift amount
+         * @return  left shift result of current and <C>other</C>.
+         */
+        Natural operator << (IN Natural other) const
+        {
+            return Natural{_value << other._value};
+        }
+
+        /*--------------------*/
+
+        /**
+         * Returns the right shift result of current value and
+         * <C>other</C>.
+         *
+         * @param[in] other  other natural value to be used as
+         *                   shift amount
+         * @return  right shift result of current and <C>other</C>.
+         */
+        Natural operator >> (IN Natural other) const
+        {
+            return Natural{_value >> other._value};
         }
 
         /*-----------------------------*/

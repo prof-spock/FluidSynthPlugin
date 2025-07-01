@@ -1,4 +1,5 @@
 <map id="Main::FluidSynthPlugin::_StringListBoxModel" name="Main::FluidSynthPlugin::_StringListBoxModel">
-<area shape="rect" id="node1" title="A very elementary list box model for a string list." alt="" coords="5,131,196,399"/>
-<area shape="rect" id="node2" title=" " alt="" coords="34,5,167,83"/>
+<area shape="rect" id="Node000001" title="A very elementary list box model for a string list." alt="" coords="5,119,188,439"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="34,5,159,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,84,99,119,94,119,94,84"/>
 </map>

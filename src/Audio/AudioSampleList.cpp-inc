@@ -59,9 +59,9 @@ void AudioSampleList::extend (IN AudioSampleList& other,
          * elements */
         ensureLength(currentLength + effectiveCount);
 
-        AudioSample* targetArray = asArray(currentLength);
+        AudioSample* destinationArray = asArray(currentLength);
         const AudioSample* sourceArray = other.asArray();
-        copyArray(targetArray, sourceArray,
+        copyArray(destinationArray, sourceArray,
                   effectiveCount);
   }
 }

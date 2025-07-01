@@ -17,9 +17,12 @@
 
 #include <chrono>
 #include <cstdint>
+#include <mutex>
+#include <sstream>
 #include <stdlib.h>
     /** qualified version of atexit from stdlib */
     #define StdLib_atexit atexit
+#include <thread>
 
 #include "Assertion.h"
 #include "File.h"
@@ -40,7 +43,11 @@ using BaseTypes::GenericTypes::GenericList;
 using STR = BaseModules::StringUtil;
 
 /** the timestamp type as provided by the system call */
-using Timestamp = Natural;
+using _Timestamp = Natural;
+
+/** the thread ID as provided by the system call */
+using _ThreadID = std::thread::id;
+#define _currentThreadID std::this_thread::get_id
 
 /*====================*/
 
@@ -68,7 +75,6 @@ static Dictionary _signatureToFunctionNameMap;
 
 static void _writeBufferToFile ();
 
-
 /*====================*/
 
 namespace BaseModules {
@@ -84,7 +90,10 @@ namespace BaseModules {
         String functionSignature;
 
         /** the timestamp for this logging entry */
-        Timestamp systemTime;
+        _Timestamp systemTime;
+
+        /** the thread id for this logging entry */
+        _ThreadID threadID;
 
         /** the associated message this logging entry */
         String message;
@@ -141,12 +150,12 @@ namespace BaseModules {
             /*--------------------*/
 
             /** the previous time stamp returned by the system */
-            Timestamp _previousSystemTime;
+            _Timestamp _previousSystemTime;
 
             /*--------------------*/
 
             /** the time stamp of the previous log line as time of day. */
-            Timestamp _previousTimeOfDay;
+            _Timestamp _previousTimeOfDay;
 
             /*--------------------*/
 
@@ -202,9 +211,9 @@ namespace BaseModules {
              * @return  adapted time for a single day scaled by
              *          _timeFactor
              */
-            Timestamp adaptToTimeOfDay (IN Timestamp systemTime)
+            _Timestamp adaptToTimeOfDay (IN _Timestamp systemTime)
             {
-                Timestamp result;
+                _Timestamp result;
 
                 if (systemTime == _previousSystemTime) {
                     result = _previousTimeOfDay;
@@ -232,7 +241,7 @@ namespace BaseModules {
              *                       resolution
              * @return time of day as string
              */
-            String asDayString (IN Timestamp timeOfDay)
+            String asDayString (IN _Timestamp timeOfDay)
             {
                 String result;
 
@@ -241,7 +250,7 @@ namespace BaseModules {
                     result =_previousTimeOfDayString;
                 } else {
                     _previousTimeOfDay = timeOfDay;
-                    Timestamp time = timeOfDay;
+                    _Timestamp time = timeOfDay;
                     Natural fractionalPart = time % _timeFactor;
                     time /= _timeFactor;
                     const Natural seconds = time % 60;
@@ -271,11 +280,11 @@ namespace BaseModules {
              *
              * @return  current system time in milliseconds
              */
-            Timestamp systemTime ()
+            _Timestamp systemTime ()
             {
                 const system_clock::duration d =
                     system_clock::now().time_since_epoch();
-                Timestamp result =
+                _Timestamp result =
                     (size_t) duration_cast<milliseconds>(d).count();
                 return result;
             }
@@ -336,8 +345,13 @@ static StringList _standardPrefixList =
 /*--------------------*/
 
 /** the buffer stores log data either before the log file is opened or
- * when no write-through to target file is done */
+ * when no write-through to destination file is done */
 static GenericList<_LoggingBufferEntry> _buffer;
+
+/*--------------------*/
+
+/** flag to tell whether thread id is logged or omitted */
+static Boolean _threadIDIsLogged{false};
 
 /*--------------------*/
 
@@ -356,7 +370,7 @@ static String _fileName = "";
 
 /*--------------------*/
 
-/** the logging target file */
+/** the logging destination file */
 static File _file;
 
 /*--------------------*/
@@ -370,6 +384,11 @@ static _LoggingState _loggingState{_LoggingState::inLimbo};
 
 /** the current logging time handler */
 static _LoggingTime _loggingTime = _LoggingTime();
+
+/*--------------------*/
+
+/** a mutual exclusion for logging */
+static std::mutex _mutex;
 
 /*--------------------*/
 /* Prototypes         */
@@ -394,11 +413,13 @@ static String _functionNameFromSignature (IN String& functionSignature,
  * @param[in] message            the logging message
  */
 void _appendEntryToBuffer (IN String& functionSignature,
-                           IN Timestamp time,
+                           IN _Timestamp time,
                            IN String& message)
 {
     if (_isActive) {
-        _LoggingBufferEntry bufferEntry = {functionSignature, time, message};
+        _mutex.lock();
+        _LoggingBufferEntry bufferEntry{functionSignature, time,
+                                        _currentThreadID(), message};
 
         if (_callbackFunction != NULL) {
             String st = _bufferEntryToString(bufferEntry);
@@ -410,6 +431,8 @@ void _appendEntryToBuffer (IN String& functionSignature,
                 _writeBufferToFile();
             }
         }
+
+        _mutex.unlock();
     }
 }
 
@@ -425,8 +448,10 @@ void _appendEntryToBuffer (IN String& functionSignature,
 static String _bufferEntryToString (IN _LoggingBufferEntry& bufferEntry)
 {
     const String& functionSignature = bufferEntry.functionSignature;
-    const String& message           = bufferEntry.message;
-    const Timestamp systemTime      = bufferEntry.systemTime;
+    const String message            =
+        STR::newlineReplacedString(bufferEntry.message);
+    const _ThreadID threadID        = bufferEntry.threadID;
+    const _Timestamp systemTime     = bufferEntry.systemTime;
     String result = message;
 
     if (systemTime != 0) {
@@ -434,11 +459,17 @@ static String _bufferEntryToString (IN _LoggingBufferEntry& bufferEntry)
             _functionNameFromSignature(functionSignature,
                                        _ignoredFunctionNamePrefix);
         const Natural messageLength{message.size()};
-
         String timeString;
+        String threadIDString;
+
+        if (_threadIDIsLogged) {
+            std::stringstream stream;
+            stream << threadID;
+            threadIDString = STR::expand(" [%1]", stream.str());;
+        }
 
         if (_timeIsLogged) {
-            Timestamp timeOfDay =
+            _Timestamp timeOfDay =
                 _loggingTime.adaptToTimeOfDay(systemTime);
             timeString = STR::expand(" (%1)",
                                      _loggingTime.asDayString(timeOfDay));
@@ -455,6 +486,7 @@ static String _bufferEntryToString (IN _LoggingBufferEntry& bufferEntry)
         result = (STR::prefix(result, _prefixLength)
                   + functionName
                   + timeString
+                  + threadIDString
                   + STR::substring(result, _prefixLength));
     }
 
@@ -652,6 +684,13 @@ void Logging::setFileName (IN String& fileName,
 void Logging::setIgnoredFunctionNamePrefix (IN String& namePrefix)
 {
     _ignoredFunctionNamePrefix = namePrefix;
+}
+
+/*--------------------*/
+
+void Logging::setTracingOfThreadID (IN Boolean threadIDIsLogged)
+{
+    _threadIDIsLogged = threadIDIsLogged;
 }
 
 /*--------------------*/

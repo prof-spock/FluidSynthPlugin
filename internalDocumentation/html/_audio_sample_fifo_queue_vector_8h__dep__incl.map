@@ -1,5 +1,7 @@
 <map id="AudioSampleFifoQueueVector.h" name="AudioSampleFifoQueueVector.h">
-<area shape="rect" id="node1" title="The AudioSampleFifoQueueVector specification defines a list of fifo queues for audio samples." alt="" coords="141,5,347,32"/>
-<area shape="rect" id="node2" href="$_audio_sample_fifo_queue_vector_8cpp.html" title="The AudioSampleFifoQueueVector body implements a list of fifo queues for audio samples (this is the f..." alt="" coords="5,80,227,107"/>
-<area shape="rect" id="node3" href="$_fluid_synth_plugin___event_processor_8cpp.html" title="The FluidSynthPlugin_Processor module implements the handling of MIDI events from the DAW via JUCE ha..." alt="" coords="251,80,493,107"/>
+<area shape="rect" id="Node000001" title="The AudioSampleFifoQueueVector specification defines a list of fifo queues for audio samples." alt="" coords="141,5,347,31"/>
+<area shape="rect" id="Node000002" href="$_audio_sample_fifo_queue_vector_8cpp.html" title="The AudioSampleFifoQueueVector body implements a list of fifo queues for audio samples (this is the f..." alt="" coords="5,79,227,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="213,40,138,81,136,76,210,35"/>
+<area shape="rect" id="Node000003" href="$_fluid_synth_plugin___event_processor_8cpp.html" title="The FluidSynthPlugin_Processor module implements the handling of MIDI events from the DAW via JUCE ha..." alt="" coords="251,79,493,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="278,35,352,76,350,81,275,40"/>
 </map>

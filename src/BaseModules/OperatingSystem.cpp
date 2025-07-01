@@ -14,12 +14,12 @@
 
 #include <cstdlib>
 #include <filesystem>
-
 #include <stdio.h>
     /** qualified version of fprintf from stdio */
     #define StdIO_fprintf  fprintf
     /** qualified version of stderr from stdio */
     #define StdIO_stderr   stderr
+#include <thread>
 
 #include "File.h"
 #include "Logging.h"
@@ -27,7 +27,7 @@
 
 /*====================*/
 
-#ifdef _WIN32
+#ifdef _WINDOWS
     #include "MyWindows.h"
 #else
     #include <unistd.h>
@@ -46,7 +46,7 @@ using STR = BaseModules::StringUtil;
 
 /*====================*/
 
-#ifdef _WIN32
+#ifdef _WINDOWS
 
     /**
      * Returns path of directory of current library or executable
@@ -119,6 +119,32 @@ using STR = BaseModules::StringUtil;
     }
 
 #endif  
+
+/*====================*/
+/* LOCAL FUNCTIONS    */
+/*====================*/
+
+/**
+ * Reads associated value for environment variable named
+ * <C>variableName</C> into <C>value</C>; returns false when not found.
+ *
+ * @param[in]  variableName  name of environment variable
+ * @param[out] value         associated variable value (if any)
+ * @return  information whether variable is set
+ */
+static Boolean _environmentValue (IN String& variableName,
+                                  OUT String& value)
+{
+    char* envValue = std::getenv(variableName.c_str());
+    Boolean result = false;
+
+    if (envValue != NULL) {
+        result = true;
+        value = String{envValue};
+    }
+    
+    return result;
+}
 
 /*====================*/
 
@@ -227,6 +253,19 @@ String OperatingSystem::dirname (IN String& fileName)
 
 /*--------------------*/
 
+String OperatingSystem::environmentValue (IN String& variableName)
+{
+    Logging_trace1(">>: '%1'", variableName);
+
+    String result = "";
+    _environmentValue(variableName, result);
+
+    Logging_trace1("<<: '%1'", result);
+    return result;
+}
+
+/*--------------------*/
+
 String OperatingSystem::executableDirectoryPath (IN Boolean isExecutable)
 {
     Logging_trace(">>");
@@ -237,16 +276,49 @@ String OperatingSystem::executableDirectoryPath (IN Boolean isExecutable)
 
 /*--------------------*/
 
+/**
+ * Sleeps for <C>duration</C>.
+ *
+ * @param[in] duration  sleep duration (in seconds)
+ */
+void OperatingSystem::sleep (IN Duration duration)
+{
+    std::this_thread::sleep_for(std::chrono::duration<float>((float) duration));
+}
+
+/*--------------------*/
+
+String OperatingSystem::systemName ()
+{
+    Logging_trace(">>");
+    #ifdef _WINDOWS
+        String result = "Windows";
+    #else
+        #ifdef UNIX
+            String result = "Unix";
+        #else
+            String result = "MacOS";
+        #endif
+    #endif
+
+    Logging_trace1("<<: %1", result);
+    return result;
+}
+
+/*--------------------*/
+
 String OperatingSystem::temporaryDirectoryPath ()
 {
     Logging_trace(">>");
 
-    char* environmentPath = std::getenv("tmp");
-    environmentPath = (environmentPath != NULL ? environmentPath
-                       : std::getenv("temp"));
-    environmentPath = (environmentPath != NULL ? environmentPath
-                       : reinterpret_cast<char*>(const_cast<char*>("/tmp")));
-    String result = String(environmentPath);
+    Boolean isOkay;
+    String result = "/tmp";
+
+    isOkay = _environmentValue("tmp", result);
+
+    if (!isOkay) {
+        isOkay = _environmentValue("temp", result);
+    }
 
     Logging_trace1("<<: %1", result);
     return result;

@@ -760,7 +760,7 @@ String MidiEventConverter::presetName () const
         TOREFERENCE<_MidiEventConverterDescriptor>(_descriptor);
     const String result = descriptor.presetName;
 
-    Logging_trace1("<< %1", result.toString());
+    Logging_trace1("<< %1", result);
     return result;
 }
 
@@ -775,7 +775,7 @@ String MidiEventConverter::soundFontName () const
     FluidSynthSoundFont soundFont{descriptor.synthesizer};
     const String result = soundFont.name();
 
-    Logging_trace1("<< %1", result.toString());
+    Logging_trace1("<< %1", result);
     return result;
 }
 

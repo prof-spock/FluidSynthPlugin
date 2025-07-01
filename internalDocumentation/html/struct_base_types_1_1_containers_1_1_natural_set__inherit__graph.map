@@ -1,4 +1,5 @@
 <map id="BaseTypes::Containers::NaturalSet" name="BaseTypes::Containers::NaturalSet">
-<area shape="rect" id="node1" title="A NaturalSet object is a set of naturals with no duplicates and only simple containment access and th..." alt="" coords="14,145,171,237"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,180,97"/>
+<area shape="rect" id="Node000001" title="A NaturalSet object is a set of naturals with no duplicates and only simple containment access and th..." alt="" coords="5,119,155,199"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="8,5,152,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,85,83,118,77,118,77,85"/>
 </map>

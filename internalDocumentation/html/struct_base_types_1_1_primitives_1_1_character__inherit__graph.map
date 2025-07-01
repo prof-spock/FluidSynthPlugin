@@ -1,4 +1,5 @@
 <map id="BaseTypes::Primitives::Character" name="BaseTypes::Primitives::Character">
-<area shape="rect" id="node1" title="A Character object wraps a value of the associated primitive type char into an object." alt="" coords="26,160,177,325"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,197,112"/>
+<area shape="rect" id="Node000001" title="A Character object wraps a value of the associated primitive type char into an object." alt="" coords="22,133,165,313"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,181,85"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,99,96,133,91,133,91,99"/>
 </map>

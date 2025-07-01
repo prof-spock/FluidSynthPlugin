@@ -1,8 +1,13 @@
 <map id="AudioSampleFifoQueue.cpp&#45;inc" name="AudioSampleFifoQueue.cpp&#45;inc">
-<area shape="rect" id="node1" title="The AudioSampleFifoQueue body implements a fifo queue for audio samples with popping off access to th..." alt="" coords="104,5,308,32"/>
-<area shape="rect" id="node2" href="$_audio_sample_fifo_queue_8h.html" title="The AudioSampleFifoQueue specification defines a fifo queue for audio samples with popping off access..." alt="" coords="121,80,291,107"/>
-<area shape="rect" id="node3" href="$_audio_sample_fifo_queue_8cpp.html" title="The AudioSampleFifoQueue body implements a fifo queue for audio samples with popping off access to th..." alt="" coords="5,155,188,181"/>
-<area shape="rect" id="node4" href="$_audio_sample_fifo_queue_vector_8h.html" title="The AudioSampleFifoQueueVector specification defines a list of fifo queues for audio samples." alt="" coords="212,155,419,181"/>
-<area shape="rect" id="node5" href="$_audio_sample_fifo_queue_vector_8cpp.html" title="The AudioSampleFifoQueueVector body implements a list of fifo queues for audio samples (this is the f..." alt="" coords="77,229,298,256"/>
-<area shape="rect" id="node6" href="$_fluid_synth_plugin___event_processor_8cpp.html" title="The FluidSynthPlugin_Processor module implements the handling of MIDI events from the DAW via JUCE ha..." alt="" coords="322,229,565,256"/>
+<area shape="rect" id="Node000001" title="The AudioSampleFifoQueue body implements a fifo queue for audio samples with popping off access to th..." alt="" coords="104,5,308,31"/>
+<area shape="rect" id="Node000002" href="$_audio_sample_fifo_queue_8h.html" title="The AudioSampleFifoQueue specification defines a fifo queue for audio samples with popping off access..." alt="" coords="121,79,291,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="209,44,209,79,203,79,203,44"/>
+<area shape="rect" id="Node000003" href="$_audio_sample_fifo_queue_8cpp.html" title="The AudioSampleFifoQueue body implements a fifo queue for audio samples with popping off access to th..." alt="" coords="5,152,188,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="178,114,116,154,113,150,176,109"/>
+<area shape="rect" id="Node000004" href="$_audio_sample_fifo_queue_vector_8h.html" title="The AudioSampleFifoQueueVector specification defines a list of fifo queues for audio samples." alt="" coords="212,152,419,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="236,109,299,150,296,154,234,114"/>
+<area shape="rect" id="Node000005" href="$_audio_sample_fifo_queue_vector_8cpp.html" title="The AudioSampleFifoQueueVector body implements a list of fifo queues for audio samples (this is the f..." alt="" coords="77,225,298,251"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="284,186,210,227,207,223,281,182"/>
+<area shape="rect" id="Node000006" href="$_fluid_synth_plugin___event_processor_8cpp.html" title="The FluidSynthPlugin_Processor module implements the handling of MIDI events from the DAW via JUCE ha..." alt="" coords="322,225,565,251"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="349,182,424,223,421,227,347,186"/>
 </map>

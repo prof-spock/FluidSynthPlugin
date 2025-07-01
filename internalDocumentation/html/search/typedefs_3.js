@@ -1,4 +1,31 @@
 var searchData=
 [
-  ['naturaltostringlistmap_1671',['NaturalToStringListMap',['../_fluid_synth_plugin___editor_support_8cpp.html#afe54c6c7efb8b884e76ca6b9dd5a3df3',1,'FluidSynthPlugin_EditorSupport.cpp']]]
+  ['filepointer_0',['FilePointer',['../_file_8cpp.html#aa99fc14e9abd46ef7ab808983ee4a876',1,'File.cpp']]],
+  ['fssettings_5fcreationproc_1',['FSSettings_CreationProc',['../_fluid_synth_settings_8cpp.html#a80ddb0ce46d549dbd1eb9fc793f12a9b',1,'FluidSynthSettings.cpp']]],
+  ['fssettings_5fdestructionproc_2',['FSSettings_DestructionProc',['../_fluid_synth_settings_8cpp.html#afe7dc592c0813642f413c083df51be6c',1,'FluidSynthSettings.cpp']]],
+  ['fssettings_5fsetintproc_3',['FSSettings_SetIntProc',['../_fluid_synth_settings_8cpp.html#ae1cebe63d397486c7540026ba897004c',1,'FluidSynthSettings.cpp']]],
+  ['fssettings_5fsetnumproc_4',['FSSettings_SetNumProc',['../_fluid_synth_settings_8cpp.html#a702eb0209b580a1bf1b6e10476e5dbd9',1,'FluidSynthSettings.cpp']]],
+  ['fssettings_5fsetstrproc_5',['FSSettings_SetStrProc',['../_fluid_synth_settings_8cpp.html#aa06f553e0f512ea606d1c47db7fa00a5',1,'FluidSynthSettings.cpp']]],
+  ['fssoundfont_5fconstructionproc_6',['FSSoundFont_ConstructionProc',['../_fluid_synth_sound_font_8cpp.html#a3942c47354947b74b5d205b2efa623f4',1,'FluidSynthSoundFont.cpp']]],
+  ['fssoundfont_5fenumerationresetproc_7',['FSSoundFont_EnumerationResetProc',['../_fluid_synth_sound_font_8cpp.html#aff39de48a722907037a645df1e98f4bd',1,'FluidSynthSoundFont.cpp']]],
+  ['fssoundfont_5fenumerationsuccessorproc_8',['FSSoundFont_EnumerationSuccessorProc',['../_fluid_synth_sound_font_8cpp.html#a93c630493fe8b2e229da5949900bba3c',1,'FluidSynthSoundFont.cpp']]],
+  ['fssoundfont_5fobjectnamequeryproc_9',['FSSoundFont_ObjectNameQueryProc',['../_fluid_synth_sound_font_8cpp.html#a2690a1924609aa06e9d4ca32253b6fe9',1,'FluidSynthSoundFont.cpp']]],
+  ['fssoundfont_5fpresetbanknumqueryproc_10',['FSSoundFont_PresetBankNumQueryProc',['../_fluid_synth_sound_font_8cpp.html#add1d073381347e73ac0750ea1d62b302',1,'FluidSynthSoundFont.cpp']]],
+  ['fssoundfont_5fpresetprognumqueryproc_11',['FSSoundFont_PresetProgNumQueryProc',['../_fluid_synth_sound_font_8cpp.html#aec766eb8323a63bfa8272fafebf0f2b4',1,'FluidSynthSoundFont.cpp']]],
+  ['fssoundfont_5fpresetqueryproc_12',['FSSoundFont_PresetQueryProc',['../_fluid_synth_sound_font_8cpp.html#a4c633a1817c97ba8ea4ef44d4efa052f',1,'FluidSynthSoundFont.cpp']]],
+  ['fssynthesizer_5fbankchangeproc_13',['FSSynthesizer_BankChangeProc',['../_fluid_synth_synthesizer_8cpp.html#a42772946d8947f31662ff275635b575b',1,'FluidSynthSynthesizer.cpp']]],
+  ['fssynthesizer_5fcontrolchangeproc_14',['FSSynthesizer_ControlChangeProc',['../_fluid_synth_synthesizer_8cpp.html#ae11f40d4f0b78d79a3832771fecfdb1d',1,'FluidSynthSynthesizer.cpp']]],
+  ['fssynthesizer_5fcreationproc_15',['FSSynthesizer_CreationProc',['../_fluid_synth_synthesizer_8cpp.html#a2683e33d8e7ac3fccf87171693150f79',1,'FluidSynthSynthesizer.cpp']]],
+  ['fssynthesizer_5fdestructionproc_16',['FSSynthesizer_DestructionProc',['../_fluid_synth_synthesizer_8cpp.html#a2420208fda001aae5d2d07eae8d95999',1,'FluidSynthSynthesizer.cpp']]],
+  ['fssynthesizer_5fmonotouchproc_17',['FSSynthesizer_MonoTouchProc',['../_fluid_synth_synthesizer_8cpp.html#a9caff645308365144fbc631929ccad7a',1,'FluidSynthSynthesizer.cpp']]],
+  ['fssynthesizer_5fnoteoffproc_18',['FSSynthesizer_NoteOffProc',['../_fluid_synth_synthesizer_8cpp.html#ae71244df0ae7042a614142f0d4f53079',1,'FluidSynthSynthesizer.cpp']]],
+  ['fssynthesizer_5fnoteonproc_19',['FSSynthesizer_NoteOnProc',['../_fluid_synth_synthesizer_8cpp.html#a1aed0e3a15d160dbe942a662dcd0999d',1,'FluidSynthSynthesizer.cpp']]],
+  ['fssynthesizer_5fpitchbendproc_20',['FSSynthesizer_PitchBendProc',['../_fluid_synth_synthesizer_8cpp.html#a265fb9d59fe99a7f6293fd4f2ca933e0',1,'FluidSynthSynthesizer.cpp']]],
+  ['fssynthesizer_5fpolytouchproc_21',['FSSynthesizer_PolyTouchProc',['../_fluid_synth_synthesizer_8cpp.html#a3b3ff9f58659ab2a447c8776047cdb81',1,'FluidSynthSynthesizer.cpp']]],
+  ['fssynthesizer_5fprocessproc_22',['FSSynthesizer_ProcessProc',['../_fluid_synth_synthesizer_8cpp.html#a9ed2a9878ee6bffcd4a2dcdd353d11d0',1,'FluidSynthSynthesizer.cpp']]],
+  ['fssynthesizer_5fprogchangeproc_23',['FSSynthesizer_ProgChangeProc',['../_fluid_synth_synthesizer_8cpp.html#ab94ebe776a629f1e98b367a2f10bd8d6',1,'FluidSynthSynthesizer.cpp']]],
+  ['fssynthesizer_5fsetinterpolationmethodproc_24',['FSSynthesizer_SetInterpolationMethodProc',['../_fluid_synth_synthesizer_8cpp.html#a460b7435657a3cebb4e57bb70eb3d7dd',1,'FluidSynthSynthesizer.cpp']]],
+  ['fssynthesizer_5fsfloadproc_25',['FSSynthesizer_SFLoadProc',['../_fluid_synth_synthesizer_8cpp.html#a3e3d7d6f3d3d6098887b210372548db9',1,'FluidSynthSynthesizer.cpp']]],
+  ['fssynthesizer_5fsizeproc_26',['FSSynthesizer_SizeProc',['../_fluid_synth_synthesizer_8cpp.html#ae7a2a8b1c3c324f33361d0e35bbb8188',1,'FluidSynthSynthesizer.cpp']]],
+  ['fsynth_5fversionproc_27',['FSynth_VersionProc',['../_fluid_synth_8cpp.html#ab3e9b1489b32fc456d789b819d62801f',1,'FluidSynth.cpp']]]
 ];

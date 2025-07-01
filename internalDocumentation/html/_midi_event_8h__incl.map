@@ -1,20 +1,43 @@
 <map id="MidiEvent.h" name="MidiEvent.h">
-<area shape="rect" id="node1" title="The MidiEvent specification defines a single MIDI event and the MIDI event kind enumeration." alt="" coords="328,5,417,32"/>
-<area shape="rect" id="node2" href="$_boolean_8h.html" title="The Boolean specification and body provides a value object type for boolean values." alt="" coords="190,80,270,107"/>
-<area shape="rect" id="node6" href="$_integer_8h.html" title="The Integer specification and body provides a value object type for ints." alt="" coords="286,155,358,181"/>
-<area shape="rect" id="node12" href="$_byte_list_8h.html" title="The ByteList specification defines lists of byte values with zero&#45;based arbitrary indexed access to p..." alt="" coords="395,80,476,107"/>
-<area shape="rect" id="node18" href="$_object_8h.html" title="The Object specification and body provides the root object type." alt="" coords="500,80,571,107"/>
-<area shape="rect" id="node3" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="57,304,142,331"/>
-<area shape="rect" id="node4" title=" " alt="" coords="143,379,197,405"/>
-<area shape="rect" id="node5" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="5,379,119,405"/>
-<area shape="rect" id="node7" title=" " alt="" coords="475,304,534,331"/>
-<area shape="rect" id="node8" title=" " alt="" coords="221,379,300,405"/>
-<area shape="rect" id="node9" href="$_natural_8h.html" title="The Natural specification and body provides a value object type for naturals (positive integers with ..." alt="" coords="282,229,357,256"/>
-<area shape="rect" id="node10" href="$_assertion_8h.html" title="The Assertion specification defines macros for pre&#45; and postconditions in functions or methods." alt="" coords="217,304,305,331"/>
-<area shape="rect" id="node11" title=" " alt="" coords="329,304,451,331"/>
-<area shape="rect" id="node13" href="$_byte_8h.html" title="The Byte specification and body provides a value object type for byte values." alt="" coords="409,155,469,181"/>
-<area shape="rect" id="node15" href="$_string_list_8h.html" title="The StringList specification defines lists of string values with zero&#45;based arbitrary indexed access ..." alt="" coords="573,155,661,181"/>
-<area shape="rect" id="node14" title=" " alt="" coords="482,229,543,256"/>
-<area shape="rect" id="node16" title=" " alt="" coords="568,229,665,256"/>
-<area shape="rect" id="node17" title=" " alt="" coords="690,229,789,256"/>
+<area shape="rect" id="Node000001" title="The MidiEvent specification defines a single MIDI event and the MIDI event kind enumeration." alt="" coords="328,5,417,31"/>
+<area shape="rect" id="Node000002" href="$_boolean_8h.html" title="The Boolean specification and body provides a value object type for boolean values." alt="" coords="190,79,270,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="351,33,267,75,264,70,349,28"/>
+<area shape="rect" id="Node000006" href="$_integer_8h.html" title="The Integer specification and body provides a value object type for ints." alt="" coords="286,152,358,177"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="371,32,333,140,328,138,366,30"/>
+<area shape="rect" id="Node000012" href="$_byte_list_8h.html" title="The ByteList specification defines lists of byte values with zero&#45;based arbitrary indexed access to p..." alt="" coords="395,79,476,104"/>
+<area shape="poly" id="edge15_Node000001_Node000012" title=" " alt="" coords="385,29,418,66,414,70,381,33"/>
+<area shape="rect" id="Node000018" href="$_object_8h.html" title="The Object specification and body provides the root object type." alt="" coords="500,79,571,104"/>
+<area shape="poly" id="edge23_Node000001_Node000018" title=" " alt="" coords="400,28,497,71,495,75,398,33"/>
+<area shape="rect" id="Node000003" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="57,299,142,324"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="225,106,116,288,111,285,221,103"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="143,372,197,397"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="113,322,151,360,147,364,109,326"/>
+<area shape="rect" id="Node000005" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="5,372,119,397"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="96,326,77,361,72,359,91,323"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="475,299,534,324"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="339,176,481,288,478,292,335,180"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="221,372,300,397"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="308,179,255,227,228,261,207,299,205,316,211,333,236,362,232,365,206,335,200,317,202,298,223,258,251,224,305,175"/>
+<area shape="rect" id="Node000009" href="$_natural_8h.html" title="The Natural specification and body provides a value object type for naturals (positive integers with ..." alt="" coords="282,225,357,251"/>
+<area shape="poly" id="edge8_Node000006_Node000009" title=" " alt="" coords="324,178,323,212,318,212,319,178"/>
+<area shape="poly" id="edge14_Node000009_Node000003" title=" " alt="" coords="285,253,148,297,147,292,283,248"/>
+<area shape="poly" id="edge9_Node000009_Node000007" title=" " alt="" coords="350,248,463,291,461,296,348,253"/>
+<area shape="rect" id="Node000010" href="$_assertion_8h.html" title="The Assertion specification defines macros for pre&#45; and postconditions in functions or methods." alt="" coords="217,299,305,324"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="312,253,281,290,277,287,308,249"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="329,299,451,324"/>
+<area shape="poly" id="edge13_Node000009_Node000011" title=" " alt="" coords="333,249,371,287,367,291,329,253"/>
+<area shape="poly" id="edge12_Node000010_Node000004" title=" " alt="" coords="248,326,197,365,194,361,244,322"/>
+<area shape="poly" id="edge11_Node000010_Node000008" title=" " alt="" coords="263,324,263,358,258,358,258,324"/>
+<area shape="rect" id="Node000013" href="$_byte_8h.html" title="The Byte specification and body provides a value object type for byte values." alt="" coords="409,152,469,177"/>
+<area shape="poly" id="edge16_Node000012_Node000013" title=" " alt="" coords="439,104,441,138,435,139,433,104"/>
+<area shape="rect" id="Node000015" href="$_string_list_8h.html" title="The StringList specification defines lists of string values with zero&#45;based arbitrary indexed access ..." alt="" coords="573,152,661,177"/>
+<area shape="poly" id="edge20_Node000012_Node000015" title=" " alt="" coords="465,102,575,144,573,149,463,107"/>
+<area shape="poly" id="edge17_Node000013_Node000007" title=" " alt="" coords="445,177,472,250,492,286,488,288,468,252,440,179"/>
+<area shape="poly" id="edge19_Node000013_Node000009" title=" " alt="" coords="421,180,352,220,350,216,419,175"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="482,225,543,251"/>
+<area shape="poly" id="edge18_Node000013_Node000014" title=" " alt="" coords="453,176,493,214,489,218,450,180"/>
+<area shape="rect" id="Node000016" title=" " alt="" coords="568,225,665,251"/>
+<area shape="poly" id="edge21_Node000015_Node000016" title=" " alt="" coords="619,178,619,212,614,212,614,178"/>
+<area shape="rect" id="Node000017" title=" " alt="" coords="690,225,789,251"/>
+<area shape="poly" id="edge22_Node000015_Node000017" title=" " alt="" coords="638,175,709,216,706,221,635,180"/>
 </map>

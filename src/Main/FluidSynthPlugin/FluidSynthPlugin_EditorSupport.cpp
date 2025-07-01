@@ -640,6 +640,7 @@ _PresetSelectionComponent
                                 juce::String{_Identification_program}},
       _bankListBoxWidget{"", &_bankNumberListModel},
       _programListBoxWidget{"", &_programListModel},
+      _listBoxFont{JuceFont_make(10, juce::Font::plain)},
       _okayButtonWidget{_ButtonLabel_okay},
       _cancelButtonWidget{_ButtonLabel_cancel}
 {
@@ -849,9 +850,12 @@ void _PresetSelectionComponent::resized ()
     
     int deviceHeaderHeight = _toDeviceHeight(this, headerHeight);
     int deviceRowHeight = _toDeviceHeight(this, listBoxRowHeight);
-    juce::Font headerFont{(float) deviceHeaderHeight}; 
-    _listBoxFont = juce::Font{deviceRowHeight * 0.75f};
- 
+    
+    juce::Font headerFont =
+        JuceFont_make(deviceHeaderHeight, juce::Font::plain);
+    _listBoxFont =
+        JuceFont_make(deviceRowHeight * 0.75, juce::Font::plain);
+
     Percentage x = listBoxBorderMargin;
     _bankColumnHeadingWidget.setBounds(
         _toDeviceRectangle(this,
@@ -992,10 +996,10 @@ void _StringListBoxModel::paintListBoxItem (int rowNumber,
     context.setFont(_parent->listBoxFont());
     juce::Justification leftAligned = juce::Justification::left;
     juce::String selectionMarker = ">>";
-    juce::Font font = context.getCurrentFont();
-    int xOffset = font.getStringWidth(selectionMarker + " ");
     juce::Colour textColour;
     juce::Colour backgroundColour;
+    juce::Font font = context.getCurrentFont();
+    int xOffset = JuceFont_getStringWidth(font, selectionMarker + " ");
 
     if (rowIsSelected) {
         textColour = _Colour_lboxItemTxtSelected;

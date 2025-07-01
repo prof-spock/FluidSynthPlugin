@@ -193,8 +193,8 @@ static const Dictionary _nameToAbstractArgumentDataMap =
         "-E                     -> UNSUPPORTED/0/-,"
         "-f                     -> CONFIGFILE/1/S,"
         "--load-config          -> CONFIGFILE/1/S,"
-        "-F                     -> TARGETFILE/1/S,"
-        "--fast-render=         -> TARGETFILE/1/S,"
+        "-F                     -> DESTINATIONFILE/1/S,"
+        "--fast-render=         -> DESTINATIONFILE/1/S,"
         "-G                     -> UNSUPPORTED/1/N,"
         "--audio-groups         -> UNSUPPORTED/1/N,"
         "-g                     -> GAIN/1/R,"
@@ -320,7 +320,7 @@ _renderSynchronousEvents (INOUT MidiEventConverter& midiEventConverter,
                           IN MidiEventList& synchronousEventList,
                           IN Natural trailingSampleCount,
                           INOUT AudioSampleListVector& temporaryBuffer,
-                          INOUT AudioSampleListVector& targetBuffer);
+                          INOUT AudioSampleListVector& destinationBuffer);
 
 static Real _updatedTimeFactor (IN MidiEvent& event,
                                 IN Natural midiTicksPerQuarterNote);
@@ -400,7 +400,7 @@ static Boolean _checkFileAccess (IN String& fileName,
  * @param[in]  argumentCount    number of arguments in command line
  * @param[in]  argv             array of argument strings
  * @param[out] midiFileName     midi source file name
- * @param[out] waveFileName     target wave file name
+ * @param[out] waveFileName     destination wave file name
  * @param[out] sampleRate       selected sample rate
  * @param[out] audioFileFormat  string code for the wave audio file
  *                              format
@@ -536,7 +536,7 @@ _handleCommandLineArguments (IN Natural argumentCount,
             renderSettings.set("soundfont", soundFontFileName);
             fileIsOkay = _checkFileAccess(soundFontFileName, true);
             isOkay = isOkay && fileIsOkay;
-        } else if (abstractName == "TARGETFILE") {
+        } else if (abstractName == "DESTINATIONFILE") {
             waveFileName = parameterList[0];
             fileIsOkay = _checkFileAccess(waveFileName, false);
             isOkay = isOkay && fileIsOkay;
@@ -616,7 +616,7 @@ _makeMidiEventConverter (IN Dictionary& settings)
  * @param[in] sampleRate       the sample rate for the wave file
  * @param[in] audioFileFormat  string code for the wave audio file
  *                             format
- * @param[in] waveFileName     target wave file name
+ * @param[in] waveFileName     destination wave file name
  */
 static void _process (IN Dictionary& renderSettings,
                       IN String& midiFileName,
@@ -650,7 +650,7 @@ static void _process (IN Dictionary& renderSettings,
 
     /* write samples as wave file */
     Logging_trace1("--: sample buffer prefix = %1", buffer.toString(100));
-    WaveFile targetFile{waveFileName};
+    WaveFile destinationFile{waveFileName};
     const Natural audioFrameCount = buffer.frameCount();
 
     String typeCode;
@@ -663,9 +663,9 @@ static void _process (IN Dictionary& renderSettings,
                     STR::expand("bad type code for '%1' - '%2'",
                                 audioFileFormat, typeCodeAndWidth));
     const Natural sampleWidthInBytes = StringUtil::toNatural(sampleWidth);
-    targetFile.write((Natural) Real::round(sampleRate), _channelCount, 
-                     audioFrameCount, typeCode, sampleWidthInBytes,
-                     buffer);
+    destinationFile.write((Natural) Real::round(sampleRate), _channelCount, 
+                          audioFrameCount, typeCode, sampleWidthInBytes,
+                          buffer);
 
     Logging_trace("<<");
 }
@@ -792,7 +792,7 @@ static void _renderEvents (IN Dictionary& settings,
  * Render synchronous events from <C>midiEventList</C> trailed by
  * <C>trailingSampleCount</C> samples via fluidsynth synthesizer
  * from <C>midiEventConverter</C> using <C>temporaryBuffer</C> and
- * appending result to <C>targetBuffer</C>.
+ * appending result to <C>destinationBuffer</C>.
  *
  * @param[in]  midiEventConverter    FluidSynth processor for events
  * @param[in]  synchronousEventList  list of MIDI events happening
@@ -801,14 +801,14 @@ static void _renderEvents (IN Dictionary& settings,
  *                                   MIDI events
  * @param[in]  temporaryBuffer       auxiliary buffer for incremental
  *                                   rendering
- * @param[out] targetBuffer          target stereo sample array
+ * @param[out] destinationBuffer     destination stereo sample array
  */
 static void
 _renderSynchronousEvents (INOUT MidiEventConverter& midiEventConverter,
                           IN MidiEventList& synchronousEventList,
                           IN Natural trailingSampleCount,
                           INOUT AudioSampleListVector& temporaryBuffer,
-                          INOUT AudioSampleListVector& targetBuffer)
+                          INOUT AudioSampleListVector& destinationBuffer)
 {
     Logging_trace2(">>: eventListCount = %1,"
                    " sampleCount = %2",
@@ -822,20 +822,20 @@ _renderSynchronousEvents (INOUT MidiEventConverter& midiEventConverter,
     do {
         Natural renderCount = (remainingCount >= bufferLength
                                ? bufferLength : remainingCount);
-        Logging_trace2("--: targetPosition = %1, count = %2",
-                       TOSTRING(targetBuffer.frameCount()),
+        Logging_trace2("--: destinationPosition = %1, count = %2",
+                       TOSTRING(destinationBuffer.frameCount()),
                        TOSTRING(renderCount));
         midiEventConverter.processBlock(eventList, temporaryBuffer,
                                         renderCount);
         Logging_trace1("--: currentSamples = %1",
                        temporaryBuffer.toString(renderCount, true));
-        targetBuffer.extend(temporaryBuffer, renderCount);
+        destinationBuffer.extend(temporaryBuffer, renderCount);
         remainingCount -= renderCount;
         eventList.clear();
     } while (remainingCount > 0);
 
     Logging_trace1("<<: sampleBufferCount = %1",
-                   TOSTRING(targetBuffer.frameCount()));
+                   TOSTRING(destinationBuffer.frameCount()));
 }
 
 /*--------------------*/

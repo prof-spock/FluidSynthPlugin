@@ -156,7 +156,8 @@ Natural File::write (IN ByteList& byteList,
 {
     Assertion_pre(isOpen(), "file must be open for writing");
     FilePointer file = static_cast<FilePointer>(_descriptor);
-    const char* characterArray = reinterpret_cast<const char*>(byteList.asArray());
+    const char* characterArray =
+        reinterpret_cast<const char*>(byteList.asArray());
     Natural result = StdIO_fwrite(&characterArray[(size_t) position],
                                   1, (size_t) count, file);
     return result;

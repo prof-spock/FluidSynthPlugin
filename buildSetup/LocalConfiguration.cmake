@@ -25,4 +25,5 @@ ENDIF()
 # the directory where the JUCE modules are located
 IF(NOT JUCE_FOUND)
     SET(JUCE_DIR ${programDirectory}/JUCE)
+    SET(JUCE_VERSION 8)
 ENDIF()

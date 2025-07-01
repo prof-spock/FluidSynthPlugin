@@ -1,5 +1,7 @@
 <map id="Main::FluidSynthPlugin::_PresetSelectionComponent" name="Main::FluidSynthPlugin::_PresetSelectionComponent">
-<area shape="rect" id="node1" title="A selection component for soundfont presets." alt="" coords="35,131,253,501"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,125,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="149,5,296,83"/>
+<area shape="rect" id="Node000001" title="A selection component for soundfont presets." alt="" coords="29,119,243,579"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,117,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="75,84,83,117,78,119,70,85"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="141,5,280,71"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="202,85,194,119,189,117,197,84"/>
 </map>

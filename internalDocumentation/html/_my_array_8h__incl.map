@@ -1,12 +1,22 @@
 <map id="MyArray.h" name="MyArray.h">
-<area shape="rect" id="node1" title="The MyArray specification and body defines a generic array type for stack allocated arrays represente..." alt="" coords="108,5,191,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="73,80,135,107"/>
-<area shape="rect" id="node3" href="$_natural_8h.html" title="The Natural specification and body provides a value object type for naturals (positive integers with ..." alt="" coords="159,80,233,107"/>
-<area shape="rect" id="node4" title=" " alt="" coords="5,155,64,181"/>
-<area shape="rect" id="node5" href="$_assertion_8h.html" title="The Assertion specification defines macros for pre&#45; and postconditions in functions or methods." alt="" coords="88,155,176,181"/>
-<area shape="rect" id="node8" title=" " alt="" coords="200,155,323,181"/>
-<area shape="rect" id="node9" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="347,155,432,181"/>
-<area shape="rect" id="node6" title=" " alt="" coords="93,229,171,256"/>
-<area shape="rect" id="node7" title=" " alt="" coords="225,229,279,256"/>
-<area shape="rect" id="node10" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="333,229,446,256"/>
+<area shape="rect" id="Node000001" title="The MyArray specification and body defines a generic array type for stack allocated arrays represente..." alt="" coords="108,5,191,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="73,79,135,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="144,32,121,69,116,66,140,30"/>
+<area shape="rect" id="Node000003" href="$_natural_8h.html" title="The Natural specification and body provides a value object type for naturals (positive integers with ..." alt="" coords="159,79,233,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="159,30,183,66,179,69,155,32"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,152,64,177"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="171,106,75,149,72,144,169,102"/>
+<area shape="rect" id="Node000005" href="$_assertion_8h.html" title="The Assertion specification defines macros for pre&#45; and postconditions in functions or methods." alt="" coords="88,152,176,177"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="187,106,153,144,149,140,183,103"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="200,152,323,177"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="209,103,243,140,240,144,205,106"/>
+<area shape="rect" id="Node000009" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="347,152,432,177"/>
+<area shape="poly" id="edge8_Node000003_Node000009" title=" " alt="" coords="228,102,346,145,344,150,226,107"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="93,225,171,251"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="135,178,135,212,129,212,129,178"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="225,225,279,251"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="153,175,222,216,219,220,150,180"/>
+<area shape="poly" id="edge9_Node000009_Node000007" title=" " alt="" coords="368,180,288,221,285,217,366,175"/>
+<area shape="rect" id="Node000010" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="333,225,446,251"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="392,178,392,212,387,212,387,178"/>
 </map>

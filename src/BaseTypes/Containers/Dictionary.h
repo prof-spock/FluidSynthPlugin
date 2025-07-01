@@ -102,6 +102,26 @@ namespace BaseTypes::Containers {
             IN String& entrySeparator = StringUtil::entrySeparator,
             IN String& keyValueSeparator = StringUtil::keyValueSeparator);
 
+        /*-----------------------*/
+        /* aggregate data access */
+        /*-----------------------*/
+
+        /**
+         * Returns list of key elements.
+         *
+         * @return  list of keys
+         */
+        StringList keyList () const;
+
+        /*--------------------*/
+
+        /**
+         * Returns list of value elements.
+         *
+         * @return  list of values
+         */
+        StringList valueList () const;
+
     };
 
 }

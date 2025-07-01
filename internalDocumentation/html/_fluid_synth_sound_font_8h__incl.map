@@ -1,27 +1,59 @@
 <map id="FluidSynthSoundFont.h" name="FluidSynthSoundFont.h">
-<area shape="rect" id="node1" title="The FluidSynthSoundFont class specifies an object&#45;oriented wrapper around an underlying fluidsynth so..." alt="" coords="352,5,511,32"/>
-<area shape="rect" id="node2" href="$_fluid_synth_synthesizer_8h.html" title="The FluidSynthSynthesizer class specifies an object&#45;oriented wrapper around an underlying fluidsynth ..." alt="" coords="132,80,296,107"/>
-<area shape="rect" id="node24" href="$_string_list_8h.html" title="The StringList specification defines lists of string values with zero&#45;based arbitrary indexed access ..." alt="" coords="605,80,693,107"/>
-<area shape="rect" id="node3" href="$_audio_sample_list_vector_8h.html" title="The AudioSampleListVector specification defines the communication buffer structure for the block proc..." alt="" coords="269,155,439,181"/>
-<area shape="rect" id="node11" href="$_natural_8h.html" title="The Natural specification and body provides a value object type for naturals (positive integers with ..." alt="" coords="193,528,267,555"/>
-<area shape="rect" id="node21" href="$_object_8h.html" title="The Object specification and body provides the root object type." alt="" coords="8,304,79,331"/>
-<area shape="rect" id="node22" href="$_fluid_synth_settings_8h.html" title="The FluidSynthSettings class specifies an object&#45;oriented wrapper around an underlying fluidsynth set..." alt="" coords="33,155,176,181"/>
-<area shape="rect" id="node4" href="$_audio_sample_list_8h.html" title="The AudioSampleList specification defines lists of audio samples with zero&#45;based arbitrary indexed ac..." alt="" coords="481,229,611,256"/>
-<area shape="rect" id="node20" href="$_audio_sample_list_vector_8cpp-inc.html" title="The AudioSampleListVector body implements the communication buffer structure for the block processing..." alt="" coords="252,229,456,256"/>
-<area shape="rect" id="node5" title=" " alt="" coords="597,304,695,331"/>
-<area shape="rect" id="node6" href="$_audio_sample_8h.html" title="The AudioSample specification and body provides the definition of the audio sample (a real value)." alt="" coords="459,304,569,331"/>
-<area shape="rect" id="node17" href="$_audio_sample_list_8cpp-inc.html" title="The AudioSampleList body implements a simple list of audio samples (this is the effective code includ..." alt="" coords="263,304,429,331"/>
-<area shape="rect" id="node7" href="$_real_8h.html" title="The Real specification defines a value object type for real values." alt="" coords="446,379,505,405"/>
-<area shape="rect" id="node8" href="$_integer_8h.html" title="The Integer specification and body provides a value object type for ints." alt="" coords="418,453,490,480"/>
-<area shape="rect" id="node9" title=" " alt="" coords="391,603,450,629"/>
-<area shape="rect" id="node10" title=" " alt="" coords="337,677,416,704"/>
-<area shape="rect" id="node12" href="$_assertion_8h.html" title="The Assertion specification defines macros for pre&#45; and postconditions in functions or methods." alt="" coords="133,603,221,629"/>
-<area shape="rect" id="node14" title=" " alt="" coords="245,603,367,629"/>
-<area shape="rect" id="node15" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="23,603,109,629"/>
-<area shape="rect" id="node13" title=" " alt="" coords="148,677,203,704"/>
-<area shape="rect" id="node16" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="9,677,123,704"/>
-<area shape="rect" id="node18" href="$_my_array_8h.html" title="The MyArray specification and body defines a generic array type for stack allocated arrays represente..." alt="" coords="301,379,383,405"/>
-<area shape="rect" id="node19" title=" " alt="" coords="311,453,373,480"/>
-<area shape="rect" id="node23" href="$_fluid_synth_8h.html" title="The FluidSynth class specifies an object&#45;oriented wrapper around the fluidsynth library and also allo..." alt="" coords="57,229,152,256"/>
-<area shape="rect" id="node25" title=" " alt="" coords="687,155,784,181"/>
+<area shape="rect" id="Node000001" title="The FluidSynthSoundFont class specifies an object&#45;oriented wrapper around an underlying fluidsynth so..." alt="" coords="352,5,510,31"/>
+<area shape="rect" id="Node000002" href="$_fluid_synth_synthesizer_8h.html" title="The FluidSynthSynthesizer class specifies an object&#45;oriented wrapper around an underlying fluidsynth ..." alt="" coords="132,79,296,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="397,33,263,77,261,72,395,28"/>
+<area shape="rect" id="Node000024" href="$_string_list_8h.html" title="The StringList specification defines lists of string values with zero&#45;based arbitrary indexed access ..." alt="" coords="604,79,692,104"/>
+<area shape="poly" id="edge30_Node000001_Node000024" title=" " alt="" coords="467,28,601,72,599,77,465,33"/>
+<area shape="rect" id="Node000003" href="$_audio_sample_list_vector_8h.html" title="The AudioSampleListVector specification defines the communication buffer structure for the block proc..." alt="" coords="269,152,438,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="237,102,320,143,318,148,235,106"/>
+<area shape="rect" id="Node000011" href="$_natural_8h.html" title="The Natural specification and body provides a value object type for naturals (positive integers with ..." alt="" coords="192,519,267,544"/>
+<area shape="poly" id="edge24_Node000002_Node000011" title=" " alt="" coords="216,104,216,237,216,386,220,450,228,505,223,505,215,451,211,386,211,237,211,104"/>
+<area shape="rect" id="Node000021" href="$_object_8h.html" title="The Object specification and body provides the root object type." alt="" coords="8,299,78,324"/>
+<area shape="poly" id="edge25_Node000002_Node000021" title=" " alt="" coords="132,99,101,105,72,116,44,132,22,154,14,169,10,185,11,221,20,256,32,285,27,287,15,258,5,222,4,185,9,167,18,150,41,127,69,111,100,100,131,93"/>
+<area shape="rect" id="Node000022" href="$_fluid_synth_settings_8h.html" title="The FluidSynthSettings class specifies an object&#45;oriented wrapper around an underlying fluidsynth set..." alt="" coords="33,152,176,177"/>
+<area shape="poly" id="edge26_Node000002_Node000022" title=" " alt="" coords="198,106,135,147,132,142,195,102"/>
+<area shape="rect" id="Node000004" href="$_audio_sample_list_8h.html" title="The AudioSampleList specification defines lists of audio samples with zero&#45;based arbitrary indexed ac..." alt="" coords="480,225,611,251"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="385,175,502,218,500,223,384,180"/>
+<area shape="rect" id="Node000020" href="$_audio_sample_list_vector_8cpp-inc.html" title="The AudioSampleListVector body implements the communication buffer structure for the block processing..." alt="" coords="252,225,456,251"/>
+<area shape="poly" id="edge23_Node000003_Node000020" title=" " alt="" coords="356,178,356,212,351,212,351,178"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="596,299,695,324"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="563,249,620,288,617,293,560,253"/>
+<area shape="rect" id="Node000006" href="$_audio_sample_8h.html" title="The AudioSample specification and body provides the definition of the audio sample (a real value)." alt="" coords="458,299,569,324"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="543,252,527,287,522,285,538,250"/>
+<area shape="rect" id="Node000017" href="$_audio_sample_list_8cpp-inc.html" title="The AudioSampleList body implements a simple list of audio samples (this is the effective code includ..." alt="" coords="262,299,429,324"/>
+<area shape="poly" id="edge19_Node000004_Node000017" title=" " alt="" coords="514,253,392,296,390,291,513,248"/>
+<area shape="rect" id="Node000007" href="$_real_8h.html" title="The Real specification defines a value object type for real values." alt="" coords="446,372,504,397"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="510,326,490,361,485,359,505,323"/>
+<area shape="rect" id="Node000008" href="$_integer_8h.html" title="The Integer specification and body provides a value object type for ints." alt="" coords="418,445,490,471"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="474,398,464,433,458,431,469,397"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="391,592,450,617"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="454,472,429,579,423,578,448,471"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="337,665,416,691"/>
+<area shape="poly" id="edge9_Node000008_Node000010" title=" " alt="" coords="461,470,469,498,476,536,476,578,472,599,464,619,444,643,419,661,416,657,440,639,459,616,467,597,471,577,470,536,464,499,455,472"/>
+<area shape="poly" id="edge10_Node000008_Node000011" title=" " alt="" coords="418,473,280,517,278,512,417,468"/>
+<area shape="poly" id="edge11_Node000011_Node000009" title=" " alt="" coords="261,542,378,585,377,590,259,547"/>
+<area shape="rect" id="Node000012" href="$_assertion_8h.html" title="The Assertion specification defines macros for pre&#45; and postconditions in functions or methods." alt="" coords="132,592,220,617"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="223,546,195,583,191,580,219,543"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="244,592,367,617"/>
+<area shape="poly" id="edge15_Node000011_Node000014" title=" " alt="" coords="244,542,285,581,281,584,240,546"/>
+<area shape="rect" id="Node000015" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="23,592,108,617"/>
+<area shape="poly" id="edge16_Node000011_Node000015" title=" " alt="" coords="204,546,106,589,104,584,202,542"/>
+<area shape="poly" id="edge13_Node000012_Node000010" title=" " alt="" coords="209,615,331,658,330,663,208,620"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="148,665,202,691"/>
+<area shape="poly" id="edge14_Node000012_Node000013" title=" " alt="" coords="179,618,178,652,173,652,173,618"/>
+<area shape="poly" id="edge17_Node000015_Node000013" title=" " alt="" coords="85,615,147,655,144,660,82,620"/>
+<area shape="rect" id="Node000016" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="9,665,122,691"/>
+<area shape="poly" id="edge18_Node000015_Node000016" title=" " alt="" coords="68,618,68,652,63,652,63,618"/>
+<area shape="rect" id="Node000018" href="$_my_array_8h.html" title="The MyArray specification and body defines a generic array type for stack allocated arrays represente..." alt="" coords="300,372,383,397"/>
+<area shape="poly" id="edge20_Node000017_Node000018" title=" " alt="" coords="348,324,346,359,340,358,342,324"/>
+<area shape="poly" id="edge22_Node000018_Node000011" title=" " alt="" coords="335,399,249,510,245,506,330,396"/>
+<area shape="rect" id="Node000019" title=" " alt="" coords="311,445,372,471"/>
+<area shape="poly" id="edge21_Node000018_Node000019" title=" " alt="" coords="344,398,344,432,339,432,339,398"/>
+<area shape="rect" id="Node000023" href="$_fluid_synth_8h.html" title="The FluidSynth class specifies an object&#45;oriented wrapper around the fluidsynth library and also allo..." alt="" coords="57,225,152,251"/>
+<area shape="poly" id="edge27_Node000022_Node000023" title=" " alt="" coords="107,178,107,212,102,212,102,178"/>
+<area shape="poly" id="edge28_Node000023_Node000011" title=" " alt="" coords="111,250,143,342,197,470,217,506,213,508,193,472,138,344,106,252"/>
+<area shape="poly" id="edge29_Node000023_Node000021" title=" " alt="" coords="96,253,64,290,60,286,92,249"/>
+<area shape="poly" id="edge32_Node000024_Node000005" title=" " alt="" coords="651,104,649,284,643,284,645,104"/>
+<area shape="rect" id="Node000025" title=" " alt="" coords="686,152,784,177"/>
+<area shape="poly" id="edge31_Node000024_Node000025" title=" " alt="" coords="664,102,712,141,709,145,661,106"/>
 </map>

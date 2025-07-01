@@ -1,13 +1,26 @@
 <map id="Percentage.h" name="Percentage.h">
-<area shape="rect" id="node1" title="The Percentage specification and body provides a simple percentage type." alt="" coords="26,5,125,32"/>
-<area shape="rect" id="node2" href="$_real_8h.html" title="The Real specification defines a value object type for real values." alt="" coords="46,80,105,107"/>
-<area shape="rect" id="node3" href="$_integer_8h.html" title="The Integer specification and body provides a value object type for ints." alt="" coords="39,155,111,181"/>
-<area shape="rect" id="node4" title=" " alt="" coords="46,304,105,331"/>
-<area shape="rect" id="node5" title=" " alt="" coords="5,379,84,405"/>
-<area shape="rect" id="node6" href="$_natural_8h.html" title="The Natural specification and body provides a value object type for naturals (positive integers with ..." alt="" coords="135,229,210,256"/>
-<area shape="rect" id="node7" href="$_assertion_8h.html" title="The Assertion specification defines macros for pre&#45; and postconditions in functions or methods." alt="" coords="129,304,217,331"/>
-<area shape="rect" id="node9" title=" " alt="" coords="350,304,473,331"/>
-<area shape="rect" id="node10" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="241,304,326,331"/>
-<area shape="rect" id="node8" title=" " alt="" coords="147,379,201,405"/>
-<area shape="rect" id="node11" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="227,379,340,405"/>
+<area shape="rect" id="Node000001" title="The Percentage specification and body provides a simple percentage type." alt="" coords="26,5,125,31"/>
+<area shape="rect" id="Node000002" href="$_real_8h.html" title="The Real specification defines a value object type for real values." alt="" coords="46,79,105,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="78,31,78,65,73,65,73,31"/>
+<area shape="rect" id="Node000003" href="$_integer_8h.html" title="The Integer specification and body provides a value object type for ints." alt="" coords="39,152,111,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="78,104,78,138,73,138,73,104"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="46,299,105,324"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="78,178,78,285,73,285,73,178"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="5,372,84,397"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="72,179,48,240,38,281,37,324,42,358,37,359,31,324,33,281,43,239,67,177"/>
+<area shape="rect" id="Node000006" href="$_natural_8h.html" title="The Natural specification and body provides a value object type for naturals (positive integers with ..." alt="" coords="135,225,210,251"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="93,175,147,215,144,219,89,180"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="159,253,104,292,101,288,155,249"/>
+<area shape="rect" id="Node000007" href="$_assertion_8h.html" title="The Assertion specification defines macros for pre&#45; and postconditions in functions or methods." alt="" coords="129,299,217,324"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="175,251,175,285,170,285,170,251"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="350,299,473,324"/>
+<area shape="poly" id="edge10_Node000006_Node000009" title=" " alt="" coords="211,248,360,292,359,297,210,253"/>
+<area shape="rect" id="Node000010" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="241,299,326,324"/>
+<area shape="poly" id="edge11_Node000006_Node000010" title=" " alt="" coords="192,248,255,289,252,293,189,253"/>
+<area shape="poly" id="edge8_Node000007_Node000005" title=" " alt="" coords="153,326,79,367,77,363,151,322"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="147,372,201,397"/>
+<area shape="poly" id="edge9_Node000007_Node000008" title=" " alt="" coords="176,324,176,358,171,359,170,324"/>
+<area shape="poly" id="edge12_Node000010_Node000008" title=" " alt="" coords="267,326,205,367,202,362,264,322"/>
+<area shape="rect" id="Node000011" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="227,372,340,397"/>
+<area shape="poly" id="edge13_Node000010_Node000011" title=" " alt="" coords="286,324,286,358,281,358,281,324"/>
 </map>

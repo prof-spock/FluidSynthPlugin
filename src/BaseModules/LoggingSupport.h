@@ -140,6 +140,17 @@ namespace BaseModules {
         /*--------------------*/
 
         /**
+         * Sets logging of thread information in logs to active or
+         * inactive.
+         *
+         * @param[in] threadIDIsLogged  sets or disables thread ID output
+         *                              in log
+         */
+        static void setTracingOfThreadID (IN Boolean threadIDIsLogged);
+
+        /*--------------------*/
+
+        /**
          * Sets logging of time when tracing to active or inactive.
          *
          * @param[in] timeIsLogged          sets or disables time output

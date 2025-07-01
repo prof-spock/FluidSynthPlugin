@@ -396,11 +396,11 @@ namespace Windows {
 /* utility macros     */
 /*--------------------*/
 
-#define WND_makeLPCWSTR(target, source, temp) \
+#define WND_makeLPCWSTR(destination, source, temp) \
     std::wstring temp = std::wstring(source.begin(), source.end()); \
-    Windows::LPCWSTR target = temp.c_str();
+    Windows::LPCWSTR destination = temp.c_str();
 
-#define WND_makeLPWSTR(target, source, temp) \
+#define WND_makeLPWSTR(destination, source, temp) \
     Windows::WCHAR temp[500];                                      \
     Windows::MultiByteToWideChar(CP_ACP, 0, source.c_str(), -1, temp, 500); \
-    Windows::LPWSTR target = &temp[0];
+    Windows::LPWSTR destination = &temp[0];
