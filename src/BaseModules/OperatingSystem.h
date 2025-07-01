@@ -19,11 +19,13 @@
 #include "Boolean.h"
 #include "Dictionary.h"
 #include "Natural.h"
+#include "TimeAndDuration.h"
 
 /*--------------------*/
 
 using BaseTypes::Containers::Dictionary;
 using BaseTypes::Primitives::Boolean;
+using BaseTypes::Primitives::Duration;
 using BaseTypes::Primitives::Natural;
 using BaseTypes::Primitives::String;
 
@@ -105,6 +107,18 @@ namespace BaseModules {
         /*--------------------*/
 
         /**
+         * Reads associated value for environment variable named
+         * <C>variableName</C>; returns empty when not found
+         *
+         * @param[in]  variableName  name of environment variable
+         * @return  associated variable value (if any) or empty when
+         *          not found
+         */
+        static String environmentValue (IN String& variableName);
+
+        /*--------------------*/
+
+        /**
          * Returns path of directory of current library or executable
          * file.
          *
@@ -113,6 +127,25 @@ namespace BaseModules {
          * @return  path of executable or library
          */
         static String executableDirectoryPath (IN Boolean isExecutable);
+
+        /*--------------------*/
+
+        /**
+         * Sleeps for <C>duration</C>.
+         *
+         * @param[in] duration  sleep duration (in seconds)
+         */
+        static void sleep (IN Duration duration);
+
+        /*--------------------*/
+
+        /**
+         * Returns the name of the operating system as a string:
+         * 'Windows', 'Unix' or 'MacOS'
+         *
+         * @return  name of operating system
+         */
+        static String systemName ();
 
         /*--------------------*/
 

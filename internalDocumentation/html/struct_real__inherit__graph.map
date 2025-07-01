@@ -1,0 +1,9 @@
+<map id="Real" name="Real">
+<area shape="rect" id="Node000001" title="An Real object wraps a value of some associated primitive float point type in an object." alt="" coords="85,133,234,739"/>
+<area shape="rect" id="Node000003" href="$struct_base_types_1_1_primitives_1_1_percentage.html" title="A Percentage object is real&#45;valued and represents a percentage (normalized to the 0 to 100 range)." alt="" coords="5,787,148,1127"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="112,753,106,787,101,786,106,752"/>
+<area shape="rect" id="Node000004" href="$struct_base_types_1_1_primitives_1_1_radians.html" title="A Radians object is a real&#45;valued and represents the range from 0 to 2pi." alt="" coords="172,897,315,1017"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="213,752,236,896,231,897,208,753"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="86,5,233,85"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="162,99,162,133,157,133,157,99"/>
+</map>

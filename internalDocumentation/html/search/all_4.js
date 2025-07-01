@@ -1,13 +1,18 @@
 var searchData=
 [
-  ['date_297',['date',['../struct_main_1_1_build_information.html#a1ba1eafd67b817454ee9c29553f84fad',1,'Main::BuildInformation']]],
-  ['decodetostring_298',['decodeToString',['../struct_base_types_1_1_containers_1_1_byte_list.html#afb12978486816d42b2b96a8e10841fde',1,'BaseTypes::Containers::ByteList']]],
-  ['delaydurationinsamples_299',['delayDurationInSamples',['../struct_main_1_1_fluid_synth_plugin_1_1___ring_buffer.html#a12ee088cc2b51efe393740e0720d4a88',1,'Main::FluidSynthPlugin::_RingBuffer']]],
-  ['dictionary_300',['Dictionary',['../struct_base_types_1_1_containers_1_1_dictionary.html',1,'BaseTypes::Containers']]],
-  ['dictionary_2ecpp_301',['Dictionary.cpp',['../_dictionary_8cpp.html',1,'']]],
-  ['dictionary_2eh_302',['Dictionary.h',['../_dictionary_8h.html',1,'']]],
-  ['directoryexists_303',['directoryExists',['../struct_base_modules_1_1_operating_system.html#a57c066a971d3b6dbf597b33f912c7703',1,'BaseModules::OperatingSystem']]],
-  ['dirname_304',['dirname',['../struct_base_modules_1_1_operating_system.html#a3da76af6d2663565ddb6dee7fedda025',1,'BaseModules::OperatingSystem']]],
-  ['dynamiclibrary_305',['DynamicLibrary',['../struct_libraries_1_1_dynamic_library.html',1,'Libraries::DynamicLibrary'],['../struct_libraries_1_1_dynamic_library.html#a8811ca3ed8e1776f0f9547a1317a3a86',1,'Libraries::DynamicLibrary::DynamicLibrary(IN String &amp;libraryName)'],['../struct_libraries_1_1_dynamic_library.html#a8ed495f06d558c173e51fd69442a9b91',1,'Libraries::DynamicLibrary::DynamicLibrary(IN DynamicLibrary &amp;otherLibrary)=delete']]],
-  ['dynamiclibrary_2eh_306',['DynamicLibrary.h',['../_dynamic_library_8h.html',1,'']]]
+  ['date_0',['date',['../struct_main_1_1_build_information.html#a1ba1eafd67b817454ee9c29553f84fad',1,'Main::BuildInformation::date()'],['../struct_build_information.html#a1ba1eafd67b817454ee9c29553f84fad',1,'BuildInformation::date()']]],
+  ['daws_20and_20pedantic_20fluidsynth_20command_20line_20processor_1',['FluidSynth Plugin for DAWs and Pedantic FluidSynth Command Line Processor',['../index.html',1,'']]],
+  ['decodetobase64string_2',['decodeToBase64String',['../struct_base_types_1_1_containers_1_1_byte_list.html#ac6e1893e165315136a8abf071fc16b24',1,'BaseTypes::Containers::ByteList::decodeToBase64String()'],['../struct_byte_list.html#ac6e1893e165315136a8abf071fc16b24',1,'ByteList::decodeToBase64String()']]],
+  ['decodetostring_3',['decodeToString',['../struct_base_types_1_1_containers_1_1_byte_list.html#afb12978486816d42b2b96a8e10841fde',1,'BaseTypes::Containers::ByteList::decodeToString()'],['../struct_byte_list.html#afb12978486816d42b2b96a8e10841fde',1,'ByteList::decodeToString()']]],
+  ['delaydurationinsamples_4',['delayDurationInSamples',['../struct_main_1_1_fluid_synth_plugin_1_1___ring_buffer.html#a12ee088cc2b51efe393740e0720d4a88',1,'Main::FluidSynthPlugin::_RingBuffer::delayDurationInSamples'],['../struct___ring_buffer.html#a12ee088cc2b51efe393740e0720d4a88',1,'_RingBuffer::delayDurationInSamples']]],
+  ['dictionary_5',['Dictionary',['../struct_base_types_1_1_containers_1_1_dictionary.html',1,'BaseTypes::Containers::Dictionary'],['../struct_dictionary.html',1,'Dictionary']]],
+  ['dictionary_2ecpp_6',['Dictionary.cpp',['../_dictionary_8cpp.html',1,'']]],
+  ['dictionary_2eh_7',['Dictionary.h',['../_dictionary_8h.html',1,'']]],
+  ['directoryexists_8',['directoryExists',['../struct_base_modules_1_1_operating_system.html#a57c066a971d3b6dbf597b33f912c7703',1,'BaseModules::OperatingSystem::directoryExists()'],['../struct_operating_system.html#a57c066a971d3b6dbf597b33f912c7703',1,'OperatingSystem::directoryExists()']]],
+  ['dirname_9',['dirname',['../struct_base_modules_1_1_operating_system.html#a3da76af6d2663565ddb6dee7fedda025',1,'BaseModules::OperatingSystem::dirname()'],['../struct_operating_system.html#a3da76af6d2663565ddb6dee7fedda025',1,'OperatingSystem::dirname()']]],
+  ['duration_10',['Duration',['../namespace_base_types_1_1_primitives.html#ad86f6fc98f8b655f465813e496850506',1,'BaseTypes::Primitives::Duration'],['../_operating_system_8h.html#ad86f6fc98f8b655f465813e496850506',1,'Duration:&#160;TimeAndDuration.h'],['../_time_and_duration_8cpp.html#ad86f6fc98f8b655f465813e496850506',1,'Duration:&#160;TimeAndDuration.h']]],
+  ['duration_5ffromparts_11',['Duration_fromParts',['../namespace_base_types_1_1_primitives.html#a95fcd1ca3ba02e28f7e7530e9ddd09f8',1,'BaseTypes::Primitives']]],
+  ['duration_5ffromstring_12',['Duration_fromString',['../namespace_base_types_1_1_primitives.html#abeaa04cd05ee33c85053ec48e04c2c75',1,'BaseTypes::Primitives']]],
+  ['dynamiclibrary_13',['DynamicLibrary',['../struct_dynamic_library.html',1,'DynamicLibrary'],['../struct_libraries_1_1_dynamic_library.html',1,'Libraries::DynamicLibrary'],['../struct_libraries_1_1_dynamic_library.html#a8811ca3ed8e1776f0f9547a1317a3a86',1,'Libraries::DynamicLibrary::DynamicLibrary(IN String &amp;libraryName)'],['../struct_libraries_1_1_dynamic_library.html#a8ed495f06d558c173e51fd69442a9b91',1,'Libraries::DynamicLibrary::DynamicLibrary(IN DynamicLibrary &amp;otherLibrary)=delete'],['../struct_dynamic_library.html#a8811ca3ed8e1776f0f9547a1317a3a86',1,'DynamicLibrary::DynamicLibrary(IN String &amp;libraryName)'],['../struct_dynamic_library.html#a8ed495f06d558c173e51fd69442a9b91',1,'DynamicLibrary::DynamicLibrary(IN DynamicLibrary &amp;otherLibrary)=delete']]],
+  ['dynamiclibrary_2eh_14',['DynamicLibrary.h',['../_dynamic_library_8h.html',1,'']]]
 ];

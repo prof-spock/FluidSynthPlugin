@@ -1,6 +1,9 @@
 <map id="MidiEventConverter.h" name="MidiEventConverter.h">
-<area shape="rect" id="node1" title="The MidiEventConverter specification defines the handling of MIDI events by feeding them to an underl..." alt="" coords="263,5,406,32"/>
-<area shape="rect" id="node2" href="$_fluid_synth_file_converter_8cpp.html" title="The FluidSynthFileConverter module implements a conversion from a MIDI file into a wave file using th..." alt="" coords="5,80,189,107"/>
-<area shape="rect" id="node3" href="$_fluid_synth_plugin___event_processor_8cpp.html" title="The FluidSynthPlugin_Processor module implements the handling of MIDI events from the DAW via JUCE ha..." alt="" coords="213,80,456,107"/>
-<area shape="rect" id="node4" href="$_midi_event_converter_8cpp.html" title="The MidiEventConverter module implements the handling of MIDI events by feeding them to an underlying..." alt="" coords="480,80,637,107"/>
+<area shape="rect" id="Node000001" title="The MidiEventConverter specification defines the handling of MIDI events by feeding them to an underl..." alt="" coords="263,5,406,31"/>
+<area shape="rect" id="Node000002" href="$_fluid_synth_file_converter_8cpp.html" title="The FluidSynthFileConverter module implements a conversion from a MIDI file into a wave file using th..." alt="" coords="5,79,189,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="284,37,137,81,135,76,283,32"/>
+<area shape="rect" id="Node000003" href="$_fluid_synth_plugin___event_processor_8cpp.html" title="The FluidSynthPlugin_Processor module implements the handling of MIDI events from the DAW via JUCE ha..." alt="" coords="213,79,456,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="337,44,337,79,332,79,332,44"/>
+<area shape="rect" id="Node000004" href="$_midi_event_converter_8cpp.html" title="The MidiEventConverter module implements the handling of MIDI events by feeding them to an underlying..." alt="" coords="480,79,637,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="384,32,523,76,522,81,383,37"/>
 </map>

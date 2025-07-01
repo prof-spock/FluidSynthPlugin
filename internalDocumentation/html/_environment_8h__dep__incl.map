@@ -1,6 +1,9 @@
 <map id="Environment.h" name="Environment.h">
-<area shape="rect" id="node1" title="The Environment specification defines operating system services related to environment variables." alt="" coords="190,5,294,32"/>
-<area shape="rect" id="node2" href="$_environment_8cpp.html" title="The Environment body implements operating system services related to environment variables." alt="" coords="5,80,124,107"/>
-<area shape="rect" id="node3" href="$_fluid_synth_plugin___editor_8cpp.html" title="The FluidSynthPlugin_Editor module implements the editor for the processor of MIDI events from the DA..." alt="" coords="149,80,335,107"/>
-<area shape="rect" id="node4" href="$_fluid_synth_plugin___event_processor_8cpp.html" title="The FluidSynthPlugin_Processor module implements the handling of MIDI events from the DAW via JUCE ha..." alt="" coords="359,80,602,107"/>
+<area shape="rect" id="Node000001" title="The Environment specification defines operating system services related to environment variables." alt="" coords="190,5,294,31"/>
+<area shape="rect" id="Node000002" href="$_environment_8cpp.html" title="The Environment body implements operating system services related to environment variables." alt="" coords="5,79,124,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="202,38,95,81,93,76,200,33"/>
+<area shape="rect" id="Node000003" href="$_fluid_synth_plugin___editor_8cpp.html" title="The FluidSynthPlugin_Editor module implements the editor for the processor of MIDI events from the DA..." alt="" coords="149,79,335,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="245,44,245,79,239,79,239,44"/>
+<area shape="rect" id="Node000004" href="$_fluid_synth_plugin___event_processor_8cpp.html" title="The FluidSynthPlugin_Processor module implements the handling of MIDI events from the DAW via JUCE ha..." alt="" coords="359,79,602,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="294,32,443,76,441,81,293,37"/>
 </map>

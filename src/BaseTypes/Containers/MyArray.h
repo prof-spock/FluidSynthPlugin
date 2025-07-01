@@ -68,22 +68,23 @@ namespace BaseTypes::Containers {
     /**
      * Copies <C>count</C> elements from array pointed to by
      * <C>sourcePtr</C> of type <C>ElementType</C> to array pointed to
-     * by <C>targetPtr</C> (also of type <C>ElementType</C>).
+     * by <C>destinationPtr</C> (also of type <C>ElementType</C>).
      * Increments both pointers by <C>count</C>.
      *
-     * @tparam       ElementType  element type of both arrays
-     * @param[in]    sourcePtr    pointer to first source data element
-     * @param[inout] targetPtr    pointer to first target data element
-     * @param[in]    count        count of elements to be copied
+     * @tparam       ElementType     element type of both arrays
+     * @param[in]    sourcePtr       pointer to first source data element
+     * @param[inout] destinationPtr  pointer to first data element in
+     *                               destination
+     * @param[in]    count           count of elements to be copied
      */
     template<typename ElementType>
-    void copyArray (ElementType*& targetPtr,
+    void copyArray (ElementType*& destinationPtr,
                     const ElementType*& sourcePtr,
                     Natural count)
     {
         const Natural byteCount = Natural{sizeof(ElementType)} * count;
-        CString_memcpy(targetPtr, sourcePtr, (size_t) byteCount);
-        targetPtr += (size_t) count;
+        CString_memcpy(destinationPtr, sourcePtr, (size_t) byteCount);
+        destinationPtr += (size_t) count;
     }
 
     /*--------------------*/
@@ -91,25 +92,25 @@ namespace BaseTypes::Containers {
     /**
      * Copies <C>count</C> elements from array pointed to by
      * <C>sourcePtr</C> of type <C>SourceElementType</C> to array
-     * pointed to by <C>targetPtr</C> of type
-     * <C>TargetElementType</C>.  Increments both pointers by
+     * pointed to by <C>destinationPtr</C> of type
+     * <C>DestinationElementType</C>.  Increments both pointers by
      * <C>count</C>.
      *
-     * @tparam     TargetElementType  element type of target array
-     * @tparam     SourceElementType  element type of source array
-     * @param[in]  sourcePtr          pointer to first source data
-     *                                element
-     * @param[out] targetPtr          pointer to first target data
-     *                                element
-     * @param[in]  count              count of elements to be copied
+     * @tparam     DestinationElementType  element type of destination array
+     * @tparam     SourceElementType       element type of source array
+     * @param[in]  sourcePtr               pointer to first source data
+     *                                     element
+     * @param[out] destinationPtr          pointer to first data element
+     *                                     in destination
+     * @param[in]  count                   count of elements to be copied
      */
-    template<typename TargetElementType, typename SourceElementType>
-    void convertArray (OUT TargetElementType* targetPtr,
+    template<typename DestinationElementType, typename SourceElementType>
+    void convertArray (OUT DestinationElementType* destinationPtr,
                        IN SourceElementType* sourcePtr,
                        IN Natural count)
     {
         for (Natural i = 0;  i < count;  i++) {
-            *targetPtr++ = (TargetElementType) *sourcePtr++;
+            *destinationPtr++ = (DestinationElementType) *sourcePtr++;
         }
     }
 

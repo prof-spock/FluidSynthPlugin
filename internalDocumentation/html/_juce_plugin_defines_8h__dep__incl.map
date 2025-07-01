@@ -1,6 +1,9 @@
 <map id="JucePluginDefines.h" name="JucePluginDefines.h">
-<area shape="rect" id="node1" title="The JucePluginDefines sets up effect parameters for the JUCE framework." alt="" coords="204,5,343,32"/>
-<area shape="rect" id="node2" href="$_juce_plugin-_standalone_8cpp.html" title="The JucePlugin&#45;Standalone connects to the JUCE framework client functions for standalone applications..." alt="" coords="5,80,184,107"/>
-<area shape="rect" id="node3" href="$_juce_plugin-util_8cpp.html" title="The JucePlugin&#45;util connects to the JUCE framework utilities for a plugin." alt="" coords="208,80,339,107"/>
-<area shape="rect" id="node4" href="$_juce_plugin-_v_s_t__1_8cpp.html" title="The JucePlugin&#45;VST_1 connects to the JUCE framework client functions for a VST3 plugin." alt="" coords="363,80,517,107"/>
+<area shape="rect" id="Node000001" title="The JucePluginDefines sets up effect parameters for the JUCE framework." alt="" coords="216,5,355,31"/>
+<area shape="rect" id="Node000002" href="$_juce_plugin-_standalone_8cpp.html" title="The JucePlugin&#45;Standalone connects to the JUCE framework client functions for standalone applications..." alt="" coords="5,79,184,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="243,38,127,81,125,76,241,33"/>
+<area shape="rect" id="Node000003" href="$_juce_plugin-_v_s_t__1_8cpp.html" title="The JucePlugin&#45;VST_1 connects to the JUCE framework client functions for a VST3 plugin." alt="" coords="209,79,362,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="288,44,288,79,283,79,283,44"/>
+<area shape="rect" id="Node000004" href="$_juce_plugin-util_8cpp.html" title="The JucePlugin&#45;util connects to the JUCE framework utilities for a plugin." alt="" coords="387,79,517,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="326,34,426,76,424,81,324,38"/>
 </map>

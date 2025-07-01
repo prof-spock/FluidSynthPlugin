@@ -1,5 +1,5 @@
 var _object_8h =
 [
-    [ "Object", "_object_8h.html#ae4ec4f5b067a6d6ad32fffce5dd749ad", null ],
-    [ "TOREFERENCE", "_object_8h.html#acb69fd94a2c9714d9eb96f90dbcc32be", null ]
+    [ "BaseTypes::Primitives::Object", "namespace_base_types_1_1_primitives.html#a46e9a7b488f5aadebd3b8413adf482f6", null ],
+    [ "TOREFERENCE", "_object_8h.html#a08837d09bb899c33fa35e59e704ef0db", null ]
 ];

@@ -1,5 +1,7 @@
 <map id="Assertion.h" name="Assertion.h">
-<area shape="rect" id="node1" title="The Assertion specification defines macros for pre&#45; and postconditions in functions or methods." alt="" coords="46,5,134,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,84,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="108,80,163,107"/>
+<area shape="rect" id="Node000001" title="The Assertion specification defines macros for pre&#45; and postconditions in functions or methods." alt="" coords="46,5,134,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,84,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="85,32,62,69,57,66,80,30"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="108,79,163,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="100,30,123,66,118,69,95,32"/>
 </map>

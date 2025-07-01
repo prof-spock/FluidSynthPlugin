@@ -1,4 +1,4 @@
 var _string_list_8cpp =
 [
-    [ "STR", "_string_list_8cpp.html#a5b6f88d1249b396e351c4a85bcb35b2c", null ]
+    [ "String", "_string_list_8cpp.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc", null ]
 ];

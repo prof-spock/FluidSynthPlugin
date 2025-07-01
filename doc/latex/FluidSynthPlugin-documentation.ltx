@@ -208,7 +208,7 @@
         \productName{Pedantic\-Fluid\-Synth\-Converter}%
     }
 
-    \newcommand{\programVersion}{0.7.6}
+    \newcommand{\programVersion}{0.7.7}
 
     \newcommand{\settingsCaption}[1]{%
         Common Synthesizer Settings for \FluidSynthPlugin\ and
@@ -230,7 +230,7 @@
   \large
   \begin{tabular}{>{\bf}p{2.5cm}p{10.5cm}}
       Author:&Dr.~Thomas Tensi\\
-      Date:&2025-03-21\\
+      Date:&2025-06-30\\
       Version:&\programVersion\\
       Platforms:&VST3 on Windows~x64,\\
                 &VST3/AU on MacOS (x86\_64)\\
@@ -375,7 +375,7 @@ The installation is as follows:
              \item When installing the plugins on Linux, you have to
                    ensure that the \embeddedCode{fluidsynth}
                    package is already installed.
-                   Appendix~\ref{chapter:fluidSynthInstallation} gives
+                   Appendix~\ref{section:fluidSynthInstallation} gives
                    details on how to do that.
 
              \item When installing the plugins on MacOS, note that
@@ -1245,8 +1245,9 @@ Minimum prerequisites for building are:
 
   \item a clone of the GIT-project at \hyperlink{\gitPluginPath}
   
-  \item an installation of the audio framework
-        JUCE \cite{reference:juce} with version 5 or later,
+  \item an installation of the audio framework JUCE \cite{reference:juce}
+        with version 5 or later plus any required packages (e.g. for
+        Linux see appendix~\ref{section:linuxPackages}),
     
   \item some C++ compiler suite for your platform (e.g. Visual Studio,
         XCode, clang or gcc), and
@@ -1543,10 +1544,14 @@ compile the source code by yourself, the MIT license applies.  If you
 
 \appendix
 
-%===================================================
-\chapter{Installing the FluidSynth Package in Linux}
-\label{chapter:fluidSynthInstallation}
-%===================================================
+%=========================================
+\chapter{Building and Installing in Linux}
+%=========================================
+
+%---------------------------------------------------
+\section{Installing the FluidSynth Package in Linux}
+\label{section:fluidSynthInstallation}
+%---------------------------------------------------
 
 On Linux the \FluidSynthPlugin\ requires an existing installation of
 \FluidSynth\ on the system.  You would normally expect this to be part
@@ -1583,5 +1588,31 @@ priviledges and can be done as described in the following table:
 From time to time you should upgrade the \FluidSynth\ package via that
 package manager to make sure that the \FluidSynthPlugin\ always works
 with the current \FluidSynth\ library.
+
+%-------------------------------------------
+\section{Required Packages for Linux Builds}
+\label{section:linuxPackages}
+%-------------------------------------------
+
+When building the program yourself in Linux some packages must be
+available.  Those are:
+\begin{itemize}
+  \item build-essential, doxygen, fluidsynth, graphviz, pkg-config
+        and texlive-latex-extra
+\end{itemize}
+
+and the libraries
+\begin{itemize}
+   \item ladspa-sdk, libasound2-dev, libcurl4-openssl-dev,
+         libfontconfig1-dev, libfreetype-dev, libglu1-mesa-dev,
+         libjack-jackd2-dev, libwebkit2gtk-4.1-dev, libx11-dev,
+         libxcomposite-dev, libxcursor-dev, libxext-dev,
+         libxinerama-dev, libxrandr-dev, libxrender-dev and
+         mesa-common-dev
+\end{itemize}
+
+Also have a look at
+\hyperlink{https://github.com/juce-framework/JUCE/blob/master/docs/Linux\%20Dependencies.md}
+for a current list of package dependencies by the JUCE team.
 
 \end{document}

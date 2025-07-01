@@ -129,6 +129,11 @@ namespace BaseModules {
          * @param[in] replacement13  replacement string for %D
          * @param[in] replacement14  replacement string for %E
          * @param[in] replacement15  replacement string for %F
+         * @param[in] replacement16  replacement string for %G
+         * @param[in] replacement17  replacement string for %H
+         * @param[in] replacement18  replacement string for %I
+         * @param[in] replacement19  replacement string for %J
+         * @param[in] replacement20  replacement string for %K
          * @return  expanded version of st
          */
         static String expand (IN String& st,
@@ -146,7 +151,12 @@ namespace BaseModules {
                               IN String& replacement12 = "",
                               IN String& replacement13 = "",
                               IN String& replacement14 = "",
-                              IN String& replacement15 = "");
+                              IN String& replacement15 = "",
+                              IN String& replacement16 = "",
+                              IN String& replacement17 = "",
+                              IN String& replacement18 = "",
+                              IN String& replacement19 = "",
+                              IN String& replacement20 = "");
 
         /*--------------------*/
 
@@ -289,7 +299,7 @@ namespace BaseModules {
          * length of <C>desiredLength</C>.
          *
          * @param[in] st             the string to be padded
-         * @param[in] desiredLength  target length after padding
+         * @param[in] desiredLength  result length after padding
          * @param[in] ch             pad character
          * @return padded string
          */
@@ -304,7 +314,7 @@ namespace BaseModules {
          * length of <C>desiredLength</C>.
          *
          * @param[in] st             the string to be padded
-         * @param[in] desiredLength  target length after padding
+         * @param[in] desiredLength  result length after padding
          * @param[in] ch             pad character
          * @return padded string
          */

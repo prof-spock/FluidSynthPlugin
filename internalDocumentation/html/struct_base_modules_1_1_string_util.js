@@ -6,7 +6,7 @@ var struct_base_modules_1_1_string_util =
     [ "contains", "struct_base_modules_1_1_string_util.html#ae5fbf61b6a0c0560b80d7eb63ea17275", null ],
     [ "contains", "struct_base_modules_1_1_string_util.html#a6ab5698b3c7f6ad5e1f65c57a9a51976", null ],
     [ "endsWith", "struct_base_modules_1_1_string_util.html#a27d341f4311fadee4a911fb52987ce7f", null ],
-    [ "expand", "struct_base_modules_1_1_string_util.html#adb29e992fd17e5836bfdd4b930569ae8", null ],
+    [ "expand", "struct_base_modules_1_1_string_util.html#a825a59675147d9be126851be2174a9e7", null ],
     [ "find", "struct_base_modules_1_1_string_util.html#a95334dafc27fc16b4bf676a603277716", null ],
     [ "find", "struct_base_modules_1_1_string_util.html#a581b823425c911324dd23799b4697be3", null ],
     [ "findFromEnd", "struct_base_modules_1_1_string_util.html#a2faf681d967dad6a8c167fb7043a51fb", null ],

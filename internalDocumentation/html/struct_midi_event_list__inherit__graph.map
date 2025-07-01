@@ -1,0 +1,5 @@
+<map id="MidiEventList" name="MidiEventList">
+<area shape="rect" id="Node000001" title="An MidiEventList object is a list of MIDI events with arbitrary indexed access to positions in the li..." alt="" coords="31,148,156,253"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,181,100"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,114,96,148,91,148,91,114"/>
+</map>

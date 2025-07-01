@@ -1,10 +1,17 @@
 <map id="OperatingSystem.h" name="OperatingSystem.h">
-<area shape="rect" id="node1" title="The OperatingSystem specification defines a class for several operating system related utility functi..." alt="" coords="481,5,616,32"/>
-<area shape="rect" id="node2" href="$_wave_file_8cpp.html" title="The WaveFile specification defines an object for accessing a RIFF wave file with several channels." alt="" coords="5,80,105,107"/>
-<area shape="rect" id="node3" href="$_logging_support_8cpp.html" title="The LoggingSupport body implements a class for simple entry/exit logging to a file or via a callback ..." alt="" coords="129,80,267,107"/>
-<area shape="rect" id="node4" href="$_operating_system_8cpp.html" title="The OperatingSystem body implements a class for several operating system related utility functions (l..." alt="" coords="291,80,439,107"/>
-<area shape="rect" id="node5" href="$_fluid_synth_sound_font_8cpp.html" title="The FluidSynthSoundFont class implements an object&#45;oriented wrapper around an underlying fluidsynth s..." alt="" coords="463,80,635,107"/>
-<area shape="rect" id="node6" href="$_fluid_synth_file_converter_8cpp.html" title="The FluidSynthFileConverter module implements a conversion from a MIDI file into a wave file using th..." alt="" coords="659,80,843,107"/>
-<area shape="rect" id="node7" href="$_fluid_synth_plugin___event_processor_8cpp.html" title="The FluidSynthPlugin_Processor module implements the handling of MIDI events from the DAW via JUCE ha..." alt="" coords="867,80,1110,107"/>
-<area shape="rect" id="node8" href="$_midi_file_8cpp.html" title="The MidiFile implementation implements the services of a MIDI file; currently only file reading is su..." alt="" coords="1135,80,1227,107"/>
+<area shape="rect" id="Node000001" title="The OperatingSystem specification defines a class for several operating system related utility functi..." alt="" coords="678,5,813,31"/>
+<area shape="rect" id="Node000002" href="$_fluid_synth_file_converter_8cpp.html" title="The FluidSynthFileConverter module implements a conversion from a MIDI file into a wave file using th..." alt="" coords="5,79,189,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="665,31,190,83,189,77,664,26"/>
+<area shape="rect" id="Node000003" href="$_fluid_synth_plugin___event_processor_8cpp.html" title="The FluidSynthPlugin_Processor module implements the handling of MIDI events from the DAW via JUCE ha..." alt="" coords="213,79,456,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="666,36,401,81,400,76,665,30"/>
+<area shape="rect" id="Node000004" href="$_fluid_synth_sound_font_8cpp.html" title="The FluidSynthSoundFont class implements an object&#45;oriented wrapper around an underlying fluidsynth s..." alt="" coords="481,79,653,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="705,38,597,81,595,76,703,33"/>
+<area shape="rect" id="Node000005" href="$_logging_support_8cpp.html" title="The LoggingSupport body implements a class for simple entry/exit logging to a file or via a callback ..." alt="" coords="677,79,814,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="748,44,748,79,743,79,743,44"/>
+<area shape="rect" id="Node000006" href="$_midi_file_8cpp.html" title="The MidiFile implementation implements the services of a MIDI file; currently only file reading is su..." alt="" coords="838,79,930,104"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="781,34,863,76,860,81,778,39"/>
+<area shape="rect" id="Node000007" href="$_operating_system_8cpp.html" title="The OperatingSystem body implements a class for several operating system related utility functions (l..." alt="" coords="954,79,1102,104"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="805,31,983,76,982,81,803,37"/>
+<area shape="rect" id="Node000008" href="$_wave_file_8cpp.html" title="The WaveFile specification defines an object for accessing a RIFF wave file with several channels." alt="" coords="1126,79,1226,104"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="827,29,1115,76,1126,78,1125,83,1114,81,826,34"/>
 </map>

@@ -1,4 +1,5 @@
 <map id="BaseTypes::Primitives::Integer" name="BaseTypes::Primitives::Integer">
-<area shape="rect" id="node1" title="An Integer object wraps a value of the associated primitive type in an object." alt="" coords="17,160,168,516"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,180,112"/>
+<area shape="rect" id="Node000001" title="An Integer object wraps a value of the associated primitive type in an object." alt="" coords="13,133,156,573"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,164,85"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,99,87,133,82,133,82,99"/>
 </map>

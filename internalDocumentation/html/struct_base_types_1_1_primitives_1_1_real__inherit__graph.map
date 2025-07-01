@@ -1,6 +1,9 @@
 <map id="BaseTypes::Primitives::Real" name="BaseTypes::Primitives::Real">
-<area shape="rect" id="node1" title="An Real object wraps a value of some associated primitive float point type in an object." alt="" coords="89,160,246,648"/>
-<area shape="rect" id="node3" href="$struct_base_types_1_1_primitives_1_1_percentage.html" title="A Percentage object is real&#45;valued and represents a percentage (normalized to the 0 to 100 range)." alt="" coords="5,696,156,979"/>
-<area shape="rect" id="node4" href="$struct_base_types_1_1_primitives_1_1_radians.html" title="A Radians object is a real&#45;valued and represents the range from 0 to 2pi." alt="" coords="180,777,331,898"/>
-<area shape="rect" id="node2" title=" " alt="" coords="80,5,255,112"/>
+<area shape="rect" id="Node000001" title="An Real object wraps a value of some associated primitive float point type in an object." alt="" coords="85,133,234,753"/>
+<area shape="rect" id="Node000003" href="$struct_base_types_1_1_primitives_1_1_percentage.html" title="A Percentage object is real&#45;valued and represents a percentage (normalized to the 0 to 100 range)." alt="" coords="5,801,148,1141"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="111,768,106,801,101,800,106,767"/>
+<area shape="rect" id="Node000004" href="$struct_base_types_1_1_primitives_1_1_radians.html" title="A Radians object is a real&#45;valued and represents the range from 0 to 2pi." alt="" coords="172,911,315,1031"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="214,767,237,911,231,911,208,767"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="86,5,233,85"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="162,99,162,133,157,133,157,99"/>
 </map>

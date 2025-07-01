@@ -1,6 +1,9 @@
 <map id="Boolean.h" name="Boolean.h">
-<area shape="rect" id="node1" title="The Boolean specification and body provides a value object type for boolean values." alt="" coords="46,5,126,32"/>
-<area shape="rect" id="node2" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="43,80,129,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,155,60,181"/>
-<area shape="rect" id="node4" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="84,155,197,181"/>
+<area shape="rect" id="Node000001" title="The Boolean specification and body provides a value object type for boolean values." alt="" coords="46,5,126,31"/>
+<area shape="rect" id="Node000002" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="43,79,129,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,31,89,65,83,65,83,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,152,60,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="79,106,52,143,47,140,75,103"/>
+<area shape="rect" id="Node000004" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="84,152,197,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="97,103,126,140,121,143,93,106"/>
 </map>

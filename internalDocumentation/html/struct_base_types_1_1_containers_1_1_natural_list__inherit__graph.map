@@ -1,4 +1,5 @@
 <map id="BaseTypes::Containers::NaturalList" name="BaseTypes::Containers::NaturalList">
-<area shape="rect" id="node1" title="A NaturalList object is a list of non&#45;negative integer values with arbitrary indexed access to positi..." alt="" coords="19,175,187,325"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,200,127"/>
+<area shape="rect" id="Node000001" title="A NaturalList object is a list of non&#45;negative integer values with arbitrary indexed access to positi..." alt="" coords="5,148,165,308"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="8,5,163,100"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="88,114,88,148,83,148,83,114"/>
 </map>

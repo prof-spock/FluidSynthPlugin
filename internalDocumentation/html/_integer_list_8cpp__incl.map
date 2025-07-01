@@ -1,7 +1,11 @@
 <map id="IntegerList.cpp" name="IntegerList.cpp">
-<area shape="rect" id="node1" title="The IntegerList body implements lists of integer values with zero&#45;based arbitrary indexed access to p..." alt="" coords="37,5,143,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,71,107"/>
-<area shape="rect" id="node3" href="$_integer_list_8h.html" title="The IntegerList specification defines sequences of integer values with zero&#45;based arbitrary indexed a..." alt="" coords="95,80,189,107"/>
-<area shape="rect" id="node4" title=" " alt="" coords="32,155,129,181"/>
-<area shape="rect" id="node5" title=" " alt="" coords="154,155,253,181"/>
+<area shape="rect" id="Node000001" title="The IntegerList body implements lists of integer values with zero&#45;based arbitrary indexed access to p..." alt="" coords="37,5,143,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,71,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="84,33,57,69,52,66,79,29"/>
+<area shape="rect" id="Node000003" href="$_integer_list_8h.html" title="The IntegerList specification defines sequences of integer values with zero&#45;based arbitrary indexed a..." alt="" coords="95,79,189,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="101,29,128,66,123,69,96,33"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="32,152,129,177"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="134,106,102,143,98,140,130,103"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="154,152,253,177"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="154,103,186,140,182,143,150,106"/>
 </map>

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Global Constants and functions in CMAKE for DrTT JUCE plugins
+# Global Constants and functions in CMAKE for DrTT programs
 
 
 # #################
@@ -18,22 +18,13 @@ ENDIF()
 
 IF(WINDOWS)
     SET(GLOB_batchFileExtension "bat")
-    SET(GLOB_juceFileExtension cpp)
     SET(GLOB_nullDeviceName "NUL")
-    SET(GLOB_vst3LibraryNameExtension ".vst3")
-    SET(GLOB_vst3PlatformName "x86_64-win")
 ELSEIF(LINUX)
     SET(GLOB_batchFileExtension "sh")
-    SET(GLOB_juceFileExtension cpp)
     SET(GLOB_nullDeviceName "/dev/null")
-    SET(GLOB_vst3LibraryNameExtension ".so")
-    SET(GLOB_vst3PlatformName "x86_64-linux")
 ELSE()
     SET(GLOB_batchFileExtension "sh")
-    SET(GLOB_juceFileExtension mm)
     SET(GLOB_nullDeviceName "/dev/null")
-    SET(GLOB_vst3LibraryNameExtension ".so")
-    SET(GLOB_vst3PlatformName "x86_64-macos")
 ENDIF()
 
 SET(GLOB_platformName
@@ -46,10 +37,20 @@ MESSAGE(STATUS "platformName = " ${GLOB_platformName})
 
 # the subdirectory for the configuration used
 SET(GLOB_configurationSubdirectory ${CMAKE_BUILD_TYPE})
-
 SET(GLOB_buildDirectory ${CMAKE_CURRENT_BINARY_DIR})
-CMAKE_PATH(SET GLOB_targetDirectory NORMALIZE
-           ${CMAKE_CURRENT_SOURCE_DIR}/../_DISTRIBUTION)
+
+IF("${GLOB_projectRootDirectory}" STREQUAL "")
+    # no definition found, set it to relative directory
+    CMAKE_PATH(SET GLOB_projectRootDirectory NORMALIZE
+               ${CMAKE_CURRENT_SOURCE_DIR}/..)
+ENDIF()
+
+IF("${GLOB_targetDirectory}" STREQUAL "")
+    # no definition found, set it to relative directory
+    CMAKE_PATH(SET GLOB_targetDirectory NORMALIZE
+               ${GLOB_projectRootDirectory}/_DISTRIBUTION)
+ENDIF()
+
 CMAKE_PATH(SET GLOB_platformTargetDirectory NORMALIZE
            ${GLOB_targetDirectory}/targetPlatforms)
 
@@ -63,12 +64,16 @@ MESSAGE(STATUS "platformTargetSubdirectory = "
 FILE(MAKE_DIRECTORY ${GLOB_platformTargetSubdirectory})
 
 # --- documentation ---
-CMAKE_PATH(SET GLOB_docDirectory NORMALIZE
-           ${CMAKE_CURRENT_SOURCE_DIR}/../doc)
+IF("${GLOB_docDirectory}" STREQUAL "")
+    # no definition found, set it to relative directory
+    CMAKE_PATH(SET GLOB_docDirectory NORMALIZE
+               ${GLOB_projectRootDirectory}/doc)
+ENDIF()
+
 CMAKE_PATH(SET GLOB_docLaTeXDirectory NORMALIZE
            ${GLOB_docDirectory}/latex)
 CMAKE_PATH(SET GLOB_doxygenTargetDirectory NORMALIZE
-           ${CMAKE_CURRENT_SOURCE_DIR}/../internalDocumentation)
+           ${GLOB_projectRootDirectory}/internalDocumentation)
 
 #------
 # FILES
@@ -103,21 +108,11 @@ IF(MACOS)
                ${GLOB_macOSMiscDirectory}/${GLOB_nibFileName})
 ENDIF()
 
-# -------------------------------------------------
-# --- Apple framework files and bundle settings ---
-# -------------------------------------------------
+# -----------------------------
+# --- Apple bundle settings ---
+# -----------------------------
 
-IF(NOT MACOS)
-    SET(GLOB_frameworkNameList )
-ELSE()
-    # included frameworks
-    LIST(APPEND GLOB_frameworkNameList
-         Accelerate AppKit AudioToolbox AudioUnit Carbon
-         Cocoa CoreAudio CoreAudioKit CoreMIDI
-         DiscRecording Foundation IOKit Metal MetalKit
-         QuartzCore Security WebKit
-    )
-
+IF(MACOS)
     # bundle settings
     SET(MACOSX_BUNDLE_BUNDLE_VERSION "1.0")
     SET(MACOSX_BUNDLE_SHORT_VERSION_STRING "1.0")
@@ -127,11 +122,17 @@ ELSE()
     # references
     CMAKE_PATH(SET dynamicLibraryAdaptationScript NORMALIZE
                ${GLOB_macOSMiscDirectory}/adaptLibraryFileLinkage.sh)
-ENDIF(NOT MACOS)
+ENDIF(MACOS)
 
 # #################
 # ### FUNCTIONS ###
 # #################
+
+FUNCTION(GLOB_showList description listName)
+    LIST(JOIN ${listName} "#" temp)
+    MESSAGE(STATUS
+            ${description} ": " ${listName} " = " ${temp})
+ENDFUNCTION(GLOB_showList)
 
 #=========
 #= BUILD =
@@ -165,21 +166,6 @@ ENDFUNCTION(GLOB_adaptLibraryFileLinkage)
 
 #--------------------
 
-FUNCTION(GLOB_addPluginNibFileForAUTarget targetName resourcePath)
-    # adds a NIB file into resource folder <resourcePath> for target
-    # <targetName> representing an audio unit library
-
-    CMAKE_PATH(SET targetNibFileName NORMALIZE
-               ${resourcePath}/${GLOB_nibFileName})
-    ADD_CUSTOM_COMMAND(TARGET ${targetName} POST_BUILD
-                       COMMAND ibtool
-                               --strip ${targetNibFileName}
-                               --output-format human-readable-text
-                               ${GLOB_nibFileSourcePath})
-ENDFUNCTION(GLOB_addPluginNibFileForAUTarget)
-
-#--------------------
-
 FUNCTION(GLOB_makeTarget_commonProjectLibrary
          sourceFileList)
     # makes target for a library consisting of common sources for all
@@ -190,7 +176,7 @@ FUNCTION(GLOB_makeTarget_commonProjectLibrary
     ADD_LIBRARY(${targetName} STATIC EXCLUDE_FROM_ALL
                 ${sourceFileList})
 
-    addCompilerFlags(${targetName} TRUE)
+    CMPCONF_addCompilerFlags(${targetName} TRUE)
 
     SET_TARGET_PROPERTIES(${targetName} PROPERTIES
                           POSITION_INDEPENDENT_CODE TRUE
@@ -307,236 +293,6 @@ FUNCTION(GLOB_makeTarget_documentationLaTeX targetName)
                       DEPENDS ${docLaTeXPdfFileName})
 ENDFUNCTION(GLOB_makeTarget_documentationLaTeX)
 
-#--------------------
-
-FUNCTION(GLOB_makeTarget_juceFramework
-         jucePrefix)
-    # makes a JUCE static library target named <JuceFramework> with
-    # classes from the JUCE modules directory
-
-    # --- the file name list of facade files for JUCE; those files ---
-    # --- reference real implementations in JUCE; note that on     ---
-    # --- Apple platforms the Objective-C++ (.mm) files are used   ---
-    # --- instead of the standard C++ (.cpp) files                 ---
-    SET(srcJuceFacadeFileList )
-    LIST(APPEND srcJuceFacadeFileList
-         ${jucePrefix}_audio_basics.${GLOB_juceFileExtension}
-         ${jucePrefix}_audio_devices.${GLOB_juceFileExtension}
-         ${jucePrefix}_audio_formats.${GLOB_juceFileExtension}
-         ${jucePrefix}_audio_processors.${GLOB_juceFileExtension}
-         ${jucePrefix}_audio_utils.${GLOB_juceFileExtension}
-         ${jucePrefix}_core.${GLOB_juceFileExtension}
-         ${jucePrefix}_data_structures.${GLOB_juceFileExtension}
-         ${jucePrefix}_events.${GLOB_juceFileExtension}
-         ${jucePrefix}_graphics.${GLOB_juceFileExtension}
-         ${jucePrefix}_gui_basics.${GLOB_juceFileExtension}
-         ${jucePrefix}_gui_extra.${GLOB_juceFileExtension}
-    )
-
-    IF(MACOS)
-        LIST(APPEND srcJuceFacadeFileList
-             ${jucePrefix}_audio_ausdk_base.cpp
-             ${jucePrefix}_audio_ausdk_buffer.cpp
-             ${jucePrefix}_audio_ausdk_bufferallocator.cpp
-             ${jucePrefix}_audio_ausdk_componentbase.cpp
-             ${jucePrefix}_audio_ausdk_effectbase.cpp
-             ${jucePrefix}_audio_ausdk_inputelement.cpp
-             ${jucePrefix}_audio_ausdk_midibase.cpp
-             ${jucePrefix}_audio_ausdk_midieffectbase.cpp
-             ${jucePrefix}_audio_ausdk_musicdevicebase.cpp
-             ${jucePrefix}_audio_ausdk_outputelement.cpp
-             ${jucePrefix}_audio_ausdk_plugindispatch.cpp
-             ${jucePrefix}_audio_ausdk_scopeelement.cpp
-        )
-    ENDIF(MACOS)
-
-    SET(targetName JuceFramework)
-
-    ADD_LIBRARY(${targetName} STATIC EXCLUDE_FROM_ALL
-                ${srcJuceFacadeFileList})
-
-    TARGET_INCLUDE_DIRECTORIES(${targetName} PUBLIC
-                               ${additionalIncludeDirectoryList})
-
-    # do not check the JUCE library functions at all
-    addCompilerFlags(${targetName} FALSE)
-
-    SET_TARGET_PROPERTIES(${targetName} PROPERTIES
-                          POSITION_INDEPENDENT_CODE TRUE
-                          INTERFACE_POSITION_INDEPENDENT_CODE TRUE)
-ENDFUNCTION(GLOB_makeTarget_juceFramework)
-
-#--------------------
-
-FUNCTION(GLOB_makeTarget_pluginAU
-         targetName pluginName libraryName
-         auPluginName auLongPluginName auMainType auSubType
-         sourceFileList
-         includeDirectoryList
-         libraryList
-)
-    # makes a target for an AU plugin named <targetName> with the AU
-    # wrapper classes combined with the static library for given
-    # effect named <pluginName>; <auMainType> and <auSubType> gives
-    # the AU type and subtype code for the plugin; <sourceFileList>
-    # tells the list of sources needed, <includeDirectoryList> the
-    # list of additional include directories and <libraryList> the
-    # list of statically linked libraries
-
-    IF(MACOS)
-        SET(plistFileName ${pluginName}_AppleInfo.plist)
-        SET(principalClassName "NSApplication")
-
-        ADD_LIBRARY(${targetName} MODULE ${sourceFileList})
-
-        addCompilerFlags(${targetName} TRUE)
-
-        TARGET_INCLUDE_DIRECTORIES(${targetName} PUBLIC
-                                   ${includeDirectoryList})
-
-        TARGET_LINK_LIBRARIES(${targetName}
-                              ${libraryList})
-
-        # add Apple frameworks to library list
-        FOREACH(frameworkName ${GLOB_frameworkNameList})
-          TARGET_LINK_LIBRARIES(${targetName}
-                                "-framework ${frameworkName}")
-        ENDFOREACH(frameworkName)
-
-        # make the specific PLIST file
-        SET(JUCE_manufacturerName "DrTT")
-        SET(JUCE_auPluginName     ${auPluginName})
-        SET(JUCE_auLongPluginName ${auLongPluginName})
-        SET(JUCE_auMainType       ${auMainType})
-        SET(JUCE_auSubType        ${auSubType})
-        SET(JUCE_bundlePrefix     ${GLOB_bundlePrefix})
-        CONFIGURE_FILE(${GLOB_plistFileTemplate} ${plistFileName})
-
-        SET_TARGET_PROPERTIES(${targetName} PROPERTIES
-            BUNDLE_EXTENSION component
-            BUNDLE TRUE
-            XCODE_ATTRIBUTE_WRAPPER_EXTENSION component
-            XCODE_ATTRIBUTE_LIBRARY_STYLE Bundle
-            XCODE_ATTRIBUTE_GENERATE_PKGINFO_FILE YES
-            MACOSX_BUNDLE_BUNDLE_NAME ${libraryName}
-            MACOSX_BUNDLE_GUI_IDENTIFIER ${GLOB_bundlePrefix}.${libraryName}
-            MACOSX_BUNDLE_INFO_PLIST ${plistFileName}
-            OUTPUT_NAME ${libraryName}
-        )
-
-        # add resources for audio unit library
-        CMAKE_PATH(SET resourcePath NORMALIZE
-                   ${libraryName}.component/Contents/Resources)
-        ADD_CUSTOM_COMMAND(TARGET ${targetName} POST_BUILD
-                           COMMAND mkdir -p ${resourcePath})
-        GLOB_addPluginNibFileForAUTarget(${targetName} ${resourcePath})
-    ENDIF(MACOS)
-ENDFUNCTION(GLOB_makeTarget_pluginAU)
-
-#--------------------
-
-FUNCTION(GLOB_makeTarget_pluginStaticLib
-         targetName pluginDirectory fileList)
-    # makes a static library target named <targetName> with the engine
-    # classes for given plugin named <pluginName>
-
-    ADD_LIBRARY(${targetName} STATIC ${fileList})
-
-    addCompilerFlags(${targetName} TRUE)
-
-    TARGET_INCLUDE_DIRECTORIES(${targetName} PUBLIC ${pluginDirectory})
-
-    SET_TARGET_PROPERTIES(${targetName} PROPERTIES
-                          POSITION_INDEPENDENT_CODE TRUE
-                          INTERFACE_POSITION_INDEPENDENT_CODE TRUE)
-ENDFUNCTION(GLOB_makeTarget_pluginStaticLib)
-
-#--------------------
-
-FUNCTION(GLOB_makeTarget_pluginVST
-         targetName pluginName libraryName
-         sourceFileList includeDirectoryList libraryList
-         unixLibraryList)
-    # makes an effect VST plugin target named <targetName> with the
-    # VST wrapper classes combined with the static library for given
-    # effect named <pluginName>; <sourceFileList> tells the list of
-    # sources needed, <includeDirectoryList> the list of additional
-    # include directories and <libraryList> the list of statically
-    # linked libraries; for Unix the <unixLibraryList> is additionally
-    # provided
-
-    IF(MACOS)
-        # on Apple platform a VST plugin is a library bundle
-        ADD_LIBRARY(${targetName} MODULE
-                    ${GLOB_debuggerVisualizationFileName}
-                    ${sourceFileList})
-    ELSE()
-        # VST plugin is a dynamic library
-        ADD_LIBRARY(${targetName} SHARED
-                    ${GLOB_debuggerVisualizationFileName}
-                    ${sourceFileList})
-    ENDIF()
-
-    addCompilerFlags(${targetName} TRUE)
-
-    TARGET_INCLUDE_DIRECTORIES(${targetName} PUBLIC ${includeDirectoryList})
-    TARGET_LINK_LIBRARIES(${targetName} ${libraryList})
-
-    IF(MACOS)
-        # add framework libraries
-        FOREACH(frameworkName ${GLOB_frameworkNameList})
-            TARGET_LINK_LIBRARIES(${targetName}
-                                  "-framework ${frameworkName}")
-        ENDFOREACH(frameworkName)
-    ENDIF(MACOS)
-
-    IF(LINUX)
-        TARGET_LINK_LIBRARIES(${targetName} ${unixLibraryList})
-        TARGET_LINK_LIBRARIES(${targetName} dl pthread rt)
-    ENDIF(LINUX)
-
-    # put library into a bundle structure regardless of operating
-    # system
-    IF(MACOS)
-        SET_TARGET_PROPERTIES(${targetName} PROPERTIES
-                              BUNDLE TRUE
-                              BUNDLE_EXTENSION vst3
-                              OUTPUT_NAME ${libraryName}
-                              SUFFIX "")
-    ELSE()
-        SET_TARGET_PROPERTIES(${targetName} PROPERTIES
-                              OUTPUT_NAME ${libraryName}
-                              PREFIX ""
-                              SUFFIX ${GLOB_vst3LibraryNameExtension})
-
-        IF(LINUX)
-            CMAKE_PATH(SET libraryFileDirectory NORMALIZE
-                       ${GLOB_buildDirectory})
-        ELSE()
-            CMAKE_PATH(SET libraryFileDirectory NORMALIZE
-                       ${GLOB_buildDirectory}/${GLOB_configurationSubdirectory})
-        ENDIF()
-
-        CMAKE_PATH(SET libraryFileName NORMALIZE
-                   ${libraryFileDirectory}/${libraryName}${GLOB_vst3LibraryNameExtension})
-
-        SET(vst3Directory )
-        CMAKE_PATH(APPEND vst3Directory
-                   "${GLOB_buildDirectory}"
-                   "${libraryName}.vst3"
-                   "Contents"
-                   "${GLOB_vst3PlatformName}")
-        
-        ADD_CUSTOM_COMMAND(TARGET ${targetName} POST_BUILD
-                           COMMAND ${CMAKE_COMMAND} -E make_directory
-                                   ${vst3Directory}
-                           COMMAND ${CMAKE_COMMAND} -E copy
-                                   ${libraryFileName}
-                                   ${vst3Directory}
-                                   COMMENT "Bundling ${libraryName}.")
-    ENDIF()
-ENDFUNCTION(GLOB_makeTarget_pluginVST)
-
 #================
 #= INSTALLATION =
 #================
@@ -553,58 +309,6 @@ FUNCTION(GLOB_install_documentationPDF)
                 DESTINATION ${specificTargetDirectory})
     ENDIF()
 ENDFUNCTION(GLOB_install_documentationPDF)
-
-#--------------------
-    
-FUNCTION(GLOB_install_pluginAU libraryName dynamicLibraryList)
-    # install AU plugin given by <libraryName> together with dynamic
-    # libraries in <dynamicLibraryList>
-
-    IF(MACOS)
-        CMAKE_PATH(SET targetAUDirectory NORMALIZE
-                   ${GLOB_platformTargetSubdirectory}/AU)
-        SET(targetContentsAUDirectory )
-        CMAKE_PATH(APPEND targetAUContentsDirectory
-                   ${targetAUDirectory}
-                   ${libraryName}.component
-                   "Contents"
-                   "MacOS"
-        )
-
-        FILE(REMOVE_RECURSE ${targetAUDirectory})
-        SET(targetName ${libraryName}_AU)
-        INSTALL(TARGETS ${targetName}
-                DESTINATION ${targetAUDirectory})
-        INSTALL(FILES ${dynamicLibraryList}
-                DESTINATION ${targetAUContentsDirectory})
-    ENDIF(MACOS)
-ENDFUNCTION(GLOB_install_pluginAU)
-
-#--------------------
-
-FUNCTION(GLOB_install_pluginVST libraryName dynamicLibraryList)
-    # install VST plugin given by <libraryName> together with dynamic
-    # libraries in <dynamicLibraryList>
-
-    CMAKE_PATH(SET targetVST3Directory NORMALIZE
-               ${GLOB_platformTargetSubdirectory}/VST3)
-    FILE(REMOVE_RECURSE ${targetVST3Directory})
-
-    IF(NOT MACOS)
-        CMAKE_PATH(SET targetVST3Path NORMALIZE
-                   ${targetVST3Directory}/${libraryName}.vst3)
-        INSTALL(DIRECTORY ${GLOB_buildDirectory}/${libraryName}.vst3/Contents
-                DESTINATION ${targetVST3Path})
-        INSTALL(FILES ${dynamicLibraryList}
-                DESTINATION ${targetVST3Path}/Contents/${GLOB_vst3PlatformName})
-    ELSE()
-        SET(targetName ${libraryName}_VST)
-        INSTALL(TARGETS ${targetName}
-                DESTINATION ${targetVST3Directory})
-        INSTALL(FILES ${dynamicLibraryList}
-                DESTINATION ${targetVST3Directory}/${libraryName}.vst3/Contents/MacOS)
-    ENDIF()
-ENDFUNCTION(GLOB_install_pluginVST)
 
 #--------------------
 

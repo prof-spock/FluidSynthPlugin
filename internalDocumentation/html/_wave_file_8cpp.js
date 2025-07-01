@@ -1,6 +1,15 @@
 var _wave_file_8cpp =
 [
-    [ "STR", "_wave_file_8cpp.html#a5b6f88d1249b396e351c4a85bcb35b2c", null ],
+    [ "WaveFile", "struct_wave_file.html", "struct_wave_file" ],
+    [ "File", "struct_file.html", "struct_file" ],
+    [ "OperatingSystem", "struct_operating_system.html", "struct_operating_system" ],
+    [ "IntegerList", "struct_integer_list.html", "struct_integer_list" ],
+    [ "NaturalList", "struct_natural_list.html", "struct_natural_list" ],
+    [ "RealList", "struct_real_list.html", "struct_real_list" ],
+    [ "Character", "struct_character.html", "struct_character" ],
+    [ "Integer", "struct_integer.html", "struct_integer" ],
+    [ "AudioSample", "_wave_file_8cpp.html#a64757dc84eac3a7e8bcaa0bfbd6b71ee", null ],
+    [ "WaveFileOperationResult", "_wave_file_8cpp.html#a695681d4df4135b970ed2032c9243e55", null ],
     [ "WaveFile__assertEquality", "_wave_file_8cpp.html#abb795a547b7a1c325f7984754d5bdf39", null ],
     [ "WaveFile__assertIndexInRange", "_wave_file_8cpp.html#a4717dd48d0e5295581ebfa3274a40fcb", null ],
     [ "WaveFile__readHeader", "_wave_file_8cpp.html#af65749f0b61038fcd04ab64b23a2c2d0", null ],

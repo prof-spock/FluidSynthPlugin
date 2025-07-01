@@ -411,17 +411,17 @@ static Real WaveFile__readReal (IN ByteList& byteList,
     double d = 0;
     Boolean isDouble = (byteCount == 8);
     Byte* sourcePtr = &((ByteList) byteList)[position];
-    Byte* targetPtr = (isDouble ? (Byte*) &d : (Byte*) &f);
+    Byte* destinationPtr = (isDouble ? (Byte*) &d : (Byte*) &f);
 
     if (isBigEndian) {
         sourcePtr += ((int) byteCount - 1);
 
         for (Natural i = 0; i < byteCount; i++) {
-            *targetPtr++ = *sourcePtr--;
+            *destinationPtr++ = *sourcePtr--;
         }
     } else {
         for (Natural i = 0; i < byteCount; i++) {
-            *targetPtr++ = *sourcePtr++;
+            *destinationPtr++ = *sourcePtr++;
         }
     }
 
@@ -558,9 +558,10 @@ static void WaveFile__skipString (IN ByteList& byteList,
  * <C>channelCount</C>, <C>sampleRate</C> and
  * <C>sampleWidthInBytes</C>.
  *
- * @param[inout] byteList            target byte list to be written to
- * @param[inout] position            first target position to be written
- *                                   to
+ * @param[inout] byteList            destination byte list to be
+ *                                   written to
+ * @param[inout] position            first destination position to be
+ *                                   written to
  * @param[in]    isPCMData           information whether this is a
  *                                   format with integer samples
  * @param[in]    fileSize            the count in bytes of the complete
@@ -644,8 +645,8 @@ WaveFile__writeHeader(INOUT ByteList& byteList,
  * <C>byteCount</C> bytes in little-endian format and updates
  * <C>position</C>.
  *
- * @param[inout] byteList   target byte list to be written to
- * @param[inout] position   first target position to be written to
+ * @param[inout] byteList   destination byte list to be written to
+ * @param[inout] position   first destination position to be written to
  * @param[in]    byteCount  count of byte used for integer
  * @param[in]    n          integer value to be written
  */
@@ -671,7 +672,7 @@ static void WaveFile__writeInteger (INOUT ByteList& byteList,
  * <C>audioFrameCount</C>, <C>sampleWidthInBytes</C> and
  * <C>scalingFactor</C> and updates <C>position</C>.
  *
- * @param[inout] byteList            target byte list for sample data
+ * @param[inout] byteList            destination byte list for sample data
  * @param[inout] position            first position in byte list to be
  *                                   written
  * @param[in]    totalSampleCount    total number of samples in sample buffer
@@ -735,8 +736,8 @@ WaveFile__writeIntDataToByteList (INOUT ByteList& byteList,
  * using <C>byteCount</C> bytes in little-endian format and updates
  * <C>position</C>.
  *
- * @param[inout] byteList   target byte list to be written to
- * @param[inout] position   first target position to be written to
+ * @param[inout] byteList   destination byte list to be written to
+ * @param[inout] position   first destination position to be written to
  * @param[in]    byteCount  count of byte used for real value
  * @param[in]    r          real value to be written
  */
@@ -748,18 +749,18 @@ static void WaveFile__writeReal (INOUT ByteList& byteList,
     float f = (float) r;
     double d = (double) r;
     Byte* sourcePtr = (byteCount == 4 ? (Byte*) &f : (Byte*) &d);
-    Byte* targetPtr = &byteList[position];
+    Byte* destinationPtr = &byteList[position];
     position += byteCount;
 
     if (isBigEndian) {
         sourcePtr += ((int) byteCount - 1);
 
         for (Natural i = 0; i < byteCount; i++) {
-            *targetPtr++ = *sourcePtr--;
+            *destinationPtr++ = *sourcePtr--;
         }
     } else {
         for (Natural i = 0; i < byteCount; i++) {
-            *targetPtr++ = *sourcePtr++;
+            *destinationPtr++ = *sourcePtr++;
         }
     }
 }
@@ -773,7 +774,7 @@ static void WaveFile__writeReal (INOUT ByteList& byteList,
  * <C>audioFrameCount</C> and <C>sampleWidthInBytes</C> and updates
  * <C>position</C>.
  *
- * @param[inout] byteList            target byte list for sample data
+ * @param[inout] byteList            destination byte list for sample data
  * @param[inout] position            first position in byte list to be
  *                                   written
  * @param[in]    totalSampleCount    total number of samples in sample buffer
@@ -829,8 +830,8 @@ WaveFile__writeRealDataToByteList (INOUT ByteList& byteList,
  * Writes string <C>st</C> to byte list <C>byteList</C> at
  * <C>position</C> and updates <C>position</C>.
  *
- * @param[inout] byteList     target byte list to be written to
- * @param[inout] position   first target position to be written to
+ * @param[inout] byteList   destination byte list to be written to
+ * @param[inout] position   first destination position to be written to
  * @param[in]    st         string value to be written
  */
 static void WaveFile__writeString (INOUT ByteList& byteList,

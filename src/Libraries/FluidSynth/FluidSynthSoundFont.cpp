@@ -271,7 +271,7 @@ String FluidSynthSoundFont::name () const
         result = OperatingSystem::basename(result, false);
     }
 
-    Logging_trace1("<<: %1", result.toString());
+    Logging_trace1("<<: %1", result);
     return result;
 }
 

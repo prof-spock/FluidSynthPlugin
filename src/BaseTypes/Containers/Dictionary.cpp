@@ -117,3 +117,36 @@ StringList Dictionary::makeKeyListFromString (IN String& st,
 
     return result;
 }
+
+/*-----------------------*/
+/* aggregate data access */
+/*-----------------------*/
+
+StringList Dictionary::keyList () const
+{
+    StringList result;
+
+    for (auto iterator = _UnderlyingMap::begin();
+         iterator != _UnderlyingMap::end();
+         iterator++) {
+        result.append(iterator->first);
+    }
+
+    return result;
+}
+
+/*--------------------*/
+
+StringList Dictionary::valueList () const
+{
+    StringList result;
+
+    for (auto iterator = _UnderlyingMap::begin();
+         iterator != _UnderlyingMap::end();
+         iterator++) {
+        result.append(iterator->second);
+    }
+
+    return result;
+}
+

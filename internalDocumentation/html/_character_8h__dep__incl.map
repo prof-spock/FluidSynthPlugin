@@ -1,34 +1,72 @@
 <map id="Character.h" name="Character.h">
-<area shape="rect" id="node1" title="The Character specification and body provides a value object type for character values." alt="" coords="788,5,877,32"/>
-<area shape="rect" id="node2" href="$_wave_file_8cpp.html" title="The WaveFile specification defines an object for accessing a RIFF wave file with several channels." alt="" coords="5,229,105,256"/>
-<area shape="rect" id="node3" href="$_string_util_8h.html" title="The StringUtil specification defines several string routines not included in the standard C++ library..." alt="" coords="1531,80,1617,107"/>
-<area shape="rect" id="node4" href="$_file_8cpp.html" title="The File body implements a class for simple file handling based on C stdio." alt="" coords="1936,155,2004,181"/>
-<area shape="rect" id="node5" href="$_logging_8h.html" title="The Logging specification defines macros for entry&#45;, exit&#45; and intermediate logging of functions into..." alt="" coords="1227,155,1305,181"/>
-<area shape="rect" id="node28" href="$_string_util_8cpp.html" title="The StringUtil body implements several string routines not included in the standard C++ library (like..." alt="" coords="1329,155,1429,181"/>
-<area shape="rect" id="node29" href="$_natural_list_8cpp.html" title="The NaturalList body implements lists of non&#45;negative integer values with zero&#45;based arbitrary indexe..." alt="" coords="1454,155,1563,181"/>
-<area shape="rect" id="node30" href="$_string_list_8cpp.html" title="The StringList body implements lists of string values with zero&#45;based arbitrary indexed access to pos..." alt="" coords="1588,155,1691,181"/>
-<area shape="rect" id="node31" href="$_my_string_8cpp.html" title="The String body implements a standard string type." alt="" coords="1715,155,1814,181"/>
-<area shape="rect" id="node32" href="$_real_8cpp.html" title="The Real body implements a value object type for real values." alt="" coords="1839,155,1912,181"/>
-<area shape="rect" id="node6" href="$_audio_sample_fifo_queue_8cpp-inc.html" title="The AudioSampleFifoQueue body implements a fifo queue for audio samples with popping off access to th..." alt="" coords="2933,229,3137,256"/>
-<area shape="rect" id="node11" href="$_fluid_synth_plugin___event_processor_8cpp.html" title="The FluidSynthPlugin_Processor module implements the handling of MIDI events from the DAW via JUCE ha..." alt="" coords="22,453,265,480"/>
-<area shape="rect" id="node12" href="$_audio_sample_fifo_queue_vector_8cpp-inc.html" title="The AudioSampleFifoQueueVector body implements a list of fifo queues for audio samples (this is the e..." alt="" coords="229,304,471,331"/>
-<area shape="rect" id="node13" href="$_command_line_arguments_8cpp.html" title="The CommandLineArguments body implements a handler for command&#45;line arguments converting them to a li..." alt="" coords="232,229,425,256"/>
-<area shape="rect" id="node14" href="$_environment_8cpp.html" title="The Environment body implements operating system services related to environment variables." alt="" coords="449,229,568,256"/>
-<area shape="rect" id="node15" href="$_operating_system_8cpp.html" title="The OperatingSystem body implements a class for several operating system related utility functions (l..." alt="" coords="592,229,740,256"/>
-<area shape="rect" id="node16" href="$_fluid_synth_8cpp.html" title="The FluidSynth class implements the access to the fluidsynth library via a dynamic loading of it." alt="" coords="765,229,874,256"/>
-<area shape="rect" id="node17" href="$_fluid_synth_settings_8cpp.html" title="The FluidSynthSettings class implements an object&#45;oriented wrapper around an underlying fluidsynth se..." alt="" coords="898,229,1055,256"/>
-<area shape="rect" id="node18" href="$_fluid_synth_sound_font_8cpp.html" title="The FluidSynthSoundFont class implements an object&#45;oriented wrapper around an underlying fluidsynth s..." alt="" coords="1080,229,1252,256"/>
-<area shape="rect" id="node19" href="$_fluid_synth_synthesizer_8cpp.html" title="The FluidSynthSynthesizer class implements an object&#45;oriented wrapper around an underlying fluidsynth..." alt="" coords="1277,229,1455,256"/>
-<area shape="rect" id="node20" href="$_fluid_synth_file_converter_8cpp.html" title="The FluidSynthFileConverter module implements a conversion from a MIDI file into a wave file using th..." alt="" coords="1479,229,1663,256"/>
-<area shape="rect" id="node21" href="$_fluid_synth_plugin___editor_8cpp.html" title="The FluidSynthPlugin_Editor module implements the editor for the processor of MIDI events from the DA..." alt="" coords="1687,229,1874,256"/>
-<area shape="rect" id="node22" href="$_fluid_synth_plugin___editor_support_8cpp.html" title="The FluidSynthPlugin_EditorSupport module implements support services for the editor of the FluidSynt..." alt="" coords="1899,229,2129,256"/>
-<area shape="rect" id="node23" href="$_midi_event_8cpp.html" title="The MidiEvent implementation defines the services of a single MIDI event." alt="" coords="2153,229,2256,256"/>
-<area shape="rect" id="node24" href="$_midi_event_converter_8cpp.html" title="The MidiEventConverter module implements the handling of MIDI events by feeding them to an underlying..." alt="" coords="2281,229,2438,256"/>
-<area shape="rect" id="node25" href="$_midi_event_list_8cpp.html" title="The MIDIEventList body implements sequences of integer values with zero&#45;based arbitrary indexed acces..." alt="" coords="2463,229,2587,256"/>
-<area shape="rect" id="node26" href="$_midi_file_8cpp.html" title="The MidiFile implementation implements the services of a MIDI file; currently only file reading is su..." alt="" coords="2611,229,2703,256"/>
-<area shape="rect" id="node27" href="$_midi_preset_identification_8cpp.html" title="The MidiPresetIdentification body implements the identification of a MIDI preset as a tuple of bank a..." alt="" coords="2727,229,2909,256"/>
-<area shape="rect" id="node7" href="$_audio_sample_fifo_queue_8h.html" title="The AudioSampleFifoQueue specification defines a fifo queue for audio samples with popping off access..." alt="" coords="1723,304,1892,331"/>
-<area shape="rect" id="node8" href="$_audio_sample_fifo_queue_8cpp.html" title="The AudioSampleFifoQueue body implements a fifo queue for audio samples with popping off access to th..." alt="" coords="1716,379,1899,405"/>
-<area shape="rect" id="node9" href="$_audio_sample_fifo_queue_vector_8h.html" title="The AudioSampleFifoQueueVector specification defines a list of fifo queues for audio samples." alt="" coords="271,379,477,405"/>
-<area shape="rect" id="node10" href="$_audio_sample_fifo_queue_vector_8cpp.html" title="The AudioSampleFifoQueueVector body implements a list of fifo queues for audio samples (this is the f..." alt="" coords="289,453,510,480"/>
+<area shape="rect" id="Node000001" title="The Character specification and body provides a value object type for character values." alt="" coords="2386,5,2475,31"/>
+<area shape="rect" id="Node000002" href="$_string_util_8h.html" title="The StringUtil specification defines several string routines not included in the standard C++ library..." alt="" coords="2166,79,2253,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="2383,37,2246,81,2244,76,2382,32"/>
+<area shape="rect" id="Node000029" href="$_wave_file_8cpp.html" title="The WaveFile specification defines an object for accessing a RIFF wave file with several channels." alt="" coords="3318,225,3418,251"/>
+<area shape="poly" id="edge36_Node000001_Node000029" title=" " alt="" coords="2490,30,3319,223,3318,228,2488,35"/>
+<area shape="rect" id="Node000003" href="$_byte_list_8cpp.html" title="The ByteList body implements sequences of byte values with zero&#45;based arbitrary indexed access to pos..." alt="" coords="2521,152,2615,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="2267,101,2521,151,2520,157,2266,107"/>
+<area shape="rect" id="Node000004" href="$_file_8cpp.html" title="The File body implements a class for simple file handling based on C stdio." alt="" coords="1721,152,1789,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="2152,102,1993,123,1800,155,1789,157,1788,152,1800,149,1992,117,2152,96"/>
+<area shape="rect" id="Node000005" href="$_logging_8h.html" title="The Logging specification defines macros for entry&#45;, exit&#45; and intermediate logging of functions into..." alt="" coords="1813,152,1891,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="2153,106,1905,155,1892,157,1891,152,1903,149,2152,101"/>
+<area shape="rect" id="Node000030" href="$_my_string_8cpp.html" title="The String body implements a standard string type." alt="" coords="1916,152,2015,177"/>
+<area shape="poly" id="edge31_Node000002_Node000030" title=" " alt="" coords="2158,110,2006,154,2004,149,2156,105"/>
+<area shape="rect" id="Node000031" href="$_natural_list_8cpp.html" title="The NaturalList body implements lists of non&#45;negative integer values with zero&#45;based arbitrary indexe..." alt="" coords="2039,152,2148,177"/>
+<area shape="poly" id="edge32_Node000002_Node000031" title=" " alt="" coords="2181,113,2114,154,2111,149,2178,109"/>
+<area shape="rect" id="Node000032" href="$_real_8cpp.html" title="The Real body implements a value object type for real values." alt="" coords="2173,152,2246,177"/>
+<area shape="poly" id="edge33_Node000002_Node000032" title=" " alt="" coords="2212,118,2212,152,2207,152,2207,118"/>
+<area shape="rect" id="Node000033" href="$_string_list_8cpp.html" title="The StringList body implements lists of string values with zero&#45;based arbitrary indexed access to pos..." alt="" coords="2270,152,2373,177"/>
+<area shape="poly" id="edge34_Node000002_Node000033" title=" " alt="" coords="2241,109,2304,150,2302,154,2238,114"/>
+<area shape="rect" id="Node000034" href="$_string_util_8cpp.html" title="The StringUtil body implements several string routines not included in the standard C++ library (like..." alt="" coords="2397,152,2497,177"/>
+<area shape="poly" id="edge35_Node000002_Node000034" title=" " alt="" coords="2261,105,2409,149,2407,154,2260,110"/>
+<area shape="rect" id="Node000006" href="$_audio_sample_fifo_queue_8cpp-inc.html" title="The AudioSampleFifoQueue body implements a fifo queue for audio samples with popping off access to th..." alt="" coords="3090,225,3294,251"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="1905,174,2084,194,2235,205,2368,209,2492,210,2749,209,2900,213,3078,223,3090,224,3089,229,3077,228,2900,218,2749,215,2492,215,2368,214,2234,210,2083,199,1905,180"/>
+<area shape="rect" id="Node000011" href="$_fluid_synth_plugin___event_processor_8cpp.html" title="The FluidSynthPlugin_Processor module implements the handling of MIDI events from the DAW via JUCE ha..." alt="" coords="5,445,248,471"/>
+<area shape="poly" id="edge19_Node000005_Node000011" title=" " alt="" coords="1799,179,1482,184,953,187,682,192,445,199,271,211,217,219,191,228,168,251,152,279,140,310,133,342,127,402,128,445,123,445,122,402,127,341,135,308,147,276,164,247,188,223,216,213,270,206,445,194,682,186,953,182,1482,178,1799,174"/>
+<area shape="rect" id="Node000012" href="$_audio_sample_fifo_queue_vector_8cpp-inc.html" title="The AudioSampleFifoQueueVector body implements a list of fifo queues for audio samples (this is the e..." alt="" coords="212,299,455,324"/>
+<area shape="poly" id="edge11_Node000005_Node000012" title=" " alt="" coords="1799,179,1482,182,956,184,687,188,452,196,281,209,229,217,204,227,198,238,198,248,204,257,216,267,249,283,288,296,286,301,247,288,213,271,200,261,193,249,193,237,201,223,228,212,281,203,452,190,687,183,956,179,1482,177,1799,174"/>
+<area shape="rect" id="Node000013" href="$_command_line_arguments_8cpp.html" title="The CommandLineArguments body implements a handler for command&#45;line arguments converting them to a li..." alt="" coords="215,225,409,251"/>
+<area shape="poly" id="edge13_Node000005_Node000013" title=" " alt="" coords="1799,180,1590,202,1412,213,1255,217,1108,216,806,213,629,217,420,228,409,229,409,223,420,223,629,212,806,208,1109,211,1255,212,1411,208,1589,196,1799,174"/>
+<area shape="rect" id="Node000014" href="$_environment_8cpp.html" title="The Environment body implements operating system services related to environment variables." alt="" coords="433,225,551,251"/>
+<area shape="poly" id="edge14_Node000005_Node000014" title=" " alt="" coords="1799,180,1611,199,1452,209,1311,211,1180,210,909,208,751,213,564,228,552,229,551,224,564,223,750,208,909,202,1180,204,1311,206,1452,203,1611,194,1799,174"/>
+<area shape="rect" id="Node000015" href="$_fluid_synth_8cpp.html" title="The FluidSynth class implements the access to the fluidsynth library via a dynamic loading of it." alt="" coords="576,225,685,251"/>
+<area shape="poly" id="edge15_Node000005_Node000015" title=" " alt="" coords="1799,180,1632,198,1489,206,1364,209,1246,208,1005,208,864,214,698,228,686,229,685,224,697,223,863,208,1005,202,1247,203,1363,203,1489,201,1631,192,1799,174"/>
+<area shape="rect" id="Node000016" href="$_fluid_synth_file_converter_8cpp.html" title="The FluidSynthFileConverter module implements a conversion from a MIDI file into a wave file using th..." alt="" coords="709,225,893,251"/>
+<area shape="poly" id="edge16_Node000005_Node000016" title=" " alt="" coords="1799,180,1663,196,1548,205,1351,212,1155,214,906,228,894,229,894,224,905,223,1155,209,1351,206,1547,200,1663,190,1798,175"/>
+<area shape="rect" id="Node000017" href="$_fluid_synth_plugin___editor_8cpp.html" title="The FluidSynthPlugin_Editor module implements the editor for the processor of MIDI events from the DA..." alt="" coords="917,225,1104,251"/>
+<area shape="poly" id="edge17_Node000005_Node000017" title=" " alt="" coords="1799,180,1607,202,1456,210,1307,215,1116,228,1105,229,1104,224,1116,223,1306,210,1456,205,1606,196,1799,174"/>
+<area shape="rect" id="Node000018" href="$_fluid_synth_plugin___editor_support_8cpp.html" title="The FluidSynthPlugin_EditorSupport module implements support services for the editor of the FluidSynt..." alt="" coords="1129,225,1359,251"/>
+<area shape="poly" id="edge18_Node000005_Node000018" title=" " alt="" coords="1799,180,1591,205,1360,228,1359,223,1590,200,1799,175"/>
+<area shape="rect" id="Node000019" href="$_fluid_synth_settings_8cpp.html" title="The FluidSynthSettings class implements an object&#45;oriented wrapper around an underlying fluidsynth se..." alt="" coords="1384,225,1541,251"/>
+<area shape="poly" id="edge20_Node000005_Node000019" title=" " alt="" coords="1799,180,1532,228,1531,223,1798,175"/>
+<area shape="rect" id="Node000020" href="$_fluid_synth_sound_font_8cpp.html" title="The FluidSynthSoundFont class implements an object&#45;oriented wrapper around an underlying fluidsynth s..." alt="" coords="1566,225,1738,251"/>
+<area shape="poly" id="edge21_Node000005_Node000020" title=" " alt="" coords="1808,184,1686,228,1684,223,1806,179"/>
+<area shape="rect" id="Node000021" href="$_fluid_synth_synthesizer_8cpp.html" title="The FluidSynthSynthesizer class implements an object&#45;oriented wrapper around an underlying fluidsynth..." alt="" coords="1763,225,1941,251"/>
+<area shape="poly" id="edge22_Node000005_Node000021" title=" " alt="" coords="1855,191,1855,225,1849,225,1849,191"/>
+<area shape="rect" id="Node000022" href="$_midi_event_8cpp.html" title="The MidiEvent implementation defines the services of a single MIDI event." alt="" coords="1966,225,2069,251"/>
+<area shape="poly" id="edge23_Node000005_Node000022" title=" " alt="" coords="1892,180,1991,223,1989,228,1890,185"/>
+<area shape="rect" id="Node000023" href="$_midi_event_converter_8cpp.html" title="The MidiEventConverter module implements the handling of MIDI events by feeding them to an underlying..." alt="" coords="2093,225,2251,251"/>
+<area shape="poly" id="edge24_Node000005_Node000023" title=" " alt="" coords="1906,175,2121,223,2120,228,1905,180"/>
+<area shape="rect" id="Node000024" href="$_midi_event_list_8cpp.html" title="The MIDIEventList body implements sequences of integer values with zero&#45;based arbitrary indexed acces..." alt="" coords="2275,225,2399,251"/>
+<area shape="poly" id="edge25_Node000005_Node000024" title=" " alt="" coords="1905,175,2086,201,2263,223,2275,224,2275,230,2262,228,2085,206,1905,180"/>
+<area shape="rect" id="Node000025" href="$_midi_file_8cpp.html" title="The MidiFile implementation implements the services of a MIDI file; currently only file reading is su..." alt="" coords="2423,225,2515,251"/>
+<area shape="poly" id="edge26_Node000005_Node000025" title=" " alt="" coords="1905,175,2048,192,2160,200,2271,207,2411,223,2424,225,2423,230,2410,228,2270,212,2160,205,2048,197,1905,180"/>
+<area shape="rect" id="Node000026" href="$_midi_preset_identification_8cpp.html" title="The MidiPresetIdentification body implements the identification of a MIDI preset as a tuple of bank a..." alt="" coords="2540,225,2721,251"/>
+<area shape="poly" id="edge27_Node000005_Node000026" title=" " alt="" coords="1905,175,2080,195,2217,204,2354,210,2527,223,2540,224,2540,229,2526,228,2353,215,2217,209,2080,201,1905,180"/>
+<area shape="rect" id="Node000027" href="$_operating_system_8cpp.html" title="The OperatingSystem body implements a class for several operating system related utility functions (l..." alt="" coords="2746,225,2894,251"/>
+<area shape="poly" id="edge28_Node000005_Node000027" title=" " alt="" coords="1906,175,2032,189,2139,198,2321,204,2502,208,2734,223,2746,224,2746,229,2733,228,2502,213,2321,210,2138,203,2031,195,1905,180"/>
+<area shape="rect" id="Node000028" href="$_time_and_duration_8cpp.html" title="The TimeAndDuration body implements simple functions for the types for time and duration." alt="" coords="2919,225,3065,251"/>
+<area shape="poly" id="edge29_Node000005_Node000028" title=" " alt="" coords="1906,175,2058,191,2187,201,2407,205,2626,207,2755,212,2906,223,2919,224,2918,229,2905,228,2754,217,2626,212,2407,211,2187,206,2057,197,1905,180"/>
+<area shape="poly" id="edge30_Node000005_Node000029" title=" " alt="" coords="1905,174,2118,196,2299,205,2458,206,2607,202,2755,199,2914,198,3094,205,3306,223,3318,224,3317,230,3305,228,3094,210,2914,203,2755,204,2607,208,2458,211,2299,210,2118,201,1905,180"/>
+<area shape="rect" id="Node000007" href="$_audio_sample_fifo_queue_8h.html" title="The AudioSampleFifoQueue specification defines a fifo queue for audio samples with popping off access..." alt="" coords="1793,299,1962,324"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="3076,253,2749,274,2432,291,1962,310,1962,305,2432,286,2749,269,3075,248"/>
+<area shape="rect" id="Node000008" href="$_audio_sample_fifo_queue_8cpp.html" title="The AudioSampleFifoQueue body implements a fifo queue for audio samples with popping off access to th..." alt="" coords="1786,372,1969,397"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="1880,338,1880,372,1875,372,1875,338"/>
+<area shape="rect" id="Node000009" href="$_audio_sample_fifo_queue_vector_8h.html" title="The AudioSampleFifoQueueVector specification defines a list of fifo queues for audio samples." alt="" coords="254,372,461,397"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="1779,320,461,381,461,376,1779,315"/>
+<area shape="rect" id="Node000010" href="$_audio_sample_fifo_queue_vector_8cpp.html" title="The AudioSampleFifoQueueVector body implements a list of fifo queues for audio samples (this is the f..." alt="" coords="272,445,493,471"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="369,409,381,444,376,446,364,411"/>
+<area shape="poly" id="edge10_Node000009_Node000011" title=" " alt="" coords="308,404,165,448,163,443,306,399"/>
+<area shape="poly" id="edge12_Node000012_Node000009" title=" " alt="" coords="344,336,356,371,351,373,339,338"/>
 </map>

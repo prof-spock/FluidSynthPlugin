@@ -125,8 +125,9 @@ namespace Audio {
          * Writes to wave file with a sample rate of <C>sampleRate</C>
          * using <C>channelCount</C> channels having
          * <C>audioFrameCount</C> samples per channel taking data from
-         * <C>sampleBuffer</C>; target format is characterized by
-         * <C>typeCode</C> and <C>sampleWidthInBytes</C>.
+         * <C>sampleBuffer</C>; the format of wave file is
+         * characterized by <C>typeCode</C> and
+         * <C>sampleWidthInBytes</C>.
          *
          * @param[in] sampleRate          sample rate to be stored
          *                                in file

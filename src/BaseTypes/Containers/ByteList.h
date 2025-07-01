@@ -62,6 +62,16 @@ namespace BaseTypes::Containers {
         static ByteList fromList (IN initializer_list<Byte> list);
 
         /*--------------------*/
+
+        /**
+         * Initializes list of bytes from a string.
+         *
+         * @param[in] st  string to be converted
+         * @return  byte list
+         */
+        static ByteList fromString (IN String& st);
+
+        /*--------------------*/
         /* type conversions   */
         /*--------------------*/
 
@@ -71,6 +81,15 @@ namespace BaseTypes::Containers {
          * @return decoded string
          */
         String decodeToString () const;
+
+        /*--------------------*/
+
+        /**
+         * Converts to plain string with base 64 encoding.
+         *
+         * @return decoded string
+         */
+        String decodeToBase64String () const;
 
         /*--------------------*/
 

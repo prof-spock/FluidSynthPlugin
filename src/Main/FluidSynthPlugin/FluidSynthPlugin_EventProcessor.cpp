@@ -825,7 +825,7 @@ Boolean FluidSynthPlugin_EventProcessor::isInErrorState () const
         TOREFERENCE<_EventProcessorDescriptor>(_descriptor);
     const Boolean result = !descriptor.errorMessageList.isEmpty();
 
-    Logging_trace1("<< %1", result);
+    Logging_trace1("<< %1", TOSTRING(result));
     return result;
 }
 

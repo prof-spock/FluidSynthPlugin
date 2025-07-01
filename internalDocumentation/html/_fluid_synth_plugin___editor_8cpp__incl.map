@@ -1,48 +1,100 @@
 <map id="FluidSynthPlugin_Editor.cpp" name="FluidSynthPlugin_Editor.cpp">
-<area shape="rect" id="node1" title="The FluidSynthPlugin_Editor module implements the editor for the processor of MIDI events from the DA..." alt="" coords="301,5,488,32"/>
-<area shape="rect" id="node2" href="$_assertion_8h.html" title="The Assertion specification defines macros for pre&#45; and postconditions in functions or methods." alt="" coords="300,543,388,569"/>
-<area shape="rect" id="node5" href="$_environment_8h.html" title="The Environment specification defines operating system services related to environment variables." alt="" coords="96,229,200,256"/>
-<area shape="rect" id="node14" href="$_logging_8h.html" title="The Logging specification defines macros for entry&#45;, exit&#45; and intermediate logging of functions into..." alt="" coords="355,80,434,107"/>
-<area shape="rect" id="node27" href="$_fluid_synth_plugin___editor_8h.html" title="The FluidSynthPlugin_Editor specification implements the editor for the processor of MIDI events from..." alt="" coords="699,80,871,107"/>
-<area shape="rect" id="node46" href="$_fluid_synth_plugin___editor_support_8h.html" title="The FluidSynthPlugin_EditorSupport specification defines support services for the editor of the Fluid..." alt="" coords="458,80,675,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="463,617,542,644"/>
-<area shape="rect" id="node4" title=" " alt="" coords="315,617,370,644"/>
-<area shape="rect" id="node6" href="$_boolean_8h.html" title="The Boolean specification and body provides a value object type for boolean values." alt="" coords="219,311,299,338"/>
-<area shape="rect" id="node9" href="$_dictionary_8h.html" title="The Dictionary specification defines maps from string keys to string values." alt="" coords="51,311,141,338"/>
-<area shape="rect" id="node11" href="$_natural_8h.html" title="The Natural specification and body provides a value object type for naturals (positive integers with ..." alt="" coords="361,468,436,495"/>
-<area shape="rect" id="node7" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="191,543,276,569"/>
-<area shape="rect" id="node8" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="177,617,290,644"/>
-<area shape="rect" id="node10" title=" " alt="" coords="43,393,146,420"/>
-<area shape="rect" id="node12" title=" " alt="" coords="669,543,728,569"/>
-<area shape="rect" id="node13" title=" " alt="" coords="412,543,535,569"/>
-<area shape="rect" id="node15" title=" " alt="" coords="509,155,574,181"/>
-<area shape="rect" id="node16" href="$_logging_support_8h.html" title="The LoggingSupport specification defines a class for simple entry/exit logging to a file or via an ar..." alt="" coords="275,229,397,256"/>
-<area shape="rect" id="node17" href="$_string_util_8h.html" title="The StringUtil specification defines several string routines not included in the standard C++ library..." alt="" coords="398,155,485,181"/>
-<area shape="rect" id="node18" href="$_character_8h.html" title="The Character specification and body provides a value object type for character values." alt="" coords="753,311,842,338"/>
-<area shape="rect" id="node21" href="$_percentage_8h.html" title="The Percentage specification and body provides a simple percentage type." alt="" coords="533,229,632,256"/>
-<area shape="rect" id="node24" href="$_string_list_8h.html" title="The StringList specification defines lists of string values with zero&#45;based arbitrary indexed access ..." alt="" coords="421,229,509,256"/>
-<area shape="rect" id="node19" href="$_byte_8h.html" title="The Byte specification and body provides a value object type for byte values." alt="" coords="698,393,758,420"/>
-<area shape="rect" id="node20" title=" " alt="" coords="660,468,721,495"/>
-<area shape="rect" id="node22" href="$_real_8h.html" title="The Real specification defines a value object type for real values." alt="" coords="619,311,677,338"/>
-<area shape="rect" id="node23" href="$_integer_8h.html" title="The Integer specification and body provides a value object type for ints." alt="" coords="587,393,659,420"/>
-<area shape="rect" id="node25" title=" " alt="" coords="374,311,471,338"/>
-<area shape="rect" id="node26" title=" " alt="" coords="496,311,595,338"/>
-<area shape="rect" id="node28" href="$_fluid_synth_plugin___event_processor_8h.html" title="The FluidSynthPlugin_Processor specification defines the handling of MIDI events from the DAW via JUC..." alt="" coords="671,155,900,181"/>
-<area shape="rect" id="node29" href="$_juce_headers_8h_source.html" title=" " alt="" coords="1857,229,1965,256"/>
-<area shape="rect" id="node44" href="$_object_8h.html" title="The Object specification and body provides the root object type." alt="" coords="1989,229,2059,256"/>
-<area shape="rect" id="node45" href="$_midi_preset_identification_8h.html" title="The MidiPresetIdentification specification defines the identification of a MIDI preset as a tuple of ..." alt="" coords="657,229,823,256"/>
-<area shape="rect" id="node30" title=" " alt="" coords="1744,304,1901,345"/>
-<area shape="rect" id="node31" title=" " alt="" coords="1925,304,2075,345"/>
-<area shape="rect" id="node32" title=" " alt="" coords="2099,304,2248,345"/>
-<area shape="rect" id="node33" title=" " alt="" coords="2272,304,2451,345"/>
-<area shape="rect" id="node34" title=" " alt="" coords="2475,304,2645,345"/>
-<area shape="rect" id="node35" title=" " alt="" coords="2670,304,2813,345"/>
-<area shape="rect" id="node36" title=" " alt="" coords="2837,311,2987,338"/>
-<area shape="rect" id="node37" title=" " alt="" coords="3011,304,3167,345"/>
-<area shape="rect" id="node38" title=" " alt="" coords="3191,304,3350,345"/>
-<area shape="rect" id="node39" title=" " alt="" coords="867,311,1040,338"/>
-<area shape="rect" id="node40" title=" " alt="" coords="1064,304,1195,345"/>
-<area shape="rect" id="node41" title=" " alt="" coords="1219,304,1362,345"/>
-<area shape="rect" id="node42" title=" " alt="" coords="1386,304,1521,345"/>
-<area shape="rect" id="node43" title=" " alt="" coords="1545,311,1719,338"/>
+<area shape="rect" id="Node000001" title="The FluidSynthPlugin_Editor module implements the editor for the processor of MIDI events from the DA..." alt="" coords="301,5,488,31"/>
+<area shape="rect" id="Node000002" href="$_assertion_8h.html" title="The Assertion specification defines macros for pre&#45; and postconditions in functions or methods." alt="" coords="300,533,388,559"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="324,33,227,53,123,82,77,100,41,119,16,141,10,152,8,164,8,400,16,421,37,441,70,461,110,478,202,509,287,530,285,535,201,514,108,483,67,465,34,446,11,424,3,401,3,163,5,150,12,138,38,115,75,95,121,77,226,48,323,28"/>
+<area shape="rect" id="Node000005" href="$_environment_8h.html" title="The Environment specification defines operating system services related to environment variables." alt="" coords="96,225,200,251"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="384,33,174,218,170,214,380,29"/>
+<area shape="rect" id="Node000014" href="$_logging_8h.html" title="The Logging specification defines macros for entry&#45;, exit&#45; and intermediate logging of functions into..." alt="" coords="355,79,434,104"/>
+<area shape="poly" id="edge16_Node000001_Node000014" title=" " alt="" coords="397,31,397,65,392,65,392,31"/>
+<area shape="rect" id="Node000027" href="$_fluid_synth_plugin___editor_8h.html" title="The FluidSynthPlugin_Editor specification implements the editor for the processor of MIDI events from..." alt="" coords="699,79,871,104"/>
+<area shape="poly" id="edge38_Node000001_Node000027" title=" " alt="" coords="458,28,709,74,708,79,457,33"/>
+<area shape="rect" id="Node000042" href="$_fluid_synth_plugin___editor_support_8h.html" title="The FluidSynthPlugin_EditorSupport specification defines support services for the editor of the Fluid..." alt="" coords="458,79,675,104"/>
+<area shape="poly" id="edge55_Node000001_Node000042" title=" " alt="" coords="423,28,527,71,525,76,421,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="463,607,542,632"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="371,556,465,599,463,603,368,561"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="315,607,370,632"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="346,559,346,593,340,593,341,559"/>
+<area shape="rect" id="Node000006" href="$_boolean_8h.html" title="The Boolean specification and body provides a value object type for boolean values." alt="" coords="219,306,299,331"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="166,249,232,296,229,300,163,253"/>
+<area shape="rect" id="Node000009" href="$_dictionary_8h.html" title="The Dictionary specification defines maps from string keys to string values." alt="" coords="51,306,141,331"/>
+<area shape="poly" id="edge9_Node000005_Node000009" title=" " alt="" coords="143,252,114,296,109,293,138,249"/>
+<area shape="rect" id="Node000011" href="$_natural_8h.html" title="The Natural specification and body provides a value object type for naturals (positive integers with ..." alt="" coords="361,460,436,485"/>
+<area shape="poly" id="edge11_Node000005_Node000011" title=" " alt="" coords="155,250,176,290,209,337,247,373,289,404,365,451,362,456,286,409,243,377,205,340,171,293,150,252"/>
+<area shape="rect" id="Node000007" href="$_my_string_8h.html" title="The String specification defines a standard string type." alt="" coords="191,533,276,559"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="260,332,239,520,234,519,255,331"/>
+<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="252,556,315,597,312,601,249,561"/>
+<area shape="rect" id="Node000008" href="$_global_macros_8h.html" title="The GlobalMacros specification defines simple macros (e.g. for parameter modes)." alt="" coords="177,607,290,632"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="236,559,236,593,231,593,231,559"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="43,387,146,412"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="98,332,98,373,92,373,93,331"/>
+<area shape="poly" id="edge13_Node000011_Node000002" title=" " alt="" coords="392,487,363,524,359,521,388,484"/>
+<area shape="poly" id="edge15_Node000011_Node000007" title=" " alt="" coords="373,488,274,530,272,525,371,483"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="669,533,728,559"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="437,480,656,532,655,537,435,485"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="412,533,535,559"/>
+<area shape="poly" id="edge14_Node000011_Node000013" title=" " alt="" coords="412,483,453,522,449,526,409,487"/>
+<area shape="rect" id="Node000015" title=" " alt="" coords="509,152,574,177"/>
+<area shape="poly" id="edge17_Node000014_Node000015" title=" " alt="" coords="419,102,506,144,504,148,417,106"/>
+<area shape="rect" id="Node000016" href="$_logging_support_8h.html" title="The LoggingSupport specification defines a class for simple entry/exit logging to a file or via an ar..." alt="" coords="275,225,397,251"/>
+<area shape="poly" id="edge18_Node000014_Node000016" title=" " alt="" coords="392,105,348,213,343,211,387,103"/>
+<area shape="rect" id="Node000017" href="$_string_util_8h.html" title="The StringUtil specification defines several string routines not included in the standard C++ library..." alt="" coords="398,152,485,177"/>
+<area shape="poly" id="edge21_Node000014_Node000017" title=" " alt="" coords="405,103,428,139,424,142,400,106"/>
+<area shape="poly" id="edge19_Node000016_Node000006" title=" " alt="" coords="326,253,282,298,278,294,323,249"/>
+<area shape="poly" id="edge20_Node000016_Node000011" title=" " alt="" coords="341,250,364,338,394,446,389,447,359,339,336,252"/>
+<area shape="poly" id="edge22_Node000017_Node000006" title=" " alt="" coords="398,170,364,175,327,185,293,201,265,227,257,242,254,259,255,292,250,292,248,258,252,240,261,224,290,197,325,180,363,169,397,165"/>
+<area shape="rect" id="Node000018" href="$_character_8h.html" title="The Character specification and body provides a value object type for character values." alt="" coords="753,306,842,331"/>
+<area shape="poly" id="edge23_Node000017_Node000018" title=" " alt="" coords="485,173,496,175,574,180,676,182,727,186,773,193,811,205,838,224,846,242,843,262,833,281,820,297,816,294,828,278,838,260,840,243,834,227,809,210,772,198,726,191,675,187,574,185,496,180,484,178"/>
+<area shape="rect" id="Node000021" href="$_percentage_8h.html" title="The Percentage specification and body provides a simple percentage type." alt="" coords="533,225,632,251"/>
+<area shape="poly" id="edge29_Node000017_Node000021" title=" " alt="" coords="465,175,549,217,546,221,463,180"/>
+<area shape="rect" id="Node000024" href="$_string_list_8h.html" title="The StringList specification defines lists of string values with zero&#45;based arbitrary indexed access ..." alt="" coords="421,225,509,251"/>
+<area shape="poly" id="edge35_Node000017_Node000024" title=" " alt="" coords="448,177,460,211,455,213,443,179"/>
+<area shape="poly" id="edge24_Node000018_Node000012" title=" " alt="" coords="799,332,787,400,774,444,756,487,741,507,725,525,721,522,737,504,751,484,769,442,782,398,794,331"/>
+<area shape="rect" id="Node000019" href="$_byte_8h.html" title="The Byte specification and body provides a value object type for byte values." alt="" coords="698,387,758,412"/>
+<area shape="poly" id="edge25_Node000018_Node000019" title=" " alt="" coords="789,333,749,378,745,375,785,330"/>
+<area shape="poly" id="edge28_Node000019_Node000011" title=" " alt="" coords="698,410,450,463,449,458,697,405"/>
+<area shape="poly" id="edge26_Node000019_Node000012" title=" " alt="" coords="734,412,739,445,736,486,718,523,713,521,731,485,734,446,728,413"/>
+<area shape="rect" id="Node000020" title=" " alt="" coords="660,460,721,485"/>
+<area shape="poly" id="edge27_Node000019_Node000020" title=" " alt="" coords="724,414,705,449,701,447,719,411"/>
+<area shape="rect" id="Node000022" href="$_real_8h.html" title="The Real specification defines a value object type for real values." alt="" coords="619,306,677,331"/>
+<area shape="poly" id="edge30_Node000021_Node000022" title=" " alt="" coords="594,249,632,293,627,297,590,253"/>
+<area shape="rect" id="Node000023" href="$_integer_8h.html" title="The Integer specification and body provides a value object type for ints." alt="" coords="587,387,659,412"/>
+<area shape="poly" id="edge31_Node000022_Node000023" title=" " alt="" coords="647,332,633,375,628,373,642,331"/>
+<area shape="poly" id="edge33_Node000023_Node000003" title=" " alt="" coords="620,413,593,477,549,560,523,598,518,594,544,557,588,475,616,411"/>
+<area shape="poly" id="edge34_Node000023_Node000011" title=" " alt="" coords="587,415,449,458,447,453,586,409"/>
+<area shape="poly" id="edge32_Node000023_Node000012" title=" " alt="" coords="627,412,635,445,650,484,679,522,675,525,646,487,630,447,622,413"/>
+<area shape="rect" id="Node000025" title=" " alt="" coords="374,306,471,331"/>
+<area shape="poly" id="edge36_Node000024_Node000025" title=" " alt="" coords="461,252,438,295,433,293,457,250"/>
+<area shape="rect" id="Node000026" title=" " alt="" coords="496,306,595,331"/>
+<area shape="poly" id="edge37_Node000024_Node000026" title=" " alt="" coords="479,249,525,294,522,298,475,253"/>
+<area shape="rect" id="Node000028" href="$_fluid_synth_plugin___event_processor_8h.html" title="The FluidSynthPlugin_Processor specification defines the handling of MIDI events from the DAW via JUC..." alt="" coords="671,152,900,177"/>
+<area shape="poly" id="edge39_Node000027_Node000028" title=" " alt="" coords="788,104,788,138,783,138,783,104"/>
+<area shape="rect" id="Node000029" href="$_juce_headers_8h_source.html" title=" " alt="" coords="1531,225,1639,251"/>
+<area shape="poly" id="edge40_Node000028_Node000029" title=" " alt="" coords="901,174,1518,228,1517,233,900,179"/>
+<area shape="rect" id="Node000040" href="$_object_8h.html" title="The Object specification and body provides the root object type." alt="" coords="1663,225,1734,251"/>
+<area shape="poly" id="edge51_Node000028_Node000040" title=" " alt="" coords="900,165,1048,170,1233,180,1440,197,1650,223,1649,228,1439,202,1233,185,1048,175,900,170"/>
+<area shape="rect" id="Node000041" href="$_midi_preset_identification_8h.html" title="The MidiPresetIdentification specification defines the identification of a MIDI preset as a tuple of ..." alt="" coords="657,225,823,251"/>
+<area shape="poly" id="edge52_Node000028_Node000041" title=" " alt="" coords="780,179,757,215,752,212,776,176"/>
+<area shape="rect" id="Node000030" title=" " alt="" coords="1025,299,1183,339"/>
+<area shape="poly" id="edge41_Node000029_Node000030" title=" " alt="" coords="1531,249,1384,271,1197,301,1196,296,1384,265,1530,244"/>
+<area shape="rect" id="Node000031" title=" " alt="" coords="1207,299,1385,339"/>
+<area shape="poly" id="edge42_Node000029_Node000031" title=" " alt="" coords="1544,253,1379,298,1378,293,1543,248"/>
+<area shape="rect" id="Node000032" title=" " alt="" coords="1409,299,1580,339"/>
+<area shape="poly" id="edge43_Node000029_Node000032" title=" " alt="" coords="1574,253,1529,292,1525,288,1570,249"/>
+<area shape="rect" id="Node000033" title=" " alt="" coords="1605,299,1747,339"/>
+<area shape="poly" id="edge44_Node000029_Node000033" title=" " alt="" coords="1600,249,1646,288,1642,292,1597,253"/>
+<area shape="rect" id="Node000034" title=" " alt="" coords="1772,306,1921,331"/>
+<area shape="poly" id="edge45_Node000029_Node000034" title=" " alt="" coords="1624,248,1796,300,1795,305,1623,253"/>
+<area shape="rect" id="Node000035" title=" " alt="" coords="1946,299,2105,339"/>
+<area shape="poly" id="edge46_Node000029_Node000035" title=" " alt="" coords="1640,246,1933,296,1932,301,1639,251"/>
+<area shape="rect" id="Node000036" title=" " alt="" coords="2129,306,2303,331"/>
+<area shape="poly" id="edge47_Node000029_Node000036" title=" " alt="" coords="1640,246,1652,248,1783,263,1885,271,1987,280,2118,296,2147,301,2147,306,2117,301,1987,285,1885,277,1782,268,1652,253,1639,251"/>
+<area shape="rect" id="Node000037" title=" " alt="" coords="2327,299,2457,339"/>
+<area shape="poly" id="edge48_Node000029_Node000037" title=" " alt="" coords="1640,246,1652,248,1836,264,1981,268,2127,275,2213,283,2313,296,2313,301,2212,288,2127,280,1981,274,1836,269,1652,253,1639,252"/>
+<area shape="rect" id="Node000038" title=" " alt="" coords="2482,299,2625,339"/>
+<area shape="poly" id="edge49_Node000029_Node000038" title=" " alt="" coords="1640,246,1652,248,1775,260,1879,266,2059,269,2239,274,2344,282,2469,296,2468,301,2344,287,2238,279,2058,274,1879,271,1775,265,1652,253,1639,252"/>
+<area shape="rect" id="Node000039" title=" " alt="" coords="866,299,1001,339"/>
+<area shape="poly" id="edge50_Node000029_Node000039" title=" " alt="" coords="1531,245,1310,264,1165,280,1015,301,1014,296,1164,275,1309,258,1531,240"/>
+<area shape="poly" id="edge53_Node000041_Node000006" title=" " alt="" coords="664,253,362,301,313,310,312,305,361,296,663,248"/>
+<area shape="poly" id="edge54_Node000041_Node000023" title=" " alt="" coords="738,252,720,293,691,340,652,380,648,376,687,337,716,290,733,250"/>
+<area shape="poly" id="edge56_Node000042_Node000028" title=" " alt="" coords="603,101,738,145,736,150,601,107"/>
 </map>

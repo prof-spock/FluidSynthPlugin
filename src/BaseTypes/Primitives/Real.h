@@ -109,8 +109,8 @@ namespace BaseTypes::Primitives {
          *                                        notation
          * @return  string representation
          */
-        String toString (IN Natural precision = 0,
-                         IN Natural fractionalDigitCount = 0,
+        String toString (IN Natural precision = 7,
+                         IN Natural fractionalDigitCount = 3,
                          IN String& padString = "0",
                          IN Boolean scientificNotationIsForced = false) const;
 

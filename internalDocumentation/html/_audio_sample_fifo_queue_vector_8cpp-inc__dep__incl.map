@@ -1,6 +1,9 @@
 <map id="AudioSampleFifoQueueVector.cpp&#45;inc" name="AudioSampleFifoQueueVector.cpp&#45;inc">
-<area shape="rect" id="node1" title="The AudioSampleFifoQueueVector body implements a list of fifo queues for audio samples (this is the e..." alt="" coords="123,5,365,32"/>
-<area shape="rect" id="node2" href="$_audio_sample_fifo_queue_vector_8h.html" title="The AudioSampleFifoQueueVector specification defines a list of fifo queues for audio samples." alt="" coords="141,80,347,107"/>
-<area shape="rect" id="node3" href="$_audio_sample_fifo_queue_vector_8cpp.html" title="The AudioSampleFifoQueueVector body implements a list of fifo queues for audio samples (this is the f..." alt="" coords="5,155,227,181"/>
-<area shape="rect" id="node4" href="$_fluid_synth_plugin___event_processor_8cpp.html" title="The FluidSynthPlugin_Processor module implements the handling of MIDI events from the DAW via JUCE ha..." alt="" coords="251,155,493,181"/>
+<area shape="rect" id="Node000001" title="The AudioSampleFifoQueueVector body implements a list of fifo queues for audio samples (this is the e..." alt="" coords="123,5,365,31"/>
+<area shape="rect" id="Node000002" href="$_audio_sample_fifo_queue_vector_8h.html" title="The AudioSampleFifoQueueVector specification defines a list of fifo queues for audio samples." alt="" coords="141,79,347,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="247,44,247,79,241,79,241,44"/>
+<area shape="rect" id="Node000003" href="$_audio_sample_fifo_queue_vector_8cpp.html" title="The AudioSampleFifoQueueVector body implements a list of fifo queues for audio samples (this is the f..." alt="" coords="5,152,227,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="213,113,138,154,136,149,210,108"/>
+<area shape="rect" id="Node000004" href="$_fluid_synth_plugin___event_processor_8cpp.html" title="The FluidSynthPlugin_Processor module implements the handling of MIDI events from the DAW via JUCE ha..." alt="" coords="251,152,493,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="278,108,352,149,350,154,275,113"/>
 </map>

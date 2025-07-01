@@ -1,4 +1,5 @@
 <map id="BaseTypes::Primitives::Byte" name="BaseTypes::Primitives::Byte">
-<area shape="rect" id="node1" title="A Byte object wraps a value of the associated primitive type char into an object." alt="" coords="17,160,168,428"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,180,112"/>
+<area shape="rect" id="Node000001" title="A Byte object wraps a value of the associated primitive type char into an object." alt="" coords="7,133,150,453"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,152,85"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="81,99,81,133,76,133,76,99"/>
 </map>

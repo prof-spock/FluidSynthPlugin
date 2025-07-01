@@ -132,9 +132,10 @@ namespace Audio {
          * Gets <C>count</C> samples from front of fifo queue
          * into list <C>sampleList</C> starting at <C>position</C>.
          *
-         * @param[in] sampleList  the target list for samples to be
-         *                        taken from front of fifo queue
-         * @param[in] position    position of first element in target
+         * @param[in] sampleList  the destination list for samples to
+         *                        be taken from front of fifo queue
+         * @param[in] position    position of first element in
+         *                        destination
          * @param[in] count       number of samples to be copied from
          *                        fifo queue
          */
@@ -174,8 +175,8 @@ namespace Audio {
 
         /**
          * Gets all elements in fifo queue in ordered form into
-         * <C>elementArray</C>.  Assumes that capacity of target is
-         * large enough.
+         * <C>elementArray</C>.  Assumes that capacity of destination
+         * is large enough.
          *
          * @param[out] elementArray  array of samples
          */

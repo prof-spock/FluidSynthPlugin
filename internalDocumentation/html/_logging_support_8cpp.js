@@ -1,17 +1,21 @@
 var _logging_support_8cpp =
 [
-    [ "_LoggingBufferEntry", "struct_base_modules_1_1___logging_buffer_entry.html", "struct_base_modules_1_1___logging_buffer_entry" ],
-    [ "_LoggingTime", "class_base_modules_1_1___logging_time.html", "class_base_modules_1_1___logging_time" ],
+    [ "BaseModules::_LoggingBufferEntry", "struct_base_modules_1_1___logging_buffer_entry.html", "struct_base_modules_1_1___logging_buffer_entry" ],
+    [ "BaseModules::_LoggingTime", "class_base_modules_1_1___logging_time.html", "class_base_modules_1_1___logging_time" ],
+    [ "_LoggingBufferEntry", "struct___logging_buffer_entry.html", "struct___logging_buffer_entry" ],
+    [ "_LoggingTime", "class___logging_time.html", "class___logging_time" ],
     [ "StdLib_atexit", "_logging_support_8cpp.html#ae7c48614d1cdab121e5b4703f3f96835", null ],
-    [ "STR", "_logging_support_8cpp.html#a5b6f88d1249b396e351c4a85bcb35b2c", null ],
-    [ "Timestamp", "_logging_support_8cpp.html#a9ec9a8615bb4c91e73b5190b70ac2c87", null ],
-    [ "_LoggingState", "_logging_support_8cpp.html#ae1d9048d43db9507aa672f29446e5c14", [
-      [ "inLimbo", "_logging_support_8cpp.html#ae1d9048d43db9507aa672f29446e5c14ad3a350a1569ff8298d83b63f49cfc0f7", null ],
-      [ "inBufferingMode", "_logging_support_8cpp.html#ae1d9048d43db9507aa672f29446e5c14abaa6b6b0cdc2274c1482029e18bafdda", null ],
-      [ "inWriteThroughMode", "_logging_support_8cpp.html#ae1d9048d43db9507aa672f29446e5c14aab07994e9728ce3194ae76b92443d974", null ],
-      [ "isDone", "_logging_support_8cpp.html#ae1d9048d43db9507aa672f29446e5c14a16f169c333c51345791d66e74f233054", null ]
+    [ "_ThreadID", "_logging_support_8cpp.html#af4b17c6fc3c86f5af5288900aedb3a95", null ],
+    [ "_Timestamp", "_logging_support_8cpp.html#ab5758b2cc5015160115c5fe6bba0a376", null ],
+    [ "LoggingCallbackFunction", "_logging_support_8cpp.html#a408548c4096b18126d7343969c0c267e", null ],
+    [ "_LoggingState", "_logging_support_8cpp.html#ae1d9048d43db9507aa672f29446e5c14", null ],
+    [ "BaseModules::_LoggingState", "namespace_base_modules.html#ae1d9048d43db9507aa672f29446e5c14", [
+      [ "BaseModules::inLimbo", "namespace_base_modules.html#ae1d9048d43db9507aa672f29446e5c14ad3a350a1569ff8298d83b63f49cfc0f7", null ],
+      [ "BaseModules::inBufferingMode", "namespace_base_modules.html#ae1d9048d43db9507aa672f29446e5c14abaa6b6b0cdc2274c1482029e18bafdda", null ],
+      [ "BaseModules::inWriteThroughMode", "namespace_base_modules.html#ae1d9048d43db9507aa672f29446e5c14aab07994e9728ce3194ae76b92443d974", null ],
+      [ "BaseModules::isDone", "namespace_base_modules.html#ae1d9048d43db9507aa672f29446e5c14a16f169c333c51345791d66e74f233054", null ]
     ] ],
-    [ "_appendEntryToBuffer", "_logging_support_8cpp.html#a4790e291ab04c20505ec9c65a99ccbb6", null ],
+    [ "_appendEntryToBuffer", "_logging_support_8cpp.html#abb7d0f5244e4275766fb1230605ce036", null ],
     [ "_bufferEntryToString", "_logging_support_8cpp.html#a28e2b50e0cc08c35308b2ddedaa313cc", null ],
     [ "_functionNameFromSignature", "_logging_support_8cpp.html#a7ba123783ebfc65611a763c874a87626", null ],
     [ "_openOrCreateFile", "_logging_support_8cpp.html#a95b03615d3f2cc7273d5975b79621089", null ],
@@ -26,9 +30,11 @@ var _logging_support_8cpp =
     [ "_loggingState", "_logging_support_8cpp.html#aeb989b83f09d1593989c38f552ff801f", null ],
     [ "_loggingTime", "_logging_support_8cpp.html#af00bb3740ecc6498fc74e83b912e16b1", null ],
     [ "_millisecondsPerDay", "_logging_support_8cpp.html#a5632926cf5227c4992163bb21559f516", null ],
+    [ "_mutex", "_logging_support_8cpp.html#a3f0b4c278cb19f9c2b2dbdb065f51e14", null ],
     [ "_prefixLength", "_logging_support_8cpp.html#ae59afe25156f2c6d5aadf5ed0c358d7b", null ],
     [ "_signatureToFunctionNameMap", "_logging_support_8cpp.html#a9783d86ec19e8c7b95aa13fcdc1fe8ca", null ],
     [ "_standardPrefixList", "_logging_support_8cpp.html#aed5cf3b7353bc0883f2f6fc1f0481ec0", null ],
+    [ "_threadIDIsLogged", "_logging_support_8cpp.html#aadfdd76b5842045adac9d9bf143a0232", null ],
     [ "_timeIsLogged", "_logging_support_8cpp.html#a59fc0dcf9ba0e5d5a09e354f6966aaa5", null ],
     [ "_timeOffsetInMilliseconds", "_logging_support_8cpp.html#af291d370e409eaaa317f8f9884e1ab79", null ]
 ];

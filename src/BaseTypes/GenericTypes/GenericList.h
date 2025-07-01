@@ -560,18 +560,19 @@ namespace BaseTypes::GenericTypes {
         /*--------------------*/
 
         /**
-         * Simple copy function for copying lists with same element type
+         * Simple copy function for copying lists with same element
+         * type.
          *
-         * @param[inout] targetList  list where elements should go
-         * @param[in]    sourceList  list where elements come from
+         * @param[inout] destinationList  list where elements should go
+         * @param[in]    sourceList       list where elements come from
          */
         template <typename ListTypeA, typename ListTypeB>
-        static void assign (INOUT ListTypeA& targetList,
+        static void assign (INOUT ListTypeA& destinationList,
                             IN ListTypeB& sourceList)
         {
-            targetList.clear();
+            destinationList.clear();
             std::copy(sourceList.begin(), sourceList.end(),
-                      std::back_inserter(targetList));
+                      std::back_inserter(destinationList));
         }
 
     };

@@ -249,7 +249,12 @@ String StringUtil::expand (IN String& st,
                            IN String& replacement12,
                            IN String& replacement13,
                            IN String& replacement14,
-                           IN String& replacement15)
+                           IN String& replacement15,
+                           IN String& replacement16,
+                           IN String& replacement17,
+                           IN String& replacement18,
+                           IN String& replacement19,
+                           IN String& replacement20)
 {
     String result = st;
     replace(result, "%1", replacement01);
@@ -267,6 +272,11 @@ String StringUtil::expand (IN String& st,
     replace(result, "%D", replacement13);
     replace(result, "%E", replacement14);
     replace(result, "%F", replacement15);
+    replace(result, "%G", replacement16);
+    replace(result, "%H", replacement17);
+    replace(result, "%I", replacement18);
+    replace(result, "%J", replacement19);
+    replace(result, "%K", replacement20);
     return result;
 }
 

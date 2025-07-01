@@ -553,9 +553,8 @@ _EditorDescriptor::_EditorDescriptor
                            _Colour_text);
 
     const Real fontHeight{messageWidget.getFont().getHeight()};
-    juce::Font messageFont =
-        juce::Font{static_cast<float>(fontHeight) * 0.8f,
-                   juce::Font::bold};
+    const juce::Font messageFont =
+        JuceFont_make(fontHeight * 0.8, juce::Font::bold);
     messageWidget.setColour(colourId2(Label, text),
                             _Colour_standardMessageText);
     messageWidget.setFont(messageFont);

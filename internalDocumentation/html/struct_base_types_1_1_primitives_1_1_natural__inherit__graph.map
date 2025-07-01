@@ -1,4 +1,5 @@
 <map id="BaseTypes::Primitives::Natural" name="BaseTypes::Primitives::Natural">
-<area shape="rect" id="node1" title="An Natural object wraps a value of the associated primitive type in an object." alt="" coords="19,160,169,501"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,183,112"/>
+<area shape="rect" id="Node000001" title="An Natural object wraps a value of the associated primitive type in an object." alt="" coords="15,133,157,553"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,167,85"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,99,89,133,83,133,83,99"/>
 </map>

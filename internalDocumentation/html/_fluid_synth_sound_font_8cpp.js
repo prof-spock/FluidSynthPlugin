@@ -1,15 +1,15 @@
 var _fluid_synth_sound_font_8cpp =
 [
+    [ "FluidSynthSoundFont", "struct_fluid_synth_sound_font.html", "struct_fluid_synth_sound_font" ],
     [ "_reportBadFunction", "_fluid_synth_sound_font_8cpp.html#aa02185245b001317dc65e243cef54b5b", null ],
     [ "GPA", "_fluid_synth_sound_font_8cpp.html#a2eddf0f1f16313b56d83951421f26e77", null ],
     [ "FSSoundFont_ConstructionProc", "_fluid_synth_sound_font_8cpp.html#a3942c47354947b74b5d205b2efa623f4", null ],
     [ "FSSoundFont_EnumerationResetProc", "_fluid_synth_sound_font_8cpp.html#aff39de48a722907037a645df1e98f4bd", null ],
     [ "FSSoundFont_EnumerationSuccessorProc", "_fluid_synth_sound_font_8cpp.html#a93c630493fe8b2e229da5949900bba3c", null ],
-    [ "FSSoundFont_ObjectNameQueryProc", "_fluid_synth_sound_font_8cpp.html#a01baf5d27f973bb41b1f82ce16b9c097", null ],
+    [ "FSSoundFont_ObjectNameQueryProc", "_fluid_synth_sound_font_8cpp.html#a2690a1924609aa06e9d4ca32253b6fe9", null ],
     [ "FSSoundFont_PresetBankNumQueryProc", "_fluid_synth_sound_font_8cpp.html#add1d073381347e73ac0750ea1d62b302", null ],
     [ "FSSoundFont_PresetProgNumQueryProc", "_fluid_synth_sound_font_8cpp.html#aec766eb8323a63bfa8272fafebf0f2b4", null ],
     [ "FSSoundFont_PresetQueryProc", "_fluid_synth_sound_font_8cpp.html#a4c633a1817c97ba8ea4ef44d4efa052f", null ],
-    [ "STR", "_fluid_synth_sound_font_8cpp.html#a5b6f88d1249b396e351c4a85bcb35b2c", null ],
     [ "_allFSFunctionsAreAvailable", "_fluid_synth_sound_font_8cpp.html#a9424fae484ae61eb5aa5782c7495719b", null ],
     [ "_initializeFunctionsForLibrary", "_fluid_synth_sound_font_8cpp.html#a1c9d1152afce3310aaf2b720af890a27", null ],
     [ "_errorMessageForUndefinedDescriptor", "_fluid_synth_sound_font_8cpp.html#a688a4a05209bd1f8f445610b7a16e0c9", null ],
