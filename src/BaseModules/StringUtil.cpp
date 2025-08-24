@@ -727,6 +727,16 @@ String StringUtil::toStringWithBase (IN Natural n,
 
 /*--------------------*/
 
+String StringUtil::toString (IN Object object)
+{
+    String addressAsString =
+        toStringWithBase(Natural{(size_t) object}, 16, 16);
+    String result = STR::expand("Object(0x%1)", addressAsString);
+    return result;
+}
+
+/*--------------------*/
+
 String StringUtil::toString (IN Real r)
 {
     return std::to_string((double) r);

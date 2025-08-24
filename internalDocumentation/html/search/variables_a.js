@@ -7,6 +7,5 @@ var searchData=
   ['meta_4',['meta',['../struct_m_i_d_i_1_1_midi_event_kind.html#a2862871cd6a36ddd779528b74b301370',1,'MIDI::MidiEventKind::meta'],['../struct_midi_event_kind.html#a2862871cd6a36ddd779528b74b301370',1,'MidiEventKind::meta']]],
   ['mididatalist_5',['midiDataList',['../struct_m_i_d_i_1_1___midi_event_descriptor.html#aa76a5f40bf73f40c6208617ccccdbcbb',1,'MIDI::_MidiEventDescriptor::midiDataList'],['../struct___midi_event_descriptor.html#aa76a5f40bf73f40c6208617ccccdbcbb',1,'_MidiEventDescriptor::midiDataList']]],
   ['midieventconverter_6',['midiEventConverter',['../struct_main_1_1_fluid_synth_plugin_1_1___event_processor_descriptor.html#a3220f434f3c8e0d1749b4176af48548e',1,'Main::FluidSynthPlugin::_EventProcessorDescriptor::midiEventConverter'],['../struct___event_processor_descriptor.html#a3220f434f3c8e0d1749b4176af48548e',1,'_EventProcessorDescriptor::midiEventConverter']]],
-  ['miditime_7',['midiTime',['../struct___event_time.html#a31cc3cc98afca76a51ded4619e3ad554',1,'_EventTime']]],
-  ['monotouch_8',['monoTouch',['../struct_m_i_d_i_1_1_midi_event_kind.html#a955bedb2743a8f2c8da78dccee6505f5',1,'MIDI::MidiEventKind::monoTouch'],['../struct_midi_event_kind.html#a955bedb2743a8f2c8da78dccee6505f5',1,'MidiEventKind::monoTouch']]]
+  ['miditime_7',['midiTime',['../struct___event_time.html#a31cc3cc98afca76a51ded4619e3ad554',1,'_EventTime']]]
 ];

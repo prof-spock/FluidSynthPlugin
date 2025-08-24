@@ -41,9 +41,6 @@ using STR = BaseModules::StringUtil;
 /* PRIVATE FEATURES   */
 /*====================*/
 
-/** the number of audio channels provided by this plugin */
-#define _channelCount 2
-
 /** the number MIDI programs allowed */
 #define _midiProgramCount 128
 
@@ -858,7 +855,7 @@ String FluidSynthPlugin_EventProcessor::messageString () const
     if (!errorMessageList.isEmpty()) {
         result = errorMessageList[0];
     } else {
-        /* no error messages, construct message from soundfont name
+        /* no error messages, construct message from SoundFont name
          * and preset name */
         const MidiEventConverter* midiEventConverter =
             descriptor.midiEventConverter;

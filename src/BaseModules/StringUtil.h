@@ -18,6 +18,7 @@
 
 #include "Boolean.h"
 #include "Character.h"
+#include "Object.h"
 #include "Percentage.h"
 #include "StringList.h"
 
@@ -28,6 +29,7 @@ using BaseTypes::Primitives::Byte;
 using BaseTypes::Primitives::Character;
 using BaseTypes::Primitives::Integer;
 using BaseTypes::Primitives::Natural;
+using BaseTypes::Primitives::Object;
 using BaseTypes::Primitives::Percentage;
 using BaseTypes::Primitives::Real;
 using BaseTypes::Containers::StringList;
@@ -624,6 +626,17 @@ namespace BaseModules {
                                         IN Natural base,
                                         IN Natural precision = 0,
                                         IN String& padString = "0");
+
+        /*--------------------*/
+
+        /**
+         * Converts object <C>object</C> to string (just returning the
+         * address as a string)
+         *
+         * @param[in] object  object to be converted
+         * @return  string representation of object
+         */
+        static String toString (IN Object object);
 
         /*--------------------*/
 

@@ -30,7 +30,7 @@
 <area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="1088,171,631,192,413,208,341,218,310,227,306,238,310,249,326,269,349,287,409,318,484,343,565,362,715,386,799,395,977,410,1213,423,1778,440,2344,450,2759,453,2759,459,2344,455,1778,446,1212,428,977,416,798,400,715,391,564,367,483,348,407,323,346,291,323,273,306,252,300,237,306,223,340,212,412,203,631,186,1087,166"/>
 <area shape="rect" id="Node000009" href="$_fluid_synth_settings_8cpp.html" title="The FluidSynthSettings class implements an object&#45;oriented wrapper around an underlying fluidsynth se..." alt="" coords="759,225,916,251"/>
 <area shape="poly" id="edge8_Node000005_Node000009" title=" " alt="" coords="1098,183,891,228,889,223,1097,178"/>
-<area shape="rect" id="Node000010" href="$_fluid_synth_sound_font_8cpp.html" title="The FluidSynthSoundFont class implements an object&#45;oriented wrapper around an underlying fluidsynth s..." alt="" coords="2453,225,2625,251"/>
+<area shape="rect" id="Node000010" href="$_fluid_synth_sound_font_8cpp.html" title="The FluidSynthSoundFont class implements an object&#45;oriented wrapper around an underlying fluidsynth S..." alt="" coords="2453,225,2625,251"/>
 <area shape="poly" id="edge9_Node000005_Node000010" title=" " alt="" coords="1238,165,1743,182,2089,199,2442,223,2452,224,2452,229,2441,228,2089,204,1743,187,1238,170"/>
 <area shape="rect" id="Node000011" href="$_fluid_synth_synthesizer_8cpp.html" title="The FluidSynthSynthesizer class implements an object&#45;oriented wrapper around an underlying fluidsynth..." alt="" coords="1073,225,1252,251"/>
 <area shape="poly" id="edge10_Node000005_Node000011" title=" " alt="" coords="1165,191,1165,225,1160,225,1160,191"/>

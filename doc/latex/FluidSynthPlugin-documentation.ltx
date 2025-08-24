@@ -208,7 +208,7 @@
         \productName{Pedantic\-Fluid\-Synth\-Converter}%
     }
 
-    \newcommand{\programVersion}{0.7.7}
+    \newcommand{\programVersion}{0.7.8}
 
     \newcommand{\settingsCaption}[1]{%
         Common Synthesizer Settings for \FluidSynthPlugin\ and
@@ -230,7 +230,7 @@
   \large
   \begin{tabular}{>{\bf}p{2.5cm}p{10.5cm}}
       Author:&Dr.~Thomas Tensi\\
-      Date:&2025-06-30\\
+      Date:&2025-08-24\\
       Version:&\programVersion\\
       Platforms:&VST3 on Windows~x64,\\
                 &VST3/AU on MacOS (x86\_64)\\
@@ -256,7 +256,7 @@ platforms.  A common scenario is to use it for either rendering live
 MIDI data on some audio device or converting MIDI files into audio
 files by command-line batch processing.
 
-Basis of \FluidSynth\ are the so-called \emph{soundfonts}.  Soundfonts
+Basis of \FluidSynth\ are the so-called \emph{SoundFonts}.  SoundFonts
 contain sampled instruments together with envelope and modulation
 definitions and other descriptive settings.  It is easy to find really
 usable ones in the internet and also several of those cover all
@@ -288,14 +288,14 @@ reproduction of the external rendering pipeline within the DAW.
 
 So the first component of this package is a DAW plugin called
 ``\FluidSynthPlugin''.  It has a simplistic interface where you
-specify a soundfont, several fluidsynth settings and possibly a MIDI
+specify a SoundFont, several fluidsynth settings and possibly a MIDI
 preset to be selected by putting text data in a text field.  Then you
 are able to convert an incoming MIDI stream in a DAW to audio using
 the \FluidSynth\ library.
 
 But when playing around with that plugin some inexplicable differences
 to the command-line \FluidSynth\ occured.  Even when using innocent
-soundfonts (without chorus and other modulators), sample playback in
+SoundFonts (without chorus and other modulators), sample playback in
 the plugin and the command-line player were not absolutely identical.
 Analysis and contact with the \FluidSynth\ team revealed that in that
 program MIDI events are quantized onto some processing raster in the
@@ -509,7 +509,7 @@ from~\cite{reference:fsSettingsDocumentation}).
                             {sets the modulation speed in Hz}
                             {float}
         \parameterTableALine{synth.default-soundfont}
-                            {default soundfont file to use by the
+                            {default SoundFont file to use by the
                              program}
                             {string}
         \parameterTableALine{synth.dynamic-sample-loading}
@@ -629,7 +629,7 @@ special settings available: \embeddedCode{preset}
                              number defaults to zero}
                             {string}
         \parameterTableALine{soundfont}
-                            {gives the path to the soundfont and may
+                            {gives the path to the SoundFont and may
                              contain environment variables enclosed by
                              \embeddedCode{\$\{} and \embeddedCode{\}}}
                             {string}
@@ -649,11 +649,11 @@ special settings available: \embeddedCode{preset}
   \label{figure:additionalSettings}
 \end{centeredFigure}
 
-Note that the specified soundfont path must be an \emph{absolute
+Note that the specified SoundFont path must be an \emph{absolute
 path}, because it is impossible for the plugin to find out the path of
 the enclosing project in the DAW and then use a relative path
 specification.  Normally this should not be a problem ---~because
-soundfonts are often located in a specific directory in a system~---,
+SoundFonts are often located in a specific directory in a system~---,
 but it somewhat impedes portability of a DAW project containing this
 plugin.
 
@@ -705,17 +705,17 @@ and then used by the underlying \FluidSynth\ synthesizer.
 When the check fails, an error message is given and the edit field is
 still in edit mode.  Note that only the first error encountered is
 reported, so you have to incrementally correct the settings. For
-example, in figure~\ref{figure:fsPluginError} the soundfont path seems
+example, in figure~\ref{figure:fsPluginError} the SoundFont path seems
 to be incorrect: this has to be corrected before any other error will
 be analyzed.
 
-When there is an error for the soundfont or the preset settings,
+When there is an error for the SoundFont or the preset settings,
 \textbf{no sound will be produced}; errors for other settings do not
 affect the rendering, but, of course, either the default values or
 previous successful values are used for those parameters.
 
 All settings are processed in the order given.  So it is recommended
-to put the soundfont first.
+to put the SoundFont first.
 
 \begin{centeredFigure}
   \centeredExternalPicture{0.75}{FluidSynthPlugin-error.png}
@@ -764,26 +764,26 @@ field.
 
 It might be tedious to write all things manually into the edit field.
 Most of the settings have to be done like that, but at least the
-soundfont and the preset can be edited more comfortably.
+SoundFont and the preset can be edited more comfortably.
 
-\paragraph{Setting the Soundfont}
+\paragraph{Setting the SoundFont}
 %''''''''''''''''''''''''''''''''
 
-There are two ways to set the soundfont:
+There are two ways to set the SoundFont:
 
 \begin{enumerate}
     \item The edit field has a context menu with menu item
-          \embeddedCode{Select Soundfont File...}.  When this item is
+          \embeddedCode{Select SoundFont File...}.  When this item is
           clicked (with the right mouse button), a file selection
-          dialog pops up where a soundfont file may be selected.  When
-          the selection is successfully done, the soundfont entry in
+          dialog pops up where a SoundFont file may be selected.  When
+          the selection is successfully done, the SoundFont entry in
           the edit field is updated (see
           figures~\ref{figure:fileSelectionDialog}a and b).
 
-    \item Alternatively a soundfont can be dragged onto the edit
+    \item Alternatively a SoundFont can be dragged onto the edit
           field.  The field only accepts a single .sf2 or .sf3 file
           as the dragged file.  When the file is successfully dropped,
-          the soundfont entry in the edit field is updated.
+          the SoundFont entry in the edit field is updated.
 
           Unfortunately that mechanism does not yet work in Linux
           \cite{reference:juceDND} and will be hopefully available in
@@ -804,21 +804,21 @@ There are two ways to set the soundfont:
 
 Note that in both cases the edit field is selectively updated with the
 new file name and by that change set into the ``unregistered''mode
-with the white background.  When you want to make the soundfont
+with the white background.  When you want to make the SoundFont
 selection effective, you have to press the \embeddedCode{Confirm}
 button in the main plugin window to register those changes.
 
-As a simple optimization the plugin checks the soundfont file path for
+As a simple optimization the plugin checks the SoundFont file path for
 a prefix given by some environment variable and replaces the longest
 match found by a reference to that environment variable.
 
 \paragraph{Setting the Preset}
 %'''''''''''''''''''''''''''''
 
-In the plugin edit field the soundfont preset is given as a pair of
+In the plugin edit field the SoundFont preset is given as a pair of
 bank number and program number separated by a colon.  One might know
 most of the General MIDI preset numbers by heart, but very often it
-is tricky to find the correct one especially for soundfonts that do
+is tricky to find the correct one especially for SoundFonts that do
 not adhere to that convention.
 
 As a shortcut one can again right-click into the text field to show
@@ -1026,7 +1026,7 @@ modulation when playback begins.  This means technically the phase
 \degrees{0} of the modulation is on the time of playback start.
 
 Figure~\ref{figure:timelocking} show that situation for an example.
-We assume that an amplitude modulation occurs in a soundfont and we
+We assume that an amplitude modulation occurs in a SoundFont and we
 have inserted an externally rendered audio snippet (e.g. generated by
 \FluidSynth) into the DAW starting at time \(t_{fragment}\) into an
 audio track.  Now the playback in the DAW is assumed to start at time
@@ -1072,7 +1072,7 @@ When you need a bit-exact reproduction of externally rendered audio by
 the \FluidSynthPlugin, some workaround has to be made as follows:
 \begin{itemize}
 
-    \item The selected instrument(s) in the soundfont must not contain
+    \item The selected instrument(s) in the SoundFont must not contain
           any (free-running) modulators.
 
     \item Chorus must be deactivated (e.g. by setting

@@ -119,13 +119,27 @@ Macros</h2></td></tr>
 <tr class="memitem:adfbb61a725127febf78bf0ae4348e5d5" id="r_adfbb61a725127febf78bf0ae4348e5d5"><td class="memItemLeft" align="right" valign="top"><a id="adfbb61a725127febf78bf0ae4348e5d5" name="adfbb61a725127febf78bf0ae4348e5d5"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>StdIO_stderr</b>&#160;&#160;&#160;stderr</td></tr>
 <tr class="memdesc:adfbb61a725127febf78bf0ae4348e5d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">qualified version of stderr from stdio <br /></td></tr>
+<tr class="memitem:ab14b419552841048fd5c7ee9851af55b" id="r_ab14b419552841048fd5c7ee9851af55b"><td class="memItemLeft" align="right" valign="top"><a id="ab14b419552841048fd5c7ee9851af55b" name="ab14b419552841048fd5c7ee9851af55b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UniStd_sleep</b>&#160;&#160;&#160;sleep</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a68db50e56bc5e26231973a63d64b8f6a" id="r_a68db50e56bc5e26231973a63d64b8f6a"><td class="memItemLeft" align="right" valign="top"><a id="a68db50e56bc5e26231973a63d64b8f6a" name="a68db50e56bc5e26231973a63d64b8f6a"></a>
+typedef <a class="el" href="struct_real.html">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Time</b></td></tr>
+<tr class="memdesc:a68db50e56bc5e26231973a63d64b8f6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">A <code><a class="el" href="#a68db50e56bc5e26231973a63d64b8f6a" title="A Time object describes a point in time as a seconds value.">Time</a></code> object describes a point in time as a seconds value. <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ab67857ea99326a9fbaacd80a14143a67" id="r_ab67857ea99326a9fbaacd80a14143a67"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab67857ea99326a9fbaacd80a14143a67">_executableDirectoryPath</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a> isExecutable)</td></tr>
-<tr class="memdesc:ab67857ea99326a9fbaacd80a14143a67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns path of directory of current library or executable file.  <br /></td></tr>
+<tr class="memitem:a4fcfec1c4418e646dd036a196b590b66" id="r_a4fcfec1c4418e646dd036a196b590b66"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4fcfec1c4418e646dd036a196b590b66">_executableDirectoryPath</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a> isExecutable)</td></tr>
+<tr class="memdesc:a4fcfec1c4418e646dd036a196b590b66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns path of directory of current library or executable file.  <br /></td></tr>
+<tr class="memitem:aa327fa846cf560416ead1e90099c0a80" id="r_aa327fa846cf560416ead1e90099c0a80"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa327fa846cf560416ead1e90099c0a80">_sleepForDuration</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> float duration)</td></tr>
+<tr class="memdesc:aa327fa846cf560416ead1e90099c0a80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sleeps for <code>duration</code> seconds.  <br /></td></tr>
 <tr class="memitem:adef69ef9a4b4722fdb6c8d4bc093c623" id="r_adef69ef9a4b4722fdb6c8d4bc093c623"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adef69ef9a4b4722fdb6c8d4bc093c623">_environmentValue</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a> &amp;variableName, <a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a> &amp;value)</td></tr>
 <tr class="memdesc:adef69ef9a4b4722fdb6c8d4bc093c623"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads associated value for environment variable named <code>variableName</code> into <code>value</code>; returns false when not found.  <br /></td></tr>
+<tr class="memitem:a0f35a94bb5861a2ac77faddbfa1f1dbd" id="r_a0f35a94bb5861a2ac77faddbfa1f1dbd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_base_types_1_1_primitives.html#a68db50e56bc5e26231973a63d64b8f6a">Time</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f35a94bb5861a2ac77faddbfa1f1dbd">Time_addDuration</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="namespace_base_types_1_1_primitives.html#a68db50e56bc5e26231973a63d64b8f6a">Time</a> time, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="namespace_base_types_1_1_primitives.html#ad86f6fc98f8b655f465813e496850506">Duration</a> duration)</td></tr>
+<tr class="memdesc:a0f35a94bb5861a2ac77faddbfa1f1dbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the time that is <code>duration</code> after <code>time</code>.  <br /></td></tr>
+<tr class="memitem:a61c85d1067949df7899b5d6abd380e5f" id="r_a61c85d1067949df7899b5d6abd380e5f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_base_types_1_1_primitives.html#a68db50e56bc5e26231973a63d64b8f6a">Time</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a61c85d1067949df7899b5d6abd380e5f">Time_withinProcess</a> ()</td></tr>
+<tr class="memdesc:a61c85d1067949df7899b5d6abd380e5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current time within the process.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <code><a class="el" href="struct_operating_system.html" title="The OperatingSystem specification defines a class for several operating system related utility functi...">OperatingSystem</a></code> body implements a class for several operating system related utility functions (like e.g. </p>
@@ -172,11 +186,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ab67857ea99326a9fbaacd80a14143a67" name="ab67857ea99326a9fbaacd80a14143a67"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab67857ea99326a9fbaacd80a14143a67">&#9670;&#160;</a></span>_executableDirectoryPath()</h2>
+<a id="a4fcfec1c4418e646dd036a196b590b66" name="a4fcfec1c4418e646dd036a196b590b66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fcfec1c4418e646dd036a196b590b66">&#9670;&#160;</a></span>_executableDirectoryPath()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a> _executableDirectoryPath </td>
@@ -185,6 +202,11 @@ Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Returns path of directory of current library or executable file. </p>
@@ -195,6 +217,90 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>path of executable or library </dd></dl>
+
+</div>
+</div>
+<a id="aa327fa846cf560416ead1e90099c0a80" name="aa327fa846cf560416ead1e90099c0a80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa327fa846cf560416ead1e90099c0a80">&#9670;&#160;</a></span>_sleepForDuration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void _sleepForDuration </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> float</td>          <td class="paramname"><span class="paramname"><em>duration</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sleeps for <code>duration</code> seconds. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">duration</td><td>sleep duration in seconds </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0f35a94bb5861a2ac77faddbfa1f1dbd" name="a0f35a94bb5861a2ac77faddbfa1f1dbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f35a94bb5861a2ac77faddbfa1f1dbd">&#9670;&#160;</a></span>Time_addDuration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_base_types_1_1_primitives.html#a68db50e56bc5e26231973a63d64b8f6a">Time</a> BaseTypes::Primitives::Time_addDuration </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="namespace_base_types_1_1_primitives.html#a68db50e56bc5e26231973a63d64b8f6a">Time</a></td>          <td class="paramname"><span class="paramname"><em>time</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="namespace_base_types_1_1_primitives.html#ad86f6fc98f8b655f465813e496850506">Duration</a></td>          <td class="paramname"><span class="paramname"><em>duration</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the time that is <code>duration</code> after <code>time</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">time</td><td>start time in seconds </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">duration</td><td>duration between start and end time </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>end time in seconds </dd></dl>
+
+</div>
+</div>
+<a id="a61c85d1067949df7899b5d6abd380e5f" name="a61c85d1067949df7899b5d6abd380e5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61c85d1067949df7899b5d6abd380e5f">&#9670;&#160;</a></span>Time_withinProcess()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_base_types_1_1_primitives.html#a68db50e56bc5e26231973a63d64b8f6a">Time</a> BaseTypes::Primitives::Time_withinProcess </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the current time within the process. </p>
+<dl class="section return"><dt>Returns</dt><dd>current process time in seconds </dd></dl>
 
 </div>
 </div>

@@ -184,6 +184,8 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memdesc:aa271b8009f30a673d606ae2a3e404c30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts natural value <code>n</code> to string with precision and padding information.  <br /></td></tr>
 <tr class="memitem:abb89018d006e4ff4053f9de92cf58034" id="r_abb89018d006e4ff4053f9de92cf58034"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="_audio_sample_8h.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb89018d006e4ff4053f9de92cf58034">toStringWithBase</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> n, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> base, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> precision=0, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="_audio_sample_8h.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a> &amp;padString=&quot;0&quot;)</td></tr>
 <tr class="memdesc:abb89018d006e4ff4053f9de92cf58034"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts natural value <code>n</code> to string with base (e.g.  <br /></td></tr>
+<tr class="memitem:a503998e90a804714c641fc313430279c" id="r_a503998e90a804714c641fc313430279c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="_audio_sample_8h.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a503998e90a804714c641fc313430279c">toString</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="namespace_base_types_1_1_primitives.html#a46e9a7b488f5aadebd3b8413adf482f6">Object</a> object)</td></tr>
+<tr class="memdesc:a503998e90a804714c641fc313430279c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts object <code>object</code> to string (just returning the address as a string)  <br /></td></tr>
 <tr class="memitem:a6b055f72466b5dbc7831d310b9e90a67" id="r_a6b055f72466b5dbc7831d310b9e90a67"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="_audio_sample_8h.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6b055f72466b5dbc7831d310b9e90a67">toString</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a> r)</td></tr>
 <tr class="memdesc:a6b055f72466b5dbc7831d310b9e90a67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts real value <code>r</code> to string.  <br /></td></tr>
 <tr class="memitem:ab9a04b74687f5b40be213d0177cc58bc" id="r_ab9a04b74687f5b40be213d0177cc58bc"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="_audio_sample_8h.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab9a04b74687f5b40be213d0177cc58bc">toString</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a> r, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> precision, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> fractionalDigitCount, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="_audio_sample_8h.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a> &amp;padString=&quot;0&quot;, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a> scientificNotationIsForced=false)</td></tr>
@@ -1948,7 +1950,7 @@ template&lt;typename Map_T, typename Value_T, <a class="el" href="_audio_sample_
 </div>
 </div>
 <a id="adfc084dd3cea5a6268cfa35ef547c98b" name="adfc084dd3cea5a6268cfa35ef547c98b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adfc084dd3cea5a6268cfa35ef547c98b">&#9670;&#160;</a></span>toString() <span class="overload">[1/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#adfc084dd3cea5a6268cfa35ef547c98b">&#9670;&#160;</a></span>toString() <span class="overload">[1/11]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1982,7 +1984,7 @@ template&lt;typename Map_T, typename Value_T, <a class="el" href="_audio_sample_
 </div>
 </div>
 <a id="a653bcaf1966acf52d0b1f7512e1c18b8" name="a653bcaf1966acf52d0b1f7512e1c18b8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a653bcaf1966acf52d0b1f7512e1c18b8">&#9670;&#160;</a></span>toString() <span class="overload">[2/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a653bcaf1966acf52d0b1f7512e1c18b8">&#9670;&#160;</a></span>toString() <span class="overload">[2/11]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2016,7 +2018,7 @@ template&lt;typename Map_T, typename Value_T, <a class="el" href="_audio_sample_
 </div>
 </div>
 <a id="ae2ba3e08dc4cf0a7126c94ef8587e588" name="ae2ba3e08dc4cf0a7126c94ef8587e588"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae2ba3e08dc4cf0a7126c94ef8587e588">&#9670;&#160;</a></span>toString() <span class="overload">[3/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2ba3e08dc4cf0a7126c94ef8587e588">&#9670;&#160;</a></span>toString() <span class="overload">[3/11]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2050,7 +2052,7 @@ template&lt;typename Map_T, typename Value_T, <a class="el" href="_audio_sample_
 </div>
 </div>
 <a id="a2e6c67e88c7bdd62412b8dc23c35d207" name="a2e6c67e88c7bdd62412b8dc23c35d207"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e6c67e88c7bdd62412b8dc23c35d207">&#9670;&#160;</a></span>toString() <span class="overload">[4/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e6c67e88c7bdd62412b8dc23c35d207">&#9670;&#160;</a></span>toString() <span class="overload">[4/11]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2084,7 +2086,7 @@ template&lt;typename Map_T, typename Value_T, <a class="el" href="_audio_sample_
 </div>
 </div>
 <a id="a6093c83d198422eccbf80d11e08d30fc" name="a6093c83d198422eccbf80d11e08d30fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6093c83d198422eccbf80d11e08d30fc">&#9670;&#160;</a></span>toString() <span class="overload">[5/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6093c83d198422eccbf80d11e08d30fc">&#9670;&#160;</a></span>toString() <span class="overload">[5/11]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2129,7 +2131,7 @@ template&lt;typename Map_T, typename Value_T, <a class="el" href="_audio_sample_
 </div>
 </div>
 <a id="a9586bcd254f26fa2838f63870a13b2ed" name="a9586bcd254f26fa2838f63870a13b2ed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9586bcd254f26fa2838f63870a13b2ed">&#9670;&#160;</a></span>toString() <span class="overload">[6/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9586bcd254f26fa2838f63870a13b2ed">&#9670;&#160;</a></span>toString() <span class="overload">[6/11]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2163,7 +2165,7 @@ template&lt;typename Map_T, typename Value_T, <a class="el" href="_audio_sample_
 </div>
 </div>
 <a id="aa271b8009f30a673d606ae2a3e404c30" name="aa271b8009f30a673d606ae2a3e404c30"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa271b8009f30a673d606ae2a3e404c30">&#9670;&#160;</a></span>toString() <span class="overload">[7/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa271b8009f30a673d606ae2a3e404c30">&#9670;&#160;</a></span>toString() <span class="overload">[7/11]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2207,8 +2209,42 @@ template&lt;typename Map_T, typename Value_T, <a class="el" href="_audio_sample_
 
 </div>
 </div>
+<a id="a503998e90a804714c641fc313430279c" name="a503998e90a804714c641fc313430279c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a503998e90a804714c641fc313430279c">&#9670;&#160;</a></span>toString() <span class="overload">[8/11]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_audio_sample_8h.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a> StringUtil::toString </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="namespace_base_types_1_1_primitives.html#a46e9a7b488f5aadebd3b8413adf482f6">Object</a></td>          <td class="paramname"><span class="paramname"><em>object</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts object <code>object</code> to string (just returning the address as a string) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">object</td><td>object to be converted </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>string representation of object </dd></dl>
+
+</div>
+</div>
 <a id="a6b055f72466b5dbc7831d310b9e90a67" name="a6b055f72466b5dbc7831d310b9e90a67"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b055f72466b5dbc7831d310b9e90a67">&#9670;&#160;</a></span>toString() <span class="overload">[8/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b055f72466b5dbc7831d310b9e90a67">&#9670;&#160;</a></span>toString() <span class="overload">[9/11]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2242,7 +2278,7 @@ template&lt;typename Map_T, typename Value_T, <a class="el" href="_audio_sample_
 </div>
 </div>
 <a id="ab9a04b74687f5b40be213d0177cc58bc" name="ab9a04b74687f5b40be213d0177cc58bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab9a04b74687f5b40be213d0177cc58bc">&#9670;&#160;</a></span>toString() <span class="overload">[9/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9a04b74687f5b40be213d0177cc58bc">&#9670;&#160;</a></span>toString() <span class="overload">[10/11]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2299,7 +2335,7 @@ template&lt;typename Map_T, typename Value_T, <a class="el" href="_audio_sample_
 </div>
 </div>
 <a id="a2731af09191c3ae27084f081c9fea711" name="a2731af09191c3ae27084f081c9fea711"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2731af09191c3ae27084f081c9fea711">&#9670;&#160;</a></span>toString() <span class="overload">[10/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2731af09191c3ae27084f081c9fea711">&#9670;&#160;</a></span>toString() <span class="overload">[11/11]</span></h2>
 
 <div class="memitem">
 <div class="memproto">

@@ -216,7 +216,7 @@ namespace Main::FluidSynthPlugin {
 
         /**
          * Returns the message string for current settings: either an
-         * error information or an information about soundfont and
+         * error information or an information about SoundFont and
          * preset.
          *
          * @return current message string

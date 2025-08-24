@@ -317,7 +317,7 @@
 <!-- Node14 -->
 <g id="Node000014" class="node">
 <title>Node14</title>
-<g id="a_Node000014"><a xlink:href="_fluid_synth_sound_font_8h.html" target="_top" xlink:title="The FluidSynthSoundFont class specifies an object&#45;oriented wrapper around an underlying fluidsynth so...">
+<g id="a_Node000014"><a xlink:href="_fluid_synth_sound_font_8h.html" target="_top" xlink:title="The FluidSynthSoundFont class specifies an object&#45;oriented wrapper around an underlying fluidsynth So...">
 <polygon fill="white" stroke="#666666" points="799.5,-74 680.5,-74 680.5,-55 799.5,-55 799.5,-74"/>
 <text text-anchor="middle" x="740" y="-62" font-family="Helvetica,sans-Serif" font-size="10.00">FluidSynthSoundFont.h</text>
 </a>
@@ -344,7 +344,7 @@
 <!-- Node15 -->
 <g id="Node000015" class="node">
 <title>Node15</title>
-<g id="a_Node000015"><a xlink:href="_fluid_synth_sound_font_8cpp.html" target="_top" xlink:title="The FluidSynthSoundFont class implements an object&#45;oriented wrapper around an underlying fluidsynth s...">
+<g id="a_Node000015"><a xlink:href="_fluid_synth_sound_font_8cpp.html" target="_top" xlink:title="The FluidSynthSoundFont class implements an object&#45;oriented wrapper around an underlying fluidsynth S...">
 <polygon fill="white" stroke="#666666" points="804.5,-19 675.5,-19 675.5,0 804.5,0 804.5,-19"/>
 <text text-anchor="middle" x="740" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">FluidSynthSoundFont.cpp</text>
 </a>

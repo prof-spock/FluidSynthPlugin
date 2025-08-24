@@ -4,11 +4,11 @@
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="165,41,113,81,110,76,162,37"/>
 <area shape="rect" id="Node000003" href="$_fluid_synth_synthesizer_8h.html" title="The FluidSynthSynthesizer class specifies an object&#45;oriented wrapper around an underlying fluidsynth ..." alt="" coords="200,79,364,104"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="216,37,268,76,265,81,213,41"/>
-<area shape="rect" id="Node000004" href="$_fluid_synth_sound_font_8h.html" title="The FluidSynthSoundFont class specifies an object&#45;oriented wrapper around an underlying fluidsynth so..." alt="" coords="107,152,265,177"/>
+<area shape="rect" id="Node000004" href="$_fluid_synth_sound_font_8h.html" title="The FluidSynthSoundFont class specifies an object&#45;oriented wrapper around an underlying fluidsynth So..." alt="" coords="107,152,265,177"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="257,114,203,154,200,150,254,110"/>
 <area shape="rect" id="Node000007" href="$_fluid_synth_synthesizer_8cpp.html" title="The FluidSynthSynthesizer class implements an object&#45;oriented wrapper around an underlying fluidsynth..." alt="" coords="290,152,469,177"/>
 <area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="310,110,365,150,362,154,307,114"/>
-<area shape="rect" id="Node000005" href="$_fluid_synth_sound_font_8cpp.html" title="The FluidSynthSoundFont class implements an object&#45;oriented wrapper around an underlying fluidsynth s..." alt="" coords="5,225,177,251"/>
+<area shape="rect" id="Node000005" href="$_fluid_synth_sound_font_8cpp.html" title="The FluidSynthSoundFont class implements an object&#45;oriented wrapper around an underlying fluidsynth S..." alt="" coords="5,225,177,251"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="161,188,108,227,105,223,158,183"/>
 <area shape="rect" id="Node000006" href="$_midi_event_converter_8cpp.html" title="The MidiEventConverter module implements the handling of MIDI events by feeding them to an underlying..." alt="" coords="202,225,359,251"/>
 <area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="214,183,267,223,264,227,211,188"/>

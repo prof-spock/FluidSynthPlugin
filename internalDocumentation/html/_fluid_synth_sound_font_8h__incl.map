@@ -1,5 +1,5 @@
 <map id="FluidSynthSoundFont.h" name="FluidSynthSoundFont.h">
-<area shape="rect" id="Node000001" title="The FluidSynthSoundFont class specifies an object&#45;oriented wrapper around an underlying fluidsynth so..." alt="" coords="352,5,510,31"/>
+<area shape="rect" id="Node000001" title="The FluidSynthSoundFont class specifies an object&#45;oriented wrapper around an underlying fluidsynth So..." alt="" coords="352,5,510,31"/>
 <area shape="rect" id="Node000002" href="$_fluid_synth_synthesizer_8h.html" title="The FluidSynthSynthesizer class specifies an object&#45;oriented wrapper around an underlying fluidsynth ..." alt="" coords="132,79,296,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="397,33,263,77,261,72,395,28"/>
 <area shape="rect" id="Node000024" href="$_string_list_8h.html" title="The StringList specification defines lists of string values with zero&#45;based arbitrary indexed access ..." alt="" coords="604,79,692,104"/>

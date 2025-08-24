@@ -68,13 +68,13 @@ static String _eventKindCodeToString (IN Byte kindCode)
     } else if (kindCode == 1) {
         result = "noteOn";
     } else if (kindCode == 2) {
-        result = "polyTouch";
+        result = "polyphonicKeyPressure";
     } else if (kindCode == 3) {
         result = "controlChange";
     } else if (kindCode == 4) {
         result = "programChange";
     } else if (kindCode == 5) {
-        result = "monoTouch";
+        result = "channelPressure";
     } else if (kindCode == 6) {
         result = "pitchBend";
     } else if (kindCode == 7) {
@@ -98,10 +98,10 @@ static String _eventKindCodeToString (IN Byte kindCode)
 
 MidiEventKind MidiEventKind::noteOff{'\x80'};
 MidiEventKind MidiEventKind::noteOn{'\x90'};
-MidiEventKind MidiEventKind::polyTouch{'\xA0'};
+MidiEventKind MidiEventKind::polyphonicKeyPressure{'\xA0'};
 MidiEventKind MidiEventKind::controlChange{'\xB0'};
 MidiEventKind MidiEventKind::programChange{'\xC0'};
-MidiEventKind MidiEventKind::monoTouch{'\xD0'};
+MidiEventKind MidiEventKind::channelPressure{'\xD0'};
 MidiEventKind MidiEventKind::pitchBend{'\xE0'};
 MidiEventKind MidiEventKind::systemExclusive{'\xF0'};
 MidiEventKind MidiEventKind::meta{'\xFF'};
@@ -144,10 +144,10 @@ Natural MidiEventKind::byteCount () const
     Natural result;
 
     if (*this == noteOff || *this == noteOn
-        || *this == polyTouch || *this == controlChange
-        || *this == pitchBend) {
+        || *this == controlChange || *this == pitchBend
+        || *this == polyphonicKeyPressure) {
         result = 3;
-    } else if (*this == programChange || *this == monoTouch) {
+    } else if (*this == programChange || *this == channelPressure) {
         result = 2;
     } else if (*this == systemExclusive || *this == meta) {
         result = 0;

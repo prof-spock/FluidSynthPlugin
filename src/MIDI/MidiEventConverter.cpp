@@ -43,9 +43,6 @@ static Boolean _setPreset (INOUT FluidSynthSynthesizer& synthesizer,
 /* PRIVATE FEATURES    */
 /*====================*/
 
-/** the number of audio channels provided by this plugin */
-#define _channelCount 2
-
 /** the name of the key for the MIDI preset with bank and program */
 static const String _presetKey = "preset";
 
@@ -166,8 +163,8 @@ namespace MIDI {
         /*--------------------*/
 
         /**
-         * Handles change of soundfont for given string <C>value</C>
-         * on synthesizer where value contains soundfont path.
+         * Handles change of SoundFont for given string <C>value</C>
+         * on synthesizer where value contains SoundFont path.
          * 
          * @param[in] value  string value for sound font path
          * @return  information whether sound font change handling has
@@ -402,7 +399,7 @@ Boolean _MidiEventConverterDescriptor::handleProgramChange
             FluidSynthSoundFont soundFont{synthesizer};
 
             if (!soundFont.hasPreset(bankNumber, programNumber)) {
-                /* program does not exist in current soundfont => skip */
+                /* program does not exist in current SoundFont => skip */
                 Logging_traceError1(errorMessageTemplate, value);
                 isOkay = false;
             } else {
@@ -450,7 +447,10 @@ Boolean _MidiEventConverterDescriptor::processMidiEvent (IN MidiEvent& event)
         && eventKind != MidiEventKind::systemExclusive) {
         const Natural midiChannel = event.channel();
 
-        if (eventKind == MidiEventKind::controlChange) {
+        if (eventKind == MidiEventKind::channelPressure) {
+            const Natural value = (Natural) event.getDataByte(1);
+            isOkay = synthesizer->handleChannelPressure(midiChannel, value);
+        } else if (eventKind == MidiEventKind::controlChange) {
             const Natural controller = (Natural) event.getDataByte(1);
             const Natural value      = (Natural) event.getDataByte(2);
             const Boolean isBankChange =
@@ -465,10 +465,6 @@ Boolean _MidiEventConverterDescriptor::processMidiEvent (IN MidiEvent& event)
                 isOkay = synthesizer->handleControlChange(midiChannel,
                                                           controller, value);
             }
-        } else if (eventKind == MidiEventKind::monoTouch) {
-            const Natural key   = (Natural) event.getDataByte(1);
-            const Natural value = (Natural) event.getDataByte(2);
-            isOkay = synthesizer->handleMonoTouch(midiChannel, key, value);
         } else if (eventKind == MidiEventKind::noteOff) {
             const Natural key = (Natural) event.getDataByte(1);
             isOkay = synthesizer->handleNoteOff(midiChannel, key);
@@ -481,9 +477,11 @@ Boolean _MidiEventConverterDescriptor::processMidiEvent (IN MidiEvent& event)
             const Natural value = ((Natural) event.getDataByte(1)
                                    + (Natural) event.getDataByte(2) * 128);
             isOkay = synthesizer->handlePitchBend(midiChannel, value);
-        } else if (eventKind == MidiEventKind::polyTouch) {
-            const Natural value = (Natural) event.getDataByte(1);
-            isOkay = synthesizer->handlePolyTouch(midiChannel, value);
+        } else if (eventKind == MidiEventKind::polyphonicKeyPressure) {
+            const Natural key   = (Natural) event.getDataByte(1);
+            const Natural value = (Natural) event.getDataByte(2);
+            isOkay = synthesizer->handlePolyphonicKeyPressure(midiChannel,
+                                                              key, value);
         } else if (eventKind == MidiEventKind::programChange) {
             const Natural programNumber = (Natural) event.getDataByte(1);
 

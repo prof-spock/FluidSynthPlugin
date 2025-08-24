@@ -20,7 +20,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:href="struct_main_1_1_fluid_synth_plugin_1_1___preset_selection_component.html" target="_top" xlink:title="A selection component for soundfont presets.">
+<g id="a_Node000001"><a xlink:href="struct_main_1_1_fluid_synth_plugin_1_1___preset_selection_component.html" target="_top" xlink:title="A selection component for SoundFont presets.">
 <polygon fill="white" stroke="#666666" points="307,-91.5 161,-91.5 161,-61.5 307,-61.5 307,-91.5"/>
 <text text-anchor="start" x="169" y="-79.5" font-family="Helvetica,sans-Serif" font-size="10.00">Main::FluidSynthPlugin</text>
 <text text-anchor="middle" x="234" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">::_PresetSelectionComponent</text>

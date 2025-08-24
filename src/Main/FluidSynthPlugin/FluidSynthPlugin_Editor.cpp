@@ -68,7 +68,7 @@ static const juce::Colour _Colour_text = juce::Colours::black;
 static const juce::NotificationType _noNotification =
     juce::NotificationType::dontSendNotification;
 
-/** key strings used for soundfont specification */
+/** key strings used for SoundFont specification */
 static const StringList _KeyNameList_soundFont =
     StringList::makeBySplit("soundfont", ",");
 
@@ -79,7 +79,7 @@ static const StringList _KeyNameList_preset =
 /** context menu item index for about dialog */
 static const int _ContextItemIndex_about = -1002;
 
-/** context menu item index for soundfont selection */
+/** context menu item index for SoundFont selection */
 static const int _ContextItemIndex_file = -1001;
 
 /** context menu item index for preset selection */
@@ -88,7 +88,7 @@ static const int _ContextItemIndex_preset = -1000;
 /** context menu item text for about dialog */
 static const String _ContextItemText_about = "About...";
 
-/** context menu item text for soundfont selection */
+/** context menu item text for SoundFont selection */
 static const String _ContextItemText_file = "Select SoundFont File...";
 
 /** context menu item text for preset selection */
@@ -642,8 +642,8 @@ void _TextWidget::addPopupMenuItems (juce::PopupMenu& menu,
     menu.addSeparator();
     menu.addItem(_ContextItemIndex_file, _ContextItemText_file);
 
-    /* add preset selection menu item only when soundfont in
-       processor settings is equal to soundfont in text widget i.e. it
+    /* add preset selection menu item only when SoundFont in
+       processor settings is equal to SoundFont in text widget i.e. it
        has been confirmed before */
     String editorSettings = getText().toStdString();
     String processorSettings = _editorDescriptor->processor.settings();
@@ -815,7 +815,7 @@ void FluidSynthPlugin_Editor::filesDropped
     Logging_trace(">>");
 
     Assertion_check(fileNameList.size() == 1,
-                    "only a single soundfont file may be dropped");
+                    "only a single SoundFont file may be dropped");
     String fileName = _normalizedFileName(fileNameList[0].toStdString());
     _EditorDescriptor& editorDescriptor =
         TOREFERENCE<_EditorDescriptor>(_descriptor);

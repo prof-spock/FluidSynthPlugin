@@ -108,12 +108,9 @@ $(function(){initNavTree('_time_and_duration_8cpp.html','',''); });
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a51c81cb30613e71f49c023eeacd1cccc" id="r_a51c81cb30613e71f49c023eeacd1cccc"><td class="memItemLeft" align="right" valign="top"><a id="a51c81cb30613e71f49c023eeacd1cccc" name="a51c81cb30613e71f49c023eeacd1cccc"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>SystemTime_ClockType</b>&#160;&#160;&#160;clock_t</td></tr>
-<tr class="memitem:a3af4e25e6e4b85416119b2462009f2be" id="r_a3af4e25e6e4b85416119b2462009f2be"><td class="memItemLeft" align="right" valign="top"><a id="a3af4e25e6e4b85416119b2462009f2be" name="a3af4e25e6e4b85416119b2462009f2be"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>SystemTime_clockTicksPerSecond</b>&#160;&#160;&#160;CLOCKS_PER_SEC</td></tr>
-<tr class="memitem:a62079c955a803970d937ae498fc9c6d8" id="r_a62079c955a803970d937ae498fc9c6d8"><td class="memItemLeft" align="right" valign="top"><a id="a62079c955a803970d937ae498fc9c6d8" name="a62079c955a803970d937ae498fc9c6d8"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>SystemTime_currentClockTime</b>&#160;&#160;&#160;clock</td></tr>
+<tr class="memitem:a0a72656a3c65a9a8012db7551f1dd232" id="r_a0a72656a3c65a9a8012db7551f1dd232"><td class="memItemLeft" align="right" valign="top"><a id="a0a72656a3c65a9a8012db7551f1dd232" name="a0a72656a3c65a9a8012db7551f1dd232"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SystemTime_TimeSpec</b>&#160;&#160;&#160;struct timespec</td></tr>
+<tr class="memitem:a7e31cfde2a256e2851f2c0d82263a526" id="r_a7e31cfde2a256e2851f2c0d82263a526"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e31cfde2a256e2851f2c0d82263a526">SystemTime_currentClockTime</a>(ts)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -122,7 +119,7 @@ typedef <a class="el" href="struct_real.html">Real</a>&#160;</td><td class="memI
 <tr class="memdesc:ad86f6fc98f8b655f465813e496850506"><td class="mdescLeft">&#160;</td><td class="mdescRight">A <code><a class="el" href="_operating_system_8h.html#ad86f6fc98f8b655f465813e496850506" title="A Duration object describes a time difference as a seconds value.">Duration</a></code> object describes a time difference as a seconds value. <br /></td></tr>
 <tr class="memitem:a68db50e56bc5e26231973a63d64b8f6a" id="r_a68db50e56bc5e26231973a63d64b8f6a"><td class="memItemLeft" align="right" valign="top"><a id="a68db50e56bc5e26231973a63d64b8f6a" name="a68db50e56bc5e26231973a63d64b8f6a"></a>
 typedef <a class="el" href="struct_real.html">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Time</b></td></tr>
-<tr class="memdesc:a68db50e56bc5e26231973a63d64b8f6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">A <code><a class="el" href="#a68db50e56bc5e26231973a63d64b8f6a" title="A Time object describes a point in time as a seconds value.">Time</a></code> object describes a point in time as a seconds value. <br /></td></tr>
+<tr class="memdesc:a68db50e56bc5e26231973a63d64b8f6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">A <code><a class="el" href="_operating_system_8cpp.html#a68db50e56bc5e26231973a63d64b8f6a" title="A Time object describes a point in time as a seconds value.">Time</a></code> object describes a point in time as a seconds value. <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -130,12 +127,39 @@ Functions</h2></td></tr>
 <tr class="memdesc:a4fa48870cfb879ca468c1d56895220a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts string <code>hours</code>, <code>minutes</code>, <code>seconds</code> and <code>milliseconds</code> to real.  <br /></td></tr>
 <tr class="memitem:a012d9487f8a38ed23bfb60226d77b14d" id="r_a012d9487f8a38ed23bfb60226d77b14d"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a012d9487f8a38ed23bfb60226d77b14d">_fromString</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a> &amp;st)</td></tr>
 <tr class="memdesc:a012d9487f8a38ed23bfb60226d77b14d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts string <code>st</code> in canonical time format to real.  <br /></td></tr>
+<tr class="memitem:a163482f4dd3561b5f27036d805a764c9" id="r_a163482f4dd3561b5f27036d805a764c9"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a163482f4dd3561b5f27036d805a764c9">_systemTime</a> ()</td></tr>
+<tr class="memdesc:a163482f4dd3561b5f27036d805a764c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the clock time of the system in seconds as a real number.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a656b23b65f7773af492703656f9312b8" id="r_a656b23b65f7773af492703656f9312b8"><td class="memItemLeft" align="right" valign="top"><a id="a656b23b65f7773af492703656f9312b8" name="a656b23b65f7773af492703656f9312b8"></a>
+static const <a class="el" href="namespace_base_types_1_1_primitives.html#ad86f6fc98f8b655f465813e496850506">Duration</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_processStartOffset</b> = -<a class="el" href="#a163482f4dd3561b5f27036d805a764c9">_systemTime</a>()</td></tr>
+<tr class="memdesc:a656b23b65f7773af492703656f9312b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">the start time of process as an offset duration <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <code>TimeAndDuration</code> body implements simple functions for the types for time and duration. </p>
 <dl class="section author"><dt>Author</dt><dd>Dr. Thomas Tensi </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2025-06 </dd></dl>
-</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+</div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
+<a id="a7e31cfde2a256e2851f2c0d82263a526" name="a7e31cfde2a256e2851f2c0d82263a526"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e31cfde2a256e2851f2c0d82263a526">&#9670;&#160;</a></span>SystemTime_currentClockTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SystemTime_currentClockTime</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>ts</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">timespec_get(ts, TIME_UTC)</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a4fa48870cfb879ca468c1d56895220a2" name="a4fa48870cfb879ca468c1d56895220a2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4fa48870cfb879ca468c1d56895220a2">&#9670;&#160;</a></span>_fromParts()</h2>
 
@@ -218,6 +242,34 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>real value </dd></dl>
+
+</div>
+</div>
+<a id="a163482f4dd3561b5f27036d805a764c9" name="a163482f4dd3561b5f27036d805a764c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a163482f4dd3561b5f27036d805a764c9">&#9670;&#160;</a></span>_systemTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a> _systemTime </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the clock time of the system in seconds as a real number. </p>
+<dl class="section return"><dt>Returns</dt><dd>system time in seconds </dd></dl>
 
 </div>
 </div>

@@ -93,7 +93,7 @@ $(function(){initNavTree('_fluid_synth_sound_font_8cpp.html','',''); });
 </div><!--header-->
 <div class="contents">
 
-<p>The <code><a class="el" href="struct_fluid_synth_sound_font.html" title="An object-oriented wrapper around an underlying fluidsynth soundfont object.">FluidSynthSoundFont</a></code> class implements an object-oriented wrapper around an underlying fluidsynth soundfont object with dynamic library access.  
+<p>The <code><a class="el" href="struct_fluid_synth_sound_font.html" title="An object-oriented wrapper around an underlying fluidsynth SoundFont object.">FluidSynthSoundFont</a></code> class implements an object-oriented wrapper around an underlying fluidsynth SoundFont object with dynamic library access.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="_dynamic_library_8h_source.html">DynamicLibrary.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_fluid_synth_sound_font_8h_source.html">FluidSynthSoundFont.h</a>&quot;</code><br />
@@ -109,7 +109,7 @@ $(function(){initNavTree('_fluid_synth_sound_font_8cpp.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:FluidSynthSoundFont" id="r_FluidSynthSoundFont"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_fluid_synth_sound_font.html">FluidSynthSoundFont</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An object-oriented wrapper around an underlying fluidsynth soundfont object.  <a href="struct_fluid_synth_sound_font.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An object-oriented wrapper around an underlying fluidsynth SoundFont object.  <a href="struct_fluid_synth_sound_font.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
@@ -122,7 +122,7 @@ Macros</h2></td></tr>
 Typedefs</h2></td></tr>
 <tr class="memitem:a3942c47354947b74b5d205b2efa623f4" id="r_a3942c47354947b74b5d205b2efa623f4"><td class="memItemLeft" align="right" valign="top"><a id="a3942c47354947b74b5d205b2efa623f4" name="a3942c47354947b74b5d205b2efa623f4"></a>
 typedef <a class="el" href="namespace_base_types_1_1_primitives.html#a46e9a7b488f5aadebd3b8413adf482f6">Object</a>(*&#160;</td><td class="memItemRight" valign="bottom"><b>FSSoundFont_ConstructionProc</b>) (<a class="el" href="namespace_base_types_1_1_primitives.html#a46e9a7b488f5aadebd3b8413adf482f6">Object</a>, int)</td></tr>
-<tr class="memdesc:a3942c47354947b74b5d205b2efa623f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">soundfont construction function type in library <br /></td></tr>
+<tr class="memdesc:a3942c47354947b74b5d205b2efa623f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">SoundFont construction function type in library. <br /></td></tr>
 <tr class="memitem:aff39de48a722907037a645df1e98f4bd" id="r_aff39de48a722907037a645df1e98f4bd"><td class="memItemLeft" align="right" valign="top"><a id="aff39de48a722907037a645df1e98f4bd" name="aff39de48a722907037a645df1e98f4bd"></a>
 typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><b>FSSoundFont_EnumerationResetProc</b>) (<a class="el" href="namespace_base_types_1_1_primitives.html#a46e9a7b488f5aadebd3b8413adf482f6">Object</a>)</td></tr>
 <tr class="memdesc:aff39de48a722907037a645df1e98f4bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">sound font preset enumeration reset function type in library <br /></td></tr>
@@ -145,7 +145,7 @@ typedef <a class="el" href="namespace_base_types_1_1_primitives.html#a46e9a7b488
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a9424fae484ae61eb5aa5782c7495719b" id="r_a9424fae484ae61eb5aa5782c7495719b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9424fae484ae61eb5aa5782c7495719b">_allFSFunctionsAreAvailable</a> ()</td></tr>
-<tr class="memdesc:a9424fae484ae61eb5aa5782c7495719b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks and returns whether all soundfont-related functions are available.  <br /></td></tr>
+<tr class="memdesc:a9424fae484ae61eb5aa5782c7495719b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks and returns whether all SoundFont-related functions are available.  <br /></td></tr>
 <tr class="memitem:a1c9d1152afce3310aaf2b720af890a27" id="r_a1c9d1152afce3310aaf2b720af890a27"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c9d1152afce3310aaf2b720af890a27">_initializeFunctionsForLibrary</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="namespace_base_types_1_1_primitives.html#a46e9a7b488f5aadebd3b8413adf482f6">Object</a> fsLibrary)</td></tr>
 <tr class="memdesc:a1c9d1152afce3310aaf2b720af890a27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Connects static functions dynamically to functions from DLL <code>fsLibrary</code>  <br /></td></tr>
 </table><table class="memberdecls">
@@ -153,28 +153,28 @@ Functions</h2></td></tr>
 Variables</h2></td></tr>
 <tr class="memitem:a9259228522334495ed359edf78119e72" id="r_a9259228522334495ed359edf78119e72"><td class="memItemLeft" align="right" valign="top"><a id="a9259228522334495ed359edf78119e72" name="a9259228522334495ed359edf78119e72"></a>
 static <a class="el" href="#a3942c47354947b74b5d205b2efa623f4">FSSoundFont_ConstructionProc</a>&#160;</td><td class="memItemRight" valign="bottom"><b>FSSoundFont_make</b></td></tr>
-<tr class="memdesc:a9259228522334495ed359edf78119e72"><td class="mdescLeft">&#160;</td><td class="mdescRight">soundfont creation function in library <br /></td></tr>
+<tr class="memdesc:a9259228522334495ed359edf78119e72"><td class="mdescLeft">&#160;</td><td class="mdescRight">SoundFont creation function in library. <br /></td></tr>
 <tr class="memitem:a5796a8f535346c028accfa299c590869" id="r_a5796a8f535346c028accfa299c590869"><td class="memItemLeft" align="right" valign="top"><a id="a5796a8f535346c028accfa299c590869" name="a5796a8f535346c028accfa299c590869"></a>
 static <a class="el" href="#a2690a1924609aa06e9d4ca32253b6fe9">FSSoundFont_ObjectNameQueryProc</a>&#160;</td><td class="memItemRight" valign="bottom"><b>FSSoundFont_name</b></td></tr>
-<tr class="memdesc:a5796a8f535346c028accfa299c590869"><td class="mdescLeft">&#160;</td><td class="mdescRight">sound font name query in library <br /></td></tr>
+<tr class="memdesc:a5796a8f535346c028accfa299c590869"><td class="mdescLeft">&#160;</td><td class="mdescRight">SoundFont name query in library. <br /></td></tr>
 <tr class="memitem:a7fc81edc9167a0a76fe648bbd7203fd5" id="r_a7fc81edc9167a0a76fe648bbd7203fd5"><td class="memItemLeft" align="right" valign="top"><a id="a7fc81edc9167a0a76fe648bbd7203fd5" name="a7fc81edc9167a0a76fe648bbd7203fd5"></a>
 static <a class="el" href="#a93c630493fe8b2e229da5949900bba3c">FSSoundFont_EnumerationSuccessorProc</a>&#160;</td><td class="memItemRight" valign="bottom"><b>FSSoundFont_nextPresetInEnumeration</b></td></tr>
-<tr class="memdesc:a7fc81edc9167a0a76fe648bbd7203fd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">sound font preset enumeration reset function in library <br /></td></tr>
+<tr class="memdesc:a7fc81edc9167a0a76fe648bbd7203fd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">SoundFont preset enumeration reset function in library. <br /></td></tr>
 <tr class="memitem:a8f4ddd69775a1cb8df2cd23f720d97d3" id="r_a8f4ddd69775a1cb8df2cd23f720d97d3"><td class="memItemLeft" align="right" valign="top"><a id="a8f4ddd69775a1cb8df2cd23f720d97d3" name="a8f4ddd69775a1cb8df2cd23f720d97d3"></a>
 static <a class="el" href="#add1d073381347e73ac0750ea1d62b302">FSSoundFont_PresetBankNumQueryProc</a>&#160;</td><td class="memItemRight" valign="bottom"><b>FSSoundFont_presetBankNum</b></td></tr>
-<tr class="memdesc:a8f4ddd69775a1cb8df2cd23f720d97d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">sound font preset bank number query in library <br /></td></tr>
+<tr class="memdesc:a8f4ddd69775a1cb8df2cd23f720d97d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">SoundFont preset bank number query in library. <br /></td></tr>
 <tr class="memitem:a5074405f7d9c60d3621f3613f4fa0eca" id="r_a5074405f7d9c60d3621f3613f4fa0eca"><td class="memItemLeft" align="right" valign="top"><a id="a5074405f7d9c60d3621f3613f4fa0eca" name="a5074405f7d9c60d3621f3613f4fa0eca"></a>
 static <a class="el" href="#a2690a1924609aa06e9d4ca32253b6fe9">FSSoundFont_ObjectNameQueryProc</a>&#160;</td><td class="memItemRight" valign="bottom"><b>FSSoundFont_presetName</b></td></tr>
-<tr class="memdesc:a5074405f7d9c60d3621f3613f4fa0eca"><td class="mdescLeft">&#160;</td><td class="mdescRight">sound font preset name query in library <br /></td></tr>
+<tr class="memdesc:a5074405f7d9c60d3621f3613f4fa0eca"><td class="mdescLeft">&#160;</td><td class="mdescRight">SoundFont preset name query in library. <br /></td></tr>
 <tr class="memitem:aeab4b87644a07bc3633bbd62a32043aa" id="r_aeab4b87644a07bc3633bbd62a32043aa"><td class="memItemLeft" align="right" valign="top"><a id="aeab4b87644a07bc3633bbd62a32043aa" name="aeab4b87644a07bc3633bbd62a32043aa"></a>
 static <a class="el" href="#aec766eb8323a63bfa8272fafebf0f2b4">FSSoundFont_PresetProgNumQueryProc</a>&#160;</td><td class="memItemRight" valign="bottom"><b>FSSoundFont_presetProgNum</b></td></tr>
-<tr class="memdesc:aeab4b87644a07bc3633bbd62a32043aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">sound font preset program number query in library <br /></td></tr>
+<tr class="memdesc:aeab4b87644a07bc3633bbd62a32043aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">SoundFont preset program number query in library. <br /></td></tr>
 <tr class="memitem:a2f42686366b1586387dd328d4b86d9cd" id="r_a2f42686366b1586387dd328d4b86d9cd"><td class="memItemLeft" align="right" valign="top"><a id="a2f42686366b1586387dd328d4b86d9cd" name="a2f42686366b1586387dd328d4b86d9cd"></a>
 static <a class="el" href="#a4c633a1817c97ba8ea4ef44d4efa052f">FSSoundFont_PresetQueryProc</a>&#160;</td><td class="memItemRight" valign="bottom"><b>FSSoundFont_presetQuery</b></td></tr>
-<tr class="memdesc:a2f42686366b1586387dd328d4b86d9cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">sound font preset query in library <br /></td></tr>
+<tr class="memdesc:a2f42686366b1586387dd328d4b86d9cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">SoundFont preset query in library. <br /></td></tr>
 <tr class="memitem:a3b417198ecb5e4062c351fc9248ba2b8" id="r_a3b417198ecb5e4062c351fc9248ba2b8"><td class="memItemLeft" align="right" valign="top"><a id="a3b417198ecb5e4062c351fc9248ba2b8" name="a3b417198ecb5e4062c351fc9248ba2b8"></a>
 static <a class="el" href="#aff39de48a722907037a645df1e98f4bd">FSSoundFont_EnumerationResetProc</a>&#160;</td><td class="memItemRight" valign="bottom"><b>FSSoundFont_resetPresetEnumeration</b></td></tr>
-<tr class="memdesc:a3b417198ecb5e4062c351fc9248ba2b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">sound font preset enumeration reset function in library <br /></td></tr>
+<tr class="memdesc:a3b417198ecb5e4062c351fc9248ba2b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">SoundFont preset enumeration reset function in library. <br /></td></tr>
 <tr class="memitem:ab4297750293feb181265d1000d8d1c1d" id="r_ab4297750293feb181265d1000d8d1c1d"><td class="memItemLeft" align="right" valign="top"><a id="ab4297750293feb181265d1000d8d1c1d" name="ab4297750293feb181265d1000d8d1c1d"></a>
 static <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_functionsAreInitialized</b> = false</td></tr>
 <tr class="memdesc:ab4297750293feb181265d1000d8d1c1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">flag to tell whether function pointers have been initialized <br /></td></tr>
@@ -182,7 +182,7 @@ static <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Bo
 <tr class="memdesc:a688a4a05209bd1f8f445610b7a16e0c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">error message for an undefined descriptor  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The <code><a class="el" href="struct_fluid_synth_sound_font.html" title="An object-oriented wrapper around an underlying fluidsynth soundfont object.">FluidSynthSoundFont</a></code> class implements an object-oriented wrapper around an underlying fluidsynth soundfont object with dynamic library access. </p>
+<div class="textblock"><p>The <code><a class="el" href="struct_fluid_synth_sound_font.html" title="An object-oriented wrapper around an underlying fluidsynth SoundFont object.">FluidSynthSoundFont</a></code> class implements an object-oriented wrapper around an underlying fluidsynth SoundFont object with dynamic library access. </p>
 <dl class="section author"><dt>Author</dt><dd>Dr. Thomas Tensi </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2024-03 </dd></dl>
 </div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
@@ -200,7 +200,7 @@ static <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Bo
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    <a class="code hl_define" href="_logging_8h.html#abda43432e1824d87522abc061e616939">Logging_traceError</a>(<span class="stringliteral">&quot;soundfont &#39;&quot;</span> name <span class="stringliteral">&quot;&#39; function undefined&quot;</span>)</div>
+<b>Value:</b><div class="fragment"><div class="line">    <a class="code hl_define" href="_logging_8h.html#abda43432e1824d87522abc061e616939">Logging_traceError</a>(<span class="stringliteral">&quot;SoundFont &#39;&quot;</span> name <span class="stringliteral">&quot;&#39; function undefined&quot;</span>)</div>
 <div class="ttc" id="a_logging_8h_html_abda43432e1824d87522abc061e616939"><div class="ttname"><a href="_logging_8h.html#abda43432e1824d87522abc061e616939">Logging_traceError</a></div><div class="ttdeci">#define Logging_traceError(formattingTemplate)</div><div class="ttdoc">Writes trace error message with formatting template only.</div><div class="ttdef"><b>Definition</b> Logging.h:277</div></div>
 </div><!-- fragment -->
 <p>reports that function with <code>name</code> is not dynamically defined </p>
@@ -256,7 +256,7 @@ static <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Bo
 </table>
 </div><div class="memdoc">
 
-<p>Checks and returns whether all soundfont-related functions are available. </p>
+<p>Checks and returns whether all SoundFont-related functions are available. </p>
 <dl class="section return"><dt>Returns</dt><dd>information about full function availability </dd></dl>
 
 </div>
@@ -315,7 +315,7 @@ static <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Bo
 </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">=</div>
-<div class="line">    <span class="stringliteral">&quot;soundfont object must be defined&quot;</span></div>
+<div class="line">    <span class="stringliteral">&quot;SoundFont object must be defined&quot;</span></div>
 </div><!-- fragment -->
 <p>error message for an undefined descriptor </p>
 

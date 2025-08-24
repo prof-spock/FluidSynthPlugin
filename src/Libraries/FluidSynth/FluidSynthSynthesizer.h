@@ -119,10 +119,23 @@ namespace Libraries::FluidSynth {
          *
          * @param[in] channel     MIDI channel for this bank change
          * @param[in] bankNumber  new MIDI bank on channel 
-         * @return  information whether bank change has been handled
+         * @return  information whether event has been handled
          */
         Boolean handleBankChange (IN Natural channel,
                                   IN Natural bankNumber);
+
+        /*--------------------*/
+
+        /**
+         * Handles a channel pressure event on <C>channel</C> setting
+         * global intensity to <C>value</C>
+         *
+         * @param[in] channel  MIDI channel for this poly touch event
+         * @param[in] value    new value for touch of key
+         * @return  information whether event has been handled
+         */
+        Boolean handleChannelPressure (IN Natural channel,
+                                       IN Natural value);
 
         /*--------------------*/
 
@@ -133,7 +146,7 @@ namespace Libraries::FluidSynth {
          * @param[in] channel     MIDI channel of this control change
          * @param[in] controller  MIDI controller to be changed
          * @param[in] value       new value for controller
-         * @return  information whether control change has been handled
+         * @return  information whether event has been handled
          *
          */
         Boolean handleControlChange (IN Natural channel,
@@ -143,26 +156,11 @@ namespace Libraries::FluidSynth {
         /*--------------------*/
 
         /**
-         * Handles a mono-touch event on <C>channel</C> setting
-         * touch intensity for <C>key</C> to <C>value</C>
-         *
-         * @param[in] channel  MIDI channel for this touch event
-         * @param[in] key      key pressed
-         * @param[in] value    new value for touch of key
-         * @return  information whether mono touch has been handled
-         */
-        Boolean handleMonoTouch (IN Natural channel,
-                                 IN Natural key,
-                                 IN Natural value);
-
-        /*--------------------*/
-
-        /**
          * Handles a note-off event on <C>channel</C> for <C>note</C>
          *
          * @param[in] channel  MIDI channel of this note
          * @param[in] note     MIDI note to be stopped 
-         * @return  information whether note off has been handled
+         * @return  information whether event has been handled
          */
         Boolean handleNoteOff (IN Natural channel,
                                IN Natural note);
@@ -176,7 +174,7 @@ namespace Libraries::FluidSynth {
          * @param[in] channel   MIDI channel of this note
          * @param[in] note      MIDI note to be started 
          * @param[in] velocity  velocity of MIDI note
-         * @return  information whether note on has been handled
+         * @return  information whether event has been handled
          */
         Boolean handleNoteOn (IN Natural channel,
                               IN Natural note,
@@ -190,7 +188,7 @@ namespace Libraries::FluidSynth {
          *
          * @param[in] channel  MIDI channel for this pitch bend
          * @param[in] value    new value for pitch bender
-         * @return  information whether pitch bend has been handled
+         * @return  information whether event has been handled
          */
         Boolean handlePitchBend (IN Natural channel,
                                  IN Natural value);
@@ -198,15 +196,17 @@ namespace Libraries::FluidSynth {
         /*--------------------*/
 
         /**
-         * Handles a poly-touch event on <C>channel</C> setting global
-         * intensity to <C>value</C>
+         * Handles a polyphonic key pressure event on <C>channel</C>
+         * setting touch intensity for <C>key</C> to <C>value</C>
          *
-         * @param[in] channel  MIDI channel for this poly touch event
+         * @param[in] channel  MIDI channel for this touch event
+         * @param[in] key      key pressed
          * @param[in] value    new value for touch of key
-         * @return  information whether poly touch has been handled
+         * @return  information whether event has been handled
          */
-        Boolean handlePolyTouch (IN Natural channel,
-                                 IN Natural value);
+        Boolean handlePolyphonicKeyPressure (IN Natural channel,
+                                             IN Natural key,
+                                             IN Natural value);
 
         /*--------------------*/
 
@@ -216,7 +216,7 @@ namespace Libraries::FluidSynth {
          *
          * @param[in] channel        MIDI channel for this program change
          * @param[in] programNumber  new MIDI program on channel 
-         * @return  information whether program change has been handled
+         * @return  information whether event has been handled
          */
         Boolean handleProgramChange (IN Natural channel,
                                      IN Natural programNumber);

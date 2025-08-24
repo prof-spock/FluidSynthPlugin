@@ -14,7 +14,7 @@
 
 _[FluidSynth][]_ is one of the most prominent open source MIDI players.  It is reasonably flexible, delivers a good audio quality and is available for the typical platforms.  A common scenario is to use it for either rendering live MIDI data on some audio device or converting MIDI files into audio files by command-line batch processing.
 
-Basis of <TT>FluidSynth</TT> are the so-called *soundfonts*.  Soundfonts contain sampled instruments together with envelope and modulation definitions and other descriptive settings.  It is easy to find really usable ones in the internet and also several of those cover all general MIDI instruments (for example, the `FluidR3_GM.sf2`).
+Basis of <TT>FluidSynth</TT> are the so-called *SoundFonts*.  SoundFonts contain sampled instruments together with envelope and modulation definitions and other descriptive settings.  It is easy to find really usable ones in the internet and also several of those cover all general MIDI instruments (for example, the `FluidR3_GM.sf2`).
 
 So when using <TT>FluidSynth</TT> in a command-line driven context all is well.  But when you want play around with settings for <TT>FluidSynth</TT> interactively in a DAW, you need some approximation of the command-line fluidsynth as a DAW plugin rendering audio from MIDI as close as possible to the original.
 
@@ -22,9 +22,9 @@ There were some previous efforts like Alexey Zhelezov's _[FluidSynthVST][]_ or B
 
 The reason for being picky about the exact rendering is as follows: my scenario is a command-line based rendering of notation videos for a band (the _[LilypondToBandVideoConverter][LTBVC]_).  Part of that chain is <TT>FluidSynth</TT>, but I want to experiment interactively with settings in a DAW to optimize the audio and then have a faithful reproduction of the external rendering pipeline within the DAW.
 
-The first component of this package is a DAW plugin called <B><TT>FluidSynthPlugin</TT></B>.  It has a simplistic interface where you specify a soundfont, several fluidsynth settings and possibly a MIDI program to be selected by putting text data in a text field.  Then you are able to convert an incoming MIDI stream in a DAW to audio using the FluidSynth library.
+The first component of this package is a DAW plugin called <B><TT>FluidSynthPlugin</TT></B>.  It has a simplistic interface where you specify a SoundFont, several fluidsynth settings and possibly a MIDI program to be selected by putting text data in a text field.  Then you are able to convert an incoming MIDI stream in a DAW to audio using the FluidSynth library.
 
-When playing around with that plugin some inexplicable differences to the command-line <TT>FluidSynth</TT> occured.  Even when using innocent soundfonts (without chorus and other modulators), sample playback in the plugin and the command-line player were not absolutely identical.  Analysis and contact with the <TT>FluidSynth</TT> team revealed that in that program MIDI events are quantized onto some processing raster in the millisecond range while the plugin quantizes them onto the smallest time unit: the sample raster itself.
+When playing around with that plugin some inexplicable differences to the command-line <TT>FluidSynth</TT> occured.  Even when using innocent SoundFonts (without chorus and other modulators), sample playback in the plugin and the command-line player were not absolutely identical.  Analysis and contact with the <TT>FluidSynth</TT> team revealed that in that program MIDI events are quantized onto some processing raster in the millisecond range while the plugin quantizes them onto the smallest time unit: the sample raster itself.
 
 Hence another tool in this package circumvents the rasterization by the player of <TT>FluidSynth</TT>.  That second component is a simplistic but pedantic command-line converter called <B><TT>FluidSynthConverter</TT></B>.  It converts a MIDI file into a WAV file, is also based on the fluidsynth library and does the same sample-exact event feeding into that library as the plugin.
 
@@ -99,7 +99,7 @@ To be able to reproduce the phase of modulators in an external audio file within
 
 So when you need a bit-exact reproduction of externally rendered audio by the <TT>FluidSynthPlugin</TT>, some workaround has to be made as follows:
 
-  - The selected instrument(s) in the soundfont must not contain any (free-running) modulators.
+  - The selected instrument(s) in the SoundFont must not contain any (free-running) modulators.
 
   - Chorus must be deactivated (e.g. by setting `synth.chorus.active` to 0).
 

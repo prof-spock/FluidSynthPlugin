@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title="A selection component for soundfont presets.">
+<g id="a_Node000001"><a xlink:title="A selection component for SoundFont presets.">
 <polygon fill="#999999" stroke="transparent" points="178.5,-334 17.5,-334 17.5,0 178.5,0 178.5,-334"/>
 <text text-anchor="start" x="36.5" y="-322" font-family="Helvetica,sans-Serif" font-size="10.00">_PresetSelectionComponent</text>
 <text text-anchor="start" x="23.5" y="-307" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>

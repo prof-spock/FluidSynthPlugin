@@ -1,7 +1,7 @@
 /**
  * @file
  * The <C>FluidSynthSoundFont</C> class specifies an object-oriented
- * wrapper around an underlying fluidsynth soundfont object.
+ * wrapper around an underlying fluidsynth SoundFont object.
  *
  * @author Dr. Thomas Tensi
  * @date   2024-03
@@ -29,7 +29,7 @@ namespace Libraries::FluidSynth {
 
     /**
      * An object-oriented wrapper around an underlying fluidsynth
-     * soundfont object.
+     * SoundFont object.
      */
     struct FluidSynthSoundFont {
 
@@ -38,12 +38,12 @@ namespace Libraries::FluidSynth {
         /*--------------------*/
 
         /**
-         * Constructs soundfont from <C>synthesizer</C> object at
-         * level <C>levelFromTop</C> on soundfont stack
+         * Constructs SoundFont from <C>synthesizer</C> object at
+         * level <C>levelFromTop</C> on SoundFont stack
          *
          * @param[in] synthesizer   the fluidsynth synthesizer object
          * @param[in] levelFromTop  the distance to the top of stack
-         *                          for this soundfont
+         *                          for this SoundFont
          * @return 
          */
         FluidSynthSoundFont (IN FluidSynthSynthesizer* synthesizer,
@@ -52,10 +52,10 @@ namespace Libraries::FluidSynth {
         /*--------------------*/
 
         /**
-         * Constructs new fluidsynth soundfont from
+         * Constructs new fluidsynth SoundFont from
          * <C>otherSoundFont</C> (NOT AVAILABLE!)
          *
-         * @param[in] otherSoundFont  soundfont to be copied
+         * @param[in] otherSoundFont  SoundFont to be copied
          */
         FluidSynthSoundFont (IN FluidSynthSoundFont& otherSoundFont)
             = delete;
@@ -63,7 +63,7 @@ namespace Libraries::FluidSynth {
         /*--------------------*/
 
         /**
-         * Destructor for a fluidsynth soundfont
+         * Destructor for a fluidsynth SoundFont
          */
         ~FluidSynthSoundFont ();
 
@@ -72,10 +72,10 @@ namespace Libraries::FluidSynth {
         /*--------------------*/
 
         /**
-         * Assigns current soundfont from <C>otherSoundFont</C>
+         * Assigns current SoundFont from <C>otherSoundFont</C>
          * (NOT AVAILABLE!)
          *
-         * @param[in] otherSoundFont  soundfont to be assigned
+         * @param[in] otherSoundFont  SoundFont to be assigned
          */
         FluidSynthSoundFont&
         operator= (IN FluidSynthSoundFont& otherSoundFont)
@@ -86,7 +86,7 @@ namespace Libraries::FluidSynth {
         /*--------------------*/
 
         /**
-         * Tells whether soundfont has a preset at <C>bankNumber</C>
+         * Tells whether SoundFont has a preset at <C>bankNumber</C>
          * and <C>programNumber</C>.
          *
          * @param[in] bankNumber     bank number of preset
@@ -99,9 +99,9 @@ namespace Libraries::FluidSynth {
         /*--------------------*/
 
         /**
-         * Tells the name of the current soundfont
+         * Tells the name of the current SoundFont
          *
-         * @return  name of soundfont
+         * @return  name of SoundFont
          */
         String name () const;
         

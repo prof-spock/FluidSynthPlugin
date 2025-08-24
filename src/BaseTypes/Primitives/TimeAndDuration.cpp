@@ -14,9 +14,8 @@
 /*=========*/
 
 #include <time.h>
-    #define SystemTime_ClockType clock_t
-    #define SystemTime_clockTicksPerSecond CLOCKS_PER_SEC
-    #define SystemTime_currentClockTime clock
+    #define SystemTime_TimeSpec   struct timespec
+    #define SystemTime_currentClockTime(ts) timespec_get(ts, TIME_UTC)
 
 #include "Logging.h"
 #include "RealList.h"
@@ -160,6 +159,31 @@ static Real _fromString (IN String& st)
     return result;
 }
 
+/*--------------------*/
+
+/**
+ * Returns the clock time of the system in seconds as a real number.
+ *
+ * @return  system time in seconds
+ */
+static Real _systemTime ()
+{
+    Logging_trace(">>");
+
+    SystemTime_TimeSpec timeSpec;
+    SystemTime_currentClockTime(&timeSpec);
+    Real result{(double) timeSpec.tv_sec
+                + ((double) timeSpec.tv_nsec) * 1.0E-9};
+
+    Logging_trace1("<<: %1", TOSTRING(result));
+    return result;
+}
+
+/*--------------------*/
+
+/** the start time of process as an offset duration */
+static const Duration _processStartOffset = -_systemTime();
+
 /*====================*/
 /* Duration           */
 /*====================*/
@@ -195,12 +219,12 @@ Duration BaseTypes::Primitives::Duration_fromString (IN String& st)
 Time BaseTypes::Primitives::Time_withinProcess ()
 {
     Logging_trace(">>");
-    SystemTime_ClockType clockTicks = SystemTime_currentClockTime();
-    Time result{(float) clockTicks / SystemTime_clockTicksPerSecond};
+
+    Real sysTime = _systemTime();
+    Time result = sysTime + _processStartOffset;
     Logging_trace1("<<: %1", TOSTRING(result));
     return result;
 }
-
 
 /*--------------------*/
 

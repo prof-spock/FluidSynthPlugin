@@ -128,7 +128,7 @@ namespace MIDI {
         /*--------------------*/
 
         /**
-         * Returns list of presets for currently loaded soundfont
+         * Returns list of presets for currently loaded SoundFont
          * together with their bank and program numbers with bank,
          * program and name separated by tabulators
          *
@@ -149,9 +149,9 @@ namespace MIDI {
         /*--------------------*/
 
         /**
-         * Returns name of currently loaded soundfont
+         * Returns name of currently loaded SoundFont
          *
-         * @return  soundfont name
+         * @return  SoundFont name
          */
         String soundFontName () const;
         

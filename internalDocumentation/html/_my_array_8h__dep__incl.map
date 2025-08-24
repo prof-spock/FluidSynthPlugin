@@ -33,10 +33,10 @@
 <area shape="poly" id="edge19_Node000011_Node000018" title=" " alt="" coords="573,264,573,299,568,299,568,264"/>
 <area shape="rect" id="Node000020" href="$_wave_file_8h.html" title="The WaveFile specification defines an object for accessing a RIFF wave file with several channels." alt="" coords="666,299,753,324"/>
 <area shape="poly" id="edge23_Node000011_Node000020" title=" " alt="" coords="606,254,688,296,685,301,604,259"/>
-<area shape="rect" id="Node000014" href="$_fluid_synth_sound_font_8h.html" title="The FluidSynthSoundFont class specifies an object&#45;oriented wrapper around an underlying fluidsynth so..." alt="" coords="913,372,1071,397"/>
+<area shape="rect" id="Node000014" href="$_fluid_synth_sound_font_8h.html" title="The FluidSynthSoundFont class specifies an object&#45;oriented wrapper around an underlying fluidsynth So..." alt="" coords="913,372,1071,397"/>
 <area shape="poly" id="edge15_Node000013_Node000014" title=" " alt="" coords="1045,336,1006,374,1002,370,1042,332"/>
 <area shape="poly" id="edge18_Node000013_Node000017" title=" " alt="" coords="1098,329,1167,369,1164,374,1095,333"/>
-<area shape="rect" id="Node000015" href="$_fluid_synth_sound_font_8cpp.html" title="The FluidSynthSoundFont class implements an object&#45;oriented wrapper around an underlying fluidsynth s..." alt="" coords="906,445,1078,471"/>
+<area shape="rect" id="Node000015" href="$_fluid_synth_sound_font_8cpp.html" title="The FluidSynthSoundFont class implements an object&#45;oriented wrapper around an underlying fluidsynth S..." alt="" coords="906,445,1078,471"/>
 <area shape="poly" id="edge16_Node000014_Node000015" title=" " alt="" coords="995,411,995,445,989,445,989,411"/>
 <area shape="rect" id="Node000016" href="$_midi_event_converter_8cpp.html" title="The MidiEventConverter module implements the handling of MIDI events by feeding them to an underlying..." alt="" coords="595,445,752,471"/>
 <area shape="poly" id="edge17_Node000014_Node000016" title=" " alt="" coords="928,403,726,448,724,443,927,398"/>

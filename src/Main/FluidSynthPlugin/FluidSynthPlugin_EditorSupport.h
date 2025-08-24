@@ -30,7 +30,7 @@ namespace Main::FluidSynthPlugin {
     struct FluidSynthPlugin_EditorSupport {
 
         /**
-         * Shows dialog for file selection for soundfont files
+         * Shows dialog for file selection for SoundFont files
          * starting in <C>startDirectory</C> and updates
          * <C>fileName<C> if selected
          *
@@ -46,7 +46,7 @@ namespace Main::FluidSynthPlugin {
         /*--------------------*/
 
         /**
-         * Shows dialog for preset selection for current soundfont
+         * Shows dialog for preset selection for current SoundFont
          * with presets given by <C>presetList</C> and updates
          * <C>presetNumber<C> if selected
          *

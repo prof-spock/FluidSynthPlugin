@@ -1,5 +1,12 @@
 var NAVTREEINDEX5 =
 {
+"struct_base_types_1_1_containers_1_1_natural_list.html#ad3a084815579864616d3c8028334593d":[1,0,2,0,3,4],
+"struct_base_types_1_1_containers_1_1_natural_list.html#ad3a084815579864616d3c8028334593d":[2,0,2,0,3,4],
+"struct_base_types_1_1_containers_1_1_natural_list.html#ae3a933270def61e69c6b93e27551199a":[1,0,2,0,3,2],
+"struct_base_types_1_1_containers_1_1_natural_list.html#ae3a933270def61e69c6b93e27551199a":[2,0,2,0,3,2],
+"struct_base_types_1_1_containers_1_1_natural_list.html#ae3b931a1d1249c61724c05a5c22151fe":[1,0,2,0,3,1],
+"struct_base_types_1_1_containers_1_1_natural_list.html#ae3b931a1d1249c61724c05a5c22151fe":[2,0,2,0,3,1],
+"struct_base_types_1_1_containers_1_1_natural_set.html":[1,0,2,0,4],
 "struct_base_types_1_1_containers_1_1_natural_set.html":[2,0,2,0,4],
 "struct_base_types_1_1_containers_1_1_real_list.html":[1,0,2,0,5],
 "struct_base_types_1_1_containers_1_1_real_list.html":[2,0,2,0,5],
@@ -242,12 +249,5 @@ var NAVTREEINDEX5 =
 "struct_base_types_1_1_primitives_1_1_real.html#a3f14bbbf561ccf8f398fdb4cfd80053a":[1,0,2,1,7,34],
 "struct_base_types_1_1_primitives_1_1_real.html#a3f14bbbf561ccf8f398fdb4cfd80053a":[2,0,2,1,7,34],
 "struct_base_types_1_1_primitives_1_1_real.html#a466f751d1283f1a4f1a9dcf5e4b6a0f1":[1,0,2,1,7,32],
-"struct_base_types_1_1_primitives_1_1_real.html#a466f751d1283f1a4f1a9dcf5e4b6a0f1":[2,0,2,1,7,32],
-"struct_base_types_1_1_primitives_1_1_real.html#a4e4be628236cd3029cacff804c357906":[1,0,2,1,7,17],
-"struct_base_types_1_1_primitives_1_1_real.html#a4e4be628236cd3029cacff804c357906":[2,0,2,1,7,17],
-"struct_base_types_1_1_primitives_1_1_real.html#a4f7cd7f5a7aa5313e34ff0cd98e8ca66":[1,0,2,1,7,25],
-"struct_base_types_1_1_primitives_1_1_real.html#a4f7cd7f5a7aa5313e34ff0cd98e8ca66":[2,0,2,1,7,25],
-"struct_base_types_1_1_primitives_1_1_real.html#a52d4be26ce98bac2380538bd9f5c1ef2":[1,0,2,1,7,38],
-"struct_base_types_1_1_primitives_1_1_real.html#a52d4be26ce98bac2380538bd9f5c1ef2":[2,0,2,1,7,38],
-"struct_base_types_1_1_primitives_1_1_real.html#a55a3d41cf780d1871458404ef59b6077":[1,0,2,1,7,2]
+"struct_base_types_1_1_primitives_1_1_real.html#a466f751d1283f1a4f1a9dcf5e4b6a0f1":[2,0,2,1,7,32]
 };

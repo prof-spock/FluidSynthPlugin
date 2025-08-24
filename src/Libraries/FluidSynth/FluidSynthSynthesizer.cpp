@@ -40,8 +40,8 @@ typedef int (*FSSynthesizer_BankChangeProc)(Object, int, int);
 /** MIDI control change function type in library */
 typedef int (*FSSynthesizer_ControlChangeProc)(Object, int, int, int);
 
-/** mono touch function type in library */
-typedef int (*FSSynthesizer_MonoTouchProc)(Object, int, int, int);
+/** MIDI channel pressure function type in library */
+typedef int (*FSSynthesizer_ChannelPressureProc)(Object, int, int);
 
 /** MIDI note off function type in library */
 typedef int (*FSSynthesizer_NoteOffProc)(Object, int, int);
@@ -49,11 +49,11 @@ typedef int (*FSSynthesizer_NoteOffProc)(Object, int, int);
 /** MIDI note on function type in library */
 typedef int (*FSSynthesizer_NoteOnProc)(Object, int, int, int);
 
-/** pitch bend function type in library */
+/** MIDI pitch bend function type in library */
 typedef int (*FSSynthesizer_PitchBendProc)(Object, int, int);
 
-/** poly touch function type in library */
-typedef int (*FSSynthesizer_PolyTouchProc)(Object, int, int);
+/** MIDI polyphonic key pressure function type in library */
+typedef int (*FSSynthesizer_PolyphonicKeyPressureProc)(Object, int, int, int);
 
 /** audio buffer processing function type in library */
 typedef int (*FSSynthesizer_ProcessProc)(Object, int, int,
@@ -91,11 +91,11 @@ static FSSynthesizer_SizeProc FSSynthesizer_audioChannelPairCount;
 /** MIDI bank select function type in library */
 static FSSynthesizer_BankChangeProc FSSynthesizer_handleBankChange;
 
+/** MIDI channel pressure function in library */
+static FSSynthesizer_ChannelPressureProc FSSynthesizer_handleChannelPressure;
+
 /** MIDI control change function type in library */
 static FSSynthesizer_ControlChangeProc FSSynthesizer_handleControlChange;
-
-/** mono touch function in library */
-static FSSynthesizer_MonoTouchProc FSSynthesizer_handleMonoTouch;
 
 /** MIDI note off function in library */
 static FSSynthesizer_NoteOffProc FSSynthesizer_handleNoteOff;
@@ -103,11 +103,12 @@ static FSSynthesizer_NoteOffProc FSSynthesizer_handleNoteOff;
 /** MIDI note on function in library */
 static FSSynthesizer_NoteOnProc FSSynthesizer_handleNoteOn;
 
-/** pitch bend processing function in library */
+/** MIDI pitch bend processing function in library */
 static FSSynthesizer_PitchBendProc FSSynthesizer_handlePitchBend;
 
-/** poly touch function in library */
-static FSSynthesizer_PolyTouchProc FSSynthesizer_handlePolyTouch;
+/** MIDI polyphonic pressure function in library */
+static FSSynthesizer_PolyphonicKeyPressureProc
+           FSSynthesizer_handlePolyphonicPressure;
 
 /** MIDI program change function in library */
 static FSSynthesizer_ProgChangeProc FSSynthesizer_handleProgramChange;
@@ -195,19 +196,20 @@ static void _initializeFunctionsForLibrary (IN Object fsLibrary)
                 "fluid_synth_count_audio_channels");
         FSSynthesizer_handleBankChange =
             GPA(FSSynthesizer_BankChangeProc, "fluid_synth_bank_select");
+        FSSynthesizer_handleChannelPressure = 
+            GPA(FSSynthesizer_ChannelPressureProc,
+                "fluid_synth_channel_pressure");
         FSSynthesizer_handleControlChange = 
             GPA(FSSynthesizer_ControlChangeProc, "fluid_synth_cc");
-        FSSynthesizer_handleMonoTouch = 
-            GPA(FSSynthesizer_MonoTouchProc, "fluid_synth_key_pressure");
         FSSynthesizer_handleNoteOff =
             GPA(FSSynthesizer_NoteOffProc, "fluid_synth_noteoff");
         FSSynthesizer_handleNoteOn =
             GPA(FSSynthesizer_NoteOnProc, "fluid_synth_noteon");
         FSSynthesizer_handlePitchBend =
             GPA(FSSynthesizer_PitchBendProc, "fluid_synth_pitch_bend");
-        FSSynthesizer_handlePolyTouch = 
-            GPA(FSSynthesizer_PolyTouchProc,
-                "fluid_synth_channel_pressure");
+        FSSynthesizer_handlePolyphonicPressure = 
+            GPA(FSSynthesizer_PolyphonicKeyPressureProc,
+                "fluid_synth_key_pressure");
         FSSynthesizer_handleProgramChange =
             GPA(FSSynthesizer_ProgChangeProc,
                 "fluid_synth_program_change");
@@ -376,6 +378,34 @@ FluidSynthSynthesizer::handleBankChange (IN Natural channel,
 
 /*--------------------*/
 
+Boolean FluidSynthSynthesizer::handleChannelPressure (IN Natural channel,
+                                                      IN Natural value)
+{
+    Logging_trace2(">>: channel = %1, value = %2",
+                   TOSTRING(channel), TOSTRING(value));
+
+    Boolean isOkay = false;
+
+    if (_descriptor == NULL) {
+        Logging_traceError(_errorMessageForUndefinedDescriptor);
+    } else if (FSSynthesizer_handleChannelPressure == NULL) {
+        _reportBadFunction("channelPressure");
+    } else {
+        _SynthesizerDescriptor& descriptor =
+            TOREFERENCE<_SynthesizerDescriptor>(_descriptor);
+        Integer operationResult =
+            FSSynthesizer_handleChannelPressure(descriptor.synthesizer,
+                                                (int) channel,
+                                                (int) value);
+        isOkay = (operationResult == 0);
+    }
+
+    Logging_trace1("<<: %1", TOSTRING(isOkay));
+    return isOkay;
+}
+
+/*--------------------*/
+
 Boolean FluidSynthSynthesizer::handleControlChange (IN Natural channel,
                                                     IN Natural controller,
                                                     IN Natural value)
@@ -397,36 +427,6 @@ Boolean FluidSynthSynthesizer::handleControlChange (IN Natural channel,
                                               (int) channel,
                                               (int) controller,
                                               (int) value);
-        isOkay = (operationResult == 0);
-    }
-
-    Logging_trace1("<<: %1", TOSTRING(isOkay));
-    return isOkay;
-}
-
-/*--------------------*/
-
-Boolean FluidSynthSynthesizer::handleMonoTouch (IN Natural channel,
-                                                IN Natural key,
-                                                IN Natural value)
-{
-    Logging_trace3(">>: channel = %1, key = %2, value = %3",
-                   TOSTRING(channel), TOSTRING(key), TOSTRING(value));
-
-    Boolean isOkay = false;
-
-    if (_descriptor == NULL) {
-        Logging_traceError(_errorMessageForUndefinedDescriptor);
-    } else if (FSSynthesizer_handleMonoTouch == NULL) {
-        _reportBadFunction("monoTouch");
-    } else {
-        _SynthesizerDescriptor& descriptor =
-            TOREFERENCE<_SynthesizerDescriptor>(_descriptor);
-        Integer operationResult =
-            FSSynthesizer_handleMonoTouch(descriptor.synthesizer,
-                                          (int) channel,
-                                          (int) key,
-                                          (int) value);
         isOkay = (operationResult == 0);
     }
 
@@ -523,25 +523,28 @@ Boolean FluidSynthSynthesizer::handlePitchBend (IN Natural channel,
 
 /*--------------------*/
 
-Boolean FluidSynthSynthesizer::handlePolyTouch (IN Natural channel,
-                                                IN Natural value)
+Boolean
+FluidSynthSynthesizer::handlePolyphonicKeyPressure (IN Natural channel,
+                                                    IN Natural key,
+                                                    IN Natural value)
 {
-    Logging_trace2(">>: channel = %1, value = %2",
-                   TOSTRING(channel), TOSTRING(value));
+    Logging_trace3(">>: channel = %1, key = %2, value = %3",
+                   TOSTRING(channel), TOSTRING(key), TOSTRING(value));
 
     Boolean isOkay = false;
 
     if (_descriptor == NULL) {
         Logging_traceError(_errorMessageForUndefinedDescriptor);
-    } else if (FSSynthesizer_handlePolyTouch == NULL) {
-        _reportBadFunction("polyTouch");
+    } else if (FSSynthesizer_handlePolyphonicPressure == NULL) {
+        _reportBadFunction("polyphonicKeyPressure");
     } else {
         _SynthesizerDescriptor& descriptor =
             TOREFERENCE<_SynthesizerDescriptor>(_descriptor);
         Integer operationResult =
-            FSSynthesizer_handlePolyTouch(descriptor.synthesizer,
-                                          (int) channel,
-                                          (int) value);
+            FSSynthesizer_handlePolyphonicPressure(descriptor.synthesizer,
+                                                   (int) channel,
+                                                   (int) key,
+                                                   (int) value);
         isOkay = (operationResult == 0);
     }
 

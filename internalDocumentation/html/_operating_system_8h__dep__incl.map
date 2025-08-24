@@ -4,7 +4,7 @@
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="665,31,190,83,189,77,664,26"/>
 <area shape="rect" id="Node000003" href="$_fluid_synth_plugin___event_processor_8cpp.html" title="The FluidSynthPlugin_Processor module implements the handling of MIDI events from the DAW via JUCE ha..." alt="" coords="213,79,456,104"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="666,36,401,81,400,76,665,30"/>
-<area shape="rect" id="Node000004" href="$_fluid_synth_sound_font_8cpp.html" title="The FluidSynthSoundFont class implements an object&#45;oriented wrapper around an underlying fluidsynth s..." alt="" coords="481,79,653,104"/>
+<area shape="rect" id="Node000004" href="$_fluid_synth_sound_font_8cpp.html" title="The FluidSynthSoundFont class implements an object&#45;oriented wrapper around an underlying fluidsynth S..." alt="" coords="481,79,653,104"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="705,38,597,81,595,76,703,33"/>
 <area shape="rect" id="Node000005" href="$_logging_support_8cpp.html" title="The LoggingSupport body implements a class for simple entry/exit logging to a file or via a callback ..." alt="" coords="677,79,814,104"/>
 <area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="748,44,748,79,743,79,743,44"/>

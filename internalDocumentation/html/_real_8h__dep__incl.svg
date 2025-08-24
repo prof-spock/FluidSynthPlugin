@@ -409,7 +409,7 @@ var sectionId = 'dynsection-1';
 <!-- Node13 -->
 <g id="Node000013" class="node">
 <title>Node13</title>
-<g id="a_Node000013"><a xlink:href="_fluid_synth_sound_font_8h.html" target="_top" xlink:title="The FluidSynthSoundFont class specifies an object&#45;oriented wrapper around an underlying fluidsynth so...">
+<g id="a_Node000013"><a xlink:href="_fluid_synth_sound_font_8h.html" target="_top" xlink:title="The FluidSynthSoundFont class specifies an object&#45;oriented wrapper around an underlying fluidsynth So...">
 <polygon fill="white" stroke="#666666" points="432.64,-184 313.64,-184 313.64,-165 432.64,-165 432.64,-184"/>
 <text text-anchor="middle" x="373.14" y="-172" font-family="Helvetica,sans-Serif" font-size="10.00">FluidSynthSoundFont.h</text>
 </a>
@@ -445,7 +445,7 @@ var sectionId = 'dynsection-1';
 <!-- Node14 -->
 <g id="Node000014" class="node">
 <title>Node14</title>
-<g id="a_Node000014"><a xlink:href="_fluid_synth_sound_font_8cpp.html" target="_top" xlink:title="The FluidSynthSoundFont class implements an object&#45;oriented wrapper around an underlying fluidsynth s...">
+<g id="a_Node000014"><a xlink:href="_fluid_synth_sound_font_8cpp.html" target="_top" xlink:title="The FluidSynthSoundFont class implements an object&#45;oriented wrapper around an underlying fluidsynth S...">
 <polygon fill="white" stroke="#666666" points="1935.64,-129 1806.64,-129 1806.64,-110 1935.64,-110 1935.64,-129"/>
 <text text-anchor="middle" x="1871.14" y="-117" font-family="Helvetica,sans-Serif" font-size="10.00">FluidSynthSoundFont.cpp</text>
 </a>

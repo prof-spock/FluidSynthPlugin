@@ -1,7 +1,7 @@
 /**
  * @file
  * The <C>FluidSynthSoundFont</C> class implements an object-oriented
- * wrapper around an underlying fluidsynth soundfont object with
+ * wrapper around an underlying fluidsynth SoundFont object with
  * dynamic library access.
  *
  * @author Dr. Thomas Tensi
@@ -30,7 +30,7 @@ using STR = BaseModules::StringUtil;
 /* TYPES AND FUNCTIONS FOR DYNAMIC BINDING */
 /*-----------------------------------------*/
 
-/** soundfont construction function type in library  */
+/** SoundFont construction function type in library  */
 typedef Object (*FSSoundFont_ConstructionProc)(Object, int);
 
 /** sound font preset enumeration reset function type in library */
@@ -53,29 +53,29 @@ typedef Object (*FSSoundFont_PresetQueryProc)(Object, int, int);
 
 /*--------------------*/
 
-/** soundfont creation function in library  */
+/** SoundFont creation function in library  */
 static FSSoundFont_ConstructionProc FSSoundFont_make;
 
-/** sound font name query in library */
+/** SoundFont name query in library */
 static FSSoundFont_ObjectNameQueryProc FSSoundFont_name;
 
-/** sound font preset enumeration reset function in library */
+/** SoundFont preset enumeration reset function in library */
 static FSSoundFont_EnumerationSuccessorProc
     FSSoundFont_nextPresetInEnumeration;
 
-/** sound font preset bank number query in library */
+/** SoundFont preset bank number query in library */
 static FSSoundFont_PresetBankNumQueryProc FSSoundFont_presetBankNum;
 
-/** sound font preset name query in library */
+/** SoundFont preset name query in library */
 static FSSoundFont_ObjectNameQueryProc FSSoundFont_presetName;
 
-/** sound font preset program number query in library */
+/** SoundFont preset program number query in library */
 static FSSoundFont_PresetProgNumQueryProc FSSoundFont_presetProgNum;
 
-/** sound font preset query in library */
+/** SoundFont preset query in library */
 static FSSoundFont_PresetQueryProc FSSoundFont_presetQuery;
 
-/** sound font preset enumeration reset function in library */
+/** SoundFont preset enumeration reset function in library */
 static FSSoundFont_EnumerationResetProc FSSoundFont_resetPresetEnumeration;
 
 /** flag to tell whether function pointers have been initialized */
@@ -87,11 +87,11 @@ static Boolean _functionsAreInitialized = false;
 
 /** error message for an undefined descriptor */
 static const String _errorMessageForUndefinedDescriptor =
-    "soundfont object must be defined";
+    "SoundFont object must be defined";
 
 /** reports that function with <C>name</C> is not dynamically defined */
 #define _reportBadFunction(name) \
-    Logging_traceError("soundfont '" name "' function undefined")
+    Logging_traceError("SoundFont '" name "' function undefined")
 
 /** simple macro for dynamic binding of a function */
 #define GPA(signature, name) \
@@ -102,7 +102,7 @@ static const String _errorMessageForUndefinedDescriptor =
 /*====================*/
 
 /**
- * Checks and returns whether all soundfont-related functions are
+ * Checks and returns whether all SoundFont-related functions are
  * available
  *
  * @return  information about full function availability
@@ -319,8 +319,8 @@ String FluidSynthSoundFont::presetName (IN Natural bankNumber,
     Logging_trace2(">>: bank = %1, program = %2",
                    TOSTRING(bankNumber), TOSTRING(programNumber));
 
-    Object fsSoundfont = _descriptor;
-    Object preset = FSSoundFont_presetQuery(fsSoundfont,
+    Object fsSoundFont = _descriptor;
+    Object preset = FSSoundFont_presetQuery(fsSoundFont,
                                             (int) bankNumber,
                                             (int) programNumber);
     String result =

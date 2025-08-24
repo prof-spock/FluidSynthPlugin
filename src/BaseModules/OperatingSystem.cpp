@@ -23,6 +23,7 @@
 
 #include "File.h"
 #include "Logging.h"
+
 #include "OperatingSystem.h"
 
 /*====================*/
@@ -31,6 +32,7 @@
     #include "MyWindows.h"
 #else
     #include <unistd.h>
+        #define UniStd_sleep  sleep
     #include <dlfcn.h>
 #endif
 
@@ -38,6 +40,9 @@
 
 using BaseModules::File;
 using BaseModules::OperatingSystem;
+using BaseTypes::Primitives::Time;
+using BaseTypes::Primitives::Time_addDuration;
+using BaseTypes::Primitives::Time_withinProcess;
 
 namespace FileSystem = std::filesystem;
 
@@ -56,7 +61,7 @@ using STR = BaseModules::StringUtil;
      *                          or an executable
      * @return  path of executable or library
      */
-    String _executableDirectoryPath (IN Boolean isExecutable)
+    static String _executableDirectoryPath (IN Boolean isExecutable)
     {
         Windows::HMODULE component;
 
@@ -78,6 +83,17 @@ using STR = BaseModules::StringUtil;
         return result;
     }
 
+    /*--------------------*/
+
+    /**
+     * Sleeps for <C>duration</C> seconds.
+     *
+     * @param[in] duration   sleep duration in seconds
+     */
+    static void _sleepForDuration (IN float duration)
+    {
+        Windows::Sleep(duration * 1000.0);
+    }
 #else
 
     /*========================*/
@@ -92,7 +108,7 @@ using STR = BaseModules::StringUtil;
      *                          or an executable
      * @return  path of executable or library
      */
-    String _executableDirectoryPath (IN Boolean isExecutable)
+    static String _executableDirectoryPath (IN Boolean isExecutable)
     {
         String result;
 
@@ -118,6 +134,17 @@ using STR = BaseModules::StringUtil;
         return result;
     }
 
+    /*--------------------*/
+
+    /**
+     * Sleeps for <C>duration</C> seconds.
+     *
+     * @param[in] duration   sleep duration in seconds
+     */
+    static void _sleepForDuration (IN float duration)
+    {
+        UniStd_sleep(duration);
+    }
 #endif  
 
 /*====================*/
@@ -283,7 +310,14 @@ String OperatingSystem::executableDirectoryPath (IN Boolean isExecutable)
  */
 void OperatingSystem::sleep (IN Duration duration)
 {
-    std::this_thread::sleep_for(std::chrono::duration<float>((float) duration));
+    Time startTime = Time_withinProcess();
+    Time endTime   = Time_addDuration(startTime, duration);
+    Time stopTime = 0.0;
+
+    while (stopTime < endTime) {
+        stopTime = Time_withinProcess();
+        _sleepForDuration(((double) duration) / 10.0);
+    }
 }
 
 /*--------------------*/

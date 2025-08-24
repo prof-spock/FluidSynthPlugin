@@ -49,7 +49,7 @@ namespace MIDI {
         static MidiEventKind noteOn;
 
         /** the MIDI polyphonic touch event kind */
-        static MidiEventKind polyTouch;
+        static MidiEventKind polyphonicKeyPressure;
 
         /** the MIDI control change event kind */
         static MidiEventKind controlChange;
@@ -58,7 +58,7 @@ namespace MIDI {
         static MidiEventKind programChange;
 
         /** the MIDI monophonic touch event kind */
-        static MidiEventKind monoTouch;
+        static MidiEventKind channelPressure;
 
         /** the MIDI pitch bend event kind */
         static MidiEventKind pitchBend;

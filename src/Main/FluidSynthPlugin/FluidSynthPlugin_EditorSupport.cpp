@@ -78,7 +78,7 @@ static const String _Identification_bank = "Bank";
 static const String _Identification_program = "Program";
 
 /** title for file selection component */
-static const juce::String _Title_fileSelection = "Select Soundfont";
+static const juce::String _Title_fileSelection = "Select SoundFont";
 
 /** title for preset selection component */
 static const juce::String _Title_presetSelection = "Select Preset";
@@ -222,7 +222,7 @@ namespace Main::FluidSynthPlugin {
     /*====================*/
     
     /**
-     * A selection component for soundfont presets
+     * A selection component for SoundFont presets
      */
     struct _PresetSelectionComponent
         : juce::Component, juce::Button::Listener {

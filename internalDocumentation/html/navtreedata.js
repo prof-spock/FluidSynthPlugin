@@ -64,16 +64,16 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_assertion_8h.html",
-"_fluid_synth_synthesizer_8cpp.html#a688a4a05209bd1f8f445610b7a16e0c9",
-"_wave_file_8cpp.html#a97205a2e4cc7ce07d9157783f7e5cf95",
-"struct___event_time.html#a037a584fbdc829a4cef97f2970852328",
-"struct_base_modules_1_1_command_line_argument_list.html",
-"struct_base_types_1_1_containers_1_1_natural_set.html",
-"struct_base_types_1_1_primitives_1_1_real.html#a55a3d41cf780d1871458404ef59b6077",
-"struct_fluid_synth_synthesizer.html#af1fc4b8efa33b667d9e7127b18ff34e6",
-"struct_m_i_d_i_1_1_midi_event_converter.html#a388ee7e7c5fd912fda99785714247c6c",
-"struct_main_1_1_fluid_synth_plugin_1_1___preset_selection_component.html#aa3be2e50f06bd2074f377cd5ebe4dc7b",
-"struct_midi_meta_event_kind.html#ae191bee956409a1c888fe2e5d36a2014"
+"_fluid_synth_synthesizer_8cpp.html#a9ed2a9878ee6bffcd4a2dcdd353d11d0",
+"_wave_file_8cpp.html#a3fb960569ef29ef9f16947f2004930eb",
+"struct___event_processor_descriptor.html#a72431ce545dad0d3e920e199f9c0c0a5",
+"struct_base_modules_1_1_command_line_argument_handler.html#a975cf6be26dd45a39c49b2ba63758b3b",
+"struct_base_types_1_1_containers_1_1_natural_list.html#ad3a084815579864616d3c8028334593d",
+"struct_base_types_1_1_primitives_1_1_real.html#a4e4be628236cd3029cacff804c357906",
+"struct_fluid_synth_synthesizer.html#adb25ee2d40671bc79d6f328e081ee263",
+"struct_m_i_d_i_1_1_midi_event_converter.html#a0dc3d2bfcbb04f885f0a8dc2c77a4edf",
+"struct_main_1_1_fluid_synth_plugin_1_1___preset_selection_component.html#a77a6ecf8d5c0c90d5578e7add84f48cb",
+"struct_midi_meta_event_kind.html#a87fa7f090439cbacd1233480ff27201b"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

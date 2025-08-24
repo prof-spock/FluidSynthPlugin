@@ -1,5 +1,10 @@
 var NAVTREEINDEX2 =
 {
+"_wave_file_8cpp.html#a3fb960569ef29ef9f16947f2004930eb":[3,0,0,0,13,31],
+"_wave_file_8cpp.html#a4133a26d5899eddbe11fb69a864ab4b8":[3,0,0,0,13,16],
+"_wave_file_8cpp.html#a4717dd48d0e5295581ebfa3274a40fcb":[3,0,0,0,13,11],
+"_wave_file_8cpp.html#a64757dc84eac3a7e8bcaa0bfbd6b71ee":[3,0,0,0,13,8],
+"_wave_file_8cpp.html#a695681d4df4135b970ed2032c9243e55":[3,0,0,0,13,9],
 "_wave_file_8cpp.html#a97205a2e4cc7ce07d9157783f7e5cf95":[3,0,0,0,13,17],
 "_wave_file_8cpp.html#aaa7d710c1d78cf7924b9560fd8f38060":[3,0,0,0,13,18],
 "_wave_file_8cpp.html#aadcec9826113e1c84f0dc38501e0cae1":[3,0,0,0,13,29],
@@ -244,10 +249,5 @@ var NAVTREEINDEX2 =
 "struct___event_processor_descriptor.html#a4aea6c2f662acbbfbda2de97b96c2839":[2,0,8,3],
 "struct___event_processor_descriptor.html#a51b0bfa1de482d5d60594cc5d62157fc":[2,0,8,7],
 "struct___event_processor_descriptor.html#a56b69efb039e45a83c23e2d68995ca89":[2,0,8,0],
-"struct___event_processor_descriptor.html#a61cb9ce4f0faa9ad06c74ffb992919b5":[2,0,8,2],
-"struct___event_processor_descriptor.html#a72431ce545dad0d3e920e199f9c0c0a5":[2,0,8,4],
-"struct___event_processor_descriptor.html#a8196016f8b0a18cecd4742fcb981a3f2":[2,0,8,10],
-"struct___event_processor_descriptor.html#aa6792775496f2a93111371eef5b4d077":[2,0,8,5],
-"struct___event_processor_descriptor.html#ae4652e8f715aa24b942389488bc3b0b7":[2,0,8,9],
-"struct___event_time.html":[2,0,9]
+"struct___event_processor_descriptor.html#a61cb9ce4f0faa9ad06c74ffb992919b5":[2,0,8,2]
 };

@@ -52,12 +52,11 @@ IF("${GLOB_targetDirectory}" STREQUAL "")
 ENDIF()
 
 CMAKE_PATH(SET GLOB_platformTargetDirectory NORMALIZE
-           ${GLOB_targetDirectory}/targetPlatforms)
+           ${GLOB_targetDirectory}/targetPlatforms/${GLOB_platformName})
 
 SET(GLOB_platformTargetSubdirectory )
 CMAKE_PATH(APPEND GLOB_platformTargetSubdirectory
            "${GLOB_platformTargetDirectory}"
-           "${GLOB_platformName}"
            "${GLOB_configurationSubdirectory}")
 MESSAGE(STATUS "platformTargetSubdirectory = "
         ${GLOB_platformTargetSubdirectory})

@@ -107,7 +107,7 @@
 <area shape="poly" id="edge59_Node000039_Node000034" title=" " alt="" coords="1186,335,1204,367,1232,395,1289,424,1351,442,1412,451,1463,455,1463,460,1411,456,1350,447,1287,429,1229,399,1200,370,1181,338"/>
 <area shape="rect" id="Node000040" href="$_audio_sample_fifo_queue_8cpp-inc.html" title="The AudioSampleFifoQueue body implements a fifo queue for audio samples with popping off access to th..." alt="" coords="2042,372,2246,397"/>
 <area shape="poly" id="edge45_Node000039_Node000040" title=" " alt="" coords="1227,313,1562,335,2023,369,2042,371,2041,376,2022,375,1562,341,1226,319"/>
-<area shape="rect" id="Node000031" href="$_fluid_synth_sound_font_8cpp.html" title="The FluidSynthSoundFont class implements an object&#45;oriented wrapper around an underlying fluidsynth s..." alt="" coords="1079,445,1251,471"/>
+<area shape="rect" id="Node000031" href="$_fluid_synth_sound_font_8cpp.html" title="The FluidSynthSoundFont class implements an object&#45;oriented wrapper around an underlying fluidsynth S..." alt="" coords="1079,445,1251,471"/>
 <area shape="poly" id="edge51_Node000039_Node000031" title=" " alt="" coords="1154,336,1141,353,1132,373,1130,392,1136,411,1157,443,1152,446,1131,413,1125,393,1127,371,1137,350,1150,333"/>
 <area shape="rect" id="Node000046" href="$_operating_system_8cpp.html" title="The OperatingSystem body implements a class for several operating system related utility functions (l..." alt="" coords="907,445,1055,471"/>
 <area shape="poly" id="edge57_Node000039_Node000046" title=" " alt="" coords="1148,335,998,447,995,443,1145,331"/>

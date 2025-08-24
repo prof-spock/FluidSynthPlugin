@@ -14,11 +14,11 @@
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="319,110,158,154,157,149,317,105"/>
 <area shape="rect" id="Node000004" href="$_fluid_synth_plugin___event_processor_8cpp.html" title="The FluidSynthPlugin_Processor module implements the handling of MIDI events from the DAW via JUCE ha..." alt="" coords="251,152,493,177"/>
 <area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="375,118,375,152,369,152,369,118"/>
-<area shape="rect" id="Node000007" href="$_fluid_synth_sound_font_8h.html" title="The FluidSynthSoundFont class specifies an object&#45;oriented wrapper around an underlying fluidsynth so..." alt="" coords="1105,152,1263,177"/>
+<area shape="rect" id="Node000007" href="$_fluid_synth_sound_font_8h.html" title="The FluidSynthSoundFont class specifies an object&#45;oriented wrapper around an underlying fluidsynth So..." alt="" coords="1105,152,1263,177"/>
 <area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="1013,106,1149,149,1148,154,1012,111"/>
 <area shape="rect" id="Node000010" href="$_fluid_synth_synthesizer_8cpp.html" title="The FluidSynthSynthesizer class implements an object&#45;oriented wrapper around an underlying fluidsynth..." alt="" coords="901,152,1080,177"/>
 <area shape="poly" id="edge9_Node000006_Node000010" title=" " alt="" coords="976,116,989,151,984,153,971,118"/>
-<area shape="rect" id="Node000008" href="$_fluid_synth_sound_font_8cpp.html" title="The FluidSynthSoundFont class implements an object&#45;oriented wrapper around an underlying fluidsynth s..." alt="" coords="1098,225,1270,251"/>
+<area shape="rect" id="Node000008" href="$_fluid_synth_sound_font_8cpp.html" title="The FluidSynthSoundFont class implements an object&#45;oriented wrapper around an underlying fluidsynth S..." alt="" coords="1098,225,1270,251"/>
 <area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="1187,191,1187,225,1181,225,1181,191"/>
 <area shape="rect" id="Node000009" href="$_midi_event_converter_8cpp.html" title="The MidiEventConverter module implements the handling of MIDI events by feeding them to an underlying..." alt="" coords="684,225,841,251"/>
 <area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="1103,182,831,228,830,223,1103,177"/>
