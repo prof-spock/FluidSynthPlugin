@@ -126,7 +126,7 @@ namespace BaseTypes::GenericTypes {
          */
         ElementType* asArray (IN Natural position = 0)
         {
-            return &(_ElementTypeVector::data()[(size_t) position]);
+            return &(_ElementTypeVector::data()[size_t(position)]);
         }
 
         /*--------------------*/
@@ -139,7 +139,7 @@ namespace BaseTypes::GenericTypes {
          */
         const ElementType* asArray (IN Natural position = 0) const
         {
-            return &(_ElementTypeVector::data()[(size_t) position]);
+            return &(_ElementTypeVector::data()[size_t(position)]);
         }
 
         /*--------------------*/
@@ -150,26 +150,33 @@ namespace BaseTypes::GenericTypes {
          * conversion function <C>elementToString</C> is not defined,
          * some surrogate function is used
          *
+         * @param[in] typeNameIsUsed  tells whether list shall be
+         *                            prefixed by type name
          * @return  single string representation of list
          */
-        String toString () const
+        String toString (IN Boolean typeNameIsUsed = true) const
         {
             String result = "";
 
             for (Natural i = 0;  i < length();  i++) {
                 result += (i == 0 ? "" : ", ");
 
-                if constexpr(elementToString == nullptr) {
-                    result += "?" + std::to_string((int) i) + "?";
+                if (elementToString == nullptr) {
+                    result += "?" + std::to_string(int(i)) + "?";
                 } else {
                     const ElementType& element = at(i);
                     result += (*elementToString)(element);
                 }
             }
 
-            String typeName = (nameOfType == nullptr ? "List"
-                               : (*nameOfType)());
-            result = typeName + "(" + result + ")";
+            result = "(" + result + ")";
+
+            if (typeNameIsUsed) {
+                String typeName = (nameOfType == nullptr ? "List"
+                                   : (*nameOfType)());
+                result = typeName + result;
+            }
+
             return result;
         }
 
@@ -185,7 +192,7 @@ namespace BaseTypes::GenericTypes {
          */
         ElementType& operator [] (IN Natural position)
         {
-            return _ElementTypeVector::at((size_t) position);
+            return _ElementTypeVector::at(size_t(position));
         }
 
         /*--------------------*/
@@ -198,7 +205,7 @@ namespace BaseTypes::GenericTypes {
          */
         const ElementType& operator [] (IN Natural position) const
         {
-            return _ElementTypeVector::at((size_t) position);
+            return _ElementTypeVector::at(size_t(position));
         }
 
         /*--------------------*/
@@ -211,7 +218,7 @@ namespace BaseTypes::GenericTypes {
          */
         ElementType& at (IN Natural position)
         {
-            return _ElementTypeVector::at((size_t) position);
+            return _ElementTypeVector::at(size_t(position));
         }
 
         /*--------------------*/
@@ -224,7 +231,7 @@ namespace BaseTypes::GenericTypes {
          */
         const ElementType& at (IN Natural position) const
         {
-            return _ElementTypeVector::at((size_t) position);
+            return _ElementTypeVector::at(size_t(position));
         }
 
         /*--------------------*/
@@ -411,7 +418,7 @@ namespace BaseTypes::GenericTypes {
          */
         void setLength (IN Natural newSize)
         {
-            _ElementTypeVector::resize((size_t) newSize);
+            _ElementTypeVector::resize(size_t(newSize));
         }
 
         /*--------------------*/
@@ -425,7 +432,7 @@ namespace BaseTypes::GenericTypes {
          */
         void setLength (IN Natural newSize, IN ElementType& value)
         {
-            _ElementTypeVector::resize((size_t) newSize, value);
+            _ElementTypeVector::resize(size_t(newSize), value);
         }
 
         /*--------------------*/

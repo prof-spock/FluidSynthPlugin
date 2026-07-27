@@ -13,9 +13,7 @@
 /* IMPORTS */
 /*=========*/
 
-#include <time.h>
-    #define SystemTime_TimeSpec   struct timespec
-    #define SystemTime_currentClockTime(ts) timespec_get(ts, TIME_UTC)
+#include <MySystemTime.h>
 
 #include "Logging.h"
 #include "RealList.h"
@@ -65,6 +63,88 @@ static Real _fromParts (IN Real hours,
 
 /*--------------------*/
 
+using _ParseState = Character;
+static const Character _ParseState_inLimbo          = 'L';
+static const Character _ParseState_inPart           = 'P';
+static const Character _ParseState_inFractionalPart = 'F';
+static const String _digitCharacters = "0123456789";
+
+/*--------------------*/
+
+/**
+ * Supports <C>_fromString</C> function by handling the <C>inLimbo</C>
+ * state.
+ *
+ * @param[in]    ch          character to be processed
+ * @param[inout] isNegative  flag to tell whether result is negative
+ * @param[inout] partValue   partial value collected
+ * @param[inout] parseState  successor parse state
+ * @param[inout] isOkay      flag whether parsing was successful
+ */
+static Boolean _fromString_process_inLimbo (IN Character ch,
+                                            INOUT Boolean isNegative,
+                                            INOUT Real partValue,
+                                            INOUT _ParseState parseState)
+{
+    Boolean isOkay = true;
+
+    if (ch == ' ') {
+        /* do nothing */
+    } else if (ch == '+' || ch == '-') {
+        isNegative = (ch == '-');
+        partValue = 0.0;
+        parseState = _ParseState_inPart;
+    } else if (STR::contains(_digitCharacters, ch)) {
+        Real value{STR::find(_digitCharacters, ch)};
+        partValue = value;
+        parseState = _ParseState_inPart;
+    } else {
+        isOkay = false;
+    }
+
+    return isOkay;
+}
+
+/*--------------------*/
+
+/**
+ * Supports <C>_fromString</C> function by handling the <C>inPart</C>
+ * state.
+ *
+ * @param[in]    ch          character to be processed
+ * @param[inout] partList    list of partial values
+ * @param[inout] partValue   partial value collected
+ * @param[inout] parseState  successor parse state
+ * @param[inout] isOkay      flag whether parsing was successful
+ */
+static Boolean _fromString_process_inPart (IN Character ch,
+                                           INOUT RealList partList,
+                                           INOUT Real partValue,
+                                           INOUT String fractionalPart,
+                                           INOUT _ParseState parseState)
+{
+    Boolean isOkay = true;
+
+    if (STR::contains(_digitCharacters, ch)) {
+        Real value{STR::find(_digitCharacters, ch)};
+        partValue = partValue * 10.0 + value;
+    } else if (ch == '.' || ch == ',') {
+        partList.append(partValue);
+        parseState = _ParseState_inFractionalPart;
+        fractionalPart = "0.";
+    } else if (ch == ':') {
+        partList.append(partValue);
+        partValue = 0.0;
+        isOkay = (partList.length() < 3);
+    } else {
+        isOkay = false;
+    }
+
+    return isOkay;
+ }
+
+/*--------------------*/
+
 /**
 * Converts string <C>st</C> in canonical time format to real.
 *
@@ -76,17 +156,13 @@ static Real _fromString (IN String& st)
     Logging_trace1(">>: %1", st);
 
     const String adaptedSt = STR::strip(st);
-    const String digitCharacters = "0123456789";
     RealList partList;
     Real partValue;
     Boolean isNegative = false;
     Boolean isOkay = true;
     String fractionalPart;
 
-    const Character ParseState_inLimbo          = 'L';
-    const Character ParseState_inPart           = 'P';
-    const Character ParseState_inFractionalPart = 'F';
-    Character parseState = ParseState_inLimbo;
+    _ParseState parseState = _ParseState_inLimbo;
     String fsaTrace;
 
     for (Character ch : adaptedSt) {
@@ -95,48 +171,24 @@ static Real _fromString (IN String& st)
                 STR::expand("[%1]%2", TOSTRING(parseState), TOSTRING(ch));
         }
         
-        if (parseState == ParseState_inLimbo) {
-            if (ch == ' ') {
-                /* do nothing */
-            } else if (ch == '+' || ch == '-') {
-                isNegative = (ch == '-');
-                partValue = 0.0;
-                parseState = ParseState_inPart;
-            } else if (STR::contains(digitCharacters, ch)) {
-                Real value{STR::find(digitCharacters, ch)};
-                partValue = value;
-                parseState = ParseState_inPart;
-            } else {
-                isOkay = false;
-                break;
-            }
-        } else if (parseState == ParseState_inPart) {
-            if (STR::contains(digitCharacters, ch)) {
-                Real value{STR::find(digitCharacters, ch)};
-                partValue = partValue * 10.0 + value;
-            } else if (ch == '.' || ch == ',') {
-                partList.append(partValue);
-                parseState = ParseState_inFractionalPart;
-                fractionalPart = "0.";
-            } else if (ch == ':') {
-                partList.append(partValue);
-                partValue = 0.0;
+        if (parseState == _ParseState_inLimbo) {
+            isOkay = _fromString_process_inLimbo(ch, isNegative,
+                                                 partValue, parseState);
 
-                if (partList.length() == 3) {
-                    isOkay = false;
-                    break;
-                }
-            } else {
-                isOkay = false;
-                break;
-            }
-        } else if (parseState == ParseState_inFractionalPart) {
-            if (STR::contains(digitCharacters, ch)) {
+        } else if (parseState == _ParseState_inPart) {
+            isOkay = _fromString_process_inPart(ch, partList,
+                                                partValue, fractionalPart,
+                                                parseState);
+        } else if (parseState == _ParseState_inFractionalPart) {
+            if (STR::contains(_digitCharacters, ch)) {
                 STR::append(fractionalPart, ch);
             } else {
                 isOkay = false;
-                break;
             }
+        }
+
+        if (!isOkay) {
+            break;
         }
     }
 
@@ -170,10 +222,10 @@ static Real _systemTime ()
 {
     Logging_trace(">>");
 
-    SystemTime_TimeSpec timeSpec;
-    SystemTime_currentClockTime(&timeSpec);
-    Real result{(double) timeSpec.tv_sec
-                + ((double) timeSpec.tv_nsec) * 1.0E-9};
+    C_SystemTime::TimeSpec timeSpec;
+    C_SystemTime::currentClockTime(timeSpec);
+    Real result{double(timeSpec.tv_sec)
+                + double(timeSpec.tv_nsec) * 1.0E-9};
 
     Logging_trace1("<<: %1", TOSTRING(result));
     return result;

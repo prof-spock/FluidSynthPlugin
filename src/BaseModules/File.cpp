@@ -13,24 +13,7 @@
 /*=========*/
 
 #include <cstring>
-#include <stdio.h>
-    /** qualified version of FILE from stdio */
-    #define StdIO_FILE    FILE
-    /** qualified version of fclose from stdio */
-    #define StdIO_fclose  fclose
-    /** qualified version of fopen from stdio */
-    #define StdIO_fopen   fopen
-    /** qualified version of fputs from stdio */
-    #define StdIO_fputs   fputs
-    /** qualified version of fread from stdio */
-    #define StdIO_fread(ptr, tSize, count, stream) \
-            fread(ptr, (size_t) tSize, (size_t) count, stream)
-    /** qualified version of fseek from stdio */
-    #define StdIO_fseek   fseek
-    /** qualified version of ftell from stdio */
-    #define StdIO_ftell   ftell
-    /** qualified version of fwrite from stdio */
-    #define StdIO_fwrite  fwrite
+#include "MyStdIO.h"
 
 #include "Assertion.h"
 #include "File.h"
@@ -46,7 +29,21 @@ using STR = BaseModules::StringUtil;
 /*====================*/
 
 /** alias name for name from stdio.h */
-typedef StdIO_FILE* FilePointer;
+typedef C_StdIO::File* FilePointer;
+
+/*====================*/
+
+/** error message for already closed file */
+static const String _ErrMsg_alreadyClosedFile =
+    "file must be open before close";
+
+/** error message for closed file when reading */
+static const String _ErrMsg_fileClosedWhenReading =
+    "file must be open for reading";
+
+/** error message for closed file when writing */
+static const String _ErrMsg_fileClosedWhenWriting =
+    "file must be open for writing";
 
 /*--------------------*/
 /* con-/destruction   */
@@ -74,7 +71,7 @@ Boolean File::open (IN String& fileName, IN String& mode)
                    || mode == "r" || mode == "rb"
                    || mode == "w" || mode == "wb"),
                   STR::expand("file mode must be known - %1", mode));
-    FilePointer file = StdIO_fopen(fileName.c_str(), mode.c_str());
+    FilePointer file = C_StdIO::fopen(fileName.c_str(), mode.c_str());
     _descriptor = file;
     Boolean result = (file != NULL);
     return result;
@@ -84,11 +81,10 @@ Boolean File::open (IN String& fileName, IN String& mode)
 
 void File::close ()
 {
-    if (_descriptor != NULL) {
-        FilePointer file = static_cast<FilePointer>(_descriptor);
-        StdIO_fclose(file);
-        _descriptor = NULL;
-    }
+    Assertion_pre(isOpen(), _ErrMsg_alreadyClosedFile);
+    FilePointer file = static_cast<FilePointer>(_descriptor);
+    C_StdIO::fclose(file);
+    _descriptor = NULL;
 }
 
 /*--------------------*/
@@ -99,7 +95,7 @@ Natural File::read (INOUT ByteList& byteList,
                     IN Natural position,
                     IN Natural count)
 {
-    Assertion_pre(isOpen(), "file must be open for reading");
+    Assertion_pre(isOpen(), _ErrMsg_fileClosedWhenReading);
     FilePointer file = static_cast<FilePointer>(_descriptor);
     char charArray[512];
     const Natural chunkSize = sizeof(charArray);
@@ -110,8 +106,8 @@ Natural File::read (INOUT ByteList& byteList,
         Natural bytesToRead =
             Natural::minimum(chunkSize, count - totalBytesRead);
         Natural bytesRead =
-            Natural{StdIO_fread(charArray, sizeof(char),
-                                bytesToRead, file)};
+            Natural{C_StdIO::fread(charArray, sizeof(char),
+                                   size_t(bytesToRead), file)};
 
         if (listSize < position + totalBytesRead + bytesRead) {
             /* extend list to take another bytesRead bytes */
@@ -123,7 +119,7 @@ Natural File::read (INOUT ByteList& byteList,
         } else {
             char* ptr =
                 reinterpret_cast<char*>(static_cast<Byte*>(byteList.asArray()));
-            ptr += (size_t)(position + totalBytesRead);
+            ptr += size_t(position + totalBytesRead);
             std::memcpy(ptr, charArray, static_cast<size_t>(bytesRead));
             totalBytesRead += bytesRead;
         }
@@ -143,7 +139,8 @@ StringList File::readLines ()
     read(byteList);
     st = byteList.decodeToString();
     st = STR::newlineReplacedString(st, newlineReplacement);
-    StringList result = StringList::makeBySplit(st, newlineReplacement);
+    StringList result =
+        StringList::makeBySplit(st, newlineReplacement);
 
     return result;
 }
@@ -154,12 +151,12 @@ Natural File::write (IN ByteList& byteList,
                      IN Natural position,
                      IN Natural count)
 {
-    Assertion_pre(isOpen(), "file must be open for writing");
+    Assertion_pre(isOpen(), _ErrMsg_fileClosedWhenWriting);
     FilePointer file = static_cast<FilePointer>(_descriptor);
     const char* characterArray =
         reinterpret_cast<const char*>(byteList.asArray());
-    Natural result = StdIO_fwrite(&characterArray[(size_t) position],
-                                  1, (size_t) count, file);
+    Natural result = C_StdIO::fwrite(&characterArray[size_t(position)],
+                                     1, size_t(count), file);
     return result;
 }
 
@@ -167,9 +164,9 @@ Natural File::write (IN ByteList& byteList,
 
 void File::writeString (IN String& st)
 {
-    Assertion_pre(isOpen(), "file must be open for writing");
+    Assertion_pre(isOpen(), _ErrMsg_fileClosedWhenWriting);
     FilePointer file = static_cast<FilePointer>(_descriptor);
-    StdIO_fputs(st.c_str(), file);
+    C_StdIO::fputs(st.c_str(), file);
 }
 
 /*--------------------*/
@@ -179,12 +176,12 @@ void File::writeString (IN String& st)
 Natural File::length (IN String& fileName)
 {
     Natural result = 0;
-    FilePointer file = StdIO_fopen(fileName.c_str(), "rb");
+    FilePointer file = C_StdIO::fopen(fileName.c_str(), "rb");
 
     if (file != NULL) {
-        StdIO_fseek(file, 0, SEEK_END);
-        result = (size_t) StdIO_ftell(file);
-        StdIO_fclose(file);
+        C_StdIO::fseek(file, 0, SEEK_END);
+        result = size_t(C_StdIO::ftell(file));
+        C_StdIO::fclose(file);
     }
 
     return result;

@@ -118,7 +118,7 @@ $(function(){initNavTree('_my_array_8h_source.html','',''); });
 <div class="foldopen" id="foldopen00041" data-start="" data-end="">
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="_my_array_8h.html#adede199e40286fbec7786ebdc3b1b299">   41</a></span><span class="preprocessor">    #define makeLocalArray(ElementType, count) \</span></div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">        static_cast&lt;ElementType*&gt;(alloca(sizeof(ElementType) \</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">                                  * (size_t)(count)))</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">                                  * size_t(count)))</span></div>
 </div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="comment">/*--------------------*/</span></div>
@@ -144,8 +144,8 @@ $(function(){initNavTree('_my_array_8h_source.html','',''); });
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>                    <a class="code hl_struct" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> count)</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    {</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <span class="keyword">const</span> <a class="code hl_struct" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> byteCount = <a class="code hl_struct" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a>{<span class="keyword">sizeof</span>(ElementType)} * count;</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <a class="code hl_define" href="_my_array_8h.html#a92f67422dae01fc66ac6cbf525c5c95c">CString_memcpy</a>(destinationPtr, sourcePtr, (<span class="keywordtype">size_t</span>) byteCount);</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        destinationPtr += (size_t) count;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <a class="code hl_define" href="_my_array_8h.html#a92f67422dae01fc66ac6cbf525c5c95c">CString_memcpy</a>(destinationPtr, sourcePtr, <span class="keywordtype">size_t</span>(byteCount));</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        destinationPtr += size_t(count);</div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    }</div>
 </div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>

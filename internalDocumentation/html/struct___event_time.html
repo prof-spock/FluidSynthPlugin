@@ -93,20 +93,20 @@ $(function(){initNavTree('struct___event_time.html','','struct___event_time-memb
 </div><!--header-->
 <div class="contents">
 
-<p>A simple structure for storing an event time in different formats (midiTime, timeInSeconds, timeInSamples)  
+<p>A simple structure for storing an event time in different formats (midiTime, timeInSeconds, timeInDataPoints)  
  <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac5d7af20e62fc625e6824a9b91a31e4e" id="r_ac5d7af20e62fc625e6824a9b91a31e4e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac5d7af20e62fc625e6824a9b91a31e4e">_EventTime</a> (<a class="el" href="struct_base_types_1_1_primitives_1_1_integer.html">Integer</a> newMidiTime=0, <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a> newTimeInSeconds=0.0, <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.html">Integer</a> newTimeInSamples=0)</td></tr>
-<tr class="memdesc:ac5d7af20e62fc625e6824a9b91a31e4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a new event time object from <code>newMidiTime</code>, <code>newTimeInSeconds</code>, and <code>newTimeInSamples</code>.  <br /></td></tr>
+<tr class="memitem:af4ed33131835029ee20e753ff06cfc26" id="r_af4ed33131835029ee20e753ff06cfc26"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af4ed33131835029ee20e753ff06cfc26">_EventTime</a> (<a class="el" href="struct_base_types_1_1_primitives_1_1_integer.html">Integer</a> newMidiTime=0, <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a> newTimeInSeconds=0.0, <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.html">Integer</a> newTimeInDataPoints=0)</td></tr>
+<tr class="memdesc:af4ed33131835029ee20e753ff06cfc26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a new event time object from <code>newMidiTime</code>, <code>newTimeInSeconds</code>, and <code>newTimeInDataPoints</code>.  <br /></td></tr>
 <tr class="memitem:a037a584fbdc829a4cef97f2970852328" id="r_a037a584fbdc829a4cef97f2970852328"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a037a584fbdc829a4cef97f2970852328">toString</a> () const</td></tr>
 <tr class="memdesc:a037a584fbdc829a4cef97f2970852328"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns string representation of current event time.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a171501d7981f97cc56ad665c72c07706" id="r_a171501d7981f97cc56ad665c72c07706"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct___event_time.html">_EventTime</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a171501d7981f97cc56ad665c72c07706">makeRelative</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.html">Integer</a> midiEventTime, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct___event_time.html">_EventTime</a> &amp;previousTime, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a> midiTimeToSecondsFactor, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a> sampleRate)</td></tr>
-<tr class="memdesc:a171501d7981f97cc56ad665c72c07706"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts <code>midiEventTime</code> in <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> ticks to event time using reference time <code>previousEventTime</code> using factors <code>midiTimeToSecondsFactor</code> and <code>sampleRate</code>.  <br /></td></tr>
+<tr class="memitem:a589192a0983456e3f34b9c9e6140e5c9" id="r_a589192a0983456e3f34b9c9e6140e5c9"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct___event_time.html">_EventTime</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a589192a0983456e3f34b9c9e6140e5c9">makeRelative</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.html">Integer</a> midiEventTime, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct___event_time.html">_EventTime</a> &amp;previousTime, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a> midiTimeToSecondsFactor, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a> dataPointRate)</td></tr>
+<tr class="memdesc:a589192a0983456e3f34b9c9e6140e5c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts <code>midiEventTime</code> in <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> ticks to event time using reference time <code>previousEventTime</code> using factors <code>midiTimeToSecondsFactor</code> and <code>dataPointRate</code>.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -116,15 +116,15 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a75041ef66f1aa4414909e6457748d232" id="r_a75041ef66f1aa4414909e6457748d232"><td class="memItemLeft" align="right" valign="top"><a id="a75041ef66f1aa4414909e6457748d232" name="a75041ef66f1aa4414909e6457748d232"></a>
 <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>timeInSeconds</b></td></tr>
 <tr class="memdesc:a75041ef66f1aa4414909e6457748d232"><td class="mdescLeft">&#160;</td><td class="mdescRight">the event time in seconds <br /></td></tr>
-<tr class="memitem:a1439af436a88b20c005514a1f7414e35" id="r_a1439af436a88b20c005514a1f7414e35"><td class="memItemLeft" align="right" valign="top"><a id="a1439af436a88b20c005514a1f7414e35" name="a1439af436a88b20c005514a1f7414e35"></a>
-<a class="el" href="struct_base_types_1_1_primitives_1_1_integer.html">Integer</a>&#160;</td><td class="memItemRight" valign="bottom"><b>timeInSamples</b></td></tr>
-<tr class="memdesc:a1439af436a88b20c005514a1f7414e35"><td class="mdescLeft">&#160;</td><td class="mdescRight">the event time in samples <br /></td></tr>
+<tr class="memitem:ae1ae11206a935b985a84c7f7be8ed9a5" id="r_ae1ae11206a935b985a84c7f7be8ed9a5"><td class="memItemLeft" align="right" valign="top"><a id="ae1ae11206a935b985a84c7f7be8ed9a5" name="ae1ae11206a935b985a84c7f7be8ed9a5"></a>
+<a class="el" href="struct_base_types_1_1_primitives_1_1_integer.html">Integer</a>&#160;</td><td class="memItemRight" valign="bottom"><b>timeInDataPoints</b></td></tr>
+<tr class="memdesc:ae1ae11206a935b985a84c7f7be8ed9a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">the event time in data points <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A simple structure for storing an event time in different formats (midiTime, timeInSeconds, timeInSamples) </p>
+<div class="textblock"><p>A simple structure for storing an event time in different formats (midiTime, timeInSeconds, timeInDataPoints) </p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ac5d7af20e62fc625e6824a9b91a31e4e" name="ac5d7af20e62fc625e6824a9b91a31e4e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac5d7af20e62fc625e6824a9b91a31e4e">&#9670;&#160;</a></span>_EventTime()</h2>
+<a id="af4ed33131835029ee20e753ff06cfc26" name="af4ed33131835029ee20e753ff06cfc26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4ed33131835029ee20e753ff06cfc26">&#9670;&#160;</a></span>_EventTime()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -145,7 +145,7 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="struct_base_types_1_1_primitives_1_1_integer.html">Integer</a></td>          <td class="paramname"><span class="paramname"><em>newTimeInSamples</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="struct_base_types_1_1_primitives_1_1_integer.html">Integer</a></td>          <td class="paramname"><span class="paramname"><em>newTimeInDataPoints</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -155,12 +155,12 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructs a new event time object from <code>newMidiTime</code>, <code>newTimeInSeconds</code>, and <code>newTimeInSamples</code>. </p>
+<p>Constructs a new event time object from <code>newMidiTime</code>, <code>newTimeInSeconds</code>, and <code>newTimeInDataPoints</code>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">newMidiTime</td><td>event time as <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> ticks </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">newTimeInSeconds</td><td>event time as seconds </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">newTimeInSamples</td><td>event time as sample count </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">newTimeInDataPoints</td><td>event time as data point count </td></tr>
   </table>
   </dd>
 </dl>
@@ -168,8 +168,8 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a171501d7981f97cc56ad665c72c07706" name="a171501d7981f97cc56ad665c72c07706"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a171501d7981f97cc56ad665c72c07706">&#9670;&#160;</a></span>makeRelative()</h2>
+<a id="a589192a0983456e3f34b9c9e6140e5c9" name="a589192a0983456e3f34b9c9e6140e5c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a589192a0983456e3f34b9c9e6140e5c9">&#9670;&#160;</a></span>makeRelative()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -195,7 +195,7 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a></td>          <td class="paramname"><span class="paramname"><em>sampleRate</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a></td>          <td class="paramname"><span class="paramname"><em>dataPointRate</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -205,13 +205,13 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Converts <code>midiEventTime</code> in <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> ticks to event time using reference time <code>previousEventTime</code> using factors <code>midiTimeToSecondsFactor</code> and <code>sampleRate</code>. </p>
+<p>Converts <code>midiEventTime</code> in <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> ticks to event time using reference time <code>previousEventTime</code> using factors <code>midiTimeToSecondsFactor</code> and <code>dataPointRate</code>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">midiEventTime</td><td>event time in <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> ticks </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">previousTime</td><td>the previous event time </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">midiTimeToSecondsFactor</td><td>conversion factor from ticks to seconds </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">sampleRate</td><td>current sample rate (in Hz) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dataPointRate</td><td>current data point rate (in Hz) </td></tr>
   </table>
   </dd>
 </dl>

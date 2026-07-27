@@ -132,9 +132,9 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a64757dc84eac3a7e8bcaa0bfbd6b71ee" id="r_a64757dc84eac3a7e8bcaa0bfbd6b71ee"><td class="memItemLeft" align="right" valign="top"><a id="a64757dc84eac3a7e8bcaa0bfbd6b71ee" name="a64757dc84eac3a7e8bcaa0bfbd6b71ee"></a>
-typedef <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>AudioSample</b></td></tr>
-<tr class="memdesc:a64757dc84eac3a7e8bcaa0bfbd6b71ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">An <code><a class="el" href="_audio_sample_list_8h.html#a64757dc84eac3a7e8bcaa0bfbd6b71ee" title="An AudioSample represents a single audio sample (a 32bit float)">AudioSample</a></code> represents a single audio sample (a 32bit float) <br /></td></tr>
+<tr class="memitem:a8a1335d82708ba40820b69bda61aefd9" id="r_a8a1335d82708ba40820b69bda61aefd9"><td class="memItemLeft" align="right" valign="top"><a id="a8a1335d82708ba40820b69bda61aefd9" name="a8a1335d82708ba40820b69bda61aefd9"></a>
+typedef <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>AudioDataPoint</b></td></tr>
+<tr class="memdesc:a8a1335d82708ba40820b69bda61aefd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">An <code><a class="el" href="_audio_data_point_8cpp-inc.html#a8a1335d82708ba40820b69bda61aefd9" title="An AudioDataPoint represents a single audio data point (a real value)">AudioDataPoint</a></code> represents a single audio data point (a real value) <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -159,22 +159,22 @@ Functions</h2></td></tr>
 <tr class="memdesc:a4717dd48d0e5295581ebfa3274a40fcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Does an assertion check for <code>byteList</code> being accessible at <code>position</code> or just pointing to the element after list.  <br /></td></tr>
 <tr class="memitem:abb795a547b7a1c325f7984754d5bdf39" id="r_abb795a547b7a1c325f7984754d5bdf39"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb795a547b7a1c325f7984754d5bdf39">WaveFile__assertEquality</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> expectedValue, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> value, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a> &amp;kind)</td></tr>
 <tr class="memdesc:abb795a547b7a1c325f7984754d5bdf39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Does an assertion check for equality of <code>expectedValue</code> and <code>value</code> with <code>kind</code> giving an indication about the variable kind.  <br /></td></tr>
-<tr class="memitem:af65749f0b61038fcd04ab64b23a2c2d0" id="r_af65749f0b61038fcd04ab64b23a2c2d0"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af65749f0b61038fcd04ab64b23a2c2d0">WaveFile__readHeader</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_containers_1_1_byte_list.html">ByteList</a> &amp;byteList, <a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> &amp;position, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> expectedFileSize, <a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a> &amp;isPCMData, <a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> &amp;channelCount, <a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> &amp;sampleRate, <a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> &amp;sampleWidthInBytes)</td></tr>
-<tr class="memdesc:af65749f0b61038fcd04ab64b23a2c2d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads RIFF WAVE header from byte list <code>byteList</code> at <code>position</code> filling parameters <code>isPCMData</code> telling whether this is a float or integer format, <code>dataSectionSize</code>, <code>channelCount</code>, <code>sampleRate</code> and <code>sampleWidthInBytes</code>.  <br /></td></tr>
-<tr class="memitem:af3edcc9e9cfc06e0d1c56bb35b3437cb" id="r_af3edcc9e9cfc06e0d1c56bb35b3437cb"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af3edcc9e9cfc06e0d1c56bb35b3437cb">WaveFile__readIntDataFromByteList</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_containers_1_1_byte_list.html">ByteList</a> &amp;byteList, <a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> &amp;position, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> totalSampleCount, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> channelCount, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> audioFrameCount, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> sampleWidthInBytes, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a> scalingFactor, <a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="struct_audio_1_1_audio_sample_list_vector.html">AudioSampleListVector</a> &amp;sampleBuffer)</td></tr>
-<tr class="memdesc:af3edcc9e9cfc06e0d1c56bb35b3437cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads data <code>byteList</code> at <code>position</code> into <code>sampleBuffer</code> as integer data characterized by <code>totalSampleCount</code>, <code>channelCount</code>, <code>audioFrameCount</code>, <code>sampleWidthInBytes</code> and <code>scalingFactor</code> and updates <code>position</code>.  <br /></td></tr>
+<tr class="memitem:a52f1b76cb0f4ed6890bb67fb4cbf6762" id="r_a52f1b76cb0f4ed6890bb67fb4cbf6762"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a52f1b76cb0f4ed6890bb67fb4cbf6762">WaveFile__readHeader</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_containers_1_1_byte_list.html">ByteList</a> &amp;byteList, <a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> &amp;position, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> expectedFileSize, <a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a> &amp;isPCMData, <a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> &amp;channelCount, <a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> &amp;dataPointRate, <a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> &amp;dataPointWidthInBytes)</td></tr>
+<tr class="memdesc:a52f1b76cb0f4ed6890bb67fb4cbf6762"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads RIFF WAVE header from byte list <code>byteList</code> at <code>position</code> filling parameters <code>isPCMData</code> telling whether this is a float or integer format, <code>dataSectionSize</code>, <code>channelCount</code>, <code>dataPointRate</code> and <code>dataPointWidthInBytes</code>.  <br /></td></tr>
+<tr class="memitem:a64b1580c4c215cbeac0aea85c5c7a5ac" id="r_a64b1580c4c215cbeac0aea85c5c7a5ac"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a64b1580c4c215cbeac0aea85c5c7a5ac">WaveFile__readIntDataFromByteList</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_containers_1_1_byte_list.html">ByteList</a> &amp;byteList, <a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> &amp;position, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> totalDataPointCount, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> channelCount, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> audioFrameCount, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> dataPointWidthInBytes, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a> scalingFactor, <a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="struct_audio_1_1_audio_data_point_list_vector.html">AudioDataPointListVector</a> &amp;dataPointBuffer)</td></tr>
+<tr class="memdesc:a64b1580c4c215cbeac0aea85c5c7a5ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads data <code>byteList</code> at <code>position</code> into <code>dataPointBuffer</code> as integer data characterized by <code>totalDataPointCount</code>, <code>channelCount</code>, <code>audioFrameCount</code>, <code>dataPointWidthInBytes</code> and <code>scalingFactor</code> and updates <code>position</code>.  <br /></td></tr>
 <tr class="memitem:a4133a26d5899eddbe11fb69a864ab4b8" id="r_a4133a26d5899eddbe11fb69a864ab4b8"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4133a26d5899eddbe11fb69a864ab4b8">WaveFile__readReal</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_containers_1_1_byte_list.html">ByteList</a> &amp;byteList, <a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> &amp;position, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> byteCount)</td></tr>
 <tr class="memdesc:a4133a26d5899eddbe11fb69a864ab4b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads as real value from byte list <code>byteList</code> at <code>position</code> using <code>byteCount</code> bytes in little-endian format and updates <code>position</code>.  <br /></td></tr>
-<tr class="memitem:a97205a2e4cc7ce07d9157783f7e5cf95" id="r_a97205a2e4cc7ce07d9157783f7e5cf95"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a97205a2e4cc7ce07d9157783f7e5cf95">WaveFile__readRealDataFromByteList</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_containers_1_1_byte_list.html">ByteList</a> &amp;byteList, <a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> &amp;position, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> totalSampleCount, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> channelCount, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> audioFrameCount, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> sampleWidthInBytes, <a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="struct_audio_1_1_audio_sample_list_vector.html">AudioSampleListVector</a> &amp;sampleBuffer)</td></tr>
-<tr class="memdesc:a97205a2e4cc7ce07d9157783f7e5cf95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads data <code>byteList</code> at <code>position</code> into <code>sampleBuffer</code> as floating point data characterized by <code>totalSampleCount</code>, <code>channelCount</code>, <code>audioFrameCount</code> and <code>sampleWidthInBytes</code> updates <code>position</code>.  <br /></td></tr>
-<tr class="memitem:af0515bd56e7ee1bd6deadcc16806e5f2" id="r_af0515bd56e7ee1bd6deadcc16806e5f2"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af0515bd56e7ee1bd6deadcc16806e5f2">WaveFile__writeHeader</a> (<a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_base_types_1_1_containers_1_1_byte_list.html">ByteList</a> &amp;byteList, <a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> &amp;position, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a> isPCMData, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> fileSize, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> channelCount, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> audioFrameCount, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> sampleRate, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> sampleWidthInBytes)</td></tr>
-<tr class="memdesc:af0515bd56e7ee1bd6deadcc16806e5f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes RIFF WAVE header to byte list <code>byteList</code> at <code>position</code> using parameters <code>isPCMData</code> telling whether this is a float or integer format, <code>dataSectionSize</code>, <code>channelCount</code>, <code>sampleRate</code> and <code>sampleWidthInBytes</code>.  <br /></td></tr>
-<tr class="memitem:af8f5417a4de50c672188d5a9608514f4" id="r_af8f5417a4de50c672188d5a9608514f4"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af8f5417a4de50c672188d5a9608514f4">WaveFile__writeIntDataToByteList</a> (<a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_base_types_1_1_containers_1_1_byte_list.html">ByteList</a> &amp;byteList, <a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> &amp;position, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> totalSampleCount, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> channelCount, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> audioFrameCount, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> sampleWidthInBytes, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a> scalingFactor, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_audio_1_1_audio_sample_list_vector.html">AudioSampleListVector</a> &amp;sampleBuffer)</td></tr>
-<tr class="memdesc:af8f5417a4de50c672188d5a9608514f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes data from <code>sampleBuffer</code> to <code>byteList</code> at <code>position</code> as integer data characterized by <code>totalSampleCount</code>, <code>channelCount</code>, <code>audioFrameCount</code>, <code>sampleWidthInBytes</code> and <code>scalingFactor</code> and updates <code>position</code>.  <br /></td></tr>
+<tr class="memitem:a09133064f945699f60b29562ef6ccd9c" id="r_a09133064f945699f60b29562ef6ccd9c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a09133064f945699f60b29562ef6ccd9c">WaveFile__readRealDataFromByteList</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_containers_1_1_byte_list.html">ByteList</a> &amp;byteList, <a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> &amp;position, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> totalDataPointCount, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> channelCount, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> audioFrameCount, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> dataPointWidthInBytes, <a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="struct_audio_1_1_audio_data_point_list_vector.html">AudioDataPointListVector</a> &amp;dataPointBuffer)</td></tr>
+<tr class="memdesc:a09133064f945699f60b29562ef6ccd9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads data <code>byteList</code> at <code>position</code> into <code>dataPointBuffer</code> as floating point data characterized by <code>totalDataPointCount</code>, <code>channelCount</code>, <code>audioFrameCount</code> and <code>dataPointWidthInBytes</code> updates <code>position</code>.  <br /></td></tr>
+<tr class="memitem:ac241edbe249d9e91618fc8d12b54bbd2" id="r_ac241edbe249d9e91618fc8d12b54bbd2"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac241edbe249d9e91618fc8d12b54bbd2">WaveFile__writeHeader</a> (<a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_base_types_1_1_containers_1_1_byte_list.html">ByteList</a> &amp;byteList, <a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> &amp;position, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a> isPCMData, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> fileSize, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> channelCount, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> audioFrameCount, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> dataPointRate, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> dataPointWidthInBytes)</td></tr>
+<tr class="memdesc:ac241edbe249d9e91618fc8d12b54bbd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes RIFF WAVE header to byte list <code>byteList</code> at <code>position</code> using parameters <code>isPCMData</code> telling whether this is a float or integer format, <code>dataSectionSize</code>, <code>channelCount</code>, <code>dataPointRate</code> and <code>dataPointWidthInBytes</code>.  <br /></td></tr>
+<tr class="memitem:a4cc3640e529bfd6d9e78ae6d77662066" id="r_a4cc3640e529bfd6d9e78ae6d77662066"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4cc3640e529bfd6d9e78ae6d77662066">WaveFile__writeIntDataToByteList</a> (<a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_base_types_1_1_containers_1_1_byte_list.html">ByteList</a> &amp;byteList, <a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> &amp;position, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> totalDataPointCount, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> channelCount, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> audioFrameCount, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> dataPointWidthInBytes, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a> scalingFactor, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_audio_1_1_audio_data_point_list_vector.html">AudioDataPointListVector</a> &amp;dataPointBuffer)</td></tr>
+<tr class="memdesc:a4cc3640e529bfd6d9e78ae6d77662066"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes data from <code>dataPointBuffer</code> to <code>byteList</code> at <code>position</code> as integer data characterized by <code>totalDataPointCount</code>, <code>channelCount</code>, <code>audioFrameCount</code>, <code>dataPointWidthInBytes</code> and <code>scalingFactor</code> and updates <code>position</code>.  <br /></td></tr>
 <tr class="memitem:a2b0d2034bcc835fc3aac349fed4151cb" id="r_a2b0d2034bcc835fc3aac349fed4151cb"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2b0d2034bcc835fc3aac349fed4151cb">WaveFile__writeReal</a> (<a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_base_types_1_1_containers_1_1_byte_list.html">ByteList</a> &amp;byteList, <a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> &amp;position, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> byteCount, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a> r)</td></tr>
 <tr class="memdesc:a2b0d2034bcc835fc3aac349fed4151cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes <code>r</code> to byte list <code>byteList</code> at <code>position</code> using <code>byteCount</code> bytes in little-endian format and updates <code>position</code>.  <br /></td></tr>
-<tr class="memitem:a194d133d822ff3ef67df1a36c42ca562" id="r_a194d133d822ff3ef67df1a36c42ca562"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a194d133d822ff3ef67df1a36c42ca562">WaveFile__writeRealDataToByteList</a> (<a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_base_types_1_1_containers_1_1_byte_list.html">ByteList</a> &amp;byteList, <a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> &amp;position, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> totalSampleCount, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> channelCount, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> audioFrameCount, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> sampleWidthInBytes, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_audio_1_1_audio_sample_list_vector.html">AudioSampleListVector</a> &amp;sampleBuffer)</td></tr>
-<tr class="memdesc:a194d133d822ff3ef67df1a36c42ca562"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes data from <code>sampleBuffer</code> to <code>byteList</code> at <code>position</code> as floating point data characterized by <code>totalSampleCount</code>, <code>channelCount</code>, <code>audioFrameCount</code> and <code>sampleWidthInBytes</code> and updates <code>position</code>.  <br /></td></tr>
+<tr class="memitem:a014fb604b1895334530174ba50407329" id="r_a014fb604b1895334530174ba50407329"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a014fb604b1895334530174ba50407329">WaveFile__writeRealDataToByteList</a> (<a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_base_types_1_1_containers_1_1_byte_list.html">ByteList</a> &amp;byteList, <a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> &amp;position, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> totalDataPointCount, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> channelCount, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> audioFrameCount, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> dataPointWidthInBytes, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_audio_1_1_audio_data_point_list_vector.html">AudioDataPointListVector</a> &amp;dataPointBuffer)</td></tr>
+<tr class="memdesc:a014fb604b1895334530174ba50407329"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes data from <code>dataPointBuffer</code> to <code>byteList</code> at <code>position</code> as floating point data characterized by <code>totalDataPointCount</code>, <code>channelCount</code>, <code>audioFrameCount</code> and <code>dataPointWidthInBytes</code> and updates <code>position</code>.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -183,10 +183,10 @@ static const <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.ht
 <tr class="memdesc:a3fb960569ef29ef9f16947f2004930eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">an integer variable <br /></td></tr>
 <tr class="memitem:afbac8956573ba74fc6c1ca195905e619" id="r_afbac8956573ba74fc6c1ca195905e619"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afbac8956573ba74fc6c1ca195905e619">isBigEndian</a></td></tr>
 <tr class="memdesc:afbac8956573ba74fc6c1ca195905e619"><td class="mdescLeft">&#160;</td><td class="mdescRight">tells whether this machine is big endian  <br /></td></tr>
-<tr class="memitem:aef59a4faf276bd58d1f67537fe987be9" id="r_aef59a4faf276bd58d1f67537fe987be9"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="struct_base_types_1_1_containers_1_1_natural_list.html">NaturalList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aef59a4faf276bd58d1f67537fe987be9">allowedIntSampleWidthList</a></td></tr>
-<tr class="memdesc:aef59a4faf276bd58d1f67537fe987be9"><td class="mdescLeft">&#160;</td><td class="mdescRight">the allowed sample widths for integer samples  <br /></td></tr>
-<tr class="memitem:a15bd208f00354eb38807124c5bd8e97b" id="r_a15bd208f00354eb38807124c5bd8e97b"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="struct_base_types_1_1_containers_1_1_natural_list.html">NaturalList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a15bd208f00354eb38807124c5bd8e97b">allowedRealSampleWidthList</a></td></tr>
-<tr class="memdesc:a15bd208f00354eb38807124c5bd8e97b"><td class="mdescLeft">&#160;</td><td class="mdescRight">the allowed sample widths for real samples  <br /></td></tr>
+<tr class="memitem:ae1ec9d5183b947187a4af99ace7ae86b" id="r_ae1ec9d5183b947187a4af99ace7ae86b"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="struct_base_types_1_1_containers_1_1_natural_list.html">NaturalList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae1ec9d5183b947187a4af99ace7ae86b">allowedIntDataPointWidthList</a></td></tr>
+<tr class="memdesc:ae1ec9d5183b947187a4af99ace7ae86b"><td class="mdescLeft">&#160;</td><td class="mdescRight">the allowed data point widths for integer samples  <br /></td></tr>
+<tr class="memitem:a5d041cd8d3ce705a17791710147d537e" id="r_a5d041cd8d3ce705a17791710147d537e"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="struct_base_types_1_1_containers_1_1_natural_list.html">NaturalList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d041cd8d3ce705a17791710147d537e">allowedRealDataPointWidthList</a></td></tr>
+<tr class="memdesc:a5d041cd8d3ce705a17791710147d537e"><td class="mdescLeft">&#160;</td><td class="mdescRight">the allowed data point widths for real samples  <br /></td></tr>
 <tr class="memitem:aadcec9826113e1c84f0dc38501e0cae1" id="r_aadcec9826113e1c84f0dc38501e0cae1"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aadcec9826113e1c84f0dc38501e0cae1">ErrMsg_nonIdenticalValues</a></td></tr>
 <tr class="memdesc:aadcec9826113e1c84f0dc38501e0cae1"><td class="mdescLeft">&#160;</td><td class="mdescRight">error message when values are not identical  <br /></td></tr>
 <tr class="memitem:a3b312160c9d555fee9ac4ceebfe31d07" id="r_a3b312160c9d555fee9ac4ceebfe31d07"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3b312160c9d555fee9ac4ceebfe31d07">ErrMsg_bufferIsEmpty</a></td></tr>
@@ -280,8 +280,8 @@ static const <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.ht
 
 </div>
 </div>
-<a id="af65749f0b61038fcd04ab64b23a2c2d0" name="af65749f0b61038fcd04ab64b23a2c2d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af65749f0b61038fcd04ab64b23a2c2d0">&#9670;&#160;</a></span>WaveFile__readHeader()</h2>
+<a id="a52f1b76cb0f4ed6890bb67fb4cbf6762" name="a52f1b76cb0f4ed6890bb67fb4cbf6762"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52f1b76cb0f4ed6890bb67fb4cbf6762">&#9670;&#160;</a></span>WaveFile__readHeader()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -317,12 +317,12 @@ static const <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.ht
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>sampleRate</em></span>, </td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dataPointRate</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>sampleWidthInBytes</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dataPointWidthInBytes</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -332,24 +332,24 @@ static const <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.ht
 </table>
 </div><div class="memdoc">
 
-<p>Reads RIFF WAVE header from byte list <code>byteList</code> at <code>position</code> filling parameters <code>isPCMData</code> telling whether this is a float or integer format, <code>dataSectionSize</code>, <code>channelCount</code>, <code>sampleRate</code> and <code>sampleWidthInBytes</code>. </p>
+<p>Reads RIFF WAVE header from byte list <code>byteList</code> at <code>position</code> filling parameters <code>isPCMData</code> telling whether this is a float or integer format, <code>dataSectionSize</code>, <code>channelCount</code>, <code>dataPointRate</code> and <code>dataPointWidthInBytes</code>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">byteList</td><td>source byte list to be read from </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">position</td><td>first source position to be read from </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">isPCMData</td><td>information whether this is a format with integer samples </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">fileSize</td><td>the count in bytes of the complete file </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">channelCount</td><td>number of channels in sample buffer </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">sampleRate</td><td>sample rate within file </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">sampleWidthInBytes</td><td>number of bytes per sample (must be 1, 2, 4 or 8) </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">channelCount</td><td>number of channels in data point buffer </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">dataPointRate</td><td>"sample rate" within file </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">dataPointWidthInBytes</td><td>number of bytes per data point (must be 1, 2, 3, 4 or 8) </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="af3edcc9e9cfc06e0d1c56bb35b3437cb" name="af3edcc9e9cfc06e0d1c56bb35b3437cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af3edcc9e9cfc06e0d1c56bb35b3437cb">&#9670;&#160;</a></span>WaveFile__readIntDataFromByteList()</h2>
+<a id="a64b1580c4c215cbeac0aea85c5c7a5ac" name="a64b1580c4c215cbeac0aea85c5c7a5ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64b1580c4c215cbeac0aea85c5c7a5ac">&#9670;&#160;</a></span>WaveFile__readIntDataFromByteList()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -370,7 +370,7 @@ static const <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.ht
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a></td>          <td class="paramname"><span class="paramname"><em>totalSampleCount</em></span>, </td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a></td>          <td class="paramname"><span class="paramname"><em>totalDataPointCount</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -385,7 +385,7 @@ static const <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.ht
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a></td>          <td class="paramname"><span class="paramname"><em>sampleWidthInBytes</em></span>, </td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a></td>          <td class="paramname"><span class="paramname"><em>dataPointWidthInBytes</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -395,7 +395,7 @@ static const <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.ht
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="struct_audio_1_1_audio_sample_list_vector.html">AudioSampleListVector</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>sampleBuffer</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="struct_audio_1_1_audio_data_point_list_vector.html">AudioDataPointListVector</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dataPointBuffer</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -405,17 +405,17 @@ static const <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.ht
 </table>
 </div><div class="memdoc">
 
-<p>Reads data <code>byteList</code> at <code>position</code> into <code>sampleBuffer</code> as integer data characterized by <code>totalSampleCount</code>, <code>channelCount</code>, <code>audioFrameCount</code>, <code>sampleWidthInBytes</code> and <code>scalingFactor</code> and updates <code>position</code>. </p>
+<p>Reads data <code>byteList</code> at <code>position</code> into <code>dataPointBuffer</code> as integer data characterized by <code>totalDataPointCount</code>, <code>channelCount</code>, <code>audioFrameCount</code>, <code>dataPointWidthInBytes</code> and <code>scalingFactor</code> and updates <code>position</code>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">byteList</td><td>source byte list for sample data </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">byteList</td><td>source byte list for data points </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">position</td><td>first position in byte list to be read from </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">totalSampleCount</td><td>total number of samples </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">totalDataPointCount</td><td>total number of data points </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">channelCount</td><td>number of channels </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">audioFrameCount</td><td>number of audio frames </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">sampleWidthInBytes</td><td>number of bytes per sample (must be 1, 2, 3 or 4) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dataPointWidthInBytes</td><td>number of bytes per data point (must be 1, 2, 3 or 4) </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">scalingFactor</td><td>real factor to scale data </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">sampleBuffer</td><td>sample buffer to be read into from byte list </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">dataPointBuffer</td><td>data point buffer to be read into from byte list </td></tr>
   </table>
   </dd>
 </dl>
@@ -557,8 +557,8 @@ static const <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.ht
 
 </div>
 </div>
-<a id="a97205a2e4cc7ce07d9157783f7e5cf95" name="a97205a2e4cc7ce07d9157783f7e5cf95"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a97205a2e4cc7ce07d9157783f7e5cf95">&#9670;&#160;</a></span>WaveFile__readRealDataFromByteList()</h2>
+<a id="a09133064f945699f60b29562ef6ccd9c" name="a09133064f945699f60b29562ef6ccd9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09133064f945699f60b29562ef6ccd9c">&#9670;&#160;</a></span>WaveFile__readRealDataFromByteList()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -579,7 +579,7 @@ static const <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.ht
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a></td>          <td class="paramname"><span class="paramname"><em>totalSampleCount</em></span>, </td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a></td>          <td class="paramname"><span class="paramname"><em>totalDataPointCount</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -594,12 +594,12 @@ static const <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.ht
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a></td>          <td class="paramname"><span class="paramname"><em>sampleWidthInBytes</em></span>, </td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a></td>          <td class="paramname"><span class="paramname"><em>dataPointWidthInBytes</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="struct_audio_1_1_audio_sample_list_vector.html">AudioSampleListVector</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>sampleBuffer</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="struct_audio_1_1_audio_data_point_list_vector.html">AudioDataPointListVector</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dataPointBuffer</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -609,16 +609,16 @@ static const <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.ht
 </table>
 </div><div class="memdoc">
 
-<p>Reads data <code>byteList</code> at <code>position</code> into <code>sampleBuffer</code> as floating point data characterized by <code>totalSampleCount</code>, <code>channelCount</code>, <code>audioFrameCount</code> and <code>sampleWidthInBytes</code> updates <code>position</code>. </p>
+<p>Reads data <code>byteList</code> at <code>position</code> into <code>dataPointBuffer</code> as floating point data characterized by <code>totalDataPointCount</code>, <code>channelCount</code>, <code>audioFrameCount</code> and <code>dataPointWidthInBytes</code> updates <code>position</code>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">byteList</td><td>source byte list for sample data </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">byteList</td><td>source byte list for data points </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">position</td><td>first position in byte list to be read from </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">totalSampleCount</td><td>total number of samples </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">totalDataPointCount</td><td>total number of data points </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">channelCount</td><td>number of channels </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">audioFrameCount</td><td>number of audio frames </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">sampleWidthInBytes</td><td>number of bytes per sample (must be 1, 2, 3 or 4) </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">sampleBuffer</td><td>sample buffer to be read into from byte list </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dataPointWidthInBytes</td><td>number of bytes per data point (must be 1, 2, 3 or 4) </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">dataPointBuffer</td><td>data point buffer to be read into from byte list </td></tr>
   </table>
   </dd>
 </dl>
@@ -713,8 +713,8 @@ static const <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.ht
 
 </div>
 </div>
-<a id="af0515bd56e7ee1bd6deadcc16806e5f2" name="af0515bd56e7ee1bd6deadcc16806e5f2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af0515bd56e7ee1bd6deadcc16806e5f2">&#9670;&#160;</a></span>WaveFile__writeHeader()</h2>
+<a id="ac241edbe249d9e91618fc8d12b54bbd2" name="ac241edbe249d9e91618fc8d12b54bbd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac241edbe249d9e91618fc8d12b54bbd2">&#9670;&#160;</a></span>WaveFile__writeHeader()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -755,12 +755,12 @@ static const <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.ht
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a></td>          <td class="paramname"><span class="paramname"><em>sampleRate</em></span>, </td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a></td>          <td class="paramname"><span class="paramname"><em>dataPointRate</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a></td>          <td class="paramname"><span class="paramname"><em>sampleWidthInBytes</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a></td>          <td class="paramname"><span class="paramname"><em>dataPointWidthInBytes</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -770,25 +770,25 @@ static const <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.ht
 </table>
 </div><div class="memdoc">
 
-<p>Writes RIFF WAVE header to byte list <code>byteList</code> at <code>position</code> using parameters <code>isPCMData</code> telling whether this is a float or integer format, <code>dataSectionSize</code>, <code>channelCount</code>, <code>sampleRate</code> and <code>sampleWidthInBytes</code>. </p>
+<p>Writes RIFF WAVE header to byte list <code>byteList</code> at <code>position</code> using parameters <code>isPCMData</code> telling whether this is a float or integer format, <code>dataSectionSize</code>, <code>channelCount</code>, <code>dataPointRate</code> and <code>dataPointWidthInBytes</code>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">byteList</td><td>destination byte list to be written to </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">position</td><td>first destination position to be written to </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">isPCMData</td><td>information whether this is a format with integer samples </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">fileSize</td><td>the count in bytes of the complete file </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">channelCount</td><td>number of channels in sample buffer </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">audioFrameCount</td><td>number of audio frames in sample buffer </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">sampleRate</td><td>sample rate to be stored in file </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">sampleWidthInBytes</td><td>number of bytes per sample (must be 1, 2, 4 or 8) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">channelCount</td><td>number of channels in data point buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">audioFrameCount</td><td>number of audio frames in data point buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dataPointRate</td><td>data point rate to be stored in file </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dataPointWidthInBytes</td><td>number of bytes per data point (must be 1, 2, 4 or 8) </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="af8f5417a4de50c672188d5a9608514f4" name="af8f5417a4de50c672188d5a9608514f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8f5417a4de50c672188d5a9608514f4">&#9670;&#160;</a></span>WaveFile__writeIntDataToByteList()</h2>
+<a id="a4cc3640e529bfd6d9e78ae6d77662066" name="a4cc3640e529bfd6d9e78ae6d77662066"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cc3640e529bfd6d9e78ae6d77662066">&#9670;&#160;</a></span>WaveFile__writeIntDataToByteList()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -809,7 +809,7 @@ static const <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.ht
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a></td>          <td class="paramname"><span class="paramname"><em>totalSampleCount</em></span>, </td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a></td>          <td class="paramname"><span class="paramname"><em>totalDataPointCount</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -824,7 +824,7 @@ static const <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.ht
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a></td>          <td class="paramname"><span class="paramname"><em>sampleWidthInBytes</em></span>, </td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a></td>          <td class="paramname"><span class="paramname"><em>dataPointWidthInBytes</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -834,7 +834,7 @@ static const <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.ht
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_audio_1_1_audio_sample_list_vector.html">AudioSampleListVector</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>sampleBuffer</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_audio_1_1_audio_data_point_list_vector.html">AudioDataPointListVector</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dataPointBuffer</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -844,17 +844,17 @@ static const <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.ht
 </table>
 </div><div class="memdoc">
 
-<p>Writes data from <code>sampleBuffer</code> to <code>byteList</code> at <code>position</code> as integer data characterized by <code>totalSampleCount</code>, <code>channelCount</code>, <code>audioFrameCount</code>, <code>sampleWidthInBytes</code> and <code>scalingFactor</code> and updates <code>position</code>. </p>
+<p>Writes data from <code>dataPointBuffer</code> to <code>byteList</code> at <code>position</code> as integer data characterized by <code>totalDataPointCount</code>, <code>channelCount</code>, <code>audioFrameCount</code>, <code>dataPointWidthInBytes</code> and <code>scalingFactor</code> and updates <code>position</code>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">byteList</td><td>destination byte list for sample data </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">byteList</td><td>destination byte list for data points </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">position</td><td>first position in byte list to be written </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">totalSampleCount</td><td>total number of samples in sample buffer </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">channelCount</td><td>number of channels in sample buffer </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">audioFrameCount</td><td>number of audio frames in sample buffer </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">sampleWidthInBytes</td><td>number of bytes per sample (must be 1, 2, 3 or 4) </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">scalingFactor</td><td>real factor to scale data from sample buffer </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">sampleBuffer</td><td>sample buffer to be written to byte list </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">totalDataPointCount</td><td>total number of data points in buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">channelCount</td><td>number of channels in data point buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">audioFrameCount</td><td>number of audio frames in data point buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dataPointWidthInBytes</td><td>number of bytes per data point (must be 1, 2, 3 or 4) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">scalingFactor</td><td>real factor to scale data from data point buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dataPointBuffer</td><td>data point buffer to be written to byte list </td></tr>
   </table>
   </dd>
 </dl>
@@ -961,8 +961,8 @@ static const <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.ht
 
 </div>
 </div>
-<a id="a194d133d822ff3ef67df1a36c42ca562" name="a194d133d822ff3ef67df1a36c42ca562"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a194d133d822ff3ef67df1a36c42ca562">&#9670;&#160;</a></span>WaveFile__writeRealDataToByteList()</h2>
+<a id="a014fb604b1895334530174ba50407329" name="a014fb604b1895334530174ba50407329"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a014fb604b1895334530174ba50407329">&#9670;&#160;</a></span>WaveFile__writeRealDataToByteList()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -983,7 +983,7 @@ static const <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.ht
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a></td>          <td class="paramname"><span class="paramname"><em>totalSampleCount</em></span>, </td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a></td>          <td class="paramname"><span class="paramname"><em>totalDataPointCount</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -998,12 +998,12 @@ static const <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.ht
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a></td>          <td class="paramname"><span class="paramname"><em>sampleWidthInBytes</em></span>, </td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a></td>          <td class="paramname"><span class="paramname"><em>dataPointWidthInBytes</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_audio_1_1_audio_sample_list_vector.html">AudioSampleListVector</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>sampleBuffer</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_audio_1_1_audio_data_point_list_vector.html">AudioDataPointListVector</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dataPointBuffer</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -1013,16 +1013,16 @@ static const <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.ht
 </table>
 </div><div class="memdoc">
 
-<p>Writes data from <code>sampleBuffer</code> to <code>byteList</code> at <code>position</code> as floating point data characterized by <code>totalSampleCount</code>, <code>channelCount</code>, <code>audioFrameCount</code> and <code>sampleWidthInBytes</code> and updates <code>position</code>. </p>
+<p>Writes data from <code>dataPointBuffer</code> to <code>byteList</code> at <code>position</code> as floating point data characterized by <code>totalDataPointCount</code>, <code>channelCount</code>, <code>audioFrameCount</code> and <code>dataPointWidthInBytes</code> and updates <code>position</code>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">byteList</td><td>destination byte list for sample data </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">byteList</td><td>destination byte list for data points </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">position</td><td>first position in byte list to be written </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">totalSampleCount</td><td>total number of samples in sample buffer </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">channelCount</td><td>number of channels in sample buffer </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">audioFrameCount</td><td>number of audio frames in sample buffer </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">sampleWidthInBytes</td><td>number of bytes per sample (must be 4 or 8) </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">sampleBuffer</td><td>sample buffer to be written to byte list </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">totalDataPointCount</td><td>total number of data points in buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">channelCount</td><td>number of channels in data point buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">audioFrameCount</td><td>number of audio frames in data point buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dataPointWidthInBytes</td><td>number of bytes per data point (must be 4 or 8) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dataPointBuffer</td><td>data point buffer to be written to byte list </td></tr>
   </table>
   </dd>
 </dl>
@@ -1074,8 +1074,8 @@ static const <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.ht
 </div>
 </div>
 <a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
-<a id="aef59a4faf276bd58d1f67537fe987be9" name="aef59a4faf276bd58d1f67537fe987be9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aef59a4faf276bd58d1f67537fe987be9">&#9670;&#160;</a></span>allowedIntSampleWidthList</h2>
+<a id="ae1ec9d5183b947187a4af99ace7ae86b" name="ae1ec9d5183b947187a4af99ace7ae86b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1ec9d5183b947187a4af99ace7ae86b">&#9670;&#160;</a></span>allowedIntDataPointWidthList</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1084,7 +1084,7 @@ static const <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.ht
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="struct_base_types_1_1_containers_1_1_natural_list.html">NaturalList</a> allowedIntSampleWidthList</td>
+          <td class="memname">const <a class="el" href="struct_base_types_1_1_containers_1_1_natural_list.html">NaturalList</a> allowedIntDataPointWidthList</td>
         </tr>
       </table>
   </td>
@@ -1097,12 +1097,12 @@ static const <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.ht
 <div class="line">    <a class="code hl_function" href="struct_natural_list.html#ae3b931a1d1249c61724c05a5c22151fe">NaturalList::fromList</a>({1, 2, 3, 4})</div>
 <div class="ttc" id="astruct_natural_list_html_ae3b931a1d1249c61724c05a5c22151fe"><div class="ttname"><a href="struct_natural_list.html#ae3b931a1d1249c61724c05a5c22151fe">NaturalList::fromList</a></div><div class="ttdeci">static NaturalList fromList(IN initializer_list&lt; Natural &gt; list)</div><div class="ttdoc">Initializes list of naturals from an initializer list values.</div><div class="ttdef"><b>Definition</b> NaturalList.cpp:38</div></div>
 </div><!-- fragment -->
-<p>the allowed sample widths for integer samples </p>
+<p>the allowed data point widths for integer samples </p>
 
 </div>
 </div>
-<a id="a15bd208f00354eb38807124c5bd8e97b" name="a15bd208f00354eb38807124c5bd8e97b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a15bd208f00354eb38807124c5bd8e97b">&#9670;&#160;</a></span>allowedRealSampleWidthList</h2>
+<a id="a5d041cd8d3ce705a17791710147d537e" name="a5d041cd8d3ce705a17791710147d537e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d041cd8d3ce705a17791710147d537e">&#9670;&#160;</a></span>allowedRealDataPointWidthList</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1111,7 +1111,7 @@ static const <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.ht
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="struct_base_types_1_1_containers_1_1_natural_list.html">NaturalList</a> allowedRealSampleWidthList</td>
+          <td class="memname">const <a class="el" href="struct_base_types_1_1_containers_1_1_natural_list.html">NaturalList</a> allowedRealDataPointWidthList</td>
         </tr>
       </table>
   </td>
@@ -1123,7 +1123,7 @@ static const <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.ht
 <b>Initial value:</b><div class="fragment"><div class="line">=</div>
 <div class="line">    <a class="code hl_function" href="struct_natural_list.html#ae3b931a1d1249c61724c05a5c22151fe">NaturalList::fromList</a>({4, 8})</div>
 </div><!-- fragment -->
-<p>the allowed sample widths for real samples </p>
+<p>the allowed data point widths for real samples </p>
 
 </div>
 </div>

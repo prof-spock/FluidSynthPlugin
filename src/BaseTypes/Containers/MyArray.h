@@ -40,7 +40,7 @@ namespace BaseTypes::Containers {
      */
     #define makeLocalArray(ElementType, count) \
         static_cast<ElementType*>(alloca(sizeof(ElementType) \
-                                  * (size_t)(count)))
+                                  * size_t(count)))
 
     /*--------------------*/
 
@@ -83,8 +83,8 @@ namespace BaseTypes::Containers {
                     Natural count)
     {
         const Natural byteCount = Natural{sizeof(ElementType)} * count;
-        CString_memcpy(destinationPtr, sourcePtr, (size_t) byteCount);
-        destinationPtr += (size_t) count;
+        CString_memcpy(destinationPtr, sourcePtr, size_t(byteCount));
+        destinationPtr += size_t(count);
     }
 
     /*--------------------*/

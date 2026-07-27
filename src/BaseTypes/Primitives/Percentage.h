@@ -70,7 +70,7 @@ namespace BaseTypes::Primitives {
          * @param[in] r  real value
          */
         Percentage (IN Real r)
-            : Percentage((double) r)
+            : Percentage(double(r))
         {
         }
 
@@ -187,7 +187,7 @@ namespace BaseTypes::Primitives {
         static Integer percentOf (IN Percentage percentage,
                                   IN Integer value)
         {
-            return Integer{(int) percentOf(percentage, Real{value})};
+            return Integer{int(percentOf(percentage, Real{value}))};
         }
 
         /*--------------------*/
@@ -202,7 +202,7 @@ namespace BaseTypes::Primitives {
         static Natural percentOf (IN Percentage percentage,
                                   IN Natural value)
         {
-            return Natural{(size_t) percentOf(percentage, Integer{value})};
+            return Natural{size_t(percentOf(percentage, Integer{value}))};
         }
 
         /*--------------------*/

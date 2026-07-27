@@ -60,9 +60,11 @@ namespace BaseTypes::GenericTypes {
          * conversion function <C>elementToString</C> is not defined,
          * some surrogate function is used
          *
+         * @param[in] typeNameIsUsed  tells whether tuple shall be
+         *                            prefixed by type name
          * @return  single string representation of tuple
          */
-        String toString () const
+        String toString (IN Boolean typeNameIsUsed = true) const
         {
             String result = "";
 
@@ -70,16 +72,21 @@ namespace BaseTypes::GenericTypes {
                 result += (i == 0 ? "" : ", ");
 
                 if (elementToString == nullptr) {
-                    result += "?" + std::to_string((int) i) + "?";
+                    result += "?" + std::to_string(int(i)) + "?";
                 } else {
                     const ElementType& element = at(i);
                     result += (*elementToString)(element);
                 }
             }
 
-            String typeName = (nameOfType == nullptr ? "Tuple"
-                               : (*nameOfType)());
-            result = StringUtil::expand("%1(%2)", typeName, result);
+            result = "(" + result + ")";
+
+            if (typeNameIsUsed) {
+                String typeName = (nameOfType == nullptr ? "Tuple"
+                                   : (*nameOfType)());
+                result = typeName + result;
+            }
+
             return result;
         }
 
@@ -95,7 +102,7 @@ namespace BaseTypes::GenericTypes {
          */
         const ElementType& operator [] (IN Natural position) const
         {
-            return array<ElementType, elementCount>::at((size_t) position);
+            return array<ElementType, elementCount>::at(size_t(position));
         }
 
         /*--------------------*/
@@ -108,7 +115,7 @@ namespace BaseTypes::GenericTypes {
          */
         const ElementType& at (IN Natural position) const
         {
-            return array<ElementType, elementCount>::at((size_t) position);
+            return array<ElementType, elementCount>::at(size_t(position));
         }
 
         /*--------------------*/
@@ -123,7 +130,7 @@ namespace BaseTypes::GenericTypes {
          */
         ElementType& operator [] (IN Natural position)
         {
-            return array<ElementType, elementCount>::at((size_t) position);
+            return array<ElementType, elementCount>::at(size_t(position));
         }
 
         /*--------------------*/
@@ -136,7 +143,7 @@ namespace BaseTypes::GenericTypes {
          */
         ElementType& at (IN Natural position)
         {
-            return array<ElementType, elementCount>::at((size_t) position);
+            return array<ElementType, elementCount>::at(size_t(position));
         }
 
         /*--------------------*/

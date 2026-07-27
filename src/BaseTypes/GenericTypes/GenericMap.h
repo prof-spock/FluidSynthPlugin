@@ -84,9 +84,11 @@ namespace BaseTypes::GenericTypes {
          * <C>valueToString</C> are not defined, some surrogate
          * functions are used
          *
+         * @param[in] typeNameIsUsed  tells whether map shall be
+         *                            prefixed by type name
          * @return  single string representation of map
          */
-        String toString () const
+        String toString (IN Boolean typeNameIsUsed = true) const
         {
             String result = "";
             _KeyList keyList = this->keyList();
@@ -108,9 +110,14 @@ namespace BaseTypes::GenericTypes {
                         : (*valueToString)(value)));
             }
 
-            String typeName = (nameOfType == nullptr ? "Map"
-                               : (*nameOfType)());
-            result = StringUtil::expand("%1(%2)", typeName, result);
+            result = "(" + result + ")";
+
+            if (typeNameIsUsed) {
+                String typeName = (nameOfType == nullptr ? "Map"
+                                   : (*nameOfType)());
+                result = typeName + result;
+            }
+
             return result;
         }
 

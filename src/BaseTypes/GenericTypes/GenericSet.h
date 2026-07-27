@@ -75,9 +75,11 @@ namespace BaseTypes::GenericTypes {
          * conversion function <C>elementToString</C> is not defined,
          * some surrogate function is used
          *
+         * @param[in] typeNameIsUsed  tells whether set shall be
+         *                            prefixed by type name
          * @return  single string representation of set
          */
-        String toString () const
+        String toString (IN Boolean typeNameIsUsed = true) const
         {
             String result = "";
             Natural i = 0;
@@ -86,7 +88,7 @@ namespace BaseTypes::GenericTypes {
                 result += (i == 0 ? "" : ", ");
 
                 if (elementToString == nullptr) {
-                    result += "?" + std::to_string((int) i) + "?";
+                    result += "?" + std::to_string(int(i)) + "?";
                 } else {
                     result += (*elementToString)(element);
                 }
@@ -94,9 +96,14 @@ namespace BaseTypes::GenericTypes {
                 i++;
             }
 
-            String typeName = (nameOfType == nullptr ? "Set"
-                               : (*nameOfType)());
-            result = StringUtil::expand("%1(%2)", typeName, result);
+            result = "(" + result + ")";
+
+            if (typeNameIsUsed) {
+                String typeName = (nameOfType == nullptr ? "Set"
+                                   : (*nameOfType)());
+                result = typeName + result;
+            }
+
             return result;
         }
 

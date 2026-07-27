@@ -24,13 +24,13 @@ The reason for being picky about the exact rendering is as follows: my scenario 
 
 The first component of this package is a DAW plugin called <B><TT>FluidSynthPlugin</TT></B>.  It has a simplistic interface where you specify a SoundFont, several fluidsynth settings and possibly a MIDI program to be selected by putting text data in a text field.  Then you are able to convert an incoming MIDI stream in a DAW to audio using the FluidSynth library.
 
-When playing around with that plugin some inexplicable differences to the command-line <TT>FluidSynth</TT> occured.  Even when using innocent SoundFonts (without chorus and other modulators), sample playback in the plugin and the command-line player were not absolutely identical.  Analysis and contact with the <TT>FluidSynth</TT> team revealed that in that program MIDI events are quantized onto some processing raster in the millisecond range while the plugin quantizes them onto the smallest time unit: the sample raster itself.
+When playing around with that plugin some inexplicable differences to the command-line <TT>FluidSynth</TT> occured.  Even when using innocent SoundFonts (without chorus and other modulators), sample playback in the plugin and the command-line player were not absolutely identical.  Analysis and contact with the <TT>FluidSynth</TT> team revealed that in that program MIDI events are quantized onto some processing raster in the millisecond range while the plugin quantizes them onto the smallest time unit: the sample data point raster itself.
 
-Hence another tool in this package circumvents the rasterization by the player of <TT>FluidSynth</TT>.  That second component is a simplistic but pedantic command-line converter called <B><TT>FluidSynthConverter</TT></B>.  It converts a MIDI file into a WAV file, is also based on the fluidsynth library and does the same sample-exact event feeding into that library as the plugin.
+Hence another tool in this package circumvents the rasterization by the player of <TT>FluidSynth</TT>.  That second component is a simplistic but pedantic command-line converter called <B><TT>FluidSynthConverter</TT></B>.  It converts a MIDI file into a WAV file, is also based on the fluidsynth library and does the same data-point-exact event feeding into that library as the plugin.
 
 When using both components (command-line and DAW) on the same MIDI data they typically produce audio output with a difference of less than -200dBFS in a spectrum analysis.
 
-Those components are currently available - as x86_64 versions - for Windows and Linux as VST3, for MacOS as VST3 and AU.
+Those components are currently available - as x86_64 versions - for Windows and Linux as VST3, for MacOS as VST3 and AU for x86_64 and ARM64.
 
 All the code is open-source; hence you can check and adapt it to your needs.
 
@@ -68,7 +68,7 @@ Note that the plugin listens to all MIDI channels, but is not multi-timbral (i.e
 
 ### FluidSynthFileConverter
 
-The <TT>FluidSynthFileConverter</TT> is merely a functionally reduced clone of <TT>FluidSynth</TT>, but with a special property: it places MIDI events onto the raster given by the sample rate (as far as possible).
+The <TT>FluidSynthFileConverter</TT> is merely a functionally reduced clone of <TT>FluidSynth</TT>, but with a special property: it places MIDI events onto the raster given by the sample data point rate (as far as possible).
 
 Similarly to <TT>FluidSynth</TT>, the <TT>FluidSynthFileConverter</TT> is a command-line program.  But the converter does not have to do real-time processing, so the list of its options is reduced, but it is a subset of the options of <TT>FluidSynth</TT>.  On top of that it only supports a conversion from a MIDI file into an audio file.
 
@@ -95,7 +95,7 @@ Ideally (because the result files have inverted phase), everything should cancel
 
 ### Missing Timelocking Functionality
 
-To be able to reproduce the phase of modulators in an external audio file within a plugin, one could use a parameter telling the **relative time of the plugin** with respect to the externally rendered audio.  While this method would lead to perfect reproduction of the external rendering, it is not feasible for the <TT>FluidSynthPlugin</TT>.  There is no direct way to set the modulators in the underlying <TT>FluidSynth</TT> library to a specific phase.  Another approach is to reset all modulators at playback start and first silently have the synthesizer process samples for some duration (to bring its modulators to the correct phases) before then finally putting out the "real" samples. But this is tedious, takes a lot of processing time and also does not help in a situation where the playback has to start **before** the start time of the corresponding fragment.
+To be able to reproduce the phase of modulators in an external audio file within a plugin, one could use a parameter telling the **relative time of the plugin** with respect to the externally rendered audio.  While this method would lead to perfect reproduction of the external rendering, it is not feasible for the <TT>FluidSynthPlugin</TT>.  There is no direct way to set the modulators in the underlying <TT>FluidSynth</TT> library to a specific phase.  Another approach is to reset all modulators at playback start and first silently have the synthesizer process sample data points for some duration (to bring its modulators to the correct phases) before then finally putting out the "real" data points. But this is tedious, takes a lot of processing time and also does not help in a situation where the playback has to start **before** the start time of the corresponding fragment.
 
 So when you need a bit-exact reproduction of externally rendered audio by the <TT>FluidSynthPlugin</TT>, some workaround has to be made as follows:
 
@@ -105,7 +105,7 @@ So when you need a bit-exact reproduction of externally rendered audio by the <T
 
 ### Forced Rasterization by <TT>FluidSynth</TT>
 
-As mentioned in the introduction the important difference between using the standard <TT>FluidSynth</TT> from the command-line versus from a DAW is that there is a forced rasterization to 64 samples' intervals.
+As mentioned in the introduction the important difference between using the standard <TT>FluidSynth</TT> from the command-line versus from a DAW is that there is a forced rasterization to 64 sample data points' intervals.
 
 Unfortunately this rasterization is not just done by <TT>FluidSynth</TT> when communicating with audio drivers or its file renderer, but also done internally by the fluidsynth synthesizer in the library.  The length of the smallest unit for which <TT>FluidSynth</TT> can make state changes and does buffering is a constant called `FLUID_BUFSIZE` and this is fixed to the value 64.
 

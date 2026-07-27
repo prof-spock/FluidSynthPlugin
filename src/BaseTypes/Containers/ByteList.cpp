@@ -54,7 +54,7 @@ ByteList ByteList::fromString (IN String& st)
     result.setLength(byteCount);
 
     for (Natural i = 0;  i < byteCount;  i++) {
-        result.set(i, (Byte) (char) STR::characterAt(st, i));
+        result.set(i, Byte{char(STR::characterAt(st, i))});
     }
 
     return result;
@@ -68,10 +68,10 @@ String ByteList::decodeToString () const
 {
     String result;
     Natural byteCount = length();
-    result.resize((int) byteCount);
+    result.resize(size_t(byteCount));
 
     for (Natural i = 0;  i < byteCount;  i++) {
-        result[(int) i] = (char) at(i);
+        result[size_t(i)] = char(at(i));
     }
 
     return result;
@@ -96,7 +96,7 @@ String ByteList::decodeToBase64String () const
 
     while (isInFirstPart && i < regularLength
            || !isInFirstPart && i < byteCount) {
-        uint8_t byte = (char) at(i++);
+        uint8_t byte = uint8_t(at(i++));
         uint8_t sourceShift = 8 * (2 - sourceShiftIndex++);
         value += (byte << sourceShift);
 
@@ -135,7 +135,7 @@ ByteList::asStringListWithBase (IN Natural base,
     StringList result;
 
     for (Byte element : *this) {
-        Natural v = (char) element;
+        Natural v = char(element);
         String st = v.toStringWithBase(base, precision, padString);
         result.append(st);
     }

@@ -1,0 +1,21 @@
+/**
+ * @file
+ * The <C>AudioDataPoint</C> body implements audio samples <I>(this is
+ * the effective code include file for conditional inlining)</I>.
+ *
+ * @author Dr. Thomas Tensi
+ * @date   2020-08
+ */
+
+/*=========*/
+/* IMPORTS */
+/*=========*/
+
+using Audio::AudioDataPoint;
+
+/*====================*/
+
+//String AudioDataPoint::toString (IN AudioDataPoint& dataPoint)
+//{
+//    return dataPoint.toString(7, 6, "0", true);
+//}

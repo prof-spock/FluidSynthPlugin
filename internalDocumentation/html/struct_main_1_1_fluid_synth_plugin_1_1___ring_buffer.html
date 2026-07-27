@@ -93,7 +93,7 @@ $(function(){initNavTree('struct_main_1_1_fluid_synth_plugin_1_1___ring_buffer.h
 </div><!--header-->
 <div class="contents">
 
-<p>Type for processing of <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> events into sample list vectors with the possibility of delaying events for later processing.  
+<p>Type for processing of <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> events into data point list vectors with the possibility of delaying events for later processing.  
  <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -104,29 +104,29 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9a563fece045afd6e9c43b8eb331d6a5" id="r_a9a563fece045afd6e9c43b8eb331d6a5"><td class="memItemLeft" align="right" valign="top"><a id="a9a563fece045afd6e9c43b8eb331d6a5" name="a9a563fece045afd6e9c43b8eb331d6a5"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>~_RingBuffer</b> ()</td></tr>
 <tr class="memdesc:a9a563fece045afd6e9c43b8eb331d6a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys a ring buffer. <br /></td></tr>
-<tr class="memitem:a57f2138eb9b956f4379ac4405c556cb5" id="r_a57f2138eb9b956f4379ac4405c556cb5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a57f2138eb9b956f4379ac4405c556cb5">processBlock</a> (<a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html">FluidSynthPlugin_EventProcessor</a> *processor, <a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_main_1_1_fluid_synth_plugin_1_1___event_processor_descriptor.html">_EventProcessorDescriptor</a> &amp;descriptor, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.html">Integer</a> currentTime, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_m_i_d_i_1_1_midi_event_list.html">MidiEventList</a> &amp;midiEventList, <a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="struct_audio_1_1_audio_sample_list_vector.html">AudioSampleListVector</a> &amp;sampleListVector, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> audioFrameCount)</td></tr>
-<tr class="memdesc:a57f2138eb9b956f4379ac4405c556cb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes events in <code>midiEventList</code> happening relative to <code>currentTime</code> using <code>processor</code> and its <code>descriptor</code> and returns block of samples in <code>sampleListVector</code>; note that the processing might be delayed to adapt to the raster size of the underlying fluidsynth synthesizer.  <br /></td></tr>
+<tr class="memitem:a6457b4eed975a108aec49219f94c75fe" id="r_a6457b4eed975a108aec49219f94c75fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6457b4eed975a108aec49219f94c75fe">processBlock</a> (<a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html">FluidSynthPlugin_EventProcessor</a> *processor, <a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_main_1_1_fluid_synth_plugin_1_1___event_processor_descriptor.html">_EventProcessorDescriptor</a> &amp;descriptor, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.html">Integer</a> currentTime, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_m_i_d_i_1_1_midi_event_list.html">MidiEventList</a> &amp;midiEventList, <a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="struct_audio_1_1_audio_data_point_list_vector.html">AudioDataPointListVector</a> &amp;dataPointListVector, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> audioFrameCount)</td></tr>
+<tr class="memdesc:a6457b4eed975a108aec49219f94c75fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes events in <code>midiEventList</code> happening relative to <code>currentTime</code> using <code>processor</code> and its <code>descriptor</code> and returns block of data points in <code>dataPointListVector</code>; note that the processing might be delayed to adapt to the raster size of the underlying fluidsynth synthesizer.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:ab484bf11b3ef5b98120d11fc658d8b86" id="r_ab484bf11b3ef5b98120d11fc658d8b86"><td class="memItemLeft" align="right" valign="top"><a id="ab484bf11b3ef5b98120d11fc658d8b86" name="ab484bf11b3ef5b98120d11fc658d8b86"></a>
 <a class="el" href="struct_m_i_d_i_1_1_midi_event_list.html">MidiEventList</a>&#160;</td><td class="memItemRight" valign="bottom"><b>scheduledEventList</b></td></tr>
 <tr class="memdesc:ab484bf11b3ef5b98120d11fc658d8b86"><td class="mdescLeft">&#160;</td><td class="mdescRight">list of midi events to be processed <br /></td></tr>
-<tr class="memitem:ad011bb5053de5fc8f5b26530449ef2c4" id="r_ad011bb5053de5fc8f5b26530449ef2c4"><td class="memItemLeft" align="right" valign="top"><a id="ad011bb5053de5fc8f5b26530449ef2c4" name="ad011bb5053de5fc8f5b26530449ef2c4"></a>
-<a class="el" href="struct_audio_1_1_audio_sample_fifo_queue_vector.html">AudioSampleFifoQueueVector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>sampleQueueList</b></td></tr>
-<tr class="memdesc:ad011bb5053de5fc8f5b26530449ef2c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">vector of sample fifo queues <br /></td></tr>
+<tr class="memitem:a63eb0c067fcfdb007093e4a5d42a2990" id="r_a63eb0c067fcfdb007093e4a5d42a2990"><td class="memItemLeft" align="right" valign="top"><a id="a63eb0c067fcfdb007093e4a5d42a2990" name="a63eb0c067fcfdb007093e4a5d42a2990"></a>
+<a class="el" href="struct_audio_1_1_audio_data_point_fifo_queue_vector.html">AudioDataPointFifoQueueVector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>dataPointQueueList</b></td></tr>
+<tr class="memdesc:a63eb0c067fcfdb007093e4a5d42a2990"><td class="mdescLeft">&#160;</td><td class="mdescRight">vector of data point fifo queues <br /></td></tr>
 <tr class="memitem:ae2fefde6a6b2c952e5c65f10286c025e" id="r_ae2fefde6a6b2c952e5c65f10286c025e"><td class="memItemLeft" align="right" valign="top"><a id="ae2fefde6a6b2c952e5c65f10286c025e" name="ae2fefde6a6b2c952e5c65f10286c025e"></a>
 <a class="el" href="struct_base_types_1_1_primitives_1_1_integer.html">Integer</a>&#160;</td><td class="memItemRight" valign="bottom"><b>lastProcessedTime</b> = Integer::maximumValue()</td></tr>
-<tr class="memdesc:ae2fefde6a6b2c952e5c65f10286c025e"><td class="mdescLeft">&#160;</td><td class="mdescRight">the last time [in samples] that has been processed by processBlock <br /></td></tr>
-<tr class="memitem:a12ee088cc2b51efe393740e0720d4a88" id="r_a12ee088cc2b51efe393740e0720d4a88"><td class="memItemLeft" align="right" valign="top"><a id="a12ee088cc2b51efe393740e0720d4a88" name="a12ee088cc2b51efe393740e0720d4a88"></a>
-<a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a>&#160;</td><td class="memItemRight" valign="bottom"><b>delayDurationInSamples</b> {0}</td></tr>
-<tr class="memdesc:a12ee088cc2b51efe393740e0720d4a88"><td class="mdescLeft">&#160;</td><td class="mdescRight">the delay (in samples) between the <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> events and the rendered samples <br /></td></tr>
+<tr class="memdesc:ae2fefde6a6b2c952e5c65f10286c025e"><td class="mdescLeft">&#160;</td><td class="mdescRight">the last time [in data points] that has been processed by processBlock <br /></td></tr>
+<tr class="memitem:a01052d4e69d666f7feca77acb61c8cf1" id="r_a01052d4e69d666f7feca77acb61c8cf1"><td class="memItemLeft" align="right" valign="top"><a id="a01052d4e69d666f7feca77acb61c8cf1" name="a01052d4e69d666f7feca77acb61c8cf1"></a>
+<a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a>&#160;</td><td class="memItemRight" valign="bottom"><b>delayDurationInDataPoints</b> {0}</td></tr>
+<tr class="memdesc:a01052d4e69d666f7feca77acb61c8cf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">the delay (in data points) between the <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> events and the rendered data points <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Type for processing of <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> events into sample list vectors with the possibility of delaying events for later processing. </p>
+<div class="textblock"><p>Type for processing of <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> events into data point list vectors with the possibility of delaying events for later processing. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a57f2138eb9b956f4379ac4405c556cb5" name="a57f2138eb9b956f4379ac4405c556cb5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a57f2138eb9b956f4379ac4405c556cb5">&#9670;&#160;</a></span>processBlock()</h2>
+<a id="a6457b4eed975a108aec49219f94c75fe" name="a6457b4eed975a108aec49219f94c75fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6457b4eed975a108aec49219f94c75fe">&#9670;&#160;</a></span>processBlock()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -154,7 +154,7 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="struct_audio_1_1_audio_sample_list_vector.html">AudioSampleListVector</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>sampleListVector</em></span>, </td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="struct_audio_1_1_audio_data_point_list_vector.html">AudioDataPointListVector</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dataPointListVector</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -164,15 +164,15 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Processes events in <code>midiEventList</code> happening relative to <code>currentTime</code> using <code>processor</code> and its <code>descriptor</code> and returns block of samples in <code>sampleListVector</code>; note that the processing might be delayed to adapt to the raster size of the underlying fluidsynth synthesizer. </p>
+<p>Processes events in <code>midiEventList</code> happening relative to <code>currentTime</code> using <code>processor</code> and its <code>descriptor</code> and returns block of data points in <code>dataPointListVector</code>; note that the processing might be delayed to adapt to the raster size of the underlying fluidsynth synthesizer. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">processor</td><td>event processor object </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">descriptor</td><td>associated processor descriptor </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">currentTime</td><td>time in samples </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">currentTime</td><td>time in data points </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">midiEventList</td><td>list of midi events starting at given time </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">sampleListVector</td><td>vector of audio sample lists returned </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">audioFrameCount</td><td>number of samples to be returned </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">dataPointListVector</td><td>vector of audio data point lists returned </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">audioFrameCount</td><td>number of data points to be returned </td></tr>
   </table>
   </dd>
 </dl>

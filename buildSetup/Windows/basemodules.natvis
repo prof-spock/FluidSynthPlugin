@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+  <!--
+    basemodules types
+    -->
+  <Type Name="BaseModules::File">
+    <DisplayString>_descriptor = {_descriptor}</DisplayString>
+    <Expand>
+      <Item Name="_descriptor">*reinterpret_cast&lt;C_StdIO::File*&gt;(_descriptor)</Item>
+    </Expand>
+  </Type>
+
+</AutoVisualizer>

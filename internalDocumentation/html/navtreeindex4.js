@@ -1,5 +1,8 @@
 var NAVTREEINDEX4 =
 {
+"struct_base_modules_1_1_command_line_argument_handler.html":[2,0,1,3],
+"struct_base_modules_1_1_command_line_argument_handler.html#a59e418e45b9c57517cacb46651522d34":[1,0,1,3,2],
+"struct_base_modules_1_1_command_line_argument_handler.html#a59e418e45b9c57517cacb46651522d34":[2,0,1,3,2],
 "struct_base_modules_1_1_command_line_argument_handler.html#a975cf6be26dd45a39c49b2ba63758b3b":[1,0,1,3,1],
 "struct_base_modules_1_1_command_line_argument_handler.html#a975cf6be26dd45a39c49b2ba63758b3b":[2,0,1,3,1],
 "struct_base_modules_1_1_command_line_argument_handler.html#aeabebcabf2139b0b652f32d3d6c912ea":[1,0,1,3,0],
@@ -246,8 +249,5 @@ var NAVTREEINDEX4 =
 "struct_base_types_1_1_containers_1_1_integer_list.html#ae297cd96f067ee32cceaf4e6a0297044":[2,0,2,0,2,1],
 "struct_base_types_1_1_containers_1_1_natural_list.html":[1,0,2,0,3],
 "struct_base_types_1_1_containers_1_1_natural_list.html":[2,0,2,0,3],
-"struct_base_types_1_1_containers_1_1_natural_list.html#a08015e4def2140f433569ff1c422c9f6":[1,0,2,0,3,3],
-"struct_base_types_1_1_containers_1_1_natural_list.html#a08015e4def2140f433569ff1c422c9f6":[2,0,2,0,3,3],
-"struct_base_types_1_1_containers_1_1_natural_list.html#a68b4c7a90730667305c81ed4df3dba97":[1,0,2,0,3,0],
-"struct_base_types_1_1_containers_1_1_natural_list.html#a68b4c7a90730667305c81ed4df3dba97":[2,0,2,0,3,0]
+"struct_base_types_1_1_containers_1_1_natural_list.html#a08015e4def2140f433569ff1c422c9f6":[1,0,2,0,3,3]
 };

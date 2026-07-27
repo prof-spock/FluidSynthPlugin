@@ -130,13 +130,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>resetSettings</b> ()<
 <tr class="memdesc:a43239d6c9555000c37e392ad9c51c14f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets setting of event converter given by <code>key</code> to new value given by <code>value</code>  <br /></td></tr>
 <tr class="memitem:a19d14024358b6e9a26dc184c268105c7" id="r_a19d14024358b6e9a26dc184c268105c7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19d14024358b6e9a26dc184c268105c7">setSettings</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_containers_1_1_dictionary.html">Dictionary</a> &amp;dictionary)</td></tr>
 <tr class="memdesc:a19d14024358b6e9a26dc184c268105c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets several settings of event converter from <code>dictionary</code>  <br /></td></tr>
-<tr class="memitem:ae43f6f4cac3eaafb49bf006e64275c7f" id="r_ae43f6f4cac3eaafb49bf006e64275c7f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae43f6f4cac3eaafb49bf006e64275c7f">prepareToPlay</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a> sampleRate, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> maximumExpectedSamplesPerBlock)</td></tr>
-<tr class="memdesc:ae43f6f4cac3eaafb49bf006e64275c7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informs the handler to be prepared for playback.  <br /></td></tr>
+<tr class="memitem:a46e4d3df306f9cae03880c70d0e69af2" id="r_a46e4d3df306f9cae03880c70d0e69af2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a46e4d3df306f9cae03880c70d0e69af2">prepareToPlay</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a> dataPointRate, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> maximumExpectedDataPointsPerBlock)</td></tr>
+<tr class="memdesc:a46e4d3df306f9cae03880c70d0e69af2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informs the handler to be prepared for playback.  <br /></td></tr>
 <tr class="memitem:af1c90a2480025079feb1096f638cd326" id="r_af1c90a2480025079feb1096f638cd326"><td class="memItemLeft" align="right" valign="top"><a id="af1c90a2480025079feb1096f638cd326" name="af1c90a2480025079feb1096f638cd326"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>releaseResources</b> ()</td></tr>
 <tr class="memdesc:af1c90a2480025079feb1096f638cd326"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells instrument to release resources after playback. <br /></td></tr>
-<tr class="memitem:a9cd5d4eea06370f0fcb930308b70ae02" id="r_a9cd5d4eea06370f0fcb930308b70ae02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9cd5d4eea06370f0fcb930308b70ae02">processBlock</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_m_i_d_i_1_1_midi_event_list.html">MidiEventList</a> &amp;midiEventList, <a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_audio_1_1_audio_sample_list_vector.html">AudioSampleListVector</a> &amp;audioBuffer, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> sampleCountInChannel)</td></tr>
-<tr class="memdesc:a9cd5d4eea06370f0fcb930308b70ae02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes a list of <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> events with this converter and updates audio sample buffer assuming a stereo setup.  <br /></td></tr>
+<tr class="memitem:adb12f866681fb0a7663a46acfeacf57a" id="r_adb12f866681fb0a7663a46acfeacf57a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adb12f866681fb0a7663a46acfeacf57a">processBlock</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_m_i_d_i_1_1_midi_event_list.html">MidiEventList</a> &amp;midiEventList, <a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_audio_1_1_audio_data_point_list_vector.html">AudioDataPointListVector</a> &amp;audioBuffer, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> dataPointCountInChannel)</td></tr>
+<tr class="memdesc:adb12f866681fb0a7663a46acfeacf57a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes a list of <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> events with this converter and updates audio data point buffer assuming a stereo setup.  <br /></td></tr>
 <tr class="memitem:a9b3a89a27db7201d741480b1c9681b79" id="r_a9b3a89a27db7201d741480b1c9681b79"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b3a89a27db7201d741480b1c9681b79">processMidiEvent</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_m_i_d_i_1_1_midi_event.html">MidiEvent</a> &amp;event)</td></tr>
 <tr class="memdesc:a9b3a89a27db7201d741480b1c9681b79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> event <code>event</code> for synthesizer immediately.  <br /></td></tr>
 <tr class="memitem:a8224bfe6849631155cf8ac854ccba7a0" id="r_a8224bfe6849631155cf8ac854ccba7a0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8224bfe6849631155cf8ac854ccba7a0">getStateInformation</a> ()</td></tr>
@@ -336,8 +336,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ae43f6f4cac3eaafb49bf006e64275c7f" name="ae43f6f4cac3eaafb49bf006e64275c7f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae43f6f4cac3eaafb49bf006e64275c7f">&#9670;&#160;</a></span>prepareToPlay()</h2>
+<a id="a46e4d3df306f9cae03880c70d0e69af2" name="a46e4d3df306f9cae03880c70d0e69af2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46e4d3df306f9cae03880c70d0e69af2">&#9670;&#160;</a></span>prepareToPlay()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -345,12 +345,12 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">void MidiEventConverter::prepareToPlay </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a></td>          <td class="paramname"><span class="paramname"><em>sampleRate</em></span>, </td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a></td>          <td class="paramname"><span class="paramname"><em>dataPointRate</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a></td>          <td class="paramname"><span class="paramname"><em>maximumExpectedSamplesPerBlock</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a></td>          <td class="paramname"><span class="paramname"><em>maximumExpectedDataPointsPerBlock</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -358,8 +358,8 @@ Private Attributes</h2></td></tr>
 <p>Informs the handler to be prepared for playback. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">sampleRate</td><td>the sample rate to be used for playback </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">maximumExpectedSamplesPerBlock</td><td>the number of samples per processing call </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dataPointRate</td><td>the data point rate to be used for playback </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">maximumExpectedDataPointsPerBlock</td><td>the number of data points per processing call </td></tr>
   </table>
   </dd>
 </dl>
@@ -406,8 +406,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a9cd5d4eea06370f0fcb930308b70ae02" name="a9cd5d4eea06370f0fcb930308b70ae02"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9cd5d4eea06370f0fcb930308b70ae02">&#9670;&#160;</a></span>processBlock()</h2>
+<a id="adb12f866681fb0a7663a46acfeacf57a" name="adb12f866681fb0a7663a46acfeacf57a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb12f866681fb0a7663a46acfeacf57a">&#9670;&#160;</a></span>processBlock()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -420,22 +420,22 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_audio_1_1_audio_sample_list_vector.html">AudioSampleListVector</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>audioBuffer</em></span>, </td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_audio_1_1_audio_data_point_list_vector.html">AudioDataPointListVector</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>audioBuffer</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a></td>          <td class="paramname"><span class="paramname"><em>sampleCountInChannel</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a></td>          <td class="paramname"><span class="paramname"><em>dataPointCountInChannel</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Processes a list of <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> events with this converter and updates audio sample buffer assuming a stereo setup. </p>
+<p>Processes a list of <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> events with this converter and updates audio data point buffer assuming a stereo setup. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">midiEventList</td><td>list of <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> messages to be processed </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">audioBuffer</td><td>vector of sample lists </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">sampleCountInChannel</td><td>relevant count of samples per channel </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">audioBuffer</td><td>vector of data point lists </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dataPointCountInChannel</td><td>relevant count of data points per channel </td></tr>
   </table>
   </dd>
 </dl>
@@ -586,7 +586,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the underlying buffer size of the fluidsynth synthesizer. </p>
-<dl class="section return"><dt>Returns</dt><dd>synthesizer buffer size (in samples) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>synthesizer buffer size (in data points) </dd></dl>
 
 </div>
 </div>

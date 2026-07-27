@@ -19,9 +19,7 @@
 #include <cstdint>
 #include <mutex>
 #include <sstream>
-#include <stdlib.h>
-    /** qualified version of atexit from stdlib */
-    #define StdLib_atexit atexit
+#include <MyStdLib.h>
 #include <thread>
 
 #include "Assertion.h"
@@ -47,7 +45,6 @@ using _Timestamp = Natural;
 
 /** the thread ID as provided by the system call */
 using _ThreadID = std::thread::id;
-#define _currentThreadID std::this_thread::get_id
 
 /*====================*/
 
@@ -285,7 +282,7 @@ namespace BaseModules {
                 const system_clock::duration d =
                     system_clock::now().time_since_epoch();
                 _Timestamp result =
-                    (size_t) duration_cast<milliseconds>(d).count();
+                    size_t(duration_cast<milliseconds>(d).count());
                 return result;
             }
                
@@ -396,6 +393,8 @@ static std::mutex _mutex;
 
 static String _bufferEntryToString (IN _LoggingBufferEntry& bufferEntry);
 
+static _ThreadID _currentThreadID ();
+
 static String _functionNameFromSignature (IN String& functionSignature,
                                           IN String& ignoredFunctionNamePrefix);
 
@@ -496,6 +495,18 @@ static String _bufferEntryToString (IN _LoggingBufferEntry& bufferEntry)
 /*--------------------*/
 
 /**
+ * Returns the identification of the current thread
+ *
+ * @return current thread identification
+ */
+static _ThreadID _currentThreadID ()
+{
+    return std::this_thread::get_id();
+}
+
+/*--------------------*/
+
+/**
  * Calculates function name from <C>functionSignature</C>.
  *
  * @param[in] functionSignature          signature of function as string
@@ -584,7 +595,7 @@ static void _writeBufferToFile ()
 
 void Logging::initialize ()
 {
-    StdLib_atexit(finalize);
+    C_StdLib::atExit(finalize);
     _buffer.clear();
     _isActive = true;
     _appendEntryToBuffer("", 0, "START LOGGING -*- coding: utf-8 -*-");

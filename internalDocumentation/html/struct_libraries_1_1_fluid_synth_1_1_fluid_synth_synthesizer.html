@@ -110,7 +110,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a985756d1473d8ea5203cd254ff0d54a1" id="r_a985756d1473d8ea5203cd254ff0d54a1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_libraries_1_1_fluid_synth_1_1_fluid_synth_synthesizer.html">FluidSynthSynthesizer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a985756d1473d8ea5203cd254ff0d54a1">operator=</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_libraries_1_1_fluid_synth_1_1_fluid_synth_synthesizer.html">FluidSynthSynthesizer</a> &amp;otherSynthesizer)=delete</td></tr>
 <tr class="memdesc:a985756d1473d8ea5203cd254ff0d54a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns current synthesizer from <code>otherSynthesizer</code> (NOT AVAILABLE!)  <br /></td></tr>
 <tr class="memitem:af0e716357998a7f81ce99755548b7036" id="r_af0e716357998a7f81ce99755548b7036"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af0e716357998a7f81ce99755548b7036">internalBufferSize</a> () const</td></tr>
-<tr class="memdesc:af0e716357998a7f81ce99755548b7036"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns internal buffer size of the synthesizer in samples.  <br /></td></tr>
+<tr class="memdesc:af0e716357998a7f81ce99755548b7036"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns internal buffer size of the synthesizer in data points.  <br /></td></tr>
 <tr class="memitem:adb25ee2d40671bc79d6f328e081ee263" id="r_adb25ee2d40671bc79d6f328e081ee263"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_libraries_1_1_fluid_synth_1_1_fluid_synth.html">FluidSynth</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adb25ee2d40671bc79d6f328e081ee263">library</a> () const</td></tr>
 <tr class="memdesc:adb25ee2d40671bc79d6f328e081ee263"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the associated fluid synth library object.  <br /></td></tr>
 <tr class="memitem:ae2786ca4b9dc92faebadaced669125f3" id="r_ae2786ca4b9dc92faebadaced669125f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_base_types_1_1_primitives.html#a46e9a7b488f5aadebd3b8413adf482f6">Object</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae2786ca4b9dc92faebadaced669125f3">underlyingObject</a> () const</td></tr>
@@ -133,8 +133,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aea654711e59d23aa87ec9d71f8c0c0f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles a program-change event on <code>channel</code> setting program to <code>programNumber</code>  <br /></td></tr>
 <tr class="memitem:af1fc4b8efa33b667d9e7127b18ff34e6" id="r_af1fc4b8efa33b667d9e7127b18ff34e6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1fc4b8efa33b667d9e7127b18ff34e6">loadSoundFont</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a> &amp;soundFontPath)</td></tr>
 <tr class="memdesc:af1fc4b8efa33b667d9e7127b18ff34e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads sound font given by <code>soundFontPath</code>.  <br /></td></tr>
-<tr class="memitem:a5e91963456f841a1567e358f5766c333" id="r_a5e91963456f841a1567e358f5766c333"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5e91963456f841a1567e358f5766c333">process</a> (<a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_audio_1_1_audio_sample_list_vector.html">AudioSampleListVector</a> &amp;sampleBuffer, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> position, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> sampleCount)</td></tr>
-<tr class="memdesc:a5e91963456f841a1567e358f5766c333"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes <code>sampleCount</code> samples and stores them in buffer <code>sampleBuffer</code> starting at <code>position</code>.  <br /></td></tr>
+<tr class="memitem:a7c72c268e5b909cdc31f85d6273205ab" id="r_a7c72c268e5b909cdc31f85d6273205ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c72c268e5b909cdc31f85d6273205ab">process</a> (<a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_audio_1_1_audio_data_point_list_vector.html">AudioDataPointListVector</a> &amp;dataPointBuffer, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> position, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> dataPointCount)</td></tr>
+<tr class="memdesc:a7c72c268e5b909cdc31f85d6273205ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes <code>dataPointCount</code> data points and stores them in buffer <code>dataPointBuffer</code> starting at <code>position</code>.  <br /></td></tr>
 <tr class="memitem:a98022ebc4b3badbd45c692f0bb5daf8e" id="r_a98022ebc4b3badbd45c692f0bb5daf8e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a98022ebc4b3badbd45c692f0bb5daf8e">setInterpolationMethod</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> methodCode)</td></tr>
 <tr class="memdesc:a98022ebc4b3badbd45c692f0bb5daf8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets interpolation method for all channels to given <code>methodCode</code>.  <br /></td></tr>
 </table><table class="memberdecls">
@@ -492,8 +492,8 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns internal buffer size of the synthesizer in samples. </p>
-<dl class="section return"><dt>Returns</dt><dd>internal buffer size [in samples] </dd></dl>
+<p>Returns internal buffer size of the synthesizer in data points. </p>
+<dl class="section return"><dt>Returns</dt><dd>internal buffer size [in data points] </dd></dl>
 
 </div>
 </div>
@@ -576,8 +576,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a5e91963456f841a1567e358f5766c333" name="a5e91963456f841a1567e358f5766c333"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5e91963456f841a1567e358f5766c333">&#9670;&#160;</a></span>process()</h2>
+<a id="a7c72c268e5b909cdc31f85d6273205ab" name="a7c72c268e5b909cdc31f85d6273205ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c72c268e5b909cdc31f85d6273205ab">&#9670;&#160;</a></span>process()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -585,7 +585,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a> FluidSynthSynthesizer::process </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_audio_1_1_audio_sample_list_vector.html">AudioSampleListVector</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>sampleBuffer</em></span>, </td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_audio_1_1_audio_data_point_list_vector.html">AudioDataPointListVector</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dataPointBuffer</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -595,17 +595,17 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a></td>          <td class="paramname"><span class="paramname"><em>sampleCount</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a></td>          <td class="paramname"><span class="paramname"><em>dataPointCount</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Processes <code>sampleCount</code> samples and stores them in buffer <code>sampleBuffer</code> starting at <code>position</code>. </p>
+<p>Processes <code>dataPointCount</code> data points and stores them in buffer <code>dataPointBuffer</code> starting at <code>position</code>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">sampleBuffer</td><td>vector of audio sample lists </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">position</td><td>offset in buffer for the samples returned </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">sampleCount</td><td>number of samples to return </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">dataPointBuffer</td><td>vector of audio data point lists </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">position</td><td>offset in buffer for the data points returned </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dataPointCount</td><td>number of data points to return </td></tr>
   </table>
   </dd>
 </dl>
@@ -631,7 +631,7 @@ Protected Attributes</h2></td></tr>
 <p>Sets interpolation method for all channels to given <code>methodCode</code>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">methodCode</td><td>code for sample interpolation method </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">methodCode</td><td>code for data point interpolation method </td></tr>
   </table>
   </dd>
 </dl>

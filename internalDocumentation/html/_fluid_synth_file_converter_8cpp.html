@@ -115,7 +115,7 @@ $(function(){initNavTree('_fluid_synth_file_converter_8cpp.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:_5FEventTime" id="r__5FEventTime"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct___event_time.html">_EventTime</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A simple structure for storing an event time in different formats (midiTime, timeInSeconds, timeInSamples)  <a href="struct___event_time.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A simple structure for storing an event time in different formats (midiTime, timeInSeconds, timeInDataPoints)  <a href="struct___event_time.html#details">More...</a><br /></td></tr>
 <tr class="memitem:MidiEventConverter" id="r_MidiEventConverter"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_midi_event_converter.html">MidiEventConverter</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A simple plugin for processing <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> events via the <a class="el" href="struct_fluid_synth.html" title="An object-oriented wrapper around the fluidsynth library and also allows its dynamic loading.">FluidSynth</a> library and return the resulting audio as a stereo stream.  <a href="struct_midi_event_converter.html#details">More...</a><br /></td></tr>
 <tr class="memitem:MidiEventKind" id="r_MidiEventKind"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_midi_event_kind.html">MidiEventKind</a></td></tr>
@@ -129,16 +129,16 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a64757dc84eac3a7e8bcaa0bfbd6b71ee" id="r_a64757dc84eac3a7e8bcaa0bfbd6b71ee"><td class="memItemLeft" align="right" valign="top"><a id="a64757dc84eac3a7e8bcaa0bfbd6b71ee" name="a64757dc84eac3a7e8bcaa0bfbd6b71ee"></a>
-typedef <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>AudioSample</b></td></tr>
-<tr class="memdesc:a64757dc84eac3a7e8bcaa0bfbd6b71ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">An <code><a class="el" href="_audio_sample_list_8h.html#a64757dc84eac3a7e8bcaa0bfbd6b71ee" title="An AudioSample represents a single audio sample (a 32bit float)">AudioSample</a></code> represents a single audio sample (a 32bit float) <br /></td></tr>
+<tr class="memitem:a8a1335d82708ba40820b69bda61aefd9" id="r_a8a1335d82708ba40820b69bda61aefd9"><td class="memItemLeft" align="right" valign="top"><a id="a8a1335d82708ba40820b69bda61aefd9" name="a8a1335d82708ba40820b69bda61aefd9"></a>
+typedef <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>AudioDataPoint</b></td></tr>
+<tr class="memdesc:a8a1335d82708ba40820b69bda61aefd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">An <code><a class="el" href="_audio_data_point_8cpp-inc.html#a8a1335d82708ba40820b69bda61aefd9" title="An AudioDataPoint represents a single audio data point (a real value)">AudioDataPoint</a></code> represents a single audio data point (a real value) <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a662790a4d8707879b98e03e0fcf9b378" id="r_a662790a4d8707879b98e03e0fcf9b378"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a662790a4d8707879b98e03e0fcf9b378">_renderEvents</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_containers_1_1_dictionary.html">Dictionary</a> &amp;settings, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a> sampleRate, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> midiTicksPerQuarterNote, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_m_i_d_i_1_1_midi_event_list.html">MidiEventList</a> &amp;midiEventList, <a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="struct_audio_1_1_audio_sample_list_vector.html">AudioSampleListVector</a> &amp;sampleBuffer)</td></tr>
-<tr class="memdesc:a662790a4d8707879b98e03e0fcf9b378"><td class="mdescLeft">&#160;</td><td class="mdescRight">Render events from <code>midiEventList</code> with <code>midiTicksPerQuarterNote</code> time resolution via fluidsynth to <code>sampleBuffer</code> using render settings defined in <code>settings</code>.  <br /></td></tr>
-<tr class="memitem:a0e2d6dda3e0298873c75c7112b9a37ef" id="r_a0e2d6dda3e0298873c75c7112b9a37ef"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0e2d6dda3e0298873c75c7112b9a37ef">_renderSynchronousEvents</a> (<a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_m_i_d_i_1_1_midi_event_converter.html">MidiEventConverter</a> &amp;midiEventConverter, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_m_i_d_i_1_1_midi_event_list.html">MidiEventList</a> &amp;synchronousEventList, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> trailingSampleCount, <a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_audio_1_1_audio_sample_list_vector.html">AudioSampleListVector</a> &amp;temporaryBuffer, <a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_audio_1_1_audio_sample_list_vector.html">AudioSampleListVector</a> &amp;destinationBuffer)</td></tr>
-<tr class="memdesc:a0e2d6dda3e0298873c75c7112b9a37ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Render synchronous events from <code>midiEventList</code> trailed by <code>trailingSampleCount</code> samples via fluidsynth synthesizer from <code>midiEventConverter</code> using <code>temporaryBuffer</code> and appending result to <code>destinationBuffer</code>.  <br /></td></tr>
+<tr class="memitem:a287f8a0088eecc43945c5817f85717d6" id="r_a287f8a0088eecc43945c5817f85717d6"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a287f8a0088eecc43945c5817f85717d6">_renderEvents</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_containers_1_1_dictionary.html">Dictionary</a> &amp;settings, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a> dataPointRate, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> midiTicksPerQuarterNote, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_m_i_d_i_1_1_midi_event_list.html">MidiEventList</a> &amp;midiEventList, <a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="struct_audio_1_1_audio_data_point_list_vector.html">AudioDataPointListVector</a> &amp;dataPointBuffer)</td></tr>
+<tr class="memdesc:a287f8a0088eecc43945c5817f85717d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Render events from <code>midiEventList</code> with <code>midiTicksPerQuarterNote</code> time resolution via fluidsynth to <code>dataPointBuffer</code> using render settings defined in <code>settings</code>.  <br /></td></tr>
+<tr class="memitem:a96ec109c943a6ebf83ddac3f7fa92eb8" id="r_a96ec109c943a6ebf83ddac3f7fa92eb8"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a96ec109c943a6ebf83ddac3f7fa92eb8">_renderSynchronousEvents</a> (<a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_m_i_d_i_1_1_midi_event_converter.html">MidiEventConverter</a> &amp;midiEventConverter, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_m_i_d_i_1_1_midi_event_list.html">MidiEventList</a> &amp;synchronousEventList, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> trailingDataPointCount, <a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_audio_1_1_audio_data_point_list_vector.html">AudioDataPointListVector</a> &amp;temporaryBuffer, <a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_audio_1_1_audio_data_point_list_vector.html">AudioDataPointListVector</a> &amp;destinationBuffer)</td></tr>
+<tr class="memdesc:a96ec109c943a6ebf83ddac3f7fa92eb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Render synchronous events from <code>midiEventList</code> trailed by <code>trailingDataPointCount</code> data points via fluidsynth synthesizer from <code>midiEventConverter</code> using <code>temporaryBuffer</code> and appending result to <code>destinationBuffer</code>.  <br /></td></tr>
 <tr class="memitem:ac72847fd4a73fda06eb96729c9673614" id="r_ac72847fd4a73fda06eb96729c9673614"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac72847fd4a73fda06eb96729c9673614">_updatedTimeFactor</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_m_i_d_i_1_1_midi_event.html">MidiEvent</a> &amp;event, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> midiTicksPerQuarterNote)</td></tr>
 <tr class="memdesc:ac72847fd4a73fda06eb96729c9673614"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> ticks to seconds factor for given tempo event <code>event</code> based on <code>midiTicksPerQuarterNote</code>.  <br /></td></tr>
 <tr class="memitem:a21f4c929e025bbbad4441e0b3c86a41a" id="r_a21f4c929e025bbbad4441e0b3c86a41a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a21f4c929e025bbbad4441e0b3c86a41a">_writeMessage</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a> &amp;message, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a> isError)</td></tr>
@@ -151,12 +151,12 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>_initialize</b
 <tr class="memdesc:a84298a66f7adae2a68e04ed0f2a8b4c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes all internal data of the main program. <br /></td></tr>
 <tr class="memitem:a6cb81ef51ccb75887b9a057e6fc31643" id="r_a6cb81ef51ccb75887b9a057e6fc31643"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6cb81ef51ccb75887b9a057e6fc31643">_checkFileAccess</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a> &amp;fileName, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a> isCheckedForReading)</td></tr>
 <tr class="memdesc:a6cb81ef51ccb75887b9a057e6fc31643"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether <code>fileName</code> is readable or writeable (depending on <code>isCheckedForReading</code> and returns success.  <br /></td></tr>
-<tr class="memitem:a7ea07862646d9d185e77820844a129fe" id="r_a7ea07862646d9d185e77820844a129fe"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ea07862646d9d185e77820844a129fe">_handleCommandLineArguments</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> argumentCount, char *argv[], <a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a> &amp;midiFileName, <a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a> &amp;waveFileName, <a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a> &amp;sampleRate, <a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a> &amp;audioFileFormat, <a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="struct_base_types_1_1_containers_1_1_dictionary.html">Dictionary</a> &amp;renderSettings)</td></tr>
-<tr class="memdesc:a7ea07862646d9d185e77820844a129fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles command line options and updates <code>midiFileName</code>, <code>waveFileName</code>, <code>sampleRate</code>, <code>audioFileFormat</code> and <code>renderSettings</code>.  <br /></td></tr>
+<tr class="memitem:af9148594df1b075535a69afa8f8f4acb" id="r_af9148594df1b075535a69afa8f8f4acb"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9148594df1b075535a69afa8f8f4acb">_handleCommandLineArguments</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> argumentCount, char *argv[], <a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a> &amp;midiFileName, <a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a> &amp;waveFileName, <a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a> &amp;dataPointRate, <a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a> &amp;audioFileFormat, <a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="struct_base_types_1_1_containers_1_1_dictionary.html">Dictionary</a> &amp;renderSettings)</td></tr>
+<tr class="memdesc:af9148594df1b075535a69afa8f8f4acb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles command line options and updates <code>midiFileName</code>, <code>waveFileName</code>, <code>dataPointRate</code>, <code>audioFileFormat</code> and <code>renderSettings</code>.  <br /></td></tr>
 <tr class="memitem:a374276b2bca829282448c68ecba59b95" id="r_a374276b2bca829282448c68ecba59b95"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_m_i_d_i_1_1_midi_event_converter.html">MidiEventConverter</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a374276b2bca829282448c68ecba59b95">_makeMidiEventConverter</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_containers_1_1_dictionary.html">Dictionary</a> &amp;settings)</td></tr>
 <tr class="memdesc:a374276b2bca829282448c68ecba59b95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs midi event converter with render settings defined in <code>settings</code>.  <br /></td></tr>
-<tr class="memitem:a1c92d3cab7dbe1fc81b186b05ba39c50" id="r_a1c92d3cab7dbe1fc81b186b05ba39c50"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c92d3cab7dbe1fc81b186b05ba39c50">_process</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_containers_1_1_dictionary.html">Dictionary</a> &amp;renderSettings, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a> &amp;midiFileName, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a> sampleRate, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a> &amp;audioFileFormat, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a> &amp;waveFileName)</td></tr>
-<tr class="memdesc:a1c92d3cab7dbe1fc81b186b05ba39c50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> file named <code>midiFileName</code> into a wave file named <code>waveFileName</code> using the <a class="el" href="struct_fluid_synth.html" title="An object-oriented wrapper around the fluidsynth library and also allows its dynamic loading.">FluidSynth</a> library with settings given by <code>renderSettings</code> and sample rate <code>sampleRate</code> with format <code>audioFileFormat</code>.  <br /></td></tr>
+<tr class="memitem:a826525ad3b5d410d0717b6d4c85233cc" id="r_a826525ad3b5d410d0717b6d4c85233cc"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a826525ad3b5d410d0717b6d4c85233cc">_process</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_containers_1_1_dictionary.html">Dictionary</a> &amp;renderSettings, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a> &amp;midiFileName, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a> dataPointRate, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a> &amp;audioFileFormat, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a> &amp;waveFileName)</td></tr>
+<tr class="memdesc:a826525ad3b5d410d0717b6d4c85233cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> file named <code>midiFileName</code> into a wave file named <code>waveFileName</code> using the <a class="el" href="struct_fluid_synth.html" title="An object-oriented wrapper around the fluidsynth library and also allows its dynamic loading.">FluidSynth</a> library with settings given by <code>renderSettings</code> and data point rate <code>dataPointRate</code> with format <code>audioFileFormat</code>.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -168,9 +168,9 @@ const <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6ea28e4f
 <tr class="memitem:ac9b3c8c03c515c67464600e9c58e7cd9" id="r_ac9b3c8c03c515c67464600e9c58e7cd9"><td class="memItemLeft" align="right" valign="top"><a id="ac9b3c8c03c515c67464600e9c58e7cd9" name="ac9b3c8c03c515c67464600e9c58e7cd9"></a>
 const <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_channelCount</b> = 2</td></tr>
 <tr class="memdesc:ac9b3c8c03c515c67464600e9c58e7cd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">count of channels supported by this program <br /></td></tr>
-<tr class="memitem:aa38c14ce9b874188abf845594f210c8d" id="r_aa38c14ce9b874188abf845594f210c8d"><td class="memItemLeft" align="right" valign="top"><a id="aa38c14ce9b874188abf845594f210c8d" name="aa38c14ce9b874188abf845594f210c8d"></a>
-const <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_defaultSampleRate</b> = 44100.0</td></tr>
-<tr class="memdesc:aa38c14ce9b874188abf845594f210c8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">default sample rate of fluidsynth <br /></td></tr>
+<tr class="memitem:acea287e9263579e74a2b397bbf3a5a98" id="r_acea287e9263579e74a2b397bbf3a5a98"><td class="memItemLeft" align="right" valign="top"><a id="acea287e9263579e74a2b397bbf3a5a98" name="acea287e9263579e74a2b397bbf3a5a98"></a>
+const <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_defaultDataPointRate</b> = 44100.0</td></tr>
+<tr class="memdesc:acea287e9263579e74a2b397bbf3a5a98"><td class="mdescLeft">&#160;</td><td class="mdescRight">default data point rate of fluidsynth <br /></td></tr>
 <tr class="memitem:a11c6d0a024dbd2a6e9aee85f7087ae02" id="r_a11c6d0a024dbd2a6e9aee85f7087ae02"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="struct_base_types_1_1_containers_1_1_dictionary.html">Dictionary</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a11c6d0a024dbd2a6e9aee85f7087ae02">_fileFormatToTypeCodeAndWidthMap</a></td></tr>
 <tr class="memdesc:a11c6d0a024dbd2a6e9aee85f7087ae02"><td class="mdescLeft">&#160;</td><td class="mdescRight">mapping from file format name to type code and byte width  <br /></td></tr>
 <tr class="memitem:a4766a2142a4740fac53acdcde648c8ea" id="r_a4766a2142a4740fac53acdcde648c8ea"><td class="memItemLeft" align="right" valign="top"><a id="a4766a2142a4740fac53acdcde648c8ea" name="a4766a2142a4740fac53acdcde648c8ea"></a>
@@ -224,8 +224,8 @@ static const <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6
 
 </div>
 </div>
-<a id="a7ea07862646d9d185e77820844a129fe" name="a7ea07862646d9d185e77820844a129fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ea07862646d9d185e77820844a129fe">&#9670;&#160;</a></span>_handleCommandLineArguments()</h2>
+<a id="af9148594df1b075535a69afa8f8f4acb" name="af9148594df1b075535a69afa8f8f4acb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9148594df1b075535a69afa8f8f4acb">&#9670;&#160;</a></span>_handleCommandLineArguments()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -256,7 +256,7 @@ static const <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>sampleRate</em></span>, </td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dataPointRate</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -276,14 +276,14 @@ static const <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6
 </table>
 </div><div class="memdoc">
 
-<p>Handles command line options and updates <code>midiFileName</code>, <code>waveFileName</code>, <code>sampleRate</code>, <code>audioFileFormat</code> and <code>renderSettings</code>. </p>
+<p>Handles command line options and updates <code>midiFileName</code>, <code>waveFileName</code>, <code>dataPointRate</code>, <code>audioFileFormat</code> and <code>renderSettings</code>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">argumentCount</td><td>number of arguments in command line </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">argv</td><td>array of argument strings </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">midiFileName</td><td>midi source file name </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">waveFileName</td><td>destination wave file name </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">sampleRate</td><td>selected sample rate </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">dataPointRate</td><td>selected data point rate </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">audioFileFormat</td><td>string code for the wave audio file format </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">renderSettings</td><td>settings for fluidsynth player </td></tr>
   </table>
@@ -327,8 +327,8 @@ static const <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6
 
 </div>
 </div>
-<a id="a1c92d3cab7dbe1fc81b186b05ba39c50" name="a1c92d3cab7dbe1fc81b186b05ba39c50"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1c92d3cab7dbe1fc81b186b05ba39c50">&#9670;&#160;</a></span>_process()</h2>
+<a id="a826525ad3b5d410d0717b6d4c85233cc" name="a826525ad3b5d410d0717b6d4c85233cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a826525ad3b5d410d0717b6d4c85233cc">&#9670;&#160;</a></span>_process()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -349,7 +349,7 @@ static const <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a></td>          <td class="paramname"><span class="paramname"><em>sampleRate</em></span>, </td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a></td>          <td class="paramname"><span class="paramname"><em>dataPointRate</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -369,12 +369,12 @@ static const <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6
 </table>
 </div><div class="memdoc">
 
-<p>Converts <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> file named <code>midiFileName</code> into a wave file named <code>waveFileName</code> using the <a class="el" href="struct_fluid_synth.html" title="An object-oriented wrapper around the fluidsynth library and also allows its dynamic loading.">FluidSynth</a> library with settings given by <code>renderSettings</code> and sample rate <code>sampleRate</code> with format <code>audioFileFormat</code>. </p>
+<p>Converts <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> file named <code>midiFileName</code> into a wave file named <code>waveFileName</code> using the <a class="el" href="struct_fluid_synth.html" title="An object-oriented wrapper around the fluidsynth library and also allows its dynamic loading.">FluidSynth</a> library with settings given by <code>renderSettings</code> and data point rate <code>dataPointRate</code> with format <code>audioFileFormat</code>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">renderSettings</td><td>the fluidsynth player settings </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">midiFileName</td><td>source midi file name </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">sampleRate</td><td>the sample rate for the wave file </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dataPointRate</td><td>the data point rate for the wave file </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">audioFileFormat</td><td>string code for the wave audio file format </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">waveFileName</td><td>destination wave file name </td></tr>
   </table>
@@ -383,8 +383,8 @@ static const <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6
 
 </div>
 </div>
-<a id="a662790a4d8707879b98e03e0fcf9b378" name="a662790a4d8707879b98e03e0fcf9b378"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a662790a4d8707879b98e03e0fcf9b378">&#9670;&#160;</a></span>_renderEvents()</h2>
+<a id="a287f8a0088eecc43945c5817f85717d6" name="a287f8a0088eecc43945c5817f85717d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a287f8a0088eecc43945c5817f85717d6">&#9670;&#160;</a></span>_renderEvents()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -400,7 +400,7 @@ static const <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a></td>          <td class="paramname"><span class="paramname"><em>sampleRate</em></span>, </td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a></td>          <td class="paramname"><span class="paramname"><em>dataPointRate</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -415,7 +415,7 @@ static const <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="struct_audio_1_1_audio_sample_list_vector.html">AudioSampleListVector</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>sampleBuffer</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a> <a class="el" href="struct_audio_1_1_audio_data_point_list_vector.html">AudioDataPointListVector</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dataPointBuffer</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -425,22 +425,22 @@ static const <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6
 </table>
 </div><div class="memdoc">
 
-<p>Render events from <code>midiEventList</code> with <code>midiTicksPerQuarterNote</code> time resolution via fluidsynth to <code>sampleBuffer</code> using render settings defined in <code>settings</code>. </p>
+<p>Render events from <code>midiEventList</code> with <code>midiTicksPerQuarterNote</code> time resolution via fluidsynth to <code>dataPointBuffer</code> using render settings defined in <code>settings</code>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">settings</td><td>dictionary of render settings (including e.g. the sound font name) </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">sampleRate</td><td>the sample rate to be used (in Hz) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dataPointRate</td><td>the data point rate to be used (in Hz) </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">midiTicksPerQuarterNote</td><td>midi ticks per quarter note as time resolution </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">midiEventList</td><td>list of midi events to be played </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">sampleBuffer</td><td>stereo sample array </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">dataPointBuffer</td><td>stereo data point array </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a0e2d6dda3e0298873c75c7112b9a37ef" name="a0e2d6dda3e0298873c75c7112b9a37ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e2d6dda3e0298873c75c7112b9a37ef">&#9670;&#160;</a></span>_renderSynchronousEvents()</h2>
+<a id="a96ec109c943a6ebf83ddac3f7fa92eb8" name="a96ec109c943a6ebf83ddac3f7fa92eb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96ec109c943a6ebf83ddac3f7fa92eb8">&#9670;&#160;</a></span>_renderSynchronousEvents()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -461,17 +461,17 @@ static const <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a></td>          <td class="paramname"><span class="paramname"><em>trailingSampleCount</em></span>, </td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a></td>          <td class="paramname"><span class="paramname"><em>trailingDataPointCount</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_audio_1_1_audio_sample_list_vector.html">AudioSampleListVector</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>temporaryBuffer</em></span>, </td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_audio_1_1_audio_data_point_list_vector.html">AudioDataPointListVector</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>temporaryBuffer</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_audio_1_1_audio_sample_list_vector.html">AudioSampleListVector</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>destinationBuffer</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_audio_1_1_audio_data_point_list_vector.html">AudioDataPointListVector</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>destinationBuffer</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -481,14 +481,14 @@ static const <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6
 </table>
 </div><div class="memdoc">
 
-<p>Render synchronous events from <code>midiEventList</code> trailed by <code>trailingSampleCount</code> samples via fluidsynth synthesizer from <code>midiEventConverter</code> using <code>temporaryBuffer</code> and appending result to <code>destinationBuffer</code>. </p>
+<p>Render synchronous events from <code>midiEventList</code> trailed by <code>trailingDataPointCount</code> data points via fluidsynth synthesizer from <code>midiEventConverter</code> using <code>temporaryBuffer</code> and appending result to <code>destinationBuffer</code>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">midiEventConverter</td><td><a class="el" href="struct_fluid_synth.html" title="An object-oriented wrapper around the fluidsynth library and also allows its dynamic loading.">FluidSynth</a> processor for events </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">synchronousEventList</td><td>list of <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> events happening simultaneously and now </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">trailingSampleCount</td><td>samples to be rendered after <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> events </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">trailingDataPointCount</td><td>data points to be rendered after <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> events </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">temporaryBuffer</td><td>auxiliary buffer for incremental rendering </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">destinationBuffer</td><td>destination stereo sample array </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">destinationBuffer</td><td>destination stereo data point array </td></tr>
   </table>
   </dd>
 </dl>
@@ -602,7 +602,7 @@ static const <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6
 <div class="line">        <span class="stringliteral">&quot;s8     -&gt; I/1,&quot;</span></div>
 <div class="line">        <span class="stringliteral">&quot;u8     -&gt; N/1&quot;</span></div>
 <div class="line">    )</div>
-<div class="ttc" id="astruct_dictionary_html_a11e7179d705605b4851d3cbf04406ba5"><div class="ttname"><a href="struct_dictionary.html#a11e7179d705605b4851d3cbf04406ba5">Dictionary::makeFromString</a></div><div class="ttdeci">static Dictionary makeFromString(IN String &amp;st, IN String &amp;entrySeparator=StringUtil::entrySeparator, IN String &amp;keyValueSeparator=StringUtil::keyValueSeparator)</div><div class="ttdoc">Makes dictionary from a string st gained by serializing a dictionary via toString;.</div><div class="ttdef"><b>Definition</b> Dictionary.cpp:58</div></div>
+<div class="ttc" id="astruct_dictionary_html_a11e7179d705605b4851d3cbf04406ba5"><div class="ttname"><a href="struct_dictionary.html#a11e7179d705605b4851d3cbf04406ba5">Dictionary::makeFromString</a></div><div class="ttdeci">static Dictionary makeFromString(IN String &amp;st, IN String &amp;entrySeparator=StringUtil::entrySeparator, IN String &amp;keyValueSeparator=StringUtil::keyValueSeparator)</div><div class="ttdoc">Makes dictionary from a string st gained by serializing a dictionary via toString;.</div><div class="ttdef"><b>Definition</b> Dictionary.cpp:64</div></div>
 </div><!-- fragment -->
 <p>mapping from file format name to type code and byte width </p>
 

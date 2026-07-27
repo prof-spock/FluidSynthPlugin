@@ -16,14 +16,14 @@ var hierarchy =
     [ "_RingBuffer", "struct___ring_buffer.html", null ],
     [ "Main::FluidSynthPlugin::_RingBuffer", "struct_main_1_1_fluid_synth_plugin_1_1___ring_buffer.html", null ],
     [ "Libraries::FluidSynth::_SynthesizerDescriptor", "struct_libraries_1_1_fluid_synth_1_1___synthesizer_descriptor.html", null ],
+    [ "Audio::AudioDataPointFifoQueue", "struct_audio_1_1_audio_data_point_fifo_queue.html", null ],
+    [ "AudioDataPointFifoQueue", "struct_audio_data_point_fifo_queue.html", null ],
     [ "juce::AudioProcessor", null, [
       [ "Main::FluidSynthPlugin::FluidSynthPlugin_EventProcessor", "struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___event_processor.html", null ]
     ] ],
     [ "juce::AudioProcessorEditor", null, [
       [ "Main::FluidSynthPlugin::FluidSynthPlugin_Editor", "struct_main_1_1_fluid_synth_plugin_1_1_fluid_synth_plugin___editor.html", null ]
     ] ],
-    [ "Audio::AudioSampleFifoQueue", "struct_audio_1_1_audio_sample_fifo_queue.html", null ],
-    [ "AudioSampleFifoQueue", "struct_audio_sample_fifo_queue.html", null ],
     [ "BaseTypes::Primitives::Boolean", "struct_base_types_1_1_primitives_1_1_boolean.html", null ],
     [ "Boolean", "struct_boolean.html", null ],
     [ "BuildInformation", "struct_build_information.html", null ],
@@ -57,9 +57,9 @@ var hierarchy =
     [ "FluidSynthSynthesizer", "struct_fluid_synth_synthesizer.html", null ],
     [ "Libraries::FluidSynth::FluidSynthSynthesizer", "struct_libraries_1_1_fluid_synth_1_1_fluid_synth_synthesizer.html", null ],
     [ "GenericList", null, [
-      [ "Audio::AudioSampleFifoQueueVector", "struct_audio_1_1_audio_sample_fifo_queue_vector.html", null ],
-      [ "Audio::AudioSampleList", "struct_audio_1_1_audio_sample_list.html", null ],
-      [ "Audio::AudioSampleListVector", "struct_audio_1_1_audio_sample_list_vector.html", null ],
+      [ "Audio::AudioDataPointFifoQueueVector", "struct_audio_1_1_audio_data_point_fifo_queue_vector.html", null ],
+      [ "Audio::AudioDataPointList", "struct_audio_1_1_audio_data_point_list.html", null ],
+      [ "Audio::AudioDataPointListVector", "struct_audio_1_1_audio_data_point_list_vector.html", null ],
       [ "BaseModules::CommandLineArgumentList", "struct_base_modules_1_1_command_line_argument_list.html", null ],
       [ "BaseTypes::Containers::ByteList", "struct_base_types_1_1_containers_1_1_byte_list.html", null ],
       [ "BaseTypes::Containers::IntegerList", "struct_base_types_1_1_containers_1_1_integer_list.html", null ],

@@ -25,8 +25,8 @@
 
 /*--------------------*/
 
-using Audio::AudioSample;
-using Audio::AudioSampleList;
+using Audio::AudioDataPoint;
+using Audio::AudioDataPointList;
 using Audio::WaveFile;
 using BaseModules::CommandLineArgument;
 using BaseModules::CommandLineArgumentList;
@@ -47,7 +47,7 @@ using STR = BaseModules::StringUtil;
 
 /**
  * A simple structure for storing an event time in different formats
- * (midiTime, timeInSeconds, timeInSamples)
+ * (midiTime, timeInSeconds, timeInDataPoints)
  */
 struct _EventTime {
 
@@ -57,25 +57,25 @@ struct _EventTime {
     /** the event time in seconds */
     Real timeInSeconds;
 
-    /** the event time in samples */
-    Integer timeInSamples;
+    /** the event time in data points */
+    Integer timeInDataPoints;
 
     /*--------------------*/
 
     /**
      * Constructs a new event time object from <C>newMidiTime</C>,
-     * <C>newTimeInSeconds</C>, and <C>newTimeInSamples</C>.
+     * <C>newTimeInSeconds</C>, and <C>newTimeInDataPoints</C>.
      *
-     * @param[in] newMidiTime         event time as MIDI ticks
-     * @param[in] newTimeInSeconds    event time as seconds
-     * @param[in] newTimeInSamples    event time as sample count
+     * @param[in] newMidiTime          event time as MIDI ticks
+     * @param[in] newTimeInSeconds     event time as seconds
+     * @param[in] newTimeInDataPoints  event time as data point count
      */
     _EventTime (Integer newMidiTime = 0,
                 Real newTimeInSeconds = 0.0,
-                Integer newTimeInSamples = 0)
+                Integer newTimeInDataPoints = 0)
         : midiTime{newMidiTime},
           timeInSeconds{newTimeInSeconds},
-          timeInSamples{newTimeInSamples}
+          timeInDataPoints{newTimeInDataPoints}
     {
     }
     
@@ -91,9 +91,9 @@ struct _EventTime {
         String st =
             STR::expand("_EventTime"
                         "(midiTime = %1, timeInSeconds = %2,"
-                        " timeInSamples = %3)",
+                        " timeInDataPoints = %3)",
                         TOSTRING(midiTime), TOSTRING(timeInSeconds),
-                        TOSTRING(timeInSamples));
+                        TOSTRING(timeInDataPoints));
         return st;
     }
 
@@ -102,35 +102,35 @@ struct _EventTime {
     /**
      * Converts <C>midiEventTime</C> in MIDI ticks to event time using
      * reference time <C>previousEventTime</C> using factors
-     * <C>midiTimeToSecondsFactor</C> and <C>sampleRate</C>.
+     * <C>midiTimeToSecondsFactor</C> and <C>dataPointRate</C>.
      *
      * @param[in]  midiEventTime            event time in MIDI ticks
      * @param[in]  previousTime             the previous event time
      * @param[in]  midiTimeToSecondsFactor  conversion factor from
      *                                      ticks to seconds
-     * @param[in]  sampleRate               current sample rate (in Hz)
+     * @param[in]  dataPointRate            current data point rate (in Hz)
      * @return  event time structure for given 
      */
     static _EventTime makeRelative (IN Integer midiEventTime,
                                     IN _EventTime& previousTime,
                                     IN Real midiTimeToSecondsFactor,
-                                    IN Real sampleRate)
+                                    IN Real dataPointRate)
     {
         Logging_trace4(">>: midiEventTime = %1, otherTime = %2,"
-                       " midiTimeToSecondsFactor = %3, sampleRate = %4",
+                       " midiTimeToSecondsFactor = %3, dataPointRate = %4",
                        TOSTRING(midiEventTime),
                        previousTime.toString(),
                        TOSTRING(midiTimeToSecondsFactor),
-                       TOSTRING(sampleRate));
+                       TOSTRING(dataPointRate));
 
         Real eventTimeInSeconds = 
             (previousTime.timeInSeconds +
              (Real{midiEventTime - previousTime.midiTime}
               * midiTimeToSecondsFactor));
-        Integer eventTimeInSamples =
-            (Integer) Real::round(eventTimeInSeconds * sampleRate);
+        Integer eventTimeInDataPoints =
+            (Integer) Real::round(eventTimeInSeconds * dataPointRate);
         _EventTime result{midiEventTime, eventTimeInSeconds,
-                          eventTimeInSamples};
+                          eventTimeInDataPoints};
 
         Logging_trace1("<<: %1", result.toString());
         return result;
@@ -151,8 +151,8 @@ const String _version = "0.2";
 /** count of channels supported by this program */
 const Natural _channelCount = 2;
 
-/** default sample rate of fluidsynth */
-const Real _defaultSampleRate = 44100.0;
+/** default data point rate of fluidsynth */
+const Real _defaultDataPointRate = 44100.0;
 
 /*--------------------*/
 
@@ -310,17 +310,17 @@ static const String _usageText =
 /*----------------------*/
 
 static void _renderEvents (IN Dictionary& settings,
-                           IN Real sampleRate,
+                           IN Real dataPointRate,
                            IN Natural midiTicksPerQuarterNote,
                            IN MidiEventList& midiEventList,
-                           OUT AudioSampleListVector& sampleBuffer);
+                           OUT AudioDataPointListVector& dataPointBuffer);
 
 static void
 _renderSynchronousEvents (INOUT MidiEventConverter& midiEventConverter,
                           IN MidiEventList& synchronousEventList,
-                          IN Natural trailingSampleCount,
-                          INOUT AudioSampleListVector& temporaryBuffer,
-                          INOUT AudioSampleListVector& destinationBuffer);
+                          IN Natural trailingDataPointCount,
+                          INOUT AudioDataPointListVector& temporaryBuffer,
+                          INOUT AudioDataPointListVector& destinationBuffer);
 
 static Real _updatedTimeFactor (IN MidiEvent& event,
                                 IN Natural midiTicksPerQuarterNote);
@@ -394,14 +394,14 @@ static Boolean _checkFileAccess (IN String& fileName,
 
 /**
  * Handles command line options and updates <C>midiFileName</C>,
- * <C>waveFileName</C>, <C>sampleRate</C>, <C>audioFileFormat</C> and
+ * <C>waveFileName</C>, <C>dataPointRate</C>, <C>audioFileFormat</C> and
  * <C>renderSettings</C>.
  *
  * @param[in]  argumentCount    number of arguments in command line
  * @param[in]  argv             array of argument strings
  * @param[out] midiFileName     midi source file name
  * @param[out] waveFileName     destination wave file name
- * @param[out] sampleRate       selected sample rate
+ * @param[out] dataPointRate    selected data point rate
  * @param[out] audioFileFormat  string code for the wave audio file
  *                              format
  * @param[out] renderSettings   settings for fluidsynth player
@@ -412,7 +412,7 @@ _handleCommandLineArguments (IN Natural argumentCount,
                              char* argv[],
                              OUT String& midiFileName,
                              OUT String& waveFileName,
-                             OUT Real& sampleRate,
+                             OUT Real& dataPointRate,
                              OUT String& audioFileFormat,
                              OUT Dictionary& renderSettings)
 {
@@ -432,7 +432,7 @@ _handleCommandLineArguments (IN Natural argumentCount,
                               _nameToAbstractArgumentDataMap);
 
     /* set to default values */
-    sampleRate      = _defaultSampleRate;
+    dataPointRate      = _defaultDataPointRate;
     audioFileFormat = "s16";
 
     for (const CommandLineArgument& option : optionList) {
@@ -514,7 +514,7 @@ _handleCommandLineArguments (IN Natural argumentCount,
                                (isActive ? "1" : "0"));
         } else if (abstractName == "SAMPLERATE") {
             const String& parameter = parameterList[0];
-            sampleRate = StringUtil::toReal(parameter);
+            dataPointRate = StringUtil::toReal(parameter);
             renderSettings.set("synth.sample-rate", parameter);
         } else if (abstractName == "SETTING") {
             const String& parameter = parameterList[0];
@@ -554,10 +554,10 @@ _handleCommandLineArguments (IN Natural argumentCount,
     }
 
     Logging_trace6("<<: isOkay = %1, midiFileName = %2,"
-                   " waveFileName = %3, sampleRate = %4,"
+                   " waveFileName = %3, dataPointRate = %4,"
                    " audioFileFormat = %5, renderSettings = %6",
                    TOSTRING(isOkay), midiFileName,
-                   waveFileName, TOSTRING(sampleRate),
+                   waveFileName, TOSTRING(dataPointRate),
                    audioFileFormat, renderSettings.toString());
     return isOkay;
 }
@@ -608,27 +608,27 @@ _makeMidiEventConverter (IN Dictionary& settings)
 /**
  * Converts MIDI file named <C>midiFileName</C> into a wave file named
  * <C>waveFileName</C> using the FluidSynth library with settings
- * given by <C>renderSettings</C> and sample rate <C>sampleRate</C>
- * with format <C>audioFileFormat</C>.
+ * given by <C>renderSettings</C> and data point rate
+ * <C>dataPointRate</C> with format <C>audioFileFormat</C>.
  *
  * @param[in] renderSettings   the fluidsynth player settings
  * @param[in] midiFileName     source midi file name
- * @param[in] sampleRate       the sample rate for the wave file
+ * @param[in] dataPointRate    the data point rate for the wave file
  * @param[in] audioFileFormat  string code for the wave audio file
  *                             format
  * @param[in] waveFileName     destination wave file name
  */
 static void _process (IN Dictionary& renderSettings,
                       IN String& midiFileName,
-                      IN Real sampleRate,
+                      IN Real dataPointRate,
                       IN String& audioFileFormat,
                       IN String& waveFileName)
 {
     Logging_trace5(">>: renderSettings = %1, midiFileName = '%2',"
-                   " sampleRate = '%3', audioFileFormat = '%4',"
+                   " dataPointRate = '%3', audioFileFormat = '%4',"
                    " waveFileName = '%5'",
                    renderSettings.toString(), midiFileName,
-                   TOSTRING(sampleRate), audioFileFormat,
+                   TOSTRING(dataPointRate), audioFileFormat,
                    waveFileName);
 
     Assertion_pre(_fileFormatToTypeCodeAndWidthMap.contains(audioFileFormat),
@@ -643,28 +643,28 @@ static void _process (IN Dictionary& renderSettings,
 
     midiFile.read(fileType, midiTicksPerQuarterNote, midiEventList);
 
-    /* render MIDI events into sample buffer via fluidsynth */
-    AudioSampleListVector buffer{_channelCount};
-    _renderEvents(renderSettings, sampleRate, midiTicksPerQuarterNote,
+    /* render MIDI events into data point buffer via fluidsynth */
+    AudioDataPointListVector buffer{_channelCount};
+    _renderEvents(renderSettings, dataPointRate, midiTicksPerQuarterNote,
                   midiEventList, buffer);
 
-    /* write samples as wave file */
-    Logging_trace1("--: sample buffer prefix = %1", buffer.toString(100));
+    /* write data points as wave file */
+    Logging_trace1("--: data point buffer prefix = %1", buffer.toString(100));
     WaveFile destinationFile{waveFileName};
     const Natural audioFrameCount = buffer.frameCount();
 
     String typeCode;
-    String sampleWidth;
+    String dataPointWidth;
     const String typeCodeAndWidth =
         _fileFormatToTypeCodeAndWidthMap.at(audioFileFormat);
     const Boolean isSplit = StringUtil::splitAt(typeCodeAndWidth, "/",
-                                                typeCode, sampleWidth);
+                                                typeCode, dataPointWidth);
     Assertion_check(isSplit,
                     STR::expand("bad type code for '%1' - '%2'",
                                 audioFileFormat, typeCodeAndWidth));
-    const Natural sampleWidthInBytes = StringUtil::toNatural(sampleWidth);
-    destinationFile.write((Natural) Real::round(sampleRate), _channelCount, 
-                          audioFrameCount, typeCode, sampleWidthInBytes,
+    const Natural dataPointWidthInBytes = StringUtil::toNatural(dataPointWidth);
+    destinationFile.write((Natural) Real::round(dataPointRate), _channelCount, 
+                          audioFrameCount, typeCode, dataPointWidthInBytes,
                           buffer);
 
     Logging_trace("<<");
@@ -675,30 +675,30 @@ static void _process (IN Dictionary& renderSettings,
 /**
  * Render events from <C>midiEventList</C> with
  * <C>midiTicksPerQuarterNote</C> time resolution via fluidsynth
- * to <C>sampleBuffer</C> using render settings defined in
+ * to <C>dataPointBuffer</C> using render settings defined in
  * <C>settings</C>.
  *
  * @param[in]  settings                 dictionary of render
  *                                      settings (including e.g.
  *                                      the sound font name)
- * @param[in]  sampleRate               the sample rate to be used
+ * @param[in]  dataPointRate            the data point rate to be used
  *                                      (in Hz)
  * @param[in]  midiTicksPerQuarterNote  midi ticks per quarter note
  *                                      as time resolution
  * @param[in]  midiEventList            list of midi events to be
  *                                      played
- * @param[out] sampleBuffer             stereo sample array
+ * @param[out] dataPointBuffer          stereo data point array
  */
 static void _renderEvents (IN Dictionary& settings,
-                           IN Real sampleRate,
+                           IN Real dataPointRate,
                            IN Natural midiTicksPerQuarterNote,
                            IN MidiEventList& midiEventList,
-                           OUT AudioSampleListVector& sampleBuffer)
+                           OUT AudioDataPointListVector& dataPointBuffer)
 {
     const Natural midiEventCount = midiEventList.length();
-    Logging_trace4(">>: sampleRate = %1, midiTicksPerQuarterNote = %2,"
+    Logging_trace4(">>: dataPointRate = %1, midiTicksPerQuarterNote = %2,"
                    " eventCount = %3, settings = %4",
-                   TOSTRING(sampleRate),
+                   TOSTRING(dataPointRate),
                    TOSTRING(midiTicksPerQuarterNote),
                    TOSTRING(midiEventCount),
                    settings.toString());
@@ -710,9 +710,9 @@ static void _renderEvents (IN Dictionary& settings,
         const Natural tempBufferSize = 2048;
         const Real defaultBpmRate = 120.0;
 
-        AudioSampleListVector tempBuffer{_channelCount};
+        AudioDataPointListVector tempBuffer{_channelCount};
         tempBuffer.setFrameCount(tempBufferSize);
-        midiEventConverter->prepareToPlay(sampleRate, tempBufferSize);
+        midiEventConverter->prepareToPlay(dataPointRate, tempBufferSize);
         Real midiTimeToSecondsFactor =
             Real{60.0} / (defaultBpmRate * midiTicksPerQuarterNote);
         Logging_trace1("--: midiTimeToSecondsFactor = %1",
@@ -729,12 +729,12 @@ static void _renderEvents (IN Dictionary& settings,
                 _EventTime::makeRelative(midiEventTime,
                                          previousEventTime,
                                          midiTimeToSecondsFactor,
-                                         sampleRate);
+                                         dataPointRate);
 
-            const Integer currentTimeInSamples =
-                currentEventTime.timeInSamples;
-            const Natural offsetTimeInSamples
-                {currentTimeInSamples - previousEventTime.timeInSamples};
+            const Integer currentTimeInDataPoints =
+                currentEventTime.timeInDataPoints;
+            const Natural offsetTimeInDataPoints
+                {currentTimeInDataPoints - previousEventTime.timeInDataPoints};
             const Boolean isTempoChange =
                 (event.kind() == MidiEventKind::meta
                  && event.metaKind() == MidiMetaEventKind::tempo);
@@ -746,18 +746,18 @@ static void _renderEvents (IN Dictionary& settings,
 
             /* if offset time is 0, append event to current list of
              * events, otherwise put out synchronous events and
-             * generate following samples accordingly; if a tempo
+             * generate following data points accordingly; if a tempo
              * change happens, pending events have to be flushed,
              * because the time base is changed */
-            if (offsetTimeInSamples == 0 && !isTempoChange) {
+            if (offsetTimeInDataPoints == 0 && !isTempoChange) {
                 synchronousEventList.append(effectiveEvent);
             } else {
                 Logging_trace1("currentTime = %1",
                                currentEventTime.toString());
                 _renderSynchronousEvents(*midiEventConverter,
                                          synchronousEventList,
-                                         offsetTimeInSamples,
-                                         tempBuffer, sampleBuffer);
+                                         offsetTimeInDataPoints,
+                                         tempBuffer, dataPointBuffer);
 
                 synchronousEventList.clear();
                 synchronousEventList.append(effectiveEvent);
@@ -777,7 +777,7 @@ static void _renderEvents (IN Dictionary& settings,
         if (!synchronousEventList.isEmpty()) {
             _renderSynchronousEvents(*midiEventConverter,
                                      synchronousEventList, 0,
-                                     tempBuffer, sampleBuffer);
+                                     tempBuffer, dataPointBuffer);
         }
 
         delete midiEventConverter;
@@ -790,32 +790,33 @@ static void _renderEvents (IN Dictionary& settings,
 
 /**
  * Render synchronous events from <C>midiEventList</C> trailed by
- * <C>trailingSampleCount</C> samples via fluidsynth synthesizer
- * from <C>midiEventConverter</C> using <C>temporaryBuffer</C> and
- * appending result to <C>destinationBuffer</C>.
+ * <C>trailingDataPointCount</C> data points via fluidsynth
+ * synthesizer from <C>midiEventConverter</C> using
+ * <C>temporaryBuffer</C> and appending result to
+ * <C>destinationBuffer</C>.
  *
- * @param[in]  midiEventConverter    FluidSynth processor for events
- * @param[in]  synchronousEventList  list of MIDI events happening
- *                                   simultaneously and now
- * @param[in]  trailingSampleCount   samples to be rendered after
- *                                   MIDI events
- * @param[in]  temporaryBuffer       auxiliary buffer for incremental
- *                                   rendering
- * @param[out] destinationBuffer     destination stereo sample array
+ * @param[in]  midiEventConverter      FluidSynth processor for events
+ * @param[in]  synchronousEventList    list of MIDI events happening
+ *                                     simultaneously and now
+ * @param[in]  trailingDataPointCount  data points to be rendered after
+ *                                     MIDI events
+ * @param[in]  temporaryBuffer         auxiliary buffer for incremental
+ *                                     rendering
+ * @param[out] destinationBuffer       destination stereo data point array
  */
 static void
 _renderSynchronousEvents (INOUT MidiEventConverter& midiEventConverter,
                           IN MidiEventList& synchronousEventList,
-                          IN Natural trailingSampleCount,
-                          INOUT AudioSampleListVector& temporaryBuffer,
-                          INOUT AudioSampleListVector& destinationBuffer)
+                          IN Natural trailingDataPointCount,
+                          INOUT AudioDataPointListVector& temporaryBuffer,
+                          INOUT AudioDataPointListVector& destinationBuffer)
 {
     Logging_trace2(">>: eventListCount = %1,"
-                   " sampleCount = %2",
+                   " dataPointCount = %2",
                    TOSTRING(synchronousEventList.length()),
-                   TOSTRING(trailingSampleCount));
+                   TOSTRING(trailingDataPointCount));
 
-    Natural remainingCount = trailingSampleCount;
+    Natural remainingCount = trailingDataPointCount;
     Natural bufferLength = temporaryBuffer.frameCount();
     MidiEventList eventList = synchronousEventList;
 
@@ -827,14 +828,14 @@ _renderSynchronousEvents (INOUT MidiEventConverter& midiEventConverter,
                        TOSTRING(renderCount));
         midiEventConverter.processBlock(eventList, temporaryBuffer,
                                         renderCount);
-        Logging_trace1("--: currentSamples = %1",
+        Logging_trace1("--: currentDataPoints = %1",
                        temporaryBuffer.toString(renderCount, true));
         destinationBuffer.extend(temporaryBuffer, renderCount);
         remainingCount -= renderCount;
         eventList.clear();
     } while (remainingCount > 0);
 
-    Logging_trace1("<<: sampleBufferCount = %1",
+    Logging_trace1("<<: dataPointBufferCount = %1",
                    TOSTRING(destinationBuffer.frameCount()));
 }
 
@@ -911,7 +912,7 @@ int ConverterProgram::main (int argc, char* argv[])
     Boolean isOkay;
     String midiFileName;
     Dictionary renderSettings;
-    Real sampleRate;
+    Real dataPointRate;
     String waveFileName;
 
     _initialize();
@@ -929,7 +930,7 @@ int ConverterProgram::main (int argc, char* argv[])
     /* read parameters from command line */
     isOkay = _handleCommandLineArguments(argc, argv,
                                          midiFileName, waveFileName,
-                                         sampleRate, audioFileFormat,
+                                         dataPointRate, audioFileFormat,
                                          renderSettings);
 
     if (midiFileName == "") {
@@ -945,7 +946,7 @@ int ConverterProgram::main (int argc, char* argv[])
     if (!isOkay) {
         _writeMessage(STR::expand(_usageText, _programName), false);
     } else {
-        _process(renderSettings, midiFileName, sampleRate,
+        _process(renderSettings, midiFileName, dataPointRate,
                  audioFileFormat, waveFileName);
     }
 

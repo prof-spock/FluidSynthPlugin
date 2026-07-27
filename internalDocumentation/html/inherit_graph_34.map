@@ -1,23 +1,23 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" title=" " alt="" coords="5,273,93,298"/>
-<area shape="rect" id="Node000001" href="$struct_audio_1_1_audio_sample_fifo_queue_vector.html" title="A AudioSampleFifoQueueVector object is a list of fifo queues for audio samples with selection by inde..." alt="" coords="141,5,340,45"/>
-<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="51,259,60,215,76,160,101,104,119,78,140,55,156,43,159,48,143,59,123,82,106,107,81,162,65,216,56,260"/>
-<area shape="rect" id="Node000002" href="$struct_audio_1_1_audio_sample_list.html" title="An AudioSampleList object is a list of audio samples with arbitrary indexed access to positions in th..." alt="" coords="160,70,321,95"/>
-<area shape="poly" id="edge2_Node000000_Node000002" title=" " alt="" coords="54,259,65,224,82,182,106,140,140,105,159,93,162,98,143,109,111,143,86,184,70,225,59,260"/>
-<area shape="rect" id="Node000003" href="$struct_audio_1_1_audio_sample_list_vector.html" title="A AudioSampleListVector object is a buffer of audio sample lists containing the input samples and the..." alt="" coords="141,119,340,145"/>
-<area shape="poly" id="edge3_Node000000_Node000003" title=" " alt="" coords="59,259,90,206,113,178,140,155,165,142,167,147,143,160,117,182,95,209,64,262"/>
-<area shape="rect" id="Node000004" href="$struct_base_modules_1_1_command_line_argument_list.html" title="A CommandLineArgumentList object is a list of abstract arguments for the main program derived from th..." alt="" coords="145,169,337,209"/>
-<area shape="poly" id="edge4_Node000000_Node000004" title=" " alt="" coords="75,262,105,240,140,219,168,207,170,212,143,224,108,244,78,266"/>
-<area shape="rect" id="Node000005" href="$struct_base_types_1_1_containers_1_1_byte_list.html" title="A ByteList object is a list of byte values with arbitrary indexed access to positions in the list." alt="" coords="162,233,319,273"/>
-<area shape="poly" id="edge5_Node000000_Node000005" title=" " alt="" coords="106,273,161,264,162,269,107,278"/>
-<area shape="rect" id="Node000006" href="$struct_base_types_1_1_containers_1_1_integer_list.html" title="An IntegerList object is a list of integer values with arbitrary indexed access to positions in the l..." alt="" coords="162,297,319,337"/>
-<area shape="poly" id="edge6_Node000000_Node000006" title=" " alt="" coords="107,292,162,302,161,307,106,297"/>
-<area shape="rect" id="Node000007" href="$struct_base_types_1_1_containers_1_1_natural_list.html" title="A NaturalList object is a list of non&#45;negative integer values with arbitrary indexed access to positi..." alt="" coords="162,361,319,401"/>
-<area shape="poly" id="edge7_Node000000_Node000007" title=" " alt="" coords="78,304,108,326,143,347,170,359,168,364,140,352,105,331,75,309"/>
-<area shape="rect" id="Node000008" href="$struct_base_types_1_1_containers_1_1_real_list.html" title="A RealList object is a list of real values with arbitrary indexed access to positions in the list." alt="" coords="162,425,319,465"/>
-<area shape="poly" id="edge8_Node000000_Node000008" title=" " alt="" coords="65,309,96,361,117,388,143,411,163,423,160,428,140,415,114,392,91,364,60,312"/>
-<area shape="rect" id="Node000009" href="$struct_base_types_1_1_containers_1_1_string_list.html" title="A StringList object is a list of string values with arbitrary indexed access to positions in the list..." alt="" coords="162,489,319,529"/>
-<area shape="poly" id="edge9_Node000000_Node000009" title=" " alt="" coords="59,311,69,348,86,392,110,437,143,475,163,489,160,493,140,479,106,440,81,394,64,349,53,312"/>
-<area shape="rect" id="Node000010" href="$struct_m_i_d_i_1_1_midi_event_list.html" title="An MidiEventList object is a list of MIDI events with arbitrary indexed access to positions in the li..." alt="" coords="174,554,307,579"/>
-<area shape="poly" id="edge10_Node000000_Node000010" title=" " alt="" coords="55,311,61,360,76,422,102,485,120,514,143,539,158,550,175,557,173,562,155,554,140,543,116,517,97,488,70,423,56,361,49,312"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,287,93,313"/>
+<area shape="rect" id="Node000001" href="$struct_audio_1_1_audio_data_point_fifo_queue_vector.html" title="A AudioDataPointFifoQueueVector object is a list of fifo queues for audio data points with selection ..." alt="" coords="150,5,325,45"/>
+<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="51,273,58,227,74,169,100,108,118,80,140,55,156,43,159,48,143,59,122,83,105,111,79,170,63,228,56,274"/>
+<area shape="rect" id="Node000002" href="$struct_audio_1_1_audio_data_point_list.html" title="An AudioDataPointList object is a list of audio data points with arbitrary indexed access to position..." alt="" coords="150,70,325,95"/>
+<area shape="poly" id="edge2_Node000000_Node000002" title=" " alt="" coords="53,273,63,235,80,190,105,145,140,106,161,93,163,98,143,110,109,148,85,193,68,237,58,274"/>
+<area shape="rect" id="Node000003" href="$struct_audio_1_1_audio_data_point_list_vector.html" title="A AudioDataPointListVector object is a buffer of audio data point lists containing the input data poi..." alt="" coords="150,120,325,160"/>
+<area shape="poly" id="edge3_Node000000_Node000003" title=" " alt="" coords="60,274,91,221,114,194,140,170,160,158,163,162,143,174,117,197,96,224,65,276"/>
+<area shape="rect" id="Node000004" href="$struct_base_modules_1_1_command_line_argument_list.html" title="A CommandLineArgumentList object is a list of abstract arguments for the main program derived from th..." alt="" coords="141,184,333,224"/>
+<area shape="poly" id="edge4_Node000000_Node000004" title=" " alt="" coords="75,277,105,255,140,234,168,222,170,226,143,238,108,259,78,281"/>
+<area shape="rect" id="Node000005" href="$struct_base_types_1_1_containers_1_1_byte_list.html" title="A ByteList object is a list of byte values with arbitrary indexed access to positions in the list." alt="" coords="159,248,316,288"/>
+<area shape="poly" id="edge5_Node000000_Node000005" title=" " alt="" coords="106,288,158,279,159,284,107,293"/>
+<area shape="rect" id="Node000006" href="$struct_base_types_1_1_containers_1_1_integer_list.html" title="An IntegerList object is a list of integer values with arbitrary indexed access to positions in the l..." alt="" coords="159,312,316,352"/>
+<area shape="poly" id="edge6_Node000000_Node000006" title=" " alt="" coords="107,307,159,316,158,321,106,312"/>
+<area shape="rect" id="Node000007" href="$struct_base_types_1_1_containers_1_1_natural_list.html" title="A NaturalList object is a list of non&#45;negative integer values with arbitrary indexed access to positi..." alt="" coords="159,376,316,416"/>
+<area shape="poly" id="edge7_Node000000_Node000007" title=" " alt="" coords="78,319,108,341,143,362,170,374,168,378,140,366,105,345,75,323"/>
+<area shape="rect" id="Node000008" href="$struct_base_types_1_1_containers_1_1_real_list.html" title="A RealList object is a list of real values with arbitrary indexed access to positions in the list." alt="" coords="159,440,316,480"/>
+<area shape="poly" id="edge8_Node000000_Node000008" title=" " alt="" coords="65,324,96,376,117,403,143,426,163,438,160,442,140,430,114,406,91,379,60,326"/>
+<area shape="rect" id="Node000009" href="$struct_base_types_1_1_containers_1_1_string_list.html" title="A StringList object is a list of string values with arbitrary indexed access to positions in the list..." alt="" coords="159,504,316,544"/>
+<area shape="poly" id="edge9_Node000000_Node000009" title=" " alt="" coords="59,325,69,362,86,406,110,451,143,490,160,502,157,506,140,494,106,454,81,409,64,364,54,327"/>
+<area shape="rect" id="Node000010" href="$struct_m_i_d_i_1_1_midi_event_list.html" title="An MidiEventList object is a list of MIDI events with arbitrary indexed access to positions in the li..." alt="" coords="171,569,304,594"/>
+<area shape="poly" id="edge10_Node000000_Node000010" title=" " alt="" coords="55,326,61,375,76,436,102,500,120,529,143,554,172,570,169,575,140,558,116,532,97,502,71,438,56,376,50,327"/>
 </map>

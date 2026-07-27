@@ -1,7 +1,7 @@
 <map id="TimeAndDuration.cpp" name="TimeAndDuration.cpp">
 <area shape="rect" id="Node000001" title="The TimeAndDuration body implements simple functions for the types for time and duration." alt="" coords="337,5,484,31"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="219,79,277,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="386,33,288,75,286,71,383,28"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="154,79,278,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="380,33,261,76,260,71,378,28"/>
 <area shape="rect" id="Node000003" href="$_logging_8h.html" title="The Logging specification defines macros for entry&#45;, exit&#45; and intermediate logging of functions into..." alt="" coords="302,79,381,104"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="401,33,364,71,360,67,397,29"/>
 <area shape="rect" id="Node000026" href="$_real_list_8h.html" title="The RealList specification defines lists of real values with zero&#45;based arbitrary indexed access to p..." alt="" coords="512,225,592,251"/>

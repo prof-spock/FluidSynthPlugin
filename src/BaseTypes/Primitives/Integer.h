@@ -66,7 +66,7 @@ namespace BaseTypes::Primitives {
          */
         Integer (IN Natural n)
         {
-            _value = (int) (size_t) n;
+            _value = int(size_t(n));
         }
 
         /*--------------------*/
@@ -120,7 +120,7 @@ namespace BaseTypes::Primitives {
          */
         explicit operator double () const
         {
-            return (double) _value;
+            return double(_value);
         }
 
         /*--------------------*/
@@ -133,7 +133,7 @@ namespace BaseTypes::Primitives {
          */
         explicit operator size_t () const
         {
-            return (size_t) _value;
+            return size_t(_value);
         }
 
         /*--------------------*/
@@ -146,7 +146,7 @@ namespace BaseTypes::Primitives {
          */
         explicit operator Natural () const
         {
-            return Natural{(int) _value};
+            return Natural{int(_value)};
         }
 
         /*--------------------*/
@@ -179,7 +179,7 @@ namespace BaseTypes::Primitives {
                                        "allowed for natural");
             }
 
-            return Natural{(size_t) (int) i};
+            return Natural{size_t(i)};
         }
 
         /*--------------------*/
@@ -258,7 +258,7 @@ namespace BaseTypes::Primitives {
          */
         static Integer abs (IN Integer i)
         {
-            return Integer{std::abs((int) i)};
+            return Integer{std::abs(int(i))};
         }
 
         /*--------------------*/
@@ -272,7 +272,7 @@ namespace BaseTypes::Primitives {
          */
         static Integer ceiling (IN double x)
         {
-            return Integer{(int) std::ceil(x)};
+            return Integer{int(std::ceil(x))};
         }
 
         /*--------------------*/
@@ -286,7 +286,7 @@ namespace BaseTypes::Primitives {
          */
         static Integer floor (IN double x)
         {
-            return Integer{(int) std::floor(x)};
+            return Integer{int(std::floor(x))};
         }
 
         /*--------------------*/
@@ -318,7 +318,7 @@ namespace BaseTypes::Primitives {
         static Integer power (IN Integer base,
                               IN Integer exponent)
         {
-            return Integer{(int) pow(base._value, exponent._value)};
+            return Integer{int(pow(base._value, exponent._value))};
         }
 
         /*--------------------*/

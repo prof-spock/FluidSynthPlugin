@@ -109,9 +109,9 @@ $(function(){initNavTree('_midi_event_converter_8cpp.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:MIDI_3A_3A_5FMidiEventConverterDescriptor" id="r_MIDI_3A_3A_5FMidiEventConverterDescriptor"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_m_i_d_i_1_1___midi_event_converter_descriptor.html">MIDI::_MidiEventConverterDescriptor</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">the internal data of a fluidsynth <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> processor: a fluidsynth library, settings and synthesizer object and the dictionary of settings and some preallocated internal audio sample buffer  <a href="struct_m_i_d_i_1_1___midi_event_converter_descriptor.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">the internal data of a fluidsynth <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> processor: a fluidsynth library, settings and synthesizer object and the dictionary of settings and some preallocated internal audio data point buffer  <a href="struct_m_i_d_i_1_1___midi_event_converter_descriptor.html#details">More...</a><br /></td></tr>
 <tr class="memitem:_5FMidiEventConverterDescriptor" id="r__5FMidiEventConverterDescriptor"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct___midi_event_converter_descriptor.html">_MidiEventConverterDescriptor</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">the internal data of a fluidsynth <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> processor: a fluidsynth library, settings and synthesizer object and the dictionary of settings and some preallocated internal audio sample buffer  <a href="struct___midi_event_converter_descriptor.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">the internal data of a fluidsynth <a class="el" href="namespace_m_i_d_i.html" title="The package MIDI provides supporting MIDI classes for the Fluidsynth MIDI plugin and the simple Fluid...">MIDI</a> processor: a fluidsynth library, settings and synthesizer object and the dictionary of settings and some preallocated internal audio data point buffer  <a href="struct___midi_event_converter_descriptor.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
@@ -120,9 +120,9 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a64757dc84eac3a7e8bcaa0bfbd6b71ee" id="r_a64757dc84eac3a7e8bcaa0bfbd6b71ee"><td class="memItemLeft" align="right" valign="top"><a id="a64757dc84eac3a7e8bcaa0bfbd6b71ee" name="a64757dc84eac3a7e8bcaa0bfbd6b71ee"></a>
-typedef <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>AudioSample</b></td></tr>
-<tr class="memdesc:a64757dc84eac3a7e8bcaa0bfbd6b71ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">An <code><a class="el" href="_audio_sample_list_8h.html#a64757dc84eac3a7e8bcaa0bfbd6b71ee" title="An AudioSample represents a single audio sample (a 32bit float)">AudioSample</a></code> represents a single audio sample (a 32bit float) <br /></td></tr>
+<tr class="memitem:a8a1335d82708ba40820b69bda61aefd9" id="r_a8a1335d82708ba40820b69bda61aefd9"><td class="memItemLeft" align="right" valign="top"><a id="a8a1335d82708ba40820b69bda61aefd9" name="a8a1335d82708ba40820b69bda61aefd9"></a>
+typedef <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>AudioDataPoint</b></td></tr>
+<tr class="memdesc:a8a1335d82708ba40820b69bda61aefd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">An <code><a class="el" href="_audio_data_point_8cpp-inc.html#a8a1335d82708ba40820b69bda61aefd9" title="An AudioDataPoint represents a single audio data point (a real value)">AudioDataPoint</a></code> represents a single audio data point (a real value) <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -130,8 +130,8 @@ Functions</h2></td></tr>
 <tr class="memdesc:a6efc7461db180b78e74820d3c1c15bd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds and returns smallest preset number in <code>soundFont</code>.  <br /></td></tr>
 <tr class="memitem:aa2b3e6bd3b82bbd06853c5a8e4203cea" id="r_aa2b3e6bd3b82bbd06853c5a8e4203cea"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa2b3e6bd3b82bbd06853c5a8e4203cea">_setPreset</a> (<a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_libraries_1_1_fluid_synth_1_1_fluid_synth_synthesizer.html">FluidSynthSynthesizer</a> &amp;synthesizer, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> bankNumber, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> programNumber)</td></tr>
 <tr class="memdesc:aa2b3e6bd3b82bbd06853c5a8e4203cea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets preset on all channels of <code>synthesizer</code> to <code>bankNumber</code> and <code>programNumber</code>  <br /></td></tr>
-<tr class="memitem:ad2cb3ad46a3e82c2e0cf5507efba1ce7" id="r_ad2cb3ad46a3e82c2e0cf5507efba1ce7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad2cb3ad46a3e82c2e0cf5507efba1ce7">_clearSampleListVector</a> (<a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_audio_1_1_audio_sample_list_vector.html">AudioSampleListVector</a> &amp;sampleListVector, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> sampleCountInChannel)</td></tr>
-<tr class="memdesc:ad2cb3ad46a3e82c2e0cf5507efba1ce7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear <code>sampleListVector</code>.  <br /></td></tr>
+<tr class="memitem:ad80b019dd90abe4617a9284c5a03a4da" id="r_ad80b019dd90abe4617a9284c5a03a4da"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad80b019dd90abe4617a9284c5a03a4da">_clearDataPointListVector</a> (<a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_audio_1_1_audio_data_point_list_vector.html">AudioDataPointListVector</a> &amp;dataPointListVector, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a> dataPointCountInChannel)</td></tr>
+<tr class="memdesc:ad80b019dd90abe4617a9284c5a03a4da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear <code>dataPointListVector</code>.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -147,8 +147,8 @@ static const <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.ht
 <dl class="section author"><dt>Author</dt><dd>Dr. Thomas Tensi </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2022-04 </dd></dl>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="ad2cb3ad46a3e82c2e0cf5507efba1ce7" name="ad2cb3ad46a3e82c2e0cf5507efba1ce7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad2cb3ad46a3e82c2e0cf5507efba1ce7">&#9670;&#160;</a></span>_clearSampleListVector()</h2>
+<a id="ad80b019dd90abe4617a9284c5a03a4da" name="ad80b019dd90abe4617a9284c5a03a4da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad80b019dd90abe4617a9284c5a03a4da">&#9670;&#160;</a></span>_clearDataPointListVector()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -157,14 +157,14 @@ static const <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.ht
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void _clearSampleListVector </td>
+          <td class="memname">void _clearDataPointListVector </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_audio_1_1_audio_sample_list_vector.html">AudioSampleListVector</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>sampleListVector</em></span>, </td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_audio_1_1_audio_data_point_list_vector.html">AudioDataPointListVector</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dataPointListVector</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a></td>          <td class="paramname"><span class="paramname"><em>sampleCountInChannel</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.html">Natural</a></td>          <td class="paramname"><span class="paramname"><em>dataPointCountInChannel</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -174,11 +174,11 @@ static const <a class="el" href="struct_base_types_1_1_primitives_1_1_natural.ht
 </table>
 </div><div class="memdoc">
 
-<p>Clear <code>sampleListVector</code>. </p>
+<p>Clear <code>dataPointListVector</code>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">sampleListVector</td><td>audio buffer to be set to 0 </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">sampleCountInChannel</td><td>number of samples to set </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dataPointListVector</td><td>audio buffer to be set to 0 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dataPointCountInChannel</td><td>number of data points to set </td></tr>
   </table>
   </dd>
 </dl>

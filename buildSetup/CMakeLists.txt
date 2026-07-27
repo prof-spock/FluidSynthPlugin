@@ -14,14 +14,15 @@ PROJECT(FluidSynthPlugin
 # === program configuration ===
 # =============================
 
-INCLUDE(GlobalSettings.cmake)
-INCLUDE(GlobalSettings_Plugin.cmake)
+INCLUDE(_UtilityFunctions.cmake)
+INCLUDE(_GlobalConfiguration.cmake)
+INCLUDE(_GlobalConfiguration_Plugin.cmake)
 
 # --- compiler ---
-INCLUDE(PluginSpecificCompilerSettings.cmake)
+INCLUDE(_PluginSpecificCompilerConfiguration.cmake)
 # first JUCE plugin settings, then global compiler settings
-INCLUDE(CPPCompilerConfiguration_Plugin.cmake)
-INCLUDE(CPPCompilerConfiguration.cmake)
+INCLUDE(_CPPCompilerConfiguration_Plugin.cmake)
+INCLUDE(_CPPCompilerConfiguration.cmake)
 
 # --- LaTeX ---
 FIND_PACKAGE(LATEX QUIET OPTIONAL_COMPONENTS PDFLATEX)
@@ -33,7 +34,7 @@ FIND_PACKAGE(Doxygen QUIET)
 FIND_PACKAGE(juce QUIET)
 
 # local configuration settings
-INCLUDE(LocalConfiguration.cmake)
+INCLUDE(_LocalConfiguration.cmake)
 
 # ===========================
 
@@ -69,6 +70,8 @@ CMAKE_PATH(SET srcFluidSynthLibDirectory NORMALIZE
            ${srcDirectory}/Libraries/FluidSynth)
 CMAKE_PATH(SET srcJuceFacadeDirectory NORMALIZE
            ${srcDirectory}/Libraries/JuceFacade)
+CMAKE_PATH(SET srcStdCFacadeDirectory NORMALIZE
+           ${srcDirectory}/Libraries/StandardCFacade)
 CMAKE_PATH(SET srcMidiSupportDirectory NORMALIZE
            ${srcDirectory}/MIDI)
 CMAKE_PATH(SET srcMainRootDirectory NORMALIZE
@@ -103,9 +106,6 @@ CMAKE_PATH(SET testFileDirectory NORMALIZE
 
 # --- include directories ---
 
-CMAKE_PATH(SET juceModulesDirectory NORMALIZE
-           ${JUCE_DIR}/modules)
-
 SET(standardIncludeDirectoryList
     ${srcAudioSupportDirectory}
     ${srcBaseModulesDirectory}
@@ -113,17 +113,19 @@ SET(standardIncludeDirectoryList
     ${srcGenericTypesDirectory}
     ${srcPrimitivesDirectory}
     ${srcLibrariesDirectory}
+    ${srcStdCFacadeDirectory}
     ${srcMainRootDirectory}
     ${srcMidiSupportDirectory}
     ${srcFluidSynthLibDirectory}
 )
 
 SET(additionalIncludeDirectoryList
+    ${srcFluidSynthPluginDirectory}
     ${srcJuceFacadeDirectory}
-    ${juceModulesDirectory}
-    ${juceModulesDirectory}/juce_audio_plugin_client/AU
-    ${juceModulesDirectory}/juce_audio_processors/format_types/VST3_SDK
 )
+
+GLOBP_appendJuceIncludeDirectories(additionalIncludeDirectoryList
+                                   "${JUCE_DIR}")
 
 # --- add dynamic linkage library for MacOS and Unix ---
 IF(NOT WINDOWS)
@@ -143,15 +145,28 @@ IF(LINUX)
     )
 ENDIF(LINUX)
 
+# --- Windows specific files ---
+IF(MSVC)
+    CMAKE_PATH(SET debuggerVisualizationFileDirectory
+               ${CMAKE_CURRENT_SOURCE_DIR}/Windows)
+    SET(debuggerVisualizationFileNameList
+        ${debuggerVisualizationFileDirectory}/audio.natvis
+        ${debuggerVisualizationFileDirectory}/basemodules.natvis
+        ${debuggerVisualizationFileDirectory}/basetypes.natvis)
+ELSE()
+    SET(debuggerVisualizationFileNameList )
+ENDIF()
+
 # ====================
 # === source files ===
 # ====================
 
 SET(srcAudioModulesFileList
-    ${srcAudioSupportDirectory}/AudioSampleFifoQueue.cpp
-    ${srcAudioSupportDirectory}/AudioSampleFifoQueueVector.cpp
-    ${srcAudioSupportDirectory}/AudioSampleList.cpp
-    ${srcAudioSupportDirectory}/AudioSampleListVector.cpp
+    ${srcAudioSupportDirectory}/AudioDataPoint.cpp
+    ${srcAudioSupportDirectory}/AudioDataPointFifoQueue.cpp
+    ${srcAudioSupportDirectory}/AudioDataPointFifoQueueVector.cpp
+    ${srcAudioSupportDirectory}/AudioDataPointList.cpp
+    ${srcAudioSupportDirectory}/AudioDataPointListVector.cpp
 )
 
 SET(srcBaseModulesFileList
@@ -217,7 +232,7 @@ FOREACH(pluginName ${pluginNameList})
         ${effectDirectory}/${pluginName}_Editor.cpp
         ${effectDirectory}/${pluginName}_EditorSupport.cpp
         ${effectDirectory}/${pluginName}_EventProcessor.cpp
-        ${effectDirectory}/JucePlugin-VST_1.${GLOBP_juceFileExtension}
+        ${srcJuceFacadeDirectory}/JucePlugin-VST_1.${GLOBP_juceFileExtension}
     )
     
     IF(WINDOWS)
@@ -246,10 +261,10 @@ IF(MACOS)
             ${effectDirectory}/${pluginName}_EventProcessor.cpp
             ${effectDirectory}/${pluginName}_Editor.cpp
             ${effectDirectory}/${pluginName}_EditorSupport.cpp
-            ${effectDirectory}/JucePlugin-util.cpp
-            ${effectDirectory}/JucePlugin-AU_1.mm
-            ${effectDirectory}/JucePlugin-AU_2.mm
-            ${effectDirectory}/JucePlugin-Standalone.cpp
+            ${srcJuceFacadeDirectory}/JucePlugin-util.cpp
+            ${srcJuceFacadeDirectory}/JucePlugin-AU_1.mm
+            ${srcJuceFacadeDirectory}/JucePlugin-AU_2.mm
+            ${srcJuceFacadeDirectory}/JucePlugin-Standalone.cpp
         )
 
         LIST(APPEND allSrcFileList ${${fileListName}})
@@ -369,7 +384,7 @@ SET(fluidSynthConverterFileList
     ${srcAudioSupportDirectory}/WaveFile.cpp
     ${srcFluidSynthConverterDirectory}/FluidSynthFileConverter.cpp
     ${srcFluidSynthConverterDirectory}/MainStub.cpp
-    ${GLOB_debuggerVisualizationFileName}
+    ${debuggerVisualizationFileNameList}
 )
 
 ADD_EXECUTABLE(${targetName} ${fluidSynthConverterFileList})

@@ -1,5 +1,8 @@
 var NAVTREEINDEX10 =
 {
+"struct_midi_meta_event_kind.html#a7280a33f50060f49d238b057a171d01b":[2,0,51,14],
+"struct_midi_meta_event_kind.html#a7c94cd2bedabc32c8efe733e93c743d4":[2,0,51,3],
+"struct_midi_meta_event_kind.html#a7d114c95c01a0bc05c7494d99696961e":[2,0,51,16],
 "struct_midi_meta_event_kind.html#a87fa7f090439cbacd1233480ff27201b":[2,0,51,21],
 "struct_midi_meta_event_kind.html#aad5512a538c7a85b7e9826a10f76ce51":[2,0,51,13],
 "struct_midi_meta_event_kind.html#abdf8a3b8feb7629fc9e1be88171cfd3b":[2,0,51,11],
@@ -201,9 +204,9 @@ var NAVTREEINDEX10 =
 "struct_string_util.html#af89f2f4cbbc99c31887ac695557218b3":[2,0,61,33],
 "struct_string_util.html#af9896a5dce4d90d2395c4e12aab375e7":[2,0,61,19],
 "struct_wave_file.html":[2,0,62],
+"struct_wave_file.html#a0bcd7dd9f1f49c535a28624f4712b4e8":[2,0,62,5],
 "struct_wave_file.html#a4c55cc74a66d5de396b2d2246482bc6d":[2,0,62,1],
-"struct_wave_file.html#a53a228cd63143870c867ee25f541f9cb":[2,0,62,5],
-"struct_wave_file.html#aa1ecfeaf11c9a5078c3ac14d9730422b":[2,0,62,4],
+"struct_wave_file.html#a4dfa54f4c62bcd2d915c20e95bdecb49":[2,0,62,4],
 "struct_wave_file.html#aa8ddf8fa71733c5de84e9ab4dcf62deb":[2,0,62,3],
 "struct_wave_file.html#acca633c14511fe34cef507a7584ca82b":[2,0,62,6],
 "struct_wave_file.html#aeb00b61a45baae720cf7c9c27138ac8c":[2,0,62,2],

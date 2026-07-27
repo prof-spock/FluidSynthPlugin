@@ -11,7 +11,7 @@
 <!-- Node0 -->
 <g id="Node000000" class="node">
 <title>Node0</title>
-<g id="a_Node000000"><a xlink:href="struct_main_1_1_fluid_synth_plugin_1_1___ring_buffer.html" target="_top" xlink:title="Type for processing of MIDI events into sample list vectors with the possibility of delaying events f...">
+<g id="a_Node000000"><a xlink:href="struct_main_1_1_fluid_synth_plugin_1_1___ring_buffer.html" target="_top" xlink:title="Type for processing of MIDI events into data point list vectors with the possibility of delaying even...">
 <polygon fill="white" stroke="#666666" points="117,-30 0,-30 0,0 117,0 117,-30"/>
 <text text-anchor="start" x="8" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">Main::FluidSynthPlugin</text>
 <text text-anchor="middle" x="58.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">::_RingBuffer</text>

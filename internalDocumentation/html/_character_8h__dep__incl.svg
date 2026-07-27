@@ -47,7 +47,7 @@
   </g>
 </defs>
 <script type="application/ecmascript">
-var viewWidth = 2568;
+var viewWidth = 2578;
 var viewHeight = 357;
 var sectionId = 'dynsection-1';
 </script>
@@ -86,8 +86,8 @@ var sectionId = 'dynsection-1';
 <g id="Node000029" class="node">
 <title>Node29</title>
 <g id="a_Node000029"><a xlink:href="_wave_file_8cpp.html" target="_top" xlink:title="The WaveFile specification defines an object for accessing a RIFF wave file with several channels.">
-<polygon fill="white" stroke="#666666" points="2559.5,-184 2484.5,-184 2484.5,-165 2559.5,-165 2559.5,-184"/>
-<text text-anchor="middle" x="2522" y="-172" font-family="Helvetica,sans-Serif" font-size="10.00">WaveFile.cpp</text>
+<polygon fill="white" stroke="#666666" points="2569.5,-184 2494.5,-184 2494.5,-165 2569.5,-165 2569.5,-184"/>
+<text text-anchor="middle" x="2532" y="-172" font-family="Helvetica,sans-Serif" font-size="10.00">WaveFile.cpp</text>
 </a>
 </g>
 </g>
@@ -95,8 +95,8 @@ var sectionId = 'dynsection-1';
 <g id="edge36_Node000001_Node000029" class="edge">
 <title>Node1&#45;&gt;Node29</title>
 <g id="a_edge36_Node000001_Node000029"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M1862.8,-328.35C1991.32,-298.55 2365.85,-211.71 2485.09,-184.06"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="1861.86,-324.97 1852.91,-330.64 1863.44,-331.79 1861.86,-324.97"/>
+<path fill="none" stroke="#63b8ff" d="M1862.9,-328.47C1992.72,-298.79 2373.3,-211.78 2494.48,-184.08"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="1861.88,-325.11 1852.91,-330.75 1863.44,-331.93 1861.88,-325.11"/>
 </a>
 </g>
 </g>
@@ -247,9 +247,9 @@ var sectionId = 'dynsection-1';
 <!-- Node6 -->
 <g id="Node000006" class="node">
 <title>Node6</title>
-<g id="a_Node000006"><a xlink:href="_audio_sample_fifo_queue_8cpp-inc.html" target="_top" xlink:title="The AudioSampleFifoQueue body implements a fifo queue for audio samples with popping off access to th...">
-<polygon fill="white" stroke="#666666" points="2466.5,-184 2313.5,-184 2313.5,-165 2466.5,-165 2466.5,-184"/>
-<text text-anchor="middle" x="2390" y="-172" font-family="Helvetica,sans-Serif" font-size="10.00">AudioSampleFifoQueue.cpp&#45;inc</text>
+<g id="a_Node000006"><a xlink:href="_audio_data_point_fifo_queue_8cpp-inc.html" target="_top" xlink:title="The AudioDataPointFifoQueue body implements a fifo queue for audio data points with popping off acces...">
+<polygon fill="white" stroke="#666666" points="2476.5,-184 2313.5,-184 2313.5,-165 2476.5,-165 2476.5,-184"/>
+<text text-anchor="middle" x="2395" y="-172" font-family="Helvetica,sans-Serif" font-size="10.00">AudioDataPointFifoQueue.cpp&#45;inc</text>
 </a>
 </g>
 </g>
@@ -257,8 +257,8 @@ var sectionId = 'dynsection-1';
 <g id="edge5_Node000005_Node000006" class="edge">
 <title>Node5&#45;&gt;Node6</title>
 <g id="a_edge5_Node000005_Node000006"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M1424.84,-220.17C1814,-170.83 1916.85,-211.03 2304,-184 2306.99,-183.79 2310.04,-183.56 2313.12,-183.32"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="1424.19,-216.73 1414.72,-221.47 1425.08,-223.67 1424.19,-216.73"/>
+<path fill="none" stroke="#63b8ff" d="M1424.84,-220.17C1814,-170.81 1916.78,-209.99 2304,-184 2307.01,-183.8 2310.07,-183.58 2313.16,-183.35"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="1424.19,-216.72 1414.72,-221.47 1425.08,-223.67 1424.19,-216.72"/>
 </a>
 </g>
 </g>
@@ -283,9 +283,9 @@ var sectionId = 'dynsection-1';
 <!-- Node12 -->
 <g id="Node000012" class="node">
 <title>Node12</title>
-<g id="a_Node000012"><a xlink:href="_audio_sample_fifo_queue_vector_8cpp-inc.html" target="_top" xlink:title="The AudioSampleFifoQueueVector body implements a list of fifo queues for audio samples (this is the e...">
-<polygon fill="white" stroke="#666666" points="337,-129 155,-129 155,-110 337,-110 337,-129"/>
-<text text-anchor="middle" x="246" y="-117" font-family="Helvetica,sans-Serif" font-size="10.00">AudioSampleFifoQueueVector.cpp&#45;inc</text>
+<g id="a_Node000012"><a xlink:href="_audio_data_point_fifo_queue_vector_8cpp-inc.html" target="_top" xlink:title="The AudioDataPointFifoQueueVector body implements a list of fifo queues for audio data points (this i...">
+<polygon fill="white" stroke="#666666" points="346.5,-129 155.5,-129 155.5,-110 346.5,-110 346.5,-129"/>
+<text text-anchor="middle" x="251" y="-117" font-family="Helvetica,sans-Serif" font-size="10.00">AudioDataPointFifoQueueVector.cpp&#45;inc</text>
 </a>
 </g>
 </g>
@@ -293,7 +293,7 @@ var sectionId = 'dynsection-1';
 <g id="edge11_Node000005_Node000012" class="edge">
 <title>Node5&#45;&gt;Node12</title>
 <g id="a_edge11_Node000005_Node000012"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M1344.92,-220.6C1211.02,-213.09 192.88,-230.25 148,-184 124.21,-159.48 174.19,-139.73 211.14,-129.09"/>
+<path fill="none" stroke="#63b8ff" d="M1344.92,-220.6C1211.02,-213.09 192.88,-230.25 148,-184 123.57,-158.82 174.84,-139.47 213.45,-129.06"/>
 <polygon fill="#63b8ff" stroke="#63b8ff" points="1345.04,-224.12 1355.29,-221.43 1345.6,-217.14 1345.04,-224.12"/>
 </a>
 </g>
@@ -590,17 +590,17 @@ var sectionId = 'dynsection-1';
 <g id="edge30_Node000005_Node000029" class="edge">
 <title>Node5&#45;&gt;Node29</title>
 <g id="a_edge30_Node000005_Node000029"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M1424.71,-220.2C1889.52,-163.01 2013.56,-233.37 2475,-184 2478.05,-183.67 2481.2,-183.26 2484.36,-182.8"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="1424.21,-216.74 1414.72,-221.45 1425.07,-223.68 1424.21,-216.74"/>
+<path fill="none" stroke="#63b8ff" d="M1424.8,-220.19C1893.96,-162.55 2019.16,-233.76 2485,-184 2488.05,-183.67 2491.2,-183.26 2494.36,-182.8"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="1424.21,-216.74 1414.71,-221.44 1425.07,-223.69 1424.21,-216.74"/>
 </a>
 </g>
 </g>
 <!-- Node7 -->
 <g id="Node000007" class="node">
 <title>Node7</title>
-<g id="a_Node000007"><a xlink:href="_audio_sample_fifo_queue_8h.html" target="_top" xlink:title="The AudioSampleFifoQueue specification defines a fifo queue for audio samples with popping off access...">
-<polygon fill="white" stroke="#666666" points="1467.5,-129 1340.5,-129 1340.5,-110 1467.5,-110 1467.5,-129"/>
-<text text-anchor="middle" x="1404" y="-117" font-family="Helvetica,sans-Serif" font-size="10.00">AudioSampleFifoQueue.h</text>
+<g id="a_Node000007"><a xlink:href="_audio_data_point_fifo_queue_8h.html" target="_top" xlink:title="The AudioDataPointFifoQueue specification defines a fifo queue for audio data points with popping off...">
+<polygon fill="white" stroke="#666666" points="1482.5,-129 1345.5,-129 1345.5,-110 1482.5,-110 1482.5,-129"/>
+<text text-anchor="middle" x="1414" y="-117" font-family="Helvetica,sans-Serif" font-size="10.00">AudioDataPointFifoQueue.h</text>
 </a>
 </g>
 </g>
@@ -608,17 +608,17 @@ var sectionId = 'dynsection-1';
 <g id="edge6_Node000006_Node000007" class="edge">
 <title>Node6&#45;&gt;Node7</title>
 <g id="a_edge6_Node000006_Node000007"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M2302.71,-164.94C1982.56,-141.48 1613.32,-127.55 1467.63,-122.57"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="2302.89,-168.47 2313.12,-165.71 2303.41,-161.49 2302.89,-168.47"/>
+<path fill="none" stroke="#63b8ff" d="M2302.99,-164.96C1990.24,-142.76 1630.62,-128.36 1482.74,-122.92"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="2302.94,-168.47 2313.16,-165.69 2303.44,-161.48 2302.94,-168.47"/>
 </a>
 </g>
 </g>
 <!-- Node8 -->
 <g id="Node000008" class="node">
 <title>Node8</title>
-<g id="a_Node000008"><a xlink:href="_audio_sample_fifo_queue_8cpp.html" target="_top" xlink:title="The AudioSampleFifoQueue body implements a fifo queue for audio samples with popping off access to th...">
-<polygon fill="white" stroke="#666666" points="1472.5,-74 1335.5,-74 1335.5,-55 1472.5,-55 1472.5,-74"/>
-<text text-anchor="middle" x="1404" y="-62" font-family="Helvetica,sans-Serif" font-size="10.00">AudioSampleFifoQueue.cpp</text>
+<g id="a_Node000008"><a xlink:href="_audio_data_point_fifo_queue_8cpp.html" target="_top" xlink:title="The AudioDataPointFifoQueue body implements a fifo queue for audio samples with popping off access to...">
+<polygon fill="white" stroke="#666666" points="1487.5,-74 1340.5,-74 1340.5,-55 1487.5,-55 1487.5,-74"/>
+<text text-anchor="middle" x="1414" y="-62" font-family="Helvetica,sans-Serif" font-size="10.00">AudioDataPointFifoQueue.cpp</text>
 </a>
 </g>
 </g>
@@ -626,17 +626,17 @@ var sectionId = 'dynsection-1';
 <g id="edge7_Node000007_Node000008" class="edge">
 <title>Node7&#45;&gt;Node8</title>
 <g id="a_edge7_Node000007_Node000008"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M1404,-99.66C1404,-90.93 1404,-80.99 1404,-74.09"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="1400.5,-99.75 1404,-109.75 1407.5,-99.75 1400.5,-99.75"/>
+<path fill="none" stroke="#63b8ff" d="M1414,-99.66C1414,-90.93 1414,-80.99 1414,-74.09"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="1410.5,-99.75 1414,-109.75 1417.5,-99.75 1410.5,-99.75"/>
 </a>
 </g>
 </g>
 <!-- Node9 -->
 <g id="Node000009" class="node">
 <title>Node9</title>
-<g id="a_Node000009"><a xlink:href="_audio_sample_fifo_queue_vector_8h.html" target="_top" xlink:title="The AudioSampleFifoQueueVector specification defines a list of fifo queues for audio samples.">
-<polygon fill="white" stroke="#666666" points="341.5,-74 186.5,-74 186.5,-55 341.5,-55 341.5,-74"/>
-<text text-anchor="middle" x="264" y="-62" font-family="Helvetica,sans-Serif" font-size="10.00">AudioSampleFifoQueueVector.h</text>
+<g id="a_Node000009"><a xlink:href="_audio_data_point_fifo_queue_vector_8h.html" target="_top" xlink:title="The AudioDataPointFifoQueueVector specification defines a list of fifo queues for audio data points.">
+<polygon fill="white" stroke="#666666" points="351.5,-74 186.5,-74 186.5,-55 351.5,-55 351.5,-74"/>
+<text text-anchor="middle" x="269" y="-62" font-family="Helvetica,sans-Serif" font-size="10.00">AudioDataPointFifoQueueVector.h</text>
 </a>
 </g>
 </g>
@@ -644,17 +644,17 @@ var sectionId = 'dynsection-1';
 <g id="edge8_Node000007_Node000009" class="edge">
 <title>Node7&#45;&gt;Node9</title>
 <g id="a_edge8_Node000007_Node000009"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M1330.21,-115.07C1125.35,-105.55 550.96,-78.84 341.6,-69.11"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="1330.11,-118.57 1340.27,-115.54 1330.44,-111.58 1330.11,-118.57"/>
+<path fill="none" stroke="#63b8ff" d="M1335.15,-114.85C1127.02,-105.22 564.37,-79.17 351.82,-69.33"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="1335.23,-118.36 1345.38,-115.32 1335.55,-111.36 1335.23,-118.36"/>
 </a>
 </g>
 </g>
 <!-- Node10 -->
 <g id="Node000010" class="node">
 <title>Node10</title>
-<g id="a_Node000010"><a xlink:href="_audio_sample_fifo_queue_vector_8cpp.html" target="_top" xlink:title="The AudioSampleFifoQueueVector body implements a list of fifo queues for audio samples (this is the f...">
-<polygon fill="white" stroke="#666666" points="366,-19 200,-19 200,0 366,0 366,-19"/>
-<text text-anchor="middle" x="283" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">AudioSampleFifoQueueVector.cpp</text>
+<g id="a_Node000010"><a xlink:href="_audio_data_point_fifo_queue_vector_8cpp.html" target="_top" xlink:title="The AudioDataPointFifoQueueVector body implements a list of fifo queues for audio data points (this i...">
+<polygon fill="white" stroke="#666666" points="376,-19 200,-19 200,0 376,0 376,-19"/>
+<text text-anchor="middle" x="288" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">AudioDataPointFifoQueueVector.cpp</text>
 </a>
 </g>
 </g>
@@ -662,8 +662,8 @@ var sectionId = 'dynsection-1';
 <g id="edge9_Node000009_Node000010" class="edge">
 <title>Node9&#45;&gt;Node10</title>
 <g id="a_edge9_Node000009_Node000010"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M270.55,-45.24C273.72,-36.37 277.39,-26.14 279.92,-19.09"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="267.22,-44.15 267.14,-54.75 273.81,-46.52 267.22,-44.15"/>
+<path fill="none" stroke="#63b8ff" d="M275.55,-45.24C278.72,-36.37 282.39,-26.14 284.92,-19.09"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="272.22,-44.15 272.14,-54.75 278.81,-46.52 272.22,-44.15"/>
 </a>
 </g>
 </g>
@@ -671,8 +671,8 @@ var sectionId = 'dynsection-1';
 <g id="edge10_Node000009_Node000011" class="edge">
 <title>Node9&#45;&gt;Node11</title>
 <g id="a_edge10_Node000009_Node000011"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M226.23,-51.93C193.91,-42.03 148.14,-28.01 119.01,-19.08"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="225.62,-55.4 236.2,-54.98 227.67,-48.71 225.62,-55.4"/>
+<path fill="none" stroke="#63b8ff" d="M230.56,-52.06C197.3,-42.15 149.92,-28.04 119.82,-19.08"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="229.82,-55.49 240.4,-54.98 231.82,-48.78 229.82,-55.49"/>
 </a>
 </g>
 </g>
@@ -680,8 +680,8 @@ var sectionId = 'dynsection-1';
 <g id="edge12_Node000012_Node000009" class="edge">
 <title>Node12&#45;&gt;Node9</title>
 <g id="a_edge12_Node000012_Node000009"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M252.2,-100.24C255.21,-91.37 258.69,-81.14 261.08,-74.09"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="248.87,-99.15 248.97,-109.75 255.5,-101.4 248.87,-99.15"/>
+<path fill="none" stroke="#63b8ff" d="M257.2,-100.24C260.21,-91.37 263.69,-81.14 266.08,-74.09"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="253.87,-99.15 253.97,-109.75 260.5,-101.4 253.87,-99.15"/>
 </a>
 </g>
 </g>

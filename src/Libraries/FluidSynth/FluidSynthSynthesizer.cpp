@@ -615,16 +615,17 @@ Boolean FluidSynthSynthesizer::loadSoundFont (IN String& soundFontPath)
 /*--------------------*/
 
 Boolean
-FluidSynthSynthesizer::process (INOUT AudioSampleListVector& sampleBuffer,
-                                IN Natural position,
-                                IN Natural sampleCount)
+FluidSynthSynthesizer::process
+    (INOUT AudioDataPointListVector& dataPointBuffer,
+     IN Natural position,
+     IN Natural dataPointCount)
 {
-    Natural channelCount = sampleBuffer.length();
+    Natural channelCount = dataPointBuffer.length();
     Logging_trace3(">>: channelCount = %1, position = %2,"
-                   " sampleCount = %3",
+                   " dataPointCount = %3",
                    TOSTRING(channelCount),
                    TOSTRING(position),
-                   TOSTRING(sampleCount));
+                   TOSTRING(dataPointCount));
 
     Boolean isOkay = false;
 
@@ -646,42 +647,40 @@ FluidSynthSynthesizer::process (INOUT AudioSampleListVector& sampleBuffer,
             (size_t) Natural::minimum(channelCount + channelCount % 2,
                                       fluidSynthChannelCount);
             
-        /* provide a float buffer for FluidSynth with <sampleCount> frames */
-        float** floatSampleBuffer =
+        /* provide a float buffer for FluidSynth with <dataPointCount>
+         * frames */
+        float** floatDataPointBuffer =
             static_cast<float**>(makeLocalArray(float*,
                                                 effectiveChannelCount));
 
         for (i = 0;  i < effectiveChannelCount;  i++) {
-            floatSampleBuffer[i] = 
-                static_cast<float*>(makeLocalArray(float, sampleCount));
-            clearArray(floatSampleBuffer[i], sampleCount, 0.0f);
+            floatDataPointBuffer[i] = 
+                static_cast<float*>(makeLocalArray(float, dataPointCount));
+            clearArray(floatDataPointBuffer[i], dataPointCount, 0.0f);
         };
 
-        /* mix dry audio and effects into sample buffer */
+        /* mix dry audio and effects into data point buffer */
         Integer operationResult =
             FSSynthesizer_process(descriptor.synthesizer,
-                                  (int) sampleCount,
-                                  effectiveChannelCount, floatSampleBuffer,
-                                  effectiveChannelCount, floatSampleBuffer);
-
-        /* provide an audio sample buffer with <sampleCount> frames */
-        AudioSample** sampleList =
-            static_cast<AudioSample**>(makeLocalArray(AudioSample*,
-                                                      channelCount));
+                                  (int) dataPointCount,
+                                  effectiveChannelCount,
+                                  floatDataPointBuffer,
+                                  effectiveChannelCount,
+                                  floatDataPointBuffer);
 
         effectiveChannelCount =
             (size_t) Natural::minimum(channelCount, effectiveChannelCount);
 
-        /* copy the channel data from FluidSynth into <sampleBuffer> */
+        /* copy the channel data from FluidSynth into <dataPointBuffer> */
         for (i = 0;  i < effectiveChannelCount;  i++) {
-            convertArray(sampleBuffer[i].asArray(position),
-                         floatSampleBuffer[i], sampleCount);
+            convertArray(dataPointBuffer[i].asArray(position),
+                         floatDataPointBuffer[i], dataPointCount);
         }
 
         /* clear remaining channels (if any) */
         while (i < (int) channelCount) {
-            clearArray(sampleBuffer[i++].asArray(position),
-                       sampleCount, AudioSample{0.0});
+            clearArray(dataPointBuffer[i++].asArray(position),
+                       dataPointCount, AudioDataPoint{0.0});
         }
 
         isOkay = (operationResult == 0);

@@ -90,7 +90,7 @@ namespace BaseTypes::Primitives {
          */
         explicit operator char () const
         {
-            return (char) _value;
+            return char(_value);
         }
 
         /*--------------------*/

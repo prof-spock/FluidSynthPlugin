@@ -7,7 +7,7 @@ var struct___midi_event_converter_descriptor =
     [ "handleSoundFontChange", "struct___midi_event_converter_descriptor.html#a47f8965e5eb95829f05607685e478f0e", null ],
     [ "operator=", "struct___midi_event_converter_descriptor.html#a89f0e376e6b1a04d164a0e4102398c34", null ],
     [ "processMidiEvent", "struct___midi_event_converter_descriptor.html#afe1fb02481bb2057b6c475a724d1b15e", null ],
-    [ "processMidiEventList", "struct___midi_event_converter_descriptor.html#a0b1a6d158e5832a32476ecaa4c714d98", null ],
+    [ "processMidiEventList", "struct___midi_event_converter_descriptor.html#a3aa29c04ee54e28f6ef7527c9c608a80", null ],
     [ "resetSettings", "struct___midi_event_converter_descriptor.html#a5afd9738bed70514dee0cf35fa014f46", null ],
     [ "setSetting", "struct___midi_event_converter_descriptor.html#a067e456e9d0a6772240f2c129f0b2401", null ],
     [ "_audioIsSuppressedForBadSettings", "struct___midi_event_converter_descriptor.html#ac9b3436c1a8d7a003e4bd49283272734", null ],

@@ -57,11 +57,22 @@ static const String _lcAlphaDigitCharacterList =
 static const String _ucAlphaDigitCharacterList =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
+/* error messages */
+
+/** error message for bad position */
+static const String _ErrMsg_badPosition =
+    "position must be less than length of string";
+
+/** error message for empty string */
+static const String _ErrMsg_emptyString =
+    "string must not be empty";
+
+static const String _ErrMsg_singleCharacterPadding =
+    "padding must use a single character";
+
 /*--------------------*/
 /* PRIVATE ROUTINES   */
 /*--------------------*/
-
-#define isDigitChar(ch)   isdigit((char) ch)
 
 /**
  * Analyzes <C>st</C> for being a correct natural or integer
@@ -159,6 +170,19 @@ Natural _convertDigitString (IN String& st,
 /*--------------------*/
 
 /**
+ * Tells whether <C>ch</C> is a digit.
+ *
+ * @param[in] ch  the character to be checked
+ * @return  information whether character is a digit
+ */
+static Boolean _isDigitChar (IN Character ch)
+{
+    return isdigit(char(ch));
+}
+
+/*--------------------*/
+
+/**
  * Converts <C>st</C> to a natural with a given base (typically 2, 8,
  * 16); if conversion fails, <C>defaultValue</C> is returned
  *
@@ -198,7 +222,8 @@ void StringUtil::append (INOUT String& st, IN Character ch)
 
 Character StringUtil::characterAt (IN String& st, IN Natural position)
 {
-    return Character{st[(size_t) position]};
+    Assertion_pre(position < st.length(), _ErrMsg_badPosition);
+    return Character{st[size_t(position)]};
 }
 
 /*--------------------*/
@@ -221,8 +246,8 @@ Boolean StringUtil::contains (IN String& st, IN String& substring,
 
 Boolean StringUtil::endsWith (IN String& st, IN String& suffix)
 {
-    const Natural stLength = st.size();
-    const Natural suffixLength = suffix.size();
+    const Natural stLength = st.length();
+    const Natural suffixLength = suffix.length();
     Boolean result = false;
 
     if (stLength >= suffixLength) {
@@ -285,7 +310,7 @@ String StringUtil::expand (IN String& st,
 Natural StringUtil::find (IN String& st, IN Character ch,
                           IN Natural startPosition)
 {
-    Natural result = st.find((char) ch, (size_t) startPosition);
+    Natural result = st.find(char(ch), size_t(startPosition));
     result = (result == _notFound ? Natural::maximumValue() : result);
     return result;
 }
@@ -295,7 +320,7 @@ Natural StringUtil::find (IN String& st, IN Character ch,
 Natural StringUtil::find (IN String& st, IN String& substring,
                           IN Natural startPosition)
 {
-    Natural result = st.find(substring, (size_t) startPosition);
+    Natural result = st.find(substring, size_t(startPosition));
     result = (result == _notFound ? Natural::maximumValue() : result);
     return result;
 }
@@ -305,7 +330,7 @@ Natural StringUtil::find (IN String& st, IN String& substring,
 Natural StringUtil::findFromEnd (IN String& st, IN String& substring,
                                  IN Natural startPosition)
 {
-    Natural result = st.rfind(substring, (size_t) startPosition);
+    Natural result = st.rfind(substring, size_t(startPosition));
     result = (result == _notFound ? Natural::maximumValue() : result);
     return result;
 }
@@ -314,7 +339,8 @@ Natural StringUtil::findFromEnd (IN String& st, IN String& substring,
 
 Character StringUtil::firstCharacter (IN String& st)
 {
-    return Character{st[0]};
+    Assertion_pre(st.length() > 0, _ErrMsg_emptyString);
+    return characterAt(st, 0);
 }
 
 /*--------------------*/
@@ -375,7 +401,7 @@ Boolean StringUtil::isReal (IN String& st)
 
             if (state == State::atMantissaSign) {
                 if (ch == _plusCharacter || ch == _minusCharacter
-                    || ch == _blankCharacter || isDigitChar(ch)) {
+                    || ch == _blankCharacter || _isDigitChar(ch)) {
                     state = State::inIntegralPart;
                 } else if (ch == _decimalPointCharacter) {
                     state = State::inFractionalPart;
@@ -386,27 +412,27 @@ Boolean StringUtil::isReal (IN String& st)
             } else if (state == State::inIntegralPart) {
                 if (ch == _decimalPointCharacter) {
                     state = State::inFractionalPart;
-                } else if (!isDigitChar(ch)) {
+                } else if (!_isDigitChar(ch)) {
                     result = false;
                     break;
                 }
             } else if (state == State::inFractionalPart) {
                 if (ch == 'E' || ch == 'e') {
                     state = State::atExponentSign;
-                } else if (!isDigitChar(ch)) {
+                } else if (!_isDigitChar(ch)) {
                     result = false;
                     break;
                 }
             } else if (state == State::atExponentSign) {
                 if (ch == _plusCharacter || ch == _minusCharacter
-                    || isDigitChar(ch)) {
+                    || _isDigitChar(ch)) {
                     state = State::inExponent;
                 } else {
                     result = false;
                     break;
                 }
             } else if (state == State::inExponent) {
-                if (!isDigitChar(ch)) {
+                if (!_isDigitChar(ch)) {
                     result = false;
                     break;
                 }
@@ -421,6 +447,7 @@ Boolean StringUtil::isReal (IN String& st)
 
 Character StringUtil::lastCharacter (IN String& st)
 {
+    Assertion_pre(st.length() > 0, _ErrMsg_emptyString);
     return Character{st[st.length() - 1]};
 }
 
@@ -442,8 +469,7 @@ String StringUtil::paddedLeft (IN String& st,
                                IN Natural desiredLength,
                                IN String& ch)
 {
-    Assertion_check(ch.length() == 1,
-                    "padding must use a single character");
+    Assertion_check(ch.length() == 1, _ErrMsg_singleCharacterPadding);
     String result = st;
 
     while (result.length() < desiredLength) {
@@ -459,8 +485,7 @@ String StringUtil::paddedRight (IN String& st,
                                 IN Natural desiredLength,
                                 IN String& ch)
 {
-    Assertion_check(ch.length() == 1,
-                    "padding must use a single character");
+    Assertion_check(ch.length() == 1, _ErrMsg_singleCharacterPadding);
     String result = st;
 
     while (result.length() < desiredLength) {
@@ -495,13 +520,13 @@ void StringUtil::replace (INOUT String& st,
     Natural position = 0;
 
     while (true) {
-        position = st.find(pattern, (size_t) position);
+        position = st.find(pattern, size_t(position));
 
         if (position == _notFound) {
             break;
         }
 
-        st.replace((size_t) position, (size_t) patternLength,
+        st.replace(size_t(position), size_t(patternLength),
                    replacement);
         position += replacementLength;
     }
@@ -513,7 +538,8 @@ void StringUtil::setCharacterAt (INOUT String& st,
                                  IN Natural position,
                                  IN Character ch)
 {
-    st[(size_t) position] = (char) ch;
+    Assertion_pre(position < st.length(), _ErrMsg_badPosition);
+    st[size_t(position)] = char(ch);
 }
 
 /*--------------------*/
@@ -540,7 +566,7 @@ Boolean StringUtil::splitAt (IN String& st, IN String& separator,
 
 Boolean StringUtil::startsWith (IN String& st, IN String& prefix)
 {
-    const Natural stLength = st.size();
+    const Natural stLength = st.length();
     const Natural prefixLength = prefix.size();
     Boolean result = false;
 
@@ -560,7 +586,7 @@ String StringUtil::strip (IN String& st)
     Natural i;
 
     for (i = stringLength;  i > 0; i--) {
-        if (whiteSpace.find((char) characterAt(st, i - 1)) == _notFound) {
+        if (whiteSpace.find(char(characterAt(st, i - 1))) == _notFound) {
             break;
         }
     }
@@ -568,7 +594,7 @@ String StringUtil::strip (IN String& st)
     const Natural lastRelevantIndex = i - Natural{1};
 
     for (i = 0;  i < stringLength;  i++) {
-        if (whiteSpace.find((char) characterAt(st, i)) == _notFound) {
+        if (whiteSpace.find(char(characterAt(st, i))) == _notFound) {
             break;
         }
     }
@@ -585,14 +611,14 @@ String StringUtil::strip (IN String& st)
 String StringUtil::substring (IN String& st,
                               IN Natural firstIndex, IN Natural count)
 {
-    return st.substr((size_t) firstIndex, (size_t) count);
+    return st.substr(size_t(firstIndex), size_t(count));
 }
 
 /*--------------------*/
 
 Byte StringUtil::toByte (IN String& st)
 {
-    return (isByte(st) ? Byte{(int) toNatural(st)} : Byte(0));
+    return (isByte(st) ? Byte{int(toNatural(st))} : Byte(0));
 }
 
 /*--------------------*/
@@ -730,7 +756,7 @@ String StringUtil::toStringWithBase (IN Natural n,
 String StringUtil::toString (IN Object object)
 {
     String addressAsString =
-        toStringWithBase(Natural{(size_t) object}, 16, 16);
+        toStringWithBase(Natural{size_t(object)}, 16, 16);
     String result = STR::expand("Object(0x%1)", addressAsString);
     return result;
 }
@@ -739,7 +765,7 @@ String StringUtil::toString (IN Object object)
 
 String StringUtil::toString (IN Real r)
 {
-    return std::to_string((double) r);
+    return std::to_string(double(r));
 }
 
 /*--------------------*/
@@ -758,7 +784,7 @@ String StringUtil::toString (IN Real r,
 
 String StringUtil::toString (IN std::wstring& st)
 {
-    size_t length = st.size() + 1;
+    size_t length = st.length() + 1;
     String result;
     result.resize(length);
     const wchar_t* wCharPtr = const_cast<wchar_t*>(st.c_str());
@@ -804,7 +830,7 @@ String StringUtil::toLowercase (IN String& st)
     String result;
 
     for (const Character ch : st) {
-        result += std::tolower((char) ch);
+        result += std::tolower(char(ch));
     }
 
     return result;
@@ -817,7 +843,7 @@ String StringUtil::toUppercase (IN String& st)
     String result;
 
     for (const Character ch : st) {
-        result += std::toupper((char) ch);
+        result += std::toupper(char(ch));
     }
 
     return result;
@@ -827,7 +853,7 @@ String StringUtil::toUppercase (IN String& st)
 
 std::wstring StringUtil::toWideString (IN String& st)
 {
-    size_t length = st.size() + 1;
+    size_t length = st.length() + 1;
     std::wstring result;
     result.resize(length);
     wchar_t* wCharPtr = const_cast<wchar_t*>(result.c_str());

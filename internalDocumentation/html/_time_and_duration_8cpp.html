@@ -95,7 +95,7 @@ $(function(){initNavTree('_time_and_duration_8cpp.html','',''); });
 
 <p>The <code>TimeAndDuration</code> body implements simple functions for the types for time and duration.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;time.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;MySystemTime.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="_logging_8h_source.html">Logging.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_real_list_8h_source.html">RealList.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_time_and_duration_8h_source.html">TimeAndDuration.h</a>&quot;</code><br />
@@ -106,14 +106,10 @@ $(function(){initNavTree('_time_and_duration_8cpp.html','',''); });
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="_time_and_duration_8cpp__incl.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a0a72656a3c65a9a8012db7551f1dd232" id="r_a0a72656a3c65a9a8012db7551f1dd232"><td class="memItemLeft" align="right" valign="top"><a id="a0a72656a3c65a9a8012db7551f1dd232" name="a0a72656a3c65a9a8012db7551f1dd232"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>SystemTime_TimeSpec</b>&#160;&#160;&#160;struct timespec</td></tr>
-<tr class="memitem:a7e31cfde2a256e2851f2c0d82263a526" id="r_a7e31cfde2a256e2851f2c0d82263a526"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e31cfde2a256e2851f2c0d82263a526">SystemTime_currentClockTime</a>(ts)</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
+<tr class="memitem:a2446389c5ecdea05df8952e709ef46f4" id="r_a2446389c5ecdea05df8952e709ef46f4"><td class="memItemLeft" align="right" valign="top"><a id="a2446389c5ecdea05df8952e709ef46f4" name="a2446389c5ecdea05df8952e709ef46f4"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>_ParseState</b> = <a class="el" href="struct_base_types_1_1_primitives_1_1_character.html">Character</a></td></tr>
 <tr class="memitem:ad86f6fc98f8b655f465813e496850506" id="r_ad86f6fc98f8b655f465813e496850506"><td class="memItemLeft" align="right" valign="top"><a id="ad86f6fc98f8b655f465813e496850506" name="ad86f6fc98f8b655f465813e496850506"></a>
 typedef <a class="el" href="struct_real.html">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Duration</b></td></tr>
 <tr class="memdesc:ad86f6fc98f8b655f465813e496850506"><td class="mdescLeft">&#160;</td><td class="mdescRight">A <code><a class="el" href="_operating_system_8h.html#ad86f6fc98f8b655f465813e496850506" title="A Duration object describes a time difference as a seconds value.">Duration</a></code> object describes a time difference as a seconds value. <br /></td></tr>
@@ -125,6 +121,10 @@ typedef <a class="el" href="struct_real.html">Real</a>&#160;</td><td class="memI
 Functions</h2></td></tr>
 <tr class="memitem:a4fa48870cfb879ca468c1d56895220a2" id="r_a4fa48870cfb879ca468c1d56895220a2"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4fa48870cfb879ca468c1d56895220a2">_fromParts</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a> hours, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a> minutes, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a> seconds, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a> milliseconds)</td></tr>
 <tr class="memdesc:a4fa48870cfb879ca468c1d56895220a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts string <code>hours</code>, <code>minutes</code>, <code>seconds</code> and <code>milliseconds</code> to real.  <br /></td></tr>
+<tr class="memitem:a6bc945a4bc09ec266246f790d5153537" id="r_a6bc945a4bc09ec266246f790d5153537"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6bc945a4bc09ec266246f790d5153537">_fromString_process_inLimbo</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_character.html">Character</a> ch, <a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a> isNegative, <a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a> partValue, <a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_character.html">_ParseState</a> parseState)</td></tr>
+<tr class="memdesc:a6bc945a4bc09ec266246f790d5153537"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supports <code>_fromString</code> function by handling the <code>inLimbo</code> state.  <br /></td></tr>
+<tr class="memitem:adaf0ff01543ed6701a93b7a823a0b1d2" id="r_adaf0ff01543ed6701a93b7a823a0b1d2"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adaf0ff01543ed6701a93b7a823a0b1d2">_fromString_process_inPart</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_character.html">Character</a> ch, <a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_base_types_1_1_containers_1_1_real_list.html">RealList</a> partList, <a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a> partValue, <a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a> fractionalPart, <a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_character.html">_ParseState</a> parseState)</td></tr>
+<tr class="memdesc:adaf0ff01543ed6701a93b7a823a0b1d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supports <code>_fromString</code> function by handling the <code>inPart</code> state.  <br /></td></tr>
 <tr class="memitem:a012d9487f8a38ed23bfb60226d77b14d" id="r_a012d9487f8a38ed23bfb60226d77b14d"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a012d9487f8a38ed23bfb60226d77b14d">_fromString</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a> &amp;st)</td></tr>
 <tr class="memdesc:a012d9487f8a38ed23bfb60226d77b14d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts string <code>st</code> in canonical time format to real.  <br /></td></tr>
 <tr class="memitem:a163482f4dd3561b5f27036d805a764c9" id="r_a163482f4dd3561b5f27036d805a764c9"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a163482f4dd3561b5f27036d805a764c9">_systemTime</a> ()</td></tr>
@@ -132,6 +132,14 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:a9551b28af07dcc21a93b7b8b32a1d6d2" id="r_a9551b28af07dcc21a93b7b8b32a1d6d2"><td class="memItemLeft" align="right" valign="top"><a id="a9551b28af07dcc21a93b7b8b32a1d6d2" name="a9551b28af07dcc21a93b7b8b32a1d6d2"></a>
+static const <a class="el" href="struct_base_types_1_1_primitives_1_1_character.html">Character</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_ParseState_inLimbo</b> = 'L'</td></tr>
+<tr class="memitem:af6831d2cb6dd9b813e416526b7d7ead6" id="r_af6831d2cb6dd9b813e416526b7d7ead6"><td class="memItemLeft" align="right" valign="top"><a id="af6831d2cb6dd9b813e416526b7d7ead6" name="af6831d2cb6dd9b813e416526b7d7ead6"></a>
+static const <a class="el" href="struct_base_types_1_1_primitives_1_1_character.html">Character</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_ParseState_inPart</b> = 'P'</td></tr>
+<tr class="memitem:af4aaa71cf29f480d909da970869fa2e8" id="r_af4aaa71cf29f480d909da970869fa2e8"><td class="memItemLeft" align="right" valign="top"><a id="af4aaa71cf29f480d909da970869fa2e8" name="af4aaa71cf29f480d909da970869fa2e8"></a>
+static const <a class="el" href="struct_base_types_1_1_primitives_1_1_character.html">Character</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_ParseState_inFractionalPart</b> = 'F'</td></tr>
+<tr class="memitem:a7a4ada9fbe3f775a74c0e4dc81410bf1" id="r_a7a4ada9fbe3f775a74c0e4dc81410bf1"><td class="memItemLeft" align="right" valign="top"><a id="a7a4ada9fbe3f775a74c0e4dc81410bf1" name="a7a4ada9fbe3f775a74c0e4dc81410bf1"></a>
+static const <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_digitCharacters</b> = &quot;0123456789&quot;</td></tr>
 <tr class="memitem:a656b23b65f7773af492703656f9312b8" id="r_a656b23b65f7773af492703656f9312b8"><td class="memItemLeft" align="right" valign="top"><a id="a656b23b65f7773af492703656f9312b8" name="a656b23b65f7773af492703656f9312b8"></a>
 static const <a class="el" href="namespace_base_types_1_1_primitives.html#ad86f6fc98f8b655f465813e496850506">Duration</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_processStartOffset</b> = -<a class="el" href="#a163482f4dd3561b5f27036d805a764c9">_systemTime</a>()</td></tr>
 <tr class="memdesc:a656b23b65f7773af492703656f9312b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">the start time of process as an offset duration <br /></td></tr>
@@ -140,26 +148,7 @@ static const <a class="el" href="namespace_base_types_1_1_primitives.html#ad86f6
 <div class="textblock"><p>The <code>TimeAndDuration</code> body implements simple functions for the types for time and duration. </p>
 <dl class="section author"><dt>Author</dt><dd>Dr. Thomas Tensi </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2025-06 </dd></dl>
-</div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
-<a id="a7e31cfde2a256e2851f2c0d82263a526" name="a7e31cfde2a256e2851f2c0d82263a526"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e31cfde2a256e2851f2c0d82263a526">&#9670;&#160;</a></span>SystemTime_currentClockTime</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SystemTime_currentClockTime</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>ts</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">timespec_get(ts, TIME_UTC)</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a4fa48870cfb879ca468c1d56895220a2" name="a4fa48870cfb879ca468c1d56895220a2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4fa48870cfb879ca468c1d56895220a2">&#9670;&#160;</a></span>_fromParts()</h2>
 
@@ -242,6 +231,113 @@ static const <a class="el" href="namespace_base_types_1_1_primitives.html#ad86f6
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>real value </dd></dl>
+
+</div>
+</div>
+<a id="a6bc945a4bc09ec266246f790d5153537" name="a6bc945a4bc09ec266246f790d5153537"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bc945a4bc09ec266246f790d5153537">&#9670;&#160;</a></span>_fromString_process_inLimbo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a> _fromString_process_inLimbo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_character.html">Character</a></td>          <td class="paramname"><span class="paramname"><em>ch</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a></td>          <td class="paramname"><span class="paramname"><em>isNegative</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a></td>          <td class="paramname"><span class="paramname"><em>partValue</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_character.html">_ParseState</a></td>          <td class="paramname"><span class="paramname"><em>parseState</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Supports <code>_fromString</code> function by handling the <code>inLimbo</code> state. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ch</td><td>character to be processed </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">isNegative</td><td>flag to tell whether result is negative </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">partValue</td><td>partial value collected </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">parseState</td><td>successor parse state </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">isOkay</td><td>flag whether parsing was successful </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="adaf0ff01543ed6701a93b7a823a0b1d2" name="adaf0ff01543ed6701a93b7a823a0b1d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adaf0ff01543ed6701a93b7a823a0b1d2">&#9670;&#160;</a></span>_fromString_process_inPart()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_base_types_1_1_primitives_1_1_boolean.html">Boolean</a> _fromString_process_inPart </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_character.html">Character</a></td>          <td class="paramname"><span class="paramname"><em>ch</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_base_types_1_1_containers_1_1_real_list.html">RealList</a></td>          <td class="paramname"><span class="paramname"><em>partList</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_real.html">Real</a></td>          <td class="paramname"><span class="paramname"><em>partValue</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a></td>          <td class="paramname"><span class="paramname"><em>fractionalPart</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_global_macros_8h.html#a62766f3ea8784d1db62df989f8f33d2d">INOUT</a> <a class="el" href="struct_base_types_1_1_primitives_1_1_character.html">_ParseState</a></td>          <td class="paramname"><span class="paramname"><em>parseState</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Supports <code>_fromString</code> function by handling the <code>inPart</code> state. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ch</td><td>character to be processed </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">partList</td><td>list of partial values </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">partValue</td><td>partial value collected </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">parseState</td><td>successor parse state </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">isOkay</td><td>flag whether parsing was successful </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

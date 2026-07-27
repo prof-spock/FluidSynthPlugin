@@ -24,6 +24,12 @@ using STR = BaseModules::StringUtil;
 
 /*====================*/
 
+/** error message for empty separator */
+static const String _ErrMsg_emptySeparator =
+    "separator must be non-empty";
+
+/*====================*/
+
 String BaseTypes::Containers::_stringListTypeName ()
 {
     return "StringList";
@@ -51,7 +57,7 @@ StringList StringList::makeBySplit (IN String& st,
 {
     const Natural undefined = Natural::maximumValue();
     const Natural separatorLength = separator.length();
-    Assertion_pre(separatorLength > 0, "separator must be non-empty");
+    Assertion_pre(separatorLength > 0, _ErrMsg_emptySeparator);
 
     StringList result;
     String remainder = st;

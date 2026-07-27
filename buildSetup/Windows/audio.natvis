@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+  <!--
+    audio types
+    -->
+  <Type Name="Audio::WaveForm">
+    <DisplayString>_internalData = {_internalData}</DisplayString>
+    <Expand>
+      <Item Name="_internalData">*reinterpret_cast&lt;Audio::_WaveFormDescriptor *&gt;(_internalData)</Item>
+    </Expand>
+  </Type>
+
+</AutoVisualizer>

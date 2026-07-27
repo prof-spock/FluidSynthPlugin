@@ -23,6 +23,12 @@ using STR = BaseModules::StringUtil;
 
 /*====================*/
 
+/** error message for odd element count */
+static const String _ErrMsg_oddElementCount =
+    "list must have even length";
+
+/*====================*/
+
 String BaseTypes::Containers::_dictionaryTypeName ()
 {
     return "Dictionary";
@@ -36,7 +42,7 @@ Dictionary Dictionary::fromList (IN StringList& list)
 {
     Dictionary result;
 
-    Assertion_pre(list.size() % 2 == 0, "list must have even length");
+    Assertion_pre(list.size() % 2 == 0, _ErrMsg_oddElementCount);
     Boolean isKey = true;
     String key;
 

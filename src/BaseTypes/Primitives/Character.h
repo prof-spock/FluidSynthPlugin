@@ -60,7 +60,7 @@ namespace BaseTypes::Primitives {
          */
         Character (IN Byte b)
         {
-            _value = (char) b;
+            _value = char(b);
         }
 
         /*--------------------*/
@@ -72,7 +72,7 @@ namespace BaseTypes::Primitives {
          */
         Character (IN Natural n)
         {
-            _value = (char) (size_t) n;
+            _value = char(size_t(n));
         }
 
         /*--------------------*/

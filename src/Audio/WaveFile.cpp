@@ -24,8 +24,8 @@
 
 /*--------------------*/
 
-using Audio::AudioSample;
-using Audio::AudioSampleList;
+using Audio::AudioDataPoint;
+using Audio::AudioDataPointList;
 using Audio::WaveFile;
 using Audio::WaveFileOperationResult;
 using BaseModules::File;
@@ -79,12 +79,12 @@ static const Integer testInteger = 1;
 static const Boolean isBigEndian =
     (*((uint8_t*) & testInteger) == 0);
 
-/** the allowed sample widths for integer samples */
-static const NaturalList allowedIntSampleWidthList =
+/** the allowed data point widths for integer samples */
+static const NaturalList allowedIntDataPointWidthList =
     NaturalList::fromList({1, 2, 3, 4});
 
-/** the allowed sample widths for real samples */
-static const NaturalList allowedRealSampleWidthList =
+/** the allowed data point widths for real samples */
+static const NaturalList allowedRealDataPointWidthList =
     NaturalList::fromList({4, 8});
 
 /*--------------------*/
@@ -144,19 +144,21 @@ static void WaveFile__assertEquality (IN Natural expectedValue,
  * Reads RIFF WAVE header from byte list <C>byteList</C> at
  * <C>position</C> filling parameters <C>isPCMData</C> telling whether
  * this is a float or integer format, <C>dataSectionSize</C>,
- * <C>channelCount</C>, <C>sampleRate</C> and
- * <C>sampleWidthInBytes</C>.
+ * <C>channelCount</C>, <C>dataPointRate</C> and
+ * <C>dataPointWidthInBytes</C>.
  *
- * @param[in]    byteList            source byte list to be read from
- * @param[inout] position            first source position to be read from
- * @param[out]   isPCMData           information whether this is a
- *                                   format with integer samples
- * @param[out]   fileSize            the count in bytes of the complete
- *                                   file
- * @param[out]   channelCount        number of channels in sample buffer
- * @param[out]   sampleRate          sample rate within file
- * @param[out]   sampleWidthInBytes  number of bytes per sample
- *                                   (must be 1, 2, 4 or 8)
+ * @param[in]    byteList               source byte list to be read from
+ * @param[inout] position               first source position to be read
+ *                                      from
+ * @param[out]   isPCMData              information whether this is a
+ *                                      format with integer samples
+ * @param[out]   fileSize               the count in bytes of the complete
+ *                                      file
+ * @param[out]   channelCount           number of channels in data point
+ *                                      buffer
+ * @param[out]   dataPointRate          "sample rate" within file
+ * @param[out]   dataPointWidthInBytes  number of bytes per data point
+ *                                      (must be 1, 2, 3, 4 or 8)
  */
 static void
 WaveFile__readHeader (IN ByteList& byteList,
@@ -164,12 +166,12 @@ WaveFile__readHeader (IN ByteList& byteList,
                       IN Natural expectedFileSize,
                       OUT Boolean& isPCMData,
                       OUT Natural& channelCount,
-                      OUT Natural& sampleRate,
-                      OUT Natural& sampleWidthInBytes)
+                      OUT Natural& dataPointRate,
+                      OUT Natural& dataPointWidthInBytes)
 {
     Logging_trace1(">>: position = %1", TOSTRING(position));
 
-    Natural expectedBitsPerSample;
+    Natural expectedBitsPerDataPoint;
     const Natural extensionSize = 22;
     Natural fileSize;
 
@@ -193,24 +195,24 @@ WaveFile__readHeader (IN ByteList& byteList,
                                  formatSectionSize, "format section size");
     
         channelCount = WaveFile__readNatural(byteList, position, 2);
-        sampleRate = WaveFile__readNatural(byteList, position, 4);
+        dataPointRate = WaveFile__readNatural(byteList, position, 4);
         const Natural bytesPerSecond =
             WaveFile__readNatural(byteList, position, 4);
-        sampleWidthInBytes = bytesPerSecond / (sampleRate * channelCount);
+        dataPointWidthInBytes = bytesPerSecond / (dataPointRate * channelCount);
 
         const Natural bytesPerAudioFrame =
             WaveFile__readNatural(byteList, position, 2);
-        String st = String("bytes per audio frame %1 times sample rate %2"
+        String st = String("bytes per audio frame %1 times data point rate %2"
                            " should give bytes per second %3");
-        Assertion_check(bytesPerAudioFrame * sampleRate == bytesPerSecond,
+        Assertion_check(bytesPerAudioFrame * dataPointRate == bytesPerSecond,
                         STR::expand(st, TOSTRING(bytesPerAudioFrame),
-                                    TOSTRING(sampleRate),
+                                    TOSTRING(dataPointRate),
                                     TOSTRING(bytesPerSecond)));
 
-        expectedBitsPerSample = sampleWidthInBytes * 8;
-        Natural bitsPerSample = WaveFile__readNatural(byteList, position, 2);
-        WaveFile__assertEquality(expectedBitsPerSample, bitsPerSample,
-                                 "bits per sample");
+        expectedBitsPerDataPoint = dataPointWidthInBytes * 8;
+        Natural bitsPerDataPoint = WaveFile__readNatural(byteList, position, 2);
+        WaveFile__assertEquality(expectedBitsPerDataPoint, bitsPerDataPoint,
+                                 "bits per data point");
     }
 
     if (!isPCMData) {
@@ -220,9 +222,9 @@ WaveFile__readHeader (IN ByteList& byteList,
         WaveFile__assertEquality(extensionSize, extensionSizeInHeader,
                                  "extension size");
 
-        Natural bitsPerSample = WaveFile__readNatural(byteList, position, 2);
-        WaveFile__assertEquality(expectedBitsPerSample, bitsPerSample,
-                                 "bits per sample");
+        Natural bitsPerDataPoint = WaveFile__readNatural(byteList, position, 2);
+        WaveFile__assertEquality(expectedBitsPerDataPoint, bitsPerDataPoint,
+                                 "bits per data point");
 
         WaveFile__skipBytes(byteList, position, 20);
 
@@ -241,72 +243,73 @@ WaveFile__readHeader (IN ByteList& byteList,
 
     Logging_trace6("<<: position = %1, isPCMData = %2,"
                    " fileSize = %3, channelCount = %4,"
-                   " sampleRate = %5, sampleWidthInBytes = %6",
+                   " dataPointRate = %5, dataPointWidthInBytes = %6",
                    TOSTRING(position), TOSTRING(isPCMData),
                    TOSTRING(fileSize), TOSTRING(channelCount),
-                   TOSTRING(sampleRate), TOSTRING(sampleWidthInBytes));
+                   TOSTRING(dataPointRate), TOSTRING(dataPointWidthInBytes));
 }
 
 /*--------------------*/
 
 /**
  * Reads data <C>byteList</C> at <C>position</C> into
- * <C>sampleBuffer</C> as integer data characterized by
- * <C>totalSampleCount</C>, <C>channelCount</C>,
- * <C>audioFrameCount</C>, <C>sampleWidthInBytes</C> and
+ * <C>dataPointBuffer</C> as integer data characterized by
+ * <C>totalDataPointCount</C>, <C>channelCount</C>,
+ * <C>audioFrameCount</C>, <C>dataPointWidthInBytes</C> and
  * <C>scalingFactor</C> and updates <C>position</C>.
  *
- * @param[inout] byteList            source byte list for sample data
- * @param[inout] position            first position in byte list to be
- *                                   read from
- * @param[in]    totalSampleCount    total number of samples
- * @param[in]    channelCount        number of channels
- * @param[in]    audioFrameCount     number of audio frames
- * @param[in]    sampleWidthInBytes  number of bytes per sample
- *                                   (must be 1, 2, 3 or 4)
- * @param[in]    scalingFactor       real factor to scale data
- * @param[out]   sampleBuffer        sample buffer to be read into from
- *                                   byte list
+ * @param[inout] byteList               source byte list for data points
+ * @param[inout] position               first position in byte list to
+ *                                      be read from
+ * @param[in]    totalDataPointCount    total number of data points
+ * @param[in]    channelCount           number of channels
+ * @param[in]    audioFrameCount        number of audio frames
+ * @param[in]    dataPointWidthInBytes  number of bytes per data point
+ *                                      (must be 1, 2, 3 or 4)
+ * @param[in]    scalingFactor          real factor to scale data
+ * @param[out]   dataPointBuffer        data point buffer to be read
+ *                                      into from byte list
  */
 static void
 WaveFile__readIntDataFromByteList (IN ByteList& byteList,
                                    INOUT Natural& position,
-                                   IN Natural totalSampleCount,
+                                   IN Natural totalDataPointCount,
                                    IN Natural channelCount,
                                    IN Natural audioFrameCount,
-                                   IN Natural sampleWidthInBytes,
+                                   IN Natural dataPointWidthInBytes,
                                    IN Real scalingFactor,
-                                   OUT AudioSampleListVector& sampleBuffer)
+                                   OUT AudioDataPointListVector& dataPointBuffer)
 {
-    Logging_trace6(">>: position = %1, totalSampleCount = %2,"
+    Logging_trace6(">>: position = %1, totalDataPointCount = %2,"
                    " channelCount = %3, audioFrameCount = %4,"
-                   " sampleWidthInBytes = %5, scalingFactor = %6",
-                   TOSTRING(position), TOSTRING(totalSampleCount),
+                   " dataPointWidthInBytes = %5, scalingFactor = %6",
+                   TOSTRING(position), TOSTRING(totalDataPointCount),
                    TOSTRING(channelCount), TOSTRING(audioFrameCount),
-                   TOSTRING(sampleWidthInBytes), TOSTRING(scalingFactor));
+                   TOSTRING(dataPointWidthInBytes), TOSTRING(scalingFactor));
 
     Natural lastPosition =
-        position + totalSampleCount * sampleWidthInBytes - 1;
+        position + totalDataPointCount * dataPointWidthInBytes - 1;
     WaveFile__assertIndexInRange(byteList, lastPosition);
 
-    IntegerList rawDataList{totalSampleCount};
-    sampleBuffer.setLength(channelCount);
-    sampleBuffer.setFrameCount(audioFrameCount);
+    IntegerList rawDataList{totalDataPointCount};
+    dataPointBuffer.setLength(channelCount);
+    dataPointBuffer.setFrameCount(audioFrameCount);
 
-    for (Natural i = 0;  i < totalSampleCount;  i++) {
+    for (Natural i = 0;  i < totalDataPointCount;  i++) {
         rawDataList[i] =
-            WaveFile__readInteger(byteList, position, sampleWidthInBytes);
+            WaveFile__readInteger(byteList, position, dataPointWidthInBytes);
     }
 
-    Logging_trace("--: copying raw data to sample buffer");
+    Logging_trace("--: copying raw data to data point buffer");
 
     for (Natural channel = 0;  channel < channelCount;  channel++) {
-        AudioSampleList& sampleList = sampleBuffer[channel];
+        AudioDataPointList& dataPointList = dataPointBuffer[channel];
         Natural i = channel;
 
         for (Natural j = 0;  j < audioFrameCount;  j++) {
-            const AudioSample sample = Real{rawDataList[i]} / scalingFactor;
-            sampleList[j] = sample;
+            const AudioDataPoint dataPoint =
+                Real{rawDataList[i]} / scalingFactor;
+            dataPointList[j] = dataPoint;
             i += channelCount;
         }
     }
@@ -433,60 +436,61 @@ static Real WaveFile__readReal (IN ByteList& byteList,
 
 /**
  * Reads data <C>byteList</C> at <C>position</C> into
- * <C>sampleBuffer</C> as floating point data characterized by
- * <C>totalSampleCount</C>, <C>channelCount</C>,
- * <C>audioFrameCount</C> and <C>sampleWidthInBytes</C> updates
+ * <C>dataPointBuffer</C> as floating point data characterized by
+ * <C>totalDataPointCount</C>, <C>channelCount</C>,
+ * <C>audioFrameCount</C> and <C>dataPointWidthInBytes</C> updates
  * <C>position</C>.
  *
- * @param[inout] byteList            source byte list for sample data
- * @param[inout] position            first position in byte list to be
- *                                   read from
- * @param[in]    totalSampleCount    total number of samples
- * @param[in]    channelCount        number of channels
- * @param[in]    audioFrameCount     number of audio frames
- * @param[in]    sampleWidthInBytes  number of bytes per sample
- *                                   (must be 1, 2, 3 or 4)
- * @param[out]   sampleBuffer        sample buffer to be read into from
- *                                   byte list
+ * @param[inout] byteList               source byte list for data points
+ * @param[inout] position               first position in byte list to
+ *                                      be read from
+ * @param[in]    totalDataPointCount    total number of data points
+ * @param[in]    channelCount           number of channels
+ * @param[in]    audioFrameCount        number of audio frames
+ * @param[in]    dataPointWidthInBytes  number of bytes per data point
+ *                                      (must be 1, 2, 3 or 4)
+ * @param[out]   dataPointBuffer        data point buffer to be read
+ *                                      into from byte list
  */
 static void
-WaveFile__readRealDataFromByteList (IN ByteList& byteList,
-                                    INOUT Natural& position,
-                                    IN Natural totalSampleCount,
-                                    IN Natural channelCount,
-                                    IN Natural audioFrameCount,
-                                    IN Natural sampleWidthInBytes,
-                                    OUT AudioSampleListVector& sampleBuffer)
+WaveFile__readRealDataFromByteList
+        (IN ByteList& byteList,
+         INOUT Natural& position,
+         IN Natural totalDataPointCount,
+         IN Natural channelCount,
+         IN Natural audioFrameCount,
+         IN Natural dataPointWidthInBytes,
+         OUT AudioDataPointListVector& dataPointBuffer)
 {
-    Logging_trace5(">>: position = %1, totalSampleCount = %2,"
+    Logging_trace5(">>: position = %1, totalDataPointCount = %2,"
                    " channelCount = %3, audioFrameCount = %4,"
-                   " sampleWidthInBytes = %5",
-                   TOSTRING(position), TOSTRING(totalSampleCount),
+                   " dataPointWidthInBytes = %5",
+                   TOSTRING(position), TOSTRING(totalDataPointCount),
                    TOSTRING(channelCount), TOSTRING(audioFrameCount),
-                   TOSTRING(sampleWidthInBytes));
+                   TOSTRING(dataPointWidthInBytes));
 
     Natural lastPosition =
-        position + totalSampleCount * sampleWidthInBytes - 1;
+        position + totalDataPointCount * dataPointWidthInBytes - 1;
     WaveFile__assertIndexInRange(byteList, lastPosition);
 
-    RealList rawDataList{totalSampleCount};
-    sampleBuffer.setLength(channelCount);
-    sampleBuffer.setFrameCount(audioFrameCount);
+    RealList rawDataList{totalDataPointCount};
+    dataPointBuffer.setLength(channelCount);
+    dataPointBuffer.setFrameCount(audioFrameCount);
 
-    for (Natural i = 0;  i < totalSampleCount;  i++) {
+    for (Natural i = 0;  i < totalDataPointCount;  i++) {
         rawDataList[i] =
-            WaveFile__readReal(byteList, position, sampleWidthInBytes);
+            WaveFile__readReal(byteList, position, dataPointWidthInBytes);
     }
 
-    Logging_trace("--: copying raw data to sample buffer");
+    Logging_trace("--: copying raw data to data point buffer");
 
     for (Natural channel = 0;  channel < channelCount;  channel++) {
-        AudioSampleList& sampleList = sampleBuffer[channel];
+        AudioDataPointList& dataPointList = dataPointBuffer[channel];
         Natural i = channel;
 
         for (Natural j = 0;  j < audioFrameCount;  j++) {
-            const AudioSample sample = rawDataList[i];
-            sampleList[j] = sample;
+            const AudioDataPoint dataPoint = rawDataList[i];
+            dataPointList[j] = dataPoint;
             i += channelCount;
         }
     }
@@ -555,22 +559,25 @@ static void WaveFile__skipString (IN ByteList& byteList,
  * Writes RIFF WAVE header to byte list <C>byteList</C> at
  * <C>position</C> using parameters <C>isPCMData</C> telling whether
  * this is a float or integer format, <C>dataSectionSize</C>,
- * <C>channelCount</C>, <C>sampleRate</C> and
- * <C>sampleWidthInBytes</C>.
+ * <C>channelCount</C>, <C>dataPointRate</C> and
+ * <C>dataPointWidthInBytes</C>.
  *
- * @param[inout] byteList            destination byte list to be
- *                                   written to
- * @param[inout] position            first destination position to be
- *                                   written to
- * @param[in]    isPCMData           information whether this is a
- *                                   format with integer samples
- * @param[in]    fileSize            the count in bytes of the complete
- *                                   file
- * @param[in]    channelCount        number of channels in sample buffer
- * @param[in]    audioFrameCount     number of audio frames in sample buffer
- * @param[in]    sampleRate          sample rate to be stored in file
- * @param[in]    sampleWidthInBytes  number of bytes per sample
- *                                   (must be 1, 2, 4 or 8)
+ * @param[inout] byteList               destination byte list to be
+ *                                      written to
+ * @param[inout] position               first destination position to
+ *                                      be written to
+ * @param[in]    isPCMData              information whether this is a
+ *                                      format with integer samples
+ * @param[in]    fileSize               the count in bytes of the
+ *                                      complete file
+ * @param[in]    channelCount           number of channels in data
+ *                                      point buffer
+ * @param[in]    audioFrameCount        number of audio frames in data
+ *                                      point buffer
+ * @param[in]    dataPointRate          data point rate to be stored in
+ *                                      file
+ * @param[in]    dataPointWidthInBytes  number of bytes per data point
+ *                                      (must be 1, 2, 4 or 8)
  */
 static void
 WaveFile__writeHeader(INOUT ByteList& byteList,
@@ -579,16 +586,16 @@ WaveFile__writeHeader(INOUT ByteList& byteList,
                       IN Natural fileSize,
                       IN Natural channelCount,
                       IN Natural audioFrameCount,
-                      IN Natural sampleRate,
-                      IN Natural sampleWidthInBytes)
+                      IN Natural dataPointRate,
+                      IN Natural dataPointWidthInBytes)
 {
     Logging_trace7(">>: position = %1, isPCMData = %2, fileSize = %3,"
                    " channelCount = %4, audioFrameCount = %5,"
-                   " sampleRate = %6, sampleWidthInBytes = %7",
+                   " dataPointRate = %6, dataPointWidthInBytes = %7",
                    TOSTRING(position), TOSTRING(isPCMData),
                    TOSTRING(fileSize), TOSTRING(channelCount),
-                   TOSTRING(audioFrameCount), TOSTRING(sampleRate),
-                   TOSTRING(sampleWidthInBytes));
+                   TOSTRING(audioFrameCount), TOSTRING(dataPointRate),
+                   TOSTRING(dataPointWidthInBytes));
     
     WaveFile__writeString(byteList, position, "RIFF");
     WaveFile__writeInteger(byteList, position, 4, fileSize - 8);
@@ -599,24 +606,24 @@ WaveFile__writeHeader(INOUT ByteList& byteList,
     const Natural extensionSize = 22;
     const Natural formatSectionSize =
         Natural{16} + (isPCMData ? 0 : extensionSize + 2);
-    const Natural bitsPerSample = sampleWidthInBytes * 8;
+    const Natural bitsPerDataPoint = dataPointWidthInBytes * 8;
 
     WaveFile__writeString(byteList, position, "fmt ");
     WaveFile__writeInteger(byteList, position, 4, formatSectionSize);
     WaveFile__writeInteger(byteList, position, 2, dataKind);
     WaveFile__writeInteger(byteList, position, 2, channelCount);
-    WaveFile__writeInteger(byteList, position, 4, sampleRate);
+    WaveFile__writeInteger(byteList, position, 4, dataPointRate);
     WaveFile__writeInteger(byteList, position, 4,
-                           sampleRate * channelCount * sampleWidthInBytes);
+                           dataPointRate * channelCount * dataPointWidthInBytes);
     WaveFile__writeInteger(byteList, position, 2,
-                           channelCount * sampleWidthInBytes);
-    WaveFile__writeInteger(byteList, position, 2, bitsPerSample);
+                           channelCount * dataPointWidthInBytes);
+    WaveFile__writeInteger(byteList, position, 2, bitsPerDataPoint);
 
     if (!isPCMData) {
         /* write extension data */
         Natural subformatPart;
         WaveFile__writeInteger(byteList, position, 2, extensionSize);
-        WaveFile__writeInteger(byteList, position, 2, bitsPerSample);
+        WaveFile__writeInteger(byteList, position, 2, bitsPerDataPoint);
         const Natural speakerPositionMask = 0;
         WaveFile__writeInteger(byteList, position, 4, speakerPositionMask);
         subformatPart = (size_t) 0x00000003;
@@ -666,53 +673,58 @@ static void WaveFile__writeInteger (INOUT ByteList& byteList,
 /*--------------------*/
 
 /**
- * Writes data from <C>sampleBuffer</C> to <C>byteList</C> at
+ * Writes data from <C>dataPointBuffer</C> to <C>byteList</C> at
  * <C>position</C> as integer data characterized by
- * <C>totalSampleCount</C>, <C>channelCount</C>,
- * <C>audioFrameCount</C>, <C>sampleWidthInBytes</C> and
+ * <C>totalDataPointCount</C>, <C>channelCount</C>,
+ * <C>audioFrameCount</C>, <C>dataPointWidthInBytes</C> and
  * <C>scalingFactor</C> and updates <C>position</C>.
  *
- * @param[inout] byteList            destination byte list for sample data
- * @param[inout] position            first position in byte list to be
- *                                   written
- * @param[in]    totalSampleCount    total number of samples in sample buffer
- * @param[in]    channelCount        number of channels in sample buffer
- * @param[in]    audioFrameCount     number of audio frames in sample buffer
- * @param[in]    sampleWidthInBytes  number of bytes per sample
- *                                   (must be 1, 2, 3 or 4)
- * @param[in]    scalingFactor       real factor to scale data from sample
- *                                   buffer
- * @param[in]    sampleBuffer        sample buffer to be written to byte
- *                                   list
+ * @param[inout] byteList               destination byte list for data
+ *                                      points
+ * @param[inout] position               first position in byte list to
+ *                                      be written
+ * @param[in]    totalDataPointCount    total number of data points in
+ *                                      buffer
+ * @param[in]    channelCount           number of channels in data
+ *                                      point buffer
+ * @param[in]    audioFrameCount        number of audio frames in
+ *                                      data point buffer
+ * @param[in]    dataPointWidthInBytes  number of bytes per data point
+ *                                      (must be 1, 2, 3 or 4)
+ * @param[in]    scalingFactor          real factor to scale data from
+ *                                      data point buffer
+ * @param[in]    dataPointBuffer        data point buffer to be written
+ *                                      to byte list
  */
 static void
-WaveFile__writeIntDataToByteList (INOUT ByteList& byteList,
-                                  INOUT Natural& position,
-                                  IN Natural totalSampleCount,
-                                  IN Natural channelCount,
-                                  IN Natural audioFrameCount,
-                                  IN Natural sampleWidthInBytes,
-                                  IN Real scalingFactor,
-                                  IN AudioSampleListVector& sampleBuffer)
+WaveFile__writeIntDataToByteList
+        (INOUT ByteList& byteList,
+         INOUT Natural& position,
+         IN Natural totalDataPointCount,
+         IN Natural channelCount,
+         IN Natural audioFrameCount,
+         IN Natural dataPointWidthInBytes,
+         IN Real scalingFactor,
+         IN AudioDataPointListVector& dataPointBuffer)
 {
-    Logging_trace6(">>: position = %1, totalSampleCount = %2,"
+    Logging_trace6(">>: position = %1, totalDataPointCount = %2,"
                    " channelCount = %3, audioFrameCount = %4,"
-                   " sampleWidthInBytes = %5, scalingFactor = %6",
-                   TOSTRING(position), TOSTRING(totalSampleCount),
+                   " dataPointWidthInBytes = %5, scalingFactor = %6",
+                   TOSTRING(position), TOSTRING(totalDataPointCount),
                    TOSTRING(channelCount), TOSTRING(audioFrameCount),
-                   TOSTRING(sampleWidthInBytes), TOSTRING(scalingFactor));
+                   TOSTRING(dataPointWidthInBytes), TOSTRING(scalingFactor));
 
-    IntegerList rawDataList{totalSampleCount};
+    IntegerList rawDataList{totalDataPointCount};
 
     for (Natural channel = 0;  channel < channelCount;  channel++) {
-        const AudioSampleList& sampleList = sampleBuffer[channel];
+        const AudioDataPointList& dataPointList = dataPointBuffer[channel];
         Natural i = channel;
 
         for (Natural j = 0;  j < audioFrameCount;  j++) {
-            const AudioSample sample = sampleList[j];
-            Real r = (sample >= 1.0 ? scalingFactor - 1.0
-                      : (sample < -1.0 ? -scalingFactor
-                         : sample * scalingFactor));
+            const AudioDataPoint dataPoint = dataPointList[j];
+            Real r = (dataPoint >= 1.0 ? scalingFactor - 1.0
+                      : (dataPoint < -1.0 ? -scalingFactor
+                         : dataPoint * scalingFactor));
             Integer s = (Integer) r;
             rawDataList[i] = s;
             i += channelCount;
@@ -721,8 +733,8 @@ WaveFile__writeIntDataToByteList (INOUT ByteList& byteList,
 
     Logging_trace("--: copying raw data to byte list");
 
-    for (Natural i = 0;  i < totalSampleCount;  i++) {
-        WaveFile__writeInteger(byteList, position, sampleWidthInBytes,
+    for (Natural i = 0;  i < totalDataPointCount;  i++) {
+        WaveFile__writeInteger(byteList, position, dataPointWidthInBytes,
                                rawDataList[i]);
     }
 
@@ -768,56 +780,61 @@ static void WaveFile__writeReal (INOUT ByteList& byteList,
 /*--------------------*/
 
 /**
- * Writes data from <C>sampleBuffer</C> to <C>byteList</C> at
+ * Writes data from <C>dataPointBuffer</C> to <C>byteList</C> at
  * <C>position</C> as floating point data characterized by
- * <C>totalSampleCount</C>, <C>channelCount</C>,
- * <C>audioFrameCount</C> and <C>sampleWidthInBytes</C> and updates
+ * <C>totalDataPointCount</C>, <C>channelCount</C>,
+ * <C>audioFrameCount</C> and <C>dataPointWidthInBytes</C> and updates
  * <C>position</C>.
  *
- * @param[inout] byteList            destination byte list for sample data
- * @param[inout] position            first position in byte list to be
- *                                   written
- * @param[in]    totalSampleCount    total number of samples in sample buffer
- * @param[in]    channelCount        number of channels in sample buffer
- * @param[in]    audioFrameCount     number of audio frames in sample buffer
- * @param[in]    sampleWidthInBytes  number of bytes per sample
- *                                   (must be 4 or 8)
- * @param[in]    sampleBuffer        sample buffer to be written to byte
- *                                   list
+ * @param[inout] byteList               destination byte list for data
+ *                                      points
+ * @param[inout] position               first position in byte list
+ *                                      to be written
+ * @param[in]    totalDataPointCount    total number of data points in
+ *                                      buffer
+ * @param[in]    channelCount           number of channels in data
+ *                                      point buffer
+ * @param[in]    audioFrameCount        number of audio frames in data
+ *                                      point buffer
+ * @param[in]    dataPointWidthInBytes  number of bytes per data point
+ *                                      (must be 4 or 8)
+ * @param[in]    dataPointBuffer        data point buffer to be written
+ *                                      to byte list
  */
 static void
-WaveFile__writeRealDataToByteList (INOUT ByteList& byteList,
-                                   INOUT Natural& position,
-                                   IN Natural totalSampleCount,
-                                   IN Natural channelCount,
-                                   IN Natural audioFrameCount,
-                                   IN Natural sampleWidthInBytes,
-                                   IN AudioSampleListVector& sampleBuffer)
+WaveFile__writeRealDataToByteList
+    (INOUT ByteList& byteList,
+     INOUT Natural& position,
+     IN Natural totalDataPointCount,
+     IN Natural channelCount,
+     IN Natural audioFrameCount,
+     IN Natural dataPointWidthInBytes,
+     IN AudioDataPointListVector& dataPointBuffer)
 {
-    Logging_trace5(">>: position = %1, totalSampleCount = %2,"
+    Logging_trace5(">>: position = %1, totalDataPointCount = %2,"
                    " channelCount = %3, audioFrameCount = %4,"
-                   " sampleWidthInBytes = %5",
-                   TOSTRING(position), TOSTRING(totalSampleCount),
+                   " dataPointWidthInBytes = %5",
+                   TOSTRING(position), TOSTRING(totalDataPointCount),
                    TOSTRING(channelCount), TOSTRING(audioFrameCount),
-                   TOSTRING(sampleWidthInBytes));
+                   TOSTRING(dataPointWidthInBytes));
 
-    RealList rawDataList{totalSampleCount};
+    RealList rawDataList{totalDataPointCount};
 
     for (Natural channel = 0;  channel < channelCount;  channel++) {
-        const AudioSampleList& sampleList = sampleBuffer[channel];
+        const AudioDataPointList& dataPointList = dataPointBuffer[channel];
         Natural i = channel;
 
         for (Natural j = 0;  j < audioFrameCount;  j++) {
-            const AudioSample sample = sampleList[j];
-            rawDataList[i] = sample;
+            const AudioDataPoint dataPoint = dataPointList[j];
+            rawDataList[i] = dataPoint;
             i += channelCount;
         }
     }
 
     Logging_trace("--: copying raw data to byte list");
 
-    for (Natural i = 0;  i < totalSampleCount;  i++) {
-        WaveFile__writeReal(byteList, position, sampleWidthInBytes,
+    for (Natural i = 0;  i < totalDataPointCount;  i++) {
+        WaveFile__writeReal(byteList, position, dataPointWidthInBytes,
                             rawDataList[i]);
     }
 
@@ -870,12 +887,12 @@ WaveFile::~WaveFile ()
 
 /*--------------------*/
 
-WaveFileOperationResult WaveFile::read (OUT Natural& sampleRate,
+WaveFileOperationResult WaveFile::read (OUT Natural& dataPointRate,
                                         OUT Natural& channelCount,
                                         OUT Natural& audioFrameCount,
                                         OUT String& typeCode,
-                                        OUT Natural& sampleWidthInBytes,
-                                        OUT AudioSampleListVector& sampleBuffer)
+                                        OUT Natural& dataPointWidthInBytes,
+                                        OUT AudioDataPointListVector& dataPointBuffer)
 {
     Logging_trace(">>");
 
@@ -907,32 +924,32 @@ WaveFileOperationResult WaveFile::read (OUT Natural& sampleRate,
         /* write RIFF file header */
         WaveFile__readHeader(byteList, position,
                              fileSize, isPCMData, channelCount,
-                             sampleRate, sampleWidthInBytes);
+                             dataPointRate, dataPointWidthInBytes);
 
-        /* read sample data section */
+        /* read data point data section */
         WaveFile__skipString(byteList, position, "data");
         const Natural dataSectionSize =
             WaveFile__readNatural(byteList, position, 4);
-        const Natural totalSampleCount =
-            dataSectionSize / sampleWidthInBytes;
-        audioFrameCount = totalSampleCount / channelCount;
+        const Natural totalDataPointCount =
+            dataSectionSize / dataPointWidthInBytes;
+        audioFrameCount = totalDataPointCount / channelCount;
 
-        Logging_trace("--: copying raw data list to sample buffer");
+        Logging_trace("--: copying raw data list to data point buffer");
 
         if (isPCMData) {
             const Real scalingFactor =
-                Real::power(2.0, Real{sampleWidthInBytes * 8 - 1});
+                Real::power(2.0, Real{dataPointWidthInBytes * 8 - 1});
             WaveFile__readIntDataFromByteList(byteList, position,
-                                              totalSampleCount,
+                                              totalDataPointCount,
                                               channelCount, audioFrameCount,
-                                              sampleWidthInBytes, scalingFactor,
-                                              sampleBuffer);
+                                              dataPointWidthInBytes, scalingFactor,
+                                              dataPointBuffer);
         } else {
             WaveFile__readRealDataFromByteList(byteList, position,
-                                               totalSampleCount,
+                                               totalDataPointCount,
                                                channelCount, audioFrameCount,
-                                               sampleWidthInBytes,
-                                               sampleBuffer);
+                                               dataPointWidthInBytes,
+                                               dataPointBuffer);
         }
 
         Logging_trace1("--: transferred %1 bytes file",
@@ -943,31 +960,31 @@ WaveFileOperationResult WaveFile::read (OUT Natural& sampleRate,
     }
 
     Logging_trace6("<<: result = %1,"
-                   " sampleRate = %2, channelCount = %3,"
+                   " dataPointRate = %2, channelCount = %3,"
                    " audioFrameCount = %4, typeCode = '%5',"
-                   " sampleWidthInBytes = %6",
+                   " dataPointWidthInBytes = %6",
                    WaveFileOperationResult_toString(result),
-                   TOSTRING(sampleRate), TOSTRING(channelCount),
+                   TOSTRING(dataPointRate), TOSTRING(channelCount),
                    TOSTRING(audioFrameCount), typeCode,
-                   TOSTRING(sampleWidthInBytes));
+                   TOSTRING(dataPointWidthInBytes));
     return result;
 }
 
 /*--------------------*/
 
-WaveFileOperationResult WaveFile::write (IN Natural sampleRate,
+WaveFileOperationResult WaveFile::write (IN Natural dataPointRate,
                                          IN Natural channelCount,
                                          IN Natural audioFrameCount,
                                          IN String& typeCode,
-                                         IN Natural sampleWidthInBytes,
-                                         IN AudioSampleListVector& sampleBuffer)
+                                         IN Natural dataPointWidthInBytes,
+                                         IN AudioDataPointListVector& dataPointBuffer)
 {
-    Logging_trace5(">>: sampleRate = %1, channelCount = %2,"
+    Logging_trace5(">>: dataPointRate = %1, channelCount = %2,"
                    " audioFrameCount = %3, typeCode = '%4',"
-                   " sampleWidthInBytes = %5",
-                   TOSTRING(sampleRate), TOSTRING(channelCount),
+                   " dataPointWidthInBytes = %5",
+                   TOSTRING(dataPointRate), TOSTRING(channelCount),
                    TOSTRING(audioFrameCount), typeCode,
-                   TOSTRING(sampleWidthInBytes));
+                   TOSTRING(dataPointWidthInBytes));
 
     WaveFileOperationResult result = okay;
 
@@ -976,13 +993,13 @@ WaveFileOperationResult WaveFile::write (IN Natural sampleRate,
         Assertion_pre((typeCode == "I" || typeCode == "R"),
                       "type code must be 'I' or 'R'");
         Assertion_pre((typeCode != "I"
-                       || allowedIntSampleWidthList
-                              .contains(sampleWidthInBytes)),
-                      "sample width for int must be 1, 2, 3 or 4");
+                       || allowedIntDataPointWidthList
+                              .contains(dataPointWidthInBytes)),
+                      "data point width for int must be 1, 2, 3 or 4");
         Assertion_pre((typeCode != "R"
-                       || allowedRealSampleWidthList
-                              .contains(sampleWidthInBytes)),
-                      "sample width for real must be 4 or 8");
+                       || allowedRealDataPointWidthList
+                              .contains(dataPointWidthInBytes)),
+                      "data point width for real must be 4 or 8");
 
         /* open file */
         const String& fileName = TOREFERENCE<String>(_descriptor);
@@ -995,12 +1012,12 @@ WaveFileOperationResult WaveFile::write (IN Natural sampleRate,
         const Boolean isPCMData = (typeCode == "I");
         const Natural headerSize = (isPCMData ? 44 : 68);
         const Natural factChunkSize = (isPCMData ? 0 : 12);
-        const Natural totalSampleCount =
+        const Natural totalDataPointCount =
             channelCount * audioFrameCount;
         /* make an even section size */
         const Natural dataSectionSize =
-            (totalSampleCount * sampleWidthInBytes
-             + (totalSampleCount * sampleWidthInBytes) % 2);
+            (totalDataPointCount * dataPointWidthInBytes
+             + (totalDataPointCount * dataPointWidthInBytes) % 2);
         const Natural fileSize =
             headerSize + factChunkSize + dataSectionSize;
 
@@ -1010,28 +1027,30 @@ WaveFileOperationResult WaveFile::write (IN Natural sampleRate,
         /* write RIFF file header */
         WaveFile__writeHeader(byteList, position,
                               isPCMData, fileSize, channelCount,
-                              audioFrameCount, sampleRate, sampleWidthInBytes);
+                              audioFrameCount, dataPointRate,
+                              dataPointWidthInBytes);
 
         /* write sample data section */
         WaveFile__writeString(byteList, position, "data");
         WaveFile__writeInteger(byteList, position, 4, dataSectionSize);
 
-        Logging_trace("--: copying sample buffer to raw data list");
+        Logging_trace("--: copying data point buffer to raw data list");
 
         if (isPCMData) {
             const Real scalingFactor =
-                Real::power(2.0, Real{sampleWidthInBytes * 8 - 1});
+                Real::power(2.0, Real{dataPointWidthInBytes * 8 - 1});
             WaveFile__writeIntDataToByteList(byteList, position,
-                                             totalSampleCount,
+                                             totalDataPointCount,
                                              channelCount, audioFrameCount,
-                                             sampleWidthInBytes, scalingFactor,
-                                             sampleBuffer);
+                                             dataPointWidthInBytes,
+                                             scalingFactor,
+                                             dataPointBuffer);
         } else {
             WaveFile__writeRealDataToByteList(byteList, position,
-                                              totalSampleCount,
+                                              totalDataPointCount,
                                               channelCount, audioFrameCount,
-                                              sampleWidthInBytes,
-                                              sampleBuffer);
+                                              dataPointWidthInBytes,
+                                              dataPointBuffer);
         }
 
         Logging_trace("--: writing byte list to file");

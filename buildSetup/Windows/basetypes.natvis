@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+  <!--
+    primitives types
+    -->
+  <Type Name="BaseTypes::Primitives::Boolean">
+	<DisplayString>{_value}</DisplayString>
+  </Type>
+
+  <Type Name="BaseTypes::Primitives::Byte">
+	<DisplayString>{_value}</DisplayString>
+  </Type>
+
+  <Type Name="BaseTypes::Primitives::Character">
+	<DisplayString>{_value}</DisplayString>
+  </Type>
+
+  <Type Name="BaseTypes::Primitives::Duration">
+	  <DisplayString>{_value}s</DisplayString>
+  </Type>
+
+  <Type Name="BaseTypes::Primitives::Integer">
+      <DisplayString>{_value}</DisplayString>
+  </Type>
+
+  <Type Name="BaseTypes::Primitives::Natural">
+	<DisplayString>{_value}</DisplayString>
+  </Type>
+
+  <Type Name="BaseTypes::Primitives::Percentage">
+	<DisplayString>{_value*100.0}%</DisplayString>
+  </Type>
+
+  <Type Name="BaseTypes::Primitives::Radians">
+	<DisplayString>{_value}rad</DisplayString>
+  </Type>
+
+  <Type Name="BaseTypes::Primitives::Real">
+	  <DisplayString>{_value}</DisplayString>
+  </Type>
+
+  <Type Name="BaseTypes::Primitives::Time">
+	  <DisplayString>{_value}s</DisplayString>
+  </Type>
+
+</AutoVisualizer>

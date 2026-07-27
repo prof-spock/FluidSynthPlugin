@@ -15,7 +15,7 @@
 /* IMPORTS */
 /*=========*/
 
-#include "AudioSampleListVector.h"
+#include "AudioDataPointListVector.h"
 #include "Dictionary.h"
 #include "Real.h"
 #include "Natural.h"
@@ -24,7 +24,7 @@
 
 /*--------------------*/
 
-using Audio::AudioSampleListVector;
+using Audio::AudioDataPointListVector;
 
 using BaseTypes::Containers::Dictionary;
 using BaseTypes::Containers::StringList;
@@ -161,7 +161,7 @@ namespace MIDI {
          * Returns the underlying buffer size of the fluidsynth
          * synthesizer.
          *
-         * @return  synthesizer buffer size (in samples)
+         * @return  synthesizer buffer size (in data points)
          */
         Natural synthesizerBufferSize () const;
 
@@ -206,15 +206,15 @@ namespace MIDI {
         /**
          * Informs the handler to be prepared for playback.
          *
-         * @param[in] sampleRate                      the sample rate
-         *                                            to be used for
-         *                                            playback
-         * @param[in] maximumExpectedSamplesPerBlock  the number of
-         *                                            samples per
-         *                                            processing call 
+         * @param[in] dataPointRate                      the data point
+         *                                               rate to be used
+         *                                               for playback
+         * @param[in] maximumExpectedDataPointsPerBlock  the number of
+         *                                               data points per
+         *                                               processing call 
          */
-        void prepareToPlay (IN Real sampleRate,
-                            IN Natural maximumExpectedSamplesPerBlock);
+        void prepareToPlay (IN Real dataPointRate,
+                            IN Natural maximumExpectedDataPointsPerBlock);
 
         /*--------------------*/
 
@@ -227,17 +227,18 @@ namespace MIDI {
 
         /**
          * Processes a list of MIDI events with this converter and
-         * updates audio sample buffer assuming a stereo setup.
+         * updates audio data point buffer assuming a stereo setup.
          *
-         * @param[in]    midiEventList         list of MIDI messages
-         *                                     to be processed
-         * @param[inout] audioBuffer           vector of sample lists
-         * @param[in]    sampleCountInChannel  relevant count of samples
-         *                                     per channel
+         * @param[in]    midiEventList            list of MIDI messages
+         *                                        to be processed
+         * @param[inout] audioBuffer              vector of data point
+         *                                        lists
+         * @param[in]    dataPointCountInChannel  relevant count of data
+         *                                        points per channel
          */
         void processBlock (IN MidiEventList& midiEventList,
-                           INOUT AudioSampleListVector& audioBuffer,
-                           IN Natural sampleCountInChannel);
+                           INOUT AudioDataPointListVector& audioBuffer,
+                           IN Natural dataPointCountInChannel);
 
         /*--------------------*/
 
@@ -267,7 +268,7 @@ namespace MIDI {
         /**
          * Sets settings data for event converter from <C>st</C>.
          *
-         * @param[in] st           serialized settings data
+         * @param[in] st  serialized settings data
          */
         void setStateInformation (IN String& st);
 

@@ -14,11 +14,7 @@
 
 #include <cstdlib>
 #include <filesystem>
-#include <stdio.h>
-    /** qualified version of fprintf from stdio */
-    #define StdIO_fprintf  fprintf
-    /** qualified version of stderr from stdio */
-    #define StdIO_stderr   stderr
+#include <MyStdIO.h>
 #include <thread>
 
 #include "File.h"
@@ -31,8 +27,7 @@
 #ifdef _WINDOWS
     #include "MyWindows.h"
 #else
-    #include <unistd.h>
-        #define UniStd_sleep  sleep
+    #include <MyUniStd.h>
     #include <dlfcn.h>
 #endif
 
@@ -92,7 +87,7 @@ using STR = BaseModules::StringUtil;
      */
     static void _sleepForDuration (IN float duration)
     {
-        Windows::Sleep(duration * 1000.0);
+        Windows::Sleep(round(duration * 1000.0));
     }
 #else
 
@@ -143,7 +138,7 @@ using STR = BaseModules::StringUtil;
      */
     static void _sleepForDuration (IN float duration)
     {
-        UniStd_sleep(duration);
+        C_UniStd::sleep(duration);
     }
 #endif  
 
@@ -316,7 +311,7 @@ void OperatingSystem::sleep (IN Duration duration)
 
     while (stopTime < endTime) {
         stopTime = Time_withinProcess();
-        _sleepForDuration(((double) duration) / 10.0);
+        _sleepForDuration(double(duration) / 10.0);
     }
 }
 
@@ -363,6 +358,6 @@ String OperatingSystem::temporaryDirectoryPath ()
 void OperatingSystem::writeMessageToConsole (IN String& message)
 {
     Logging_trace1(">>: %1", message);
-    StdIO_fprintf(StdIO_stderr, "%s\n", message.c_str());
+    C_StdIO::fprintf(C_StdIO::stdError, "%s\n", message.c_str());
     Logging_trace("<<");
 }

@@ -2,10 +2,13 @@ var _string_util_8cpp =
 [
     [ "_analyzeSimpleNumberString", "_string_util_8cpp.html#a736aa70a0076d6e633704d7fec040e37", null ],
     [ "_convertDigitString", "_string_util_8cpp.html#a0535c44b059dc4b6e6d33898a9fe1ef4", null ],
+    [ "_isDigitChar", "_string_util_8cpp.html#a9b6b7d10c25c3d5c68281dc61ab66682", null ],
     [ "_toNaturalWithBaseAndDefault", "_string_util_8cpp.html#abf0416b300a098de08d5129ef531da62", null ],
     [ "_blankCharacter", "_string_util_8cpp.html#afa7bd5cbd88c4b25003cadf4d6a2207a", null ],
     [ "_decimalPointCharacter", "_string_util_8cpp.html#aa728a4127d699c6f04ddf3e72bff18c4", null ],
     [ "_digitCharacterList", "_string_util_8cpp.html#a51f4aaff0c36e94563eb83d76a4c5989", null ],
+    [ "_ErrMsg_badPosition", "_string_util_8cpp.html#a467cb73b6501b456c9813cc8d2868f10", null ],
+    [ "_ErrMsg_emptyString", "_string_util_8cpp.html#a2d920d2838a6d972e294926ac9a9beca", null ],
     [ "_lcAlphaDigitCharacterList", "_string_util_8cpp.html#a579f38789920567203e10cecd5253810", null ],
     [ "_minusCharacter", "_string_util_8cpp.html#af0a1dafa582d8f3077efa1432ca46d01", null ],
     [ "_notFound", "_string_util_8cpp.html#a0e6930a7ca032c5dd033280e503dfa23", null ],

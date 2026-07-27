@@ -59,7 +59,7 @@ namespace BaseTypes::Primitives {
          */
         Radians (IN Real r)
         {
-            _value = (double) r;
+            _value = double(r);
         }
 
         /*--------------------*/

@@ -1,0 +1,13 @@
+<map id="AudioDataPointFifoQueue.cpp&#45;inc" name="AudioDataPointFifoQueue.cpp&#45;inc">
+<area shape="rect" id="Node000001" title="The AudioDataPointFifoQueue body implements a fifo queue for audio data points with popping off acces..." alt="" coords="111,5,328,31"/>
+<area shape="rect" id="Node000002" href="$_audio_data_point_fifo_queue_8h.html" title="The AudioDataPointFifoQueue specification defines a fifo queue for audio data points with popping off..." alt="" coords="128,79,311,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="222,44,222,79,217,79,217,44"/>
+<area shape="rect" id="Node000003" href="$_audio_data_point_fifo_queue_8cpp.html" title="The AudioDataPointFifoQueue body implements a fifo queue for audio samples with popping off access to..." alt="" coords="5,152,201,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="191,113,124,154,121,149,188,109"/>
+<area shape="rect" id="Node000004" href="$_audio_data_point_fifo_queue_vector_8h.html" title="The AudioDataPointFifoQueueVector specification defines a list of fifo queues for audio data points." alt="" coords="225,152,445,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="251,109,318,149,315,154,248,113"/>
+<area shape="rect" id="Node000005" href="$_audio_data_point_fifo_queue_vector_8cpp.html" title="The AudioDataPointFifoQueueVector body implements a list of fifo queues for audio data points (this i..." alt="" coords="86,225,321,251"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="304,186,226,227,224,223,301,181"/>
+<area shape="rect" id="Node000006" href="$_fluid_synth_plugin___event_processor_8cpp.html" title="The FluidSynthPlugin_Processor module implements the handling of MIDI events from the DAW via JUCE ha..." alt="" coords="345,225,587,251"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="370,182,446,223,443,227,367,186"/>
+</map>

@@ -165,7 +165,7 @@ $(function(){initNavTree('_natural_8h_source.html','',''); });
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>                <a class="code hl_function" href="struct_base_types_1_1_primitives_1_1_natural.html#a287a6c292537b85fd232b795d8a876ee">Natural</a> digit  = remainingValue % base;</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>                remainingValue = remainingValue / base;</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>                result = digitList[(size_t) digit] + result;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>                result = digitList[size_t(digit)] + result;</div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>                length++;</div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>                <span class="keywordflow">if</span> (remainingValue == 0) {</div>
@@ -206,7 +206,7 @@ $(function(){initNavTree('_natural_8h_source.html','',''); });
 <div class="foldopen" id="foldopen00157" data-start="{" data-end="}">
 <div class="line"><a id="l00157" name="l00157"></a><span class="lineno"><a class="line" href="struct_base_types_1_1_primitives_1_1_natural.html#a46cb94f612b6fa5e380b23faa9141c29">  157</a></span>        <span class="keyword">explicit</span> <span class="keyword">operator</span> double ()<span class="keyword"> const</span></div>
 <div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>            <span class="keywordflow">return</span> (<span class="keywordtype">double</span>) _value;</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>            <span class="keywordflow">return</span> double(_value);</div>
 <div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        }</div>
 </div>
 <div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
@@ -215,7 +215,7 @@ $(function(){initNavTree('_natural_8h_source.html','',''); });
 <div class="foldopen" id="foldopen00170" data-start="{" data-end="}">
 <div class="line"><a id="l00170" name="l00170"></a><span class="lineno"><a class="line" href="struct_base_types_1_1_primitives_1_1_natural.html#a609f86aa837138f6ac235a678fdb38e7">  170</a></span>        <span class="keyword">explicit</span> <span class="keyword">operator</span> int ()<span class="keyword"> const</span></div>
 <div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>            <span class="keywordflow">return</span> (<span class="keywordtype">int</span>) _value;</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>            <span class="keywordflow">return</span> int(_value);</div>
 <div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        }</div>
 </div>
 <div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
@@ -300,7 +300,7 @@ $(function(){initNavTree('_natural_8h_source.html','',''); });
 <div class="foldopen" id="foldopen00294" data-start="{" data-end="}">
 <div class="line"><a id="l00294" name="l00294"></a><span class="lineno"><a class="line" href="struct_base_types_1_1_primitives_1_1_natural.html#af67f89a8c45f0ac00836dcf1db779506">  294</a></span>        <span class="keyword">static</span> <a class="code hl_function" href="struct_base_types_1_1_primitives_1_1_natural.html#a287a6c292537b85fd232b795d8a876ee">Natural</a> <a class="code hl_function" href="struct_base_types_1_1_primitives_1_1_natural.html#af67f89a8c45f0ac00836dcf1db779506">ceiling</a> (<a class="code hl_define" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <span class="keywordtype">double</span> r)</div>
 <div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>        {</div>
-<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="struct_base_types_1_1_primitives_1_1_natural.html#a287a6c292537b85fd232b795d8a876ee">Natural</a>{(size_t) std::ceil(r)};</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="struct_base_types_1_1_primitives_1_1_natural.html#a287a6c292537b85fd232b795d8a876ee">Natural</a>{size_t(std::ceil(r))};</div>
 <div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>        }</div>
 </div>
 <div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span> </div>
@@ -309,7 +309,7 @@ $(function(){initNavTree('_natural_8h_source.html','',''); });
 <div class="foldopen" id="foldopen00308" data-start="{" data-end="}">
 <div class="line"><a id="l00308" name="l00308"></a><span class="lineno"><a class="line" href="struct_base_types_1_1_primitives_1_1_natural.html#a7f955c595ce0dece7b7705692f000525">  308</a></span>        <span class="keyword">static</span> <a class="code hl_function" href="struct_base_types_1_1_primitives_1_1_natural.html#a287a6c292537b85fd232b795d8a876ee">Natural</a> <a class="code hl_function" href="struct_base_types_1_1_primitives_1_1_natural.html#a7f955c595ce0dece7b7705692f000525">floor</a> (<a class="code hl_define" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <span class="keywordtype">double</span> r)</div>
 <div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>        {</div>
-<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="struct_base_types_1_1_primitives_1_1_natural.html#a287a6c292537b85fd232b795d8a876ee">Natural</a>{(size_t) std::floor(r)};</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="struct_base_types_1_1_primitives_1_1_natural.html#a287a6c292537b85fd232b795d8a876ee">Natural</a>{size_t(std::floor(r))};</div>
 <div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>        }</div>
 </div>
 <div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span> </div>
@@ -343,7 +343,7 @@ $(function(){initNavTree('_natural_8h_source.html','',''); });
 <div class="foldopen" id="foldopen00361" data-start="{" data-end="}">
 <div class="line"><a id="l00361" name="l00361"></a><span class="lineno"><a class="line" href="struct_base_types_1_1_primitives_1_1_natural.html#aefc75101cf6aad8675ea42bf24fd6e5d">  361</a></span>        <span class="keyword">static</span> <a class="code hl_function" href="struct_base_types_1_1_primitives_1_1_natural.html#a287a6c292537b85fd232b795d8a876ee">Natural</a> <a class="code hl_function" href="struct_base_types_1_1_primitives_1_1_natural.html#aefc75101cf6aad8675ea42bf24fd6e5d">power</a> (<a class="code hl_define" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="code hl_function" href="struct_base_types_1_1_primitives_1_1_natural.html#a287a6c292537b85fd232b795d8a876ee">Natural</a> base, <a class="code hl_define" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="code hl_function" href="struct_base_types_1_1_primitives_1_1_natural.html#a287a6c292537b85fd232b795d8a876ee">Natural</a> exponent)</div>
 <div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>        {</div>
-<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="struct_base_types_1_1_primitives_1_1_natural.html#a287a6c292537b85fd232b795d8a876ee">Natural</a>{(size_t) pow(base._value, exponent._value)};</div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="struct_base_types_1_1_primitives_1_1_natural.html#a287a6c292537b85fd232b795d8a876ee">Natural</a>{size_t(pow(base._value, exponent._value))};</div>
 <div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>        }</div>
 </div>
 <div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span> </div>

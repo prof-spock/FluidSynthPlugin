@@ -11,7 +11,7 @@
 <!-- Node0 -->
 <g id="Node000000" class="node">
 <title>Node0</title>
-<g id="a_Node000000"><a xlink:href="struct___ring_buffer.html" target="_top" xlink:title="Type for processing of MIDI events into sample list vectors with the possibility of delaying events f...">
+<g id="a_Node000000"><a xlink:href="struct___ring_buffer.html" target="_top" xlink:title="Type for processing of MIDI events into data point list vectors with the possibility of delaying even...">
 <polygon fill="white" stroke="#666666" points="66,-19 0,-19 0,0 66,0 66,-19"/>
 <text text-anchor="middle" x="33" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">_RingBuffer</text>
 </a>

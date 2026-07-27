@@ -12,7 +12,7 @@
 /* IMPORTS */
 /*=========*/
 
-#include "AudioSampleFifoQueueVector.h"
+#include "AudioDataPointFifoQueueVector.h"
 #include "DynamicLibrary.h"
 #include "Environment.h"
 #include "FluidSynthPlugin_Editor.h"
@@ -24,8 +24,8 @@
 
 /*--------------------*/
 
-using Audio::AudioSampleList;
-using Audio::AudioSampleFifoQueueVector;
+using Audio::AudioDataPointList;
+using Audio::AudioDataPointFifoQueueVector;
 using BaseModules::Environment;
 using BaseModules::OperatingSystem;
 using BaseTypes::Containers::convertArray;
@@ -51,7 +51,7 @@ static const String _settingsKeyForPreset = "preset";
 static const String _errorMessageForBadLibraryInitialization =
     "fluidsynth library could not be loaded";
 
-/** the key string for flagging a slight compensation of sample
+/** the key string for flagging a slight compensation of data point
  * buffering by the fluidsynth synthesizer */
 static const String _fsBufferingCompensationKey =
     "fsBufferCompensationIsDone";
@@ -60,13 +60,13 @@ static const String _fsBufferingCompensationKey =
 /* PROTOTYPES         */
 /*====================*/
 
-static Integer _readTimeInSamples (juce::AudioPlayHead* playHead);
+static Integer _readTimeInDataPoints (juce::AudioPlayHead* playHead);
 
 static void
 _resetBlockProcessing (INOUT MidiEventConverter* eventConverter,
-                       IN Natural unprocessedSampleCount,
-                       IN Natural newOffsetInSamples,
-                       OUT AudioSampleListVector& sampleBuffer);
+                       IN Natural unprocessedDataPointCount,
+                       IN Natural newOffsetInDataPoints,
+                       OUT AudioDataPointListVector& dataPointBuffer);
 
 static void _splitListAtTime (INOUT MidiEventList& midiEventList,
                               IN Natural splitTime,
@@ -81,7 +81,7 @@ namespace Main::FluidSynthPlugin {
     /*====================*/
 
     /**
-     * Type for processing of MIDI events into sample list vectors
+     * Type for processing of MIDI events into data point list vectors
      * with the possibility of delaying events for later processing
      */
     struct _RingBuffer {
@@ -89,16 +89,16 @@ namespace Main::FluidSynthPlugin {
         /** list of midi events to be processed */
         MidiEventList scheduledEventList;
 
-        /** vector of sample fifo queues */
-        AudioSampleFifoQueueVector sampleQueueList;
+        /** vector of data point fifo queues */
+        AudioDataPointFifoQueueVector dataPointQueueList;
 
-        /** the last time [in samples] that has been processed by
+        /** the last time [in data points] that has been processed by
          * processBlock */
         Integer lastProcessedTime = Integer::maximumValue();
 
-        /** the delay (in samples) between the MIDI events and the
-         * rendered samples */
-        Natural delayDurationInSamples{0};
+        /** the delay (in data points) between the MIDI events and the
+         * rendered data points */
+        Natural delayDurationInDataPoints{0};
 
         /*--------------------*/
 
@@ -119,27 +119,27 @@ namespace Main::FluidSynthPlugin {
         /**
          * Processes events in <C>midiEventList</C> happening relative
          * to <C>currentTime</C> using <C>processor</C> and its
-         * <C>descriptor</C> and returns block of samples in
-         * <C>sampleListVector</C>;  note that the processing might be
-         * delayed to adapt to the raster size of the underlying
+         * <C>descriptor</C> and returns block of data points in
+         * <C>dataPointListVector</C>; note that the processing might
+         * be delayed to adapt to the raster size of the underlying
          * fluidsynth synthesizer
          *
-         * @param[inout] processor         event processor object
-         * @param[inout] descriptor        associated processor descriptor
-         * @param[in]    currentTime       time in samples
-         * @param[in]    midiEventList     list of midi events
-         *                                 starting at given time
-         * @param[out]   sampleListVector  vector of audio sample lists
-         *                                 returned
-         * @param[in]    audioFrameCount   number of samples to be
-         *                                 returned
+         * @param[inout] processor            event processor object
+         * @param[inout] descriptor           associated processor descriptor
+         * @param[in]    currentTime          time in data points
+         * @param[in]    midiEventList        list of midi events
+         *                                    starting at given time
+         * @param[out]   dataPointListVector  vector of audio data point lists
+         *                                    returned
+         * @param[in]    audioFrameCount      number of data points to be
+         *                                    returned
          */
         void processBlock
                  (INOUT FluidSynthPlugin_EventProcessor* processor,
                   INOUT _EventProcessorDescriptor& descriptor,
                   IN Integer currentTime,
                   IN MidiEventList& midiEventList,
-                  OUT AudioSampleListVector& sampleListVector,
+                  OUT AudioDataPointListVector& dataPointListVector,
                   IN Natural audioFrameCount);
 
     };
@@ -248,7 +248,7 @@ _RingBuffer::processBlock
      INOUT _EventProcessorDescriptor& descriptor,
      IN Integer currentTime,
      IN MidiEventList& midiEventList,
-     OUT AudioSampleListVector& sampleListVector,
+     OUT AudioDataPointListVector& dataPointListVector,
      IN Natural audioFrameCount)
 {
     Logging_trace3(">>: currentTime = %1, midiEventList = %2,"
@@ -257,72 +257,73 @@ _RingBuffer::processBlock
                    TOSTRING(audioFrameCount));
 
     MidiEventConverter* eventConverter = descriptor.midiEventConverter;
-    const Natural channelCount = sampleListVector.length();
+    const Natural channelCount = dataPointListVector.length();
     const Natural synthesizerBufferSize =
         eventConverter->synthesizerBufferSize();
-    AudioSampleListVector localSampleBuffer{channelCount};
-    localSampleBuffer.setFrameCount(synthesizerBufferSize);
+    AudioDataPointListVector localDataPointBuffer{channelCount};
+    localDataPointBuffer.setFrameCount(synthesizerBufferSize);
 
     if (currentTime != lastProcessedTime) {
         const Natural relativeTime =
             Natural{(size_t) currentTime} % synthesizerBufferSize;
         Logging_trace1("--: relativeTime = %1", TOSTRING(relativeTime));
-        sampleQueueList.setQueueCount(channelCount);
-        sampleQueueList.ensureQueueCapacity(synthesizerBufferSize);
+        dataPointQueueList.setQueueCount(channelCount);
+        dataPointQueueList.ensureQueueCapacity(synthesizerBufferSize);
 
-        if (relativeTime != delayDurationInSamples) {
+        if (relativeTime != delayDurationInDataPoints) {
             Logging_trace1("--: relative time differs from"
                            " delay duration %1",
-                           TOSTRING(delayDurationInSamples));
-            const Natural unprocessedSampleCount =
-                (delayDurationInSamples == 0 ? 0
-                 : synthesizerBufferSize - delayDurationInSamples);
+                           TOSTRING(delayDurationInDataPoints));
+            const Natural unprocessedDataPointCount =
+                (delayDurationInDataPoints == 0 ? 0
+                 : synthesizerBufferSize - delayDurationInDataPoints);
             _resetBlockProcessing(eventConverter,
-                                  unprocessedSampleCount,
-                                  relativeTime, localSampleBuffer);
-            delayDurationInSamples = relativeTime;
+                                  unprocessedDataPointCount,
+                                  relativeTime, localDataPointBuffer);
+            delayDurationInDataPoints = relativeTime;
             scheduledEventList.clear();
-            processor->setLatencySamples((int) delayDurationInSamples);
-            sampleQueueList.appendToQueues(localSampleBuffer,
-                                           0, delayDurationInSamples);
+            processor->setLatencySamples((int) delayDurationInDataPoints);
+            dataPointQueueList.appendToQueues(localDataPointBuffer,
+                                           0, delayDurationInDataPoints);
         }
     }
 
     /* shift events in list by an offset, merge them with the
-     * unprocessed elements and split them at buffer size time
-     * in samples */
+     * unprocessed elements and split them at buffer size time in data
+     * points */
     const Natural offset =
-        (delayDurationInSamples == 0 ? 0
-         : synthesizerBufferSize - delayDurationInSamples);
+        (delayDurationInDataPoints == 0 ? 0
+         : synthesizerBufferSize - delayDurationInDataPoints);
 
     MidiEventList currentEventList{midiEventList};
     currentEventList.shiftEventTimes(offset);
     scheduledEventList.merge(currentEventList);
 
-    /* process samples until the available sample count is at least
-     * the number of samples required */
-    while (sampleQueueList.queueLength() < audioFrameCount) {
-        const Natural durationInSamples = synthesizerBufferSize;
+    /* process data points until the available data point count is at
+     * least the number of data points required */
+    while (dataPointQueueList.queueLength() < audioFrameCount) {
+        const Natural durationInDataPoints = synthesizerBufferSize;
         currentEventList = scheduledEventList;
         _splitListAtTime(currentEventList,
-                         durationInSamples, scheduledEventList);
+                         durationInDataPoints, scheduledEventList);
         eventConverter->processBlock(currentEventList,
-                                     localSampleBuffer,
-                                     durationInSamples);
-        Logging_trace1("--: localSampleBufferC = %1",
-                       localSampleBuffer.toString(durationInSamples,
-                                                  true));
-        sampleQueueList.appendToQueues(localSampleBuffer,
-                                       0, durationInSamples);
-        const Integer backShift = -Integer{durationInSamples};
+                                     localDataPointBuffer,
+                                     durationInDataPoints);
+        Logging_trace1("--: localDataPointBufferC = %1",
+                       localDataPointBuffer.toString(durationInDataPoints,
+                                                     true));
+        dataPointQueueList.appendToQueues(localDataPointBuffer,
+                                       0, durationInDataPoints);
+        const Integer backShift = -Integer{durationInDataPoints};
         scheduledEventList.shiftEventTimes(backShift);
     };
 
-    sampleQueueList.popFromQueues(sampleListVector, 0, audioFrameCount);
+    dataPointQueueList.popFromQueues(dataPointListVector,
+                                     0, audioFrameCount);
     lastProcessedTime += audioFrameCount;
 
     Logging_trace1("<<: %1",
-                   sampleListVector.toString(audioFrameCount, true));
+                   dataPointListVector.toString(audioFrameCount, true));
 }
 
 /*===========================*/
@@ -445,28 +446,28 @@ _convertFromJuceEventList(IN juce::MidiBuffer& juceMidiEventList)
 /*--------------------*/
 
 /**
- * Copies data from <C>sampleListVector</C> to JUCE
+ * Copies data from <C>dataPointListVector</C> to JUCE
  * <C>audioBuffer</C>.
  *
- * @param[in]  sampleListVector  list of rendered samples
- * @param[out] audioBuffer       JUCE audio buffer to be changed
+ * @param[in]  dataPointListVector  list of rendered data points
+ * @param[out] audioBuffer          JUCE audio buffer to be changed
  */
 template <typename T>
 static void
-_copyToJuceBuffer (IN AudioSampleListVector sampleListVector,
+_copyToJuceBuffer (IN AudioDataPointListVector dataPointListVector,
                    OUT juce::AudioBuffer<T>& audioBuffer)
 {
     Logging_trace(">>");
 
-    const Natural channelCount = sampleListVector.length();
-    const Natural frameCount = sampleListVector.frameCount();
+    const Natural channelCount = dataPointListVector.length();
+    const Natural frameCount = dataPointListVector.frameCount();
 
     for (Natural channel = 0;  channel < channelCount;  channel++) {
-        const AudioSample* sampleList =
-            sampleListVector[channel].asArray();
-        T* otherSampleList =
+        const AudioDataPoint* dataPointList =
+            dataPointListVector[channel].asArray();
+        T* otherDataPointList =
             (T*) audioBuffer.getWritePointer((int) channel);
-        convertArray(otherSampleList, sampleList, frameCount);
+        convertArray(otherDataPointList, dataPointList, frameCount);
     }
 }
 
@@ -474,7 +475,7 @@ _copyToJuceBuffer (IN AudioSampleListVector sampleListVector,
 
 /**
  * Processes events in <C>juceMidiEventList</C> using <C>processor</C>
- * and its <C>descriptor</C> and returns block of samples in
+ * and its <C>descriptor</C> and returns block of data points in
  * <C>audioBuffer</C>; note that the processing might be delayed to
  * adapt to the raster size of the underlying fluidsynth synthesizer
  *
@@ -482,7 +483,7 @@ _copyToJuceBuffer (IN AudioSampleListVector sampleListVector,
  * @param[inout] descriptor         associated processor descriptor
  * @param[in]    juceMidiEventList  list of midi events starting at
  *                                  given time
- * @param[out]   audioBuffer        vector of audio sample lists
+ * @param[out]   audioBuffer        vector of audio data point lists
  *                                  returned
  */
 template <typename T>
@@ -494,35 +495,35 @@ _processBlock (INOUT FluidSynthPlugin_EventProcessor* processor,
 {
     Logging_trace(">>");
 
-    Integer currentTime = _readTimeInSamples(processor->getPlayHead());
+    Integer currentTime = _readTimeInDataPoints(processor->getPlayHead());
 
-    /* provide a sample list vector from audioBuffer */
+    /* provide a data point list vector from audioBuffer */
     MidiEventList midiEventList =
         _convertFromJuceEventList(juceMidiEventList);
     const Natural channelCount =
         Natural{(size_t) audioBuffer.getNumChannels()};
     const Natural audioFrameCount =
         Natural{(size_t) audioBuffer.getNumSamples()};
-    AudioSampleListVector sampleListVector{channelCount};
-    sampleListVector.setFrameCount(audioFrameCount);
+    AudioDataPointListVector dataPointListVector{channelCount};
+    dataPointListVector.setFrameCount(audioFrameCount);
 
     if (!descriptor.fluidSynthBufferingIsCompensated) {
-        /* do a direct processing of the events to a sample list
+        /* do a direct processing of the events to a data point list
          * vector */
         MidiEventConverter* eventConverter =
             descriptor.midiEventConverter;
         eventConverter->processBlock(midiEventList,
-                                     sampleListVector, audioFrameCount);
+                                     dataPointListVector, audioFrameCount);
     } else {
         _RingBuffer& ringBuffer = descriptor.ringBuffer;
         ringBuffer.processBlock(processor, descriptor,
                                 currentTime, midiEventList,
-                                sampleListVector, audioFrameCount);
+                                dataPointListVector, audioFrameCount);
     }
 
-    Logging_trace1("--: currentSamples = %1",
-                   sampleListVector.toString(audioFrameCount, true));
-    _copyToJuceBuffer<T>(sampleListVector, audioBuffer);
+    Logging_trace1("--: currentDataPoints = %1",
+                   dataPointListVector.toString(audioFrameCount, true));
+    _copyToJuceBuffer<T>(dataPointListVector, audioBuffer);
 
     Logging_trace("<<");
 }
@@ -530,63 +531,67 @@ _processBlock (INOUT FluidSynthPlugin_EventProcessor* processor,
 /*--------------------*/
 
 /**
- * Reads current time in samples and returns its value.
+ * Reads current time in data points and returns its value.
  *
  * @param[in] playHead  the JUCE audio play head
  * @return  current time (as a real value)
  */
-static Integer _readTimeInSamples (juce::AudioPlayHead* playHead)
+static Integer _readTimeInDataPoints (juce::AudioPlayHead* playHead)
 {
-    Integer currentTimeInSamples  = Integer::maximumValue();;
+    Integer currentTimeInDataPoints  = Integer::maximumValue();;
 
     if (playHead != nullptr) {
-        currentTimeInSamples =
+        currentTimeInDataPoints =
             (int) *(playHead->getPosition()->getTimeInSamples());
     }
 
-    return currentTimeInSamples;
+    return currentTimeInDataPoints;
 }
 
 /*--------------------*/
 
 /**
- * Processes samples to bring sample count to a multiple of
+ * Processes data points to bring data point count to a multiple of
  * synthesizer buffer size.
  *
- * @param[inout]  eventConverter          underlying fluidsynth event
- *                                        converter
- * @param[in]     unprocessedSampleCount  offset in samples to bring the
- *                                        buffer to underlying synthesizer
- *                                        raster
- * @param[in]     newOffsetInSamples      the new offset to bring the buffer
- *                                        to underlying synthesizer raster
- * @param[out]    sampleBuffer            the new offset to bring the buffer
- *                                        to underlying synthesizer raster
+ * @param[inout]  eventConverter             underlying fluidsynth
+ *                                           event converter
+ * @param[in]     unprocessedDataPointCount  offset in data points to
+ *                                           bring the buffer to
+ *                                           underlying synthesizer
+ *                                           raster
+ * @param[in]     newOffsetInDataPoints      the new offset to bring
+ *                                           the buffer to underlying
+ *                                           synthesizer raster
+ * @param[out]    dataPointBuffer            the new offset to bring
+ *                                           the buffer to underlying
+ *                                           synthesizer raster
  */
 static void
 _resetBlockProcessing (INOUT MidiEventConverter* eventConverter,
-                       IN Natural unprocessedSampleCount,
-                       IN Natural newOffsetInSamples,
-                       OUT AudioSampleListVector& sampleBuffer)
+                       IN Natural unprocessedDataPointCount,
+                       IN Natural newOffsetInDataPoints,
+                       OUT AudioDataPointListVector& dataPointBuffer)
 {
-    Logging_trace2(">>: unprocessedSampleCount = %1, newOffset = %2",
-                   TOSTRING(unprocessedSampleCount),
-                   TOSTRING(newOffsetInSamples));
+    Logging_trace2(">>: unprocessedDataPointCount = %1, newOffset = %2",
+                   TOSTRING(unprocessedDataPointCount),
+                   TOSTRING(newOffsetInDataPoints));
 
     const MidiEventList& emptyEventList{};
 
-    /* provide samples to fill buffer up to buffer */
-    if (unprocessedSampleCount > 0) {
-        eventConverter->processBlock(emptyEventList, sampleBuffer,
-                                     unprocessedSampleCount);
-        Logging_trace1("--: samples filled = %1",
-                       sampleBuffer.toString(unprocessedSampleCount, true));
+    /* provide data points to fill buffer up to buffer */
+    if (unprocessedDataPointCount > 0) {
+        eventConverter->processBlock(emptyEventList, dataPointBuffer,
+                                     unprocessedDataPointCount);
+        Logging_trace1("--: data points filled = %1",
+                       dataPointBuffer.toString(unprocessedDataPointCount,
+                                                true));
     }
 
-    eventConverter->processBlock(emptyEventList, sampleBuffer,
-                                 newOffsetInSamples);
-    Logging_trace1("<<: sampleBuffer = %1",
-                   sampleBuffer.toString(newOffsetInSamples, true));
+    eventConverter->processBlock(emptyEventList, dataPointBuffer,
+                                 newOffsetInDataPoints);
+    Logging_trace1("<<: dataPointBuffer = %1",
+                   dataPointBuffer.toString(newOffsetInDataPoints, true));
 }
 
 /*--------------------*/
@@ -916,7 +921,8 @@ void FluidSynthPlugin_EventProcessor
         TOREFERENCE<_EventProcessorDescriptor>(_descriptor);
     MidiEventConverter* midiEventConverter =
         descriptor.midiEventConverter;
-    midiEventConverter->setSetting(_settingsKeyForPreset, preset.toString());
+    midiEventConverter->setSetting(_settingsKeyForPreset,
+                                   preset.toString());
     
     Logging_trace("<<");
 }
@@ -981,20 +987,20 @@ FluidSynthPlugin_EventProcessor::setStateInformation (IN void* data,
 
 void
 FluidSynthPlugin_EventProcessor::prepareToPlay
-    (IN double sampleRate, IN int maximumExpectedSamplesPerBlock)
+    (IN double dataPointRate, IN int maximumExpectedDataPointsPerBlock)
 {
-    const Real sRate{sampleRate};
-    Natural sampleCount{maximumExpectedSamplesPerBlock};
-    Logging_trace2(">>: sampleRate = %1, samplesPerBlock = %2",
-                   TOSTRING(sRate), TOSTRING(sampleCount));
+    const Real sRate{dataPointRate};
+    Natural dataPointCount{maximumExpectedDataPointsPerBlock};
+    Logging_trace2(">>: dataPointRate = %1, dataPointsPerBlock = %2",
+                   TOSTRING(sRate), TOSTRING(dataPointCount));
 
-    Integer currentTime = _readTimeInSamples(getPlayHead());
-    Logging_trace1("--: currentTime = %1 [samples]",
+    Integer currentTime = _readTimeInDataPoints(getPlayHead());
+    Logging_trace1("--: currentTime = %1 [dataPoints]",
                    TOSTRING(currentTime));
 
     _EventProcessorDescriptor& descriptor =
         TOREFERENCE<_EventProcessorDescriptor>(_descriptor);
-    descriptor.midiEventConverter->prepareToPlay(sRate, sampleCount);
+    descriptor.midiEventConverter->prepareToPlay(sRate, dataPointCount);
 
     Logging_trace("<<");
 }

@@ -35,6 +35,12 @@ using STR = BaseModules::StringUtil;
 /** the list of digits */
 static const String _digitList = "0123456789";
 
+/* error messages */
+
+/** error message for empty range interval */
+static const String _ErrMsg_emptyInterval =
+    "interval must be non-empty";
+
 /*--------------------*/
 /* PROTOTYPES         */
 /*--------------------*/
@@ -73,8 +79,7 @@ static void _adaptForScientificNotation (INOUT Real& value,
     if (scientificNotationIsForced) {
         needsScientificNotation = true;
     } else if (value >= 1.0) {
-        needsScientificNotation =
-            (digitCount + 1 > integralDigitCount);
+        needsScientificNotation = (digitCount + 1 > integralDigitCount);
     } else {
         needsScientificNotation = (-digitCount > fractionalDigitCount);
     }
@@ -89,7 +94,7 @@ static void _adaptForScientificNotation (INOUT Real& value,
                                 : fractionalDigitCount - 4);
         Boolean isLessThanOne = (digitCount < 0);
         suffix = String{"E"} + (isLessThanOne ? "-" : "+") + "..";
-        Natural d{(size_t) digitCount.abs()};
+        Natural d{size_t(digitCount.abs())};
         STR::setCharacterAt(suffix,
                             2,
                             STR::characterAt(_digitList, d / 10));
@@ -157,14 +162,14 @@ Real::Real (IN float f)
 
 Real::Real (IN Integer i)
 {
-    _value = (int) i;
+    _value = int(i);
 }
 
 /*--------------------*/
 
 Real::Real (IN Natural n)
 {
-    _value = (size_t) n;
+    _value = double(size_t(n));
 }
 
 /*--------------------*/
@@ -213,7 +218,7 @@ String Real::toString (IN Natural precision,
             v += Real::one / (_tenPower(fracDigitCount) * Real::two);
         
             /* construct integral and fractional parts */
-            Natural iP = (Natural) v.integralPart();
+            Natural iP = Natural{v.integralPart()};
 
             do {
                 integralPartAsString = (STR::substring(_digitList, iP % 10, 1)
@@ -251,35 +256,35 @@ String Real::toString (IN Natural precision,
 
 Real::operator double () const
 {
-    return (double) _value;
+    return double(_value);
 }
 
 /*--------------------*/
 
 Real::operator float () const
 {
-    return (float) _value;
+    return float(_value);
 }
 
 /*--------------------*/
 
 Real::operator int () const
 {
-    return (int) _value;
+    return int(_value);
 }
 
 /*--------------------*/
 
 Real::operator Integer () const
 {
-    return Integer{(int) _value};
+    return Integer{int(_value)};
 }
 
 /*--------------------*/
 
 Real::operator Natural () const
 {
-    return Natural{(size_t) _value};
+    return Natural{size_t(_value)};
 }
 
 /*-----------------------------*/
@@ -326,9 +331,9 @@ Real Real::forceToInterval (IN Real x,
                             IN Real upperEndPoint)
 {
     Assertion_pre(lowerEndPoint <= upperEndPoint,
-                  "interval must be non-empty");
-    return (x < lowerEndPoint ? lowerEndPoint
-            : (x > upperEndPoint ? upperEndPoint : x));
+                  _ErrMsg_emptyInterval);
+    return Real::maximum(lowerEndPoint,
+                         Real::minimum(x, upperEndPoint));
 }
 
 /*--------------------*/
@@ -387,8 +392,8 @@ Real Real::round (IN Real x,
                   IN Natural decimalPlaceCount)
 {
     const double factor =
-        std::pow(10.0, (double) decimalPlaceCount);
-    return ((int) Integer::round(x._value * factor) / factor);
+        std::pow(10.0, double(decimalPlaceCount));
+    return Real{double(Integer::round(x._value * factor)) / factor};
 }
 
 /*--------------------*/

@@ -99,7 +99,7 @@ $(function(){initNavTree('_logging_support_8cpp.html','',''); });
 <code>#include &lt;cstdint&gt;</code><br />
 <code>#include &lt;mutex&gt;</code><br />
 <code>#include &lt;sstream&gt;</code><br />
-<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;MyStdLib.h&gt;</code><br />
 <code>#include &lt;thread&gt;</code><br />
 <code>#include &quot;<a class="el" href="_assertion_8h_source.html">Assertion.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_file_8h_source.html">File.h</a>&quot;</code><br />
@@ -127,14 +127,6 @@ Classes</h2></td></tr>
 Namespaces</h2></td></tr>
 <tr class="memitem:BaseModules" id="r_BaseModules"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_base_modules.html">BaseModules</a></td></tr>
 <tr class="memdesc:namespace_base_modules"><td class="mdescLeft">&#160;</td><td class="mdescRight">The package <code><a class="el" href="namespace_base_modules.html" title="The package BaseModules provides basic utility components.">BaseModules</a></code> provides basic utility components. <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:ae7c48614d1cdab121e5b4703f3f96835" id="r_ae7c48614d1cdab121e5b4703f3f96835"><td class="memItemLeft" align="right" valign="top"><a id="ae7c48614d1cdab121e5b4703f3f96835" name="ae7c48614d1cdab121e5b4703f3f96835"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>StdLib_atexit</b>&#160;&#160;&#160;atexit</td></tr>
-<tr class="memdesc:ae7c48614d1cdab121e5b4703f3f96835"><td class="mdescLeft">&#160;</td><td class="mdescRight">qualified version of atexit from stdlib <br /></td></tr>
-<tr class="memitem:a278a3afcfb04d25bb956077b8738cbd8" id="r_a278a3afcfb04d25bb956077b8738cbd8"><td class="memItemLeft" align="right" valign="top"><a id="a278a3afcfb04d25bb956077b8738cbd8" name="a278a3afcfb04d25bb956077b8738cbd8"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>_currentThreadID</b>&#160;&#160;&#160;std::this_thread::get_id</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -166,6 +158,8 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>_writeBufferTo
 <tr class="memdesc:a92aa75fc925bc045033fb89a83ce80e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes all entries in buffer to logging file and clears it. <br /></td></tr>
 <tr class="memitem:a28e2b50e0cc08c35308b2ddedaa313cc" id="r_a28e2b50e0cc08c35308b2ddedaa313cc"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a28e2b50e0cc08c35308b2ddedaa313cc">_bufferEntryToString</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="struct_base_modules_1_1___logging_buffer_entry.html">_LoggingBufferEntry</a> &amp;bufferEntry)</td></tr>
 <tr class="memdesc:a28e2b50e0cc08c35308b2ddedaa313cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts <code>bufferEntry</code> to string for logging file or callback function.  <br /></td></tr>
+<tr class="memitem:abb3f85dbe7c94ed9b29491a42eab07cb" id="r_abb3f85dbe7c94ed9b29491a42eab07cb"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#af4b17c6fc3c86f5af5288900aedb3a95">_ThreadID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb3f85dbe7c94ed9b29491a42eab07cb">_currentThreadID</a> ()</td></tr>
+<tr class="memdesc:abb3f85dbe7c94ed9b29491a42eab07cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the identification of the current thread.  <br /></td></tr>
 <tr class="memitem:a7ba123783ebfc65611a763c874a87626" id="r_a7ba123783ebfc65611a763c874a87626"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ba123783ebfc65611a763c874a87626">_functionNameFromSignature</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a> &amp;functionSignature, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a> &amp;ignoredFunctionNamePrefix)</td></tr>
 <tr class="memdesc:a7ba123783ebfc65611a763c874a87626"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates function name from <code>functionSignature</code>.  <br /></td></tr>
 <tr class="memitem:abb7d0f5244e4275766fb1230605ce036" id="r_abb7d0f5244e4275766fb1230605ce036"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb7d0f5244e4275766fb1230605ce036">_appendEntryToBuffer</a> (<a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a> &amp;functionSignature, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="#ab5758b2cc5015160115c5fe6bba0a376">_Timestamp</a> time, <a class="el" href="_global_macros_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a> <a class="el" href="namespace_base_types_1_1_primitives.html#aa37c6ea28e4f3e4a9ceab460d9bc88fc">String</a> &amp;message)</td></tr>
@@ -300,6 +294,34 @@ static std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>_mutex</
 
 </div>
 </div>
+<a id="abb3f85dbe7c94ed9b29491a42eab07cb" name="abb3f85dbe7c94ed9b29491a42eab07cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb3f85dbe7c94ed9b29491a42eab07cb">&#9670;&#160;</a></span>_currentThreadID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#af4b17c6fc3c86f5af5288900aedb3a95">_ThreadID</a> _currentThreadID </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the identification of the current thread. </p>
+<dl class="section return"><dt>Returns</dt><dd>current thread identification </dd></dl>
+
+</div>
+</div>
 <a id="a7ba123783ebfc65611a763c874a87626" name="a7ba123783ebfc65611a763c874a87626"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7ba123783ebfc65611a763c874a87626">&#9670;&#160;</a></span>_functionNameFromSignature()</h2>
 
@@ -419,7 +441,7 @@ static std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>_mutex</
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">=</div>
 <div class="line">    <a class="code hl_function" href="struct_string_list.html#a6ecfb875f69b3481ce18fa0ca7628d29">StringList::makeBySplit</a>(<span class="stringliteral">&quot;&gt;&gt;,&lt;&lt;,--&quot;</span>, <span class="stringliteral">&quot;,&quot;</span>)</div>
-<div class="ttc" id="astruct_string_list_html_a6ecfb875f69b3481ce18fa0ca7628d29"><div class="ttname"><a href="struct_string_list.html#a6ecfb875f69b3481ce18fa0ca7628d29">StringList::makeBySplit</a></div><div class="ttdeci">static StringList makeBySplit(IN String &amp;st, IN String &amp;separator)</div><div class="ttdoc">Makes a string list by splitting st at separator.</div><div class="ttdef"><b>Definition</b> StringList.cpp:49</div></div>
+<div class="ttc" id="astruct_string_list_html_a6ecfb875f69b3481ce18fa0ca7628d29"><div class="ttname"><a href="struct_string_list.html#a6ecfb875f69b3481ce18fa0ca7628d29">StringList::makeBySplit</a></div><div class="ttdeci">static StringList makeBySplit(IN String &amp;st, IN String &amp;separator)</div><div class="ttdoc">Makes a string list by splitting st at separator.</div><div class="ttdef"><b>Definition</b> StringList.cpp:55</div></div>
 </div><!-- fragment -->
 <p>list of allowed two-character prefices in trace template </p>
 

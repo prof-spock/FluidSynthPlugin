@@ -1,7 +1,7 @@
 /**
  * The package <C>Audio</C> provides simple audio types.
  *
- * Those types represent audio samples, lists and queues of audio
+ * Those types represent audio data points, lists and queues of audio
  * samples and vectors of those lists or queues.  Additionally a
  * simple wave file renderer is available.
  */

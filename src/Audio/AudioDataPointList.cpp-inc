@@ -1,0 +1,79 @@
+/**
+ * @file
+ * The <C>AudioDataPointList</C> body implements a simple list of
+ * audio samples <I>(this is the effective code include file for
+ * conditional inlining)</I>.
+ *
+ * @author Dr. Thomas Tensi
+ * @date   2020-08
+ */
+
+/*=========*/
+/* IMPORTS */
+/*=========*/
+
+#include "MyArray.h"
+
+/*--------------------*/
+
+using Audio::AudioDataPointList;
+using BaseTypes::Containers::clearArray;
+using BaseTypes::Containers::copyArray;
+
+/*====================*/
+
+INLINE String Audio::_audioDataPointListTypeName ()
+{
+    return "AudioDataPointList";
+}
+
+/*--------------------*/
+
+INLINE
+void AudioDataPointList::setToZero (IN Natural position,
+                                    IN Natural count)
+{
+    const Natural currentLength = length();
+
+    if (position < currentLength) {
+        const Natural effectiveCount =
+            Natural::minimum(currentLength - position, count);
+        AudioDataPoint* dataPointArray = asArray(position);
+        clearArray(dataPointArray, effectiveCount, AudioDataPoint{0.0f});
+    }
+}
+
+/*--------------------*/
+
+INLINE
+void AudioDataPointList::extend (IN AudioDataPointList& other,
+                                 IN Natural count)
+{
+    const Natural effectiveCount =
+        Natural::minimum(count, other.length());
+
+    if (effectiveCount > 0) {
+        const Natural currentLength = length();
+
+        /* ensure that length is sufficient for storing remaining
+         * elements */
+        ensureLength(currentLength + effectiveCount);
+
+        AudioDataPoint* destinationArray = asArray(currentLength);
+        const AudioDataPoint* sourceArray = other.asArray();
+        copyArray(destinationArray, sourceArray,
+                  effectiveCount);
+  }
+}
+
+/*--------------------*/
+
+INLINE AudioDataPointList
+AudioDataPointList::slice (IN AudioDataPointList& list,
+                           IN Integer firstPosition,
+                           IN Integer lastPosition)
+{
+    return AudioDataPointList{GenericList::slice(list,
+                                                 firstPosition,
+                                                 lastPosition)};
+}

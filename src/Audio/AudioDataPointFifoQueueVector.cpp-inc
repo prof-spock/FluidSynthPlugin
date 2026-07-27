@@ -1,0 +1,158 @@
+/**
+ * @file
+ * The <C>AudioDataPointFifoQueueVector</C> body implements a list of
+ * fifo queues for audio data points <I>(this is the effective code
+ * include file for conditional inlining)</I>.
+ *
+ * @author Dr. Thomas Tensi
+ * @date   2022-09
+ */
+
+/*=========*/
+/* IMPORTS */
+/*=========*/
+
+#include "Assertion.h"
+#include "Logging.h"
+
+/*--------------------*/
+
+using Audio::AudioDataPointFifoQueueVector;
+
+/** abbreviation for StringUtil */
+using STR = BaseModules::StringUtil;
+
+/*====================*/
+
+/*--------------------*/
+/* exported routines  */
+/*--------------------*/
+
+INLINE
+AudioDataPointFifoQueueVector::AudioDataPointFifoQueueVector
+                              (IN Natural channelCount,
+                               IN Natural dataPointQueueCapacity)
+{
+    Logging_trace(">>");
+    ensureQueueCapacity(dataPointQueueCapacity);
+    Logging_trace1("<<: %1", toString());
+}
+
+/*--------------------*/
+
+INLINE String
+AudioDataPointFifoQueueVector::toString (IN Natural audioFrameCount,
+                                         IN Boolean isGroupedByFrames) const
+{
+    String result = "";
+    const Natural channelCount = queueCount();
+    const Natural dataPointCount = Natural::minimum(audioFrameCount,
+                                                    queueLength());
+    Natural groupCount =
+        (isGroupedByFrames ? audioFrameCount : channelCount);
+    Natural groupLength =
+        (isGroupedByFrames ? channelCount : audioFrameCount);
+    
+    for (Natural i = 0;  i < groupCount;  i++) {
+        String groupString = "(";
+
+        for (Natural j = 0;  j < groupLength;  j++) {
+            const AudioDataPoint& dataPoint = (isGroupedByFrames
+                                               ? at(j).at(i)
+                                               : at(i).at(j));
+            groupString += (j == 0 ? "" : ", ") + TOSTRING(dataPoint);
+        }
+
+        groupString += (dataPointCount < audioFrameCount ? ", ..." : "");
+        groupString += ")";
+        result += (result == "" ? "" : ", ") + groupString;
+    }
+
+    result = STR::expand("AudioDataPointFifoQueueVector(%1)", result);
+    return result;
+}
+
+/*--------------------*/
+
+INLINE
+Natural AudioDataPointFifoQueueVector::queueCount () const
+{
+    Logging_trace(">>");
+    Natural result = length();
+    Logging_trace1("<<: %1", TOSTRING(result));
+    return result;
+}
+
+/*--------------------*/
+
+INLINE
+Natural AudioDataPointFifoQueueVector::queueLength () const
+{
+    Natural result = (length() == 0 ? 0 : at(0).length());
+    return result;
+}
+/*--------------------*/
+
+INLINE
+void AudioDataPointFifoQueueVector::setQueueCount (IN Natural count)
+{
+    Logging_trace1(">>: %1", TOSTRING(count));
+
+    const Natural defaultCapacity = 1000;
+    setLength(count);
+    ensureQueueCapacity(defaultCapacity);
+
+    Logging_trace("<<");
+}
+
+/*--------------------*/
+
+INLINE
+void AudioDataPointFifoQueueVector::ensureQueueCapacity (IN Natural capacity)
+{
+    Logging_trace1(">>: %1", TOSTRING(capacity));
+
+    for (AudioDataPointFifoQueue& queue : *this) {
+        queue.ensureCapacity(capacity);
+    }
+
+    Logging_trace("<<");
+}
+
+/*--------------------*/
+
+INLINE
+void AudioDataPointFifoQueueVector::popFromQueues
+         (INOUT AudioDataPointListVector& dataPointListVector,
+          IN Natural position,
+          IN Natural count)
+{
+    Logging_trace(">>");
+
+    for (Natural i = 0;  i < queueCount();  i++) {
+        AudioDataPointFifoQueue& queue = at(i);
+        AudioDataPointList& dataPointList = dataPointListVector[i];
+        queue.pop(dataPointList, position, count);
+    }
+
+    Logging_trace("<<");
+}
+
+/*--------------------*/
+
+INLINE
+void AudioDataPointFifoQueueVector::appendToQueues
+         (IN AudioDataPointListVector& dataPointListVector,
+          IN Natural position,
+          IN Natural count)
+{
+    Logging_trace(">>");
+
+    for (Natural i = 0;  i < queueCount();  i++) {
+        AudioDataPointFifoQueue& queue = at(i);
+        const AudioDataPointList& dataPointList = dataPointListVector[i];
+        queue.append(dataPointList, position, count);
+    }
+
+    Logging_trace("<<");
+}

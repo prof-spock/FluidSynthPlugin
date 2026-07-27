@@ -1,10 +1,10 @@
 var annotated_dup =
 [
     [ "Audio", "namespace_audio.html", [
-      [ "AudioSampleFifoQueue", "struct_audio_1_1_audio_sample_fifo_queue.html", "struct_audio_1_1_audio_sample_fifo_queue" ],
-      [ "AudioSampleFifoQueueVector", "struct_audio_1_1_audio_sample_fifo_queue_vector.html", "struct_audio_1_1_audio_sample_fifo_queue_vector" ],
-      [ "AudioSampleList", "struct_audio_1_1_audio_sample_list.html", "struct_audio_1_1_audio_sample_list" ],
-      [ "AudioSampleListVector", "struct_audio_1_1_audio_sample_list_vector.html", "struct_audio_1_1_audio_sample_list_vector" ],
+      [ "AudioDataPointFifoQueue", "struct_audio_1_1_audio_data_point_fifo_queue.html", "struct_audio_1_1_audio_data_point_fifo_queue" ],
+      [ "AudioDataPointFifoQueueVector", "struct_audio_1_1_audio_data_point_fifo_queue_vector.html", "struct_audio_1_1_audio_data_point_fifo_queue_vector" ],
+      [ "AudioDataPointList", "struct_audio_1_1_audio_data_point_list.html", "struct_audio_1_1_audio_data_point_list" ],
+      [ "AudioDataPointListVector", "struct_audio_1_1_audio_data_point_list_vector.html", "struct_audio_1_1_audio_data_point_list_vector" ],
       [ "WaveFile", "struct_audio_1_1_wave_file.html", "struct_audio_1_1_wave_file" ]
     ] ],
     [ "BaseModules", "namespace_base_modules.html", [
@@ -104,10 +104,10 @@ var annotated_dup =
     [ "_StringListBoxModel", "struct___string_list_box_model.html", "struct___string_list_box_model" ],
     [ "_TextWidget", "struct___text_widget.html", "struct___text_widget" ],
     [ "_WidgetListener", "struct___widget_listener.html", "struct___widget_listener" ],
-    [ "AudioSampleFifoQueue", "struct_audio_sample_fifo_queue.html", "struct_audio_sample_fifo_queue" ],
-    [ "AudioSampleFifoQueueVector", "struct_audio_sample_fifo_queue_vector.html", "struct_audio_sample_fifo_queue_vector" ],
-    [ "AudioSampleList", "struct_audio_sample_list.html", "struct_audio_sample_list" ],
-    [ "AudioSampleListVector", "struct_audio_sample_list_vector.html", "struct_audio_sample_list_vector" ],
+    [ "AudioDataPointFifoQueue", "struct_audio_data_point_fifo_queue.html", "struct_audio_data_point_fifo_queue" ],
+    [ "AudioDataPointFifoQueueVector", "struct_audio_data_point_fifo_queue_vector.html", "struct_audio_data_point_fifo_queue_vector" ],
+    [ "AudioDataPointList", "struct_audio_data_point_list.html", "struct_audio_data_point_list" ],
+    [ "AudioDataPointListVector", "struct_audio_data_point_list_vector.html", "struct_audio_data_point_list_vector" ],
     [ "Boolean", "struct_boolean.html", "struct_boolean" ],
     [ "BuildInformation", "struct_build_information.html", "struct_build_information" ],
     [ "Byte", "struct_byte.html", "struct_byte" ],

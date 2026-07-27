@@ -1,0 +1,5 @@
+<map id="AudioDataPointFifoQueueVector" name="AudioDataPointFifoQueueVector">
+<area shape="rect" id="Node000001" title="A AudioDataPointFifoQueueVector object is a list of fifo queues for audio data points with selection ..." alt="" coords="5,133,227,339"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="25,5,207,85"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="119,99,119,133,113,133,113,99"/>
+</map>

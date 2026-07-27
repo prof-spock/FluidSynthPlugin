@@ -18,8 +18,8 @@
 
 /*--------------------*/
 
-using Audio::AudioSample;
-using Audio::AudioSampleList;
+using Audio::AudioDataPoint;
+using Audio::AudioDataPointList;
 using Libraries::FluidSynth::FluidSynthSoundFont;
 using MIDI::MidiEventConverter;
 using MIDI::MidiEventKind;
@@ -58,7 +58,7 @@ namespace MIDI {
     /**
      * the internal data of a fluidsynth MIDI processor: a fluidsynth
      * library, settings and synthesizer object and the dictionary of
-     * settings and some preallocated internal audio sample buffer
+     * settings and some preallocated internal audio data point buffer
      */
     struct _MidiEventConverterDescriptor {
 
@@ -186,16 +186,19 @@ namespace MIDI {
         /*--------------------*/
 
         /**
-         * Processes MIDI events in MIDI event list <C>eventList</C> at or
-         * after <C>eventIndex</C> scheduled at <C>referenceTimeInSamples</C>
-         * using Fluidsynth synthesizer
+         * Processes MIDI events in MIDI event list <C>eventList</C>
+         * at or after <C>eventIndex</C> scheduled at
+         * <C>referenceTimeInDataPoints</C> using Fluidsynth
+         * synthesizer
          *
-         * @param[in]    referenceTimeInSamples  reference time for midi events
-         * @param[in]    eventList               list of midi events
-         * @param[inout] eventIndex              pointer to current position
-         *                                       in MIDI event list
+         * @param[in]    referenceTimeInDataPoints  reference time for
+         *                                          midi events
+         * @param[in]    eventList                  list of midi events
+         * @param[inout] eventIndex                 pointer to current
+         *                                          position in MIDI
+         *                                          event list
          */
-        void processMidiEventList (IN Natural referenceTimeInSamples,
+        void processMidiEventList (IN Natural referenceTimeInDataPoints,
                                   IN MidiEventList& eventList,
                                   INOUT Natural& eventIndex);
 
@@ -503,20 +506,21 @@ Boolean _MidiEventConverterDescriptor::processMidiEvent (IN MidiEvent& event)
 /*--------------------*/
 
 void _MidiEventConverterDescriptor::processMidiEventList
-         (IN Natural referenceTimeInSamples,
+         (IN Natural referenceTimeInDataPoints,
           IN MidiEventList& eventList,
           INOUT Natural& eventIndex)
 {
-    Logging_trace2(">>: referenceTimeInSamples = %1, eventIndex = %2",
-                   TOSTRING(referenceTimeInSamples), TOSTRING(eventIndex));
+    Logging_trace2(">>: referenceTimeInDataPoints = %1, eventIndex = %2",
+                   TOSTRING(referenceTimeInDataPoints),
+                   TOSTRING(eventIndex));
 
     const Natural eventListLength = eventList.size();
 
     while (eventIndex < eventListLength) {
         const MidiEvent& event = eventList[eventIndex];
-        const Integer eventTimeInSamples = event.time();
+        const Integer eventTimeInDataPoints = event.time();
 
-        if (eventTimeInSamples > referenceTimeInSamples) {
+        if (eventTimeInDataPoints > referenceTimeInDataPoints) {
             /* this event and the following are not yet relevant */
             break;
         } else {
@@ -550,22 +554,23 @@ void _MidiEventConverterDescriptor::resetSettings ()
 /*--------------------*/
 
 /**
- * Clear <C>sampleListVector</C>.
+ * Clear <C>dataPointListVector</C>.
  *
- * @param[in] sampleListVector      audio buffer to be set to 0
- * @param[in] sampleCountInChannel  number of samples to set
+ * @param[in] dataPointListVector      audio buffer to be set to 0
+ * @param[in] dataPointCountInChannel  number of data points to set
  */
 static void
-_clearSampleListVector (INOUT AudioSampleListVector& sampleListVector,
-                        IN Natural sampleCountInChannel)
+_clearDataPointListVector
+    (INOUT AudioDataPointListVector& dataPointListVector,
+     IN Natural dataPointCountInChannel)
 {
-    const Natural channelCount = sampleListVector.length();
+    const Natural channelCount = dataPointListVector.length();
 
     for (Natural channel = 0;  channel < channelCount;  channel++) {
-        AudioSampleList& sampleList = sampleListVector[channel];
+        AudioDataPointList& dataPointList = dataPointListVector[channel];
         
-        for (Natural j = 0;  j < sampleCountInChannel;  j++) {
-            sampleList[j] = 0.0;
+        for (Natural j = 0;  j < dataPointCountInChannel;  j++) {
+            dataPointList[j] = 0.0;
         }
     }
 }
@@ -847,16 +852,16 @@ Boolean MidiEventConverter::setSettings (IN Dictionary& dictionary)
 
 void
 MidiEventConverter::prepareToPlay
-                        (IN Real sampleRate,
-                         IN Natural maximumExpectedSamplesPerBlock)
+                        (IN Real dataPointRate,
+                         IN Natural maximumExpectedDataPointsPerBlock)
 {
-    Logging_trace2(">>: sampleRate = %1, samplesPerBlock = %2",
-                   TOSTRING(sampleRate),
-                   TOSTRING(maximumExpectedSamplesPerBlock));
+    Logging_trace2(">>: dataPointRate = %1, dataPointsPerBlock = %2",
+                   TOSTRING(dataPointRate),
+                   TOSTRING(maximumExpectedDataPointsPerBlock));
 
     _MidiEventConverterDescriptor& descriptor =
         TOREFERENCE<_MidiEventConverterDescriptor>(_descriptor);
-    descriptor.setSetting("synth.sample-rate", TOSTRING(sampleRate));
+    descriptor.setSetting("synth.sample-rate", TOSTRING(dataPointRate));
 
     Logging_trace("<<");
 }
@@ -874,52 +879,52 @@ void MidiEventConverter::releaseResources ()
 void
 MidiEventConverter::processBlock
                         (IN MidiEventList& midiEventList,
-                         INOUT AudioSampleListVector& audioBuffer,
-                         IN Natural sampleCountInChannel)
+                         INOUT AudioDataPointListVector& audioBuffer,
+                         IN Natural dataPointCountInChannel)
 {
-    Logging_trace2(">>: midiEventList = %1, sampleCountInChannel = %2",
+    Logging_trace2(">>: midiEventList = %1, dataPointCountInChannel = %2",
                    midiEventList.toString(),
-                   TOSTRING(sampleCountInChannel));
+                   TOSTRING(dataPointCountInChannel));
 
     _MidiEventConverterDescriptor& descriptor =
         TOREFERENCE<_MidiEventConverterDescriptor>(_descriptor);
 
     FluidSynthSynthesizer* synthesizer = descriptor.synthesizer;
 
-    /* calculate the times (in samples) */
-    Natural currentTimeInSamples = 0;
-    const Natural endTimeInSamples = sampleCountInChannel;
+    /* calculate the times (in data points) */
+    Natural currentTimeInDataPoints = 0;
+    const Natural endTimeInDataPoints = dataPointCountInChannel;
     Natural eventIndex = 0;
 
-    while (currentTimeInSamples < endTimeInSamples) {
-        /* set count of samples to be processed to remaining buffer
-         * length */
-        Natural intervalDurationInSamples =
-            endTimeInSamples - currentTimeInSamples;
+    while (currentTimeInDataPoints < endTimeInDataPoints) {
+        /* set count of data points to be processed to remaining
+         * buffer length */
+        Natural intervalDurationInDataPoints =
+            endTimeInDataPoints - currentTimeInDataPoints;
 
-        descriptor.processMidiEventList(currentTimeInSamples,
+        descriptor.processMidiEventList(currentTimeInDataPoints,
                                         midiEventList,
                                         eventIndex);
 
         if (eventIndex < midiEventList.size()) {
             /* there are still events open */
             const MidiEvent& event = midiEventList[eventIndex];
-            const Natural durationToNextEventInSamples =
-                Integer::toNatural(event.time() - currentTimeInSamples);
-            intervalDurationInSamples =
-                Natural::minimum(intervalDurationInSamples,
-                                 durationToNextEventInSamples);
+            const Natural durationToNextEventInDataPoints =
+                Integer::toNatural(event.time() - currentTimeInDataPoints);
+            intervalDurationInDataPoints =
+                Natural::minimum(intervalDurationInDataPoints,
+                                 durationToNextEventInDataPoints);
         }
 
         if (!descriptor.synthesizerIsAvailable) {
             audioBuffer.setToZero();
         } else {
             synthesizer->process(audioBuffer,
-                                 currentTimeInSamples,
-                                 intervalDurationInSamples);
+                                 currentTimeInDataPoints,
+                                 intervalDurationInDataPoints);
         }
 
-        currentTimeInSamples += intervalDurationInSamples;
+        currentTimeInDataPoints += intervalDurationInDataPoints;
     }
 
     Logging_trace("<<");

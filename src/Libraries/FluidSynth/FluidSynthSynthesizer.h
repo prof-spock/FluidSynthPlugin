@@ -15,14 +15,14 @@
 /* IMPORTS */
 /*=========*/
 
-#include "AudioSampleListVector.h"
+#include "AudioDataPointListVector.h"
 #include "Natural.h"
 #include "Object.h"
 #include "FluidSynthSettings.h"
 
 /*--------------------*/
 
-using Audio::AudioSampleListVector;
+using Audio::AudioDataPointListVector;
 using BaseTypes::Primitives::Natural;
 using Libraries::FluidSynth::FluidSynthSettings;
 
@@ -84,9 +84,10 @@ namespace Libraries::FluidSynth {
         /*--------------------*/
 
         /**
-         * Returns internal buffer size of the synthesizer in samples.
+         * Returns internal buffer size of the synthesizer in data
+         * points.
          *
-         * @return  internal buffer size [in samples]
+         * @return  internal buffer size [in data points]
          */
         Natural internalBufferSize () const;
         
@@ -234,18 +235,20 @@ namespace Libraries::FluidSynth {
         /*--------------------*/
 
         /**
-         * Processes <C>sampleCount</C> samples and stores them in
-         * buffer <C>sampleBuffer</C> starting at <C>position</C>.
+         * Processes <C>dataPointCount</C> data points and stores them
+         * in buffer <C>dataPointBuffer</C> starting at
+         * <C>position</C>.
          *
-         * @param[inout] sampleBuffer  vector of audio sample lists
-         * @param[in]    position      offset in buffer for the samples
-         *                             returned
-         * @param[in]    sampleCount   number of samples to return
+         * @param[inout] dataPointBuffer  vector of audio data point
+         *                                lists
+         * @param[in]    position         offset in buffer for the data
+         *                                points returned
+         * @param[in]    dataPointCount   number of data points to return
          * @return  information whether processing has been done
          */
-        Boolean process (INOUT AudioSampleListVector& sampleBuffer,
+        Boolean process (INOUT AudioDataPointListVector& dataPointBuffer,
                          IN Natural position,
-                         IN Natural sampleCount);
+                         IN Natural dataPointCount);
 
         /*--------------------*/
 
@@ -253,7 +256,8 @@ namespace Libraries::FluidSynth {
          * Sets interpolation method for all channels to given
          * <C>methodCode</C>.
          *
-         * @param[in] methodCode  code for sample interpolation method
+         * @param[in] methodCode  code for data point interpolation
+         *                        method
          * @return  information whether interpolation method change has
          *          succeeded
          */

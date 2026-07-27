@@ -101,7 +101,7 @@ namespace BaseTypes::Primitives {
             while (true) {
                 Natural digit  = remainingValue % base;
                 remainingValue = remainingValue / base;
-                result = digitList[(size_t) digit] + result;
+                result = digitList[size_t(digit)] + result;
                 length++;
 
                 if (remainingValue == 0) {
@@ -156,7 +156,7 @@ namespace BaseTypes::Primitives {
          */
         explicit operator double () const
         {
-            return (double) _value;
+            return double(_value);
         }
 
         /*--------------------*/
@@ -169,7 +169,7 @@ namespace BaseTypes::Primitives {
          */
         explicit operator int () const
         {
-            return (int) _value;
+            return int(_value);
         }
 
         /*--------------------*/
@@ -293,7 +293,7 @@ namespace BaseTypes::Primitives {
          */
         static Natural ceiling (IN double r)
         {
-            return Natural{(size_t) std::ceil(r)};
+            return Natural{size_t(std::ceil(r))};
         }
 
         /*--------------------*/
@@ -307,7 +307,7 @@ namespace BaseTypes::Primitives {
          */
         static Natural floor (IN double r)
         {
-            return Natural{(size_t) std::floor(r)};
+            return Natural{size_t(std::floor(r))};
         }
 
         /*--------------------*/
@@ -360,7 +360,7 @@ namespace BaseTypes::Primitives {
          */
         static Natural power (IN Natural base, IN Natural exponent)
         {
-            return Natural{(size_t) pow(base._value, exponent._value)};
+            return Natural{size_t(pow(base._value, exponent._value))};
         }
 
         /*--------------------*/

@@ -293,8 +293,8 @@ CommandLineArgumentHandler::convert
         String parameterKind;
 
         _lookupArgument(rawArgument, rawArgumentNameToAbstractionMap,
-                       originalName, abstractName, parameterCount,
-                      parameterKind, embeddedParameter);
+                        originalName, abstractName, parameterCount,
+                        parameterKind, embeddedParameter);
         option.originalName = originalName;
 
         if (parameterCount + i >= argumentCount) {

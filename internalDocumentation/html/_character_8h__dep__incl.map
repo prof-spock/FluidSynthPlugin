@@ -2,8 +2,8 @@
 <area shape="rect" id="Node000001" title="The Character specification and body provides a value object type for character values." alt="" coords="2386,5,2475,31"/>
 <area shape="rect" id="Node000002" href="$_string_util_8h.html" title="The StringUtil specification defines several string routines not included in the standard C++ library..." alt="" coords="2166,79,2253,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="2383,37,2246,81,2244,76,2382,32"/>
-<area shape="rect" id="Node000029" href="$_wave_file_8cpp.html" title="The WaveFile specification defines an object for accessing a RIFF wave file with several channels." alt="" coords="3318,225,3418,251"/>
-<area shape="poly" id="edge36_Node000001_Node000029" title=" " alt="" coords="2490,30,3319,223,3318,228,2488,35"/>
+<area shape="rect" id="Node000029" href="$_wave_file_8cpp.html" title="The WaveFile specification defines an object for accessing a RIFF wave file with several channels." alt="" coords="3331,225,3431,251"/>
+<area shape="poly" id="edge36_Node000001_Node000029" title=" " alt="" coords="2490,30,3332,223,3331,228,2489,35"/>
 <area shape="rect" id="Node000003" href="$_byte_list_8cpp.html" title="The ByteList body implements sequences of byte values with zero&#45;based arbitrary indexed access to pos..." alt="" coords="2521,152,2615,177"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="2267,101,2521,151,2520,157,2266,107"/>
 <area shape="rect" id="Node000004" href="$_file_8cpp.html" title="The File body implements a class for simple file handling based on C stdio." alt="" coords="1721,152,1789,177"/>
@@ -20,12 +20,12 @@
 <area shape="poly" id="edge34_Node000002_Node000033" title=" " alt="" coords="2241,109,2304,150,2302,154,2238,114"/>
 <area shape="rect" id="Node000034" href="$_string_util_8cpp.html" title="The StringUtil body implements several string routines not included in the standard C++ library (like..." alt="" coords="2397,152,2497,177"/>
 <area shape="poly" id="edge35_Node000002_Node000034" title=" " alt="" coords="2261,105,2409,149,2407,154,2260,110"/>
-<area shape="rect" id="Node000006" href="$_audio_sample_fifo_queue_8cpp-inc.html" title="The AudioSampleFifoQueue body implements a fifo queue for audio samples with popping off access to th..." alt="" coords="3090,225,3294,251"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="1905,174,2084,194,2235,205,2368,209,2492,210,2749,209,2900,213,3078,223,3090,224,3089,229,3077,228,2900,218,2749,215,2492,215,2368,214,2234,210,2083,199,1905,180"/>
+<area shape="rect" id="Node000006" href="$_audio_data_point_fifo_queue_8cpp-inc.html" title="The AudioDataPointFifoQueue body implements a fifo queue for audio data points with popping off acces..." alt="" coords="3090,225,3307,251"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="1905,174,2084,194,2235,205,2368,209,2492,210,2749,210,2900,213,3077,223,3090,224,3089,229,3077,228,2900,219,2749,215,2492,216,2368,215,2234,210,2083,199,1905,180"/>
 <area shape="rect" id="Node000011" href="$_fluid_synth_plugin___event_processor_8cpp.html" title="The FluidSynthPlugin_Processor module implements the handling of MIDI events from the DAW via JUCE ha..." alt="" coords="5,445,248,471"/>
 <area shape="poly" id="edge19_Node000005_Node000011" title=" " alt="" coords="1799,179,1482,184,953,187,682,192,445,199,271,211,217,219,191,228,168,251,152,279,140,310,133,342,127,402,128,445,123,445,122,402,127,341,135,308,147,276,164,247,188,223,216,213,270,206,445,194,682,186,953,182,1482,178,1799,174"/>
-<area shape="rect" id="Node000012" href="$_audio_sample_fifo_queue_vector_8cpp-inc.html" title="The AudioSampleFifoQueueVector body implements a list of fifo queues for audio samples (this is the e..." alt="" coords="212,299,455,324"/>
-<area shape="poly" id="edge11_Node000005_Node000012" title=" " alt="" coords="1799,179,1482,182,956,184,687,188,452,196,281,209,229,217,204,227,198,238,198,248,204,257,216,267,249,283,288,296,286,301,247,288,213,271,200,261,193,249,193,237,201,223,228,212,281,203,452,190,687,183,956,179,1482,177,1799,174"/>
+<area shape="rect" id="Node000012" href="$_audio_data_point_fifo_queue_vector_8cpp-inc.html" title="The AudioDataPointFifoQueueVector body implements a list of fifo queues for audio data points (this i..." alt="" coords="213,299,467,324"/>
+<area shape="poly" id="edge11_Node000005_Node000012" title=" " alt="" coords="1799,179,1482,182,956,184,687,188,452,196,281,209,229,217,204,227,198,238,198,248,204,258,216,267,251,284,291,296,289,301,249,288,213,272,200,261,193,250,192,237,201,223,228,212,281,203,452,190,687,183,956,179,1482,177,1799,174"/>
 <area shape="rect" id="Node000013" href="$_command_line_arguments_8cpp.html" title="The CommandLineArguments body implements a handler for command&#45;line arguments converting them to a li..." alt="" coords="215,225,409,251"/>
 <area shape="poly" id="edge13_Node000005_Node000013" title=" " alt="" coords="1799,180,1590,202,1412,213,1255,217,1108,216,806,213,629,217,420,228,409,229,409,223,420,223,629,212,806,208,1109,211,1255,212,1411,208,1589,196,1799,174"/>
 <area shape="rect" id="Node000014" href="$_environment_8cpp.html" title="The Environment body implements operating system services related to environment variables." alt="" coords="433,225,551,251"/>
@@ -58,15 +58,15 @@
 <area shape="poly" id="edge28_Node000005_Node000027" title=" " alt="" coords="1906,175,2032,189,2139,198,2321,204,2502,208,2734,223,2746,224,2746,229,2733,228,2502,213,2321,210,2138,203,2031,195,1905,180"/>
 <area shape="rect" id="Node000028" href="$_time_and_duration_8cpp.html" title="The TimeAndDuration body implements simple functions for the types for time and duration." alt="" coords="2919,225,3065,251"/>
 <area shape="poly" id="edge29_Node000005_Node000028" title=" " alt="" coords="1906,175,2058,191,2187,201,2407,205,2626,207,2755,212,2906,223,2919,224,2918,229,2905,228,2754,217,2626,212,2407,211,2187,206,2057,197,1905,180"/>
-<area shape="poly" id="edge30_Node000005_Node000029" title=" " alt="" coords="1905,174,2118,196,2299,205,2458,206,2607,202,2755,199,2914,198,3094,205,3306,223,3318,224,3317,230,3305,228,3094,210,2914,203,2755,204,2607,208,2458,211,2299,210,2118,201,1905,180"/>
-<area shape="rect" id="Node000007" href="$_audio_sample_fifo_queue_8h.html" title="The AudioSampleFifoQueue specification defines a fifo queue for audio samples with popping off access..." alt="" coords="1793,299,1962,324"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="3076,253,2749,274,2432,291,1962,310,1962,305,2432,286,2749,269,3075,248"/>
-<area shape="rect" id="Node000008" href="$_audio_sample_fifo_queue_8cpp.html" title="The AudioSampleFifoQueue body implements a fifo queue for audio samples with popping off access to th..." alt="" coords="1786,372,1969,397"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="1880,338,1880,372,1875,372,1875,338"/>
-<area shape="rect" id="Node000009" href="$_audio_sample_fifo_queue_vector_8h.html" title="The AudioSampleFifoQueueVector specification defines a list of fifo queues for audio samples." alt="" coords="254,372,461,397"/>
-<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="1779,320,461,381,461,376,1779,315"/>
-<area shape="rect" id="Node000010" href="$_audio_sample_fifo_queue_vector_8cpp.html" title="The AudioSampleFifoQueueVector body implements a list of fifo queues for audio samples (this is the f..." alt="" coords="272,445,493,471"/>
-<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="369,409,381,444,376,446,364,411"/>
-<area shape="poly" id="edge10_Node000009_Node000011" title=" " alt="" coords="308,404,165,448,163,443,306,399"/>
-<area shape="poly" id="edge12_Node000012_Node000009" title=" " alt="" coords="344,336,356,371,351,373,339,338"/>
+<area shape="poly" id="edge30_Node000005_Node000029" title=" " alt="" coords="1905,174,2120,196,2303,205,2463,206,2613,202,2763,199,2924,198,3105,205,3319,223,3331,224,3331,230,3318,228,3105,210,2924,203,2763,204,2614,208,2463,211,2302,210,2120,201,1905,180"/>
+<area shape="rect" id="Node000007" href="$_audio_data_point_fifo_queue_8h.html" title="The AudioDataPointFifoQueue specification defines a fifo queue for audio data points with popping off..." alt="" coords="1799,299,1982,324"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="3076,253,2757,274,2447,290,1982,309,1982,304,2447,284,2757,268,3076,248"/>
+<area shape="rect" id="Node000008" href="$_audio_data_point_fifo_queue_8cpp.html" title="The AudioDataPointFifoQueue body implements a fifo queue for audio samples with popping off access to..." alt="" coords="1793,372,1989,397"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="1893,338,1893,372,1888,372,1888,338"/>
+<area shape="rect" id="Node000009" href="$_audio_data_point_fifo_queue_vector_8h.html" title="The AudioDataPointFifoQueueVector specification defines a list of fifo queues for audio data points." alt="" coords="254,372,474,397"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="1786,320,475,381,474,376,1785,315"/>
+<area shape="rect" id="Node000010" href="$_audio_data_point_fifo_queue_vector_8cpp.html" title="The AudioDataPointFifoQueueVector body implements a list of fifo queues for audio data points (this i..." alt="" coords="272,445,507,471"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="375,409,388,444,383,446,370,411"/>
+<area shape="poly" id="edge10_Node000009_Node000011" title=" " alt="" coords="314,404,166,448,164,443,312,399"/>
+<area shape="poly" id="edge12_Node000012_Node000009" title=" " alt="" coords="351,336,363,371,358,373,346,338"/>
 </map>

@@ -1,0 +1,96 @@
+/**
+ * @file
+ * The <C>AudioDataPointListVector</C> body implements the
+ * communication buffer structure for the block processing of audio
+ * effects; it is a list of audio sample lists containing the input
+ * data points and the finally (processed) output data points <I>(this
+ * is the effective code include file for conditional inlining)</I>.
+ *
+ * @author Dr. Thomas Tensi
+ * @date   2020-08
+ */
+
+/*=========*/
+/* IMPORTS */
+/*=========*/
+
+using Audio::AudioDataPointListVector;
+
+/*====================*/
+
+INLINE
+String AudioDataPointListVector::toString (IN Natural frameCount,
+                                           IN Boolean isGroupedByFrames) const
+{
+    const Natural effectiveFrameCount =
+        Natural::minimum(frameCount, this->frameCount());
+    const Natural listCount = length();
+    const Natural elementCountInGroup =
+        (isGroupedByFrames ? listCount : effectiveFrameCount);
+    const Natural groupCount =
+        (isGroupedByFrames ? effectiveFrameCount : listCount);
+    String result = "AudioDataPointListVector(";
+    
+    for (Natural i = 0;  i < groupCount;  i++) {
+        result += (i > 0 ? ", " : "");
+        result += "(";
+
+        for (Natural j = 0;  j < elementCountInGroup;  j++) {
+            result += (j > 0 ? ", " : "");
+            AudioDataPoint value = (isGroupedByFrames
+                                 ? at(j).at(i)
+                                 : at(i).at(j));
+            result += value.toString();
+        }
+
+        result += ")";
+    }
+
+    result += ")";
+    return result;
+}
+
+/*--------------------*/
+
+INLINE
+Natural AudioDataPointListVector::frameCount () const
+{
+    Natural result = (length() == 0 ? 0 : at(0).length());
+    return result;
+}
+
+/*--------------------*/
+
+INLINE
+void AudioDataPointListVector::setFrameCount (IN Natural newFrameCount)
+{
+    for (AudioDataPointList& list : *this) {
+        list.setLength(newFrameCount);
+    }
+}
+
+/*--------------------*/
+
+INLINE
+void AudioDataPointListVector::setToZero (IN Natural position,
+                                          IN Natural count)
+{
+    for (AudioDataPointList& list : *this) {
+        list.setToZero(position, count);
+    }
+}
+
+/*--------------------*/
+
+INLINE
+void AudioDataPointListVector::extend (IN AudioDataPointListVector& other,
+                                       IN Natural frameCount)
+{
+    const Natural channelCount = length();
+    
+    for (Natural i = 0;  i < channelCount;  i++) {
+        AudioDataPointList& currentList = at(i);
+        const AudioDataPointList& otherList = other.at(i);
+        currentList.extend(otherList, frameCount);
+    }
+}
