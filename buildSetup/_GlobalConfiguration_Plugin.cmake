@@ -18,7 +18,7 @@ ELSEIF(LINUX)
 ELSE()
     SET(GLOBP_juceFileExtension mm)
     SET(GLOBP_vst3LibraryNameExtension ".so")
-    SET(GLOBP_vst3PlatformName "x86_64-macos")
+    SET(GLOBP_vst3PlatformName "MacOS")
 ENDIF()
 
 # -----------------------------
@@ -69,13 +69,7 @@ MACRO(GLOBP_appendJuceIncludeDirectories
     CMAKE_PATH(SET juceModulesDirectory NORMALIZE
                ${juceDirectory}/modules)
 
-    # IF(JUCE_VERSION STRGREATER "8.0.10")
-    IF(TRUE)
-        SET(audioProcessorsSubdirectory juce_audio_processors_headless)
-    ELSE()
-        SET(audioProcessorsSubdirectory juce_audio_processors)
-    ENDIF()
-               
+    SET(audioProcessorsSubdirectory juce_audio_processors_headless)
     SET(juceFormatTypesDirectory
         ${juceModulesDirectory}/${audioProcessorsSubdirectory}/format_types)
     SET(lv2JuceFormatTypesDirectory
@@ -141,6 +135,24 @@ FUNCTION(GLOBP_makeTarget_juceFramework
                                      juceLibraryNameStemList
                                      "${jucePrefix}_"
                                      ".${GLOBP_juceFileExtension}")
+
+    IF(JUCE_VERSION GREATER_EQUAL 9)
+        SET(juceLibraryNameStemList
+            core_zlib graphics_libjpg_1 graphics_libjpg_2
+            graphics_libjpg_3 graphics_libpng graphics_libwebp_dec
+            graphics_libwebp_dsp_dec_avx2 graphics_libwebp_dsp_dec
+            graphics_libwebp_dsp_dec_sse41
+            graphics_libwebp_dsp_enc_avx2 graphics_libwebp_dsp_enc
+            graphics_libwebp_dsp_enc_sse41 graphics_libwebp_enc
+            graphics_libwebp_sharpyuv graphics_libwebp_utils
+            graphics_lunasvg
+        )
+
+        UTIL_List_appendOtherTransformed(srcJuceFacadeFileList
+                                         juceLibraryNameStemList
+                                         "${jucePrefix}_"
+                                         ".c")
+    ENDIF()
 
     IF(JUCE_VERSION GREATER_EQUAL 8)
         LIST(APPEND srcJuceFacadeFileList

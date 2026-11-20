@@ -22,12 +22,12 @@
     %-- VERSION AND DATE --
     %----------------------
 
-    \newcommand{\releaseDate}{2026-10-29}
-    \newcommand{\releaseVersion}{0.8.0}
+    \newcommand{\releaseDate}{2026-11-10}
+    \newcommand{\releaseVersion}{0.8.1}
     \newcommand{\releasePlatforms}{
                 Platforms:&VST3 on Windows~x64,\\
-                                 &VST3 \& AU on MacOSX (x86\_64)\\
-                                 &VST3 on Linux (x86\_64)\\
+                          &VST3 \& AU on MacOSX (x86\_64\&arm64)\\
+                          &VST3 on Linux (x86\_64)\\
     }
 
     %------------
@@ -336,7 +336,8 @@ in a spectrum analysis.
 Those components are available for the x86-64 architecture in Windows,
 MacOS and Linux with the plugin having either VST3 (Windows, Linux) or
 AU format (MacOS).  For MacOS the universal binary also supports the
-current ARM64 architecture.
+current ARM64 architecture.  Note that the minimum supported MacOS
+version is \textbf{MacOS Monterey 12.3}.
 
 All the code is open-source; hence you can check and adapt it to your
 needs (see chapter~\ref{chapter:implementation}).
@@ -1300,7 +1301,7 @@ Minimum prerequisites for building are:
   \item a clone of the GIT-project at \hyperlink{\gitPluginPath}
   
   \item an installation of the audio framework JUCE \cite{reference:juce}
-        with version 5 or later plus any required packages (e.g. for
+        with version 8 or later plus any required packages (e.g. for
         Linux see appendix~\ref{section:linuxPackages}),
     
   \item some C++ compiler suite for your platform (e.g. Visual Studio,
@@ -1657,16 +1658,45 @@ available.  Those are:
 
 and the libraries
 \begin{itemize}
-   \item ladspa-sdk, libasound2-dev, libcurl4-openssl-dev,
-         libfontconfig1-dev, libfreetype-dev, libglu1-mesa-dev,
-         libjack-jackd2-dev, libwebkit2gtk-4.1-dev, libx11-dev,
-         libxcomposite-dev, libxcursor-dev, libxext-dev,
-         libxinerama-dev, libxrandr-dev, libxrender-dev and
-         mesa-common-dev
+    \item ladspa-sdk, libasound2-dev, libcurl4-openssl-dev,
+          libegl-dev, libfontconfig1-dev, libfreetype-dev,
+          libglu1-mesa-dev, libjack-jackd2-dev, libwebkit2gtk-4.1-dev,
+          libx11-dev, libxcomposite-dev, libxcursor-dev, libxext-dev,
+          libxinerama-dev, libxrandr-dev, libxrender-dev and
+          mesa-common-dev
 \end{itemize}
 
 Also have a look at\hfill\break
 \hyperlink{https://github.com/juce-framework/JUCE/blob/master/docs/Linux\%20Dependencies.md}\break
 for a current list of package dependencies by the JUCE team.
+
+%==================================
+\chapter{Universal Builds in MacOS}
+%==================================
+
+The binaries and libraries for MacOS contain code for both x86\_64 and
+arm64 (so-called universal binaries).
+
+This leads to a significant increase in size of the plugins.  If you
+want to get rid of code that does not work on your specific CPU
+architecture you can remove it by using the \embeddedCode{lipo}
+command on the binaries and dynamic libraries.
+
+E.g. when the binaries in the directory
+\embeddedCode{FluidSynthPlugin.vst3/Contents/MacOS} shall only contain
+code for Apple Silicon, this can be achieved by extracting the arm64
+part.
+
+\begin{commandLine}
+  cd FluidSynthPlugin.vst3/Contents/MacOS
+  lipo FluidSynthPlugin -thin arm64 -output tempFile
+  mv tempFile FluidSynthPlugin
+  ...
+\end{commandLine}
+
+In general when changing the binaries you should know what you do and
+be careful.  Normally the fat binaries should not be a problem at all,
+and they allow you to change the machine without caring for the
+processor type.
 
 \end{document}

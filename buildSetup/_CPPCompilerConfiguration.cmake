@@ -267,11 +267,6 @@ ELSE()
          -pedantic                    # set strict standard conformance
     )
 
-    IF(MACOS)
-        LIST(APPEND CMPCONF_cppOptions_common
-             -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk)
-    ENDIF()
-
     IF(CMPCONF_compilerIsGCC)
         SET(releaseOptimizationLevel 1)  # minor optimization
     ELSE()

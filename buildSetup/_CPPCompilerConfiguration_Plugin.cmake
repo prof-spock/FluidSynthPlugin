@@ -31,6 +31,7 @@ FUNCTION(CMPCONFP_appendToCommonDefineClauses)
          JUCE_SHARED_CODE=1
          JUCE_STANDALONE_APPLICATION=JucePlugin_Build_Standalone
          JUCE_STRICT_REFCOUNTEDPOINTER=1
+         JUCE_USE_XINPUT=0
          JUCE_VST3_CAN_REPLACE_VST2=0
          JucePlugin_AAXDisableBypass=0
          JucePlugin_AAXDisableMultiMono=0
@@ -43,6 +44,7 @@ FUNCTION(CMPCONFP_appendToCommonDefineClauses)
          JucePlugin_Build_VST=0
          JucePlugin_EditorRequiresKeyboardFocus=0
          JucePlugin_Enable_IAA=0
+         JUCE_WEB_BROWSER=0
     )
     
     # --- add specific settings per platform ---

@@ -27,8 +27,15 @@ ELSE()
     SET(GLOB_nullDeviceName "/dev/null")
 ENDIF()
 
-SET(GLOB_platformName
-    ${CMAKE_SYSTEM_NAME}-${CMAKE_SYSTEM_PROCESSOR})
+IF(APPLE)
+    # universal build for Intel and Apple Silicon
+    SET(GLOB_platformName
+        ${CMAKE_SYSTEM_NAME}-x86_64+arm64)
+ELSE()
+    SET(GLOB_platformName
+        ${CMAKE_SYSTEM_NAME}-${CMAKE_SYSTEM_PROCESSOR})
+ENDIF()
+
 MESSAGE(STATUS "platformName = " ${GLOB_platformName})
 
 #------------

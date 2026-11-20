@@ -4,7 +4,8 @@
 # Dr. Thomas Tensi, 2022-04                   #
 ###############################################
 
-CMAKE_MINIMUM_REQUIRED(VERSION 3.20)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.20...4.4)
+SET(CMAKE_OSX_ARCHITECTURES "arm64;x86_64" CACHE STRING "" FORCE)
 
 PROJECT(FluidSynthPlugin
         VERSION 1.0
@@ -285,7 +286,7 @@ IF(WINDOWS)
     )
 ELSEIF(MACOS)
     SET(dynamicLibraryNameList
-        libFLAC.12.dylib libfluidsynth.3.dylib libglib-2.0.0.dylib
+        libFLAC.14.dylib libfluidsynth.3.dylib libglib-2.0.0.dylib
         libgthread-2.0.0.dylib libiconv.2.dylib libintl.8.dylib
         libmp3lame.0.dylib libmpg123.0.dylib libncurses.6.dylib
         libogg.0.dylib libopus.0.dylib libpcre2-8.0.dylib

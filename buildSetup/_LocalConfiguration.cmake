@@ -25,5 +25,17 @@ ENDIF()
 # the directory where the JUCE modules are located
 IF(NOT JUCE_FOUND)
     SET(JUCE_DIR ${programDirectory}/JUCE)
-    SET(JUCE_VERSION 8)
+
+    # find juce version
+    SET(versionFileName
+        "${JUCE_DIR}/modules/juce_core/system/juce_StandardHeader.h")
+    FILE(READ ${versionFileName} versionFileData)
+    STRING(REGEX MATCH "JUCE_MAJOR_VERSION +([0-9]+)" _ ${versionFileData})
+    SET(juceMajorVersion ${CMAKE_MATCH_1})
+    STRING(REGEX MATCH "JUCE_MINOR_VERSION +([0-9]+)" _ ${versionFileData})
+    SET(juceMinorVersion ${CMAKE_MATCH_1})
+    STRING(REGEX MATCH "JUCE_BUILDNUMBER +([0-9]+)"   _ ${versionFileData})
+    SET(juceBuildNumber ${CMAKE_MATCH_1})
+    SET(JUCE_VERSION
+        "${juceMajorVersion}.${juceMinorVersion}.${juceBuildNumber}")
 ENDIF()
